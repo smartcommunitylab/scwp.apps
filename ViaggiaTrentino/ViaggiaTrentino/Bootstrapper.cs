@@ -1,9 +1,11 @@
 ﻿using Caliburn.Micro;
+using Caliburn.Micro.BindableAppBar;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using ViaggiaTrentino.ViewModels;
 
 namespace ViaggiaTrentino
@@ -25,6 +27,8 @@ namespace ViaggiaTrentino
     static void AddCustomConventions()
     {
       //ellided  
+      ConventionManager.AddElementConvention<BindableAppBarMenuItem>(Control.IsEnabledProperty, "DataContext", "Click");
+      ConventionManager.AddElementConvention<BindableAppBarButton>(Control.IsEnabledProperty, "DataContext", "Click");
     }
 
     protected override object GetInstance(Type service, string key)

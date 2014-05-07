@@ -9,7 +9,7 @@
     xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
     xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
     xmlns:maps="clr-namespace:Microsoft.Phone.Maps.Controls;assembly=Microsoft.Phone.Maps" 
-
+    xmlns:bab="clr-namespace:Caliburn.Micro.BindableAppBar;assembly=Caliburn.Micro.BindableAppBar"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -39,6 +39,17 @@
         <maps:Map x:Name="mappa" Height="300" Center="46.0665, 011.1509" ZoomLevel="10"/>
       </StackPanel>
     </Grid>
+    
+    <bab:BindableAppBar Mode="Minimized">
+      <bab:BindableAppBarMenuItem x:Name="BarLogin" Text="Login">        
+      </bab:BindableAppBarMenuItem>      
+      <bab:BindableAppBarMenuItem x:Name="BarTour" Text="Tour">
+      </bab:BindableAppBarMenuItem>
+      <bab:BindableAppBarMenuItem x:Name="BarAbout" Text="About">
+      </bab:BindableAppBarMenuItem>
+      <bab:BindableAppBarMenuItem x:Name="BarSettings" Text="Settings">
+      </bab:BindableAppBarMenuItem>
+    </bab:BindableAppBar>
   </Grid>
 
 </phone:PhoneApplicationPage>
