@@ -43,12 +43,29 @@ namespace ViaggiaTrentino.ViewModels
     {
       get { return IsEnabled; }
     }
+
     public void ShowPower()
     {
       MessageBox.Show("moar power");
     }
 
+    public void BarLogin()
+    {
+      MessageBox.Show("login");
+    }
 
+    public void BarTour()
+    {
+      MessageBox.Show("tour");
+    }
+    public void BarAbout()
+    {
+      MessageBox.Show("about");
+    }
+    public void BarSettings()
+    {
+      MessageBox.Show("settings");
+    }
 
   }
 }
