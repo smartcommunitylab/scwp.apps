@@ -1,15 +1,11 @@
 ﻿<phone:PhoneApplicationPage
-    x:Class="ViaggiaTrentino.Views.MainPageView"
+    x:Class="ViaggiaTrentino.Views.RealTimeInfoView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
-    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
-    xmlns:maps="clr-namespace:Microsoft.Phone.Maps.Controls;assembly=Microsoft.Phone.Maps" 
-    xmlns:bab="clr-namespace:Caliburn.Micro.BindableAppBar;assembly=Caliburn.Micro.BindableAppBar"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -29,7 +25,7 @@
     <StackPanel Grid.Row="0" Margin="12,17,0,28">
       <TextBlock Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}"
                  Style="{StaticResource PhoneTextNormalStyle}"/>
-      <TextBlock Text="{Binding Path=LocalizedResources.MainViewTitle, Source={StaticResource LocalizedStrings}}"
+      <TextBlock Text="{Binding Path=LocalizedResources.RealTimeInfoViewTitle, Source={StaticResource LocalizedStrings}}"
                  Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
     </StackPanel>
 
@@ -47,10 +43,10 @@
         </Grid.RowDefinitions>
 
         <toolkit:HubTile Margin="5" Grid.Column="0" Grid.Row="0"
-                         x:Name="PlanJourneyTile"
+                         x:Name="TrentoBusTile"
                          Source="/Assets/HubTiles/PlanJourney.png"
-                         Title="{Binding Path=LocalizedResources.TilePlanJourneyTitle, Source={StaticResource LocalizedStrings}}" 
-                         Message="{Binding Path=LocalizedResources.TilePlanJourneyMessage, Source={StaticResource LocalizedStrings}}" />
+                         Title="{Binding Path=LocalizedResources.TileTrentoBusTitle, Source={StaticResource LocalizedStrings}}" 
+                         Message="{Binding Path=LocalizedResources.TileTrentoBusMessage, Source={StaticResource LocalizedStrings}}" />
         <toolkit:HubTile Margin="5" Grid.Column="1" Grid.Row="0"
                          x:Name="PlanRecurrentJourneyTile"
                          Source="/Assets/HubTiles/PlanRecurrentJourney.png"
@@ -73,24 +69,7 @@
                          Source="/Assets/HubTiles/SubmitAlert.png"
                          Title="{Binding Path=LocalizedResources.TileSubmitAlertTitle, Source={StaticResource LocalizedStrings}}" 
                          Message="{Binding Path=LocalizedResources.TileSubmitAlertMessage, Source={StaticResource LocalizedStrings}}" />
-        <toolkit:HubTile Margin="5" Grid.Column="1" Grid.Row="2"
-                         x:Name="RealTimeInfoTile"
-                         Source="/Assets/HubTiles/TrafficLight.png"
-                         Title="{Binding Path=LocalizedResources.TileRealTimeInfoTitle, Source={StaticResource LocalizedStrings}}" 
-                         Message="{Binding Path=LocalizedResources.TileRealTimeInfoMessage, Source={StaticResource LocalizedStrings}}" />
       </Grid>
-
-      
-      <bab:BindableAppBar Mode="Minimized">
-        <bab:BindableAppBarMenuItem x:Name="BarLogin" Text="Login">
-        </bab:BindableAppBarMenuItem>
-        <bab:BindableAppBarMenuItem x:Name="BarTour" Text="Tour">
-        </bab:BindableAppBarMenuItem>
-        <bab:BindableAppBarMenuItem x:Name="BarAbout" Text="About">
-        </bab:BindableAppBarMenuItem>
-        <bab:BindableAppBarMenuItem x:Name="BarSettings" Text="Settings">
-        </bab:BindableAppBarMenuItem>
-      </bab:BindableAppBar>
     </Grid>
   </Grid>
 
