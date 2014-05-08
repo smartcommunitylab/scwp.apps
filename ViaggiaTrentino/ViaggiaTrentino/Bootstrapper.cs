@@ -1,5 +1,6 @@
 ﻿using Caliburn.Micro;
 using Caliburn.Micro.BindableAppBar;
+using Microsoft.Phone.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,15 +21,17 @@ namespace ViaggiaTrentino
 
       container.RegisterPhoneServices(RootFrame);
       container.PerRequest<MainPageViewModel>();
+      container.PerRequest<RealTimeInfoViewModel>();
 
       AddCustomConventions();
     }
 
     static void AddCustomConventions()
     {
-      //ellided  
       ConventionManager.AddElementConvention<BindableAppBarMenuItem>(Control.IsEnabledProperty, "DataContext", "Click");
       ConventionManager.AddElementConvention<BindableAppBarButton>(Control.IsEnabledProperty, "DataContext", "Click");
+      ConventionManager.AddElementConvention<HubTile>(Control.IsEnabledProperty, "DataContext", "Tap");
+
     }
 
     protected override object GetInstance(Type service, string key)

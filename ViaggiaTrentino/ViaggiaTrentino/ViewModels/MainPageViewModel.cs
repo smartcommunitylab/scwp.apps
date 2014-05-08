@@ -8,47 +8,44 @@ using System.Windows;
 
 namespace ViaggiaTrentino.ViewModels
 {
-  public class MainPageViewModel : PropertyChangedBase
+  public class MainPageViewModel : Screen
   {
-    private string name;
-    private bool isEnabled;
-
-
-    public MainPageViewModel()
+    private readonly INavigationService navigationService;
+    public MainPageViewModel(INavigationService navigationService)
     {
-      name = "COOOOOOOP";
-      //MessageBox.Show("I'm the MainView!");
-    }
-    public bool IsEnabled
-    {
-      get { return isEnabled; }
-      set
-        {
-            isEnabled = value;
-            NotifyOfPropertyChange(() => IsEnabled);
-            NotifyOfPropertyChange(() => CanShowPower);
-        }
-    }
-    public string Name
-    {
-      get { return name; }
-      set
-      {
-        name = value;
-        NotifyOfPropertyChange(() => Name);
-      }
-    }
-    
-    public bool CanShowPower
-    {
-      get { return IsEnabled; }
+        this.navigationService = navigationService;
     }
 
-    public void ShowPower()
-    {
-      MessageBox.Show("moar power");
-    }
 
+    #region Tiles
+    public void PlanJourneyTile()
+    {
+      MessageBox.Show("Plan Journey");
+    }
+    public void PlanRecurrentJourneyTile()
+    {
+      MessageBox.Show("Plan Recurrent Journey");
+    }
+    public void SavedJourneysTile()
+    {
+      MessageBox.Show("Saved Journeys");
+    }
+    public void ReadNotificationsTile()
+    {
+      MessageBox.Show("Read Notifications");
+    }
+    public void SubmitAlertTile()
+    {
+      MessageBox.Show("Submit Alert");
+    }
+    public void RealTimeInfoTile()
+    {
+      navigationService.UriFor<RealTimeInfoViewModel>().Navigate();
+
+    }
+    #endregion
+
+    #region AppBar
     public void BarLogin()
     {
       MessageBox.Show("login");
@@ -66,6 +63,6 @@ namespace ViaggiaTrentino.ViewModels
     {
       MessageBox.Show("settings");
     }
-
+    #endregion
   }
 }
