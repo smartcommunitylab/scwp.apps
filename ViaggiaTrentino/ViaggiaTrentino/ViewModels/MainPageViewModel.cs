@@ -63,7 +63,7 @@ namespace ViaggiaTrentino.ViewModels
     }
     public void BarSettings()
     {
-      MessageBox.Show("settings");
+      navigationService.UriFor<SettingsPageViewModel>().Navigate();
     }
     #endregion
   }

@@ -99,9 +99,9 @@ namespace ViaggiaTrentino.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Fewest changes.
         /// </summary>
-        public static string GeneralSettingsFewestCanges {
+        public static string GeneralSettingsFewestChanges {
             get {
-                return ResourceManager.GetString("GeneralSettingsFewestCanges", resourceCulture);
+                return ResourceManager.GetString("GeneralSettingsFewestChanges", resourceCulture);
             }
         }
         
