@@ -17,7 +17,7 @@ namespace ViaggiaTrentino.Converters
         DateTime timeBegin = new DateTime(1970, 1, 1).AddSeconds((tmpIti.StartTime));
         DateTime timeEnding = new DateTime(1970, 1, 1).AddSeconds((tmpIti.EndTime));
 
-        return string.Format("{0} {1} - {2}", timeBegin.ToShortDateString(), timeBegin.ToShortTimeString(), timeEnding.ToShortTimeString());
+        return string.Format("{0} {1} - {2}", timeBegin.ToShortDateString(), timeBegin.ToString("HH:mm"), timeEnding.ToString("HH:mm"));
       }
       return "";
     }

@@ -31,17 +31,17 @@ namespace ViaggiaTrentino.ViewModels
     {
       Itinerary it = new Itinerary()
       {
-        EndTime = 342342,
-        StartTime = 342142,
+        EndTime = 342341232,
+        StartTime = 342341232,
       };
 
       BasicItinerary bi = new BasicItinerary()
       {
         Data = it,
         Monitor = true,
-        Name = "fakes",
-        OriginalFrom = new Position() { Name = "genuinefake" },
-        OriginalTo = new Position() { Name = "authenticfake" },
+        Name = "Viaggio cit-lavoro",
+        OriginalFrom = new Position() { Name = "Trento Sud, Trento, 38123, Italia" },
+        OriginalTo = new Position() { Name = "sayService, Via alla Cascata, Trento, 38100, Italia" },
 
       };
       Viaggi.Add(bi);

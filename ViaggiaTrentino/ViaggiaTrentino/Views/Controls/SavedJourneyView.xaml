@@ -10,38 +10,45 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    d:DesignHeight="480" >
+   >
   
   <UserControl.Resources>
     <converters:ItineraryToDateTimeStringConverter x:Key="itiToDateStr" />
   </UserControl.Resources>
 
-  <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}" HorizontalAlignment="Stretch" >
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="*"/>
-      <ColumnDefinition Width="Auto"/>
-    </Grid.ColumnDefinitions>
+  <StackPanel Background="{StaticResource PhoneChromeBrush}">
+    <!--<TextBlock Text="titolo itinerario" Style="{StaticResource PhoneTextLargeStyle}" TextWrapping="Wrap"></TextBlock>-->
+    <TextBlock Text="{Binding Name}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" ></TextBlock>
 
-    <StackPanel Grid.Column="0">
-      <!--<TextBlock x:Name="Name" Text="Nome itinerario tamarro" TextWrapping="Wrap"></TextBlock>-->
-      <TextBlock Text="{Binding Name}" TextWrapping="Wrap"></TextBlock>
+    <Grid x:Name="LayoutRoot"  HorizontalAlignment="Stretch" >
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="Auto"/>
+      </Grid.ColumnDefinitions>
+
+      <StackPanel Grid.Column="0">
       <TextBlock Text="{Binding OriginalFrom.Name}" TextWrapping="Wrap"></TextBlock>
       <TextBlock Text="{Binding OriginalTo.Name}" TextWrapping="Wrap"></TextBlock>
-    </StackPanel>
-    
-    <StackPanel Grid.Column="1" Background="Aqua" HorizontalAlignment="Right">
-      <TextBlock Text="{Binding Data, Converter={StaticResource itiToDateStr}}"></TextBlock>
-      <toolkit:WrapPanel x:Name="wrpTransports">
-        
-      </toolkit:WrapPanel>
-    </StackPanel>
-  </Grid>
-  <!--<toolkit:ContextMenuService.ContextMenu>
+        <!--<TextBlock Text="partenza" TextWrapping="Wrap"></TextBlock>
+        <TextBlock Text="destinazione" TextWrapping="Wrap"></TextBlock>-->
+      </StackPanel>
+
+      <StackPanel Grid.Column="1" >
+        <TextBlock Text="{Binding Data, Converter={StaticResource itiToDateStr}}"></TextBlock>
+        <!--<TextBlock Text="45/54/99 22:55 - 55:44"></TextBlock>-->
+        <toolkit:WrapPanel x:Name="wrpTransports">
+
+        </toolkit:WrapPanel>
+      </StackPanel>
+
+    </Grid>
+  </StackPanel>
+  <toolkit:ContextMenuService.ContextMenu>
     <toolkit:ContextMenu>
       <toolkit:MenuItem x:Name="DeleteBtn" Header="delete"></toolkit:MenuItem>
       <toolkit:MenuItem x:Name="MonitorBtn" Header="monitor ON/OFF"></toolkit:MenuItem>
 
     </toolkit:ContextMenu>
-  </toolkit:ContextMenuService.ContextMenu>-->
+  </toolkit:ContextMenuService.ContextMenu>
   
 </UserControl>
