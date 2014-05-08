@@ -230,4 +230,43 @@
   <data name="SettingsPageTitle" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="ParkingsPageMapPivot" xml:space="preserve">
+    <value>Map</value>
+  </data>
+  <data name="ParkingsPageParkingPivot" xml:space="preserve">
+    <value>Parkings</value>
+  </data>
+  <data name="ParkingsPageTitle" xml:space="preserve">
+    <value>Real time info</value>
+  </data>
+  <data name="TileExtraurbanoMessage" xml:space="preserve">
+    <value>Trentino External Bus</value>
+  </data>
+  <data name="TileExtraurbanoTitle" xml:space="preserve">
+    <value>Trentino Bus</value>
+  </data>
+  <data name="TileParkingMessage" xml:space="preserve">
+    <value>Parkings</value>
+  </data>
+  <data name="TileParkingTitle" xml:space="preserve">
+    <value>Parkings</value>
+  </data>
+  <data name="TileRoveretoBusMessage" xml:space="preserve">
+    <value>Rovereto City Bus</value>
+  </data>
+  <data name="TileRoveretoBusTitle" xml:space="preserve">
+    <value>Rovereto Bus</value>
+  </data>
+  <data name="TileTrainMessage" xml:space="preserve">
+    <value>Trentino Trains</value>
+  </data>
+  <data name="TileTrainTitle" xml:space="preserve">
+    <value>Train</value>
+  </data>
+  <data name="TileTrentoBusMessage" xml:space="preserve">
+    <value>Trento City Bus</value>
+  </data>
+  <data name="TileTrentoBusTitle" xml:space="preserve">
+    <value>Trento Bus</value>
+  </data>
 </root>

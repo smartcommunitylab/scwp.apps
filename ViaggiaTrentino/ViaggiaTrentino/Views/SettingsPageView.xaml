@@ -14,24 +14,23 @@
     SupportedOrientations="Portrait"  Orientation="Portrait"
     shell:SystemTray.IsVisible="True">
 
-    <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
-        <!--Pivot Control-->
+  <!--LayoutRoot is the root grid where all page content is placed-->
+  <Grid x:Name="LayoutRoot" Background="Transparent">
+    <!--Pivot Control-->
     <phone:Pivot Title="{Binding Path=LocalizedResources.SettingsPageTitle, Source={StaticResource LocalizedStrings}}">
-            <!--Pivot item one-->
+      <!--Pivot item one-->
       <phone:PivotItem Header="{Binding Path=LocalizedResources.SettingsPagePrefs, Source={StaticResource LocalizedStrings}}">
         <Grid>
           <StackPanel>
-              <vtcont:UserSettingsView />
-            </StackPanel>
-          </Grid>
+            <vtcont:UserSettingsView />
+          </StackPanel>
+        </Grid>
       </phone:PivotItem>
 
-            <!--Pivot item two-->
+      <!--Pivot item two-->
       <phone:PivotItem Header="{Binding Path=LocalizedResources.SettingsPageFavs, Source={StaticResource LocalizedStrings}}">
-                <Grid/>
-            </phone:PivotItem>
-        </phone:Pivot>
-    </Grid>
-    
+        <Grid/>
+      </phone:PivotItem>
+    </phone:Pivot>
+  </Grid>
 </phone:PhoneApplicationPage>

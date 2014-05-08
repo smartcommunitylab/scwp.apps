@@ -8,8 +8,16 @@ using System.Windows;
 
 namespace ViaggiaTrentino.ViewModels
 {
-  public class RealTimeInfoViewModel : PropertyChangedBase
+  public class RealTimeInfoViewModel : Screen
   {
-    public RealTimeInfoViewModel() { }
+    private readonly INavigationService navigationService;
+    public RealTimeInfoViewModel(INavigationService navigationService)
+    {
+        this.navigationService = navigationService;
+    }
+    public void ParkingTile()
+    {
+      navigationService.UriFor<ParkingsPageViewModel>().Navigate();
+    }
   }
 }

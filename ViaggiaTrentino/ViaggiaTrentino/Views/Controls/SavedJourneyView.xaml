@@ -9,14 +9,11 @@
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
-    Foreground="{StaticResource PhoneForegroundBrush}"
-    
-   >
+    Foreground="{StaticResource PhoneForegroundBrush}">
   
   <UserControl.Resources>
     <converters:ItineraryToDateTimeStringConverter x:Key="itiToDateStr" />
     <converters:LegListToImageListConverter x:Key="legsToImgs" />
-
   </UserControl.Resources>
 
   <StackPanel Background="{StaticResource PhoneChromeBrush}" Margin="0,0,0,5">

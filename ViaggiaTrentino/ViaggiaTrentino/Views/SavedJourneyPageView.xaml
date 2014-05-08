@@ -22,7 +22,7 @@
       <phone:PivotItem Header="{Binding Path=LocalizedResources.SavedJourneysJourneyPivot, Source={StaticResource LocalizedStrings}}">
 
         <Grid>
-          <ListBox ItemsSource="{Binding Path=Viaggi}" MaxHeight="600">
+          <ListBox ItemsSource="{Binding Path=MySavedJourneys}" MaxHeight="600">
             <ListBox.ItemContainerStyle>
               <Style TargetType="ListBoxItem">
                 <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>

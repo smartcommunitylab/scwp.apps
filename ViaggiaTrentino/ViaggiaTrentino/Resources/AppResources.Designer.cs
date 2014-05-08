@@ -178,6 +178,33 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Map.
+        /// </summary>
+        public static string ParkingsPageMapPivot {
+            get {
+                return ResourceManager.GetString("ParkingsPageMapPivot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parkings.
+        /// </summary>
+        public static string ParkingsPageParkingPivot {
+            get {
+                return ResourceManager.GetString("ParkingsPageParkingPivot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Real time info.
+        /// </summary>
+        public static string ParkingsPageTitle {
+            get {
+                return ResourceManager.GetString("ParkingsPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Real Time Information.
         /// </summary>
         public static string RealTimeInfoViewTitle {
@@ -286,6 +313,42 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Trentino External Bus.
+        /// </summary>
+        public static string TileExtraurbanoMessage {
+            get {
+                return ResourceManager.GetString("TileExtraurbanoMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trentino Bus.
+        /// </summary>
+        public static string TileExtraurbanoTitle {
+            get {
+                return ResourceManager.GetString("TileExtraurbanoTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parkings.
+        /// </summary>
+        public static string TileParkingMessage {
+            get {
+                return ResourceManager.GetString("TileParkingMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parkings.
+        /// </summary>
+        public static string TileParkingTitle {
+            get {
+                return ResourceManager.GetString("TileParkingTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Plan a single journey.
         /// </summary>
         public static string TilePlanJourneyMessagTilePlanJourneyMessagTilePlanJourneyMessageTilePlanJourneyMessage {
@@ -359,6 +422,24 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Rovereto City Bus.
+        /// </summary>
+        public static string TileRoveretoBusMessage {
+            get {
+                return ResourceManager.GetString("TileRoveretoBusMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rovereto Bus.
+        /// </summary>
+        public static string TileRoveretoBusTitle {
+            get {
+                return ResourceManager.GetString("TileRoveretoBusTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show my saved journeys.
         /// </summary>
         public static string TileSavedJourneysMessage {
@@ -391,6 +472,42 @@ namespace ViaggiaTrentino.Resources {
         public static string TileSubmitAlertTitle {
             get {
                 return ResourceManager.GetString("TileSubmitAlertTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trentino Trains.
+        /// </summary>
+        public static string TileTrainMessage {
+            get {
+                return ResourceManager.GetString("TileTrainMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Train.
+        /// </summary>
+        public static string TileTrainTitle {
+            get {
+                return ResourceManager.GetString("TileTrainTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trento City Bus.
+        /// </summary>
+        public static string TileTrentoBusMessage {
+            get {
+                return ResourceManager.GetString("TileTrentoBusMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trento Bus.
+        /// </summary>
+        public static string TileTrentoBusTitle {
+            get {
+                return ResourceManager.GetString("TileTrentoBusTitle", resourceCulture);
             }
         }
     }

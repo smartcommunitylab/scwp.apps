@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ViaggiaTrentino.ViewModels
 {
-  class SavedJourneyPageViewModel : Screen
+  public class SavedJourneyPageViewModel : Screen
   {
     private readonly INavigationService navigationService;
 

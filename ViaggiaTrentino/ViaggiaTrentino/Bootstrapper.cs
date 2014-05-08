@@ -23,17 +23,22 @@ namespace ViaggiaTrentino
 
       container.RegisterPhoneServices(RootFrame);
 
+
+      container.PerRequest<TestPageViewModel>();
+      
+      
       //Pages
       container.PerRequest<MainPageViewModel>();
-      container.PerRequest<TestPageViewModel>();
       container.PerRequest<SavedJourneyPageViewModel>();
       container.PerRequest<SavedJourneyDetailsViewModel>();
       container.PerRequest<RealTimeInfoViewModel>();
       container.PerRequest<SettingsPageViewModel>();
+      container.PerRequest<ParkingsPageViewModel>();
 
       //User controls
       container.PerRequest<SavedJourneyViewModel>();
       container.PerRequest<UserSettingsViewModel>();
+      container.PerRequest<SingleParkingViewModel>();
 
 
       AddCustomConventions();
