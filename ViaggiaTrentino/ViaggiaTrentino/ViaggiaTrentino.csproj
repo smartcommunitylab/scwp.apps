@@ -113,6 +113,7 @@
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\SavedJourneyDetailsViewModel.cs" />
     <Compile Include="ViewModels\SavedJourneyPageViewModel.cs" />
+    <Compile Include="ViewModels\SettingsPageViewModel.cs" />
     <Compile Include="ViewModels\TestPageViewModel.cs" />
     <Compile Include="Views\Controls\SingleParkingView.xaml.cs">
       <DependentUpon>SingleParkingView.xaml</DependentUpon>
@@ -134,6 +135,9 @@
     </Compile>
     <Compile Include="Views\SavedJourneyPageView.xaml.cs">
       <DependentUpon>SavedJourneyPageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingsPageView.xaml.cs">
+      <DependentUpon>SettingsPageView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TestPageView.xaml.cs">
       <DependentUpon>TestPageView.xaml</DependentUpon>
@@ -273,6 +277,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SavedJourneyPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SettingsPageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

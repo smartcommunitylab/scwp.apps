@@ -3,15 +3,43 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    d:DesignHeight="480" d:DesignWidth="480">
-    
-    <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}">
+    d:DesignHeight="510" d:DesignWidth="480">
+
+  <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}">
     <StackPanel>
-      <TextBlock Text="{Binding Path=LocalizedResources.GeneralSettingsTransportation, Source={StaticResource LocalizedStrings}}"></TextBlock>
+      <TextBlock Text="{Binding Path=LocalizedResources.GeneralSettingsTransportation, Source={StaticResource LocalizedStrings}}"
+                 FontSize="28"/>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        
+        <StackPanel Grid.Column="0">
+          <CheckBox Content="{Binding Path=LocalizedResources.GeneralSettingsTransit, Source={StaticResource LocalizedStrings}}" />
+          <CheckBox x:Name="WalkingChk" Content="{Binding Path=LocalizedResources.GeneralSettingsWalking, Source={StaticResource LocalizedStrings}}" />
+          <CheckBox Content="{Binding Path=LocalizedResources.GeneralSettingsSharedCar, Source={StaticResource LocalizedStrings}}" />
+        </StackPanel>
+        
+        <StackPanel Grid.Column="1">
+          <CheckBox Content="{Binding Path=LocalizedResources.GeneralSettingsCar, Source={StaticResource LocalizedStrings}}"/>
+          <CheckBox Content="{Binding Path=LocalizedResources.GeneralSettingsBike, Source={StaticResource LocalizedStrings}}" />
+          <CheckBox Content="{Binding Path=LocalizedResources.GeneralSettingsSharedBike, Source={StaticResource LocalizedStrings}}" />
+          
+        </StackPanel>
+      </Grid>
+
+      <TextBlock Text="{Binding Path=LocalizedResources.GeneralSettingsPrefRoute, Source={StaticResource LocalizedStrings}}"
+                 FontSize="28"/>
+      <RadioButton Content="{Binding Path=LocalizedResources.GeneralSettingsFastest, Source={StaticResource LocalizedStrings}}" />
+      <RadioButton Content="{Binding Path=LocalizedResources.GeneralSettingsFewestChanges, Source={StaticResource LocalizedStrings}}" />
+      <RadioButton Content="{Binding Path=LocalizedResources.GeneralSettingsLeastWalking, Source={StaticResource LocalizedStrings}}" />
+      
     </StackPanel>
   </Grid>
 </UserControl>

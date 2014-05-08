@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace ViaggiaTrentino.ViewModels
 {
-  public class SavedJourneyDetailsViewModel : Screen
+  public class SettingsPageViewModel : Screen
   {
     private readonly INavigationService navigationService;
 
-    public SavedJourneyDetailsViewModel(INavigationService navigationService)
+    public SettingsPageViewModel(INavigationService navigationService)
     {
-        this.navigationService = navigationService;
+      this.navigationService = navigationService;
     }
   }
 }
