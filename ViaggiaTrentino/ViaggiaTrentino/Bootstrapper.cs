@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using ViaggiaTrentino.ViewModels;
+using ViaggiaTrentino.ViewModels.Controls;
+
 
 namespace ViaggiaTrentino
 {
@@ -20,6 +22,8 @@ namespace ViaggiaTrentino
 
       container.RegisterPhoneServices(RootFrame);
       container.PerRequest<MainPageViewModel>();
+      container.PerRequest<TestPageViewModel>();
+      container.PerRequest<SavedJourneyViewModel>();
 
       AddCustomConventions();
     }

@@ -11,14 +11,13 @@ namespace ViaggiaTrentino.ViewModels
   public class MainPageViewModel : PropertyChangedBase
   {
     private string name;
-    private bool isEnabled;
-
-
+    private bool isEnabled;
     public MainPageViewModel()
     {
       name = "COOOOOOOP";
       //MessageBox.Show("I'm the MainView!");
     }
+
     public bool IsEnabled
     {
       get { return isEnabled; }
@@ -29,6 +28,7 @@ namespace ViaggiaTrentino.ViewModels
             NotifyOfPropertyChange(() => CanShowPower);
         }
     }
+
     public string Name
     {
       get { return name; }
