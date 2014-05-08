@@ -15,6 +15,8 @@
   
   <UserControl.Resources>
     <converters:ItineraryToDateTimeStringConverter x:Key="itiToDateStr" />
+    <converters:LegListToImageListConverter x:Key="legsToImgs" />
+
   </UserControl.Resources>
 
   <StackPanel Background="{StaticResource PhoneChromeBrush}" Margin="0,0,0,5">
@@ -36,11 +38,20 @@
       <StackPanel Grid.Column="1" >
         <TextBlock Text="{Binding Data, Converter={StaticResource itiToDateStr}}"></TextBlock>
         <!--<TextBlock Text="45/54/99 22:55 - 55:44"></TextBlock>-->
-        <toolkit:WrapPanel x:Name="wrpTransports">
-          <Image Source="" />
-          <Image Source="" />
-          <Image Source="" />
-        </toolkit:WrapPanel>
+        <ListBox ItemsSource="{Binding Data.Legs, Converter={ StaticResource legsToImgs}}">
+          <ListBox.ItemsPanel>
+            <ItemsPanelTemplate>
+              <toolkit:WrapPanel x:Name="wrpTransports" >
+          
+              </toolkit:WrapPanel>
+            </ItemsPanelTemplate>
+          </ListBox.ItemsPanel>
+          <ListBox.ItemTemplate>
+            <DataTemplate>
+              <Image Width="48" Source="{Binding}"></Image>
+            </DataTemplate>
+          </ListBox.ItemTemplate>
+        </ListBox>
       </StackPanel>
 
     </Grid>

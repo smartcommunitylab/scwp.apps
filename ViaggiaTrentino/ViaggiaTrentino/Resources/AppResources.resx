@@ -170,4 +170,22 @@
   <data name="RealTimeInfoViewTitle" xml:space="preserve">
     <value>Real Time Information</value>
   </data>
+  <data name="SavedJourneyDetailsDelete" xml:space="preserve">
+    <value>Delete journey</value>
+  </data>
+  <data name="SavedJourneyDetailsMonitorOff" xml:space="preserve">
+    <value>Disable monitoring</value>
+  </data>
+  <data name="SavedJourneyDetailsMonitorOn" xml:space="preserve">
+    <value>Enable monitoring</value>
+  </data>
+  <data name="SavedJourneysJourneyPivot" xml:space="preserve">
+    <value>Journeys</value>
+  </data>
+  <data name="SavedJourneysMonitoringPivot" xml:space="preserve">
+    <value>Monitoring</value>
+  </data>
+  <data name="SavedJourneysTitle" xml:space="preserve">
+    <value>Saved journeys</value>
+  </data>
 </root>

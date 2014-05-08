@@ -106,6 +106,60 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete journey.
+        /// </summary>
+        public static string SavedJourneyDetailsDelete {
+            get {
+                return ResourceManager.GetString("SavedJourneyDetailsDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disable monitoring.
+        /// </summary>
+        public static string SavedJourneyDetailsMonitorOff {
+            get {
+                return ResourceManager.GetString("SavedJourneyDetailsMonitorOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable monitoring.
+        /// </summary>
+        public static string SavedJourneyDetailsMonitorOn {
+            get {
+                return ResourceManager.GetString("SavedJourneyDetailsMonitorOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Journeys.
+        /// </summary>
+        public static string SavedJourneysJourneyPivot {
+            get {
+                return ResourceManager.GetString("SavedJourneysJourneyPivot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Monitoring.
+        /// </summary>
+        public static string SavedJourneysMonitoringPivot {
+            get {
+                return ResourceManager.GetString("SavedJourneysMonitoringPivot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Saved journeys.
+        /// </summary>
+        public static string SavedJourneysTitle {
+            get {
+                return ResourceManager.GetString("SavedJourneysTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Plan a single journey.
         /// </summary>
         public static string TilePlanJourneyMessagTilePlanJourneyMessagTilePlanJourneyMessageTilePlanJourneyMessage {

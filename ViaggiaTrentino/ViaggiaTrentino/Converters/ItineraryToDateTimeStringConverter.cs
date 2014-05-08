@@ -13,7 +13,7 @@ namespace ViaggiaTrentino.Converters
     {
       if (value is Itinerary)
       {
-        Itinerary tmpIti = value as Itinerary;
+        Itinerary tmpIti = value as Itinerary;        
         DateTime timeBegin = new DateTime(1970, 1, 1).AddSeconds((tmpIti.StartTime));
         DateTime timeEnding = new DateTime(1970, 1, 1).AddSeconds((tmpIti.EndTime));
 
