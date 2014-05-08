@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="ViaggiaTrentino.Views.Controls.SingleParkingView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:converters="clr-namespace:ViaggiaTrentino.Converters"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}">
+
+  <UserControl.Resources>
+    <converters:ParkingToSlotsConverter x:Key="parkToSlot" />
+  </UserControl.Resources>
+
+  <StackPanel Background="{StaticResource PhoneChromeBrush}" Margin="0,0,0,5">
+    <TextBlock Text="{Binding Name}" TextWrapping="Wrap" FontSize="32" />
+
+
+    <Grid x:Name="LayoutRoot"  HorizontalAlignment="Stretch" Margin="5,0,0,0">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="Auto"/>
+      </Grid.ColumnDefinitions>
+
+      <StackPanel Grid.Column="0">
+        <TextBlock Text="{Binding Description}" />
+      </StackPanel>
+
+      <StackPanel Grid.Column="1" Background="Blue">
+        <TextBlock Text="633/669" HorizontalAlignment="Center" />
+        <TextBlock Text="0.4 km" HorizontalAlignment="Center" />
+        <TextBlock Text="{Binding Converter={StaticResource parkToSlot}}" HorizontalAlignment="Center" />
+
+      </StackPanel>
+
+    </Grid>
+  </StackPanel>
+</UserControl>
