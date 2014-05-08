@@ -28,7 +28,9 @@ namespace ViaggiaTrentino.ViewModels
     }
     public void SavedJourneysTile()
     {
-      MessageBox.Show("Saved Journeys");
+      //MessageBox.Show("Saved Journeys");
+      navigationService.UriFor<SavedJourneyPageViewModel>().Navigate();
+
     }
     public void ReadNotificationsTile()
     {

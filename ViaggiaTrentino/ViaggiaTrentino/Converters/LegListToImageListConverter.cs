@@ -18,21 +18,17 @@ namespace ViaggiaTrentino.Converters
     {
       if (value is List<Leg>)
       {
-        List<Leg> tmpIti = value as List<Leg>;
-        var transp = tmpIti.Select(x => x.TransportInfo.Type).Distinct();
+        List<Leg> tmpLegs = value as List<Leg>;
+        var transp = tmpLegs.Select(x => x.TransportInfo.Type).Distinct();
 
-        List<object> g = new List<object>();
+        List<object> bitmapImages = new List<object>();
 
         //TODO: add right icons once obtained
 
-        foreach (string s in transp)
-          if (s == "CAR")
-            g.Add(new ImageSourceConverter().ConvertFromString("/Assets/HubTiles/PlanJourney.png"));
-          else
-            g.Add(new ImageSourceConverter().ConvertFromString("/Assets/HubTiles/ReadNotification.png"));
-
-        return g;
-
+        foreach (string s in transp)        
+          bitmapImages.Add(new ImageSourceConverter().ConvertFromString(string.Format("/Assets/Vehicles/{0}.png", s.ToLower()))); 
+          
+        return bitmapImages;
         
       }
       return "";

@@ -22,13 +22,18 @@ namespace ViaggiaTrentino
       container = new PhoneContainer();
 
       container.RegisterPhoneServices(RootFrame);
+
+      //Pages
       container.PerRequest<MainPageViewModel>();
       container.PerRequest<TestPageViewModel>();
-      container.PerRequest<SavedJourneyViewModel>();
       container.PerRequest<SavedJourneyPageViewModel>();
       container.PerRequest<SavedJourneyDetailsViewModel>();
-
       container.PerRequest<RealTimeInfoViewModel>();
+
+      //User controls
+      container.PerRequest<SavedJourneyViewModel>();
+      container.PerRequest<UserSettingsViewModel>();
+
 
       AddCustomConventions();
     }
@@ -38,7 +43,6 @@ namespace ViaggiaTrentino
       ConventionManager.AddElementConvention<BindableAppBarMenuItem>(Control.IsEnabledProperty, "DataContext", "Click");
       ConventionManager.AddElementConvention<BindableAppBarButton>(Control.IsEnabledProperty, "DataContext", "Click");
       ConventionManager.AddElementConvention<HubTile>(Control.IsEnabledProperty, "DataContext", "Tap");
-
     }
 
     protected override object GetInstance(Type service, string key)

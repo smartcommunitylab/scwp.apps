@@ -170,6 +170,39 @@
   <data name="RealTimeInfoViewTitle" xml:space="preserve">
     <value>Real Time Information</value>
   </data>
+  <data name="GeneralSettingsBike" xml:space="preserve">
+    <value>Bike</value>
+  </data>
+  <data name="GeneralSettingsCar" xml:space="preserve">
+    <value>Car</value>
+  </data>
+  <data name="GeneralSettingsFastest" xml:space="preserve">
+    <value>Fastest</value>
+  </data>
+  <data name="GeneralSettingsFewestCanges" xml:space="preserve">
+    <value>Fewest changes</value>
+  </data>
+  <data name="GeneralSettingsLeastWalking" xml:space="preserve">
+    <value>Least walking</value>
+  </data>
+  <data name="GeneralSettingsPrefRoute" xml:space="preserve">
+    <value>Preferred route</value>
+  </data>
+  <data name="GeneralSettingsSharedBike" xml:space="preserve">
+    <value>Shared bike</value>
+  </data>
+  <data name="GeneralSettingsSharedCar" xml:space="preserve">
+    <value>Shared car</value>
+  </data>
+  <data name="GeneralSettingsTransit" xml:space="preserve">
+    <value>Transit</value>
+  </data>
+  <data name="GeneralSettingsTransportation" xml:space="preserve">
+    <value>Transportation</value>
+  </data>
+  <data name="GeneralSettingsWalking" xml:space="preserve">
+    <value>Walking</value>
+  </data>
   <data name="SavedJourneyDetailsDelete" xml:space="preserve">
     <value>Delete journey</value>
   </data>
@@ -187,5 +220,14 @@
   </data>
   <data name="SavedJourneysTitle" xml:space="preserve">
     <value>Saved journeys</value>
+  </data>
+  <data name="SettingsPageFavs" xml:space="preserve">
+    <value>My locations</value>
+  </data>
+  <data name="SettingsPagePrefs" xml:space="preserve">
+    <value>Preferences</value>
+  </data>
+  <data name="SettingsPageTitle" xml:space="preserve">
+    <value>Settings</value>
   </data>
 </root>

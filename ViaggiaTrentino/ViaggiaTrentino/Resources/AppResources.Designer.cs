@@ -70,6 +70,105 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bike.
+        /// </summary>
+        public static string GeneralSettingsBike {
+            get {
+                return ResourceManager.GetString("GeneralSettingsBike", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Car.
+        /// </summary>
+        public static string GeneralSettingsCar {
+            get {
+                return ResourceManager.GetString("GeneralSettingsCar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fastest.
+        /// </summary>
+        public static string GeneralSettingsFastest {
+            get {
+                return ResourceManager.GetString("GeneralSettingsFastest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fewest changes.
+        /// </summary>
+        public static string GeneralSettingsFewestCanges {
+            get {
+                return ResourceManager.GetString("GeneralSettingsFewestCanges", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Least walking.
+        /// </summary>
+        public static string GeneralSettingsLeastWalking {
+            get {
+                return ResourceManager.GetString("GeneralSettingsLeastWalking", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Preferred route.
+        /// </summary>
+        public static string GeneralSettingsPrefRoute {
+            get {
+                return ResourceManager.GetString("GeneralSettingsPrefRoute", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shared bike.
+        /// </summary>
+        public static string GeneralSettingsSharedBike {
+            get {
+                return ResourceManager.GetString("GeneralSettingsSharedBike", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shared car.
+        /// </summary>
+        public static string GeneralSettingsSharedCar {
+            get {
+                return ResourceManager.GetString("GeneralSettingsSharedCar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Transit.
+        /// </summary>
+        public static string GeneralSettingsTransit {
+            get {
+                return ResourceManager.GetString("GeneralSettingsTransit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Transportation.
+        /// </summary>
+        public static string GeneralSettingsTransportation {
+            get {
+                return ResourceManager.GetString("GeneralSettingsTransportation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Walking.
+        /// </summary>
+        public static string GeneralSettingsWalking {
+            get {
+                return ResourceManager.GetString("GeneralSettingsWalking", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ViaggiaTrentino.
         /// </summary>
         public static string MainViewTitle {
@@ -156,6 +255,33 @@ namespace ViaggiaTrentino.Resources {
         public static string SavedJourneysTitle {
             get {
                 return ResourceManager.GetString("SavedJourneysTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to My locations.
+        /// </summary>
+        public static string SettingsPageFavs {
+            get {
+                return ResourceManager.GetString("SettingsPageFavs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Preferences.
+        /// </summary>
+        public static string SettingsPagePrefs {
+            get {
+                return ResourceManager.GetString("SettingsPagePrefs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        public static string SettingsPageTitle {
+            get {
+                return ResourceManager.GetString("SettingsPageTitle", resourceCulture);
             }
         }
         

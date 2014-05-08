@@ -30,7 +30,14 @@
     <!--ContentPanel - place additional content here-->
     <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
       <StackPanel>
+        <TextBlock></TextBlock>
         <ListBox>
+          <ListBox.ItemContainerStyle>
+            <Style TargetType="ListBoxItem">
+              <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+              <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+            </Style>
+          </ListBox.ItemContainerStyle>
           <ListBox.ItemTemplate>
             <DataTemplate>
               <Grid>
@@ -46,12 +53,13 @@
             </DataTemplate>
           </ListBox.ItemTemplate>
         </ListBox>
+        <TextBlock></TextBlock>
       </StackPanel>
     </Grid>
 
     <bab:BindableAppBar>
       <bab:BindableAppBarButton x:Name="BarMonitor" Text="Monitoring" />
-      <bab:BindableAppBarButton x:Name="BarDelete" Text="Delete" />
+      <bab:BindableAppBarButton x:Name="BarDelete" Text="{Binding Path=LocalizedResources.SavedJourneyDetailsDelete, Source={StaticResource LocalizedStrings}}" />
     </bab:BindableAppBar>
 
   </Grid>

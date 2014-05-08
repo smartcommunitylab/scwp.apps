@@ -9,11 +9,15 @@ using System.Threading.Tasks;
 
 namespace ViaggiaTrentino.ViewModels
 {
-  class SavedJourneyPageViewModel : PropertyChangedBase
+  class SavedJourneyPageViewModel : Screen
   {
-    public SavedJourneyPageViewModel()
+    private readonly INavigationService navigationService;
+
+    public SavedJourneyPageViewModel(INavigationService navigationService)
     {
       mySavedJourneys = new ObservableCollection<BasicItinerary>();
+      this.navigationService = navigationService;
+
     }
 
 
