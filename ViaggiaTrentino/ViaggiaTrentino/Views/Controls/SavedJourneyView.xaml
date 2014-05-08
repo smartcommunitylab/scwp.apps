@@ -10,17 +10,17 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
+    
    >
   
   <UserControl.Resources>
     <converters:ItineraryToDateTimeStringConverter x:Key="itiToDateStr" />
   </UserControl.Resources>
 
-  <StackPanel Background="{StaticResource PhoneChromeBrush}">
-    <!--<TextBlock Text="titolo itinerario" Style="{StaticResource PhoneTextLargeStyle}" TextWrapping="Wrap"></TextBlock>-->
-    <TextBlock Text="{Binding Name}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" ></TextBlock>
+  <StackPanel Background="{StaticResource PhoneChromeBrush}" Margin="0,0,0,5">
+    <TextBlock Text="{Binding Name}" TextWrapping="Wrap" FontSize="32" ></TextBlock>
 
-    <Grid x:Name="LayoutRoot"  HorizontalAlignment="Stretch" >
+    <Grid x:Name="LayoutRoot"  HorizontalAlignment="Stretch" Margin="5,0,0,0">
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="*"/>
         <ColumnDefinition Width="Auto"/>
@@ -37,7 +37,9 @@
         <TextBlock Text="{Binding Data, Converter={StaticResource itiToDateStr}}"></TextBlock>
         <!--<TextBlock Text="45/54/99 22:55 - 55:44"></TextBlock>-->
         <toolkit:WrapPanel x:Name="wrpTransports">
-
+          <Image Source="" />
+          <Image Source="" />
+          <Image Source="" />
         </toolkit:WrapPanel>
       </StackPanel>
 
