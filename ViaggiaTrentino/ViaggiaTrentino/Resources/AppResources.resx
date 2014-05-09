@@ -269,6 +269,24 @@
   <data name="TileTrentoBusTitle" xml:space="preserve">
     <value>Trento Bus</value>
   </data>
+  <data name="MonitorJourneyAlways" xml:space="preserve">
+    <value>Always</value>
+  </data>
+  <data name="MonitorJourneyLoc" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="MonitorJourneyPrefs" xml:space="preserve">
+    <value>Show preferences</value>
+  </data>
+  <data name="MonitorJourneySched" xml:space="preserve">
+    <value>Schedule</value>
+  </data>
+  <data name="MonitorJourneyTimeSpan" xml:space="preserve">
+    <value>Time span</value>
+  </data>
+  <data name="MonitorJourneyTitle" xml:space="preserve">
+    <value>Monitor journey</value>
+  </data>
   <data name="PlanSingleJourneyDeparture" xml:space="preserve">
     <value>Departure</value>
   </data>

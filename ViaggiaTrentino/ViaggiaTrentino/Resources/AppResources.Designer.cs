@@ -178,6 +178,60 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Always.
+        /// </summary>
+        public static string MonitorJourneyAlways {
+            get {
+                return ResourceManager.GetString("MonitorJourneyAlways", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Location.
+        /// </summary>
+        public static string MonitorJourneyLoc {
+            get {
+                return ResourceManager.GetString("MonitorJourneyLoc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show preferences.
+        /// </summary>
+        public static string MonitorJourneyPrefs {
+            get {
+                return ResourceManager.GetString("MonitorJourneyPrefs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Schedule.
+        /// </summary>
+        public static string MonitorJourneySched {
+            get {
+                return ResourceManager.GetString("MonitorJourneySched", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time span.
+        /// </summary>
+        public static string MonitorJourneyTimeSpan {
+            get {
+                return ResourceManager.GetString("MonitorJourneyTimeSpan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Monitor journey.
+        /// </summary>
+        public static string MonitorJourneyTitle {
+            get {
+                return ResourceManager.GetString("MonitorJourneyTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Map.
         /// </summary>
         public static string ParkingsPageMapPivot {

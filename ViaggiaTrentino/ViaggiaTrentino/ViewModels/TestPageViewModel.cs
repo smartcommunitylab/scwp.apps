@@ -34,7 +34,7 @@ namespace ViaggiaTrentino.ViewModels
 
     public void planJourney()
     {
-      navigationService.UriFor<PlanNewSingleJourneyViewModel>().Navigate();
+      navigationService.UriFor<MonitorJourneyViewModel>().Navigate();
 
     }
 
