@@ -205,6 +205,60 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Departure.
+        /// </summary>
+        public static string PlanSingleJourneyDeparture {
+            get {
+                return ResourceManager.GetString("PlanSingleJourneyDeparture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to From....
+        /// </summary>
+        public static string PlanSingleJourneyHintFrom {
+            get {
+                return ResourceManager.GetString("PlanSingleJourneyHintFrom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To....
+        /// </summary>
+        public static string PlanSingleJourneyHintTo {
+            get {
+                return ResourceManager.GetString("PlanSingleJourneyHintTo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Location.
+        /// </summary>
+        public static string PlanSingleJourneyLoc {
+            get {
+                return ResourceManager.GetString("PlanSingleJourneyLoc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show preferences.
+        /// </summary>
+        public static string PlanSingleJourneyPrefs {
+            get {
+                return ResourceManager.GetString("PlanSingleJourneyPrefs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Plan new journey.
+        /// </summary>
+        public static string PlanSingleJourneyTitle {
+            get {
+                return ResourceManager.GetString("PlanSingleJourneyTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Real Time Information.
         /// </summary>
         public static string RealTimeInfoViewTitle {

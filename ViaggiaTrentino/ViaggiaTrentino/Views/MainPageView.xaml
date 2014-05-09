@@ -90,6 +90,8 @@
         </bab:BindableAppBarMenuItem>
         <bab:BindableAppBarMenuItem x:Name="BarSettings" Text="Settings">
         </bab:BindableAppBarMenuItem>
+        <bab:BindableAppBarMenuItem x:Name="BarTest" Text="Test page">
+        </bab:BindableAppBarMenuItem>
       </bab:BindableAppBar>
     </Grid>
   </Grid>

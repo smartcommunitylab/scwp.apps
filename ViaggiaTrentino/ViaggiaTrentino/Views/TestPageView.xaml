@@ -31,7 +31,9 @@
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
       <StackPanel>
-        <Button x:Name="popola" Content="pop">
+        <Button x:Name="planJourney" Content="planJourney" />
+
+          <Button x:Name="popola" Content="pop">
           
         </Button>
         <ListBox ItemsSource="{Binding Path=Viaggi}" >
