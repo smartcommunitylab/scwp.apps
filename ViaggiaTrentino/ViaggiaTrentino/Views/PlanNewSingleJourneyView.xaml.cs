@@ -15,6 +15,7 @@ namespace ViaggiaTrentino.Views
     public PlanNewSingleJourneyView()
     {
       InitializeComponent();
+      
     }
   }
 }

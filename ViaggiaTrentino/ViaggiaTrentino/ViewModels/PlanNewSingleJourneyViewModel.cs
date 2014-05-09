@@ -11,12 +11,25 @@ namespace ViaggiaTrentino.ViewModels
   {
     private readonly INavigationService navigationService;
     bool isSettingsShown;
+    DateTime departureDate;
+
     
     public PlanNewSingleJourneyViewModel(INavigationService navigationService)
     {
       this.navigationService = navigationService;
+      departureDate = DateTime.Now;
     }
-        
+
+    public DateTime DepartureDateTime
+    {
+      get { return departureDate; }
+      set
+      {
+        departureDate = value;
+        NotifyOfPropertyChange(() => DepartureDateTime);
+      }
+    }
+
     public bool IsSettingsShown
     {
       get { return isSettingsShown; }
