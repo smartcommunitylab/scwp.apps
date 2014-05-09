@@ -12,19 +12,18 @@ namespace ViaggiaTrentino.ViewModels
   {
     private readonly INavigationService navigationService;
     bool isSettingsShown;
+    bool isAlways;
     SingleJourney journey;
     DateTime beginDate;
     DateTime endDate;
-
     string fromText;
-    string toText;
-
-
+    string toText;    
 
     public MonitorJourneyViewModel(INavigationService navigationService)
     {
       this.navigationService = navigationService;
       beginDate = DateTime.Now;
+      endDate = DateTime.Now;
       journey = new SingleJourney();
       
     }
@@ -44,7 +43,7 @@ namespace ViaggiaTrentino.ViewModels
       get { return toText; }
       set
       {
-        fromText = value;
+        toText = value;
         NotifyOfPropertyChange(() => ToText);
       }
     }
@@ -76,6 +75,23 @@ namespace ViaggiaTrentino.ViewModels
       {
         endDate = value;
         NotifyOfPropertyChange(() => EndDateTime);
+      }
+    }
+
+    //big cheat
+    public bool CanChoose
+    {
+      get { return !IsAlways; }
+    }
+
+    public bool IsAlways
+    {
+      get { return isAlways; }
+      set
+      {
+        isAlways = value;
+        NotifyOfPropertyChange(() => IsAlways);
+        NotifyOfPropertyChange(() => CanChoose);
       }
     }
 

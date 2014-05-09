@@ -110,6 +110,7 @@
     <Compile Include="ViewModels\Controls\SingleParkingViewModel.cs" />
     <Compile Include="ViewModels\Controls\SavedJourneyViewModel.cs" />
     <Compile Include="ViewModels\Controls\UserSettingsViewModel.cs" />
+    <Compile Include="ViewModels\MonitorJourneyViewModel.cs" />
     <Compile Include="ViewModels\ParkingsPageViewModel.cs" />
     <Compile Include="ViewModels\PlanNewSingleJourneyViewModel.cs" />
     <Compile Include="ViewModels\RealTimeInfoViewModel.cs" />

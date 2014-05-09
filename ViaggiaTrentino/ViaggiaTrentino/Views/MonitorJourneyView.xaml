@@ -82,9 +82,11 @@
                                 Grid.Row="1"  Grid.Column="0" />
 
             <toolkit:DatePicker x:Name="DateEnd" Value="{Binding EndDateTime, Mode=TwoWay}" 
-                                Grid.Row="1"  Grid.Column="1" />
+                                Grid.Row="1"  Grid.Column="1" IsEnabled="{Binding CanChoose}" />
 
           </Grid>
+          <CheckBox Content="{Binding Path=LocalizedResources.MonitorJourneyAlways, Source={StaticResource LocalizedStrings}}"
+                    IsChecked="{Binding IsAlways, Mode=TwoWay}"/>
           <toolkit:ToggleSwitch x:Name="ShowPreferences" IsChecked="{Binding IsSettingsShown, Mode=TwoWay}">
             <toolkit:ToggleSwitch.Content>
               <TextBlock Margin="0,-10,0,0" Text="{Binding Path=LocalizedResources.MonitorJourneyPrefs, Source={StaticResource LocalizedStrings}}" 
