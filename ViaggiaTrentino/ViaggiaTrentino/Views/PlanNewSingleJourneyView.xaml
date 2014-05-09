@@ -54,12 +54,12 @@
               <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <toolkit:AutoCompleteBox Grid.Row="0" Grid.Column="0" x:Name="FromBox"
-                                   Text="{Binding Path=LocalizedResources.PlanSingleJourneyHintFrom, Source={StaticResource LocalizedStrings}}"/>
+                                   Text="{Binding FromText, Mode=TwoWay}"/>
             <Image x:Name="GpsLocFrom" Source="/Assets/Buttons/GpsLocation.png" Grid.Row="0" Grid.Column="1" Margin="0,0,5,0"/>
             <Image x:Name="FavsFrom" Source="/Assets/Buttons/Favourites.png" Grid.Row="0" Grid.Column="2" Margin="5,0,0,0"/>
 
             <toolkit:AutoCompleteBox Grid.Row="1" Grid.Column="0" x:Name="ToBox"
-                                   Text="{Binding Path=LocalizedResources.PlanSingleJourneyHintTo, Source={StaticResource LocalizedStrings}}"/>
+                                   Text="{Binding ToText, Mode=TwoWay}"/>
             <Image x:Name="GpsLocTo" Source="/Assets/Buttons/GpsLocation.png" Grid.Row="1" Grid.Column="1" Margin="0,0,5,0"/>
             <Image x:Name="FavsTo" Source="/Assets/Buttons/Favourites.png" Grid.Row="1" Grid.Column="2" Margin="5,0,0,0"/>
 
