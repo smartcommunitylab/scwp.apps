@@ -13,7 +13,7 @@ using System.Windows.Media;
 
 namespace ViaggiaTrentino.Converters
 {
-  public class ParkingToSlotsConverter : IValueConverter
+  public class ParkingSlotsToForegoundColor : IValueConverter
   {
     public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
     {
@@ -23,15 +23,19 @@ namespace ViaggiaTrentino.Converters
         if (p.Monitored)
         {
           if (p.SlotsAvailable == -1)
-            return Resources.AppResources.ParkingsSlotsFull;
+            return Colors.Red.ToString();
           else
-            return String.Format("{0}/{1}", p.SlotsAvailable, p.SlotsTotal);
+          {
+            if (p.SlotsTotal - p.SlotsAvailable < 10)
+              return Colors.Orange.ToString();
+            else
+              return Colors.Green.ToString();
+          }
         }
         else
-          return p.SlotsTotal.ToString();
+          return Colors.Blue.ToString(); 
       }
-      return "";
-
+      return Colors.White.ToString();
     }
 
     public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)

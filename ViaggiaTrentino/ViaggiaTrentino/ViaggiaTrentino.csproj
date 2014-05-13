@@ -96,6 +96,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Converters\ParkingSlotsToForegoundColor.cs" />
     <Compile Include="Converters\ParkingToSlotsConverter.cs" />
     <Compile Include="Converters\ItineraryToDateTimeStringConverter.cs" />
     <Compile Include="Converters\LegListToImageListConverter.cs" />

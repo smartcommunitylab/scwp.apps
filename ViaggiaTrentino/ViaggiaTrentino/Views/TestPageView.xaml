@@ -34,6 +34,7 @@
         <Button x:Name="popola" Content="pop">
           
         </Button>
+        
         <ListBox ItemsSource="{Binding Path=Viaggi}" >
           <ListBox.ItemContainerStyle>
             <Style TargetType="ListBoxItem">

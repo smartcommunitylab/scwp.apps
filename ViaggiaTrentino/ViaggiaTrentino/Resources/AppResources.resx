@@ -269,4 +269,7 @@
   <data name="TileTrentoBusTitle" xml:space="preserve">
     <value>Trento Bus</value>
   </data>
+  <data name="ParkingsSlotsFull" xml:space="preserve">
+    <value>full</value>
+  </data>
 </root>

@@ -205,6 +205,15 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to full.
+        /// </summary>
+        public static string ParkingsSlotsFull {
+            get {
+                return ResourceManager.GetString("ParkingsSlotsFull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Real Time Information.
         /// </summary>
         public static string RealTimeInfoViewTitle {

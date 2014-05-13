@@ -13,27 +13,25 @@
 
   <UserControl.Resources>
     <converters:ParkingToSlotsConverter x:Key="parkToSlot" />
+    <converters:ParkingSlotsToForegoundColor x:Key="parkSlotToColor" />
   </UserControl.Resources>
 
   <StackPanel Background="{StaticResource PhoneChromeBrush}" Margin="0,0,0,5">
-    <TextBlock Text="{Binding Name}" TextWrapping="Wrap" FontSize="32" />
-
-
     <Grid x:Name="LayoutRoot"  HorizontalAlignment="Stretch" Margin="5,0,0,0">
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="*"/>
         <ColumnDefinition Width="Auto"/>
       </Grid.ColumnDefinitions>
-
+      
       <StackPanel Grid.Column="0">
+        <TextBlock Text="{Binding Name}" TextWrapping="Wrap" FontSize="32" />
         <TextBlock Text="{Binding Description}" />
       </StackPanel>
 
-      <StackPanel Grid.Column="1" Background="Blue">
-        <TextBlock Text="633/669" HorizontalAlignment="Center" />
-        <TextBlock Text="0.4 km" HorizontalAlignment="Center" />
-        <TextBlock Text="{Binding Converter={StaticResource parkToSlot}}" HorizontalAlignment="Center" />
-
+      <StackPanel Grid.Column="1" VerticalAlignment="Center">
+        <TextBlock Foreground="{Binding Converter={StaticResource parkSlotToColor}}"
+                   Text="{Binding Converter={StaticResource parkToSlot}}"
+                   HorizontalAlignment="Center" />
       </StackPanel>
 
     </Grid>

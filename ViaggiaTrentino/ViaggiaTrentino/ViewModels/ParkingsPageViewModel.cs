@@ -20,7 +20,7 @@ namespace ViaggiaTrentino.ViewModels
       parkings = new ObservableCollection<Parking>();
       this.navigationService = navigationService;
 
-      /*Parking pa = new Parking()
+      Parking pa = new Parking()
       {
         Description = "parcheggio descrizione",
         Name = "Garage autorimessa europa",
@@ -37,7 +37,7 @@ namespace ViaggiaTrentino.ViewModels
         SlotsTotal = 900,
         Position = new double[] { 46.0676, 11.1247 }
       };
-      parkings.Add(pa2);*/
+      parkings.Add(pa2);
     }
 
     public ObservableCollection<Parking> Parkings
