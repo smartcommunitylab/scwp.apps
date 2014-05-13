@@ -1,0 +1,91 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="ViaggiaTrentino.Views.PlanNewSingleJourneyView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:bab="clr-namespace:Caliburn.Micro.BindableAppBar;assembly=Caliburn.Micro.BindableAppBar"
+    xmlns:calconvs="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
+    xmlns:vtconvert="clr-namespace:ViaggiaTrentino.Converters"  
+    xmlns:vtcon="clr-namespace:ViaggiaTrentino.Views.Controls"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+  <UserControl.Resources>
+    <calconvs:BooleanToVisibilityConverter x:Key="boolToVisibility" />
+    <vtconvert:BooleanToScrollBarVisibilityConverter x:Key="boolToScrollBar" />
+  </UserControl.Resources>
+
+
+  <!--LayoutRoot is the root grid where all page content is placed-->
+  <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+
+    <!--TitlePanel contains the name of the application and page title-->
+    <StackPanel Grid.Row="0" Margin="12,17,0,28">
+      <TextBlock Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}" 
+                 Style="{StaticResource PhoneTextNormalStyle}"/>
+      <TextBlock Text="{Binding Path=LocalizedResources.PlanSingleJourneyTitle, Source={StaticResource LocalizedStrings}}" 
+                 Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+    </StackPanel>
+
+    <!--ContentPanel - place additional content here-->
+    <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+      <ScrollViewer VerticalScrollBarVisibility="{Binding IsSettingsShown, Converter={StaticResource boolToScrollBar}}">
+        <StackPanel>
+          <TextBlock Text="{Binding Path=LocalizedResources.PlanSingleJourneyLoc, Source={StaticResource LocalizedStrings}}" />
+          <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <toolkit:AutoCompleteBox Grid.Row="0" Grid.Column="0" x:Name="FromBox"
+                                   Text="{Binding FromText, Mode=TwoWay}"/>
+            <Image x:Name="GpsLocFrom" Source="/Assets/Buttons/GpsLocation.png" Grid.Row="0" Grid.Column="1" Margin="0,0,5,0"/>
+            <Image x:Name="FavsFrom" Source="/Assets/Buttons/Favourites.png" Grid.Row="0" Grid.Column="2" Margin="5,0,0,0"/>
+
+            <toolkit:AutoCompleteBox Grid.Row="1" Grid.Column="0" x:Name="ToBox"
+                                   Text="{Binding ToText, Mode=TwoWay}"/>
+            <Image x:Name="GpsLocTo" Source="/Assets/Buttons/GpsLocation.png" Grid.Row="1" Grid.Column="1" Margin="0,0,5,0"/>
+            <Image x:Name="FavsTo" Source="/Assets/Buttons/Favourites.png" Grid.Row="1" Grid.Column="2" Margin="5,0,0,0"/>
+
+          </Grid>
+          <TextBlock Text="{Binding Path=LocalizedResources.PlanSingleJourneyDeparture, Source={StaticResource LocalizedStrings}}" />
+          <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <toolkit:DatePicker x:Name="DateDeparture" Value="{Binding DepartureDateTime, Mode=TwoWay}" Grid.Column="0" />
+            <toolkit:TimePicker x:Name="TimeDeparture" Value="{Binding DepartureDateTime, Mode=TwoWay}" Grid.Column="1" />
+          </Grid>
+          <toolkit:ToggleSwitch x:Name="ShowPreferences" IsChecked="{Binding IsSettingsShown, Mode=TwoWay}">
+            <toolkit:ToggleSwitch.Content>
+              <TextBlock Margin="0,-10,0,0" Text="{Binding Path=LocalizedResources.PlanSingleJourneyPrefs, Source={StaticResource LocalizedStrings}}" 
+                       Style="{StaticResource PhoneTextNormalStyle}"></TextBlock>
+            </toolkit:ToggleSwitch.Content>
+          </toolkit:ToggleSwitch>
+          <vtcon:UserSettingsView Visibility="{Binding IsSettingsShown, Converter={ StaticResource boolToVisibility }}"></vtcon:UserSettingsView>
+        </StackPanel>
+      </ScrollViewer>
+    </Grid>
+    <bab:BindableAppBar>
+      <bab:BindableAppBarButton IconUri="/Assets/AppBar/check.png" x:Name="PlanNewJourney"  />
+    </bab:BindableAppBar>
+  </Grid>
+
+</phone:PhoneApplicationPage>

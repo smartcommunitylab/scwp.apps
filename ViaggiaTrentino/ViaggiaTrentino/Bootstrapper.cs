@@ -15,7 +15,7 @@ namespace ViaggiaTrentino
 {
   public class Bootstrapper : PhoneBootstrapper
   {
-    PhoneContainer container;
+    public PhoneContainer container { get; set; }
 
     protected override void Configure()
     {
@@ -34,6 +34,10 @@ namespace ViaggiaTrentino
       container.PerRequest<RealTimeInfoViewModel>();
       container.PerRequest<SettingsPageViewModel>();
       container.PerRequest<ParkingsPageViewModel>();
+      container.PerRequest<PlanNewSingleJourneyViewModel>();
+      container.PerRequest<MonitorJourneyViewModel>();
+      
+
 
       //User controls
       container.PerRequest<SavedJourneyViewModel>();

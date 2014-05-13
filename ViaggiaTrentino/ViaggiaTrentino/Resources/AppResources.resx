@@ -269,7 +269,46 @@
   <data name="TileTrentoBusTitle" xml:space="preserve">
     <value>Trento Bus</value>
   </data>
+  <data name="MonitorJourneyAlways" xml:space="preserve">
+    <value>Always</value>
+  </data>
+  <data name="MonitorJourneyLoc" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="MonitorJourneyPrefs" xml:space="preserve">
+    <value>Show preferences</value>
+  </data>
+  <data name="MonitorJourneySched" xml:space="preserve">
+    <value>Schedule</value>
+  </data>
+  <data name="MonitorJourneyTimeSpan" xml:space="preserve">
+    <value>Time span</value>
+  </data>
+  <data name="MonitorJourneyTitle" xml:space="preserve">
+    <value>Monitor journey</value>
+  </data>
+  <data name="PlanSingleJourneyDeparture" xml:space="preserve">
+    <value>Departure</value>
+  </data>
+  <data name="PlanSingleJourneyHintFrom" xml:space="preserve">
+    <value>From...</value>
+  </data>
+  <data name="PlanSingleJourneyHintTo" xml:space="preserve">
+    <value>To...</value>
+  </data>
+  <data name="PlanSingleJourneyLoc" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="PlanSingleJourneyPrefs" xml:space="preserve">
+    <value>Show preferences</value>
+  </data>
+  <data name="PlanSingleJourneyTitle" xml:space="preserve">
+    <value>Plan new journey</value>
+  </data>
   <data name="ParkingsSlotsFull" xml:space="preserve">
     <value>full</value>
+  </data>
+  <data name="ServiceLocationDisabled" xml:space="preserve">
+    <value>Location is disabled in phone settings.</value>
   </data>
 </root>

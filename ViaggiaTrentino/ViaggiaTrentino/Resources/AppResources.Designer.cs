@@ -178,6 +178,60 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Always.
+        /// </summary>
+        public static string MonitorJourneyAlways {
+            get {
+                return ResourceManager.GetString("MonitorJourneyAlways", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Location.
+        /// </summary>
+        public static string MonitorJourneyLoc {
+            get {
+                return ResourceManager.GetString("MonitorJourneyLoc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show preferences.
+        /// </summary>
+        public static string MonitorJourneyPrefs {
+            get {
+                return ResourceManager.GetString("MonitorJourneyPrefs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Schedule.
+        /// </summary>
+        public static string MonitorJourneySched {
+            get {
+                return ResourceManager.GetString("MonitorJourneySched", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time span.
+        /// </summary>
+        public static string MonitorJourneyTimeSpan {
+            get {
+                return ResourceManager.GetString("MonitorJourneyTimeSpan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Monitor journey.
+        /// </summary>
+        public static string MonitorJourneyTitle {
+            get {
+                return ResourceManager.GetString("MonitorJourneyTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Map.
         /// </summary>
         public static string ParkingsPageMapPivot {
@@ -210,6 +264,60 @@ namespace ViaggiaTrentino.Resources {
         public static string ParkingsSlotsFull {
             get {
                 return ResourceManager.GetString("ParkingsSlotsFull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Departure.
+        /// </summary>
+        public static string PlanSingleJourneyDeparture {
+            get {
+                return ResourceManager.GetString("PlanSingleJourneyDeparture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to From....
+        /// </summary>
+        public static string PlanSingleJourneyHintFrom {
+            get {
+                return ResourceManager.GetString("PlanSingleJourneyHintFrom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To....
+        /// </summary>
+        public static string PlanSingleJourneyHintTo {
+            get {
+                return ResourceManager.GetString("PlanSingleJourneyHintTo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Location.
+        /// </summary>
+        public static string PlanSingleJourneyLoc {
+            get {
+                return ResourceManager.GetString("PlanSingleJourneyLoc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show preferences.
+        /// </summary>
+        public static string PlanSingleJourneyPrefs {
+            get {
+                return ResourceManager.GetString("PlanSingleJourneyPrefs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Plan new journey.
+        /// </summary>
+        public static string PlanSingleJourneyTitle {
+            get {
+                return ResourceManager.GetString("PlanSingleJourneyTitle", resourceCulture);
             }
         }
         
@@ -291,6 +399,15 @@ namespace ViaggiaTrentino.Resources {
         public static string SavedJourneysTitle {
             get {
                 return ResourceManager.GetString("SavedJourneysTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Location is disabled in phone settings..
+        /// </summary>
+        public static string ServiceLocationDisabled {
+            get {
+                return ResourceManager.GetString("ServiceLocationDisabled", resourceCulture);
             }
         }
         

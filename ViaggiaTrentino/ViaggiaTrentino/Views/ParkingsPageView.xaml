@@ -7,22 +7,27 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vtcont="clr-namespace:ViaggiaTrentino.Views.Controls"
+    xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
+    xmlns:maps="clr-namespace:Microsoft.Phone.Maps.Controls;assembly=Microsoft.Phone.Maps"
+    xmlns:mToolkit="clr-namespace:Microsoft.Phone.Maps.Toolkit;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:converters="clr-namespace:ViaggiaTrentino.Converters"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait"  Orientation="Portrait"
-    shell:SystemTray.IsVisible="True">
-
-  <!--LayoutRoot is the root grid where all page content is placed-->
+    shell:SystemTray.IsVisible="True"
+    Loaded="PhoneApplicationPage_Loaded">
+  
+  <UserControl.Resources>
+    <converters:ParkingCoordinateArrayToGeoCoordinate x:Key="parkCoordArrayToGeo" />
+  </UserControl.Resources>
+  
   <Grid x:Name="LayoutRoot" Background="Transparent">
-    <!--Pivot Control-->
     <phone:Pivot Title="{Binding Path=LocalizedResources.ParkingsPageTitle, Source={StaticResource LocalizedStrings}}">
-      <!--Pivot item one-->
       <phone:PivotItem Header="{Binding Path=LocalizedResources.ParkingsPageParkingPivot, Source={StaticResource LocalizedStrings}}">
-
         <Grid>
-          <ListBox ItemsSource="{Binding Path=Parkings}" MaxHeight="300">
+          <ListBox ItemsSource="{Binding Path=Parkings}" VerticalAlignment="Top">
             <ListBox.ItemContainerStyle>
               <Style TargetType="ListBoxItem">
                 <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
@@ -31,7 +36,7 @@
             </ListBox.ItemContainerStyle>
             <ListBox.ItemTemplate>
               <DataTemplate>
-                <vtcont:SingleParkingView  DataContext="{Binding}"></vtcont:SingleParkingView>
+                <vtcont:SingleParkingView DataContext="{Binding}"></vtcont:SingleParkingView>
               </DataTemplate>
             </ListBox.ItemTemplate>
           </ListBox>
@@ -40,7 +45,17 @@
 
       <!--Pivot item two-->
       <phone:PivotItem Header="{Binding Path=LocalizedResources.ParkingsPageMapPivot, Source={StaticResource LocalizedStrings}}">
-        <Grid/>
+        <maps:Map x:Name="ParkingsMap" ZoomLevel="11">
+          <mToolkit:MapExtensions.Children>
+            <mToolkit:MapItemsControl>
+              <mToolkit:MapItemsControl.ItemTemplate>
+                <DataTemplate>
+                  <mToolkit:Pushpin GeoCoordinate="{Binding Position, Converter={StaticResource parkCoordArrayToGeo}}" Content="{Binding Name}" />
+                </DataTemplate>
+              </mToolkit:MapItemsControl.ItemTemplate>
+            </mToolkit:MapItemsControl>
+          </mToolkit:MapExtensions.Children>
+        </maps:Map>
       </phone:PivotItem>
     </phone:Pivot>
   </Grid>

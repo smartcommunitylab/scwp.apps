@@ -11,13 +11,16 @@ using System.Threading.Tasks;
 
 namespace ViaggiaTrentino.ViewModels
 {
-  public class TestPageViewModel : PropertyChangedBase
+  public class TestPageViewModel : Screen
   {
     ObservableCollection<BasicItinerary> viaggi;
+    private readonly INavigationService navigationService;
 
-    public TestPageViewModel()
+    public TestPageViewModel(INavigationService navigationService)
+     
     {
       viaggi = new ObservableCollection<BasicItinerary>();
+      this.navigationService = navigationService;
     }
 
     public ObservableCollection<BasicItinerary> Viaggi
@@ -27,6 +30,12 @@ namespace ViaggiaTrentino.ViewModels
         viaggi = value;
         NotifyOfPropertyChange(() => Viaggi);
       }
+    }
+
+    public void planJourney()
+    {
+      navigationService.UriFor<MonitorJourneyViewModel>().Navigate();
+
     }
 
     public void Popola()
