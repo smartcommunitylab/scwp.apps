@@ -36,8 +36,6 @@ namespace ViaggiaTrentino
       container.PerRequest<ParkingsPageViewModel>();
       container.PerRequest<PlanNewSingleJourneyViewModel>();
       container.PerRequest<MonitorJourneyViewModel>();
-      
-
 
       //User controls
       container.PerRequest<SavedJourneyViewModel>();
@@ -47,7 +45,7 @@ namespace ViaggiaTrentino
 
       AddCustomConventions();
     }
-
+    
     static void AddCustomConventions()
     {
       ConventionManager.AddElementConvention<BindableAppBarMenuItem>(Control.IsEnabledProperty, "DataContext", "Click");

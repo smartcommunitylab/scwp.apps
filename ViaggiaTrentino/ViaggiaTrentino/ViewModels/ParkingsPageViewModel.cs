@@ -2,7 +2,6 @@
 using Caliburn.Micro;
 using Models.MobilityService.PublicTransport;
 using System.Collections.ObjectModel;
-using Microsoft.Phone.Maps.Toolkit;
 using System.Windows;
 using System.Windows.Controls.Primitives;
 using ViaggiaTrentino.Views.Controls;
@@ -49,7 +48,7 @@ namespace ViaggiaTrentino.ViewModels
       //IsPopupShown = false;
 
       this.navigationService = navigationService;
-      this.eventAggregator = eventAggregator;        
+      this.eventAggregator = eventAggregator;
 
       //START only for debugging purpose
       parkings = new ObservableCollection<Parking>();
@@ -72,8 +71,11 @@ namespace ViaggiaTrentino.ViewModels
       };
       parkings.Add(pa2);
       //END only for debugging purpose
+    }
 
-
+    protected override void OnActivate()
+    {
+      base.OnActivate();
       eventAggregator.Publish(parkings);
     }
 

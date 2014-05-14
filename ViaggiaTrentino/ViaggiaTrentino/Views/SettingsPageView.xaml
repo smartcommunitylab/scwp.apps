@@ -6,28 +6,34 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
     xmlns:vtcont="clr-namespace:ViaggiaTrentino.Views.Controls"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:converters="clr-namespace:ViaggiaTrentino.Converters"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait"  Orientation="Portrait"
     shell:SystemTray.IsVisible="True">
+  <phone:PhoneApplicationPage.Resources>
+    <converters:BooleanToOnOffStringConverter x:Key="boolToOnOff" />
+  </phone:PhoneApplicationPage.Resources>
 
-  <!--LayoutRoot is the root grid where all page content is placed-->
   <Grid x:Name="LayoutRoot" Background="Transparent">
-    <!--Pivot Control-->
     <phone:Pivot Title="{Binding Path=LocalizedResources.SettingsPageTitle, Source={StaticResource LocalizedStrings}}">
-      <!--Pivot item one-->
       <phone:PivotItem Header="{Binding Path=LocalizedResources.SettingsPagePrefs, Source={StaticResource LocalizedStrings}}">
-        <Grid>
+        <ScrollViewer>
           <StackPanel>
-            <vtcont:UserSettingsView />
+            <vtcont:UserSettingsView DataContext="{Binding Path=AppPreferences, Source={StaticResource vtSettings}}" />
+            <TextBlock Text="Location service" Padding="0,10,0,0" FontSize="28"/>
+            <toolkit:ToggleSwitch Content="{Binding LocationConsent, Converter={StaticResource boolToOnOff}}"
+                                  IsChecked="{Binding LocationConsent, Mode=TwoWay}" />
           </StackPanel>
-        </Grid>
+        </ScrollViewer>
+
       </phone:PivotItem>
 
-      <!--Pivot item two-->
       <phone:PivotItem Header="{Binding Path=LocalizedResources.SettingsPageFavs, Source={StaticResource LocalizedStrings}}">
         <Grid/>
       </phone:PivotItem>

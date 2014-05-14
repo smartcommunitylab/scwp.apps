@@ -31,7 +31,7 @@ namespace ViaggiaTrentino.Views
       Bootstrapper bootstrapper = Application.Current.Resources["bootstrapper"] as Bootstrapper;
       IEventAggregator eventAggregator = bootstrapper.container.GetAllInstances(typeof(IEventAggregator)).FirstOrDefault() as IEventAggregator;
       this.eventAggregator = eventAggregator;
-      eventAggregator.Subscribe(this);      
+      eventAggregator.Subscribe(this);
     }
 
     private void PhoneApplicationPage_Unloaded(object sender, RoutedEventArgs e)
@@ -40,7 +40,7 @@ namespace ViaggiaTrentino.Views
     }
 
     private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
-    {      
+    {
       GeoCoordinateWatcher geolocator = new GeoCoordinateWatcher(GeoPositionAccuracy.High);
       geolocator.StatusChanged += geolocator_StatusChanged;
       geolocator.Start();
@@ -50,7 +50,9 @@ namespace ViaggiaTrentino.Views
     {
       ObservableCollection<DependencyObject> children = MapExtensions.GetChildren(ParkingsMap);
       var obj = children.FirstOrDefault(x => x.GetType() == typeof(MapItemsControl)) as MapItemsControl;
-      obj.ItemsSource = parkings;    }    
+
+      obj.ItemsSource = parkings;
+    }
 
     void geolocator_StatusChanged(object sender, GeoPositionStatusChangedEventArgs e)
     {

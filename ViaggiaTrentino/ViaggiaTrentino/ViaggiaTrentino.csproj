@@ -96,6 +96,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Converters\BooleanToOnOffStringConverter.cs" />
     <Compile Include="Converters\ParkingCoordinateArrayToGeoCoordinate.cs" />
     <Compile Include="Converters\ParkingSlotsToForegoundColor.cs" />
     <Compile Include="Converters\BooleanToScrollBarVisibilityConverter.cs" />
@@ -103,12 +104,14 @@
     <Compile Include="Converters\ItineraryToDateTimeStringConverter.cs" />
     <Compile Include="Converters\LegListToImageListConverter.cs" />
     <Compile Include="LocalizedStrings.cs" />
+    <Compile Include="PreferencesModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\AppResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs" />
     <Compile Include="ViewModels\Controls\SingleParkingViewModel.cs" />
     <Compile Include="ViewModels\Controls\SavedJourneyViewModel.cs" />
     <Compile Include="ViewModels\Controls\UserSettingsViewModel.cs" />
