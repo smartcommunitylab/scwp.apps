@@ -33,7 +33,7 @@ namespace ViaggiaTrentino.Converters
           }
         }
         else
-          return Colors.Blue.ToString(); 
+          return "#FF5CA3FF";// Colors.Blue.ToString(); 
       }
       return Colors.White.ToString();
     }

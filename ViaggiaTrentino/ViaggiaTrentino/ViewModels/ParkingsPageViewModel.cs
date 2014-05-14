@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls.Primitives;
 using ViaggiaTrentino.Views.Controls;
+using System.Windows.Controls;
 
 namespace ViaggiaTrentino.ViewModels
 {
@@ -91,16 +92,19 @@ namespace ViaggiaTrentino.ViewModels
 
     public void TappedPushPin( Parking pp )
     {
-      SelectedParking = pp;
-      
+      SelectedParking = pp;      
       IsPopupShown = true;
 
-      //MessageBox.Show(pp.ToString());
-      //Popup p = new Popup();
-      //p.
-      //p.VerticalAlignment = VerticalAlignment.Center;
-      //p.Child = new SingleParkingView() {DataContext = pp };
-      //p.IsOpen = true;
+    }
+
+    public void ClosePopup()
+    {
+      IsPopupShown = false;
+    }
+
+    public void GetDirectionsBtn()
+    {
+      MessageBox.Show("navigo verso " + selParking.Name);
     }
   }
 }

@@ -250,6 +250,33 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string ParkingPopupCancel {
+            get {
+                return ResourceManager.GetString("ParkingPopupCancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Directions.
+        /// </summary>
+        public static string ParkingPopupDirections {
+            get {
+                return ResourceManager.GetString("ParkingPopupDirections", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parking.
+        /// </summary>
+        public static string ParkingPopupTitle {
+            get {
+                return ResourceManager.GetString("ParkingPopupTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Map.
         /// </summary>
         public static string ParkingsPageMapPivot {

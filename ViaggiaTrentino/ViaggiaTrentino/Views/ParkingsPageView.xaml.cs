@@ -63,10 +63,11 @@ namespace ViaggiaTrentino.Views
       }
     }
 
-    private void Popup_Loaded(object sender, RoutedEventArgs e)
+    private void pop_Opened(object sender, EventArgs e)
     {
-      pop.HorizontalOffset = (ParkingsMap.ActualWidth - gdChild.ActualWidth) / 2;
-      pop.VerticalOffset = (ParkingsMap.ActualHeight - gdChild.ActualHeight) / 2;
+      pop.Width = spw.ActualWidth;
+      pop.Height = spw.ActualHeight;
     }
+
   }
 }

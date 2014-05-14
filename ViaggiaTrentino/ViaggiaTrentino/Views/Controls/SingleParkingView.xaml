@@ -9,14 +9,15 @@
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
-    Foreground="{StaticResource PhoneForegroundBrush}">
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    MinWidth="400"         >
 
   <UserControl.Resources>
     <converters:ParkingToSlotsConverter x:Key="parkToSlot" />
     <converters:ParkingSlotsToForegoundColor x:Key="parkSlotToColor" />
   </UserControl.Resources>
 
-  <StackPanel Background="{StaticResource PhoneChromeBrush}" Margin="0,0,0,5">
+  <StackPanel Margin="10,10,10,15">
     <Grid x:Name="LayoutRoot"  HorizontalAlignment="Stretch" Margin="5,0,0,0">
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="*"/>
@@ -24,14 +25,14 @@
       </Grid.ColumnDefinitions>
       
       <StackPanel Grid.Column="0" Margin="0,0,30,0">
-        <TextBlock Text="{Binding Name}" TextWrapping="Wrap" FontSize="28" />
+        <TextBlock Text="{Binding Name}" TextWrapping="Wrap" FontSize="24" />
         <TextBlock Text="{Binding Description}" />
       </StackPanel>
 
       <StackPanel Grid.Column="1" VerticalAlignment="Center">
         <TextBlock Foreground="{Binding Converter={StaticResource parkSlotToColor}}"
                    Text="{Binding Converter={StaticResource parkToSlot}}"
-                   HorizontalAlignment="Center" />
+                   HorizontalAlignment="Center" FontSize="18" />
       </StackPanel>
 
     </Grid>
