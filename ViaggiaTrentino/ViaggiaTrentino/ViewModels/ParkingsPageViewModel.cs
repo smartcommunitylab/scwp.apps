@@ -2,10 +2,6 @@
 using Caliburn.Micro;
 using Models.MobilityService.PublicTransport;
 using System.Collections.ObjectModel;
-using System.Device.Location;
-using System.Threading.Tasks;
-using Windows.Devices.Geolocation;
-using ViaggiaTrentino.Resources;
 using System.Windows;
 
 namespace ViaggiaTrentino.ViewModels
@@ -58,6 +54,12 @@ namespace ViaggiaTrentino.ViewModels
         parkings = value;
         NotifyOfPropertyChange(() => Parkings);
       }
+    }
+
+    public void TappedPushPin( Parking pp )
+    {
+
+      MessageBox.Show(pp.ToString());
     }
   }
 }

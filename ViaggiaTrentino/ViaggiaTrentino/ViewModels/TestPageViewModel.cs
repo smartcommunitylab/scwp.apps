@@ -41,13 +41,14 @@ namespace ViaggiaTrentino.ViewModels
     public void Popola()
     {
       List<Leg> gambe = new List<Leg>();
-      gambe.Add(new Leg(){TransportInfo = new Transport(){Type = "BICYCLE"}});
-      gambe.Add(new Leg(){TransportInfo = new Transport(){Type = "CAR"}});
-      gambe.Add(new Leg(){TransportInfo = new Transport(){Type = "BUS"}});
-      gambe.Add(new Leg(){TransportInfo = new Transport(){Type = "BUS"}});
-      gambe.Add(new Leg(){TransportInfo = new Transport(){Type = "CAR"}});
-      gambe.Add(new Leg(){TransportInfo = new Transport(){Type = "BICYCLE"}});
-      gambe.Add(new Leg(){TransportInfo = new Transport(){Type = "BICYCLE"}});
+      gambe.Add(new Leg(){TransportInfo = new Transport(){Type = TransportType.Bicycle}});
+      gambe.Add(new Leg() { TransportInfo = new Transport() { Type = TransportType.Car } });
+      gambe.Add(new Leg(){TransportInfo = new Transport(){Type = TransportType.Bus }});
+      gambe.Add(new Leg() { TransportInfo = new Transport() { Type = TransportType.Bus } });
+
+      gambe.Add(new Leg() { TransportInfo = new Transport() { Type = TransportType.Car } });
+      gambe.Add(new Leg() { TransportInfo = new Transport() { Type = TransportType.Bicycle } }); 
+      gambe.Add(new Leg() { TransportInfo = new Transport() { Type = TransportType.Bicycle } });
 
       Itinerary it = new Itinerary()
       {

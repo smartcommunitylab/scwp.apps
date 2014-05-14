@@ -37,11 +37,12 @@ namespace ViaggiaTrentino.Views
     {
       eventAggregator.Unsubscribe(this);
     }
-    private async void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
+
+    private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
     {
-      var myPos = await GetMyPosition();
-      if (myPos != null)
-        ParkingsMap.Center = myPos;
+      GeoCoordinateWatcher geolocator = new GeoCoordinateWatcher(GeoPositionAccuracy.High);
+      geolocator.StatusChanged += geolocator_StatusChanged;
+      geolocator.Start();
     }
 
     public void Handle(IEnumerable<Parking> parkings)
@@ -51,35 +52,12 @@ namespace ViaggiaTrentino.Views
       obj.ItemsSource = parkings;
     }
 
-
-    private async Task<GeoCoordinate> GetMyPosition()
+    void geolocator_StatusChanged(object sender, GeoPositionStatusChangedEventArgs e)
     {
-      //Check for the user agreement in use his position. If not, method returns.
-      /*if ((bool)IsolatedStorageSettings.ApplicationSettings["LocationConsent"] != true)
+      if (e.Status == GeoPositionStatus.Ready)
       {
-        // The user has opted out of Location.
-        return;
-      }*/
-
-      Geolocator geolocator = new Geolocator();
-      geolocator.DesiredAccuracyInMeters = 50;
-
-      try
-      {
-        Geoposition geoposition = await geolocator.GetGeopositionAsync(
-             maximumAge: TimeSpan.FromMinutes(5),
-             timeout: TimeSpan.FromSeconds(10)
-            );
-        return new GeoCoordinate(geoposition.Coordinate.Latitude, geoposition.Coordinate.Longitude);
-
-      }
-      catch (Exception ex)
-      {
-        if ((uint)ex.HResult == 0x80004004)
-        {
-          MessageBox.Show(AppResources.ServiceLocationDisabled);
-        }
-        return null;
+        ParkingsMap.Center = (sender as GeoCoordinateWatcher).Position.Location;
+        (sender as GeoCoordinateWatcher).Stop();
       }
     }
   }
