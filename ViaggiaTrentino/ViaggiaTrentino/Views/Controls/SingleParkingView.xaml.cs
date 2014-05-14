@@ -16,5 +16,11 @@ namespace ViaggiaTrentino.Views.Controls
     {
       InitializeComponent();
     }
+
+    private void UserControl_Loaded(object sender, RoutedEventArgs e)
+    {
+      this.MaxHeight = Application.Current.Host.Content.ActualHeight - 10;
+      this.MaxWidth = Application.Current.Host.Content.ActualWidth - 10;
+    }
   }
 }

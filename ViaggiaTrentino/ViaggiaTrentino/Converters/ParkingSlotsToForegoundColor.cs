@@ -26,14 +26,14 @@ namespace ViaggiaTrentino.Converters
             return Colors.Red.ToString();
           else
           {
-            if (p.SlotsTotal - p.SlotsAvailable < 10)
+            if (p.SlotsTotal - p.SlotsAvailable < 50)
               return Colors.Orange.ToString();
             else
               return Colors.Green.ToString();
           }
         }
         else
-          return Colors.Blue.ToString(); 
+          return "#FF5CA3FF";
       }
       return Colors.White.ToString();
     }

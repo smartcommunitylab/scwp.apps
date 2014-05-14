@@ -16,6 +16,7 @@ using Windows.Devices.Geolocation;
 using System.Threading.Tasks;
 using System.Device.Location;
 using ViaggiaTrentino.Resources;
+using System.Windows.Controls.Primitives;
 
 namespace ViaggiaTrentino.Views
 {
@@ -49,6 +50,7 @@ namespace ViaggiaTrentino.Views
     {
       ObservableCollection<DependencyObject> children = MapExtensions.GetChildren(ParkingsMap);
       var obj = children.FirstOrDefault(x => x.GetType() == typeof(MapItemsControl)) as MapItemsControl;
+
       obj.ItemsSource = parkings;
     }
 
@@ -60,5 +62,12 @@ namespace ViaggiaTrentino.Views
         (sender as GeoCoordinateWatcher).Stop();
       }
     }
+
+    private void pop_Opened(object sender, EventArgs e)
+    {
+      pop.Width = spw.ActualWidth;
+      pop.Height = spw.ActualHeight;
+    }
+
   }
 }

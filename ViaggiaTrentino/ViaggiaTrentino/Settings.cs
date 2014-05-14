@@ -1,4 +1,5 @@
-﻿using Models.AuthorizationService;
+﻿using AuthenticationLibrary;
+using Models.AuthorizationService;
 using System;
 using System.Collections.Generic;
 using System.IO.IsolatedStorage;
@@ -11,6 +12,12 @@ namespace ViaggiaTrentino
   public class Settings
   {
     private static IsolatedStorageSettings iss;
+    private static AuthLibrary authLib;
+
+    public static async void RefreshToken()
+    {
+      AppToken = await authLib.RefreshAccessToken();
+    }
 
     static string clientId;
     public static string ClientId { get { return clientId; } }
@@ -76,6 +83,8 @@ namespace ViaggiaTrentino
       clientId = "52482826-891e-4ee0-9f79-9153a638d6e4";
       clientSecret = "f3ea5378-43ba-42c3-b2bf-5f7cd10b6e6e";
       redirectUrl = "http://localhost";
+
+      authLib = new AuthLibrary(clientId, clientSecret, redirectUrl);
       if (!HasBeenStarted)
       {
         iss["hasBeenStarted"] = iss["token"] = null;

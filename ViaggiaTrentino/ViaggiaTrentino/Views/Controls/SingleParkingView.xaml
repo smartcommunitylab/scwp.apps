@@ -9,29 +9,31 @@
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
-    Foreground="{StaticResource PhoneForegroundBrush}">
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    MinWidth="400"
+    Loaded="UserControl_Loaded">
 
   <UserControl.Resources>
     <converters:ParkingToSlotsConverter x:Key="parkToSlot" />
     <converters:ParkingSlotsToForegoundColor x:Key="parkSlotToColor" />
   </UserControl.Resources>
 
-  <StackPanel Background="{StaticResource PhoneChromeBrush}" Margin="0,0,0,5">
-    <Grid x:Name="LayoutRoot"  HorizontalAlignment="Stretch" Margin="5,0,0,0">
+  <StackPanel Margin="0,0,0,5" Background="{StaticResource PhoneChromeBrush}">
+    <Grid x:Name="LayoutRoot"  HorizontalAlignment="Stretch" Margin="15,10,10,10">
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="*"/>
         <ColumnDefinition Width="Auto"/>
       </Grid.ColumnDefinitions>
       
-      <StackPanel Grid.Column="0">
-        <TextBlock Text="{Binding Name}" TextWrapping="Wrap" FontSize="32" />
-        <TextBlock Text="{Binding Description}" />
+      <StackPanel Grid.Column="0" Margin="0,0,30,0">
+        <TextBlock Text="{Binding Name}" TextWrapping="Wrap" FontSize="24" />
+        <TextBlock Text="{Binding Description}" TextWrapping="Wrap"/>
       </StackPanel>
 
       <StackPanel Grid.Column="1" VerticalAlignment="Center">
         <TextBlock Foreground="{Binding Converter={StaticResource parkSlotToColor}}"
                    Text="{Binding Converter={StaticResource parkToSlot}}"
-                   HorizontalAlignment="Center" />
+                   HorizontalAlignment="Center" FontSize="18" TextWrapping="Wrap" />
       </StackPanel>
 
     </Grid>

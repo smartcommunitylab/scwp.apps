@@ -19,11 +19,11 @@
     shell:SystemTray.IsVisible="True"
     Loaded="PhoneApplicationPage_Loaded"
     Unloaded="PhoneApplicationPage_Unloaded">
-  
+
   <UserControl.Resources>
     <converters:ParkingCoordinateArrayToGeoCoordinate x:Key="parkCoordArrayToGeo" />
   </UserControl.Resources>
-  
+
   <Grid x:Name="LayoutRoot" Background="Transparent">
     <phone:Pivot Title="{Binding Path=LocalizedResources.ParkingsPageTitle, Source={StaticResource LocalizedStrings}}">
       <phone:PivotItem Header="{Binding Path=LocalizedResources.ParkingsPageParkingPivot, Source={StaticResource LocalizedStrings}}">
@@ -46,25 +46,55 @@
 
       <!--Pivot item two-->
       <phone:PivotItem Header="{Binding Path=LocalizedResources.ParkingsPageMapPivot, Source={StaticResource LocalizedStrings}}">
-        <maps:Map x:Name="ParkingsMap" ZoomLevel="11">
-          <mToolkit:MapExtensions.Children>
-            <mToolkit:MapItemsControl>
-              <mToolkit:MapItemsControl.ItemTemplate>
-                <DataTemplate>
-                  <mToolkit:Pushpin cal:Message.Attach="[Event Tap] = [Action TappedPushPin($this)]" GeoCoordinate="{Binding Position, Converter={StaticResource parkCoordArrayToGeo}}" Content="P">
-                    <mToolkit:Pushpin.Template>
-                      <ControlTemplate TargetType="mToolkit:Pushpin">
-                        <StackPanel>
-                          <Image Source="/Images/Misc/ParkingPushPin.png" Stretch="Uniform" Width="50" Height="50" HorizontalAlignment="Center"/>
-                        </StackPanel>
-                      </ControlTemplate>
-                      </mToolkit:Pushpin.Template>
-                  </mToolkit:Pushpin>
-                </DataTemplate>
-              </mToolkit:MapItemsControl.ItemTemplate>
-            </mToolkit:MapItemsControl>
-          </mToolkit:MapExtensions.Children>
-        </maps:Map>
+        <Grid HorizontalAlignment="Stretch">
+          <maps:Map x:Name="ParkingsMap" ZoomLevel="11">
+            <mToolkit:MapExtensions.Children>
+              <mToolkit:MapItemsControl>
+                <mToolkit:MapItemsControl.ItemTemplate>
+                  <DataTemplate>
+                    <mToolkit:Pushpin cal:Message.Attach="[Event Tap] = [Action TappedPushPin($this)]" GeoCoordinate="{Binding Position, Converter={StaticResource parkCoordArrayToGeo}}" Content="{Binding Name}">
+                      
+                      <!--<mToolkit:Pushpin.Template>
+                        <ControlTemplate TargetType="mToolkit:Pushpin">
+                          <StackPanel>
+                            <Image Source="/Images/Misc/ParkingPushPin.png" Stretch="Uniform" Width="50" Height="50" HorizontalAlignment="Center"/>
+                          </StackPanel>
+                        </ControlTemplate>
+                      </mToolkit:Pushpin.Template>-->
+                    </mToolkit:Pushpin>
+                  </DataTemplate>
+                </mToolkit:MapItemsControl.ItemTemplate>
+              </mToolkit:MapItemsControl>
+            </mToolkit:MapExtensions.Children>
+          </maps:Map>
+
+          <Popup x:Name="pop" IsOpen="{Binding IsPopupShown}" Opened="pop_Opened" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid Background="{StaticResource PhoneChromeBrush}">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+              </Grid.ColumnDefinitions>
+
+              <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+              </Grid.RowDefinitions>
+              <StackPanel Background="Black" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                <TextBlock Text="{Binding Path=LocalizedResources.ParkingPopupTitle, Source={StaticResource LocalizedStrings}}" 
+                           FontSize="28" Padding="10,0,0,5" />
+              </StackPanel>
+              <vtcont:SingleParkingView x:Name="spw" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" DataContext="{Binding SelectedParking}" />
+
+              <Button Content="{Binding Path=LocalizedResources.ParkingPopupCancel, Source={StaticResource LocalizedStrings}}" 
+                      Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" 
+                      cal:Message.Attach="[Event Tap] = [Action ClosePopup]"></Button>
+              <Button Content="{Binding Path=LocalizedResources.ParkingPopupDirections, Source={StaticResource LocalizedStrings}}" 
+                      Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" 
+                      cal:Message.Attach="[Event Tap] = [Action GetDirectionsBtn]"></Button>
+            </Grid>
+          </Popup>
+        </Grid>
       </phone:PivotItem>
     </phone:Pivot>
   </Grid>
