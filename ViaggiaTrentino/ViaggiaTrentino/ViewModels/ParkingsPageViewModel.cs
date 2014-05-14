@@ -4,6 +4,8 @@ using Models.MobilityService.PublicTransport;
 using System.Collections.ObjectModel;
 using Microsoft.Phone.Maps.Toolkit;
 using System.Windows;
+using System.Windows.Controls.Primitives;
+using ViaggiaTrentino.Views.Controls;
 
 namespace ViaggiaTrentino.ViewModels
 {
@@ -12,9 +14,40 @@ namespace ViaggiaTrentino.ViewModels
     private readonly IEventAggregator eventAggregator;
     private readonly INavigationService navigationService;
     ObservableCollection<Parking> parkings;
+    Parking selParking;
+    bool isPopUp;
+
+
+    public Parking SelectedParking
+    {
+      get
+      {
+        return selParking;
+      }
+      set
+      {
+        selParking = value;
+        NotifyOfPropertyChange(() => SelectedParking);
+      }
+    }
+
+    public bool IsPopupShown
+    {
+      get
+      {
+        return isPopUp;
+      }
+      set
+      {
+        isPopUp = value;
+        NotifyOfPropertyChange(() => IsPopupShown);
+      }
+    }
 
     public ParkingsPageViewModel(INavigationService navigationService, IEventAggregator eventAggregator)
     {
+      //IsPopupShown = false;
+
       this.navigationService = navigationService;
       this.eventAggregator = eventAggregator;        
 
@@ -56,8 +89,16 @@ namespace ViaggiaTrentino.ViewModels
 
     public void TappedPushPin( Parking pp )
     {
+      SelectedParking = pp;
+      
+      IsPopupShown = true;
 
-      MessageBox.Show(pp.ToString());
+      //MessageBox.Show(pp.ToString());
+      //Popup p = new Popup();
+      //p.
+      //p.VerticalAlignment = VerticalAlignment.Center;
+      //p.Child = new SingleParkingView() {DataContext = pp };
+      //p.IsOpen = true;
     }
   }
 }

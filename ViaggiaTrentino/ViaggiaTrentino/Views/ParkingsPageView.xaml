@@ -46,7 +46,7 @@
 
       <!--Pivot item two-->
       <phone:PivotItem Header="{Binding Path=LocalizedResources.ParkingsPageMapPivot, Source={StaticResource LocalizedStrings}}">
-        <maps:Map x:Name="ParkingsMap" ZoomLevel="11">
+        <maps:Map x:Name="ParkingsMap" ZoomLevel="11" HorizontalContentAlignment="Stretch">
           <mToolkit:MapExtensions.Children>
             <mToolkit:MapItemsControl>
               <mToolkit:MapItemsControl.ItemTemplate>
@@ -55,6 +55,23 @@
                 </DataTemplate>
               </mToolkit:MapItemsControl.ItemTemplate>
             </mToolkit:MapItemsControl>
+            <Popup IsOpen="{Binding IsPopupShown}" VerticalAlignment="Center" HorizontalAlignment="Center" Loaded="Popup_Loaded">
+              <Grid Background="Black"  HorizontalAlignment="Center" Loaded="Popup_Loaded">
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="*"/>
+                  <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+                <Grid.RowDefinitions>
+                  <RowDefinition Height="*"/>
+                  <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <vtcont:SingleParkingView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" DataContext="{Binding SelectedParking}" 
+                                          HorizontalContentAlignment="Stretch" />
+                <Button Content="annulla" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left"></Button>
+                <Button Content="naviga verso" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right"></Button>
+              </Grid>
+            </Popup>
           </mToolkit:MapExtensions.Children>
         </maps:Map>
       </phone:PivotItem>
