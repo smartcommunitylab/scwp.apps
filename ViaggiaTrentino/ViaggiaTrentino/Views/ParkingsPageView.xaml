@@ -51,7 +51,15 @@
             <mToolkit:MapItemsControl>
               <mToolkit:MapItemsControl.ItemTemplate>
                 <DataTemplate>
-                  <mToolkit:Pushpin cal:Message.Attach="[Event Tap] = [Action TappedPushPin($this)]" GeoCoordinate="{Binding Position, Converter={StaticResource parkCoordArrayToGeo}}" Content="{Binding Name}" />
+                  <mToolkit:Pushpin cal:Message.Attach="[Event Tap] = [Action TappedPushPin($this)]" GeoCoordinate="{Binding Position, Converter={StaticResource parkCoordArrayToGeo}}" Content="P">
+                    <mToolkit:Pushpin.Template>
+                      <ControlTemplate TargetType="mToolkit:Pushpin">
+                        <StackPanel>
+                          <Image Source="/Images/Misc/ParkingPushPin.png" Stretch="Uniform" Width="50" Height="50" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                      </ControlTemplate>
+                      </mToolkit:Pushpin.Template>
+                  </mToolkit:Pushpin>
                 </DataTemplate>
               </mToolkit:MapItemsControl.ItemTemplate>
             </mToolkit:MapItemsControl>

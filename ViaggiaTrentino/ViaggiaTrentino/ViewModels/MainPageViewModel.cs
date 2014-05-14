@@ -1,6 +1,7 @@
 ﻿using AuthenticationLibrary;
 using Caliburn.Micro;
 using Microsoft.Phone.Controls;
+using Models.AuthorizationService;
 using System;
 using System.Collections.Generic;
 using System.IO.IsolatedStorage;
@@ -15,6 +16,8 @@ namespace ViaggiaTrentino.ViewModels
   public class MainPageViewModel : Screen
   {
     private readonly INavigationService navigationService;
+    AuthLibrary authLib;
+    Popup loginPopup;
 
     public MainPageViewModel(INavigationService navigationService)
     {
@@ -62,7 +65,29 @@ namespace ViaggiaTrentino.ViewModels
 
     public void BarLogin()
     {
-      MessageBox.Show("login");
+      authLib = new AuthLibrary(Settings.ClientId, Settings.ClientSecret, Settings.RedirectUrl);
+
+      if (Settings.AppToken == null)
+      {
+        WebBrowser wb = new WebBrowser();
+        wb.Navigating += wb_Navigating;
+        wb.Height = Application.Current.Host.Content.ActualHeight;
+        wb.Width = Application.Current.Host.Content.ActualWidth;
+        loginPopup = new Popup();
+        loginPopup.Child = wb;
+        loginPopup.IsOpen = true;
+        wb.Navigate(AuthUriHelper.GetCodeUri(Settings.ClientId, Settings.RedirectUrl));
+      }
+    }
+
+    async void wb_Navigating(object sender, NavigatingEventArgs e)
+    {
+      if (e.Uri.ToString().StartsWith(Settings.RedirectUrl))
+      {
+        string code = e.Uri.Query.Split('=')[1];
+        Settings.AppToken = await authLib.GetAccessToken(code);
+        loginPopup.IsOpen = false;
+      }
     }
 
     public void BarTour()

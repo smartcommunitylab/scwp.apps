@@ -72,7 +72,7 @@ namespace ViaggiaTrentino
     public static void Initialize()
     {
       iss = IsolatedStorageSettings.ApplicationSettings;
-      ClearHasBeenStarted();
+      //ClearHasBeenStarted();
       clientId = "52482826-891e-4ee0-9f79-9153a638d6e4";
       clientSecret = "f3ea5378-43ba-42c3-b2bf-5f7cd10b6e6e";
       redirectUrl = "http://localhost";

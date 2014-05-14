@@ -9,16 +9,12 @@
     xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
     xmlns:vtcont="clr-namespace:ViaggiaTrentino.Views.Controls"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
-    xmlns:converters="clr-namespace:ViaggiaTrentino.Converters"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait"  Orientation="Portrait"
     shell:SystemTray.IsVisible="True">
-  <phone:PhoneApplicationPage.Resources>
-    <converters:BooleanToOnOffStringConverter x:Key="boolToOnOff" />
-  </phone:PhoneApplicationPage.Resources>
 
   <Grid x:Name="LayoutRoot" Background="Transparent">
     <phone:Pivot Title="{Binding Path=LocalizedResources.SettingsPageTitle, Source={StaticResource LocalizedStrings}}">
@@ -27,8 +23,7 @@
           <StackPanel>
             <vtcont:UserSettingsView DataContext="{Binding Path=AppPreferences, Source={StaticResource vtSettings}}" />
             <TextBlock Text="Location service" Padding="0,10,0,0" FontSize="28"/>
-            <toolkit:ToggleSwitch Content="{Binding LocationConsent, Converter={StaticResource boolToOnOff}}"
-                                  IsChecked="{Binding LocationConsent, Mode=TwoWay}" />
+            <toolkit:ToggleSwitch IsChecked="{Binding LocationConsent, Mode=TwoWay}" />
           </StackPanel>
         </ScrollViewer>
 
