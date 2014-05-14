@@ -35,10 +35,10 @@
       <StackPanel Grid.Column="1" >
         <TextBlock Text="{Binding Data, Converter={StaticResource itiToDateStr}}"></TextBlock>
         <!--<TextBlock Text="45/54/99 22:55 - 55:44"></TextBlock>-->
-        <ListBox ItemsSource="{Binding Data.Legs, Converter={ StaticResource legsToImgs}}">
+        <ListBox ItemsSource="{Binding Data.Legs, Converter={ StaticResource legsToImgs}}" >
           <ListBox.ItemsPanel>
             <ItemsPanelTemplate>
-              <toolkit:WrapPanel x:Name="wrpTransports" >
+              <toolkit:WrapPanel x:Name="wrpTransports" HorizontalAlignment="Center" >
           
               </toolkit:WrapPanel>
             </ItemsPanelTemplate>

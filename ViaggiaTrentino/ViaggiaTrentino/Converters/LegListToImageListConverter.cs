@@ -25,8 +25,8 @@ namespace ViaggiaTrentino.Converters
 
         //TODO: add right icons once obtained
 
-        foreach (string s in transp)        
-          bitmapImages.Add(new ImageSourceConverter().ConvertFromString(string.Format("/Assets/Vehicles/{0}.png", s.ToLower()))); 
+        foreach (TransportType s in transp)        
+          bitmapImages.Add(new ImageSourceConverter().ConvertFromString(string.Format("/Assets/Vehicles/{0}.png", s.ToString().ToLower()))); 
           
         return bitmapImages;
         
