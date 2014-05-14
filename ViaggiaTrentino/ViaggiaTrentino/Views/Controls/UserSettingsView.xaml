@@ -8,9 +8,9 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    d:DesignHeight="510" d:DesignWidth="480">
+    d:DesignHeight="520" d:DesignWidth="480">
 
-  <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}">
+  <Grid x:Name="LayoutRoot">
     <StackPanel>
       <TextBlock Text="{Binding Path=LocalizedResources.GeneralSettingsTransportation, Source={StaticResource LocalizedStrings}}"
                  FontSize="28"/>
@@ -21,25 +21,32 @@
         </Grid.ColumnDefinitions>
         
         <StackPanel Grid.Column="0">
-          <CheckBox Content="{Binding Path=LocalizedResources.GeneralSettingsTransit, Source={StaticResource LocalizedStrings}}" />
-          <CheckBox x:Name="WalkingChk" Content="{Binding Path=LocalizedResources.GeneralSettingsWalking, Source={StaticResource LocalizedStrings}}" />
-          <CheckBox Content="{Binding Path=LocalizedResources.GeneralSettingsSharedCar, Source={StaticResource LocalizedStrings}}" />
+          <CheckBox IsChecked="{Binding Transportation.Transit, Mode=TwoWay}"
+                    Content="{Binding Path=LocalizedResources.GeneralSettingsTransit, Source={StaticResource LocalizedStrings}}" />
+          <CheckBox IsChecked="{Binding Transportation.Walking, Mode=TwoWay}"
+                    Content="{Binding Path=LocalizedResources.GeneralSettingsWalking, Source={StaticResource LocalizedStrings}}" />
+          <CheckBox IsChecked="{Binding Transportation.SharedCar, Mode=TwoWay}"
+                    Content="{Binding Path=LocalizedResources.GeneralSettingsSharedCar, Source={StaticResource LocalizedStrings}}" />
         </StackPanel>
         
         <StackPanel Grid.Column="1">
-          <CheckBox Content="{Binding Path=LocalizedResources.GeneralSettingsCar, Source={StaticResource LocalizedStrings}}"/>
-          <CheckBox Content="{Binding Path=LocalizedResources.GeneralSettingsBike, Source={StaticResource LocalizedStrings}}" />
-          <CheckBox Content="{Binding Path=LocalizedResources.GeneralSettingsSharedBike, Source={StaticResource LocalizedStrings}}" />
-          
+          <CheckBox IsChecked="{Binding Transportation.Car, Mode=TwoWay}"
+                    Content="{Binding Path=LocalizedResources.GeneralSettingsCar, Source={StaticResource LocalizedStrings}}"/>
+          <CheckBox IsChecked="{Binding Transportation.Bike, Mode=TwoWay}"
+                    Content="{Binding Path=LocalizedResources.GeneralSettingsBike, Source={StaticResource LocalizedStrings}}" />
+          <CheckBox IsChecked="{Binding Transportation.SharedBike, Mode=TwoWay}"
+                    Content="{Binding Path=LocalizedResources.GeneralSettingsSharedBike, Source={StaticResource LocalizedStrings}}" />  
         </StackPanel>
       </Grid>
 
-      <TextBlock Text="{Binding Path=LocalizedResources.GeneralSettingsPrefRoute, Source={StaticResource LocalizedStrings}}"
+      <TextBlock Padding="0,10,0,0" Text="{Binding Path=LocalizedResources.GeneralSettingsPrefRoute, Source={StaticResource LocalizedStrings}}"
                  FontSize="28"/>
-      <RadioButton Content="{Binding Path=LocalizedResources.GeneralSettingsFastest, Source={StaticResource LocalizedStrings}}" />
-      <RadioButton Content="{Binding Path=LocalizedResources.GeneralSettingsFewestChanges, Source={StaticResource LocalizedStrings}}" />
-      <RadioButton Content="{Binding Path=LocalizedResources.GeneralSettingsLeastWalking, Source={StaticResource LocalizedStrings}}" />
-      
+      <RadioButton IsChecked="{Binding PreferredRoute.Fastest, Mode=TwoWay}"
+                   Content="{Binding Path=LocalizedResources.GeneralSettingsFastest, Source={StaticResource LocalizedStrings}}" />
+      <RadioButton IsChecked="{Binding PreferredRoute.FewestChanges, Mode=TwoWay}"
+                   Content="{Binding Path=LocalizedResources.GeneralSettingsFewestChanges, Source={StaticResource LocalizedStrings}}" />
+      <RadioButton IsChecked="{Binding PreferredRoute.LeastWalking, Mode=TwoWay}"
+                   Content="{Binding Path=LocalizedResources.GeneralSettingsLeastWalking, Source={StaticResource LocalizedStrings}}" />
     </StackPanel>
   </Grid>
 </UserControl>

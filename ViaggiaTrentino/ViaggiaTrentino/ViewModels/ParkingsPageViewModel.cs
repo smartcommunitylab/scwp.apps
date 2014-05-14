@@ -2,6 +2,11 @@
 using Caliburn.Micro;
 using Models.MobilityService.PublicTransport;
 using System.Collections.ObjectModel;
+using System.Device.Location;
+using System.Threading.Tasks;
+using Windows.Devices.Geolocation;
+using ViaggiaTrentino.Resources;
+using System.Windows;
 
 namespace ViaggiaTrentino.ViewModels
 {
@@ -14,7 +19,7 @@ namespace ViaggiaTrentino.ViewModels
     public ParkingsPageViewModel(INavigationService navigationService, IEventAggregator eventAggregator)
     {
       this.navigationService = navigationService;
-      this.eventAggregator = eventAggregator;        
+      this.eventAggregator = eventAggregator;
 
       //START only for debugging purpose
       parkings = new ObservableCollection<Parking>();
@@ -37,8 +42,11 @@ namespace ViaggiaTrentino.ViewModels
       };
       parkings.Add(pa2);
       //END only for debugging purpose
+    }
 
-
+    protected override void OnActivate()
+    {
+      base.OnActivate();
       eventAggregator.Publish(parkings);
     }
 

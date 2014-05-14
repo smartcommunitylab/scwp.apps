@@ -42,7 +42,7 @@ namespace ViaggiaTrentino.ViewModels
       get { return toText; }
       set
       {
-        fromText = value;
+        toText = value;
         NotifyOfPropertyChange(() => ToText);
       }
     }

@@ -33,6 +33,10 @@ namespace ViaggiaTrentino.Views
       eventAggregator.Subscribe(this);
     }
 
+    private void PhoneApplicationPage_Unloaded(object sender, RoutedEventArgs e)
+    {
+      eventAggregator.Unsubscribe(this);
+    }
     private async void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
     {
       var myPos = await GetMyPosition();
@@ -47,7 +51,7 @@ namespace ViaggiaTrentino.Views
       obj.ItemsSource = parkings;
     }
 
-    
+
     private async Task<GeoCoordinate> GetMyPosition()
     {
       //Check for the user agreement in use his position. If not, method returns.
@@ -78,7 +82,5 @@ namespace ViaggiaTrentino.Views
         return null;
       }
     }
-
-
   }
 }

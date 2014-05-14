@@ -17,7 +17,8 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait"  Orientation="Portrait"
     shell:SystemTray.IsVisible="True"
-    Loaded="PhoneApplicationPage_Loaded">
+    Loaded="PhoneApplicationPage_Loaded"
+    Unloaded="PhoneApplicationPage_Unloaded">
   
   <UserControl.Resources>
     <converters:ParkingCoordinateArrayToGeoCoordinate x:Key="parkCoordArrayToGeo" />

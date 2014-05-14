@@ -79,18 +79,13 @@
                          Message="{Binding Path=LocalizedResources.TileRealTimeInfoMessage, Source={StaticResource LocalizedStrings}}" />
       </Grid>
 
-      
+
       <bab:BindableAppBar Mode="Minimized">
-        <bab:BindableAppBarMenuItem x:Name="BarLogin" Text="Login">
-        </bab:BindableAppBarMenuItem>
-        <bab:BindableAppBarMenuItem x:Name="BarTour" Text="Tour">
-        </bab:BindableAppBarMenuItem>
-        <bab:BindableAppBarMenuItem x:Name="BarAbout" Text="About">
-        </bab:BindableAppBarMenuItem>
-        <bab:BindableAppBarMenuItem x:Name="BarSettings" Text="Settings">
-        </bab:BindableAppBarMenuItem>
-        <bab:BindableAppBarMenuItem x:Name="BarTest" Text="Test page">
-        </bab:BindableAppBarMenuItem>
+        <bab:BindableAppBarMenuItem x:Name="BarLogin" Text="Login"/>
+        <bab:BindableAppBarMenuItem x:Name="BarTour" Text="Tour"/>
+        <bab:BindableAppBarMenuItem x:Name="BarAbout" Text="About"/>
+        <bab:BindableAppBarMenuItem x:Name="BarSettings" Text="Settings"/>
+        <bab:BindableAppBarMenuItem x:Name="BarTest" Text="Test page"/>
       </bab:BindableAppBar>
     </Grid>
   </Grid>

@@ -12,18 +12,5 @@ namespace ViaggiaTrentino.ViewModels.Controls
 {
   public class SavedJourneyViewModel : PropertyChangedBase
   {
-    
-    //BasicItinerary itinerary;
-
-    //public BasicItinerary Itinerary
-    //{
-    //  get { return itinerary; }
-    //  set
-    //  {
-    //    MessageBox.Show(value.Name);
-    //    itinerary = value;
-    //    NotifyOfPropertyChange(() => Itinerary);
-    //  }
-    //}
   }
 }

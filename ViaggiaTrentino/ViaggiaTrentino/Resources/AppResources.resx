@@ -311,4 +311,10 @@
   <data name="ServiceLocationDisabled" xml:space="preserve">
     <value>Location is disabled in phone settings.</value>
   </data>
+  <data name="Off" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="On" xml:space="preserve">
+    <value>On</value>
+  </data>
 </root>
