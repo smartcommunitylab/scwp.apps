@@ -49,14 +49,16 @@ namespace ViaggiaTrentino.ViewModels
     public void TappedPushPin(Parking pp)
     {
       MessagePrompt mp = new MessagePrompt();
-      mp.Title = "parking";
-      mp.Body = new ParkingPopupView() { DataContext = pp };
+      mp.Title = Resources.AppResources.ParkingPopupTitle;
+      mp.Body = new ParkingPopupView(mp, navigationService) { DataContext = pp };
       mp.ActionPopUpButtons.Clear();
+      
+
+
       mp.VerticalAlignment = VerticalAlignment.Center;
       mp.HorizontalAlignment = HorizontalAlignment.Center;
       mp.Show();
     }
 
-    
   }
 }

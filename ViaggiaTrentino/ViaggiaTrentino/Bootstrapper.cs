@@ -41,7 +41,6 @@ namespace ViaggiaTrentino
       container.PerRequest<SavedJourneyViewModel>();
       container.PerRequest<UserSettingsViewModel>();
       container.PerRequest<SingleParkingViewModel>();
-      container.PerRequest<ParkingPopupViewModel>();
 
       AddCustomConventions();
     }

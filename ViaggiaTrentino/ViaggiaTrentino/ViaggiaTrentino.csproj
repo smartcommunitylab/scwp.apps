@@ -111,7 +111,6 @@
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
-    <Compile Include="ViewModels\Controls\ParkingPopupViewModel.cs" />
     <Compile Include="ViewModels\Controls\SingleParkingViewModel.cs" />
     <Compile Include="ViewModels\Controls\SavedJourneyViewModel.cs" />
     <Compile Include="ViewModels\Controls\UserSettingsViewModel.cs" />
@@ -184,6 +183,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Buttons\Favourites.png" />
+    <Content Include="Assets\Buttons\GetDirections.png" />
     <Content Include="Assets\Buttons\GpsLocation.png" />
     <Content Include="Assets\HubTiles\Urbano.png" />
     <Content Include="Assets\HubTiles\Parking.png" />
@@ -283,7 +283,6 @@
   <ItemGroup>
     <Page Include="Views\Controls\ParkingPopupView.xaml">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Controls\SingleParkingView.xaml">
       <Generator>MSBuild:Compile</Generator>

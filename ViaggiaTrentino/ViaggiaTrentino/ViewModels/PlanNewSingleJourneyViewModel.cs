@@ -14,6 +14,7 @@ namespace ViaggiaTrentino.ViewModels
     bool isSettingsShown;
     SingleJourney journey;
     DateTime departureDate;
+    double[] position;
     string fromText;
     string toText;
 
@@ -25,6 +26,16 @@ namespace ViaggiaTrentino.ViewModels
       departureDate = DateTime.Now;
       journey = new SingleJourney();
       
+    }
+
+    public double[] Position
+    {
+      get { return position; }
+      set
+      {
+        position = value;
+        NotifyOfPropertyChange(() => Position);
+      }
     }
 
     public string FromText
