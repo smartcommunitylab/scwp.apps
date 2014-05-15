@@ -2,6 +2,7 @@
 using Caliburn.Micro;
 using Microsoft.Phone.Controls;
 using Models.AuthorizationService;
+using ProfileServiceLibrary;
 using System;
 using System.Collections.Generic;
 using System.IO.IsolatedStorage;
@@ -17,12 +18,12 @@ namespace ViaggiaTrentino.ViewModels
   {
     private readonly INavigationService navigationService;
     AuthLibrary authLib;
+    ProfileLibrary pll;
     Popup loginPopup;
 
     public MainPageViewModel(INavigationService navigationService)
     {
       this.navigationService = navigationService;
-
       Settings.Initialize();
     }
 
@@ -97,6 +98,8 @@ namespace ViaggiaTrentino.ViewModels
         string code = e.Uri.Query.Split('=')[1];
         Settings.AppToken = await authLib.GetAccessToken(code);
         loginPopup.IsOpen = false;
+        pll = new ProfileLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
+        Settings.UserID = (await pll.GetBasicProfile()).UserId;
       }
     }
 

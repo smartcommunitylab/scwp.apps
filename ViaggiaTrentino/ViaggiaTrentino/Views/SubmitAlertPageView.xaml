@@ -38,6 +38,7 @@
     <!--ContentPanel - place additional content here-->
     <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
       <StackPanel>
+        
         <TextBlock Text="{Binding Path=LocalizedResources.SubAlertRoute, Source={StaticResource LocalizedStrings}}"></TextBlock>
         <toolkit:ListPicker ItemsSource="{Binding Routes}" SelectedItem="{Binding SelectedRoute, Mode=TwoWay}">
           <toolkit:ListPicker.ItemTemplate>
@@ -49,9 +50,9 @@
             <DataTemplate>
               <TextBlock Text="{Binding Converter={StaticResource RouteToName}}"  FontSize="24" TextWrapping="Wrap" Padding="0,0,0,5"></TextBlock>
             </DataTemplate>
-          </toolkit:ListPicker.FullModeItemTemplate>
-          
+          </toolkit:ListPicker.FullModeItemTemplate>          
         </toolkit:ListPicker>
+        
         <TextBlock Text="{Binding Path=LocalizedResources.SubAlertStop, Source={StaticResource LocalizedStrings}}"></TextBlock>
         <toolkit:ListPicker ItemsSource="{Binding Stops}" SelectedItem="{Binding SelectedStop, Mode=TwoWay}">
           <toolkit:ListPicker.ItemTemplate>
@@ -65,8 +66,21 @@
             </DataTemplate>
           </toolkit:ListPicker.FullModeItemTemplate>
         </toolkit:ListPicker>
+        
         <TextBlock Text="{Binding Path=LocalizedResources.SubAlertTime, Source={StaticResource LocalizedStrings}}"></TextBlock>
-        <toolkit:TimePicker></toolkit:TimePicker>
+        <toolkit:ListPicker ItemsSource="{Binding StopTimes}" SelectedItem="{Binding SelectedStopTime, Mode=TwoWay}">
+          <toolkit:ListPicker.ItemTemplate>
+            <DataTemplate>
+              <TextBlock Text="{Binding Time}"></TextBlock>
+            </DataTemplate>
+          </toolkit:ListPicker.ItemTemplate>
+          <toolkit:ListPicker.FullModeItemTemplate>
+            <DataTemplate>
+              <TextBlock Text="{Binding Time}"  FontSize="24" TextWrapping="Wrap" Padding="0,0,0,5"></TextBlock>
+            </DataTemplate>
+          </toolkit:ListPicker.FullModeItemTemplate>
+
+        </toolkit:ListPicker>
         <TextBlock Text="{Binding Path=LocalizedResources.SubAlertDelay, Source={StaticResource LocalizedStrings}}"></TextBlock>
 
         <TextBox InputScope="Digits"></TextBox>

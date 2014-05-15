@@ -79,6 +79,12 @@ namespace ViaggiaTrentino
       set { iss["LocationConsent"] = value; iss.Save(); }
     }
 
+    public static string UserID
+    {
+      get { return iss["UserID"] as string; }
+      set { iss["UserID"] = value; iss.Save(); }
+    }
+
     public static void Initialize()
     {
       iss = IsolatedStorageSettings.ApplicationSettings;

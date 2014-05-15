@@ -21,7 +21,6 @@ namespace ViaggiaTrentino.Converters
       {
         Route localR = value as Route;
         return string.Format("{0} {1}", localR.RouteShortName, localR.RouteLongName);
-        
       }
       return "";
     }

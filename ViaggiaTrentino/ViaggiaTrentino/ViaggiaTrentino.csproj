@@ -282,6 +282,9 @@
     <Reference Include="Models">
       <HintPath>..\..\..\scwp.support\CompiledDLL\Models.dll</HintPath>
     </Reference>
+    <Reference Include="ProfileLibrary">
+      <HintPath>..\..\..\scwp.support\CompiledDLL\ProfileLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Interactivity, Version=3.9.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Caliburn.Micro.1.5.2\lib\wp8\System.Windows.Interactivity.dll</HintPath>
     </Reference>

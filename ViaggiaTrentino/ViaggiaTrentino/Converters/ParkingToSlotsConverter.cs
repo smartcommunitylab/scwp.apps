@@ -31,7 +31,6 @@ namespace ViaggiaTrentino.Converters
           return p.SlotsTotal.ToString();
       }
       return "";
-
     }
 
     public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
