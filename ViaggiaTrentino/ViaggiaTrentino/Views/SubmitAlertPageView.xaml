@@ -17,7 +17,7 @@
     shell:SystemTray.IsVisible="True">
   
   <UserControl.Resources>
-    
+    <vtconvert:RouteToRouteNameConverter x:Name="RouteToName"></vtconvert:RouteToRouteNameConverter>
   </UserControl.Resources>
 
   <!--LayoutRoot is the root grid where all page content is placed-->
@@ -42,12 +42,12 @@
         <toolkit:ListPicker ItemsSource="{Binding Routes}" SelectedItem="{Binding SelectedRoute, Mode=TwoWay}">
           <toolkit:ListPicker.ItemTemplate>
             <DataTemplate>
-              <TextBlock Text="{Binding }"></TextBlock>
+              <TextBlock Text="{Binding Converter={StaticResource RouteToName}}"></TextBlock>
             </DataTemplate>
           </toolkit:ListPicker.ItemTemplate>
           <toolkit:ListPicker.FullModeItemTemplate>
             <DataTemplate>
-              <TextBlock Text="{Binding RouteLongName}"  FontSize="24" TextWrapping="Wrap" Padding="0,0,0,5"></TextBlock>
+              <TextBlock Text="{Binding Converter={StaticResource RouteToName}}"  FontSize="24" TextWrapping="Wrap" Padding="0,0,0,5"></TextBlock>
             </DataTemplate>
           </toolkit:ListPicker.FullModeItemTemplate>
           
