@@ -121,7 +121,9 @@
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\SavedJourneyDetailsViewModel.cs" />
     <Compile Include="ViewModels\SavedJourneyPageViewModel.cs" />
+    <Compile Include="ViewModels\SelectAlertpageViewModel.cs" />
     <Compile Include="ViewModels\SettingsPageViewModel.cs" />
+    <Compile Include="ViewModels\SubmitAlertPageViewModel.cs" />
     <Compile Include="ViewModels\TestPageViewModel.cs" />
     <Compile Include="Views\Controls\ParkingPopupView.xaml.cs">
       <DependentUpon>ParkingPopupView.xaml</DependentUpon>
@@ -153,8 +155,14 @@
     <Compile Include="Views\SavedJourneyPageView.xaml.cs">
       <DependentUpon>SavedJourneyPageView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SelectAlertPageView.xaml.cs">
+      <DependentUpon>SelectAlertPageView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SettingsPageView.xaml.cs">
       <DependentUpon>SettingsPageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SubmitAlertPageView.xaml.cs">
+      <DependentUpon>SubmitAlertPageView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TestPageView.xaml.cs">
       <DependentUpon>TestPageView.xaml</DependentUpon>
@@ -320,7 +328,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\SelectAlertPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\SettingsPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SubmitAlertPageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

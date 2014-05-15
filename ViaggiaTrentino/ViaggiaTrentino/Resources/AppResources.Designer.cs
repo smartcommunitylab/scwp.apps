@@ -448,6 +448,51 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Intercity bus delays.
+        /// </summary>
+        public static string SelSendAlertInter {
+            get {
+                return ResourceManager.GetString("SelSendAlertInter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rovereto bus delays.
+        /// </summary>
+        public static string SelSendAlertRv {
+            get {
+                return ResourceManager.GetString("SelSendAlertRv", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submit an alert.
+        /// </summary>
+        public static string SelSendAlertTitle {
+            get {
+                return ResourceManager.GetString("SelSendAlertTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trento bus delays.
+        /// </summary>
+        public static string SelSendAlertTn {
+            get {
+                return ResourceManager.GetString("SelSendAlertTn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Train delays.
+        /// </summary>
+        public static string SelSendAlertTrain {
+            get {
+                return ResourceManager.GetString("SelSendAlertTrain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Location is disabled in phone settings..
         /// </summary>
         public static string ServiceLocationDisabled {
