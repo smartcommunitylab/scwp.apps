@@ -8,10 +8,7 @@
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
-    Foreground="{StaticResource PhoneForegroundBrush}"
-             
-    >
-
+    Foreground="{StaticResource PhoneForegroundBrush}">
 
   <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}">
     <Grid.ColumnDefinitions>
@@ -19,14 +16,14 @@
       <ColumnDefinition Width="*"/>
     </Grid.ColumnDefinitions>
 
-    <Grid.RowDefinitions>    
+    <Grid.RowDefinitions>
       <RowDefinition Height="*"/>
       <RowDefinition Height="Auto"/>
-    </Grid.RowDefinitions>    
-    <vtcont:SingleParkingView x:Name="spw" DataContext="{ Binding }" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
+    </Grid.RowDefinitions>
+    <vtcont:SingleParkingView x:Name="spw" DataContext="{Binding}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
 
     <Button Content="{Binding Path=LocalizedResources.ParkingPopupCancel, Source={StaticResource LocalizedStrings}}" 
-                      Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" x:Name="btnClose" Click="btnClose_Click"></Button>
+                      Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" x:Name="btnClose" Click="btnClose_Click" ></Button>
     <Button Content="{Binding Path=LocalizedResources.ParkingPopupDirections, Source={StaticResource LocalizedStrings}}" 
                       Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" x:Name="btnDirections" Click="btnDirections_Click"></Button>
   </Grid>

@@ -52,8 +52,7 @@
               <mToolkit:MapItemsControl>
                 <mToolkit:MapItemsControl.ItemTemplate>
                   <DataTemplate>
-                    <mToolkit:Pushpin cal:Message.Attach="[Event Tap] = [Action TappedPushPin($this)]" GeoCoordinate="{Binding Position, Converter={StaticResource parkCoordArrayToGeo}}" Content="{Binding Name}">
-                      
+                    <mToolkit:Pushpin cal:Message.Attach="[Event Tap] = [Action TappedPushPin($this)]" GeoCoordinate="{Binding Position, Converter={StaticResource parkCoordArrayToGeo}}" Content="{Binding Name}">                   
                       <!--<mToolkit:Pushpin.Template>
                         <ControlTemplate TargetType="mToolkit:Pushpin">
                           <StackPanel>

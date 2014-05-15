@@ -50,6 +50,7 @@ namespace ViaggiaTrentino.ViewModels
     {
       MessagePrompt mp = new MessagePrompt();
       mp.Title = Resources.AppResources.ParkingPopupTitle;
+      
       mp.Body = new ParkingPopupView(mp, navigationService) { DataContext = pp };
       mp.ActionPopUpButtons.Clear();
       
