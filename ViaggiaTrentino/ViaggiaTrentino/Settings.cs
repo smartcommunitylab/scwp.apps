@@ -2,6 +2,7 @@
 using Models.AuthorizationService;
 using System;
 using System.Collections.Generic;
+using System.Device.Location;
 using System.IO.IsolatedStorage;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace ViaggiaTrentino
 {
+
   public class Settings
   {
     private static IsolatedStorageSettings iss;
@@ -76,7 +78,13 @@ namespace ViaggiaTrentino
     public static bool LocationConsent
     {
       get { return (bool)iss["LocationConsent"]; }
-      set { iss["LocationConsent"] = value; iss.Save(); }
+      set { iss["LocationConsent"] = value; iss.Save(); LaunchGPS(); }
+    }
+
+    public static GeoCoordinate GPSPosition
+    {
+      get { return iss["lastGPSPosition"] as GeoCoordinate; }
+      set { iss["lastGPSPosition"] = value; iss.Save(); }
     }
 
     public static void Initialize()
@@ -91,7 +99,7 @@ namespace ViaggiaTrentino
       authLib = new AuthLibrary(clientId, clientSecret, redirectUrl, serverUrl);
       if (!HasBeenStarted)
       {
-        iss["hasBeenStarted"] = iss["token"] = null;
+        iss["hasBeenStarted"] = iss["token"] = iss["lastGPSPosition"] = null;
         iss["tokenExpiration"] = DateTime.Now;
         iss["LocationConsent"] = true;
         iss.Save();
@@ -124,6 +132,24 @@ namespace ViaggiaTrentino
     public static void ClearHasBeenStarted()
     {
       iss.Remove("hasBeenStarted");
+    }
+
+    private static void LaunchGPS()
+    {
+      if (!Settings.LocationConsent)
+        return;
+      GeoCoordinateWatcher geolocator = new GeoCoordinateWatcher(GeoPositionAccuracy.High);
+      geolocator.StatusChanged += geolocator_StatusChanged;
+      geolocator.Start();
+    }
+
+    static void geolocator_StatusChanged(object sender, GeoPositionStatusChangedEventArgs e)
+    {
+      if (e.Status == GeoPositionStatus.Ready)
+      {
+        Settings.GPSPosition = (sender as GeoCoordinateWatcher).Position.Location;
+        (sender as GeoCoordinateWatcher).Stop();
+      }
     }
   }
 }

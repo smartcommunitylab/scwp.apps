@@ -22,8 +22,6 @@ namespace ViaggiaTrentino.ViewModels
     public MainPageViewModel(INavigationService navigationService)
     {
       this.navigationService = navigationService;
-
-      Settings.Initialize();
     }
 
     protected override void OnActivate()

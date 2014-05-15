@@ -42,9 +42,7 @@ namespace ViaggiaTrentino.Views
 
     private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
     {
-      GeoCoordinateWatcher geolocator = new GeoCoordinateWatcher(GeoPositionAccuracy.High);
-      geolocator.StatusChanged += geolocator_StatusChanged;
-      geolocator.Start();
+      ParkingsMap.Center = Settings.GPSPosition;
     }
     
     public void Handle(IEnumerable<Parking> parkings)
@@ -53,15 +51,6 @@ namespace ViaggiaTrentino.Views
       var obj = children.FirstOrDefault(x => x.GetType() == typeof(MapItemsControl)) as MapItemsControl;
 
       obj.ItemsSource = parkings;
-    }
-
-    void geolocator_StatusChanged(object sender, GeoPositionStatusChangedEventArgs e)
-    {
-      if (e.Status == GeoPositionStatus.Ready)
-      {
-        ParkingsMap.Center = (sender as GeoCoordinateWatcher).Position.Location;
-        (sender as GeoCoordinateWatcher).Stop();
-      }
     }
 
     private void SingleParkingView_Tap(object sender, System.Windows.Input.GestureEventArgs e)
