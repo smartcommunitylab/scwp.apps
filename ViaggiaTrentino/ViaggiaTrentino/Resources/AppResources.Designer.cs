@@ -448,6 +448,51 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Intercity bus delays.
+        /// </summary>
+        public static string SelSendAlertInter {
+            get {
+                return ResourceManager.GetString("SelSendAlertInter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rovereto bus delays.
+        /// </summary>
+        public static string SelSendAlertRv {
+            get {
+                return ResourceManager.GetString("SelSendAlertRv", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submit an alert.
+        /// </summary>
+        public static string SelSendAlertTitle {
+            get {
+                return ResourceManager.GetString("SelSendAlertTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trento bus delays.
+        /// </summary>
+        public static string SelSendAlertTn {
+            get {
+                return ResourceManager.GetString("SelSendAlertTn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Train delays.
+        /// </summary>
+        public static string SelSendAlertTrain {
+            get {
+                return ResourceManager.GetString("SelSendAlertTrain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Location is disabled in phone settings..
         /// </summary>
         public static string ServiceLocationDisabled {
@@ -480,6 +525,51 @@ namespace ViaggiaTrentino.Resources {
         public static string SettingsPageTitle {
             get {
                 return ResourceManager.GetString("SettingsPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delay.
+        /// </summary>
+        public static string SubAlertDelay {
+            get {
+                return ResourceManager.GetString("SubAlertDelay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Route.
+        /// </summary>
+        public static string SubAlertRoute {
+            get {
+                return ResourceManager.GetString("SubAlertRoute", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stop.
+        /// </summary>
+        public static string SubAlertStop {
+            get {
+                return ResourceManager.GetString("SubAlertStop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submit.
+        /// </summary>
+        public static string SubAlertSubmit {
+            get {
+                return ResourceManager.GetString("SubAlertSubmit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time.
+        /// </summary>
+        public static string SubAlertTime {
+            get {
+                return ResourceManager.GetString("SubAlertTime", resourceCulture);
             }
         }
         

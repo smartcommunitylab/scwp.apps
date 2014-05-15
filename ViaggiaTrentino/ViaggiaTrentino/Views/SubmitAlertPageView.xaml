@@ -1,0 +1,96 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="ViaggiaTrentino.Views.SubmitAlertPageView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:bab="clr-namespace:Caliburn.Micro.BindableAppBar;assembly=Caliburn.Micro.BindableAppBar"
+    xmlns:vtconvert="clr-namespace:ViaggiaTrentino.Converters"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+  
+  <UserControl.Resources>
+    <vtconvert:RouteToRouteNameConverter x:Name="RouteToName"></vtconvert:RouteToRouteNameConverter>
+  </UserControl.Resources>
+
+  <!--LayoutRoot is the root grid where all page content is placed-->
+  <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+
+    <!--TitlePanel contains the name of the application and page title-->
+    <StackPanel Grid.Row="0" Margin="12,17,0,28">
+      <TextBlock Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}" 
+                 Style="{StaticResource PhoneTextNormalStyle}"/>
+      <TextBlock Text="{Binding LineName}" 
+                 Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+    </StackPanel>
+
+    <!--ContentPanel - place additional content here-->
+    <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+      <StackPanel>
+        
+        <TextBlock Text="{Binding Path=LocalizedResources.SubAlertRoute, Source={StaticResource LocalizedStrings}}"></TextBlock>
+        <toolkit:ListPicker ItemsSource="{Binding Routes}" SelectedItem="{Binding SelectedRoute, Mode=TwoWay}">
+          <toolkit:ListPicker.ItemTemplate>
+            <DataTemplate>
+              <TextBlock Text="{Binding Converter={StaticResource RouteToName}}"></TextBlock>
+            </DataTemplate>
+          </toolkit:ListPicker.ItemTemplate>
+          <toolkit:ListPicker.FullModeItemTemplate>
+            <DataTemplate>
+              <TextBlock Text="{Binding Converter={StaticResource RouteToName}}"  FontSize="24" TextWrapping="Wrap" Padding="0,0,0,5"></TextBlock>
+            </DataTemplate>
+          </toolkit:ListPicker.FullModeItemTemplate>          
+        </toolkit:ListPicker>
+        
+        <TextBlock Text="{Binding Path=LocalizedResources.SubAlertStop, Source={StaticResource LocalizedStrings}}"></TextBlock>
+        <toolkit:ListPicker ItemsSource="{Binding Stops}" SelectedItem="{Binding SelectedStop, Mode=TwoWay}">
+          <toolkit:ListPicker.ItemTemplate>
+            <DataTemplate>
+              <TextBlock Text="{Binding Name}" ></TextBlock>
+            </DataTemplate>
+          </toolkit:ListPicker.ItemTemplate>
+          <toolkit:ListPicker.FullModeItemTemplate>
+            <DataTemplate>
+              <TextBlock Text="{Binding Name}" FontSize="24" TextWrapping="Wrap" Padding="0,0,0,5" ></TextBlock>
+            </DataTemplate>
+          </toolkit:ListPicker.FullModeItemTemplate>
+        </toolkit:ListPicker>
+        
+        <TextBlock Text="{Binding Path=LocalizedResources.SubAlertTime, Source={StaticResource LocalizedStrings}}"></TextBlock>
+        <toolkit:ListPicker ItemsSource="{Binding StopTimes}" SelectedItem="{Binding SelectedStopTime, Mode=TwoWay}">
+          <toolkit:ListPicker.ItemTemplate>
+            <DataTemplate>
+              <TextBlock Text="{Binding Time}"></TextBlock>
+            </DataTemplate>
+          </toolkit:ListPicker.ItemTemplate>
+          <toolkit:ListPicker.FullModeItemTemplate>
+            <DataTemplate>
+              <TextBlock Text="{Binding Time}"  FontSize="24" TextWrapping="Wrap" Padding="0,0,0,5"></TextBlock>
+            </DataTemplate>
+          </toolkit:ListPicker.FullModeItemTemplate>
+
+        </toolkit:ListPicker>
+        <TextBlock Text="{Binding Path=LocalizedResources.SubAlertDelay, Source={StaticResource LocalizedStrings}}"></TextBlock>
+
+        <TextBox InputScope="Digits"></TextBox>
+      </StackPanel>
+    </Grid>
+    
+    <bab:BindableAppBar>
+      <bab:BindableAppBarButton IconUri="/Assets/AppBar/check.png" x:Name="SubmitDelay" 
+                                Text="{Binding Path=LocalizedResources.SubAlertSubmit, Source={StaticResource LocalizedStrings}}"/>
+    </bab:BindableAppBar>
+  </Grid>
+
+</phone:PhoneApplicationPage>

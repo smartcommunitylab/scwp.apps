@@ -96,6 +96,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Converters\RouteToRouteNameConverter.cs" />
     <Compile Include="Converters\ParkingCoordinateArrayToGeoCoordinate.cs" />
     <Compile Include="Converters\ParkingSlotsToForegoundColor.cs" />
     <Compile Include="Converters\BooleanToScrollBarVisibilityConverter.cs" />
@@ -121,7 +122,9 @@
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\SavedJourneyDetailsViewModel.cs" />
     <Compile Include="ViewModels\SavedJourneyPageViewModel.cs" />
+    <Compile Include="ViewModels\SelectAlertPageViewModel.cs" />
     <Compile Include="ViewModels\SettingsPageViewModel.cs" />
+    <Compile Include="ViewModels\SubmitAlertPageViewModel.cs" />
     <Compile Include="ViewModels\TestPageViewModel.cs" />
     <Compile Include="Views\Controls\ParkingPopupView.xaml.cs">
       <DependentUpon>ParkingPopupView.xaml</DependentUpon>
@@ -153,8 +156,14 @@
     <Compile Include="Views\SavedJourneyPageView.xaml.cs">
       <DependentUpon>SavedJourneyPageView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SelectAlertPageView.xaml.cs">
+      <DependentUpon>SelectAlertPageView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SettingsPageView.xaml.cs">
       <DependentUpon>SettingsPageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SubmitAlertPageView.xaml.cs">
+      <DependentUpon>SubmitAlertPageView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TestPageView.xaml.cs">
       <DependentUpon>TestPageView.xaml</DependentUpon>
@@ -273,6 +282,9 @@
     <Reference Include="Models">
       <HintPath>..\..\..\scwp.support\CompiledDLL\Models.dll</HintPath>
     </Reference>
+    <Reference Include="ProfileLibrary">
+      <HintPath>..\..\..\scwp.support\CompiledDLL\ProfileLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Interactivity, Version=3.9.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Caliburn.Micro.1.5.2\lib\wp8\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -320,7 +332,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\SelectAlertPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\SettingsPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SubmitAlertPageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

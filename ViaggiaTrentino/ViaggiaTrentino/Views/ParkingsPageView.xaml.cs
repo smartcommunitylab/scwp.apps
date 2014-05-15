@@ -60,7 +60,5 @@ namespace ViaggiaTrentino.Views
       ParkingsMap.ZoomLevel = 17;
       pivotContainer.SelectedItem = pivotMap;
     }
-
-
   }
 }

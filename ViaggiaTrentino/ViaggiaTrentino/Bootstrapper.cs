@@ -87,6 +87,8 @@ namespace ViaggiaTrentino
       container.PerRequest<ParkingsPageViewModel>();
       container.PerRequest<PlanNewSingleJourneyViewModel>();
       container.PerRequest<MonitorJourneyViewModel>();
+      container.PerRequest<SelectAlertPageViewModel>();
+      container.PerRequest<SubmitAlertPageViewModel>();
 
       //User controls
       container.PerRequest<SavedJourneyViewModel>();
@@ -118,7 +120,8 @@ namespace ViaggiaTrentino
       ConventionManager.AddElementConvention<BindableAppBarMenuItem>(Control.IsEnabledProperty, "DataContext", "Click");
       ConventionManager.AddElementConvention<BindableAppBarButton>(Control.IsEnabledProperty, "DataContext", "Click");
       ConventionManager.AddElementConvention<HubTile>(Control.IsEnabledProperty, "DataContext", "Tap");
-
+      ConventionManager.AddElementConvention<TextBlock>(Control.IsEnabledProperty, "DataContext", "Tap");
+      ConventionManager.AddElementConvention<ListPicker>(Control.IsEnabledProperty, "DataContext", "SelectionChanged");
       ConventionManager.AddElementConvention<Pivot>(Pivot.ItemsSourceProperty, "SelectedItem", "SelectionChanged")
                 .ApplyBinding =
                 (viewModelType, path, property, element, convention) =>

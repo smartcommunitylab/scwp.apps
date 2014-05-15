@@ -326,4 +326,34 @@
   <data name="ParkingPopupTitle" xml:space="preserve">
     <value>Parking</value>
   </data>
+  <data name="SelSendAlertInter" xml:space="preserve">
+    <value>Intercity bus delays</value>
+  </data>
+  <data name="SelSendAlertRv" xml:space="preserve">
+    <value>Rovereto bus delays</value>
+  </data>
+  <data name="SelSendAlertTitle" xml:space="preserve">
+    <value>Submit an alert</value>
+  </data>
+  <data name="SelSendAlertTn" xml:space="preserve">
+    <value>Trento bus delays</value>
+  </data>
+  <data name="SelSendAlertTrain" xml:space="preserve">
+    <value>Train delays</value>
+  </data>
+  <data name="SubAlertDelay" xml:space="preserve">
+    <value>Delay</value>
+  </data>
+  <data name="SubAlertRoute" xml:space="preserve">
+    <value>Route</value>
+  </data>
+  <data name="SubAlertStop" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="SubAlertSubmit" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="SubAlertTime" xml:space="preserve">
+    <value>Time</value>
+  </data>
 </root>
