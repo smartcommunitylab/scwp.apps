@@ -25,7 +25,7 @@
   </UserControl.Resources>
 
   <Grid x:Name="LayoutRoot" Background="Transparent">
-    <phone:Pivot Title="{Binding Path=LocalizedResources.ParkingsPageTitle, Source={StaticResource LocalizedStrings}}">
+    <phone:Pivot x:Name="pivotContainer" Title="{Binding Path=LocalizedResources.ParkingsPageTitle, Source={StaticResource LocalizedStrings}}">
       <phone:PivotItem Header="{Binding Path=LocalizedResources.ParkingsPageParkingPivot, Source={StaticResource LocalizedStrings}}">
         <Grid>
           <ListBox ItemsSource="{Binding Path=Parkings}" VerticalAlignment="Top">
@@ -37,7 +37,7 @@
             </ListBox.ItemContainerStyle>
             <ListBox.ItemTemplate>
               <DataTemplate>
-                <vtcont:SingleParkingView DataContext="{Binding}"></vtcont:SingleParkingView>
+                <vtcont:SingleParkingView DataContext="{Binding}" Tap="SingleParkingView_Tap"></vtcont:SingleParkingView>
               </DataTemplate>
             </ListBox.ItemTemplate>
           </ListBox>
@@ -45,7 +45,7 @@
       </phone:PivotItem>
 
       <!--Pivot item two-->
-      <phone:PivotItem Header="{Binding Path=LocalizedResources.ParkingsPageMapPivot, Source={StaticResource LocalizedStrings}}">
+      <phone:PivotItem x:Name="pivotMap" Header="{Binding Path=LocalizedResources.ParkingsPageMapPivot, Source={StaticResource LocalizedStrings}}">
         <Grid>
           <maps:Map x:Name="ParkingsMap" ZoomLevel="11">
             <mToolkit:MapExtensions.Children>

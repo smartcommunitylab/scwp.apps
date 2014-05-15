@@ -26,7 +26,7 @@ namespace ViaggiaTrentino.ViewModels
 
       if (Settings.IsTokenExpired)
         Settings.RefreshToken();
-      publicTransLib = new PublicTransportLibrary(Settings.AppToken.AccessToken);
+      publicTransLib = new PublicTransportLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
     }
 
     protected async override void OnActivate()

@@ -28,6 +28,9 @@ namespace ViaggiaTrentino
     static string redirectUrl;
     public static string RedirectUrl { get { return redirectUrl; } }
 
+    static string serverUrl;
+    public static string ServerUrl { get { return serverUrl; } }
+
     public static bool IsTokenExpired
     {
       get { return DateTime.Now > TokenExpiration; }
@@ -62,7 +65,7 @@ namespace ViaggiaTrentino
 
     public static bool IsLogged
     {
-      get { return iss.Contains("token"); }
+      get { return iss["token"] != null; }
     }
 
     public static bool HasBeenStarted
@@ -83,8 +86,9 @@ namespace ViaggiaTrentino
       clientId = "52482826-891e-4ee0-9f79-9153a638d6e4";
       clientSecret = "f3ea5378-43ba-42c3-b2bf-5f7cd10b6e6e";
       redirectUrl = "http://localhost";
+      serverUrl = "https://vas-dev.smartcampuslab.it/";
 
-      authLib = new AuthLibrary(clientId, clientSecret, redirectUrl);
+      authLib = new AuthLibrary(clientId, clientSecret, redirectUrl, serverUrl);
       if (!HasBeenStarted)
       {
         iss["hasBeenStarted"] = iss["token"] = null;

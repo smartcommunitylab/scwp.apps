@@ -26,6 +26,15 @@ namespace ViaggiaTrentino.ViewModels
       Settings.Initialize();
     }
 
+    protected override void OnActivate()
+    {
+      base.OnActivate();
+      if (!Settings.IsLogged)
+      {
+        MessageBox.Show("Loggati");
+        BarLogin();
+      }
+    }
 
     #region Tiles
 
@@ -66,7 +75,7 @@ namespace ViaggiaTrentino.ViewModels
 
     public void BarLogin()
     {
-      authLib = new AuthLibrary(Settings.ClientId, Settings.ClientSecret, Settings.RedirectUrl);
+      authLib = new AuthLibrary(Settings.ClientId, Settings.ClientSecret, Settings.RedirectUrl, Settings.ServerUrl);
 
       if (Settings.AppToken == null)
       {

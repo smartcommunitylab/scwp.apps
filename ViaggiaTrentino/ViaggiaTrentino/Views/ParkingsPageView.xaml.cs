@@ -64,6 +64,14 @@ namespace ViaggiaTrentino.Views
       }
     }
 
+    private void SingleParkingView_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+    {
+      Parking p = (sender as SingleParkingView).DataContext as Parking;
+      ParkingsMap.Center = new GeoCoordinate(p.Position[0], p.Position[1]);
+      ParkingsMap.ZoomLevel = 17;
+      pivotContainer.SelectedItem = pivotMap;
+    }
+
 
   }
 }
