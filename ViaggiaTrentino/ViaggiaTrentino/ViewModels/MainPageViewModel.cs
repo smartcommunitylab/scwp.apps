@@ -26,6 +26,7 @@ namespace ViaggiaTrentino.ViewModels
       Settings.Initialize();
     }
 
+
     #region Tiles
 
     public void PlanJourneyTile()

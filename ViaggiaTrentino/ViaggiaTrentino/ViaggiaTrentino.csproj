@@ -111,6 +111,7 @@
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
+    <Compile Include="ViewModels\Controls\ParkingPopupViewModel.cs" />
     <Compile Include="ViewModels\Controls\SingleParkingViewModel.cs" />
     <Compile Include="ViewModels\Controls\SavedJourneyViewModel.cs" />
     <Compile Include="ViewModels\Controls\UserSettingsViewModel.cs" />
@@ -123,6 +124,9 @@
     <Compile Include="ViewModels\SavedJourneyPageViewModel.cs" />
     <Compile Include="ViewModels\SettingsPageViewModel.cs" />
     <Compile Include="ViewModels\TestPageViewModel.cs" />
+    <Compile Include="Views\Controls\ParkingPopupView.xaml.cs">
+      <DependentUpon>ParkingPopupView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Controls\SingleParkingView.xaml.cs">
       <DependentUpon>SingleParkingView.xaml</DependentUpon>
     </Compile>
@@ -244,6 +248,9 @@
     <Reference Include="Caliburn.Micro.Extensions">
       <HintPath>..\packages\Caliburn.Micro.1.5.2\lib\wp8\Caliburn.Micro.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="Coding4Fun.Toolkit.Controls">
+      <HintPath>..\packages\Coding4Fun.Toolkit.Controls.2.0.7\lib\windowsphone8\Coding4Fun.Toolkit.Controls.dll</HintPath>
+    </Reference>
     <Reference Include="CommonHelpers.cs">
       <HintPath>..\..\..\scwp.support\CompiledDLL\CommonHelpers.cs.dll</HintPath>
     </Reference>
@@ -274,6 +281,10 @@
     <Folder Include="Assets\Misc\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\Controls\ParkingPopupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Controls\SingleParkingView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

@@ -7,6 +7,7 @@ using MobilityServiceLibrary;
 using System.Windows.Controls.Primitives;
 using ViaggiaTrentino.Views.Controls;
 using System.Windows.Controls;
+using Coding4Fun.Toolkit.Controls;
 
 namespace ViaggiaTrentino.ViewModels
 {
@@ -16,35 +17,7 @@ namespace ViaggiaTrentino.ViewModels
     private readonly INavigationService navigationService;
     ObservableCollection<Parking> parkings;
     PublicTransportLibrary publicTransLib;
-    Parking selParking;
-    bool isPopUp;
-
-
-    public Parking SelectedParking
-    {
-      get
-      {
-        return selParking;
-      }
-      set
-      {
-        selParking = value;
-        NotifyOfPropertyChange(() => SelectedParking);
-      }
-    }
-
-    public bool IsPopupShown
-    {
-      get
-      {
-        return isPopUp;
-      }
-      set
-      {
-        isPopUp = value;
-        NotifyOfPropertyChange(() => IsPopupShown);
-      }
-    }
+    
 
     public ParkingsPageViewModel(INavigationService navigationService, IEventAggregator eventAggregator)
     {
@@ -75,19 +48,15 @@ namespace ViaggiaTrentino.ViewModels
 
     public void TappedPushPin(Parking pp)
     {
-      SelectedParking = pp;      
-      IsPopupShown = true;
-
+      MessagePrompt mp = new MessagePrompt();
+      mp.Title = "parking";
+      mp.Body = new ParkingPopupView() { DataContext = pp };
+      mp.ActionPopUpButtons.Clear();
+      mp.VerticalAlignment = VerticalAlignment.Center;
+      mp.HorizontalAlignment = HorizontalAlignment.Center;
+      mp.Show();
     }
 
-    public void ClosePopup()
-    {
-      IsPopupShown = false;
-    }
-
-    public void GetDirectionsBtn()
-    {
-      MessageBox.Show("navigo verso " + selParking.Name);
-    }
+    
   }
 }

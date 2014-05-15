@@ -46,7 +46,7 @@
 
       <!--Pivot item two-->
       <phone:PivotItem Header="{Binding Path=LocalizedResources.ParkingsPageMapPivot, Source={StaticResource LocalizedStrings}}">
-        <Grid HorizontalAlignment="Stretch">
+        <Grid>
           <maps:Map x:Name="ParkingsMap" ZoomLevel="11">
             <mToolkit:MapExtensions.Children>
               <mToolkit:MapItemsControl>
@@ -67,33 +67,6 @@
               </mToolkit:MapItemsControl>
             </mToolkit:MapExtensions.Children>
           </maps:Map>
-
-          <Popup x:Name="pop" IsOpen="{Binding IsPopupShown}" Opened="pop_Opened" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Grid Background="{StaticResource PhoneChromeBrush}">
-              <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-              </Grid.ColumnDefinitions>
-
-              <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-              </Grid.RowDefinitions>
-              <StackPanel Background="Black" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
-                <TextBlock Text="{Binding Path=LocalizedResources.ParkingPopupTitle, Source={StaticResource LocalizedStrings}}" 
-                           FontSize="28" Padding="10,0,0,5" />
-              </StackPanel>
-              <vtcont:SingleParkingView x:Name="spw" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" DataContext="{Binding SelectedParking}" />
-
-              <Button Content="{Binding Path=LocalizedResources.ParkingPopupCancel, Source={StaticResource LocalizedStrings}}" 
-                      Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" 
-                      cal:Message.Attach="[Event Tap] = [Action ClosePopup]"></Button>
-              <Button Content="{Binding Path=LocalizedResources.ParkingPopupDirections, Source={StaticResource LocalizedStrings}}" 
-                      Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" 
-                      cal:Message.Attach="[Event Tap] = [Action GetDirectionsBtn]"></Button>
-            </Grid>
-          </Popup>
         </Grid>
       </phone:PivotItem>
     </phone:Pivot>
