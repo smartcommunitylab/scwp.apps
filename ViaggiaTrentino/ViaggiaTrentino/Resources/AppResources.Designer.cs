@@ -529,6 +529,51 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delay.
+        /// </summary>
+        public static string SubAlertDelay {
+            get {
+                return ResourceManager.GetString("SubAlertDelay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Route.
+        /// </summary>
+        public static string SubAlertRoute {
+            get {
+                return ResourceManager.GetString("SubAlertRoute", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stop.
+        /// </summary>
+        public static string SubAlertStop {
+            get {
+                return ResourceManager.GetString("SubAlertStop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submit.
+        /// </summary>
+        public static string SubAlertSubmit {
+            get {
+                return ResourceManager.GetString("SubAlertSubmit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time.
+        /// </summary>
+        public static string SubAlertTime {
+            get {
+                return ResourceManager.GetString("SubAlertTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Trentino External Bus.
         /// </summary>
         public static string TileExtraurbanoMessage {

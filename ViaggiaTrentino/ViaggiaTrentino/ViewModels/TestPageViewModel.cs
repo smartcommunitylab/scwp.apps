@@ -69,5 +69,11 @@ namespace ViaggiaTrentino.ViewModels
       Viaggi.Add(bi);
 
     }
+
+    public void alert()
+    {
+      navigationService.UriFor<SelectAlertPageViewModel>().Navigate();
+
+    }
   }
 }

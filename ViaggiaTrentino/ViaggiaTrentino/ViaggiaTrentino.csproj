@@ -121,7 +121,7 @@
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\SavedJourneyDetailsViewModel.cs" />
     <Compile Include="ViewModels\SavedJourneyPageViewModel.cs" />
-    <Compile Include="ViewModels\SelectAlertpageViewModel.cs" />
+    <Compile Include="ViewModels\SelectAlertPageViewModel.cs" />
     <Compile Include="ViewModels\SettingsPageViewModel.cs" />
     <Compile Include="ViewModels\SubmitAlertPageViewModel.cs" />
     <Compile Include="ViewModels\TestPageViewModel.cs" />

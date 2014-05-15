@@ -32,6 +32,7 @@
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
       <StackPanel>
         <Button x:Name="planJourney" Content="planJourney" />
+        <Button x:Name="alert" Content="Alert" />
 
           <Button x:Name="popola" Content="pop">
           

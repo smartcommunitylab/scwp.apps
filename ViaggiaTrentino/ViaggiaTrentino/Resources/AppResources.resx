@@ -341,4 +341,19 @@
   <data name="SelSendAlertTrain" xml:space="preserve">
     <value>Train delays</value>
   </data>
+  <data name="SubAlertDelay" xml:space="preserve">
+    <value>Delay</value>
+  </data>
+  <data name="SubAlertRoute" xml:space="preserve">
+    <value>Route</value>
+  </data>
+  <data name="SubAlertStop" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="SubAlertSubmit" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="SubAlertTime" xml:space="preserve">
+    <value>Time</value>
+  </data>
 </root>

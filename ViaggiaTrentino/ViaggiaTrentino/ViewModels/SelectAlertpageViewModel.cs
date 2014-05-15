@@ -8,36 +8,42 @@ using System.Threading.Tasks;
 
 namespace ViaggiaTrentino.ViewModels
 {
-  public class SelectAlertpageViewModel: Screen
+  public class SelectAlertPageViewModel: Screen
   {
     private readonly INavigationService navigationService;
 
-    public SelectAlertpageViewModel(INavigationService navigationService)
+    public SelectAlertPageViewModel(INavigationService navigationService)
     {
       this.navigationService = navigationService;
     }
 
     public void TrentoBus()
     {
-      navigationService.UriFor<SubmitAlertPageViewModel>().WithParam(x => x.Agency, AgencyType.TrentoCityBus).Navigate();
+      navigationService.UriFor<SubmitAlertPageViewModel>().WithParam(x => x.AgencyID, AgencyType.TrentoCityBus)
+         .WithParam(x => x.LineName, Resources.AppResources.SelSendAlertTn)
+         .Navigate();
     }
 
     public void RoveretoBus()
     {
-      navigationService.UriFor<SubmitAlertPageViewModel>().WithParam(x => x.Agency, AgencyType.RoveretoCityBus).Navigate();
-
+      navigationService.UriFor<SubmitAlertPageViewModel>().WithParam(x => x.AgencyID, AgencyType.RoveretoCityBus)
+        .WithParam(x => x.LineName, Resources.AppResources.SelSendAlertRv)
+        .Navigate();
     }
 
     public void InterBus()
     {
-      navigationService.UriFor<SubmitAlertPageViewModel>().WithParam(x => x.Agency, AgencyType.TrentinoIntercityBus).Navigate();
-
+      navigationService.UriFor<SubmitAlertPageViewModel>().WithParam(x => x.AgencyID, AgencyType.TrentinoIntercityBus)
+        .WithParam(x => x.LineName, Resources.AppResources.SelSendAlertInter)
+        .Navigate();
     }
 
     public void Train()
     {
       //agency type of a railway, so that i can intercept it and then retrieve all railways
-      navigationService.UriFor<SubmitAlertPageViewModel>().WithParam(x => x.Agency, AgencyType.TrentoMaleRailway).Navigate();
+      navigationService.UriFor<SubmitAlertPageViewModel>().WithParam(x => x.AgencyID, AgencyType.TrentoMaleRailway)
+        .WithParam(x => x.LineName, Resources.AppResources.SelSendAlertTrain)
+        .Navigate();
     }    
   }
 }
