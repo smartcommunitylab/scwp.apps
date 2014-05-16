@@ -17,7 +17,7 @@
   </UserControl.Resources>
   
   <StackPanel Background="{StaticResource PhoneChromeBrush}" Margin="0,0,0,5">
-    <TextBlock Text="{Binding Name, FallbackValue='*missing data*', TargetNullValue='empty title'}" TextWrapping="Wrap" FontSize="32" ></TextBlock>
+    <TextBlock Text="{Binding Name, TargetNullValue='empty title'}" TextWrapping="Wrap" FontSize="32" ></TextBlock>
 
     <Grid x:Name="LayoutRoot"  HorizontalAlignment="Stretch" Margin="5,0,0,0">
       <Grid.ColumnDefinitions>
@@ -26,8 +26,10 @@
       </Grid.ColumnDefinitions>
 
       <StackPanel Grid.Column="0">
-        <TextBlock Text="{Binding OriginalFrom.Name, FallbackValue='*missing data*'}" TextWrapping="Wrap"></TextBlock>
-        <TextBlock Text="{Binding OriginalTo.Name, FallbackValue='*missing data*'}" TextWrapping="Wrap"></TextBlock>
+        <TextBlock Text="{Binding OriginalFrom.Name, TargetNullValue=''}" 
+                   TextWrapping="Wrap"></TextBlock>
+        <TextBlock Text="{Binding OriginalTo.Name, TargetNullValue=''}" 
+                   TextWrapping="Wrap"></TextBlock>
         <!--<TextBlock Text="partenza" TextWrapping="Wrap"></TextBlock>
         <TextBlock Text="destinazione" TextWrapping="Wrap"></TextBlock>-->
       </StackPanel>
