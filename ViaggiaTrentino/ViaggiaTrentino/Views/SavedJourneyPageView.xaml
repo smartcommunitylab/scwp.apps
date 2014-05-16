@@ -5,8 +5,10 @@
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:vtcont="clr-namespace:ViaggiaTrentino.Views.Controls"
+    xmlns:vtcont="clr-namespace:ViaggiaTrentino.Views.Controls"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -30,10 +32,10 @@
               </Style>
             </ListBox.ItemContainerStyle>
             <ListBox.ItemTemplate>
-              <DataTemplate>
+              <DataTemplate>                
                 <vtcont:SavedJourneyView  DataContext="{Binding}"></vtcont:SavedJourneyView>
-              </DataTemplate>
-            </ListBox.ItemTemplate>
+              </DataTemplate>             
+            </ListBox.ItemTemplate>            
           </ListBox>
         </Grid>
       </phone:PivotItem>

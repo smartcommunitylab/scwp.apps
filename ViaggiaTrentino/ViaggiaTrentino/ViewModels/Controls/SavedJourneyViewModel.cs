@@ -11,6 +11,6 @@ using System.Windows;
 namespace ViaggiaTrentino.ViewModels.Controls
 {
   public class SavedJourneyViewModel : PropertyChangedBase
-  {
+  {      
   }
 }

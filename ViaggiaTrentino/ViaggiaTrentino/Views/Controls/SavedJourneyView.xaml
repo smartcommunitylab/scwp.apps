@@ -52,15 +52,15 @@
           </ListBox.ItemTemplate>
         </ListBox>
       </StackPanel>
+      <toolkit:ContextMenuService.ContextMenu >
+        <toolkit:ContextMenu>
+          <toolkit:MenuItem x:Name="DeleteJourney" Tap="DeleteJourney_Tap" Header="delete"></toolkit:MenuItem>
+          <toolkit:MenuItem x:Name="MonitorJourney" Tap="MonitorJourney_Tap" Header="monitor ON/OFF"></toolkit:MenuItem>
 
+        </toolkit:ContextMenu>
+      </toolkit:ContextMenuService.ContextMenu>
     </Grid>
   </StackPanel>
-  <toolkit:ContextMenuService.ContextMenu>
-    <toolkit:ContextMenu>
-      <toolkit:MenuItem x:Name="DeleteBtn" Header="delete"></toolkit:MenuItem>
-      <toolkit:MenuItem x:Name="MonitorBtn" Header="monitor ON/OFF"></toolkit:MenuItem>
-
-    </toolkit:ContextMenu>
-  </toolkit:ContextMenuService.ContextMenu>
+  
   
 </UserControl>
