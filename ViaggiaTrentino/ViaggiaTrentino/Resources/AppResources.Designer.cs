@@ -70,6 +70,15 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Missing data.
+        /// </summary>
+        public static string DefValueMissing {
+            get {
+                return ResourceManager.GetString("DefValueMissing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bike.
         /// </summary>
         public static string GeneralSettingsBike {

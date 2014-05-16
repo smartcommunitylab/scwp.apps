@@ -40,12 +40,13 @@ namespace ViaggiaTrentino.ViewModels
 
     public void PlanJourneyTile()
     {
-      MessageBox.Show("Plan Journey");
+      navigationService.UriFor<PlanNewSingleJourneyViewModel>().Navigate();
     }
 
     public void PlanRecurrentJourneyTile()
     {
-      MessageBox.Show("Plan Recurrent Journey");
+      navigationService.UriFor<MonitorJourneyViewModel>().Navigate();
+
     }
 
     public void SavedJourneysTile()
@@ -61,7 +62,7 @@ namespace ViaggiaTrentino.ViewModels
 
     public void SubmitAlertTile()
     {
-      MessageBox.Show("Submit Alert");
+      navigationService.UriFor<SelectAlertPageViewModel>().Navigate();
     }
 
     public void RealTimeInfoTile()

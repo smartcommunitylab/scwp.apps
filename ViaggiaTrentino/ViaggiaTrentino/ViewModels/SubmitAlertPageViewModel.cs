@@ -149,11 +149,7 @@ namespace ViaggiaTrentino.ViewModels
       Stops = new ObservableCollection<Stop>(await ptl.GetStops(r.RouteId.AgencyId, r.RouteId.Id));
       SelectedStop = Stops.FirstOrDefault();
     }
-
-  
-
     
-
     public void SubmitDelay()
     {
       //SelectedStop.StopId

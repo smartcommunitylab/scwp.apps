@@ -87,6 +87,10 @@
           </Grid>
           <CheckBox Content="{Binding Path=LocalizedResources.MonitorJourneyAlways, Source={StaticResource LocalizedStrings}}"
                     IsChecked="{Binding IsAlways, Mode=TwoWay}"/>
+          <TextBlock Text="{Binding Path=LocalizedResources.MonitorJourneySched, Source={StaticResource LocalizedStrings}}" />
+          
+          <toolkit:RecurringDaysPicker SelectedItems="{Binding GiorniScelti, Mode=TwoWay}"></toolkit:RecurringDaysPicker>
+          
           <toolkit:ToggleSwitch x:Name="ShowPreferences" IsChecked="{Binding IsSettingsShown, Mode=TwoWay}">
             <toolkit:ToggleSwitch.Content>
               <TextBlock Margin="0,-10,0,0" Text="{Binding Path=LocalizedResources.MonitorJourneyPrefs, Source={StaticResource LocalizedStrings}}" 

@@ -2,6 +2,7 @@
 using Models.MobilityService.Journeys;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,9 +12,10 @@ namespace ViaggiaTrentino.ViewModels
   public class MonitorJourneyViewModel: Screen
   {
     private readonly INavigationService navigationService;
+    ObservableCollection<object> selDays;
     bool isSettingsShown;
     bool isAlways;
-    SingleJourney journey;
+    RecurrentJourney journey;
     DateTime beginDate;
     DateTime endDate;
     string fromText;
@@ -24,8 +26,9 @@ namespace ViaggiaTrentino.ViewModels
       this.navigationService = navigationService;
       beginDate = DateTime.Now;
       endDate = DateTime.Now;
-      journey = new SingleJourney();
-      
+      journey = new RecurrentJourney();
+      selDays = new ObservableCollection<object>();
+      GiorniScelti.Add(DateTime.Now.ToString("dddd"));
     }
 
     public string FromText
@@ -48,13 +51,24 @@ namespace ViaggiaTrentino.ViewModels
       }
     }
 
-    public SingleJourney Journey
+    public RecurrentJourney Journey
     {
       get { return journey; }
       set
       {
         journey = value;
         NotifyOfPropertyChange(() => Journey);
+      }
+    }
+
+    
+    public ObservableCollection<object> GiorniScelti
+    {
+      get { return selDays; }
+      set
+      {
+        selDays = value;
+        NotifyOfPropertyChange(() => GiorniScelti);
       }
     }
 

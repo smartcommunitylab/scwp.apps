@@ -13,9 +13,10 @@ namespace ViaggiaTrentino.Converters
     {
       if (value is Itinerary)
       {
-        Itinerary tmpIti = value as Itinerary;        
-        DateTime timeBegin = new DateTime(1970, 1, 1).AddSeconds((tmpIti.StartTime));
-        DateTime timeEnding = new DateTime(1970, 1, 1).AddSeconds((tmpIti.EndTime));
+        Itinerary tmpIti = value as Itinerary;
+        
+        DateTime timeBegin = new DateTime(1970, 1, 1).AddMilliseconds(System.Convert.ToDouble(tmpIti.StartTime));
+        DateTime timeEnding = new DateTime(1970, 1, 1).AddMilliseconds(System.Convert.ToDouble(tmpIti.EndTime));
 
         return string.Format("{0} {1} - {2}", timeBegin.ToShortDateString(), timeBegin.ToString("HH:mm"), timeEnding.ToString("HH:mm"));
       }
