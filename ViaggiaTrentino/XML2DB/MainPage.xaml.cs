@@ -8,6 +8,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using XML2DB.Resources;
+using DBHelper.DBModels;
 
 namespace XML2DB
 {
@@ -24,7 +25,12 @@ namespace XML2DB
 
     private void btnStart_Tap(object sender, System.Windows.Input.GestureEventArgs e)
     {
+      xmlToSqlite.XmlToSqlite a = new xmlToSqlite.XmlToSqlite();
+      List<RouteInfo> ri = a.ReadRoutesInfo();
+      List<RouteName> rn = a.ReadRoutesName();
 
+      DBHelper.DBHelper dbh = new DBHelper.DBHelper();
+      
     }
 
   }
