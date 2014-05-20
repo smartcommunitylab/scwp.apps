@@ -16,23 +16,30 @@ namespace ViaggiaTrentino.Views.Controls
   public partial class SavedJourneyView : UserControl
   {
     UserRouteLibrary urLib;
+    BasicItinerary basIti;
+
     public SavedJourneyView()
     {
       InitializeComponent();
       urLib = new UserRouteLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
     }
 
-    private void DeleteJourney_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+    private void UserControl_Loaded(object sender, RoutedEventArgs e)
     {
-      MessageBox.Show("dovrei cancellare il journey ma non lo farò");
-      this.Visibility = System.Windows.Visibility.Collapsed;
-      //urLib.DeleteSingleJourney(basITI.ClientId);
-      //(this.Parent as ListBox).Items.Remove(this);
+      basIti = this.DataContext as BasicItinerary;
+    }
+
+    private async void DeleteJourney_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+    {
+      MessageBox.Show("dovrei cancellare il journey ma non lo farò");      
+      if(await urLib.DeleteSingleJourney(basIti.ClientId))
+        this.Visibility = System.Windows.Visibility.Collapsed;
+      (this.Parent as ListBox).Items.Remove(this);
     }
 
     private void MonitorJourney_Tap(object sender, System.Windows.Input.GestureEventArgs e)
     {
-
-    }
+      urLib.SetMonitorSingleJourney(basIti.ClientId, !basIti.Monitor);
+    }    
   }
 }
