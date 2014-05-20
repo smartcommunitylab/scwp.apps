@@ -105,15 +105,77 @@ namespace DBHelper
 
     #endregion
 
-    #region RotueInfo
+    
+    #region RouteInfo
+
+    public bool AddRouteInformation(string agencyID, string routeID, string color )
+    {
+      try
+      {
+        sqlConn.InsertOrReplace(new RouteInfo()
+        {
+          AgencyID = agencyID,
+          RouteID = routeID,
+          Color = color
+        });
+      }
+      catch
+      {
+        return false;
+      }
+      return true;
+    }
+
+    public List<RouteInfo> GetRouteInfo(string agencyID)
+    {
+      return sqlConn.Table<RouteInfo>().ToList();
+    }
 
     #endregion
 
     #region RouteName
 
+    public bool AddRouteName(string agencyID, string routeID, string name)
+    {
+      try
+      {
+        sqlConn.InsertOrReplace(new RouteName()
+        {
+          AgencyID = agencyID,
+          RouteID = routeID,
+          Name = name
+        });
+      }
+      catch
+      {
+        return false;
+      }
+      return true;
+    }
+
+    public List<RouteName> GetRoutesNames(string agencyID)
+    {
+      return sqlConn.Table<RouteName>().ToList();
+    }
+
+    public RouteName GetRouteName(string agencyID, string routeID)
+    {
+      return sqlConn.Get<RouteName>(x => x.AgencyID == agencyID && x.RouteID == routeID);
+    }
+
     #endregion
 
     #region Version
+
+    public List<DBModels.Version> GetAllVersions()
+    {
+      return sqlConn.Table<DBModels.Version>().ToList();
+    }
+
+    public DBModels.Version GetVersion(string agencyID)
+    {
+      return sqlConn.Get<DBModels.Version>(x => x.AgencyID == agencyID);
+    }
 
     #endregion
   }
