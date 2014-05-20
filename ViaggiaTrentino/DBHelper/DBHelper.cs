@@ -67,7 +67,10 @@ namespace DBHelper
 
     public bool RemoveCalendar(string agencyID, string routeID)
     {
-      return sqlConn.Delete<Calendar>(new Calendar() { AgencyID = agencyID, RouteID = routeID }) != 0;
+      SQLiteCommand sCmd = sqlConn.CreateCommand("DELETE FROM Calendar WHERE AgencyID = ? AND RouteID = ?",
+                                                agencyID, routeID);
+      return sCmd.ExecuteNonQuery() != 0;
+      //return sqlConn.Delete<Calendar>(new Calendar() { AgencyID = agencyID, RouteID = routeID }) != 0;
     }
 
     #endregion
@@ -100,7 +103,9 @@ namespace DBHelper
 
     public bool RemoveRouteCalendar(string lineHash)
     {
-      return sqlConn.Delete<RouteCalendar>(lineHash) != 0;
+      SQLiteCommand sCmd = sqlConn.CreateCommand("DELETE FROM RouteCalendar WHERE LineHash = ?",
+                                                 lineHash);
+      return sCmd.ExecuteNonQuery() != 0;
     }
 
     #endregion
@@ -163,6 +168,13 @@ namespace DBHelper
       return sqlConn.Get<RouteName>(x => x.AgencyID == agencyID && x.RouteID == routeID);
     }
 
+    public bool RemoveRouteName(string agencyID, string routeID)
+    {
+      SQLiteCommand sCmd = sqlConn.CreateCommand("DELETE FROM RouteName WHERE AgencyID = ? AND RouteID = ?",
+                                                agencyID, routeID);
+      return sCmd.ExecuteNonQuery() != 0;
+    }
+
     #endregion
 
     #region Version
@@ -175,6 +187,13 @@ namespace DBHelper
     public DBModels.Version GetVersion(string agencyID)
     {
       return sqlConn.Get<DBModels.Version>(x => x.AgencyID == agencyID);
+    }
+
+    public bool RemoveVerison(string agencyID)
+    {
+      SQLiteCommand sCmd = sqlConn.CreateCommand("DELETE FROM Version WHERE AgencyID = ?",
+                                                agencyID);
+      return sCmd.ExecuteNonQuery() != 0;
     }
 
     #endregion
