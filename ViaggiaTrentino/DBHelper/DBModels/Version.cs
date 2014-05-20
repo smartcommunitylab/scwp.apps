@@ -11,7 +11,7 @@ namespace DBHelper.DBModels
   {
     [PrimaryKey]
     public string AgencyID { get; set; }
-    public string Version { get; set; }
+    public string VersionNumber { get; set; }
 
   }
 }

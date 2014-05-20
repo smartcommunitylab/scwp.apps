@@ -10,7 +10,7 @@ namespace DBHelper.DBModels
   {
     public string AgencyID { get; set; }
    
-    public string Calendar { get; set; }
+    public string CalendarEntries { get; set; }
     
     public string Route { get; set; }
   }
