@@ -14,7 +14,7 @@ namespace DBHelper
 {
   public class DBHelper
   {
-    private readonly static string DB_PATH= Path.Combine(Path.Combine(ApplicationData.Current.LocalFolder.Path, "scdb.sqlite"));
+    private readonly static string DB_PATH = Path.Combine(Path.Combine(ApplicationData.Current.LocalFolder.Path, "scdb.sqlite"));
 
     private SQLiteConnection sqlConn;
 
@@ -23,7 +23,7 @@ namespace DBHelper
       sqlConn = new SQLiteConnection(DB_PATH);
     }
 
-    #region Calendar    
+    #region Calendar
 
     /// <summary>
     /// Adds a row in the Calendar table
@@ -51,13 +51,13 @@ namespace DBHelper
     }
 
     public bool AddCalendarsForAgency(string agencyID, Dictionary<string, TimeTableCacheUpdateCalendar> calendars)
-    {      
-        foreach (var item in calendars)
-        {
-          if (!AddCalendar(agencyID, item.Key.Replace("calendar_", ""), item.Value.Entries))
-            return false;
-        }
-        return true;
+    {
+      foreach (var item in calendars)
+      {
+        if (!AddCalendar(agencyID, item.Key.Replace("calendar_", ""), item.Value.Entries))
+          return false;
+      }
+      return true;
     }
 
     public Calendar GetCalendar(string agencyID, string routeID)
@@ -86,7 +86,8 @@ namespace DBHelper
           LineHash = fileHash,
           StopsIDs = JsonConvert.SerializeObject(ct.StopIds),
           StopsNames = JsonConvert.SerializeObject(ct.Stops),
-          TripsIDs = JsonConvert.SerializeObject(ct.TripIds)
+          TripsIDs = JsonConvert.SerializeObject(ct.TripIds),
+          Times = ct.CompressedTimes
         });
       }
       catch
@@ -110,10 +111,10 @@ namespace DBHelper
 
     #endregion
 
-    
+
     #region RouteInfo
 
-    public bool AddRouteInformation(string agencyID, string routeID, string color )
+    public bool AddRouteInformation(string agencyID, string routeID, string color)
     {
       try
       {
@@ -160,7 +161,7 @@ namespace DBHelper
 
     public List<RouteName> GetRoutesNames(string agencyID)
     {
-      return sqlConn.Table<RouteName>().ToList();
+      return sqlConn.Table<RouteName>().Where(x => x.AgencyID == agencyID).ToList();
     }
 
     public RouteName GetRouteName(string agencyID, string routeID)
@@ -189,13 +190,17 @@ namespace DBHelper
       return sqlConn.Get<DBModels.Version>(x => x.AgencyID == agencyID);
     }
 
-    public bool RemoveVerison(string agencyID)
+    public bool RemoveVersion(string agencyID)
     {
-      SQLiteCommand sCmd = sqlConn.CreateCommand("DELETE FROM Version WHERE AgencyID = ?",
-                                                agencyID);
+      SQLiteCommand sCmd = sqlConn.CreateCommand("DELETE FROM Version WHERE AgencyID = ?", agencyID);
       return sCmd.ExecuteNonQuery() != 0;
     }
 
+    public bool UpdateVersion(string agencyID, string version)
+    {
+      SQLiteCommand sCmd = sqlConn.CreateCommand("UPDATE Version SET VersionNumber = ? WHERE AgencyID = ?", version, agencyID);
+      return sCmd.ExecuteNonQuery() != 0;
+    }
     #endregion
   }
 }

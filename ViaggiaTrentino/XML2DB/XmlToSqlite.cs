@@ -95,12 +95,15 @@ namespace xmlToSqlite
 
         GroupCollection r = new Regex("^agency_(?<agency>.*)_route_(?<route>.*)$").Match(sw).Groups;
 
-        routeName.Add(new RouteName()
+        if (r["agency"].Value == "12" || r["agency"].Value == "16")
         {
-          AgencyID = r["agency"].Value,
-          RouteID = r["route"].Value,
-          Name = el.Value
-        });
+          routeName.Add(new RouteName()
+          {
+            AgencyID = r["agency"].Value,
+            RouteID = r["route"].Value,
+            Name = el.Value
+          });
+        }
       }
       return routeName;
     }

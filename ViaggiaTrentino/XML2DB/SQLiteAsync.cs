@@ -28,7 +28,7 @@ using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace SQLite
+namespace SQLiteXML2DB
 {
 	public partial class SQLiteAsyncConnection
 	{
