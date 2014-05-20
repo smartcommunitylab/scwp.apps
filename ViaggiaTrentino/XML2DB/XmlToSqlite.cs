@@ -1,3 +1,4 @@
+using DBHelper.DBModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,87 +10,99 @@ using System.Xml.Linq;
 
 namespace xmlToSqlite
 {
-    public struct Strings
+
+  public class XmlToSqlite
+  {
+    private List<string> smart_check_12_numbers;
+    private List<string> smart_check_12_colors;
+    private List<string> smart_check_16_numbers;
+    private List<string> smart_check_16_colors;
+    private List<RouteInfo> routesInfo;
+    private XDocument doc;
+
+
+    public XmlToSqlite()
     {
-        public string agency;
-        public string route;
-        public string content;
+      smart_check_12_numbers = new List<string>();
+      smart_check_12_colors = new List<string>();
+      smart_check_16_numbers = new List<string>();
+      smart_check_16_colors = new List<string>();
+      routesInfo = new List<RouteInfo>();
+      doc = XDocument.Load("strings.xml");
     }
-    public class XmlToSqlite
+
+    public List<RouteInfo> ReadRoutesInfo()
     {
-        public List<string> smart_check_12_numbers;
-        public List<string> smart_check_12_colors;
-        public List<string> smart_check_16_numbers;
-        public List<string> smart_check_16_colors;
-        public List<Strings> strings = new List<Strings>();
-
-        public XmlToSqlite()
+      foreach (XElement el in doc.Root.Descendants("string-array"))
+      {
+        List<XAttribute> name = el.Attributes("name").ToList();
+        string sw = name.Count > 0 ? name[0].Value : null;
+        switch (sw)
         {
-            smart_check_12_numbers = new List<string>();
-            smart_check_12_colors = new List<string>();
-            smart_check_16_numbers = new List<string>();
-            smart_check_16_colors = new List<string>();
-            strings = new List<Strings>();
-            XDocument doc = XDocument.Load("strings.xml");
-
-            foreach (XNode el in doc.DescendantNodes)
-            {
-                switch (el Name)
-                {
-                    case "string-array": StringArray(el); break;
-                    case "array": ColorArray(el); break;
-                    case "string": StringDictionary(el); break;
-                }
-            }
-
+          case "smart_check_12_numbers": StringArray(el, smart_check_12_numbers); break;
+          case "smart_check_16_numbers": StringArray(el, smart_check_16_numbers); break;
         }
-        private void StringDictionary(XmlNode el)
+      }
+
+      foreach (XElement el in doc.Root.Descendants("array"))
+      {
+        List<XAttribute> name = el.Attributes("name").ToList();
+        string sw = name.Count > 0 ? name[0].Value : null;
+        switch (sw)
         {
-            string name = el.Attributes["name"].InnerText;
-            GroupCollection r = new Regex("^agency_(?<agency>.*)_route_(?<route>.*)$").Match(name).Groups;
-
-            strings.Add(new Strings()
-            {
-                agency = r["agency"].Value,
-                route = r["route"].Value,
-                content = el.InnerText
-            });
+          case "smart_check_12_colors": StringArray(el, smart_check_12_colors); break;
+          case "smart_check_16_colors": StringArray(el, smart_check_16_colors); break;
         }
+      }
 
-        private void ColorArray(XmlNode node)
+      for (int i = 0; i < smart_check_12_colors.Count; i++)
+      {
+        routesInfo.Add(new RouteInfo()
         {
-            List<string> temp = null;
-            switch (node.Attributes["name"].InnerText)
-            {
-                case "smart_check_12_colors": temp = smart_check_12_colors; break;
-                case "smart_check_16_colors": temp = smart_check_16_colors; break;
-            }
+          AgencyID = "12",
+          RouteID = smart_check_12_numbers[i],
+          Color = smart_check_12_colors[i]
+        });
+      }
 
-            foreach (XmlNode el in node.ChildNodes)
-            {
-                if (el.Name == "item" && temp != null)
-                {
-                    temp.Add(el.InnerText);
-                }
-            }
-        }
-
-        private void StringArray(XmlNode node)
+      for (int i = 0; i < smart_check_16_colors.Count; i++)
+      {
+        routesInfo.Add(new RouteInfo()
         {
-            List<string> temp = null;
-            switch (node.Attributes["name"].InnerText)
-            {
-                case "smart_check_12_numbers": temp = smart_check_12_numbers; break;
-                case "smart_check_16_numbers": temp = smart_check_16_numbers; break;
-            }
-
-            foreach (XmlNode el in node.ChildNodes)
-            {
-                if (el.Name == "item" && temp != null)
-                {
-                    temp.Add(el.InnerText);
-                }
-            }
-        }
+          AgencyID = "16",
+          RouteID = smart_check_16_numbers[i],
+          Color = smart_check_16_colors[i]
+        });
+      }
+      return routesInfo;
     }
+
+    private void StringArray(XElement node, List<string> array)
+    {
+      foreach (XElement item in node.Descendants("item"))
+      {
+        array.Add(item.Value);
+      }
+    }
+
+    public List<RouteName> ReadRoutesName()
+    {
+      List<RouteName> routeName = new List<RouteName>();
+      foreach (XElement el in doc.Root.Descendants("string"))
+      {
+        List<XAttribute> name = el.Attributes("name").ToList();
+        string sw = name.Count > 0 ? name[0].Value : null;
+
+        GroupCollection r = new Regex("^agency_(?<agency>.*)_route_(?<route>.*)$").Match(sw).Groups;
+
+        routeName.Add(new RouteName()
+        {
+          AgencyID = r["agency"].Value,
+          RouteID = r["route"].Value,
+          Name = el.Value
+        });
+      }
+      return routeName;
+    }
+  }
 }
