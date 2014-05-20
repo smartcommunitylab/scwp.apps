@@ -34,7 +34,6 @@ namespace ViaggiaTrentino.Views.Controls
       MessageBox.Show("dovrei cancellare il journey ma non lo farò");      
       if(await urLib.DeleteSingleJourney(basIti.ClientId))
         this.Visibility = System.Windows.Visibility.Collapsed;
-      (this.Parent as ListBox).Items.Remove(this);
     }
 
     private void MonitorJourney_Tap(object sender, System.Windows.Input.GestureEventArgs e)

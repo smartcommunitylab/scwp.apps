@@ -24,7 +24,7 @@
       <phone:PivotItem Header="{Binding Path=LocalizedResources.SavedJourneysJourneyPivot, Source={StaticResource LocalizedStrings}}">
 
         <Grid>
-          <ListBox ItemsSource="{Binding Path=MySavedJourneys}" MaxHeight="600">
+          <ListBox ItemsSource="{Binding Path=MySavedSingleJourneys}" MaxHeight="600">
             <ListBox.ItemContainerStyle>
               <Style TargetType="ListBoxItem">
                 <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
@@ -42,7 +42,21 @@
 
       <!--Pivot item two-->
       <phone:PivotItem Header="{Binding Path=LocalizedResources.SavedJourneysMonitoringPivot, Source={StaticResource LocalizedStrings}}">
-        <Grid/>
+        <Grid>
+          <ListBox ItemsSource="{Binding Path=MySavedRecurrentJourneys}" MaxHeight="600">
+            <ListBox.ItemContainerStyle>
+              <Style TargetType="ListBoxItem">
+                <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+                <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+              </Style>
+            </ListBox.ItemContainerStyle>
+            <ListBox.ItemTemplate>
+              <DataTemplate>
+                <vtcont:SavedJourneyView  DataContext="{Binding}"></vtcont:SavedJourneyView>
+              </DataTemplate>
+            </ListBox.ItemTemplate>
+          </ListBox>
+        </Grid>
       </phone:PivotItem>
     </phone:Pivot>
   </Grid>
