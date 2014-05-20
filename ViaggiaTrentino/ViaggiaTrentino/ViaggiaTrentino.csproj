@@ -103,6 +103,7 @@
     <Compile Include="Converters\ParkingToSlotsConverter.cs" />
     <Compile Include="Converters\ItineraryToDateTimeStringConverter.cs" />
     <Compile Include="Converters\LegListToImageListConverter.cs" />
+    <Compile Include="Helpers\DBHelper.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="PreferencesModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
