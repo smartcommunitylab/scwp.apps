@@ -1,4 +1,5 @@
 ﻿using DBHelper.DBModels;
+using Models.MobilityService.PublicTransport;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -25,7 +26,18 @@ namespace DBHelper
 
     public Calendar GetCalendar(string agencyID, string routeID)
     {
-      return null;
+      return sqlConn.Get<Calendar>(x => x.AgencyID == agencyID && x.Route == routeID);
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="routeID">the route ID for the specified calendar. It is the KEY field in the 'Calendars' property of the TimetableCacheUpdate model</param>
+    /// <param name="routeCalendar">the fully mapped calendar. It is the VALUE field in the 'Calendars' property of the TimetableCacheUpdate model</param>
+    /// <returns></returns>
+    public bool AddCalendar(string routeID,   routeCalendar)
+    {
+      
     }
 
     #endregion
