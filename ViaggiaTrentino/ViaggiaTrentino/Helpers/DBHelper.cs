@@ -22,13 +22,40 @@ namespace ViaggiaTrentino.Helpers
 
     private bool OpenConnection()
     {
-      return true
+      return true;
     }
 
     private bool CloseConnection()
     {
       return true;
     }
+
+    #region Calendar
+
+    //public bool AddCalendarEntry(Models.MobilityService.PublicTransport.)
+    //{
+    //  return true;
+    //}
+
+    #endregion
+
+    #region Route_calendat
+
+    #endregion
+
+    #region Route_names
+
+    #endregion
+
+    #region Urbaninfo
+
+    #endregion
+
+    #region Version
+
+    #endregion
+
+    //public void 
 
   }
 }
