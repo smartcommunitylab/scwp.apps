@@ -10,6 +10,7 @@ using Microsoft.Phone.Shell;
 using ViaggiaTrentino.ViewModels.Controls;
 using MobilityServiceLibrary;
 using Models.MobilityService.Journeys;
+using System.Windows.Media;
 
 namespace ViaggiaTrentino.Views.Controls
 {
@@ -35,9 +36,13 @@ namespace ViaggiaTrentino.Views.Controls
         this.Visibility = System.Windows.Visibility.Collapsed;
     }
 
-    private void MonitorJourney_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+    private async void MonitorJourney_Tap(object sender, System.Windows.Input.GestureEventArgs e)
     {
-      urLib.SetMonitorSingleJourney(basIti.ClientId, !basIti.Monitor);
+      basIti.Monitor = await urLib.SetMonitorSingleJourney(basIti.ClientId, !basIti.Monitor);
+      this.DataContext = basIti;
+      if (basIti.Monitor)
+        retMonitor.Fill = new SolidColorBrush(Colors.Green);
+      else retMonitor.Fill = new SolidColorBrush(Colors.Red);
     }    
   }
 }

@@ -34,7 +34,7 @@
                    TextWrapping="Wrap"></TextBlock>
         <TextBlock Text=""></TextBlock>
       </StackPanel>
-      <Rectangle Grid.Column="2"  VerticalAlignment="Stretch" Fill="{Binding Monitor, Converter={StaticResource boolToColor}}" Width="5" Margin="10,0,0,0">
+      <Rectangle Grid.Column="2" x:Name="retMonitor" VerticalAlignment="Stretch" Fill="{Binding Monitor, Converter={StaticResource boolToColor}}" Width="5" Margin="10,0,0,0">
 
       </Rectangle>
       <toolkit:ContextMenuService.ContextMenu >
