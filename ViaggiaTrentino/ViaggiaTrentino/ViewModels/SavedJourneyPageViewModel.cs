@@ -1,4 +1,5 @@
 ﻿using Caliburn.Micro;
+using Microsoft.Phone.Shell;
 using MobilityServiceLibrary;
 using Models.MobilityService.Journeys;
 using System;
@@ -14,6 +15,7 @@ namespace ViaggiaTrentino.ViewModels
   public class SavedJourneyPageViewModel : Screen
   {
     private readonly INavigationService navigationService;
+    private readonly IEventAggregator eventAggregator;
     UserRouteLibrary urLib;
 
     ObservableCollection<BasicItinerary> mySavedSingleJourneys;
@@ -40,12 +42,14 @@ namespace ViaggiaTrentino.ViewModels
       }
     }
 
-    public SavedJourneyPageViewModel(INavigationService navigationService)
+    public SavedJourneyPageViewModel(INavigationService navigationService, IEventAggregator eventAggregator)
     {
       mySavedSingleJourneys = new ObservableCollection<BasicItinerary>();
       mySavedRecurrentJourneys = new ObservableCollection<BasicRecurrentJourney>();
       this.navigationService = navigationService;
+      this.eventAggregator = eventAggregator;
       urLib = new UserRouteLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
+      
     }    
 
     protected override async void OnViewLoaded(object view)
@@ -66,6 +70,16 @@ namespace ViaggiaTrentino.ViewModels
 
     }
 
+    public void OpenRecurrentJourney(BasicRecurrentJourney journey)
+    {
+      MessageBox.Show("no moar");
+    }
+
+    public void OpenSingleJourney(BasicItinerary journey)
+    {
+      PhoneApplicationService.Current.State["journey"] = journey;
+      navigationService.UriFor<SavedSingleJourneyDetailsViewModel>().Navigate();
+    }
 
   }
 }

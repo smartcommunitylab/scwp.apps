@@ -359,4 +359,10 @@
   <data name="DefValueMissing" xml:space="preserve">
     <value>Missing data</value>
   </data>
+  <data name="From" xml:space="preserve">
+    <value>From</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>to</value>
+  </data>
 </root>

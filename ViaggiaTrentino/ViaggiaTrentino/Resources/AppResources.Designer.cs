@@ -79,6 +79,15 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to From.
+        /// </summary>
+        public static string From {
+            get {
+                return ResourceManager.GetString("From", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bike.
         /// </summary>
         public static string GeneralSettingsBike {
@@ -778,6 +787,15 @@ namespace ViaggiaTrentino.Resources {
         public static string TileTrentoBusTitle {
             get {
                 return ResourceManager.GetString("TileTrentoBusTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to to.
+        /// </summary>
+        public static string To {
+            get {
+                return ResourceManager.GetString("To", resourceCulture);
             }
         }
     }

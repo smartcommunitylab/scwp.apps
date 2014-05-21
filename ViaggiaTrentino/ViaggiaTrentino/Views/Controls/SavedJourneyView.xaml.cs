@@ -7,7 +7,6 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using ViaggiaTrentino.ViewModels.Controls;
 using MobilityServiceLibrary;
 using Models.MobilityService.Journeys;
 using System.Windows.Media;
