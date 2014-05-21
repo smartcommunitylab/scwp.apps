@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DBHelper.DBModels
+namespace DBManager.DBModels
 {
   public class RouteInfo
   {

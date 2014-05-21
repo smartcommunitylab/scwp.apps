@@ -6,6 +6,7 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:bab="clr-namespace:Caliburn.Micro.BindableAppBar;assembly=Caliburn.Micro.BindableAppBar"
     xmlns:vtconvert="clr-namespace:ViaggiaTrentino.Converters"
@@ -17,7 +18,8 @@
     shell:SystemTray.IsVisible="True">
   
   <UserControl.Resources>
-    <vtconvert:RouteToRouteNameConverter x:Name="RouteToName"></vtconvert:RouteToRouteNameConverter>
+    <vtconvert:RouteToRouteNameConverter x:Name="RouteToName" />
+    <vtconvert:LongToTimeConverter x:Name="longToTime" />
   </UserControl.Resources>
 
   <!--LayoutRoot is the root grid where all page content is placed-->
@@ -71,19 +73,19 @@
         <toolkit:ListPicker ItemsSource="{Binding StopTimes}" SelectedItem="{Binding SelectedStopTime, Mode=TwoWay}">
           <toolkit:ListPicker.ItemTemplate>
             <DataTemplate>
-              <TextBlock Text="{Binding Time}"></TextBlock>
+              <TextBlock Text="{Binding Time, Converter={StaticResource longToTime}}"></TextBlock>
             </DataTemplate>
           </toolkit:ListPicker.ItemTemplate>
           <toolkit:ListPicker.FullModeItemTemplate>
             <DataTemplate>
-              <TextBlock Text="{Binding Time}"  FontSize="24" TextWrapping="Wrap" Padding="0,0,0,5"></TextBlock>
+              <TextBlock Text="{Binding Time, Converter={StaticResource longToTime}}"  FontSize="24" TextWrapping="Wrap" Padding="0,0,0,5"></TextBlock>
             </DataTemplate>
           </toolkit:ListPicker.FullModeItemTemplate>
 
         </toolkit:ListPicker>
         <TextBlock Text="{Binding Path=LocalizedResources.SubAlertDelay, Source={StaticResource LocalizedStrings}}"></TextBlock>
 
-        <TextBox InputScope="Digits"></TextBox>
+        <TextBox cal:Message.Attach="[Event TextChanged]=[Action DelayTimeChanged($source)]" Text="0" InputScope="Digits"></TextBox>
       </StackPanel>
     </Grid>
     

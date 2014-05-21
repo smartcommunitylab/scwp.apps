@@ -75,7 +75,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Bin\ARM\Debug</OutputPath>
-    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;SILVERLIGHT;WINDOWS_PHONE;USE_WP8_NATIVE_SQLITE</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <NoConfig>true</NoConfig>
     <ErrorReport>prompt</ErrorReport>
@@ -96,6 +96,8 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Converters\ColorToSolidBrushConverter.cs" />
+    <Compile Include="Converters\LongToTimeConverter.cs" />
     <Compile Include="Converters\RouteToRouteNameConverter.cs" />
     <Compile Include="Converters\ParkingCoordinateArrayToGeoCoordinate.cs" />
     <Compile Include="Converters\ParkingSlotsToForegoundColor.cs" />
@@ -115,6 +117,7 @@
     <Compile Include="ViewModels\Controls\SingleParkingViewModel.cs" />
     <Compile Include="ViewModels\Controls\SavedJourneyViewModel.cs" />
     <Compile Include="ViewModels\Controls\UserSettingsViewModel.cs" />
+    <Compile Include="ViewModels\SelectBusRouteViewModel.cs" />
     <Compile Include="ViewModels\MonitorJourneyViewModel.cs" />
     <Compile Include="ViewModels\ParkingsPageViewModel.cs" />
     <Compile Include="ViewModels\PlanNewSingleJourneyViewModel.cs" />
@@ -126,6 +129,9 @@
     <Compile Include="ViewModels\SettingsPageViewModel.cs" />
     <Compile Include="ViewModels\SubmitAlertPageViewModel.cs" />
     <Compile Include="ViewModels\TestPageViewModel.cs" />
+    <Compile Include="Views\SelectBusRouteView.xaml.cs">
+      <DependentUpon>SelectBusRouteView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Controls\ParkingPopupView.xaml.cs">
       <DependentUpon>ParkingPopupView.xaml</DependentUpon>
     </Compile>
@@ -183,6 +189,9 @@
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="scdb.sqlite">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -293,6 +302,10 @@
     <Folder Include="Assets\Misc\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\SelectBusRouteView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Controls\ParkingPopupView.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -352,6 +365,12 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DBHelper\DBHelper.csproj">
+      <Project>{B8A352DE-D354-4BB8-9270-5C99C8108169}</Project>
+      <Name>DBHelper</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />

@@ -8,7 +8,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using XML2DB.Resources;
-using DBHelper.DBModels;
+using DBManager.DBModels;
 using SQLite;
 using System.IO;
 using Windows.Storage;
@@ -54,14 +54,14 @@ namespace XML2DB
       sqlConn.DropTable<RouteInfo>();
       sqlConn.DropTable<RouteCalendar>();
       sqlConn.DropTable<Calendar>();
-      sqlConn.DropTable<DBHelper.DBModels.Version>();
+      sqlConn.DropTable<DBManager.DBModels.Version>();
 
       progress.Text += "create new tables\n";
       sqlConn.CreateTable<RouteName>();
       sqlConn.CreateTable<RouteInfo>();
       sqlConn.CreateTable<RouteCalendar>();
       sqlConn.CreateTable<Calendar>();
-      sqlConn.CreateTable<DBHelper.DBModels.Version>();
+      sqlConn.CreateTable<DBManager.DBModels.Version>();
 
       //fill routeinfo
       progress.Text += "fill routeinfo table\n";
@@ -71,13 +71,13 @@ namespace XML2DB
       int c = sqlConn.InsertAll(rn, typeof(RouteName));
       //fill version
       progress.Text += "fill version table\n";
-      List<DBHelper.DBModels.Version> versions = new List<DBHelper.DBModels.Version>();
-      versions.Add(new DBHelper.DBModels.Version() { AgencyID = "12", VersionNumber = "0" });
-      versions.Add(new DBHelper.DBModels.Version() { AgencyID = "16", VersionNumber = "0" });
-      versions.Add(new DBHelper.DBModels.Version() { AgencyID = "10", VersionNumber = "0" });
-      versions.Add(new DBHelper.DBModels.Version() { AgencyID = "5", VersionNumber = "0" });
-      versions.Add(new DBHelper.DBModels.Version() { AgencyID = "6", VersionNumber = "0" });
-      int d = sqlConn.InsertAll(versions, typeof(DBHelper.DBModels.Version));
+      List<DBManager.DBModels.Version> versions = new List<DBManager.DBModels.Version>();
+      versions.Add(new DBManager.DBModels.Version() { AgencyID = "12", VersionNumber = "0" });
+      versions.Add(new DBManager.DBModels.Version() { AgencyID = "16", VersionNumber = "0" });
+      versions.Add(new DBManager.DBModels.Version() { AgencyID = "10", VersionNumber = "0" });
+      versions.Add(new DBManager.DBModels.Version() { AgencyID = "5", VersionNumber = "0" });
+      versions.Add(new DBManager.DBModels.Version() { AgencyID = "6", VersionNumber = "0" });
+      int d = sqlConn.InsertAll(versions, typeof(DBManager.DBModels.Version));
 
 
       Dictionary<AgencyType, string> dict = new Dictionary<AgencyType, string>();
@@ -88,13 +88,13 @@ namespace XML2DB
 
       string token = apptoken.Text.Trim();
 
-      token = "f8c90713-7f12-4fa3-95e8-154f8cb68a46";
+      token = "a83d0e6a-8f49-410f-9761-8e7e81b33b53";
       progress.Text += "retrieve updates from sc server\n";
 
       MobilityServiceLibrary.PublicTransportLibrary ptl = new MobilityServiceLibrary.PublicTransportLibrary(token, "https://vas-dev.smartcampuslab.it/");
       var results = await ptl.GetReadTimetableCacheUpdates(dict);
 
-      DBHelper.DBHelper dbh = new DBHelper.DBHelper();
+      DBManager.DBHelper dbh = new DBManager.DBHelper();
 
       progress.Text += "inserting calendars into db";
       foreach (var item in results)
@@ -111,6 +111,8 @@ namespace XML2DB
         dbh.AddCalendarsForAgency(item.Key, item.Value.Calendars);
         dbh.UpdateVersion(item.Key, item.Value.Version.ToString());
       }
+
+      MessageBox.Show("EOI");
     }
   }
 }

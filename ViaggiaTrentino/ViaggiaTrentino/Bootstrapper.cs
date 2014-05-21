@@ -1,9 +1,12 @@
 ﻿using Caliburn.Micro;
 using Caliburn.Micro.BindableAppBar;
+using DBManager;
 using Microsoft.Phone.Controls;
 using System;
 using System.Collections.Generic;
 using System.Device.Location;
+using System.IO;
+using System.IO.IsolatedStorage;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +14,7 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using ViaggiaTrentino.ViewModels;
 using ViaggiaTrentino.ViewModels.Controls;
+using Windows.Storage;
 
 
 namespace ViaggiaTrentino
@@ -31,10 +35,10 @@ namespace ViaggiaTrentino
       rootFrame = new PhoneApplicationFrame();
       return rootFrame;
     }
+
     protected override void OnActivate(object sender, Microsoft.Phone.Shell.ActivatedEventArgs e)
     {
       base.OnActivate(sender, e);
-      LaunchGPS();
     }
 
     protected override void OnLaunch(object sender, Microsoft.Phone.Shell.LaunchingEventArgs e)
@@ -47,9 +51,46 @@ namespace ViaggiaTrentino
       base.OnStartup(sender, e);
       Settings.Initialize();
       LaunchGPS();
+      DBManagement();
     }
 
-    
+    private async void DBManagement()
+    {
+      StorageFile dbFile = null;
+      try
+      {
+        // Try to get the 
+        dbFile = await StorageFile.GetFileFromPathAsync(DBHelper.DB_PATH);
+        //dbFile.DeleteAsync();
+      }
+      catch (FileNotFoundException)
+      {
+        if (dbFile == null)
+        {
+          // Copy file from installation folder to local folder.
+          // Obtain the virtual store for the application.
+          IsolatedStorageFile iso = IsolatedStorageFile.GetUserStoreForApplication();
+
+          // Create a stream for the file in the installation folder.
+          using (Stream input = System.Windows.Application.GetResourceStream(new Uri("scdb.sqlite", UriKind.Relative)).Stream)
+          {
+            // Create a stream for the new file in the local folder.
+            using (IsolatedStorageFileStream output = iso.CreateFile(DBHelper.DB_PATH))
+            {
+              // Initialize the buffer.
+              byte[] readBuffer = new byte[4096];
+              int bytesRead = -1;
+
+              // Copy the file from the installation folder to the local folder. 
+              while ((bytesRead = input.Read(readBuffer, 0, readBuffer.Length)) > 0)
+              {
+                output.Write(readBuffer, 0, bytesRead);
+              }
+            }
+          }
+        }
+      }
+    }
 
     private void LaunchGPS()
     {
@@ -89,6 +130,7 @@ namespace ViaggiaTrentino
       container.PerRequest<MonitorJourneyViewModel>();
       container.PerRequest<SelectAlertPageViewModel>();
       container.PerRequest<SubmitAlertPageViewModel>();
+      container.PerRequest<SelectBusRouteViewModel>();
 
       //User controls
       container.PerRequest<SavedJourneyViewModel>();

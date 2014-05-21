@@ -44,7 +44,7 @@
 
       <Image Source="/Assets/Vehicles/bus.png"  Grid.Row="0" Grid.Column="0" Width="48" />
       <TextBlock x:Name="TrentoBus" Text="{Binding Path=LocalizedResources.SelSendAlertTn, Source={StaticResource LocalizedStrings}}"
-                   Style="{StaticResource PhoneTextLargeStyle}" Margin="5,0,0,5" Grid.Row="0" Grid.Column="1"></TextBlock>
+                   Style="{StaticResource PhoneTextLargeStyle}" Margin="5,0,0,5" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
 
       <Image Source="/Assets/Vehicles/bus.png"  Grid.Row="1" Grid.Column="0" Width="48" />
       <TextBlock x:Name="RoveretoBus" Text="{Binding Path=LocalizedResources.SelSendAlertRv, Source={StaticResource LocalizedStrings}}"

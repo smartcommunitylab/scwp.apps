@@ -1,4 +1,7 @@
 ﻿using Caliburn.Micro;
+using CommonHelpers;
+using DBManager;
+using Microsoft.Phone.Shell;
 using MobilityServiceLibrary;
 using Models.MobilityService;
 using Models.MobilityService.Journeys;
@@ -10,20 +13,18 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace ViaggiaTrentino.ViewModels
 {
   public class SubmitAlertPageViewModel : Screen
   {
     PublicTransportLibrary ptl;
-
-    
-
-
     private Route selRoute;
     private Stop selStop;
     private StopTime selST;
     private AgencyType agencyID;
+    private string delay;
     private string lineName;
     private readonly INavigationService navigationService;
     private ObservableCollection<Route> routes;
@@ -39,7 +40,7 @@ namespace ViaggiaTrentino.ViewModels
         NotifyOfPropertyChange(() => LineName);
       }
     }
-    
+
     public ObservableCollection<Route> Routes
     {
       get
@@ -64,7 +65,7 @@ namespace ViaggiaTrentino.ViewModels
         stops = value;
         NotifyOfPropertyChange(() => Stops);
       }
-    }    
+    }
 
     public ObservableCollection<StopTime> StopTimes
     {
@@ -72,10 +73,10 @@ namespace ViaggiaTrentino.ViewModels
       set
       {
         stopTimes = value;
-        NotifyOfPropertyChange(() => StopTimes);       
+        NotifyOfPropertyChange(() => StopTimes);
       }
     }
-    
+
     public Route SelectedRoute
     {
       get { return selRoute; }
@@ -99,23 +100,17 @@ namespace ViaggiaTrentino.ViewModels
       }
     }
 
-    public StopTime SelectedStopTime 
+    public StopTime SelectedStopTime
     {
       get { return selST; }
       set
       {
         selST = value;
-        
+
         NotifyOfPropertyChange(() => SelectedStopTime);
 
         //GetStopTimesForStop(value);
       }
-    }
-    
-    private async void GetStopTimesForStop(Stop value)
-    {
-      StopTimes = new ObservableCollection<StopTime>(await ptl.GetTimetable(agencyID, selRoute.RouteId.Id, value.StopId));
-      SelectedStopTime = StopTimes.FirstOrDefault();
     }
 
     public AgencyType AgencyID
@@ -124,11 +119,11 @@ namespace ViaggiaTrentino.ViewModels
       set { agencyID = value; }
     }
 
-    public DateTime DelayTime
+    public void DelayTimeChanged(TextBox obj)
     {
-      get;
-      set;
+      delay = obj.Text;
     }
+
 
     public SubmitAlertPageViewModel(INavigationService navigationService)
     {
@@ -136,10 +131,18 @@ namespace ViaggiaTrentino.ViewModels
       ptl = new PublicTransportLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
     }
 
-  protected override async void OnViewLoaded(object view)
+    protected override async void OnViewLoaded(object view)
     {
       base.OnViewLoaded(view);
-      Routes = new ObservableCollection<Route>(await ptl.GetRoutes(agencyID));
+      using(DBHelper dbh = new DBHelper())
+      {
+        PhoneApplicationService.Current.State["routeNames"] = dbh.GetRoutesNames(EnumConverter.ToEnumString<AgencyType>(agencyID));
+      }
+
+      var results = await ptl.GetRoutes(agencyID);
+      //results.Sort();
+      results.Sort();
+      Routes = new ObservableCollection<Route>(results);
       SelectedRoute = Routes.FirstOrDefault();
 
     }
@@ -149,12 +152,17 @@ namespace ViaggiaTrentino.ViewModels
       Stops = new ObservableCollection<Stop>(await ptl.GetStops(r.RouteId.AgencyId, r.RouteId.Id));
       SelectedStop = Stops.FirstOrDefault();
     }
-    
+
+    private async void GetStopTimesForStop(Stop value)
+    {
+      StopTimes = new ObservableCollection<StopTime>(await ptl.GetTimetable(agencyID, selRoute.RouteId.Id, value.StopId));
+      SelectedStopTime = StopTimes.FirstOrDefault();
+    }
+
     public void SubmitDelay()
     {
-      //SelectedStop.StopId
-      
       RealTimeUpdateLibrary rtul = new RealTimeUpdateLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
+      long a = (DateTime.Now.Ticks - 621355968000000000) / 10000000;
       AlertDelay ad = new AlertDelay()
       {
         CreatorId = Settings.UserID,
@@ -168,9 +176,9 @@ namespace ViaggiaTrentino.ViewModels
           Stop = new StopId { Agency = agencyID, Id = SelectedStop.StopId },
           StopCode = SelectedStop.StopId
         },
-        Delay = 100000,
+        Delay = Convert.ToInt32(delay),
         Type = AlertType.Delay,
-        ValidFrom =  (DateTime.Now.ToUniversalTime().Ticks - 621355968000000000) / 10000000
+        ValidFrom = (DateTime.Now.Ticks - 621355968000000000) / 10000000
 
       };
 

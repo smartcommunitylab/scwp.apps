@@ -1,4 +1,4 @@
-﻿using DBHelper.DBModels;
+﻿using DBManager.DBModels;
 using Models.MobilityService.PublicTransport;
 using Newtonsoft.Json;
 using SQLite;
@@ -10,17 +10,27 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage;
 
-namespace DBHelper
+namespace DBManager
 {
-  public class DBHelper
+  public class DBHelper : IDisposable
   {
-    private readonly static string DB_PATH = Path.Combine(Path.Combine(ApplicationData.Current.LocalFolder.Path, "scdb.sqlite"));
+    public readonly static string DB_PATH = Path.Combine(Path.Combine(ApplicationData.Current.LocalFolder.Path, "scdb.sqlite"));
+
 
     private SQLiteConnection sqlConn;
 
     public DBHelper()
     {
       sqlConn = new SQLiteConnection(DB_PATH);
+    }
+
+    public void Dispose()
+    {
+      if (sqlConn != null)
+      {
+        sqlConn.Close();
+        sqlConn = null;
+      }
     }
 
     #region Calendar

@@ -53,12 +53,12 @@
                          Title="{Binding Path=LocalizedResources.TileTrainTitle, Source={StaticResource LocalizedStrings}}" 
                          Message="{Binding Path=LocalizedResources.TileTrainMessage, Source={StaticResource LocalizedStrings}}" />
 
-        <toolkit:HubTile Margin="5" Grid.Column="0" Grid.Row="1"
+        <!--<toolkit:HubTile Margin="5" Grid.Column="0" Grid.Row="1"
                          x:Name="ExtraurbanoTile"
                          Source="/Assets/HubTiles/ExtraUrbano.png"
                          Title="{Binding Path=LocalizedResources.TileExtraurbanoTitle, Source={StaticResource LocalizedStrings}}" 
-                         Message="{Binding Path=LocalizedResources.TileExtraurbanoMessage, Source={StaticResource LocalizedStrings}}" />
-        <toolkit:HubTile Margin="5" Grid.Column="1" Grid.Row="1"
+                         Message="{Binding Path=LocalizedResources.TileExtraurbanoMessage, Source={StaticResource LocalizedStrings}}" />-->
+        <toolkit:HubTile Margin="5" Grid.Column="0" Grid.Row="1"
                          x:Name="RoveretoBusTile"
                          Source="/Assets/HubTiles/Urbano.png"
                          Title="{Binding Path=LocalizedResources.TileRoveretoBusTitle, Source={StaticResource LocalizedStrings}}" 
