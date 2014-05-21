@@ -52,7 +52,7 @@
             </ListBox.ItemContainerStyle>
             <ListBox.ItemTemplate>
               <DataTemplate>
-                <vtcont:SavedJourneyView  DataContext="{Binding}"></vtcont:SavedJourneyView>
+                <vtcont:SavedRecurrentJourneyView  DataContext="{Binding}"></vtcont:SavedRecurrentJourneyView>
               </DataTemplate>
             </ListBox.ItemTemplate>
           </ListBox>

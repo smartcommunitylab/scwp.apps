@@ -98,6 +98,7 @@
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Converters\ColorToSolidBrushConverter.cs" />
     <Compile Include="Converters\LongToTimeConverter.cs" />
+    <Compile Include="Converters\BooleanToStrokeColorConverter.cs" />
     <Compile Include="Converters\RouteToRouteNameConverter.cs" />
     <Compile Include="Converters\ParkingCoordinateArrayToGeoCoordinate.cs" />
     <Compile Include="Converters\ParkingSlotsToForegoundColor.cs" />
@@ -114,6 +115,7 @@
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
+    <Compile Include="ViewModels\Controls\SavedRecurrentJourneyViewModel.cs" />
     <Compile Include="ViewModels\Controls\SingleParkingViewModel.cs" />
     <Compile Include="ViewModels\Controls\SavedJourneyViewModel.cs" />
     <Compile Include="ViewModels\Controls\UserSettingsViewModel.cs" />
@@ -131,6 +133,8 @@
     <Compile Include="ViewModels\TestPageViewModel.cs" />
     <Compile Include="Views\SelectBusRouteView.xaml.cs">
       <DependentUpon>SelectBusRouteView.xaml</DependentUpon>
+    <Compile Include="Views\Controls\SavedRecurrentJourneyView.xaml.cs">
+      <DependentUpon>SavedRecurrentJourneyView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Controls\ParkingPopupView.xaml.cs">
       <DependentUpon>ParkingPopupView.xaml</DependentUpon>
@@ -305,6 +309,9 @@
     <Page Include="Views\SelectBusRouteView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    <Page Include="Views\Controls\SavedRecurrentJourneyView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Controls\ParkingPopupView.xaml">
       <SubType>Designer</SubType>

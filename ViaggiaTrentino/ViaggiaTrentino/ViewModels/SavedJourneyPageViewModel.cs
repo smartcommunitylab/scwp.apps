@@ -43,27 +43,27 @@ namespace ViaggiaTrentino.ViewModels
     public SavedJourneyPageViewModel(INavigationService navigationService)
     {
       mySavedSingleJourneys = new ObservableCollection<BasicItinerary>();
+      mySavedRecurrentJourneys = new ObservableCollection<BasicRecurrentJourney>();
       this.navigationService = navigationService;
       urLib = new UserRouteLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
-    }
-
-
-    
+    }    
 
     protected override async void OnViewLoaded(object view)
     {
       base.OnViewLoaded(view);
       List<BasicItinerary> basList = await urLib.ReadAllSingleJourneys();
-     // List<BasicRecurrentJourney> barList = await urLib.ReadAllRecurrentJourneys();
+      List<BasicRecurrentJourney> barList = await urLib.ReadAllRecurrentJourneys();
 
       foreach (var item in basList)
       {
         MySavedSingleJourneys.Add(item);
       }
 
-      await urLib.ReadAllRecurrentJourneys();
-      // = new ObservableCollection<BasicItinerary>(basList);
-     // MySavedRecurrentJourneys = new ObservableCollection<BasicRecurrentJourney>(barList);
+      foreach (var item in barList)
+      {
+        MySavedRecurrentJourneys.Add(item);
+      }
+
     }
 
 

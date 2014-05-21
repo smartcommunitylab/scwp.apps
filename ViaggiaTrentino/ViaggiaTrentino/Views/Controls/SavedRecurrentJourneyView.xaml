@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="ViaggiaTrentino.Views.Controls.SavedJourneyView"
+﻿<UserControl x:Class="ViaggiaTrentino.Views.Controls.SavedRecurrentJourneyView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
@@ -11,56 +11,32 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     Loaded="UserControl_Loaded">
-  
+
   <UserControl.Resources>
-    <converters:ItineraryToDateTimeStringConverter x:Key="itiToDateStr" />
-    <converters:LegListToImageListConverter x:Key="legsToImgs" />
     <converters:BooleanToStrokeColorConverter x:Key="boolToColor"/>
+
   </UserControl.Resources>
-  
+
   <StackPanel Background="{StaticResource PhoneChromeBrush}" Margin="0,0,0,5">
-    
 
     <Grid x:Name="LayoutRoot"  HorizontalAlignment="Stretch" Margin="5,0,0,0">
+
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="*"/>
         <ColumnDefinition Width="Auto"/>
-        <ColumnDefinition Width="Auto"/>
-
       </Grid.ColumnDefinitions>
-
       <StackPanel Grid.Column="0">
         <TextBlock Text="{Binding Name, TargetNullValue='empty title'}" TextWrapping="Wrap" FontWeight="SemiBold" ></TextBlock>
-        <TextBlock Text="{Binding OriginalFrom.Name, TargetNullValue=''}" 
-                   TextWrapping="Wrap"></TextBlock>
-        <TextBlock Text="{Binding OriginalTo.Name, TargetNullValue=''}" 
-                   TextWrapping="Wrap"></TextBlock>
-        <!--<TextBlock Text="partenza" TextWrapping="Wrap"></TextBlock>
-        <TextBlock Text="destinazione" TextWrapping="Wrap"></TextBlock>-->
-      </StackPanel>
 
-      <StackPanel Grid.Column="1" >
-        <TextBlock Text="{Binding Data, Converter={StaticResource itiToDateStr}}"></TextBlock>
-        <!--<TextBlock Text="45/54/99 22:55 - 55:44"></TextBlock>-->
-        <ListBox ItemsSource="{Binding Data.Legs, Converter={ StaticResource legsToImgs}}" >
-          <ListBox.ItemsPanel>
-            <ItemsPanelTemplate>
-              <toolkit:WrapPanel x:Name="wrpTransports" HorizontalAlignment="Center" >
-          
-              </toolkit:WrapPanel>
-            </ItemsPanelTemplate>
-          </ListBox.ItemsPanel>
-          <ListBox.ItemTemplate>
-            <DataTemplate>
-              <Image Width="48" Source="{Binding}"></Image>
-            </DataTemplate>
-          </ListBox.ItemTemplate>
-        </ListBox>
+        <TextBlock Text="{Binding Data.Parameters.From.Name, TargetNullValue=''}" 
+                   TextWrapping="Wrap"></TextBlock>
+        <TextBlock Text="{Binding Data.Parameters.To.Name, TargetNullValue=''}" 
+                   TextWrapping="Wrap"></TextBlock>
+        <TextBlock Text=""></TextBlock>
       </StackPanel>
       <Rectangle Grid.Column="2" x:Name="retMonitor" VerticalAlignment="Stretch" Fill="{Binding Monitor, Converter={StaticResource boolToColor}}" Width="5" Margin="10,0,0,0">
-        
-      </Rectangle>  
-      
+
+      </Rectangle>
       <toolkit:ContextMenuService.ContextMenu >
         <toolkit:ContextMenu>
           <toolkit:MenuItem x:Name="DeleteJourney" Tap="DeleteJourney_Tap" Header="delete"></toolkit:MenuItem>
@@ -70,6 +46,6 @@
       </toolkit:ContextMenuService.ContextMenu>
     </Grid>
   </StackPanel>
-  
-  
+
+
 </UserControl>
