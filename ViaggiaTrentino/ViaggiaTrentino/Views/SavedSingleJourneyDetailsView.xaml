@@ -37,26 +37,32 @@
     <!--ContentPanel - place additional content here-->
     <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
       
-      <ScrollViewer>
         <StackPanel>
+          
           <Grid>
             <Grid.ColumnDefinitions>
               <ColumnDefinition Width="Auto" />
               <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0" Text="{Binding Journey.Data.StartTime, Converter={StaticResource milliToDateStr}}" />
-            <TextBlock Grid.Column="1"  Margin="10,0,0,0" Text="{Binding Journey.Data.From.Name }"/>
-
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,0,10">
+            <TextBlock Text="{Binding Path=LocalizedResources.MonitorStat, Source={StaticResource LocalizedStrings}}" />
+            <Ellipse Margin="20,0,25,0" Width="15" Height="15" Fill="{Binding Journey.Monitor, Converter={StaticResource boolToColor}}"></Ellipse>
+            </StackPanel>
+            
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Journey.Data.StartTime, Converter={StaticResource milliToDateStr}}" />
+            <TextBlock Grid.Row="1" Grid.Column="1"  Margin="10,0,0,0" Text="{Binding Journey.Data.From.Name }"/>
           </Grid>
 
-          <ListBox MaxHeight="{Binding ElementName=ContentPanel, Path=ActualHeight}" ItemsSource="{Binding Journey.Data.Legs}">
+          <ListBox MaxHeight="450" ItemsSource="{Binding Journey.Data.Legs}">
             <ListBox.ItemContainerStyle>
               <Style TargetType="ListBoxItem">
                 <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
                 <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
-                <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Disabled"></Setter>
-                <Setter Property="ScrollViewer.ManipulationMode" Value="Control"></Setter>
-
               </Style>
             </ListBox.ItemContainerStyle>
 
@@ -88,7 +94,6 @@
 
           </Grid>
         </StackPanel>
-      </ScrollViewer>
     </Grid>
 
     <bab:BindableAppBar>

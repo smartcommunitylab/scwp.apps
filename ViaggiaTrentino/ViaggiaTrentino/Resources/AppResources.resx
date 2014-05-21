@@ -362,6 +362,9 @@
   <data name="From" xml:space="preserve">
     <value>From</value>
   </data>
+  <data name="MonitorStat" xml:space="preserve">
+    <value>Monitoring status:</value>
+  </data>
   <data name="To" xml:space="preserve">
     <value>to</value>
   </data>

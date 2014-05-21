@@ -250,6 +250,15 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Monitoring status:.
+        /// </summary>
+        public static string MonitorStat {
+            get {
+                return ResourceManager.GetString("MonitorStat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Off.
         /// </summary>
         public static string Off {
