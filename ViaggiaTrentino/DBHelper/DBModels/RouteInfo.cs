@@ -16,5 +16,7 @@ namespace DBManager.DBModels
     public string RouteID { get; set; }
     
     public string Color { get; set; }
+
+    public string Name { get; set; }
   }
 }

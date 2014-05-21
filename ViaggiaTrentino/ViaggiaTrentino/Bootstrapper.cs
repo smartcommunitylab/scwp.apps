@@ -131,6 +131,7 @@ namespace ViaggiaTrentino
       container.PerRequest<SelectAlertPageViewModel>();
       container.PerRequest<SubmitAlertPageViewModel>();
       container.PerRequest<SelectBusRouteViewModel>();
+      container.PerRequest<TimetablePageViewModel>();
 
       //User controls
       container.PerRequest<SavedRecurrentJourneyViewModel>();

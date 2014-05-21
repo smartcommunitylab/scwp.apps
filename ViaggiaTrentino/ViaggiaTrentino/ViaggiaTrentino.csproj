@@ -96,7 +96,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="Converters\ColorToSolidBrushConverter.cs" />
+    <Compile Include="Converters\RouteBackgroungColorToForegroundColor.cs" />
     <Compile Include="Converters\LongToTimeConverter.cs" />
     <Compile Include="Converters\BooleanToStrokeColorConverter.cs" />
     <Compile Include="Converters\RouteToRouteNameConverter.cs" />
@@ -119,6 +119,7 @@
     <Compile Include="ViewModels\Controls\SingleParkingViewModel.cs" />
     <Compile Include="ViewModels\Controls\SavedJourneyViewModel.cs" />
     <Compile Include="ViewModels\Controls\UserSettingsViewModel.cs" />
+    <Compile Include="ViewModels\TimetablePageViewModel.cs" />
     <Compile Include="ViewModels\SelectBusRouteViewModel.cs" />
     <Compile Include="ViewModels\MonitorJourneyViewModel.cs" />
     <Compile Include="ViewModels\ParkingsPageViewModel.cs" />
@@ -131,9 +132,12 @@
     <Compile Include="ViewModels\SettingsPageViewModel.cs" />
     <Compile Include="ViewModels\SubmitAlertPageViewModel.cs" />
     <Compile Include="ViewModels\TestPageViewModel.cs" />
+    <Compile Include="Views\TimetablePageView.xaml.cs">
+      <DependentUpon>TimetablePageView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SelectBusRouteView.xaml.cs">
       <DependentUpon>SelectBusRouteView.xaml</DependentUpon>
-	  </Compile>
+    </Compile>
     <Compile Include="Views\Controls\SavedRecurrentJourneyView.xaml.cs">
       <DependentUpon>SavedRecurrentJourneyView.xaml</DependentUpon>
     </Compile>
@@ -296,6 +300,10 @@
     <Reference Include="Models">
       <HintPath>..\..\..\scwp.support\CompiledDLL\Models.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="ProfileLibrary">
       <HintPath>..\..\..\scwp.support\CompiledDLL\ProfileLibrary.dll</HintPath>
     </Reference>
@@ -307,10 +315,14 @@
     <Folder Include="Assets\Misc\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\TimetablePageView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\SelectBusRouteView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-	</Page>
+    </Page>
     <Page Include="Views\Controls\SavedRecurrentJourneyView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

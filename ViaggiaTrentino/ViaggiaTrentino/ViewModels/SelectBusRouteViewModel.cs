@@ -49,5 +49,10 @@ namespace ViaggiaTrentino.ViewModels
         RoutesName = new ObservableCollection<DBManager.DBModels.RouteInfo>(dbh.GetRouteInfo(EnumConverter.ToEnumString<AgencyType>(AgencyID)));
       }
     }
+
+    public void OpenTimetableView(DBManager.DBModels.RouteInfo obj)
+    {
+      navigationService.UriFor<TimetablePageViewModel>().WithParam(x => x.AgencyID, agencyID).WithParam(x=> x.RouteID, obj.RouteID).Navigate();
+    }
   }
 }

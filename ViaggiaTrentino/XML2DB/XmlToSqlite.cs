@@ -61,7 +61,8 @@ namespace xmlToSqlite
         {
           AgencyID = "12",
           RouteID = smart_check_12_numbers[i],
-          Color = smart_check_12_colors[i]
+          Color = smart_check_12_colors[i],
+          Name = GetRouteName(smart_check_12_numbers[i])
         });
       }
 
@@ -71,10 +72,22 @@ namespace xmlToSqlite
         {
           AgencyID = "16",
           RouteID = smart_check_16_numbers[i],
-          Color = smart_check_16_colors[i]
+          Color = smart_check_16_colors[i],
+          Name = GetRouteName(smart_check_12_numbers[i])
         });
       }
       return routesInfo;
+    }
+
+    private string GetRouteName(string p)
+    {
+      switch (p)
+      {
+        case "_A": return "A";
+        case "_B": return "B";
+        case "FUTS": return "FUN";
+        default: return p;
+      }
     }
 
     private void StringArray(XElement node, List<string> array)
