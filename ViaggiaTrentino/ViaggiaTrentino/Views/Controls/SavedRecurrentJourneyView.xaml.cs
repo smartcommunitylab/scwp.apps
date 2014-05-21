@@ -13,12 +13,12 @@ using Models.MobilityService.Journeys;
 
 namespace ViaggiaTrentino.Views.Controls
 {
-  public partial class SavedJourneyView : UserControl
+  public partial class SavedRecurrentJourneyView : UserControl
   {
     UserRouteLibrary urLib;
-    BasicItinerary basIti;
+    BasicRecurrentJourney basIti;
 
-    public SavedJourneyView()
+    public SavedRecurrentJourneyView()
     {
       InitializeComponent();
       urLib = new UserRouteLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
@@ -26,12 +26,12 @@ namespace ViaggiaTrentino.Views.Controls
 
     private void UserControl_Loaded(object sender, RoutedEventArgs e)
     {
-      basIti = this.DataContext as BasicItinerary;
+      basIti = this.DataContext as BasicRecurrentJourney;
     }
 
     private async void DeleteJourney_Tap(object sender, System.Windows.Input.GestureEventArgs e)
     {
-      if(await urLib.DeleteSingleJourney(basIti.ClientId))
+      if(await urLib.DeleteRecurrentJourney(basIti.ClientId))
         this.Visibility = System.Windows.Visibility.Collapsed;
     }
 
