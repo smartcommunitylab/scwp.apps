@@ -11,30 +11,32 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     Loaded="UserControl_Loaded">
-  
+
   <UserControl.Resources>
-    <converters:ItineraryToDateTimeStringConverter x:Key="itiToDateStr" />
-    <converters:LegListToImageListConverter x:Key="legsToImgs" />
+    <converters:BooleanToStrokeColorConverter x:Key="boolToColor"/>
+
   </UserControl.Resources>
-  
+
   <StackPanel Background="{StaticResource PhoneChromeBrush}" Margin="0,0,0,5">
-    <TextBlock Text="{Binding Name, TargetNullValue='empty title'}" TextWrapping="Wrap" FontSize="32" ></TextBlock>
 
     <Grid x:Name="LayoutRoot"  HorizontalAlignment="Stretch" Margin="5,0,0,0">
+
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="*"/>
         <ColumnDefinition Width="Auto"/>
       </Grid.ColumnDefinitions>
-
       <StackPanel Grid.Column="0">
+        <TextBlock Text="{Binding Name, TargetNullValue='empty title'}" TextWrapping="Wrap" FontWeight="SemiBold" ></TextBlock>
+
         <TextBlock Text="{Binding Data.Parameters.From.Name, TargetNullValue=''}" 
                    TextWrapping="Wrap"></TextBlock>
         <TextBlock Text="{Binding Data.Parameters.To.Name, TargetNullValue=''}" 
                    TextWrapping="Wrap"></TextBlock>
-        <!--<TextBlock Text="partenza" TextWrapping="Wrap"></TextBlock>
-        <TextBlock Text="destinazione" TextWrapping="Wrap"></TextBlock>-->
+        <TextBlock Text=""></TextBlock>
       </StackPanel>
+      <Rectangle Grid.Column="2"  VerticalAlignment="Stretch" Fill="{Binding Monitor, Converter={StaticResource boolToColor}}" Width="5" Margin="10,0,0,0">
 
+      </Rectangle>
       <toolkit:ContextMenuService.ContextMenu >
         <toolkit:ContextMenu>
           <toolkit:MenuItem x:Name="DeleteJourney" Tap="DeleteJourney_Tap" Header="delete"></toolkit:MenuItem>
@@ -44,6 +46,6 @@
       </toolkit:ContextMenuService.ContextMenu>
     </Grid>
   </StackPanel>
-  
-  
+
+
 </UserControl>

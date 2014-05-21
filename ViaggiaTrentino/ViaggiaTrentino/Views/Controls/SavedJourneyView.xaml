@@ -15,18 +15,22 @@
   <UserControl.Resources>
     <converters:ItineraryToDateTimeStringConverter x:Key="itiToDateStr" />
     <converters:LegListToImageListConverter x:Key="legsToImgs" />
+    <converters:BooleanToStrokeColorConverter x:Key="boolToColor"/>
   </UserControl.Resources>
   
   <StackPanel Background="{StaticResource PhoneChromeBrush}" Margin="0,0,0,5">
-    <TextBlock Text="{Binding Name, TargetNullValue='empty title'}" TextWrapping="Wrap" FontSize="32" ></TextBlock>
+    
 
     <Grid x:Name="LayoutRoot"  HorizontalAlignment="Stretch" Margin="5,0,0,0">
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="*"/>
         <ColumnDefinition Width="Auto"/>
+        <ColumnDefinition Width="Auto"/>
+
       </Grid.ColumnDefinitions>
 
       <StackPanel Grid.Column="0">
+        <TextBlock Text="{Binding Name, TargetNullValue='empty title'}" TextWrapping="Wrap" FontWeight="SemiBold" ></TextBlock>
         <TextBlock Text="{Binding OriginalFrom.Name, TargetNullValue=''}" 
                    TextWrapping="Wrap"></TextBlock>
         <TextBlock Text="{Binding OriginalTo.Name, TargetNullValue=''}" 
@@ -53,6 +57,10 @@
           </ListBox.ItemTemplate>
         </ListBox>
       </StackPanel>
+      <Rectangle Grid.Column="2"  VerticalAlignment="Stretch" Fill="{Binding Monitor, Converter={StaticResource boolToColor}}" Width="5" Margin="10,0,0,0">
+        
+      </Rectangle>  
+      
       <toolkit:ContextMenuService.ContextMenu >
         <toolkit:ContextMenu>
           <toolkit:MenuItem x:Name="DeleteJourney" Tap="DeleteJourney_Tap" Header="delete"></toolkit:MenuItem>
