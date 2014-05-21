@@ -46,7 +46,7 @@ namespace ViaggiaTrentino.ViewModels
       base.OnViewLoaded(view);
       using (DBHelper dbh = new DBHelper())
       {
-        RoutesName = new ObservableCollection<DBManager.DBModels.RouteInfo>(dbh.GetRouteInfo(EnumConverter.ToEnumString<AgencyType>(agencyID)));
+        RoutesName = new ObservableCollection<DBManager.DBModels.RouteInfo>(dbh.GetRouteInfo(EnumConverter.ToEnumString<AgencyType>(AgencyID)));
       }
     }
   }

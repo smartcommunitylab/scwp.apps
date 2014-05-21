@@ -144,7 +144,7 @@ namespace DBManager
 
     public List<RouteInfo> GetRouteInfo(string agencyID)
     {
-      return sqlConn.Table<RouteInfo>().ToList();
+      return sqlConn.Table<RouteInfo>().Where(x=> x.AgencyID == agencyID).ToList();
     }
 
     #endregion

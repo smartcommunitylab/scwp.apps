@@ -133,6 +133,7 @@
     <Compile Include="ViewModels\TestPageViewModel.cs" />
     <Compile Include="Views\SelectBusRouteView.xaml.cs">
       <DependentUpon>SelectBusRouteView.xaml</DependentUpon>
+	  </Compile>
     <Compile Include="Views\Controls\SavedRecurrentJourneyView.xaml.cs">
       <DependentUpon>SavedRecurrentJourneyView.xaml</DependentUpon>
     </Compile>
@@ -309,6 +310,7 @@
     <Page Include="Views\SelectBusRouteView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+	</Page>
     <Page Include="Views\Controls\SavedRecurrentJourneyView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
