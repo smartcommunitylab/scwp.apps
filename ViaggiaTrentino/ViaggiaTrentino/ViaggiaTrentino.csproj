@@ -97,8 +97,6 @@
     </Compile>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Converters\RouteBackgroungColorToForegroundColor.cs" />
-    <Compile Include="Converters\LongToTimeConverter.cs" />
-    <Compile Include="Converters\ColorToSolidBrushConverter.cs" />
     <Compile Include="Converters\FromToConverter.cs" />
     <Compile Include="Converters\LongMilliSecondsToTimeConverter.cs" />
     <Compile Include="Converters\TransportTypeToImageConverter.cs" />
@@ -120,10 +118,6 @@
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
-    <Compile Include="ViewModels\Controls\SavedRecurrentJourneyViewModel.cs" />
-    <Compile Include="ViewModels\Controls\SingleParkingViewModel.cs" />
-    <Compile Include="ViewModels\Controls\SavedJourneyViewModel.cs" />
-    <Compile Include="ViewModels\Controls\UserSettingsViewModel.cs" />
     <Compile Include="ViewModels\TimetablePageViewModel.cs" />
     <Compile Include="ViewModels\SelectBusRouteViewModel.cs" />
     <Compile Include="ViewModels\MonitorJourneyViewModel.cs" />
@@ -137,26 +131,26 @@
     <Compile Include="ViewModels\SettingsPageViewModel.cs" />
     <Compile Include="ViewModels\SubmitAlertPageViewModel.cs" />
     <Compile Include="ViewModels\TestPageViewModel.cs" />
+    <Compile Include="Views\Controls\ParkingPopupView.xaml.cs">
+      <DependentUpon>ParkingPopupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\SavedJourneyView.xaml.cs">
+      <DependentUpon>SavedJourneyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\SavedRecurrentJourneyView.xaml.cs">
+      <DependentUpon>SavedRecurrentJourneyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\SingleParkingView.xaml.cs">
+      <DependentUpon>SingleParkingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\UserSettingsView.xaml.cs">
+      <DependentUpon>UserSettingsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\TimetablePageView.xaml.cs">
       <DependentUpon>TimetablePageView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SelectBusRouteView.xaml.cs">
       <DependentUpon>SelectBusRouteView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Controls\SavedRecurrentJourneyView.xaml.cs">
-      <DependentUpon>SavedRecurrentJourneyView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Controls\ParkingPopupView.xaml.cs">
-      <DependentUpon>ParkingPopupView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Controls\SingleParkingView.xaml.cs">
-      <DependentUpon>SingleParkingView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Controls\SavedJourneyView.xaml.cs">
-      <DependentUpon>SavedJourneyView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Controls\UserSettingsView.xaml.cs">
-      <DependentUpon>UserSettingsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MonitorJourneyView.xaml.cs">
       <DependentUpon>MonitorJourneyView.xaml</DependentUpon>
@@ -321,30 +315,26 @@
     <Folder Include="Assets\Misc\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\Controls\ParkingPopupView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Controls\SavedJourneyView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Controls\SavedRecurrentJourneyView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Controls\SingleParkingView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Controls\UserSettingsView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\TimetablePageView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\SelectBusRouteView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Controls\SavedRecurrentJourneyView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\Controls\ParkingPopupView.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\Controls\SingleParkingView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\Controls\SavedJourneyView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Controls\UserSettingsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
