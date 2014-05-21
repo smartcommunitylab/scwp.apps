@@ -1,22 +1,23 @@
-﻿using Models.MobilityService.Journeys;
+﻿using Models.MobilityService;
+using Models.MobilityService.Journeys;
+using Models.MobilityService.RealTime;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Media;
 
 namespace ViaggiaTrentino.Converters
 {
-  public class LongToTimeConverter : IValueConverter
+  public class TransportTypeToImageListConverter : IValueConverter
   {
     public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
     {
-      if (value is long)
-      {        
-        DateTime time = new DateTime(1970, 1, 1).AddSeconds(System.Convert.ToDouble(value));
-
-        return time.ToString("HH:mm");
-      }
+      if (value is TransportType)      
+        return new ImageSourceConverter().ConvertFromString(string.Format("/Assets/Vehicles/{0}.png", value.ToString().ToLower()));         
       return "";
     }
 

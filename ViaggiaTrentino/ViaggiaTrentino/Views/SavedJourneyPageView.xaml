@@ -5,7 +5,7 @@
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-
+    xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vtcont="clr-namespace:ViaggiaTrentino.Views.Controls"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
@@ -33,7 +33,7 @@
             </ListBox.ItemContainerStyle>
             <ListBox.ItemTemplate>
               <DataTemplate>                
-                <vtcont:SavedJourneyView  DataContext="{Binding}"></vtcont:SavedJourneyView>
+                <vtcont:SavedJourneyView cal:Message.Attach="[Event Tap] = [Action OpenSingleJourney($dataContext)]"  DataContext="{Binding}"/>
               </DataTemplate>             
             </ListBox.ItemTemplate>            
           </ListBox>
@@ -52,7 +52,7 @@
             </ListBox.ItemContainerStyle>
             <ListBox.ItemTemplate>
               <DataTemplate>
-                <vtcont:SavedRecurrentJourneyView  DataContext="{Binding}"></vtcont:SavedRecurrentJourneyView>
+                <vtcont:SavedRecurrentJourneyView cal:Message.Attach="[Event Tap] = [Action OpenRecurrentJourney($dataContext)]"  DataContext="{Binding}"></vtcont:SavedRecurrentJourneyView>
               </DataTemplate>
             </ListBox.ItemTemplate>
           </ListBox>

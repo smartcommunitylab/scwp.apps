@@ -10,9 +10,9 @@ using Microsoft.Phone.Shell;
 
 namespace ViaggiaTrentino.Views
 {
-  public partial class SavedJourneyDetailsView : PhoneApplicationPage
+  public partial class SavedSingleJourneyDetailsView : PhoneApplicationPage
   {
-    public SavedJourneyDetailsView()
+    public SavedSingleJourneyDetailsView()
     {
       InitializeComponent();
     }

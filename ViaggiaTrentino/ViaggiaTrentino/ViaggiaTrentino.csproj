@@ -98,6 +98,11 @@
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Converters\RouteBackgroungColorToForegroundColor.cs" />
     <Compile Include="Converters\LongToTimeConverter.cs" />
+    <Compile Include="Converters\ColorToSolidBrushConverter.cs" />
+    <Compile Include="Converters\FromToConverter.cs" />
+    <Compile Include="Converters\LongMilliSecondsToTimeConverter.cs" />
+    <Compile Include="Converters\TransportTypeToImageConverter.cs" />
+    <Compile Include="Converters\LongSecondsToTimeConverter.cs" />
     <Compile Include="Converters\BooleanToStrokeColorConverter.cs" />
     <Compile Include="Converters\RouteToRouteNameConverter.cs" />
     <Compile Include="Converters\ParkingCoordinateArrayToGeoCoordinate.cs" />
@@ -126,7 +131,7 @@
     <Compile Include="ViewModels\PlanNewSingleJourneyViewModel.cs" />
     <Compile Include="ViewModels\RealTimeInfoViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
-    <Compile Include="ViewModels\SavedJourneyDetailsViewModel.cs" />
+    <Compile Include="ViewModels\SavedSingleJourneyDetailsViewModel.cs" />
     <Compile Include="ViewModels\SavedJourneyPageViewModel.cs" />
     <Compile Include="ViewModels\SelectAlertPageViewModel.cs" />
     <Compile Include="ViewModels\SettingsPageViewModel.cs" />
@@ -165,8 +170,8 @@
     <Compile Include="Views\PlanNewSingleJourneyView.xaml.cs">
       <DependentUpon>PlanNewSingleJourneyView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SavedJourneyDetailsView.xaml.cs">
-      <DependentUpon>SavedJourneyDetailsView.xaml</DependentUpon>
+    <Compile Include="Views\SavedSingleJourneyDetailsView.xaml.cs">
+      <DependentUpon>SavedSingleJourneyDetailsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SavedJourneyPageView.xaml.cs">
       <DependentUpon>SavedJourneyPageView.xaml</DependentUpon>
@@ -206,6 +211,7 @@
   <ItemGroup>
     <Content Include="Assets\AlignmentGrid.png" />
     <Content Include="Assets\AppBar\check.png" />
+    <Content Include="Assets\AppBar\Monitor.png" />
     <Content Include="Assets\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -358,7 +364,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\SavedJourneyDetailsView.xaml">
+    <Page Include="Views\SavedSingleJourneyDetailsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

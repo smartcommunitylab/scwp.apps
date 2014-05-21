@@ -19,7 +19,7 @@
   
   <UserControl.Resources>
     <vtconvert:RouteToRouteNameConverter x:Name="RouteToName" />
-    <vtconvert:LongToTimeConverter x:Name="longToTime" />
+    <vtconvert:LongSecondsToTimeConverter x:Name="longToTime" />
   </UserControl.Resources>
 
   <!--LayoutRoot is the root grid where all page content is placed-->
