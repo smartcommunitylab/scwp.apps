@@ -16,7 +16,7 @@
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True"
     Unloaded="PhoneApplicationPage_Unloaded">
-  <!--<toolkit:TransitionService.NavigationInTransition>
+  <toolkit:TransitionService.NavigationInTransition>
     <toolkit:NavigationInTransition>
       <toolkit:NavigationInTransition.Backward>
         <toolkit:TurnstileFeatherTransition Mode="BackwardIn" />
@@ -35,7 +35,7 @@
         <toolkit:TurnstileFeatherTransition Mode="ForwardOut" />
       </toolkit:NavigationOutTransition.Forward>
     </toolkit:NavigationOutTransition>
-  </toolkit:TransitionService.NavigationOutTransition>-->
+  </toolkit:TransitionService.NavigationOutTransition>
   <phone:PhoneApplicationPage.Resources>
     <vtconvert:RouteBackgroungColorToForegroundColor x:Name="backgroundToForegroundColor" />
     <vtconvert:CompressedTimesToStringListConverter x:Name="compressedTimesToStringList" />
@@ -60,14 +60,15 @@
             <ColumnDefinition Width="*" />
           </Grid.ColumnDefinitions>
 
-          <ListBox Grid.Column="0" x:Name="listBoxNames" >
+          <ListBox Grid.Column="0" x:Name="listBoxNames">
             <ListBox.ItemTemplate>
               <DataTemplate>
-                <TextBlock Text="{Binding}" />
+                <TextBlock Text="{Binding}" Margin="0,3,10,3" />
               </DataTemplate>
             </ListBox.ItemTemplate>
           </ListBox>
-          <StackPanel Grid.Column="1" x:Name="stackPanelTimetable" Orientation="Horizontal" />
+          <StackPanel Grid.Column="1" x:Name="stackPanelTimetable" Orientation="Horizontal" 
+                      toolkit:TurnstileFeatherEffect.FeatheringIndex="0"/>
 
         </Grid>
       </ScrollViewer>
