@@ -1,6 +1,7 @@
 ﻿using Caliburn.Micro;
 using CommonHelpers;
 using DBManager;
+using Microsoft.Phone.Shell;
 using MobilityServiceLibrary;
 using Models.MobilityService;
 using Models.MobilityService.PublicTransport;
@@ -41,18 +42,19 @@ namespace ViaggiaTrentino.ViewModels
       }
     }
 
-    protected override void OnViewLoaded(object view)
+    protected override void OnInitialize()
     {
-      base.OnViewLoaded(view);
+      base.OnInitialize();
       using (DBHelper dbh = new DBHelper())
       {
         RoutesName = new ObservableCollection<DBManager.DBModels.RouteInfo>(dbh.GetRouteInfo(EnumConverter.ToEnumString<AgencyType>(AgencyID)));
       }
     }
 
+
     public void OpenTimetableView(DBManager.DBModels.RouteInfo obj)
     {
-      navigationService.UriFor<TimetablePageViewModel>().WithParam(x => x.AgencyID, agencyID).WithParam(x=> x.RouteID, obj.RouteID).Navigate();
+      navigationService.UriFor<TimetablePageViewModel>().WithParam(x => x.AgencyID, agencyID).WithParam(x => x.RouteID, obj.RouteID).Navigate();
     }
   }
 }

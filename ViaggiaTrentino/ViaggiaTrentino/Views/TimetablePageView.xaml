@@ -14,11 +14,14 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
-    shell:SystemTray.IsVisible="True">
+    shell:SystemTray.IsVisible="True"
+    Unloaded="PhoneApplicationPage_Unloaded">
 
   <phone:PhoneApplicationPage.Resources>
     <vtconvert:RouteBackgroungColorToForegroundColor x:Name="backgroundToForegroundColor" />
+    <vtconvert:CompressedTimesToStringListConverter x:Name="compressedTimesToStringList" />
   </phone:PhoneApplicationPage.Resources>
+
 
   <Grid x:Name="LayoutRoot" Background="Transparent">
     <Grid.RowDefinitions>
@@ -31,17 +34,24 @@
     </StackPanel>
 
     <StackPanel x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-      <TextBlock Text="{Binding Path=LocalizedResources.SubAlertRoute, Source={StaticResource LocalizedStrings}}" />
-      <toolkit:ListPicker ItemsSource="{Binding RouteNames}" SelectedItem="{Binding SelectedRouteName, Mode=TwoWay}">
-        <toolkit:ListPicker.ItemTemplate>
-          <DataTemplate>
-            <TextBlock Text="{Binding Name}"></TextBlock>
-          </DataTemplate>
-        </toolkit:ListPicker.ItemTemplate>
-      </toolkit:ListPicker>
-      
-      
-      
+      <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" x:Name="scrollViewerTimetable">
+        <Grid x:Name="gridMainTimetable">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="columnNames" />
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+
+          <ListBox Grid.Column="0" x:Name="listBoxNames" >
+            <ListBox.ItemTemplate>
+              <DataTemplate>
+                <TextBlock Text="{Binding}" />
+              </DataTemplate>
+            </ListBox.ItemTemplate>
+          </ListBox>
+          <StackPanel Grid.Column="1" x:Name="stackPanelTimetable" Orientation="Horizontal" />
+
+        </Grid>
+      </ScrollViewer>
     </StackPanel>
   </Grid>
 </phone:PhoneApplicationPage>
