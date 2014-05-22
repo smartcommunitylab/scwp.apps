@@ -31,7 +31,8 @@ namespace ViaggiaTrentino
 
     protected override PhoneApplicationFrame CreatePhoneApplicationFrame()
     {
-      rootFrame = new PhoneApplicationFrame();
+      //rootFrame = new PhoneApplicationFrame();
+      rootFrame = new TransitionFrame();
       return rootFrame;
     }
 
