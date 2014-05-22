@@ -97,6 +97,10 @@
     </Compile>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Converters\CompressedTimesToStringListConverter.cs" />
+    <Compile Include="Converters\LongSecondsToDateConverter.cs" />
+    <Compile Include="Converters\LegListAndMonitorLegsToBool.cs" />
+    <Compile Include="Converters\LongMilliSecondsToDateConverter.cs" />
+    <Compile Include="Converters\IntegerVectorToNameOfDayStringConverter.cs" />
     <Compile Include="Converters\RouteBackgroungColorToForegroundColor.cs" />
     <Compile Include="Converters\FromToConverter.cs" />
     <Compile Include="Converters\LongMilliSecondsToTimeConverter.cs" />
@@ -119,6 +123,7 @@
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
+    <Compile Include="ViewModels\SavedRecurrentJourneyDetailsViewModel.cs" />
     <Compile Include="ViewModels\TimetablePageViewModel.cs" />
     <Compile Include="ViewModels\SelectBusRouteViewModel.cs" />
     <Compile Include="ViewModels\MonitorJourneyViewModel.cs" />
@@ -146,6 +151,9 @@
     </Compile>
     <Compile Include="Views\Controls\UserSettingsView.xaml.cs">
       <DependentUpon>UserSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SavedRecurrentJourneyDetailsView.xaml.cs">
+      <DependentUpon>SavedRecurrentJourneyDetailsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TimetablePageView.xaml.cs">
       <DependentUpon>TimetablePageView.xaml</DependentUpon>
@@ -329,6 +337,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Controls\UserSettingsView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SavedRecurrentJourneyDetailsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\TimetablePageView.xaml">

@@ -31,7 +31,8 @@ namespace ViaggiaTrentino
 
     protected override PhoneApplicationFrame CreatePhoneApplicationFrame()
     {
-      rootFrame = new PhoneApplicationFrame();
+      //rootFrame = new PhoneApplicationFrame();
+      rootFrame = new TransitionFrame();
       return rootFrame;
     }
 
@@ -122,6 +123,7 @@ namespace ViaggiaTrentino
       container.PerRequest<MainPageViewModel>();
       container.PerRequest<SavedJourneyPageViewModel>();
       container.PerRequest<SavedSingleJourneyDetailsViewModel>();
+      container.PerRequest<SavedRecurrentJourneyDetailsViewModel>();
       container.PerRequest<RealTimeInfoViewModel>();
       container.PerRequest<SettingsPageViewModel>();
       container.PerRequest<ParkingsPageViewModel>();
@@ -157,11 +159,13 @@ namespace ViaggiaTrentino
     {
       ConventionManager.AddElementConvention<BindableAppBarMenuItem>(Control.IsEnabledProperty, "DataContext", "Click");
       ConventionManager.AddElementConvention<BindableAppBarButton>(Control.IsEnabledProperty, "DataContext", "Click");
+      //ConventionManager.AddElementConvention<CheckBox>(Control.IsEnabledProperty, "DataContext", Tap);
       ConventionManager.AddElementConvention<HubTile>(Control.IsEnabledProperty, "DataContext", "Tap");
       ConventionManager.AddElementConvention<TextBlock>(Control.IsEnabledProperty, "DataContext", "Tap");
       ConventionManager.AddElementConvention<MenuItem>(Control.IsEnabledProperty, "DataContext", "Tap");
-
       ConventionManager.AddElementConvention<ListPicker>(Control.IsEnabledProperty, "DataContext", "SelectionChanged");
+
+
       ConventionManager.AddElementConvention<Pivot>(Pivot.ItemsSourceProperty, "SelectedItem", "SelectionChanged")
                 .ApplyBinding =
                 (viewModelType, path, property, element, convention) =>

@@ -1,4 +1,5 @@
-﻿using Models.MobilityService;
+﻿using Microsoft.Phone.Shell;
+using Models.MobilityService;
 using Models.MobilityService.Journeys;
 using Models.MobilityService.PublicTransport;
 using Models.MobilityService.RealTime;
@@ -14,18 +15,20 @@ using ViaggiaTrentino.Resources;
 
 namespace ViaggiaTrentino.Converters
 {
-  public class FromToConverter : IValueConverter
+  public class LegListAndMonitorLegsToBool : IValueConverter
   {
     public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
     {
-      if (value is Leg )
+      if (value is SimpleLeg)
       {
-        Leg tmpLeg = value as Leg;
-        return string.Format("{0} {1} {2} {3}", AppResources.From, tmpLeg.From.Name,
-                                                AppResources.To, tmpLeg.To.Name);
+        BasicRecurrentJourney brj = PhoneApplicationService.Current.State["journey"] as BasicRecurrentJourney;
+        
+        SimpleLeg tmpLeg = value as SimpleLeg;
+        string key = string.Format("{0}_{1}", tmpLeg.TransportInfo.AgencyId, tmpLeg.TransportInfo.RouteId);
+          return brj.Data.MonitorLegs.ContainsKey(key) ? brj.Data.MonitorLegs[key]: false;
+
       }
-     
-      return "";
+      return false;
     }
 
     public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)

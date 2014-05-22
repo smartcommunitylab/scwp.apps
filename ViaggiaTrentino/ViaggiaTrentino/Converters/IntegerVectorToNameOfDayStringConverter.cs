@@ -10,22 +10,27 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Media;
-using ViaggiaTrentino.Resources;
 
 namespace ViaggiaTrentino.Converters
 {
-  public class FromToConverter : IValueConverter
+  public class IntegerVectorToNameOfDayStringConverter : IValueConverter
   {
     public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
     {
-      if (value is Leg )
+      if (value is int[])
       {
-        Leg tmpLeg = value as Leg;
-        return string.Format("{0} {1} {2} {3}", AppResources.From, tmpLeg.From.Name,
-                                                AppResources.To, tmpLeg.To.Name);
+        StringBuilder sb = new StringBuilder();
+
+        foreach (var day in value as int[])
+        {
+          sb.AppendFormat("{0}, ", ((DayOfWeek)day).ToString().Substring(0,3));
+        }
+        string tmp = sb.ToString().Remove(sb.ToString().Length - 2, 2);
+
+        return tmp;
+       
       }
-     
-      return "";
+      return "Hmm, not days";
     }
 
     public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)

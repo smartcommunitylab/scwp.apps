@@ -10,6 +10,7 @@ using Microsoft.Phone.Shell;
 using MobilityServiceLibrary;
 using Models.MobilityService.Journeys;
 using System.Windows.Media;
+using ViaggiaTrentino.Resources;
 
 namespace ViaggiaTrentino.Views.Controls
 {
@@ -31,8 +32,9 @@ namespace ViaggiaTrentino.Views.Controls
 
     private async void DeleteJourney_Tap(object sender, System.Windows.Input.GestureEventArgs e)
     {
-      if(await urLib.DeleteSingleJourney(basIti.ClientId))
-        this.Visibility = System.Windows.Visibility.Collapsed;
+      if(MessageBox.Show(AppResources.SureDelete, AppResources.Warn, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+        if(await urLib.DeleteSingleJourney(basIti.ClientId))
+          this.Visibility = System.Windows.Visibility.Collapsed;
     }
 
     private async void MonitorJourney_Tap(object sender, System.Windows.Input.GestureEventArgs e)
