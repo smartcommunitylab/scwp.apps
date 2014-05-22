@@ -158,11 +158,13 @@ namespace ViaggiaTrentino
     {
       ConventionManager.AddElementConvention<BindableAppBarMenuItem>(Control.IsEnabledProperty, "DataContext", "Click");
       ConventionManager.AddElementConvention<BindableAppBarButton>(Control.IsEnabledProperty, "DataContext", "Click");
+      //ConventionManager.AddElementConvention<CheckBox>(Control.IsEnabledProperty, "DataContext", Tap);
       ConventionManager.AddElementConvention<HubTile>(Control.IsEnabledProperty, "DataContext", "Tap");
       ConventionManager.AddElementConvention<TextBlock>(Control.IsEnabledProperty, "DataContext", "Tap");
       ConventionManager.AddElementConvention<MenuItem>(Control.IsEnabledProperty, "DataContext", "Tap");
-
       ConventionManager.AddElementConvention<ListPicker>(Control.IsEnabledProperty, "DataContext", "SelectionChanged");
+
+
       ConventionManager.AddElementConvention<Pivot>(Pivot.ItemsSourceProperty, "SelectedItem", "SelectionChanged")
                 .ApplyBinding =
                 (viewModelType, path, property, element, convention) =>

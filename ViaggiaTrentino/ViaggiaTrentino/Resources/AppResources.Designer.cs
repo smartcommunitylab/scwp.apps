@@ -601,6 +601,15 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your recurrent journey has been changed. Do you want to save changes?.
+        /// </summary>
+        public static string SureChange {
+            get {
+                return ResourceManager.GetString("SureChange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Are you sure you want to delete this item?.
         /// </summary>
         public static string SureDelete {

@@ -8,6 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:bab="clr-namespace:Caliburn.Micro.BindableAppBar;assembly=Caliburn.Micro.BindableAppBar"
     xmlns:converters="clr-namespace:ViaggiaTrentino.Converters"
+    xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -19,9 +20,9 @@
     <converters:LongMilliSecondsToTimeConverter x:Key="milliToTimeStr" />
     <converters:TransportTypeToImageListConverter x:Key="TTToImg" />
     <converters:BooleanToStrokeColorConverter x:Key="boolToColor"/>
-    <converters:LongSecondsToDateConverter x:Name="secsToDateStr"/>
-    <converters:LongSecondsToTimeConverter x:Name="secsToTimeStr"/>
-
+    <converters:LongMilliSecondsToDateConverter x:Name="secsToDateStr"/>
+    <converters:LongMilliSecondsToTimeConverter x:Name="secsToTimeStr"/>
+    <converters:LegListAndMonitorLegsToBool x:Name="legAndBoolToBool" />
     <converters:FromToConverter x:Key="legToFromTo"/>
   </UserControl.Resources>
   <!--LayoutRoot is the root grid where all page content is placed-->
@@ -53,54 +54,57 @@
           <TextBlock Grid.Column="1" HorizontalAlignment="Right" Text="{Binding Path=LocalizedResources.MonitorStat, Source={StaticResource LocalizedStrings}}" />
           <Ellipse Grid.Column="2" HorizontalAlignment="Right" Margin="20,0,25,0" Width="15" Height="15" Fill="{Binding Journey.Monitor, Converter={StaticResource boolToColor}}"></Ellipse>
         </Grid>
+        <StackPanel>
+          <Grid Margin="0,0,0,5">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
+            <TextBlock  Grid.Column="0" Text="{Binding Journey.Data.Parameters.FromDate, Converter={StaticResource secsToDateStr}}" />
+            <TextBlock Grid.Column="1"  Margin="10,0,0,0" Text="{Binding Journey.Data.Parameters.FromDate, Converter={StaticResource secsToTimeStr} }"/>
+
+          </Grid>
+          <Line X1="0" X2="1" Stretch="Fill" Stroke="{StaticResource PhoneAccentBrush}"></Line>
+        </StackPanel>
         <ScrollViewer Margin="0,15,0,0">
-          <StackPanel>
-            <Grid Margin="0,0,0,5">
-              <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*" />
-              </Grid.ColumnDefinitions>
 
-              <TextBlock  Grid.Column="0" Text="{Binding Journey.Data.Parameters.FromDate, Converter={StaticResource secsToDateStr}}" />
-              <TextBlock Grid.Column="1"  Margin="10,0,0,0" Text="{Binding Journey.Data.Parameters.FromDate, Converter={StaticResource secsToTimeStr} }"/>
-              
-            </Grid>
-            <Line X1="0" X2="1" Stretch="Fill" Stroke="{StaticResource PhoneAccentBrush}"></Line>
 
-            <!--<ListBox MaxHeight="450" ItemsSource="{Binding Journey.Data.Legs}" Margin="0,5,0,5">
-              <ListBox.ItemContainerStyle>
-                <Style TargetType="ListBoxItem">
-                  <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
-                  <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
-                </Style>
-              </ListBox.ItemContainerStyle>
-              <ListBox.Template>
-                <ControlTemplate TargetType="ListBox">
-                  <ItemsPresenter/>
-                </ControlTemplate>
-              </ListBox.Template>
-              <ListBox.ItemTemplate>
-                <DataTemplate>
-                  <Grid>
-                    <Grid.ColumnDefinitions>
-                      <ColumnDefinition Width="Auto" />
-                      <ColumnDefinition Width="*" />
-                      <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="{Binding StartTime, Converter={StaticResource milliToTimeStr}}"></TextBlock>
-                    <StackPanel Grid.Column="1" Margin="10,0,5,0">
-                      <TextBlock TextWrapping="Wrap" Text="{Binding Converter={StaticResource legToFromTo}}"/>
-                    </StackPanel>
-                    <Image Grid.Column="2" Margin="5,0,5,0" Source="{Binding TransportInfo.Type, Converter={StaticResource TTToImg}}"></Image>
-                  </Grid>
-                </DataTemplate>
-              </ListBox.ItemTemplate>
-            </ListBox>-->
-            
-            
-            <Line X1="0" X2="1" Stretch="Fill" Stroke="{StaticResource PhoneAccentBrush}"></Line>
-                     </StackPanel>
+          <ListBox MaxHeight="450" ItemsSource="{Binding Journey.Data.Legs}" Margin="0,5,0,5">
+            <ListBox.ItemContainerStyle>
+              <Style TargetType="ListBoxItem">
+                <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+                <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+              </Style>
+            </ListBox.ItemContainerStyle>
+            <ListBox.Template>
+              <ControlTemplate TargetType="ListBox">
+                <ItemsPresenter/>
+              </ControlTemplate>
+            </ListBox.Template>
+            <ListBox.ItemTemplate>
+              <DataTemplate>
+                <Grid>
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                  </Grid.ColumnDefinitions>
+                  <StackPanel Grid.Column="0" Margin="10,0,5,0">
+                    <TextBlock TextWrapping="Wrap" Text="{Binding TransportInfo.RouteShortName}" FontWeight="SemiBold"/>
+                    <TextBlock TextWrapping="Wrap" Text="{Binding From}"/>
+                    <TextBlock TextWrapping="Wrap" Text="{Binding To}"/>
+                  </StackPanel>
+                  <Image Grid.Column="1" Margin="5,0,5,0" Width="96" Source="{Binding TransportInfo.Type, Converter={StaticResource TTToImg}}"></Image>
+                  <CheckBox Grid.Column="2" VerticalAlignment="Center" IsChecked="{Binding Converter={StaticResource legAndBoolToBool} }"
+                            cal:Message.Attach="[Event Click] = [Action CheckBoxPressed($source, $dataContext)]"/>
+                </Grid>
+              </DataTemplate>
+            </ListBox.ItemTemplate>
+          </ListBox>
+
+
         </ScrollViewer>
 
       </StackPanel>

@@ -24,8 +24,8 @@ namespace ViaggiaTrentino.Converters
         BasicRecurrentJourney brj = PhoneApplicationService.Current.State["journey"] as BasicRecurrentJourney;
         
         SimpleLeg tmpLeg = value as SimpleLeg;
-
-        return brj.Data.MonitorLegs[brj.Data.Legs.IndexOf(tmpLeg)];
+        string key = string.Format("{0}_{1}", tmpLeg.TransportInfo.AgencyId, tmpLeg.TransportInfo.RouteId);
+          return brj.Data.MonitorLegs.ContainsKey(key) ? brj.Data.MonitorLegs[key]: false;
 
       }
       return false;

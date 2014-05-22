@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using ViaggiaTrentino.Resources;
 
 namespace ViaggiaTrentino.ViewModels
@@ -17,6 +18,7 @@ namespace ViaggiaTrentino.ViewModels
     private readonly INavigationService navigationService;
     BasicRecurrentJourney basIti;
     UserRouteLibrary urLib;
+    bool isSomethingChanged;
 
     public BasicRecurrentJourney Journey
     {
@@ -31,8 +33,8 @@ namespace ViaggiaTrentino.ViewModels
     public SavedRecurrentJourneyDetailsViewModel(INavigationService navigationService)
     {
       this.navigationService = navigationService;
-      Journey = PhoneApplicationService.Current.State["journey"] as BasicRecurrentJourney;      
-
+      Journey = PhoneApplicationService.Current.State["journey"] as BasicRecurrentJourney;
+      
       urLib = new UserRouteLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
     }
 
@@ -46,6 +48,28 @@ namespace ViaggiaTrentino.ViewModels
     {
       base.OnViewReady(view);
       PhoneApplicationService.Current.State.Clear();
+      isSomethingChanged = false;
+    }
+
+    protected async override void OnDeactivate(bool close)
+    {
+      base.OnDeactivate(close);
+      if (isSomethingChanged && MessageBox.Show(AppResources.SureChange, AppResources.Warn, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+        await urLib.UpdateRecurrentJourney(Journey.ClientId, Journey);
+     
+
+    }
+
+    public void CheckBoxPressed(CheckBox sender, SimpleLeg gambaSemplice)
+    {
+      if (gambaSemplice.TransportInfo.RouteId != null)
+      {
+        isSomethingChanged = true;
+        string key = string.Format("{0}_{1}", gambaSemplice.TransportInfo.AgencyId, gambaSemplice.TransportInfo.RouteId);
+        if (Journey.Data.MonitorLegs.ContainsKey(key))
+          Journey.Data.MonitorLegs[key] = Convert.ToBoolean(sender.IsChecked);
+        else Journey.Data.MonitorLegs.Add(key, Convert.ToBoolean(sender.IsChecked));
+      }
     }
 
     public async void BarMonitor()

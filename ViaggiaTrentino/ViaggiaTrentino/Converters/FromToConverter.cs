@@ -18,13 +18,13 @@ namespace ViaggiaTrentino.Converters
   {
     public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
     {
-      if (value is Leg)
+      if (value is Leg )
       {
         Leg tmpLeg = value as Leg;
         return string.Format("{0} {1} {2} {3}", AppResources.From, tmpLeg.From.Name,
                                                 AppResources.To, tmpLeg.To.Name);
-
       }
+     
       return "";
     }
 

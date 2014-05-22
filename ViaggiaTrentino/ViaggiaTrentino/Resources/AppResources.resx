@@ -374,4 +374,7 @@
   <data name="Warn" xml:space="preserve">
     <value>Warning</value>
   </data>
+  <data name="SureChange" xml:space="preserve">
+    <value>Your recurrent journey has been changed. Do you want to save changes?</value>
+  </data>
 </root>
