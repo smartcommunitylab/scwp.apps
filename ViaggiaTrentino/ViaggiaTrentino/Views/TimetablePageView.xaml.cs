@@ -47,14 +47,10 @@ namespace ViaggiaTrentino.Views
       bw.ProgressChanged += bw_ProgressChanged;
       bw.RunWorkerAsync(ct);
 
-
-      //for each stop fill the first column with a new row
       for (int i = 0; i < ct.StopIds.Count; i++)
       {
         listBoxNames.Items.Add(ct.Stops[i]);
       }
-
-
     }
 
     void bw_DoWork(object sender, DoWorkEventArgs e)
