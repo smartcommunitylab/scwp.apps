@@ -72,7 +72,8 @@ namespace ViaggiaTrentino.ViewModels
 
     public void OpenRecurrentJourney(BasicRecurrentJourney journey)
     {
-      MessageBox.Show("no moar");
+      PhoneApplicationService.Current.State["journey"] = journey;
+      navigationService.UriFor<SavedRecurrentJourneyDetailsViewModel>().Navigate();
     }
 
     public void OpenSingleJourney(BasicItinerary journey)

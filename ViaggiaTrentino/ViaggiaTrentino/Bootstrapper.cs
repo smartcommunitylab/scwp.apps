@@ -122,6 +122,7 @@ namespace ViaggiaTrentino
       container.PerRequest<MainPageViewModel>();
       container.PerRequest<SavedJourneyPageViewModel>();
       container.PerRequest<SavedSingleJourneyDetailsViewModel>();
+      container.PerRequest<SavedRecurrentJourneyDetailsViewModel>();
       container.PerRequest<RealTimeInfoViewModel>();
       container.PerRequest<SettingsPageViewModel>();
       container.PerRequest<ParkingsPageViewModel>();
