@@ -14,7 +14,7 @@
 
   <UserControl.Resources>
     <converters:BooleanToStrokeColorConverter x:Key="boolToColor"/>
-
+    <converters:IntegerVectorToNameOfDayStringConverter x:Key="intVecToName" />
   </UserControl.Resources>
 
   <StackPanel Background="{StaticResource PhoneChromeBrush}" Margin="0,0,0,5">
@@ -32,7 +32,7 @@
                    TextWrapping="Wrap"></TextBlock>
         <TextBlock Text="{Binding Data.Parameters.To.Name, TargetNullValue=''}" 
                    TextWrapping="Wrap"></TextBlock>
-        <TextBlock Text=""></TextBlock>
+        <TextBlock Text="{Binding Data.Parameters.Recurrences, Converter={StaticResource intVecToName}}"></TextBlock>
       </StackPanel>
       <Rectangle Grid.Column="2" x:Name="retMonitor" VerticalAlignment="Stretch" Fill="{Binding Monitor, Converter={StaticResource boolToColor}}" Width="5" Margin="10,0,0,0">
 
