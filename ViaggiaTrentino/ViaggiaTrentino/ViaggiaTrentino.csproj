@@ -96,6 +96,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Converters\LongMilliSecondsToDateConverter.cs" />
     <Compile Include="Converters\IntegerVectorToNameOfDayStringConverter.cs" />
     <Compile Include="Converters\RouteBackgroungColorToForegroundColor.cs" />
     <Compile Include="Converters\FromToConverter.cs" />

@@ -601,6 +601,15 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to delete this item?.
+        /// </summary>
+        public static string SureDelete {
+            get {
+                return ResourceManager.GetString("SureDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Trentino External Bus.
         /// </summary>
         public static string TileExtraurbanoMessage {
@@ -805,6 +814,15 @@ namespace ViaggiaTrentino.Resources {
         public static string To {
             get {
                 return ResourceManager.GetString("To", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warning.
+        /// </summary>
+        public static string Warn {
+            get {
+                return ResourceManager.GetString("Warn", resourceCulture);
             }
         }
     }
