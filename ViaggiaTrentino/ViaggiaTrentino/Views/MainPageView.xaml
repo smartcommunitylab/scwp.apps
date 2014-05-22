@@ -18,24 +18,24 @@
     shell:SystemTray.IsVisible="True" >
   <toolkit:TransitionService.NavigationInTransition>
     <toolkit:NavigationInTransition>
-        <toolkit:NavigationInTransition.Backward>
-            <toolkit:TurnstileTransition Mode="BackwardIn" />
-        </toolkit:NavigationInTransition.Backward>
-        <toolkit:NavigationInTransition.Forward>
-            <toolkit:TurnstileTransition Mode="ForwardIn" />
-        </toolkit:NavigationInTransition.Forward>
+      <toolkit:NavigationInTransition.Backward>
+        <toolkit:TurnstileFeatherTransition Mode="BackwardIn" />
+      </toolkit:NavigationInTransition.Backward>
+      <toolkit:NavigationInTransition.Forward>
+        <toolkit:TurnstileFeatherTransition Mode="ForwardIn" />
+      </toolkit:NavigationInTransition.Forward>
     </toolkit:NavigationInTransition>
-</toolkit:TransitionService.NavigationInTransition>
-<toolkit:TransitionService.NavigationOutTransition>
+  </toolkit:TransitionService.NavigationInTransition>
+  <toolkit:TransitionService.NavigationOutTransition>
     <toolkit:NavigationOutTransition>
-        <toolkit:NavigationOutTransition.Backward>
-            <toolkit:TurnstileTransition Mode="BackwardOut" />
-        </toolkit:NavigationOutTransition.Backward>
-        <toolkit:NavigationOutTransition.Forward>
-            <toolkit:TurnstileTransition Mode="ForwardOut" />
-        </toolkit:NavigationOutTransition.Forward>
+      <toolkit:NavigationOutTransition.Backward>
+        <toolkit:TurnstileFeatherTransition Mode="BackwardOut" />
+      </toolkit:NavigationOutTransition.Backward>
+      <toolkit:NavigationOutTransition.Forward>
+        <toolkit:TurnstileFeatherTransition Mode="ForwardOut" />
+      </toolkit:NavigationOutTransition.Forward>
     </toolkit:NavigationOutTransition>
-</toolkit:TransitionService.NavigationOutTransition>
+  </toolkit:TransitionService.NavigationOutTransition>
 
   <!--LayoutRoot is the root grid where all page content is placed-->
   <Grid x:Name="LayoutRoot" Background="Transparent">
@@ -69,34 +69,40 @@
                          x:Name="PlanJourneyTile"
                          Source="/Assets/HubTiles/PlanJourney.png"
                          Title="{Binding Path=LocalizedResources.TilePlanJourneyTitle, Source={StaticResource LocalizedStrings}}" 
-                         Message="{Binding Path=LocalizedResources.TilePlanJourneyMessage, Source={StaticResource LocalizedStrings}}" />
+                         Message="{Binding Path=LocalizedResources.TilePlanJourneyMessage, Source={StaticResource LocalizedStrings}}" 
+                         toolkit:TurnstileFeatherEffect.FeatheringIndex="1"/>
         <toolkit:HubTile Margin="5" Grid.Column="1" Grid.Row="0"
                          x:Name="PlanRecurrentJourneyTile"
                          Source="/Assets/HubTiles/PlanRecurrentJourney.png"
                          Title="{Binding Path=LocalizedResources.TilePlanRecurrentJourneyTitle, Source={StaticResource LocalizedStrings}}" 
-                         Message="{Binding Path=LocalizedResources.TilePlanRecurrentJourneyMessage, Source={StaticResource LocalizedStrings}}" />
+                         Message="{Binding Path=LocalizedResources.TilePlanRecurrentJourneyMessage, Source={StaticResource LocalizedStrings}}" 
+                         toolkit:TurnstileFeatherEffect.FeatheringIndex="3"/>
 
         <toolkit:HubTile Margin="5" Grid.Column="0" Grid.Row="1"
                          x:Name="SavedJourneysTile"
                          Source="/Assets/HubTiles/SavedJourneys.png"
                          Title="{Binding Path=LocalizedResources.TileSavedJourneysTitle, Source={StaticResource LocalizedStrings}}" 
-                         Message="{Binding Path=LocalizedResources.TileSavedJourneysMessage, Source={StaticResource LocalizedStrings}}" />
+                         Message="{Binding Path=LocalizedResources.TileSavedJourneysMessage, Source={StaticResource LocalizedStrings}}" 
+                         toolkit:TurnstileFeatherEffect.FeatheringIndex="5"/>
         <toolkit:HubTile Margin="5" Grid.Column="1" Grid.Row="1"
                          x:Name="ReadNotificationsTile"
                          Source="/Assets/HubTiles/ReadNotification.png"
                          Title="{Binding Path=LocalizedResources.TileReadNotificationsTitle, Source={StaticResource LocalizedStrings}}" 
-                         Message="{Binding Path=LocalizedResources.TileReadNotificationsMessage, Source={StaticResource LocalizedStrings}}" />
+                         Message="{Binding Path=LocalizedResources.TileReadNotificationsMessage, Source={StaticResource LocalizedStrings}}" 
+                         toolkit:TurnstileFeatherEffect.FeatheringIndex="4"/>
 
         <toolkit:HubTile Margin="5" Grid.Column="0" Grid.Row="2"
                          x:Name="SubmitAlertTile"
                          Source="/Assets/HubTiles/SubmitAlert.png"
                          Title="{Binding Path=LocalizedResources.TileSubmitAlertTitle, Source={StaticResource LocalizedStrings}}" 
-                         Message="{Binding Path=LocalizedResources.TileSubmitAlertMessage, Source={StaticResource LocalizedStrings}}" />
+                         Message="{Binding Path=LocalizedResources.TileSubmitAlertMessage, Source={StaticResource LocalizedStrings}}" 
+                         toolkit:TurnstileFeatherEffect.FeatheringIndex="2"/>
         <toolkit:HubTile Margin="5" Grid.Column="1" Grid.Row="2"
                          x:Name="RealTimeInfoTile"
                          Source="/Assets/HubTiles/TrafficLight.png"
                          Title="{Binding Path=LocalizedResources.TileRealTimeInfoTitle, Source={StaticResource LocalizedStrings}}" 
-                         Message="{Binding Path=LocalizedResources.TileRealTimeInfoMessage, Source={StaticResource LocalizedStrings}}" />
+                         Message="{Binding Path=LocalizedResources.TileRealTimeInfoMessage, Source={StaticResource LocalizedStrings}}" 
+                         toolkit:TurnstileFeatherEffect.FeatheringIndex="0"/>
       </Grid>
 
 
