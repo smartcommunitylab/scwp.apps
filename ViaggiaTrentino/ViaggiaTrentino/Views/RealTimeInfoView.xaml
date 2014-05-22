@@ -13,7 +13,26 @@
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True">
-
+  <toolkit:TransitionService.NavigationInTransition>
+    <toolkit:NavigationInTransition>
+      <toolkit:NavigationInTransition.Backward>
+        <toolkit:TurnstileFeatherTransition Mode="BackwardIn" />
+      </toolkit:NavigationInTransition.Backward>
+      <toolkit:NavigationInTransition.Forward>
+        <toolkit:TurnstileFeatherTransition Mode="ForwardIn" />
+      </toolkit:NavigationInTransition.Forward>
+    </toolkit:NavigationInTransition>
+  </toolkit:TransitionService.NavigationInTransition>
+  <toolkit:TransitionService.NavigationOutTransition>
+    <toolkit:NavigationOutTransition>
+      <toolkit:NavigationOutTransition.Backward>
+        <toolkit:TurnstileFeatherTransition Mode="BackwardOut" />
+      </toolkit:NavigationOutTransition.Backward>
+      <toolkit:NavigationOutTransition.Forward>
+        <toolkit:TurnstileFeatherTransition Mode="ForwardOut" />
+      </toolkit:NavigationOutTransition.Forward>
+    </toolkit:NavigationOutTransition>
+  </toolkit:TransitionService.NavigationOutTransition>
   <!--LayoutRoot is the root grid where all page content is placed-->
   <Grid x:Name="LayoutRoot" Background="Transparent">
     <Grid.RowDefinitions>
@@ -46,12 +65,14 @@
                          x:Name="TrentoBusTile"
                          Source="/Assets/HubTiles/Urbano.png"
                          Title="{Binding Path=LocalizedResources.TileTrentoBusTitle, Source={StaticResource LocalizedStrings}}" 
-                         Message="{Binding Path=LocalizedResources.TileTrentoBusMessage, Source={StaticResource LocalizedStrings}}" />
+                         Message="{Binding Path=LocalizedResources.TileTrentoBusMessage, Source={StaticResource LocalizedStrings}}" 
+                         toolkit:TurnstileFeatherEffect.FeatheringIndex="0"/>
         <toolkit:HubTile Margin="5" Grid.Column="1" Grid.Row="0"
                          x:Name="TrainTile"
                          Source="/Assets/HubTiles/Train.png"
                          Title="{Binding Path=LocalizedResources.TileTrainTitle, Source={StaticResource LocalizedStrings}}" 
-                         Message="{Binding Path=LocalizedResources.TileTrainMessage, Source={StaticResource LocalizedStrings}}" />
+                         Message="{Binding Path=LocalizedResources.TileTrainMessage, Source={StaticResource LocalizedStrings}}" 
+                         toolkit:TurnstileFeatherEffect.FeatheringIndex="1"/>
 
         <!--<toolkit:HubTile Margin="5" Grid.Column="0" Grid.Row="1"
                          x:Name="ExtraurbanoTile"
@@ -62,13 +83,15 @@
                          x:Name="RoveretoBusTile"
                          Source="/Assets/HubTiles/Urbano.png"
                          Title="{Binding Path=LocalizedResources.TileRoveretoBusTitle, Source={StaticResource LocalizedStrings}}" 
-                         Message="{Binding Path=LocalizedResources.TileRoveretoBusMessage, Source={StaticResource LocalizedStrings}}" />
+                         Message="{Binding Path=LocalizedResources.TileRoveretoBusMessage, Source={StaticResource LocalizedStrings}}" 
+                         toolkit:TurnstileFeatherEffect.FeatheringIndex="2"/>
 
         <toolkit:HubTile Margin="5" Grid.Column="0" Grid.Row="2"
                          x:Name="ParkingTile"
                          Source="/Assets/HubTiles/Parking.png"
                          Title="{Binding Path=LocalizedResources.TileParkingTitle, Source={StaticResource LocalizedStrings}}" 
-                         Message="{Binding Path=LocalizedResources.TileParkingMessage, Source={StaticResource LocalizedStrings}}" />
+                         Message="{Binding Path=LocalizedResources.TileParkingMessage, Source={StaticResource LocalizedStrings}}" 
+                         toolkit:TurnstileFeatherEffect.FeatheringIndex="3"/>
       </Grid>
     </Grid>
   </Grid>
