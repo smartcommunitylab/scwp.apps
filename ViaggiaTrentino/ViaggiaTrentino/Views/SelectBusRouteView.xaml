@@ -44,7 +44,7 @@
         </ItemsControl.ItemsPanel>
         <ItemsControl.ItemTemplate>
           <DataTemplate>
-            <Grid Width="140" Margin="5" cal:Message.Attach="[Event Tap]=[Action OpenTimetableView($dataContext)]" >
+            <Grid  Width="140" Margin="5" cal:Message.Attach="[Event Tap]=[Action OpenTimetableView($dataContext)]"  >
               <Rectangle Height="140" Width="140">
                 <Rectangle.Fill>
                   <SolidColorBrush Color="{Binding Color}"/>
