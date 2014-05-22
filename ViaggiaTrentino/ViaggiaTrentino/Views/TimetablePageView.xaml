@@ -36,6 +36,7 @@
       </toolkit:NavigationOutTransition.Forward>
     </toolkit:NavigationOutTransition>
   </toolkit:TransitionService.NavigationOutTransition>
+  
   <phone:PhoneApplicationPage.Resources>
     <vtconvert:RouteBackgroungColorToForegroundColor x:Name="backgroundToForegroundColor" />
     <vtconvert:CompressedTimesToStringListConverter x:Name="compressedTimesToStringList" />
@@ -75,7 +76,7 @@
             </ListBox.ItemTemplate>
           </ListBox>
           <ScrollViewer Grid.Column="1" HorizontalScrollBarVisibility="Auto">
-            <StackPanel x:Name="stackPanelTimetable" Orientation="Horizontal" />
+            <StackPanel x:Name="stackPanelTimetable" Orientation="Horizontal" toolkit:TurnstileFeatherEffect.FeatheringIndex="0"/>
           </ScrollViewer>
 
         </Grid>
