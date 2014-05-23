@@ -71,7 +71,7 @@ namespace ViaggiaTrentino.ViewModels
       {
         (sender as BackgroundWorker).ReportProgress((i/parchi.Count)*100, parchi[i]);
         //Parkings.Add(parchi[i]);
-        Thread.Sleep(100);
+        Thread.Sleep(50);
       }
     }
 

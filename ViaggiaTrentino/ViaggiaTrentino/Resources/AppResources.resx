@@ -377,4 +377,7 @@
   <data name="SureChange" xml:space="preserve">
     <value>Your recurrent journey has been changed. Do you want to save changes?</value>
   </data>
+  <data name="AboTitle" xml:space="preserve">
+    <value>About ViaggiaTrentino</value>
+  </data>
 </root>

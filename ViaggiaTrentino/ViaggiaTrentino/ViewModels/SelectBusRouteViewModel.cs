@@ -1,11 +1,15 @@
 ﻿using Caliburn.Micro;
 using CommonHelpers;
 using DBManager;
+using DBManager.DBModels;
 using Microsoft.Phone.Shell;
 using MobilityServiceLibrary;
 using Models.MobilityService;
 using Models.MobilityService.PublicTransport;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Threading;
 
 namespace ViaggiaTrentino.ViewModels
 {
@@ -14,7 +18,9 @@ namespace ViaggiaTrentino.ViewModels
     private readonly INavigationService navigationService;
     private AgencyType agencyID;
 
-    ObservableCollection<DBManager.DBModels.RouteInfo> routesName;
+    
+
+    ObservableCollection<RouteInfo> routesName;
     PublicTransportLibrary ptl;
 
     public SelectBusRouteViewModel(INavigationService navigationService)
@@ -29,7 +35,7 @@ namespace ViaggiaTrentino.ViewModels
       get { return agencyID; }
       set { agencyID = value; }
     }
-    public ObservableCollection<DBManager.DBModels.RouteInfo> RoutesName
+    public ObservableCollection<RouteInfo> RoutesName
     {
       get
       {
@@ -45,12 +51,39 @@ namespace ViaggiaTrentino.ViewModels
     protected override void OnInitialize()
     {
       base.OnInitialize();
-      using (DBHelper dbh = new DBHelper())
-      {
-        RoutesName = new ObservableCollection<DBManager.DBModels.RouteInfo>(dbh.GetRouteInfo(EnumConverter.ToEnumString<AgencyType>(AgencyID)));
-      }
+      
+        RoutesName = new ObservableCollection<RouteInfo>();
+      
     }
 
+    protected override void OnViewLoaded(object view)
+    {
+      base.OnViewLoaded(view);
+      BackgroundWorker bw = new BackgroundWorker();
+      bw.DoWork += bw_DoWork;
+      bw.ProgressChanged += bw_ProgressChanged;
+      bw.WorkerReportsProgress = true;
+      bw.WorkerSupportsCancellation = true;
+      bw.RunWorkerAsync(); 
+    }
+
+    void bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
+    {
+      RoutesName.Add(e.UserState as RouteInfo);
+    }
+
+    void bw_DoWork(object sender, DoWorkEventArgs e)
+    {
+      using (DBHelper dbh = new DBHelper())
+      {
+        List<RouteInfo> rName = dbh.GetRouteInfo(EnumConverter.ToEnumString<AgencyType>(AgencyID));
+        foreach (var item in rName)
+        {
+          (sender as BackgroundWorker).ReportProgress(0, item);
+          Thread.Sleep(100);
+        }
+      }
+    }
 
     public void OpenTimetableView(DBManager.DBModels.RouteInfo obj)
     {

@@ -75,7 +75,7 @@
               </DataTemplate>
             </ListBox.ItemTemplate>
           </ListBox>
-          <ScrollViewer Grid.Column="1" HorizontalScrollBarVisibility="Auto">
+          <ScrollViewer Grid.Column="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
             <StackPanel x:Name="stackPanelTimetable" Orientation="Horizontal" toolkit:TurnstileFeatherEffect.FeatheringIndex="0"/>
           </ScrollViewer>
 

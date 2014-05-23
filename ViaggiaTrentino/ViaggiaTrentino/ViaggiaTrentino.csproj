@@ -123,6 +123,7 @@
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
+    <Compile Include="ViewModels\AboutPageViewModel.cs" />
     <Compile Include="ViewModels\SavedRecurrentJourneyDetailsViewModel.cs" />
     <Compile Include="ViewModels\TimetablePageViewModel.cs" />
     <Compile Include="ViewModels\SelectBusRouteViewModel.cs" />
@@ -137,6 +138,9 @@
     <Compile Include="ViewModels\SettingsPageViewModel.cs" />
     <Compile Include="ViewModels\SubmitAlertPageViewModel.cs" />
     <Compile Include="ViewModels\TestPageViewModel.cs" />
+    <Compile Include="Views\AboutPageView.xaml.cs">
+      <DependentUpon>AboutPageView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Controls\ParkingPopupView.xaml.cs">
       <DependentUpon>ParkingPopupView.xaml</DependentUpon>
     </Compile>
@@ -231,6 +235,9 @@
     <Content Include="Assets\HubTiles\TrafficLight.png" />
     <Content Include="Assets\HubTiles\Train.png" />
     <Content Include="Assets\HubTiles\ExtraUrbano.png" />
+    <Content Include="Assets\Misc\AppLogo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -320,10 +327,12 @@
       <HintPath>..\packages\Caliburn.Micro.1.5.2\lib\wp8\System.Windows.Interactivity.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Assets\Misc\" />
-  </ItemGroup>
-  <ItemGroup>
+    <Page Include="Views\AboutPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Controls\ParkingPopupView.xaml">
       <SubType>Designer</SubType>
     </Page>

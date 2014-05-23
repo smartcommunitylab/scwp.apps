@@ -61,6 +61,15 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About ViaggiaTrentino.
+        /// </summary>
+        public static string AboTitle {
+            get {
+                return ResourceManager.GetString("AboTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ViaggiaTrentino.
         /// </summary>
         public static string ApplicationTitle {
