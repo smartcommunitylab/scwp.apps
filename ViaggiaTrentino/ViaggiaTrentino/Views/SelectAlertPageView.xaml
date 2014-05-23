@@ -5,6 +5,7 @@
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -12,6 +13,27 @@
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True">
+
+  <toolkit:TransitionService.NavigationInTransition>
+    <toolkit:NavigationInTransition>
+      <toolkit:NavigationInTransition.Backward>
+        <toolkit:TurnstileFeatherTransition Mode="BackwardIn" />
+      </toolkit:NavigationInTransition.Backward>
+      <toolkit:NavigationInTransition.Forward>
+        <toolkit:TurnstileFeatherTransition Mode="ForwardIn" />
+      </toolkit:NavigationInTransition.Forward>
+    </toolkit:NavigationInTransition>
+  </toolkit:TransitionService.NavigationInTransition>
+  <toolkit:TransitionService.NavigationOutTransition>
+    <toolkit:NavigationOutTransition>
+      <toolkit:NavigationOutTransition.Backward>
+        <toolkit:TurnstileFeatherTransition Mode="BackwardOut" />
+      </toolkit:NavigationOutTransition.Backward>
+      <toolkit:NavigationOutTransition.Forward>
+        <toolkit:TurnstileFeatherTransition Mode="ForwardOut" />
+      </toolkit:NavigationOutTransition.Forward>
+    </toolkit:NavigationOutTransition>
+  </toolkit:TransitionService.NavigationOutTransition>
 
   <!--LayoutRoot is the root grid where all page content is placed-->
   <Grid x:Name="LayoutRoot" Background="Transparent">
@@ -42,21 +64,24 @@
         <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
 
-      <Image Source="/Assets/Vehicles/bus.png"  Grid.Row="0" Grid.Column="0" Width="48" />
+      <Image Source="/Assets/Vehicles/bus.png"  Grid.Row="0" Grid.Column="0" Width="48"  toolkit:TurnstileFeatherEffect.FeatheringIndex="0" />
       <TextBlock x:Name="TrentoBus" Text="{Binding Path=LocalizedResources.SelSendAlertTn, Source={StaticResource LocalizedStrings}}"
-                   Style="{StaticResource PhoneTextLargeStyle}" Margin="5,0,0,5" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
+                 Style="{StaticResource PhoneTextLargeStyle}" Margin="5,0,0,5" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center"
+                 toolkit:TurnstileFeatherEffect.FeatheringIndex="0"></TextBlock>
 
-      <Image Source="/Assets/Vehicles/bus.png"  Grid.Row="1" Grid.Column="0" Width="48" />
+      <Image Source="/Assets/Vehicles/bus.png"  Grid.Row="1" Grid.Column="0" Width="48" toolkit:TurnstileFeatherEffect.FeatheringIndex="2" />
       <TextBlock x:Name="RoveretoBus" Text="{Binding Path=LocalizedResources.SelSendAlertRv, Source={StaticResource LocalizedStrings}}"
-                   Style="{StaticResource PhoneTextLargeStyle}" Margin="5,0,0,5" Grid.Row="1" Grid.Column="1"></TextBlock>
+                 Style="{StaticResource PhoneTextLargeStyle}" Margin="5,0,0,5" Grid.Row="1" Grid.Column="1"
+                 toolkit:TurnstileFeatherEffect.FeatheringIndex="2"></TextBlock>
 
       <!--<Image Source="/Assets/Vehicles/bus.png"  Grid.Row="2" Grid.Column="0" Width="48" />
       <TextBlock x:Name="InterBus" Text="{Binding Path=LocalizedResources.SelSendAlertInter, Source={StaticResource LocalizedStrings}}"
                    Style="{StaticResource PhoneTextLargeStyle}" Margin="5,0,0,5" Grid.Row="2" Grid.Column="1"></TextBlock>-->
 
-      <Image Source="/Assets/Vehicles/train.png"  Grid.Row="3" Grid.Column="0" Width="48" />
+      <Image Source="/Assets/Vehicles/train.png"  Grid.Row="3" Grid.Column="0" Width="48"  toolkit:TurnstileFeatherEffect.FeatheringIndex="1"/>
       <TextBlock x:Name="Train" Text="{Binding Path=LocalizedResources.SelSendAlertTrain, Source={StaticResource LocalizedStrings}}"
-                   Style="{StaticResource PhoneTextLargeStyle}" Margin="5,0,0,5" Grid.Row="3" Grid.Column="1"></TextBlock>
+                 Style="{StaticResource PhoneTextLargeStyle}" Margin="5,0,0,5" Grid.Row="3" Grid.Column="1"
+                 toolkit:TurnstileFeatherEffect.FeatheringIndex="1"></TextBlock>
 
     </Grid>
   </Grid>

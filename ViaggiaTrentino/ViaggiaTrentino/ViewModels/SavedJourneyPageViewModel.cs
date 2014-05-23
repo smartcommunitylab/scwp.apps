@@ -5,8 +5,10 @@ using Models.MobilityService.Journeys;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -21,6 +23,9 @@ namespace ViaggiaTrentino.ViewModels
     ObservableCollection<BasicItinerary> mySavedSingleJourneys;
     ObservableCollection<BasicRecurrentJourney> mySavedRecurrentJourneys;
 
+
+    List<BasicItinerary> basList;
+    List<BasicRecurrentJourney> barList;
 
     public ObservableCollection<BasicItinerary> MySavedSingleJourneys
     {
@@ -50,24 +55,48 @@ namespace ViaggiaTrentino.ViewModels
       this.eventAggregator = eventAggregator;
       urLib = new UserRouteLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
       
-    }    
+    }
 
-    protected override async void OnViewLoaded(object view)
+    protected override void OnInitialize()
+    {
+      base.OnInitialize();
+      
+    }
+
+    protected async override void OnViewLoaded(object view)
     {
       base.OnViewLoaded(view);
-      List<BasicItinerary> basList = await urLib.ReadAllSingleJourneys();
-      List<BasicRecurrentJourney> barList = await urLib.ReadAllRecurrentJourneys();
+      urLib = new UserRouteLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
+      basList = await urLib.ReadAllSingleJourneys();
+      barList = await urLib.ReadAllRecurrentJourneys();
+      BackgroundWorker bw = new BackgroundWorker();
+      bw.DoWork += bw_DoWork;
+      bw.ProgressChanged += bw_ProgressChanged;
+      bw.WorkerReportsProgress = true;
+      bw.WorkerSupportsCancellation = true;
+      bw.RunWorkerAsync(); 
+    }
 
+    void bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
+    {
+      if(e.UserState is BasicRecurrentJourney)
+        MySavedRecurrentJourneys.Add(e.UserState as BasicRecurrentJourney);
+      else MySavedSingleJourneys.Add(e.UserState as BasicItinerary);      
+    }
+
+    void bw_DoWork(object sender, DoWorkEventArgs e)
+    {
       foreach (var item in basList)
       {
-        MySavedSingleJourneys.Add(item);
+        (sender as BackgroundWorker).ReportProgress(0, item);
+        Thread.Sleep(100);
       }
 
       foreach (var item in barList)
       {
-        MySavedRecurrentJourneys.Add(item);
+        (sender as BackgroundWorker).ReportProgress(0, item);
+        Thread.Sleep(100);
       }
-
     }
 
     public void OpenRecurrentJourney(BasicRecurrentJourney journey)
