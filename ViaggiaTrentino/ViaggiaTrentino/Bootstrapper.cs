@@ -119,20 +119,29 @@ namespace ViaggiaTrentino
       container.PerRequest<TestPageViewModel>();
 
 
-      //Pages
+      // Pages
+
+      // App related
       container.PerRequest<MainPageViewModel>();
+      container.PerRequest<SettingsPageViewModel>();
+      container.PerRequest<AboutPageViewModel>();
+
+      // Journey Management
+      container.PerRequest<PlanNewSingleJourneyViewModel>();
       container.PerRequest<SavedJourneyPageViewModel>();
       container.PerRequest<SavedSingleJourneyDetailsViewModel>();
       container.PerRequest<SavedRecurrentJourneyDetailsViewModel>();
-      container.PerRequest<RealTimeInfoViewModel>();
-      container.PerRequest<SettingsPageViewModel>();
-      container.PerRequest<ParkingsPageViewModel>();
-      container.PerRequest<PlanNewSingleJourneyViewModel>();
       container.PerRequest<MonitorJourneyViewModel>();
+      
+      // Timetables
+      container.PerRequest<RealTimeInfoViewModel>();
       container.PerRequest<SelectAlertPageViewModel>();
       container.PerRequest<SubmitAlertPageViewModel>();
       container.PerRequest<SelectBusRouteViewModel>();
       container.PerRequest<TimetablePageViewModel>();
+
+      // Parking
+      container.PerRequest<ParkingsPageViewModel>();
 
       
       AddCustomConventions();

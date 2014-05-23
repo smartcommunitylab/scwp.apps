@@ -111,7 +111,8 @@ namespace ViaggiaTrentino.ViewModels
 
     public void BarAbout()
     {
-      MessageBox.Show("about");
+      navigationService.UriFor<AboutPageViewModel>().Navigate();
+
     }
 
     public void BarSettings()
