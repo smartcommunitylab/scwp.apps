@@ -20,6 +20,7 @@
     shell:SystemTray.IsVisible="True"
     Loaded="PhoneApplicationPage_Loaded"
     Unloaded="PhoneApplicationPage_Unloaded">
+  
   <toolkit:TransitionService.NavigationInTransition>
     <toolkit:NavigationInTransition>
       <toolkit:NavigationInTransition.Backward>
@@ -40,15 +41,16 @@
       </toolkit:NavigationOutTransition.Forward>
     </toolkit:NavigationOutTransition>
   </toolkit:TransitionService.NavigationOutTransition>
+  
   <UserControl.Resources>
     <converters:ParkingCoordinateArrayToGeoCoordinate x:Key="parkCoordArrayToGeo" />
   </UserControl.Resources>
 
   <Grid x:Name="LayoutRoot" Background="Transparent">
-    <phone:Pivot x:Name="pivotContainer" Title="{Binding Path=LocalizedResources.ParkingsPageTitle, Source={StaticResource LocalizedStrings}}">
-      <phone:PivotItem Header="{Binding Path=LocalizedResources.ParkingsPageParkingPivot, Source={StaticResource LocalizedStrings}}">
-        <Grid>
-          <ListBox ItemsSource="{Binding Path=Parkings}" VerticalAlignment="Top" >
+    <phone:Pivot x:Name="pivotContainer" Title="{Binding Path=LocalizedResources.ParkingsPageTitle, Source={StaticResource LocalizedStrings}}" >
+      <phone:PivotItem Header="{Binding Path=LocalizedResources.ParkingsPageParkingPivot, Source={StaticResource LocalizedStrings}}" >
+        <Grid >
+          <ListBox ItemsSource="{Binding Path=Parkings}" VerticalAlignment="Top" toolkit:TurnstileFeatherEffect.FeatheringIndex="0">
             <ListBox.ItemContainerStyle>
               <Style TargetType="ListBoxItem">
                 <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
@@ -57,7 +59,7 @@
             </ListBox.ItemContainerStyle>
             <ListBox.ItemTemplate>
               <DataTemplate>
-                <vtcont:SingleParkingView DataContext="{Binding}" Tap="SingleParkingView_Tap" ></vtcont:SingleParkingView>
+                <vtcont:SingleParkingView DataContext="{Binding}" Tap="SingleParkingView_Tap"  />
               </DataTemplate>
             </ListBox.ItemTemplate>
           </ListBox>
@@ -72,7 +74,8 @@
               <mToolkit:MapItemsControl>
                 <mToolkit:MapItemsControl.ItemTemplate>
                   <DataTemplate>
-                    <mToolkit:Pushpin cal:Message.Attach="[Event Tap] = [Action TappedPushPin($this)]" GeoCoordinate="{Binding Position, Converter={StaticResource parkCoordArrayToGeo}}" Content="{Binding Name}">                   
+                    <mToolkit:Pushpin cal:Message.Attach="[Event Tap] = [Action TappedPushPin($this)]" GeoCoordinate="{Binding Position, Converter={StaticResource parkCoordArrayToGeo}}" 
+                                      Content="{Binding Name}" >                   
                       <!--<mToolkit:Pushpin.Template>
                         <ControlTemplate TargetType="mToolkit:Pushpin">
                           <StackPanel>

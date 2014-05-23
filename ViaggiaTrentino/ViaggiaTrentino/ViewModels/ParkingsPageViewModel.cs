@@ -8,6 +8,9 @@ using System.Windows.Controls.Primitives;
 using ViaggiaTrentino.Views.Controls;
 using System.Windows.Controls;
 using Coding4Fun.Toolkit.Controls;
+using System.Threading;
+using System.ComponentModel;
+using System.Collections.Generic;
 
 namespace ViaggiaTrentino.ViewModels
 {
@@ -32,8 +35,44 @@ namespace ViaggiaTrentino.ViewModels
     protected async override void OnActivate()
     {
       base.OnActivate();
-      Parkings = new ObservableCollection<Parking>(await publicTransLib.GetParkingsByAgency(Models.MobilityService.AgencyType.ComuneDiTrento));
+      
+    }
+
+    List<Parking> parchi;
+
+    protected async override void OnViewLoaded(object view)
+    {
+      base.OnViewLoaded(view);
+      parchi = await publicTransLib.GetParkingsByAgency(Models.MobilityService.AgencyType.ComuneDiTrento);
+      Parkings = new ObservableCollection<Parking>();
+      BackgroundWorker bw = new BackgroundWorker();
+      bw.RunWorkerCompleted += bw_RunWorkerCompleted;
+      bw.DoWork += bw_DoWork;
+      bw.ProgressChanged += bw_ProgressChanged;
+      bw.WorkerReportsProgress = true;
+      bw.WorkerSupportsCancellation = true;
+      bw.RunWorkerAsync();
+    }
+
+    void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+    {  
       eventAggregator.Publish(Parkings);
+    }
+
+    void bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
+    {
+      Parkings.Add(e.UserState as Parking);
+    }
+
+    void bw_DoWork(object sender, DoWorkEventArgs e)
+    {
+      
+      for (int i = 0; i < parchi.Count; i++)
+      {
+        (sender as BackgroundWorker).ReportProgress((i/parchi.Count)*100, parchi[i]);
+        //Parkings.Add(parchi[i]);
+        Thread.Sleep(100);
+      }
     }
 
     public ObservableCollection<Parking> Parkings
