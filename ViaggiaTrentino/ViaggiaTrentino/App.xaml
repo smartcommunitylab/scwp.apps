@@ -9,7 +9,7 @@
   <!--Application Resources-->
   <Application.Resources>
     <local:LocalizedStrings xmlns:local="clr-namespace:ViaggiaTrentino" x:Key="LocalizedStrings"/>
-    <vt:Settings x:Key="vtSettings" /> 
+    <vt:Settings x:Key="vtSettings" />
     <vt:Bootstrapper x:Key="bootstrapper" />
   </Application.Resources>
 

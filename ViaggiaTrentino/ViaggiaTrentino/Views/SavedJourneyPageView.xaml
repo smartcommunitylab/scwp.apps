@@ -15,6 +15,7 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait"  Orientation="Portrait"
     shell:SystemTray.IsVisible="True">
+
   <toolkit:TransitionService.NavigationInTransition>
     <toolkit:NavigationInTransition>
       <toolkit:NavigationInTransition.Backward>
@@ -52,11 +53,10 @@
               </Style>
             </ListBox.ItemContainerStyle>
             <ListBox.ItemTemplate>
-              <DataTemplate>                
-                <vtcont:SavedJourneyView cal:Message.Attach="[Event Tap] = [Action OpenSingleJourney($dataContext)]"  DataContext="{Binding}"
-                                        />
-              </DataTemplate>             
-            </ListBox.ItemTemplate>            
+              <DataTemplate>
+                <vtcont:SavedJourneyView cal:Message.Attach="[Event Tap] = [Action OpenSingleJourney($dataContext)]"  DataContext="{Binding}"/>
+              </DataTemplate>
+            </ListBox.ItemTemplate>
           </ListBox>
         </Grid>
       </phone:PivotItem>
@@ -73,8 +73,7 @@
             </ListBox.ItemContainerStyle>
             <ListBox.ItemTemplate>
               <DataTemplate>
-                <vtcont:SavedRecurrentJourneyView cal:Message.Attach="[Event Tap] = [Action OpenRecurrentJourney($dataContext)]"  DataContext="{Binding}"
-                                                  />
+                <vtcont:SavedRecurrentJourneyView cal:Message.Attach="[Event Tap] = [Action OpenRecurrentJourney($dataContext)]"  DataContext="{Binding}"/>
               </DataTemplate>
             </ListBox.ItemTemplate>
           </ListBox>

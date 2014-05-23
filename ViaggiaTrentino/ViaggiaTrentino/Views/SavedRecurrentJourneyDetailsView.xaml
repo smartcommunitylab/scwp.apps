@@ -16,6 +16,7 @@
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True">
+
   <toolkit:TransitionService.NavigationInTransition>
     <toolkit:NavigationInTransition>
       <toolkit:NavigationInTransition.Backward>
@@ -36,6 +37,7 @@
       </toolkit:NavigationOutTransition.Forward>
     </toolkit:NavigationOutTransition>
   </toolkit:TransitionService.NavigationOutTransition>
+
   <UserControl.Resources>
     <converters:LongMilliSecondsToTimeConverter x:Key="milliToTimeStr" />
     <converters:TransportTypeToImageListConverter x:Key="TTToImg" />
@@ -45,6 +47,7 @@
     <converters:LegListAndMonitorLegsToBool x:Name="legAndBoolToBool" />
     <converters:FromToConverter x:Key="legToFromTo"/>
   </UserControl.Resources>
+  
   <!--LayoutRoot is the root grid where all page content is placed-->
   <Grid x:Name="LayoutRoot" Background="Transparent">
     <Grid.RowDefinitions>
@@ -72,7 +75,8 @@
           <TextBlock Grid.Column="0" Text="{Binding Journey.Data.Parameters.FromDate, Converter={StaticResource secsToDateStr}}"></TextBlock>
 
           <TextBlock Grid.Column="1" HorizontalAlignment="Right" Text="{Binding Path=LocalizedResources.MonitorStat, Source={StaticResource LocalizedStrings}}" />
-          <Ellipse Grid.Column="2" HorizontalAlignment="Right" Margin="20,0,25,0" Width="15" Height="15" Fill="{Binding Journey.Monitor, Converter={StaticResource boolToColor}}"></Ellipse>
+          <Ellipse Grid.Column="2" HorizontalAlignment="Right" Margin="20,0,25,0" Width="15" Height="15" 
+                   Fill="{Binding Journey.Monitor, Converter={StaticResource boolToColor}}"></Ellipse>
         </Grid>
         <StackPanel>
           <Grid Margin="0,0,0,5">
@@ -88,8 +92,6 @@
           <Line X1="0" X2="1" Stretch="Fill" Stroke="{StaticResource PhoneAccentBrush}"></Line>
         </StackPanel>
         <ScrollViewer Margin="0,15,0,0">
-
-
           <ListBox MaxHeight="450" ItemsSource="{Binding Journey.Data.Legs}" Margin="0,5,0,5">
             <ListBox.ItemContainerStyle>
               <Style TargetType="ListBoxItem">
@@ -123,8 +125,6 @@
               </DataTemplate>
             </ListBox.ItemTemplate>
           </ListBox>
-
-
         </ScrollViewer>
 
       </StackPanel>
@@ -132,7 +132,8 @@
 
     <bab:BindableAppBar>
       <bab:BindableAppBarButton IconUri="/Assets/AppBar/Monitor.png" x:Name="BarMonitor" Text="Toggle monitor" />
-      <bab:BindableAppBarButton IconUri="/Toolkit.Content/ApplicationBar.Delete.png" x:Name="BarDelete" Text="{Binding Path=LocalizedResources.SavedJourneyDetailsDelete, Source={StaticResource LocalizedStrings}}" />
+      <bab:BindableAppBarButton IconUri="/Toolkit.Content/ApplicationBar.Delete.png" x:Name="BarDelete" 
+                                Text="{Binding Path=LocalizedResources.SavedJourneyDetailsDelete, Source={StaticResource LocalizedStrings}}" />
     </bab:BindableAppBar>
 
   </Grid>

@@ -12,7 +12,6 @@ namespace ViaggiaTrentino
 {
   public partial class App : Application
   {
-
     public static PhoneApplicationFrame RootFrame { get; private set; }
 
     public App()
@@ -24,8 +23,6 @@ namespace ViaggiaTrentino
         Application.Current.Host.Settings.EnableFrameRateCounter = true;
         PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
       }
-
     }
-
   }
 }

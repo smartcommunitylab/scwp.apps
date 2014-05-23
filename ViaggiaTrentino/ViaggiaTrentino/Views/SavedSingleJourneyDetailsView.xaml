@@ -59,33 +59,31 @@
 
     <!--ContentPanel - place additional content here-->
     <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-
       <StackPanel>
+        
         <Grid>
           <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
-
           </Grid.ColumnDefinitions>
           <TextBlock Grid.Column="0" Text="{Binding Journey.Data.StartTime, Converter={StaticResource milliToDateStr}}"></TextBlock>
-
           <TextBlock Grid.Column="1" HorizontalAlignment="Right" Text="{Binding Path=LocalizedResources.MonitorStat, Source={StaticResource LocalizedStrings}}" />
           <Ellipse Grid.Column="2" HorizontalAlignment="Right" Margin="20,0,25,0" Width="15" Height="15" Fill="{Binding Journey.Monitor, Converter={StaticResource boolToColor}}"></Ellipse>
         </Grid>
 
         <ScrollViewer Margin="0,15,0,0">
           <StackPanel>
+            
             <Grid Margin="0,0,0,5">
               <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
               </Grid.ColumnDefinitions>
-
               <TextBlock  Grid.Column="0" Text="{Binding Journey.Data.StartTime, Converter={StaticResource milliToTimeStr}}" />
               <TextBlock Grid.Column="1"  Margin="10,0,0,0" Text="{Binding Journey.Data.From.Name }"/>
-              
             </Grid>
+            
             <Line X1="0" X2="1" Stretch="Fill" Stroke="{StaticResource PhoneAccentBrush}"></Line>
 
             <ListBox MaxHeight="450" ItemsSource="{Binding Journey.Data.Legs}" Margin="0,5,0,5">
@@ -117,7 +115,9 @@
                 </DataTemplate>
               </ListBox.ItemTemplate>
             </ListBox>
+            
             <Line X1="0" X2="1" Stretch="Fill" Stroke="{StaticResource PhoneAccentBrush}"></Line>
+            
             <Grid Margin="0,5,0,0">
               <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
@@ -125,11 +125,10 @@
               </Grid.ColumnDefinitions>
               <TextBlock Grid.Column="0" Text="{Binding Journey.Data.EndTime, Converter={StaticResource milliToTimeStr}}" />
               <TextBlock Grid.Column="1" Margin="10,0,0,0" Text="{Binding Journey.Data.To.Name }"/>
-
             </Grid>
+            
           </StackPanel>
         </ScrollViewer>
-
       </StackPanel>
     </Grid>
 

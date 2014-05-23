@@ -15,6 +15,7 @@
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True">
+
   <toolkit:TransitionService.NavigationInTransition>
     <toolkit:NavigationInTransition>
       <toolkit:NavigationInTransition.Backward>
@@ -64,7 +65,8 @@
         </ItemsControl.ItemsPanel>
         <ItemsControl.ItemTemplate>
           <DataTemplate>
-            <Grid Width="140" Margin="5" cal:Message.Attach="[Event Tap]=[Action OpenTimetableView($dataContext)]"  toolkit:TurnstileFeatherEffect.FeatheringIndex="0">
+            <Grid Width="140" Margin="5" cal:Message.Attach="[Event Tap]=[Action OpenTimetableView($dataContext)]" 
+                  toolkit:TurnstileFeatherEffect.FeatheringIndex="0">
               <Rectangle Height="140" Width="140" >
                 <Rectangle.Fill>
                   <SolidColorBrush Color="{Binding Color}"/>

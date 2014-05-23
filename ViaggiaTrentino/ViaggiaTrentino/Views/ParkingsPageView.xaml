@@ -20,7 +20,7 @@
     shell:SystemTray.IsVisible="True"
     Loaded="PhoneApplicationPage_Loaded"
     Unloaded="PhoneApplicationPage_Unloaded">
-  
+
   <toolkit:TransitionService.NavigationInTransition>
     <toolkit:NavigationInTransition>
       <toolkit:NavigationInTransition.Backward>
@@ -41,7 +41,7 @@
       </toolkit:NavigationOutTransition.Forward>
     </toolkit:NavigationOutTransition>
   </toolkit:TransitionService.NavigationOutTransition>
-  
+
   <UserControl.Resources>
     <converters:ParkingCoordinateArrayToGeoCoordinate x:Key="parkCoordArrayToGeo" />
   </UserControl.Resources>
@@ -75,7 +75,7 @@
                 <mToolkit:MapItemsControl.ItemTemplate>
                   <DataTemplate>
                     <mToolkit:Pushpin cal:Message.Attach="[Event Tap] = [Action TappedPushPin($this)]" GeoCoordinate="{Binding Position, Converter={StaticResource parkCoordArrayToGeo}}" 
-                                      Content="{Binding Name}" >                   
+                                      Content="{Binding Name}" >
                       <!--<mToolkit:Pushpin.Template>
                         <ControlTemplate TargetType="mToolkit:Pushpin">
                           <StackPanel>

@@ -13,6 +13,7 @@
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True">
+  
   <toolkit:TransitionService.NavigationInTransition>
     <toolkit:NavigationInTransition>
       <toolkit:NavigationInTransition.Backward>
@@ -33,6 +34,7 @@
       </toolkit:NavigationOutTransition.Forward>
     </toolkit:NavigationOutTransition>
   </toolkit:TransitionService.NavigationOutTransition>
+  
   <!--LayoutRoot is the root grid where all page content is placed-->
   <Grid x:Name="LayoutRoot" Background="Transparent">
     <Grid.RowDefinitions>
@@ -79,6 +81,7 @@
                          Source="/Assets/HubTiles/ExtraUrbano.png"
                          Title="{Binding Path=LocalizedResources.TileExtraurbanoTitle, Source={StaticResource LocalizedStrings}}" 
                          Message="{Binding Path=LocalizedResources.TileExtraurbanoMessage, Source={StaticResource LocalizedStrings}}" />-->
+        
         <toolkit:HubTile Margin="5" Grid.Column="0" Grid.Row="1"
                          x:Name="RoveretoBusTile"
                          Source="/Assets/HubTiles/Urbano.png"

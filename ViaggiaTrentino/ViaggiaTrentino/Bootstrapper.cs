@@ -7,9 +7,6 @@ using System.Collections.Generic;
 using System.Device.Location;
 using System.IO;
 using System.IO.IsolatedStorage;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 using ViaggiaTrentino.ViewModels;
@@ -132,7 +129,7 @@ namespace ViaggiaTrentino
       container.PerRequest<SavedSingleJourneyDetailsViewModel>();
       container.PerRequest<SavedRecurrentJourneyDetailsViewModel>();
       container.PerRequest<MonitorJourneyViewModel>();
-      
+
       // Timetables
       container.PerRequest<RealTimeInfoViewModel>();
       container.PerRequest<SelectAlertPageViewModel>();
@@ -143,7 +140,7 @@ namespace ViaggiaTrentino
       // Parking
       container.PerRequest<ParkingsPageViewModel>();
 
-      
+
       AddCustomConventions();
 
       rootFrame.Navigated += rootFrame_Navigated;
