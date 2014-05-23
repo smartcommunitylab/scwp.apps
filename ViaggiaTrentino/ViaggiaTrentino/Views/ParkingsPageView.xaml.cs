@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Device.Location;
 using System.Linq;
 using System.Windows;
+using ViaggiaTrentino.Model;
 using ViaggiaTrentino.Views.Controls;
 
 namespace ViaggiaTrentino.Views
@@ -36,9 +37,24 @@ namespace ViaggiaTrentino.Views
 
     public void Handle(IEnumerable<Parking> parkings)
     {
-      ObservableCollection<DependencyObject> children = MapExtensions.GetChildren(ParkingsMap);
+     /* ObservableCollection<DependencyObject> children = MapExtensions.GetChildren(ParkingsMap);
       var obj = children.FirstOrDefault(x => x.GetType() == typeof(MapItemsControl)) as MapItemsControl;
-      obj.ItemsSource = parkings;
+      obj.ItemsSource = parkings;*/
+      List<Parking> parks = parkings.ToList<Parking>();
+      var pushPins = new List<Pushpin>();
+      foreach (var park in parks)
+	    {
+		    pushPins.Add(new Pushpin()
+        {
+          Tag = park,
+          GeoCoordinate = new GeoCoordinate(park.Position[0],park.Position[1]),
+          Content = park.Name,
+          ContentTemplate = this.Resources["PushpinTemplate"] as DataTemplate
+        }
+        );
+	    }
+
+      var clusterer = new ClustersGenerator(ParkingsMap, pushPins, this.Resources["ClusterTemplate"] as DataTemplate);
     }
 
     private void SingleParkingView_Tap(object sender, System.Windows.Input.GestureEventArgs e)

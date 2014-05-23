@@ -11,6 +11,7 @@ using Coding4Fun.Toolkit.Controls;
 using System.Threading;
 using System.ComponentModel;
 using System.Collections.Generic;
+using Microsoft.Phone.Maps.Toolkit;
 
 namespace ViaggiaTrentino.ViewModels
 {
@@ -85,19 +86,20 @@ namespace ViaggiaTrentino.ViewModels
       }
     }
 
-    public void TappedPushPin(Parking pp)
+    public void TappedPushPin(object pp)
     {
-      MessagePrompt mp = new MessagePrompt();
-      mp.Title = Resources.AppResources.ParkingPopupTitle;
+      var a = (pp as Pushpin).Tag;
+      //MessagePrompt mp = new MessagePrompt();
+      //mp.Title = Resources.AppResources.ParkingPopupTitle;
       
-      mp.Body = new ParkingPopupView(mp, navigationService) { DataContext = pp };
-      mp.ActionPopUpButtons.Clear();
+      //mp.Body = new ParkingPopupView(mp, navigationService) { DataContext = pp.Tag };
+      //mp.ActionPopUpButtons.Clear();
       
 
 
-      mp.VerticalAlignment = VerticalAlignment.Center;
-      mp.HorizontalAlignment = HorizontalAlignment.Center;
-      mp.Show();
+      //mp.VerticalAlignment = VerticalAlignment.Center;
+      //mp.HorizontalAlignment = HorizontalAlignment.Center;
+      //mp.Show();
     }
 
   }

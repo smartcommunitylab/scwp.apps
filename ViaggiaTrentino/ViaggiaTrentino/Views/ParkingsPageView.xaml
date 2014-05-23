@@ -44,7 +44,17 @@
 
   <UserControl.Resources>
     <converters:ParkingCoordinateArrayToGeoCoordinate x:Key="parkCoordArrayToGeo" />
+    <DataTemplate x:Key="PushpinTemplate">
+      <mToolkit:Pushpin cal:Message.Attach="[Event Tap] = [Action TappedPushPin($source)]"  Content="{Binding }" Tag="{Binding}"
+                        GeoCoordinate="{Binding GeoCoordinate}"  />
+    </DataTemplate>
+    <DataTemplate x:Key="ClusterTemplate">
+      <mToolkit:Pushpin GeoCoordinate="{Binding GeoCoordinate}" Content="{Binding Count}"/>
+    </DataTemplate>
+
   </UserControl.Resources>
+
+
 
   <Grid x:Name="LayoutRoot" Background="Transparent">
     <phone:Pivot x:Name="pivotContainer" Title="{Binding Path=LocalizedResources.ParkingsPageTitle, Source={StaticResource LocalizedStrings}}" >
@@ -70,24 +80,24 @@
       <phone:PivotItem x:Name="pivotMap" Header="{Binding Path=LocalizedResources.ParkingsPageMapPivot, Source={StaticResource LocalizedStrings}}">
         <Grid>
           <maps:Map x:Name="ParkingsMap" ZoomLevel="11">
-            <mToolkit:MapExtensions.Children>
+            <!--<mToolkit:MapExtensions.Children>
               <mToolkit:MapItemsControl>
                 <mToolkit:MapItemsControl.ItemTemplate>
                   <DataTemplate>
                     <mToolkit:Pushpin cal:Message.Attach="[Event Tap] = [Action TappedPushPin($this)]" GeoCoordinate="{Binding Position, Converter={StaticResource parkCoordArrayToGeo}}" 
                                       Content="{Binding Name}" >
-                      <!--<mToolkit:Pushpin.Template>
+                      <mToolkit:Pushpin.Template>
                         <ControlTemplate TargetType="mToolkit:Pushpin">
                           <StackPanel>
                             <Image Source="/Images/Misc/ParkingPushPin.png" Stretch="Uniform" Width="50" Height="50" HorizontalAlignment="Center"/>
                           </StackPanel>
                         </ControlTemplate>
-                      </mToolkit:Pushpin.Template>-->
-                    </mToolkit:Pushpin>
+                      </mToolkit:Pushpin.Template>
+                   </mToolkit:Pushpin>
                   </DataTemplate>
                 </mToolkit:MapItemsControl.ItemTemplate>
               </mToolkit:MapItemsControl>
-            </mToolkit:MapExtensions.Children>
+            </mToolkit:MapExtensions.Children>-->
           </maps:Map>
         </Grid>
       </phone:PivotItem>
