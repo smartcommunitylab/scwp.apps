@@ -107,7 +107,7 @@
     <Compile Include="Converters\LongSecondsToTimeConverter.cs" />
     <Compile Include="Converters\BooleanToStrokeColorConverter.cs" />
     <Compile Include="Converters\RouteToRouteNameConverter.cs" />
-    <Compile Include="Converters\ParkingCoordinateArrayToGeoCoordinate.cs" />
+    <Compile Include="Converters\ParkingDataContextToContentConverter.cs" />
     <Compile Include="Converters\ParkingSlotsToForegoundColor.cs" />
     <Compile Include="Converters\BooleanToScrollBarVisibilityConverter.cs" />
     <Compile Include="Converters\ParkingToSlotsConverter.cs" />

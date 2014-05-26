@@ -46,10 +46,11 @@ namespace ViaggiaTrentino.Views
 	    {
 		    pushPins.Add(new Pushpin()
         {
+          ContentTemplate = this.Resources["PushpinTemplate"] as DataTemplate,
+          DataContext = park,
           Tag = park,
           GeoCoordinate = new GeoCoordinate(park.Position[0],park.Position[1]),
-          Content = park.Name,
-          ContentTemplate = this.Resources["PushpinTemplate"] as DataTemplate
+          Content = park.Name          
         }
         );
 	    }

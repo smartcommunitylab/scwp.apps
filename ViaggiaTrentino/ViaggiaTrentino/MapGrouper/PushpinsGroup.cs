@@ -26,13 +26,14 @@ namespace ViaggiaTrentino.Model
                 return _pushpins[0];
 
             // more pushpins
-            return new Pushpin()
+          var bab = new Pushpin()
             {
                 // just need the first coordinate
                 GeoCoordinate = _pushpins.First().GeoCoordinate,
                 Content = _pushpins.Select(p => p.DataContext).ToList(),
                 ContentTemplate = clusterTemplate,
             };
+          return bab;
         }
 
         public void IncludeGroup(PushpinsGroup group)
