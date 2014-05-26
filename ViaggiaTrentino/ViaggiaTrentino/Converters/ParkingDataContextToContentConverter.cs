@@ -14,16 +14,15 @@ using System.Windows.Media;
 
 namespace ViaggiaTrentino.Converters
 {
-  public class ParkingCoordinateArrayToGeoCoordinate : IValueConverter
+  public class ParkingDataContextToContentConverter : IValueConverter
   {
     public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
     {
-      if (value is double[])
+      if (value is Parking)
       {
-        double[] coord = value as double[];
-        return new GeoCoordinate(coord[0], coord[1]);
+        return (value as Parking).Name;
       }
-      return null;
+      return "";
     }
 
     public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)

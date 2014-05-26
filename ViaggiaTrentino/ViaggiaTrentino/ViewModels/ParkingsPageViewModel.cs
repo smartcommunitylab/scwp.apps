@@ -70,8 +70,8 @@ namespace ViaggiaTrentino.ViewModels
       
       for (int i = 0; i < parchi.Count; i++)
       {
-        (sender as BackgroundWorker).ReportProgress((i/parchi.Count)*100, parchi[i]);
-        //Parkings.Add(parchi[i]);
+
+        (sender as BackgroundWorker).ReportProgress((i / parchi.Count) * 100, parchi[i]);
         Thread.Sleep(50);
       }
     }
@@ -86,20 +86,20 @@ namespace ViaggiaTrentino.ViewModels
       }
     }
 
-    public void TappedPushPin(object pp)
+    public void TappedPushPin(Parking pp)
     {
-      var a = (pp as Pushpin).Tag;
-      //MessagePrompt mp = new MessagePrompt();
-      //mp.Title = Resources.AppResources.ParkingPopupTitle;
-      
-      //mp.Body = new ParkingPopupView(mp, navigationService) { DataContext = pp.Tag };
-      //mp.ActionPopUpButtons.Clear();
-      
+
+      MessagePrompt mp = new MessagePrompt();
+      mp.Title = Resources.AppResources.ParkingPopupTitle;
+
+      mp.Body = new ParkingPopupView(mp, navigationService) { DataContext = pp };
+      mp.ActionPopUpButtons.Clear();
 
 
-      //mp.VerticalAlignment = VerticalAlignment.Center;
-      //mp.HorizontalAlignment = HorizontalAlignment.Center;
-      //mp.Show();
+
+      mp.VerticalAlignment = VerticalAlignment.Center;
+      mp.HorizontalAlignment = HorizontalAlignment.Center;
+      mp.Show();
     }
 
   }

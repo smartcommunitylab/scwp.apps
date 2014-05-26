@@ -61,14 +61,18 @@ namespace ViaggiaTrentino.Model
             _map.Dispatcher.BeginInvoke(() =>
             {
                 _map.Layers.Clear();
-                MapLayer layer = new MapLayer();
+                MapLayer layer = new MapLayer();              
                 foreach (var visibleGroup in pushpinsToAdd.Where(p => _map.IsVisiblePoint(p.MapLocation)))
                 {
                     var cluster = visibleGroup.GetElement(this.ClusterTemplate) as Pushpin;
                     if (cluster != null)
                     {
-                        layer.Add(new MapOverlay() { GeoCoordinate = cluster.GeoCoordinate, Content = cluster.Content, ContentTemplate = cluster.ContentTemplate});
-                        
+                      if(cluster.DataContext != null)
+                        layer.Add(new MapOverlay() { GeoCoordinate = cluster.GeoCoordinate, Content = cluster.DataContext, ContentTemplate = cluster.ContentTemplate });
+
+                      else
+                        layer.Add(new MapOverlay() { GeoCoordinate = cluster.GeoCoordinate, Content = cluster.Content,  ContentTemplate = cluster.ContentTemplate});
+                      
                     }
                 }
                 if (layer.Count > 0)

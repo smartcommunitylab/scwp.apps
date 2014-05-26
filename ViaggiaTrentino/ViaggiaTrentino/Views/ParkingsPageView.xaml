@@ -43,9 +43,9 @@
   </toolkit:TransitionService.NavigationOutTransition>
 
   <UserControl.Resources>
-    <converters:ParkingCoordinateArrayToGeoCoordinate x:Key="parkCoordArrayToGeo" />
+    <converters:ParkingDataContextToContentConverter x:Key="dcToCont" />
     <DataTemplate x:Key="PushpinTemplate">
-      <mToolkit:Pushpin cal:Message.Attach="[Event Tap] = [Action TappedPushPin($source)]"  Content="{Binding }" Tag="{Binding}"
+      <mToolkit:Pushpin cal:Message.Attach="[Event Tap] = [Action TappedPushPin($dataContext)]"  Content="{Binding Converter={StaticResource dcToCont} }" DataContext="{Binding }"
                         GeoCoordinate="{Binding GeoCoordinate}"  />
     </DataTemplate>
     <DataTemplate x:Key="ClusterTemplate">
