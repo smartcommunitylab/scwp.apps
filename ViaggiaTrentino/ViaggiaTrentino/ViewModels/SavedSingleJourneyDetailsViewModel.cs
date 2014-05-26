@@ -32,7 +32,7 @@ namespace ViaggiaTrentino.ViewModels
     {
       this.navigationService = navigationService;
       Journey = PhoneApplicationService.Current.State["journey"] as BasicItinerary;
-      PhoneApplicationService.Current.State.Clear();
+      PhoneApplicationService.Current.State.Remove("journey");
       urLib = new UserRouteLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
     }
 

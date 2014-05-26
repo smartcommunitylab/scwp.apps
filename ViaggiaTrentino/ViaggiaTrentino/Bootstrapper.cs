@@ -33,16 +33,6 @@ namespace ViaggiaTrentino
       return rootFrame;
     }
 
-    protected override void OnActivate(object sender, Microsoft.Phone.Shell.ActivatedEventArgs e)
-    {
-      base.OnActivate(sender, e);
-    }
-
-    protected override void OnLaunch(object sender, Microsoft.Phone.Shell.LaunchingEventArgs e)
-    {
-      base.OnLaunch(sender, e);
-    }
-
     protected override void OnStartup(object sender, System.Windows.StartupEventArgs e)
     {
       base.OnStartup(sender, e);
@@ -135,6 +125,7 @@ namespace ViaggiaTrentino
       container.PerRequest<SelectAlertPageViewModel>();
       container.PerRequest<SubmitAlertPageViewModel>();
       container.PerRequest<SelectBusRouteViewModel>();
+      container.PerRequest<SelectBusRouteDirectionViewModel>();
       container.PerRequest<TimetablePageViewModel>();
 
       // Parking

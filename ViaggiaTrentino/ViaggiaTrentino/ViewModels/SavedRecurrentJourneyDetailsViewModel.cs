@@ -47,7 +47,7 @@ namespace ViaggiaTrentino.ViewModels
     protected override void OnViewReady(object view)
     {
       base.OnViewReady(view);
-      PhoneApplicationService.Current.State.Clear();
+      PhoneApplicationService.Current.State.Remove("journey");
       isSomethingChanged = false;
     }
 

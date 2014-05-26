@@ -19,11 +19,10 @@ namespace ViaggiaTrentino.ViewModels
     private readonly INavigationService navigationService;
     private readonly IEventAggregator eventAggregator;
     private AgencyType agencyID;
-    private string routeID;
+    private string routeIDWitDirection, nameID, description, color;
     private ObservableCollection<DBManager.DBModels.RouteName> routeNames;
-    //private CompressedTimetable timetable;
-
     DBManager.DBModels.RouteName selectedRouteName;
+
 
     public TimetablePageViewModel(INavigationService navigationService, IEventAggregator eventAggregator)
     {
@@ -31,6 +30,7 @@ namespace ViaggiaTrentino.ViewModels
       this.eventAggregator = eventAggregator;
     }
 
+    #region Properties
     public ObservableCollection<DBManager.DBModels.RouteName> RouteNames
     {
       get { return routeNames; }
@@ -47,10 +47,42 @@ namespace ViaggiaTrentino.ViewModels
       set { agencyID = value; }
     }
 
-    public string RouteID
+    public string RouteIDWitDirection
     {
-      get { return routeID; }
-      set { routeID = value; }
+      get { return routeIDWitDirection; }
+      set { routeIDWitDirection = value; }
+    }
+
+    public string NameID
+    {
+      get { return nameID; }
+      set
+      {
+        nameID = value;
+      }
+    }
+
+    public string Description
+    {
+      get { return description; }
+      set
+      {
+        description = value;
+      }
+    }
+
+    public string Color
+    {
+      get { return color; }
+      set
+      {
+        color = value;
+      }
+    }
+
+    public string RouteName
+    {
+      get { return string.Format("{0} - {1}", NameID, Description); }
     }
 
     public DBManager.DBModels.RouteName SelectedRouteName
@@ -62,27 +94,20 @@ namespace ViaggiaTrentino.ViewModels
         NotifyOfPropertyChange(() => SelectedRouteName);
       }
     }
-    //public CompressedTimetable Timetable
-    //{
-    //  get { return timetable; }
-    //  set
-    //  {
-    //    timetable = value;
-    //    NotifyOfPropertyChange(() => Timetable);
-    //  }
-    //}
 
-    private void GetTimetableFromDB(string routeID)
+    #endregion
+
+    private void GetTimetableFromDB()
     {
       using (DBHelper dbh = new DBHelper())
-      {      
-        var calendar = dbh.GetCalendar(EnumConverter.ToEnumString<AgencyType>(agencyID),routeID ).CalendarEntries;
+      {
+        var calendar = dbh.GetCalendar(EnumConverter.ToEnumString<AgencyType>(agencyID), routeIDWitDirection).CalendarEntries;
         var results = JsonConvert.DeserializeObject<Dictionary<string, string>>(calendar);
 
         string key = DateTime.Now.ToString("yyyyMMdd");
         if (results.ContainsKey(key) && results[key] != null)
         {
-          string name = String.Format("{0}_{1}", routeID, results[key]);
+          string name = String.Format("{0}_{1}", routeIDWitDirection, results[key]);
           var timetable = dbh.GetRouteCalendar(name);
           eventAggregator.Publish(new CompressedTimetable()
           {
@@ -98,18 +123,7 @@ namespace ViaggiaTrentino.ViewModels
     protected override void OnViewLoaded(object view)
     {
       base.OnViewLoaded(view);
-      GetTimetableFromDB("05A");
-
-      //TODO: move to the previous page
-      //using (DBHelper dbh = new DBHelper())
-      //{
-      //  RouteNames = new ObservableCollection<DBManager.DBModels.RouteName>(
-      //    dbh.GetRoutesNames(EnumConverter.ToEnumString<AgencyType>(agencyID)).Where(
-      //      x => (x.RouteID.StartsWith(routeID) || x.RouteID.StartsWith("0" + routeID))
-      //    ));
-
-      //  SelectedRouteName = RouteNames.FirstOrDefault();
-      //}
+      GetTimetableFromDB();
     }
   }
 }

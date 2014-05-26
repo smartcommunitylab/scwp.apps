@@ -1,6 +1,7 @@
 ﻿using Caliburn.Micro;
 using CommonHelpers;
 using DBManager;
+using System.Linq;
 using DBManager.DBModels;
 using Microsoft.Phone.Shell;
 using MobilityServiceLibrary;
@@ -18,7 +19,7 @@ namespace ViaggiaTrentino.ViewModels
     private readonly INavigationService navigationService;
     private AgencyType agencyID;
 
-    
+
 
     ObservableCollection<RouteInfo> routesName;
     PublicTransportLibrary ptl;
@@ -35,6 +36,7 @@ namespace ViaggiaTrentino.ViewModels
       get { return agencyID; }
       set { agencyID = value; }
     }
+
     public ObservableCollection<RouteInfo> RoutesName
     {
       get
@@ -51,9 +53,9 @@ namespace ViaggiaTrentino.ViewModels
     protected override void OnInitialize()
     {
       base.OnInitialize();
-      
-        RoutesName = new ObservableCollection<RouteInfo>();
-      
+
+      RoutesName = new ObservableCollection<RouteInfo>();
+
     }
 
     protected override void OnViewLoaded(object view)
@@ -64,7 +66,7 @@ namespace ViaggiaTrentino.ViewModels
       bw.ProgressChanged += bw_ProgressChanged;
       bw.WorkerReportsProgress = true;
       bw.WorkerSupportsCancellation = true;
-      bw.RunWorkerAsync(); 
+      bw.RunWorkerAsync();
     }
 
     void bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -80,14 +82,37 @@ namespace ViaggiaTrentino.ViewModels
         foreach (var item in rName)
         {
           (sender as BackgroundWorker).ReportProgress(0, item);
-          Thread.Sleep(100);
+          Thread.Sleep(50);
         }
       }
     }
 
     public void OpenTimetableView(DBManager.DBModels.RouteInfo obj)
     {
-      navigationService.UriFor<TimetablePageViewModel>().WithParam(x => x.AgencyID, agencyID).WithParam(x => x.RouteID, obj.RouteID).Navigate();
+      using (DBHelper dbh = new DBHelper())
+      {
+        var routenames = dbh.GetRoutesNames(EnumConverter.ToEnumString<AgencyType>(agencyID)).Where(x => x.RouteID.ToLower().StartsWith(obj.RouteID.ToLower())).ToList();
+
+        if (routenames.Count == 1)
+          navigationService.UriFor<TimetablePageViewModel>()
+            .WithParam(x => x.AgencyID, agencyID)
+            .WithParam(x => x.RouteIDWitDirection, routenames.First().RouteID)
+            .WithParam(x => x.Description, routenames.First().Name)
+            .WithParam(x => x.NameID, obj.Name)
+            .WithParam(x => x.Color, obj.Color)
+            .Navigate();
+        else
+        {
+          PhoneApplicationService.Current.State["routeNamesForDirections"] = routenames;
+          navigationService.UriFor<SelectBusRouteDirectionViewModel>()
+            .WithParam(x => x.AgencyID, agencyID)
+            .WithParam(x => x.RouteID, obj.RouteID)
+            .WithParam(x => x.Name, obj.Name)
+            .WithParam(x => x.Color, obj.Color)
+            .Navigate();
+        }
+      }
+
     }
   }
 }

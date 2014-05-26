@@ -484,6 +484,15 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select Direction.
+        /// </summary>
+        public static string SelectDirection {
+            get {
+                return ResourceManager.GetString("SelectDirection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Intercity bus delays.
         /// </summary>
         public static string SelSendAlertInter {

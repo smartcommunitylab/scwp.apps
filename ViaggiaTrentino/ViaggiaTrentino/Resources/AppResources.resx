@@ -380,4 +380,7 @@
   <data name="AboTitle" xml:space="preserve">
     <value>About ViaggiaTrentino</value>
   </data>
+  <data name="SelectDirection" xml:space="preserve">
+    <value>Select Direction</value>
+  </data>
 </root>

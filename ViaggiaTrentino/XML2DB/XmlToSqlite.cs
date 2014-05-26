@@ -73,7 +73,7 @@ namespace xmlToSqlite
           AgencyID = "16",
           RouteID = smart_check_16_numbers[i],
           Color = smart_check_16_colors[i],
-          Name = GetRouteName(smart_check_12_numbers[i])
+          Name = GetRouteName(smart_check_16_numbers[i])
         });
       }
       return routesInfo;
@@ -86,7 +86,7 @@ namespace xmlToSqlite
         case "_A": return "A";
         case "_B": return "B";
         case "FUTS": return "FUN";
-        default: return p;
+        default: return p[0] == '0' ? p.Substring(1) : p;
       }
     }
 
