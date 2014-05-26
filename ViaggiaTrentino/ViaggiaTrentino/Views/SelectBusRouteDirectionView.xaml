@@ -73,8 +73,13 @@
                                     FontSize="70" VerticalAlignment="Center" FontWeight="Medium"/>
 
 
-      <TextBlock Text="Select direction:" Margin="5,15,5,15" Grid.Row="1"/>
+      <TextBlock FontWeight="SemiBold" Text="Select direction:" Margin="5,15,5,15" Grid.Row="1"/>
       <ListBox ItemsSource="{Binding RouteDirections}" Grid.Row="2" >
+        <ListBox.Template>
+          <ControlTemplate TargetType="ListBox">
+            <ItemsPresenter />
+          </ControlTemplate>
+        </ListBox.Template>
         <ListBox.ItemTemplate>
           <DataTemplate>
             <TextBlock Text="{Binding Name}" Margin="10,10,5,10" Tag="{Binding RouteID}" cal:Message.Attach="[Event Tap]=[Action ShowTimetable($source)]" />
