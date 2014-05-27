@@ -19,7 +19,7 @@ namespace ViaggiaTrentino.ViewModels
     private readonly INavigationService navigationService;
     private readonly IEventAggregator eventAggregator;
     private AgencyType agencyID;
-    private DateTime date;
+    private DateTime currentDate;
     private string routeIDWitDirection, nameID, description, color;
     private ObservableCollection<DBManager.DBModels.RouteName> routeNames;
     DBManager.DBModels.RouteName selectedRouteName;
@@ -48,13 +48,13 @@ namespace ViaggiaTrentino.ViewModels
       set { agencyID = value; }
     }
 
-    public DateTime Date
+    public DateTime CurrentDate
     {
-      get { return date; }
+      get { return currentDate; }
       set
       {
-        date = value;
-        NotifyOfPropertyChange(() => Date);
+        currentDate = value;
+        NotifyOfPropertyChange(() => CurrentDate);
       }
     }
 
@@ -108,15 +108,14 @@ namespace ViaggiaTrentino.ViewModels
 
     #endregion
 
-    private void GetTimetableFromDB(DateTime date)
+    private void GetTimetableFromDB()
     {
-      Date = date;
       using (DBHelper dbh = new DBHelper())
       {
         var calendar = dbh.GetCalendar(EnumConverter.ToEnumString<AgencyType>(agencyID), routeIDWitDirection).CalendarEntries;
         var results = JsonConvert.DeserializeObject<Dictionary<string, string>>(calendar);
 
-        string key = date.ToString("yyyyMMdd");
+        string key = CurrentDate.ToString("yyyyMMdd");
         if (results.ContainsKey(key) && results[key] != null)
         {
           string name = String.Format("{0}_{1}", routeIDWitDirection, results[key]);
@@ -129,23 +128,31 @@ namespace ViaggiaTrentino.ViewModels
             StopIds = JsonConvert.DeserializeObject<List<string>>(timetable.StopsIDs),
           });
         }
+        else
+          eventAggregator.Publish(new CompressedTimetable() 
+          {
+            CompressedTimes = null
+          });
       }
     }
 
     protected override void OnViewLoaded(object view)
     {
       base.OnViewLoaded(view);
-      GetTimetableFromDB(DateTime.Now);
+      CurrentDate = DateTime.Now;
+      GetTimetableFromDB();
     }
 
     public void Next()
     {
-      GetTimetableFromDB(DateTime.Now.AddDays(1));
+      CurrentDate = CurrentDate.AddDays(1);
+      GetTimetableFromDB();
     }
 
     public void Previous()
     {
-      GetTimetableFromDB(DateTime.Now.AddDays(-1));
+      CurrentDate = CurrentDate.AddDays(-1);
+      GetTimetableFromDB();
     }
   }
 }

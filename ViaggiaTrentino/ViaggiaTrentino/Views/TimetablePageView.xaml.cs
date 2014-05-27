@@ -20,6 +20,7 @@ namespace ViaggiaTrentino.Views
   public partial class TimetablePageView : PhoneApplicationPage, IHandle<CompressedTimetable>
   {
     private readonly IEventAggregator eventAggregator;
+    private BackgroundWorker bw;
 
     public TimetablePageView()
     {
@@ -28,6 +29,8 @@ namespace ViaggiaTrentino.Views
       IEventAggregator eventAggregator = bootstrapper.container.GetAllInstances(typeof(IEventAggregator)).FirstOrDefault() as IEventAggregator;
       this.eventAggregator = eventAggregator;
       eventAggregator.Subscribe(this);
+      Previous.IsEnabled = false;
+      Next.IsEnabled = false;
     }
 
     private void PhoneApplicationPage_Unloaded(object sender, RoutedEventArgs e)
@@ -40,17 +43,34 @@ namespace ViaggiaTrentino.Views
       scrollViewerTimetable.MaxHeight = ContentPanel.ActualHeight;
       columnNames.Width = new GridLength(Application.Current.Host.Content.ActualWidth * 0.4);
 
-      BackgroundWorker bw = new BackgroundWorker();
-      bw.WorkerSupportsCancellation = true;
-      bw.WorkerReportsProgress = true;
-      bw.DoWork += bw_DoWork;
-      bw.ProgressChanged += bw_ProgressChanged;
-      bw.RunWorkerAsync(ct);
-
-      for (int i = 0; i < ct.StopIds.Count; i++)
+      if (ct.CompressedTimes == null)
       {
-        listBoxNames.Items.Add(ct.Stops[i]);
+        ContentPanel.Children.Clear();
+        ContentPanel.Children.Add(new TextBlock() { Text = "no available timetable" });
       }
+      else
+      {
+        Previous.IsEnabled = false;
+        Next.IsEnabled = false;
+        for (int i = 0; i < ct.StopIds.Count; i++)
+        {
+          listBoxNames.Items.Add(ct.Stops[i]);
+        }
+
+        bw = new BackgroundWorker();
+        bw.WorkerSupportsCancellation = true;
+        bw.WorkerReportsProgress = true;
+        bw.DoWork += bw_DoWork;
+        bw.ProgressChanged += bw_ProgressChanged;
+        bw.RunWorkerCompleted += bw_RunWorkerCompleted;
+        bw.RunWorkerAsync(ct);
+      }
+    }
+
+    void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+    {
+      Previous.IsEnabled = true;
+      Next.IsEnabled = true;
     }
 
     void bw_DoWork(object sender, DoWorkEventArgs e)
@@ -94,37 +114,7 @@ namespace ViaggiaTrentino.Views
         });
 
       }
-
       stackPanelTimetable.Children.Add(sp);
-    }
-
-    private List<List<string>> GetTimetableFull(CompressedTimetable ct)
-    {
-      List<List<string>> full = new List<List<string>>();
-      List<string> results = new List<string>();
-      int i = 0;
-      while (i < ct.CompressedTimes.Length)
-      {
-        if (results.Count == ct.Stops.Count)
-        {
-          full.Add(results);
-          results = new List<string>();
-        }
-        if (ct.CompressedTimes[i] == '|')
-        {
-          results.Add("     ");
-          i++;
-        }
-        else
-        {
-          string s = String.Format("{0}:{1}", ct.CompressedTimes.Substring(i, 2), ct.CompressedTimes.Substring(i + 2, 2));
-          results.Add(s);
-          i += 4;
-        }
-      }
-
-      return full;
-
     }
   }
 }
