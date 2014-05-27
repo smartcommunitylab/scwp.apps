@@ -15,7 +15,9 @@ namespace ViaggiaTrentino.Views
     public TestPageView()
     {
       InitializeComponent();
+      autoCompBox.FilterMode = AutoCompleteFilterMode.Contains;
       
     }
+
   }
 }

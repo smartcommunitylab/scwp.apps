@@ -1,6 +1,7 @@
 ﻿using Caliburn.Micro;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Maps.Services;
+using MobilityServiceLibrary;
 using Models.MobilityService;
 using Models.MobilityService.Journeys;
 using Models.MobilityService.RealTime;
@@ -17,18 +18,18 @@ namespace ViaggiaTrentino.ViewModels
   public class TestPageViewModel : Screen
   {
     ObservableCollection<BasicItinerary> viaggi;
-    ObservableCollection<string> placeList;
+    ObservableCollection<Models.MobilityService.Journeys.Position> placeList;
     private readonly INavigationService navigationService;
-    GeocodeQuery gq;
+    GoogleAddressLibrary gal;
     bool readyToShow;
 
     public TestPageViewModel(INavigationService navigationService)
      
     {
       viaggi = new ObservableCollection<BasicItinerary>();
-      placeList = new ObservableCollection<string>();
+      placeList = new ObservableCollection<Models.MobilityService.Journeys.Position>();
       this.navigationService = navigationService;
-      gq = new GeocodeQuery();
+      gal = new GoogleAddressLibrary();
       readyToShow = false;
     }
 
@@ -41,7 +42,7 @@ namespace ViaggiaTrentino.ViewModels
       }
     }
 
-    public ObservableCollection<string> PlaceList
+    public ObservableCollection<Models.MobilityService.Journeys.Position> PlaceList
     {
       get { return placeList; }
       set
@@ -101,32 +102,12 @@ namespace ViaggiaTrentino.ViewModels
 
     }
 
-    public void Meh(object j)
+    public async void Meh(object j)
     {
-      if (!gq.IsBusy)
-      {
-        LoadedData = false;
-        gq.SearchTerm = (j as AutoCompleteBox).Text;
-        //gq.GeoCoordinate = GPSPos;
-        gq.GeoCoordinate = new GeoCoordinate(0, 0);
-        gq.MaxResultCount = 10;
-        gq.QueryCompleted += gq_QueryCompleted;
-        gq.QueryAsync();
-      }
-      else gq.CancelAsync();
-    }
-
-    void gq_QueryCompleted(object sender, QueryCompletedEventArgs<IList<MapLocation>> e)
-    {
-      try
-      {
-        var a = e.Result.Select(x => x.Information.Address.Street).ToList();
-
-        PlaceList = new ObservableCollection<string>(a);
-        LoadedData = true;
-      }
-      catch { }
-    }
+      string query = (j as AutoCompleteBox).Text;
+      List<Models.MobilityService.Journeys.Position> poss = await gal.GetPositionsForAutocomplete(query);
+      PlaceList = new ObservableCollection<Models.MobilityService.Journeys.Position>(poss);
+    }    
 
     public void alert()
     {
