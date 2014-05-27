@@ -8,6 +8,7 @@
   xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:vtcont="clr-namespace:ViaggiaTrentino.Views.Controls"
+  xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -54,8 +55,10 @@
         <Button x:Name="planJourney" Content="planJourney" />
         <Button x:Name="alert" Content="Alert" />
         <Button x:Name="popola" Content="pop"/>
-
-        <ListBox ItemsSource="{Binding Path=Viaggi}" >
+        <toolkit:AutoCompleteBox IsTextCompletionEnabled="True" IsDropDownOpen="{Binding LoadedData}" cal:Message.Attach="[Event TextChanged] = [ Action Meh($source)]"  ItemsSource="{Binding PlaceList}">
+          
+        </toolkit:AutoCompleteBox>
+          <ListBox ItemsSource="{Binding Path=Viaggi}" >
           <ListBox.ItemContainerStyle>
             <Style TargetType="ListBoxItem">
               <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
