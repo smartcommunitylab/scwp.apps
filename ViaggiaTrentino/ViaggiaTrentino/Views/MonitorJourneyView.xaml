@@ -124,7 +124,7 @@
       </ScrollViewer>
     </Grid>
     <bab:BindableAppBar>
-      <bab:BindableAppBarButton IconUri="/Assets/AppBar/check.png" x:Name="MonitorJourney"  />
+      <bab:BindableAppBarButton IsEnabled="{Binding IsAppbarShown}" IconUri="/Assets/AppBar/check.png" x:Name="MonitorJourney"  />
     </bab:BindableAppBar>
   </Grid>
 

@@ -79,6 +79,15 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Selected location:.
+        /// </summary>
+        public static string ChooseConfirmTitle {
+            get {
+                return ResourceManager.GetString("ChooseConfirmTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Current location.
         /// </summary>
         public static string ChooseCurrent {

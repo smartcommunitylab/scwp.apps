@@ -3,6 +3,7 @@ using Coding4Fun.Toolkit.Controls;
 using Microsoft.Devices;
 using Microsoft.Phone.Maps.Controls;
 using Microsoft.Phone.Maps.Services;
+using Microsoft.Phone.Maps.Toolkit;
 using Microsoft.Phone.Shell;
 using Microsoft.Phone.Tasks;
 using Models.MobilityService.Journeys;
@@ -11,6 +12,7 @@ using System.Collections.Generic;
 using System.Device.Location;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls.Primitives;
@@ -36,8 +38,30 @@ namespace ViaggiaTrentino.ViewModels
       this.navigationService = navigationService;
       departureDate = DateTime.Now;
       journey = new SingleJourney();
+      pu = new Popup();
+      pu.Closed += pu_Closed;
       
     }
+
+    void pu_Closed(object sender, EventArgs e)
+    {
+      NotifyOfPropertyChange(() => IsAppbarShown);
+    }
+
+    protected async override void OnViewLoaded(object view)
+    {
+      base.OnViewLoaded(view);
+
+      if (PhoneApplicationService.Current.State.ContainsKey("parkCoord"))
+      {
+        double[] dd = PhoneApplicationService.Current.State["parkCoord"] as double[];
+        PhoneApplicationService.Current.State.Remove("parkCoord");
+        locationResult = "to";
+        ToText = await GetAddressFromGeoCoord(dd);
+      }
+    }
+
+    #region Properties
 
     public string FromText
     {
@@ -90,18 +114,15 @@ namespace ViaggiaTrentino.ViewModels
       }
     }
 
-    protected async override void OnViewLoaded(object view)
+    public bool IsAppbarShown
     {
-      base.OnViewLoaded(view);
+      get { return !pu.IsOpen; }
       
-      if(PhoneApplicationService.Current.State.ContainsKey("parkCoord"))
-      {
-        double[] dd = PhoneApplicationService.Current.State["parkCoord"] as double[];
-        PhoneApplicationService.Current.State.Remove("parkCoord");
-        locationResult = "to";
-        ToText = await GetAddressFromGeoCoord(dd);
-      }
     }
+
+    #endregion
+
+    #region Addresses management
 
     public Task<string> GetAddressFromGeoCoord(GeoCoordinate position)
     {
@@ -124,23 +145,14 @@ namespace ViaggiaTrentino.ViewModels
       return result.StartsWith(",")? result.Substring(2): result;
     }
 
-    public void GpsLocFrom()
-    {
-      locationResult = "from";
-      ShowLocationMethodChooser();      
-    }
+    #endregion
 
-    public void GpsLocTo()
-    {
-      locationResult = "to";
-      ShowLocationMethodChooser();      
-    }
+    #region LocationSelector
 
     private void ShowLocationMethodChooser()
     {
       MessagePrompt mp = new MessagePrompt();
-      mp.ActionPopUpButtons.Clear();
-      
+      mp.ActionPopUpButtons.Clear();      
       mp.VerticalAlignment = System.Windows.VerticalAlignment.Center;
       mp.HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch;
       mp.Margin = new System.Windows.Thickness(10);
@@ -150,41 +162,69 @@ namespace ViaggiaTrentino.ViewModels
       mp.Show();
     }
 
+    async void mp_Completed(object sender, PopUpEventArgs<string, PopUpResult> e)
+    {
+      MessagePrompt mp = sender as MessagePrompt;
+      switch (mp.Value)
+      {
+        case "current": Assegna(await GetAddressFromGeoCoord(Settings.GPSPosition)); break;
+        case "openMap": ShowMappaGrande(); break;
+        default: break;
+      }
+    }
+
+    #endregion
+
+    #region Map popup
+
     public void ShowMappaGrande()
     {
-      //new MapsTask(){ Center = Settings.GPSPosition, ZoomLevel = 15 }.Show()
       Map ggm = new Map();
-      pu = new Popup();
-      pu.Child = ggm;
+      pu.Child = ggm;      
       ggm.ZoomLevel = 15;
       ggm.Center = Settings.GPSPosition;
       ggm.Height = Application.Current.Host.Content.ActualHeight;
       ggm.Width = Application.Current.Host.Content.ActualWidth;
       ggm.Hold += ggm_Hold;
       pu.IsOpen = true;
+      NotifyOfPropertyChange(() => IsAppbarShown);
+
     }
 
     async void ggm_Hold(object sender, System.Windows.Input.GestureEventArgs e)
     {
-      GeoCoordinate geocode = (sender as Map).ConvertViewportPointToGeoCoordinate(e.GetPosition(pu));
+      Map mappa = sender as Map;
+      GeoCoordinate geocode = mappa.ConvertViewportPointToGeoCoordinate(e.GetPosition(pu));
       string aa = await GetAddressFromGeoCoord(geocode);
+      Pushpin p = new Pushpin()
+      {
+        GeoCoordinate = geocode,
+        Content = aa        
+      };
+      p.Tap += p_Tap;
+      MapExtensions.GetChildren(mappa).Clear();
+      MapExtensions.GetChildren(mappa).Add(p);
+      
       VibrationDevice vibro = VibrationDevice.GetDefault();
-      vibro.Vibrate(new TimeSpan(0, 0, 5));
-      pu.IsOpen = false;
-      Assegna(aa);
+      vibro.Vibrate(new TimeSpan(0, 0,1));
+      
+      //uncomment to enable hold to message box flow
+      //p_Tap(p, e);
     }
 
-    async void mp_Completed(object sender, PopUpEventArgs<string, PopUpResult> e)
+    void p_Tap(object sender, System.Windows.Input.GestureEventArgs e)
     {
-      MessagePrompt mp = sender as MessagePrompt;
-      switch (mp.Value)
+      if (MessageBox.Show((sender as Pushpin).Content as string, AppResources.ChooseConfirmTitle, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
       {
-        case "current": Assegna( await GetAddressFromGeoCoord(Settings.GPSPosition)); break;
-        case "openMap": ShowMappaGrande(); break;
-        default: break;
+        pu.IsOpen = false;
+        Assegna((sender as Pushpin).Content as string);
       }
-      
     }
+
+    #endregion
+
+    #region Buttons eventhandlers
+
     public void Assegna(string result)
     {
       if (locationResult == "from")
@@ -192,9 +232,24 @@ namespace ViaggiaTrentino.ViewModels
       else if (locationResult == "to")
         ToText = result;
     }
+
+    public void GpsLocFrom()
+    {
+      locationResult = "from";
+      ShowLocationMethodChooser();
+    }
+
+    public void GpsLocTo()
+    {
+      locationResult = "to";
+      ShowLocationMethodChooser();
+    }
+
     public void PlanNewJourney()
     {
       //finalize SingleJourneyObject and proceed to post
     }
+
+    #endregion
   }
 }
