@@ -45,8 +45,7 @@ namespace ViaggiaTrentino.Views
 
       if (ct.CompressedTimes == null)
       {
-        ContentPanel.Children.Clear();
-        ContentPanel.Children.Add(new TextBlock() { Text = "no available timetable" });
+        stackPanelTimetable.Children.Clear();
       }
       else
       {
@@ -56,7 +55,7 @@ namespace ViaggiaTrentino.Views
         {
           listBoxNames.Items.Add(ct.Stops[i]);
         }
-
+        stackPanelTimetable.Children.Clear();
         bw = new BackgroundWorker();
         bw.WorkerSupportsCancellation = true;
         bw.WorkerReportsProgress = true;
@@ -105,7 +104,8 @@ namespace ViaggiaTrentino.Views
     void bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
     {
       StackPanel sp = new StackPanel();
-      for (int k = 0; k < (e.UserState as List<string>).Count; k++)
+      List<string> vari = e.UserState as List<string>;
+      for (int k = 0; k < vari.Count; k++)
       {
         sp.Children.Add(new TextBlock()
         {
