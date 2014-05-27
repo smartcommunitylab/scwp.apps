@@ -383,6 +383,7 @@
   <data name="SelectDirection" xml:space="preserve">
     <value>Select Direction</value>
   </data>
+
   <data name="ChooseCurrent" xml:space="preserve">
     <value>Current location</value>
   </data>
@@ -397,5 +398,12 @@
   </data>
   <data name="ChooseTitle" xml:space="preserve">
     <value>Select location</value>
+</data>
+  <data name="Next" xml:space="preserve">
+    <value>next</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>previous</value>
+
   </data>
 </root>

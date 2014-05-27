@@ -19,6 +19,7 @@ namespace ViaggiaTrentino.ViewModels
     private readonly INavigationService navigationService;
     private readonly IEventAggregator eventAggregator;
     private AgencyType agencyID;
+    private DateTime date;
     private string routeIDWitDirection, nameID, description, color;
     private ObservableCollection<DBManager.DBModels.RouteName> routeNames;
     DBManager.DBModels.RouteName selectedRouteName;
@@ -45,6 +46,16 @@ namespace ViaggiaTrentino.ViewModels
     {
       get { return agencyID; }
       set { agencyID = value; }
+    }
+
+    public DateTime Date
+    {
+      get { return date; }
+      set
+      {
+        date = value;
+        NotifyOfPropertyChange(() => Date);
+      }
     }
 
     public string RouteIDWitDirection
@@ -97,14 +108,15 @@ namespace ViaggiaTrentino.ViewModels
 
     #endregion
 
-    private void GetTimetableFromDB()
+    private void GetTimetableFromDB(DateTime date)
     {
+      Date = date;
       using (DBHelper dbh = new DBHelper())
       {
         var calendar = dbh.GetCalendar(EnumConverter.ToEnumString<AgencyType>(agencyID), routeIDWitDirection).CalendarEntries;
         var results = JsonConvert.DeserializeObject<Dictionary<string, string>>(calendar);
 
-        string key = DateTime.Now.ToString("yyyyMMdd");
+        string key = date.ToString("yyyyMMdd");
         if (results.ContainsKey(key) && results[key] != null)
         {
           string name = String.Format("{0}_{1}", routeIDWitDirection, results[key]);
@@ -123,7 +135,17 @@ namespace ViaggiaTrentino.ViewModels
     protected override void OnViewLoaded(object view)
     {
       base.OnViewLoaded(view);
-      GetTimetableFromDB();
+      GetTimetableFromDB(DateTime.Now);
+    }
+
+    public void Next()
+    {
+      GetTimetableFromDB(DateTime.Now.AddDays(1));
+    }
+
+    public void Previous()
+    {
+      GetTimetableFromDB(DateTime.Now.AddDays(-1));
     }
   }
 }

@@ -9,6 +9,7 @@
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
     xmlns:vtconvert="clr-namespace:ViaggiaTrentino.Converters"
+    xmlns:bab="clr-namespace:Caliburn.Micro.BindableAppBar;assembly=Caliburn.Micro.BindableAppBar"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -51,6 +52,7 @@
 
     <StackPanel Grid.Row="0" Margin="0,17,0,18" Background="{Binding Color}">
       <TextBlock FontWeight="SemiBold" Margin="12,12,12,12"  Text="{Binding RouteName}" />
+      <TextBlock FontWeight="SemiBold" Margin="12,12,12,12"  Text="{Binding Date}" />
     </StackPanel>
 
     <StackPanel x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
@@ -82,5 +84,12 @@
         </Grid>
       </ScrollViewer>
     </StackPanel>
+
+    <bab:BindableAppBar>
+      <bab:BindableAppBarButton IconUri="/Assets/AppBar/Previous.png" x:Name="Previous"
+                                Text="{Binding Path=LocalizedResources.Previous, Source={StaticResource LocalizedStrings}}"  />
+      <bab:BindableAppBarButton IconUri="/Assets/AppBar/Next.png" x:Name="Next"
+                                Text="{Binding Path=LocalizedResources.Next, Source={StaticResource LocalizedStrings}}"/>
+    </bab:BindableAppBar>
   </Grid>
 </phone:PhoneApplicationPage>

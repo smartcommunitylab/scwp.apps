@@ -229,6 +229,8 @@
     <Content Include="Assets\AlignmentGrid.png" />
     <Content Include="Assets\AppBar\check.png" />
     <Content Include="Assets\AppBar\Monitor.png" />
+    <Content Include="Assets\AppBar\Next.png" />
+    <Content Include="Assets\AppBar\Previous.png" />
     <Content Include="Assets\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
