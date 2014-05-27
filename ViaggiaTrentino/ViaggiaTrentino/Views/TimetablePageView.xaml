@@ -86,9 +86,9 @@
     </StackPanel>
 
     <bab:BindableAppBar>
-      <bab:BindableAppBarButton IconUri="/Assets/AppBar/Previous.png" x:Name="Previous" IsEnabled="False" 
+      <bab:BindableAppBarButton IconUri="/Assets/AppBar/Previous.png" x:Name="Previous" IsEnabled="{Binding DisableAppBar}" 
                                 Text="{Binding Path=LocalizedResources.Previous, Source={StaticResource LocalizedStrings}}"  />
-      <bab:BindableAppBarButton IconUri="/Assets/AppBar/Next.png" x:Name="Next" IsEnabled="False"
+      <bab:BindableAppBarButton IconUri="/Assets/AppBar/Next.png" x:Name="Next" IsEnabled="{Binding DisableAppBar}"
                                 Text="{Binding Path=LocalizedResources.Next, Source={StaticResource LocalizedStrings}}"/>
     </bab:BindableAppBar>
   </Grid>

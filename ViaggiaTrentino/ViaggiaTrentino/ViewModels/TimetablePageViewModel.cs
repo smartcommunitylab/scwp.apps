@@ -106,12 +106,18 @@ namespace ViaggiaTrentino.ViewModels
       }
     }
 
+    public bool DisableAppBar
+    {
+      get { return false; }
+    }
+
     #endregion
 
     private void GetTimetableFromDB()
     {
       using (DBHelper dbh = new DBHelper())
       {
+        NotifyOfPropertyChange(() => DisableAppBar);
         var calendar = dbh.GetCalendar(EnumConverter.ToEnumString<AgencyType>(agencyID), routeIDWitDirection).CalendarEntries;
         var results = JsonConvert.DeserializeObject<Dictionary<string, string>>(calendar);
 
