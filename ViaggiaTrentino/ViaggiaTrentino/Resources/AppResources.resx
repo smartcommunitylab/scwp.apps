@@ -383,4 +383,19 @@
   <data name="SelectDirection" xml:space="preserve">
     <value>Select Direction</value>
   </data>
+  <data name="ChooseCurrent" xml:space="preserve">
+    <value>Current location</value>
+  </data>
+  <data name="ChooseCurrentLong" xml:space="preserve">
+    <value>Use your mobile's GPS position</value>
+  </data>
+  <data name="ChoosePoint" xml:space="preserve">
+    <value>Point on map</value>
+  </data>
+  <data name="ChoosePointLong" xml:space="preserve">
+    <value>Pick a point from an onscreen map</value>
+  </data>
+  <data name="ChooseTitle" xml:space="preserve">
+    <value>Select location</value>
+  </data>
 </root>

@@ -154,6 +154,9 @@
     <Compile Include="Views\Controls\SavedRecurrentJourneyView.xaml.cs">
       <DependentUpon>SavedRecurrentJourneyView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Controls\SelectLocationView.xaml.cs">
+      <DependentUpon>SelectLocationView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Controls\SingleParkingView.xaml.cs">
       <DependentUpon>SingleParkingView.xaml</DependentUpon>
     </Compile>
@@ -348,6 +351,10 @@
     </Page>
     <Page Include="Views\Controls\SavedRecurrentJourneyView.xaml">
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Controls\SelectLocationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Controls\SingleParkingView.xaml">
       <SubType>Designer</SubType>

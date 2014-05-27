@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="ViaggiaTrentino.Views.Controls.SelectLocationView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}">
+
+  <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}" Margin="0,-50,0,0">
+    <StackPanel Margin="0,0,0,5">
+      <TextBlock Text="{Binding Path=LocalizedResources.ChooseTitle, Source={StaticResource LocalizedStrings}}"
+                 FontSize="48" Margin="0,0,0,5" FontWeight="Light"></TextBlock>
+      <Line X1="0" X2="1" Stretch="Fill" Stroke="{StaticResource PhoneAccentBrush}"></Line>
+
+      <StackPanel x:Name="currentStack" Tap="currentStack_Tap" Margin="0,5,0,5">
+        <TextBlock Text="{Binding Path=LocalizedResources.ChooseCurrent, Source={StaticResource LocalizedStrings}}"
+                 Style="{StaticResource PhoneTextTitle2Style}" Margin="0"></TextBlock>
+        <TextBlock Text="{Binding Path=LocalizedResources.ChooseCurrentLong, Source={StaticResource LocalizedStrings}}"
+                 Style="{StaticResource PhoneTextSubtleStyle}" Margin="0"></TextBlock>
+      </StackPanel>
+      <StackPanel x:Name="mapPoint" Tap="mapPoint_Tap">
+
+        <TextBlock Text="{Binding Path=LocalizedResources.ChoosePoint, Source={StaticResource LocalizedStrings}}"
+                 Style="{StaticResource PhoneTextTitle2Style}" Margin="0"></TextBlock>
+        <TextBlock Text="{Binding Path=LocalizedResources.ChoosePointLong, Source={StaticResource LocalizedStrings}}"
+                 Style="{StaticResource PhoneTextSubtleStyle}" Margin="0"></TextBlock>
+      </StackPanel>
+    </StackPanel>
+  </Grid>
+</UserControl>

@@ -95,8 +95,6 @@ namespace ViaggiaTrentino.ViewModels
       mp.Body = new ParkingPopupView(mp, navigationService) { DataContext = pp };
       mp.ActionPopUpButtons.Clear();
 
-
-
       mp.VerticalAlignment = VerticalAlignment.Center;
       mp.HorizontalAlignment = HorizontalAlignment.Center;
       mp.Show();

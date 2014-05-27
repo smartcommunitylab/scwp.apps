@@ -79,6 +79,51 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Current location.
+        /// </summary>
+        public static string ChooseCurrent {
+            get {
+                return ResourceManager.GetString("ChooseCurrent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use your mobile&apos;s GPS position.
+        /// </summary>
+        public static string ChooseCurrentLong {
+            get {
+                return ResourceManager.GetString("ChooseCurrentLong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Point on map.
+        /// </summary>
+        public static string ChoosePoint {
+            get {
+                return ResourceManager.GetString("ChoosePoint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pick a point from an onscreen map.
+        /// </summary>
+        public static string ChoosePointLong {
+            get {
+                return ResourceManager.GetString("ChoosePointLong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select location.
+        /// </summary>
+        public static string ChooseTitle {
+            get {
+                return ResourceManager.GetString("ChooseTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Missing data.
         /// </summary>
         public static string DefValueMissing {

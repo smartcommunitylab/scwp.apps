@@ -57,7 +57,7 @@
 
     <!--ContentPanel - place additional content here-->
     <ScrollViewer HorizontalScrollBarVisibility="Disabled" x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0"  >
-      <ItemsControl ItemsSource="{Binding Path=RoutesName}">
+      <ItemsControl ItemsSource="{Binding Path=RoutesName}" toolkit:TurnstileFeatherEffect.FeatheringIndex="0">
         <ItemsControl.ItemsPanel>
           <ItemsPanelTemplate>
             <toolkit:WrapPanel Orientation="Horizontal"/>
@@ -66,7 +66,7 @@
         <ItemsControl.ItemTemplate>
           <DataTemplate>
             <Grid Width="140" Margin="5" cal:Message.Attach="[Event Tap]=[Action OpenTimetableView($dataContext)]" 
-                  toolkit:TurnstileFeatherEffect.FeatheringIndex="0">
+                  >
               <Rectangle Height="140" Width="140" >
                 <Rectangle.Fill>
                   <SolidColorBrush Color="{Binding Color}"/>
