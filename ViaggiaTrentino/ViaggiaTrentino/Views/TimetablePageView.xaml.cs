@@ -22,6 +22,7 @@ namespace ViaggiaTrentino.Views
   {
     private readonly IEventAggregator eventAggregator;
     private BackgroundWorker bw;
+    private StackPanel stackPanelCenter;
 
     public TimetablePageView()
     {
@@ -78,13 +79,26 @@ namespace ViaggiaTrentino.Views
     void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
     {
       ((TimetablePageViewModel)(this.DataContext)).DisableAppBar = true;
+
+      if (txtNoAvailable.Visibility == Visibility.Visible)
+        return;
+
+      ScrollViewer scroll = stackPanelTimetable.Parent as ScrollViewer;
+      StackPanel stackColumn = stackPanelCenter as StackPanel;
+      var transform = stackColumn.TransformToVisual(scroll).Transform(new Point(0, 0));
+      scroll.ScrollToHorizontalOffset(transform.X);
+
+
+      #if DEBUG
+      stackColumn.Background = new SolidColorBrush(Colors.Red);
+      #endif     
     }
 
     void bw_DoWork(object sender, DoWorkEventArgs e)
     {
       BackgroundWorker worker = sender as BackgroundWorker;
       CompressedTimetable ct = e.Argument as CompressedTimetable;
-
+      stackPanelCenter = null;
       List<string> results = new List<string>();
       int i = 0;
       while (i < ct.CompressedTimes.Length)
@@ -111,14 +125,21 @@ namespace ViaggiaTrentino.Views
 
     void bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
     {
+      
       StackPanel sp = new StackPanel();
       List<string> vari = e.UserState as List<string>;
+
+      //select the closest trip time
+      if (DateTime.Now.ToString("HH:mm").CompareTo(vari[0]) != -1)
+        stackPanelCenter = sp;
+    
+
       for (int k = 0; k < vari.Count; k++)
-      {
+      {          
         sp.Children.Add(new TextBlock()
         {
           Margin = new Thickness(10, 3, 10, 3),
-          Text = (e.UserState as List<string>)[k],
+          Text = vari[k],
         });
 
       }
