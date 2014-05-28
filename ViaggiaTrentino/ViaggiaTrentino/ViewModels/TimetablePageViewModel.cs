@@ -169,7 +169,7 @@ namespace ViaggiaTrentino.ViewModels
     protected override void OnInitialize()
     {
       base.OnInitialize();
-      CurrentDate = new DateTime(2014,3,29);
+      CurrentDate = DateTime.Now;
     }
 
     public void Next()
