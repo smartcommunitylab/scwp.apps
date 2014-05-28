@@ -20,6 +20,7 @@ namespace ViaggiaTrentino.ViewModels
     private readonly IEventAggregator eventAggregator;
     private AgencyType agencyID;
     private DateTime currentDate;
+    private bool enableAppBar;
     private string routeIDWitDirection, nameID, description, color;
     private ObservableCollection<DBManager.DBModels.RouteName> routeNames;
     DBManager.DBModels.RouteName selectedRouteName;
@@ -108,7 +109,12 @@ namespace ViaggiaTrentino.ViewModels
 
     public bool DisableAppBar
     {
-      get { return false; }
+      get { return enableAppBar; }
+      set
+      {
+        enableAppBar = value;
+        NotifyOfPropertyChange(() => DisableAppBar);
+      }
     }
 
     #endregion
@@ -117,7 +123,7 @@ namespace ViaggiaTrentino.ViewModels
     {
       using (DBHelper dbh = new DBHelper())
       {
-        NotifyOfPropertyChange(() => DisableAppBar);
+        DisableAppBar = false;
         var calendar = dbh.GetCalendar(EnumConverter.ToEnumString<AgencyType>(agencyID), routeIDWitDirection).CalendarEntries;
         var results = JsonConvert.DeserializeObject<Dictionary<string, string>>(calendar);
 

@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Shapes;
 using System.ComponentModel;
 using System.Threading;
+using ViaggiaTrentino.ViewModels;
 
 namespace ViaggiaTrentino.Views
 {
@@ -29,8 +30,6 @@ namespace ViaggiaTrentino.Views
       IEventAggregator eventAggregator = bootstrapper.container.GetAllInstances(typeof(IEventAggregator)).FirstOrDefault() as IEventAggregator;
       this.eventAggregator = eventAggregator;
       eventAggregator.Subscribe(this);
-      Previous.IsEnabled = false;
-      Next.IsEnabled = false;
     }
 
     private void PhoneApplicationPage_Unloaded(object sender, RoutedEventArgs e)
@@ -49,8 +48,8 @@ namespace ViaggiaTrentino.Views
       }
       else
       {
-        Previous.IsEnabled = false;
-        Next.IsEnabled = false;
+        //Previous.IsEnabled = false;
+        //Next.IsEnabled = false;
         for (int i = 0; i < ct.StopIds.Count; i++)
         {
           listBoxNames.Items.Add(ct.Stops[i]);
@@ -68,8 +67,9 @@ namespace ViaggiaTrentino.Views
 
     void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
     {
-      Previous.IsEnabled = true;
-      Next.IsEnabled = true;
+      ((TimetablePageViewModel)(this.DataContext)).DisableAppBar = true;
+      //Previous.IsEnabled = true;
+      //Next.IsEnabled = true;
     }
 
     void bw_DoWork(object sender, DoWorkEventArgs e)
