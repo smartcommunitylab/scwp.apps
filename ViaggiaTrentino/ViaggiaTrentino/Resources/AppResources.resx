@@ -389,4 +389,7 @@
   <data name="Previous" xml:space="preserve">
     <value>previous</value>
   </data>
+  <data name="TimetableNotAvailable" xml:space="preserve">
+    <value>No items found</value>
+  </data>
 </root>

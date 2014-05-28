@@ -128,17 +128,29 @@ namespace ViaggiaTrentino.ViewModels
         var results = JsonConvert.DeserializeObject<Dictionary<string, string>>(calendar);
 
         string key = CurrentDate.ToString("yyyyMMdd");
-        if (results.ContainsKey(key) && results[key] != null)
+
+        if (results.ContainsKey(key) && results[key] != "null")
         {
           string name = String.Format("{0}_{1}", routeIDWitDirection, results[key]);
-          var timetable = dbh.GetRouteCalendar(name);
-          eventAggregator.Publish(new CompressedTimetable()
+          DBManager.DBModels.RouteCalendar timetable;
+          try
           {
-            CompressedTimes = timetable.Times,
-            TripIds = JsonConvert.DeserializeObject<List<string>>(timetable.TripsIDs),
-            Stops = JsonConvert.DeserializeObject<List<string>>(timetable.StopsNames),
-            StopIds = JsonConvert.DeserializeObject<List<string>>(timetable.StopsIDs),
-          });
+            timetable = dbh.GetRouteCalendar(name);
+            eventAggregator.Publish(new CompressedTimetable()
+            {
+              CompressedTimes = timetable.Times,
+              TripIds = JsonConvert.DeserializeObject<List<string>>(timetable.TripsIDs),
+              Stops = JsonConvert.DeserializeObject<List<string>>(timetable.StopsNames),
+              StopIds = JsonConvert.DeserializeObject<List<string>>(timetable.StopsIDs),
+            });
+          }
+          catch
+          {
+            eventAggregator.Publish(new CompressedTimetable()
+            {
+              CompressedTimes = null
+            });
+          }
         }
         else
           eventAggregator.Publish(new CompressedTimetable() 
@@ -151,8 +163,13 @@ namespace ViaggiaTrentino.ViewModels
     protected override void OnViewLoaded(object view)
     {
       base.OnViewLoaded(view);
-      CurrentDate = DateTime.Now;
       GetTimetableFromDB();
+    }
+
+    protected override void OnInitialize()
+    {
+      base.OnInitialize();
+      CurrentDate = new DateTime(2014,3,29);
     }
 
     public void Next()

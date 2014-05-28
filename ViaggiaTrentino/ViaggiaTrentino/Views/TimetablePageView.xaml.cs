@@ -41,15 +41,25 @@ namespace ViaggiaTrentino.Views
     {
       scrollViewerTimetable.MaxHeight = ContentPanel.ActualHeight;
       columnNames.Width = new GridLength(Application.Current.Host.Content.ActualWidth * 0.4);
+      var a = ContentPanel.Children.First(x => x.GetType() == typeof(TextBlock));
 
       if (ct.CompressedTimes == null)
       {
         stackPanelTimetable.Children.Clear();
+        listBoxNames.Items.Clear();
+
+        listBoxNames.Visibility = Visibility.Collapsed;
+        stackPanelTimetable.Visibility = Visibility.Collapsed;
+        txtNoAvailable.Padding = new Thickness(0, (ContentPanel.ActualHeight - txtNoAvailable.ActualHeight/2 - bAppBar.ActualHeight) / 2, 0, 0);
+        txtNoAvailable.Visibility = Visibility.Visible;
+
+        ((TimetablePageViewModel)(this.DataContext)).DisableAppBar = true;
       }
       else
       {
-        //Previous.IsEnabled = false;
-        //Next.IsEnabled = false;
+        listBoxNames.Visibility = Visibility.Visible;
+        stackPanelTimetable.Visibility = Visibility.Visible;
+        txtNoAvailable.Visibility = Visibility.Collapsed;
         for (int i = 0; i < ct.StopIds.Count; i++)
         {
           listBoxNames.Items.Add(ct.Stops[i]);
@@ -68,8 +78,6 @@ namespace ViaggiaTrentino.Views
     void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
     {
       ((TimetablePageViewModel)(this.DataContext)).DisableAppBar = true;
-      //Previous.IsEnabled = true;
-      //Next.IsEnabled = true;
     }
 
     void bw_DoWork(object sender, DoWorkEventArgs e)
@@ -84,7 +92,7 @@ namespace ViaggiaTrentino.Views
         if (results.Count == ct.Stops.Count)
         {
           worker.ReportProgress(i, results);
-          Thread.Sleep(100);
+          Thread.Sleep(50);
           results = new List<string>();
         }
         if (ct.CompressedTimes[i] == '|')
