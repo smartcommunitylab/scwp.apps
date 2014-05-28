@@ -14,12 +14,14 @@ using System.Windows.Media;
 using System.Windows.Shapes;
 using System.ComponentModel;
 using System.Threading;
+using ViaggiaTrentino.ViewModels;
 
 namespace ViaggiaTrentino.Views
 {
   public partial class TimetablePageView : PhoneApplicationPage, IHandle<CompressedTimetable>
   {
     private readonly IEventAggregator eventAggregator;
+    private BackgroundWorker bw;
 
     public TimetablePageView()
     {
@@ -39,18 +41,43 @@ namespace ViaggiaTrentino.Views
     {
       scrollViewerTimetable.MaxHeight = ContentPanel.ActualHeight;
       columnNames.Width = new GridLength(Application.Current.Host.Content.ActualWidth * 0.4);
+      var a = ContentPanel.Children.First(x => x.GetType() == typeof(TextBlock));
 
-      BackgroundWorker bw = new BackgroundWorker();
-      bw.WorkerSupportsCancellation = true;
-      bw.WorkerReportsProgress = true;
-      bw.DoWork += bw_DoWork;
-      bw.ProgressChanged += bw_ProgressChanged;
-      bw.RunWorkerAsync(ct);
-
-      for (int i = 0; i < ct.StopIds.Count; i++)
+      if (ct.CompressedTimes == null)
       {
-        listBoxNames.Items.Add(ct.Stops[i]);
+        stackPanelTimetable.Children.Clear();
+        listBoxNames.Items.Clear();
+
+        listBoxNames.Visibility = Visibility.Collapsed;
+        stackPanelTimetable.Visibility = Visibility.Collapsed;
+        txtNoAvailable.Padding = new Thickness(0, (ContentPanel.ActualHeight - txtNoAvailable.ActualHeight/2 - bAppBar.ActualHeight) / 2, 0, 0);
+        txtNoAvailable.Visibility = Visibility.Visible;
+
+        ((TimetablePageViewModel)(this.DataContext)).DisableAppBar = true;
       }
+      else
+      {
+        listBoxNames.Visibility = Visibility.Visible;
+        stackPanelTimetable.Visibility = Visibility.Visible;
+        txtNoAvailable.Visibility = Visibility.Collapsed;
+        for (int i = 0; i < ct.StopIds.Count; i++)
+        {
+          listBoxNames.Items.Add(ct.Stops[i]);
+        }
+        stackPanelTimetable.Children.Clear();
+        bw = new BackgroundWorker();
+        bw.WorkerSupportsCancellation = true;
+        bw.WorkerReportsProgress = true;
+        bw.DoWork += bw_DoWork;
+        bw.ProgressChanged += bw_ProgressChanged;
+        bw.RunWorkerCompleted += bw_RunWorkerCompleted;
+        bw.RunWorkerAsync(ct);
+      }
+    }
+
+    void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+    {
+      ((TimetablePageViewModel)(this.DataContext)).DisableAppBar = true;
     }
 
     void bw_DoWork(object sender, DoWorkEventArgs e)
@@ -65,7 +92,7 @@ namespace ViaggiaTrentino.Views
         if (results.Count == ct.Stops.Count)
         {
           worker.ReportProgress(i, results);
-          Thread.Sleep(100);
+          Thread.Sleep(50);
           results = new List<string>();
         }
         if (ct.CompressedTimes[i] == '|')
@@ -85,7 +112,8 @@ namespace ViaggiaTrentino.Views
     void bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
     {
       StackPanel sp = new StackPanel();
-      for (int k = 0; k < (e.UserState as List<string>).Count; k++)
+      List<string> vari = e.UserState as List<string>;
+      for (int k = 0; k < vari.Count; k++)
       {
         sp.Children.Add(new TextBlock()
         {
@@ -94,37 +122,7 @@ namespace ViaggiaTrentino.Views
         });
 
       }
-
       stackPanelTimetable.Children.Add(sp);
-    }
-
-    private List<List<string>> GetTimetableFull(CompressedTimetable ct)
-    {
-      List<List<string>> full = new List<List<string>>();
-      List<string> results = new List<string>();
-      int i = 0;
-      while (i < ct.CompressedTimes.Length)
-      {
-        if (results.Count == ct.Stops.Count)
-        {
-          full.Add(results);
-          results = new List<string>();
-        }
-        if (ct.CompressedTimes[i] == '|')
-        {
-          results.Add("     ");
-          i++;
-        }
-        else
-        {
-          string s = String.Format("{0}:{1}", ct.CompressedTimes.Substring(i, 2), ct.CompressedTimes.Substring(i + 2, 2));
-          results.Add(s);
-          i += 4;
-        }
-      }
-
-      return full;
-
     }
   }
 }

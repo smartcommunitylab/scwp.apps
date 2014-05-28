@@ -407,4 +407,7 @@
   <data name="ChooseConfirmTitle" xml:space="preserve">
     <value>Selected location:</value>
   </data>
+  <data name="TimetableNotAvailable" xml:space="preserve">
+    <value>No items found</value>
+  </data>
 </root>

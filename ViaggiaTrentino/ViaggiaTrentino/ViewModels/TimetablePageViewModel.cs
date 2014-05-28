@@ -19,7 +19,8 @@ namespace ViaggiaTrentino.ViewModels
     private readonly INavigationService navigationService;
     private readonly IEventAggregator eventAggregator;
     private AgencyType agencyID;
-    private DateTime date;
+    private DateTime currentDate;
+    private bool enableAppBar;
     private string routeIDWitDirection, nameID, description, color;
     private ObservableCollection<DBManager.DBModels.RouteName> routeNames;
     DBManager.DBModels.RouteName selectedRouteName;
@@ -48,13 +49,13 @@ namespace ViaggiaTrentino.ViewModels
       set { agencyID = value; }
     }
 
-    public DateTime Date
+    public DateTime CurrentDate
     {
-      get { return date; }
+      get { return currentDate; }
       set
       {
-        date = value;
-        NotifyOfPropertyChange(() => Date);
+        currentDate = value;
+        NotifyOfPropertyChange(() => CurrentDate);
       }
     }
 
@@ -106,46 +107,81 @@ namespace ViaggiaTrentino.ViewModels
       }
     }
 
+    public bool DisableAppBar
+    {
+      get { return enableAppBar; }
+      set
+      {
+        enableAppBar = value;
+        NotifyOfPropertyChange(() => DisableAppBar);
+      }
+    }
+
     #endregion
 
-    private void GetTimetableFromDB(DateTime date)
+    private void GetTimetableFromDB()
     {
-      Date = date;
       using (DBHelper dbh = new DBHelper())
       {
+        DisableAppBar = false;
         var calendar = dbh.GetCalendar(EnumConverter.ToEnumString<AgencyType>(agencyID), routeIDWitDirection).CalendarEntries;
         var results = JsonConvert.DeserializeObject<Dictionary<string, string>>(calendar);
 
-        string key = date.ToString("yyyyMMdd");
-        if (results.ContainsKey(key) && results[key] != null)
+        string key = CurrentDate.ToString("yyyyMMdd");
+
+        if (results.ContainsKey(key) && results[key] != "null")
         {
           string name = String.Format("{0}_{1}", routeIDWitDirection, results[key]);
-          var timetable = dbh.GetRouteCalendar(name);
-          eventAggregator.Publish(new CompressedTimetable()
+          DBManager.DBModels.RouteCalendar timetable;
+          try
           {
-            CompressedTimes = timetable.Times,
-            TripIds = JsonConvert.DeserializeObject<List<string>>(timetable.TripsIDs),
-            Stops = JsonConvert.DeserializeObject<List<string>>(timetable.StopsNames),
-            StopIds = JsonConvert.DeserializeObject<List<string>>(timetable.StopsIDs),
-          });
+            timetable = dbh.GetRouteCalendar(name);
+            eventAggregator.Publish(new CompressedTimetable()
+            {
+              CompressedTimes = timetable.Times,
+              TripIds = JsonConvert.DeserializeObject<List<string>>(timetable.TripsIDs),
+              Stops = JsonConvert.DeserializeObject<List<string>>(timetable.StopsNames),
+              StopIds = JsonConvert.DeserializeObject<List<string>>(timetable.StopsIDs),
+            });
+          }
+          catch
+          {
+            eventAggregator.Publish(new CompressedTimetable()
+            {
+              CompressedTimes = null
+            });
+          }
         }
+        else
+          eventAggregator.Publish(new CompressedTimetable() 
+          {
+            CompressedTimes = null
+          });
       }
     }
 
     protected override void OnViewLoaded(object view)
     {
       base.OnViewLoaded(view);
-      GetTimetableFromDB(DateTime.Now);
+      GetTimetableFromDB();
+    }
+
+    protected override void OnInitialize()
+    {
+      base.OnInitialize();
+      CurrentDate = new DateTime(2014,3,29);
     }
 
     public void Next()
     {
-      GetTimetableFromDB(DateTime.Now.AddDays(1));
+      CurrentDate = CurrentDate.AddDays(1);
+      GetTimetableFromDB();
     }
 
     public void Previous()
     {
-      GetTimetableFromDB(DateTime.Now.AddDays(-1));
+      CurrentDate = CurrentDate.AddDays(-1);
+      GetTimetableFromDB();
     }
   }
 }
