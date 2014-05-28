@@ -412,6 +412,15 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Get journeys.
+        /// </summary>
+        public static string PlanJourneyConfirm {
+            get {
+                return ResourceManager.GetString("PlanJourneyConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Departure.
         /// </summary>
         public static string PlanSingleJourneyDeparture {

@@ -25,12 +25,12 @@ namespace ViaggiaTrentino.ViewModels
   public class PlanNewSingleJourneyViewModel: Screen
   {
     private readonly INavigationService navigationService;
-    bool isSettingsShown;
-    SingleJourney journey;
-    DateTime departureDate;
-    Popup pu;
-    string fromText;
-    string toText;
+    private bool isSettingsShown;
+    private SingleJourney journey;
+    private DateTime departureDate;
+    private Popup pu;
+    private Position from;
+    private Position to;
     private string locationResult;
     
     public PlanNewSingleJourneyViewModel(INavigationService navigationService)
@@ -40,7 +40,8 @@ namespace ViaggiaTrentino.ViewModels
       journey = new SingleJourney();
       pu = new Popup();
       pu.Closed += pu_Closed;
-      
+      to = new Position() { Name = "" };
+      from = new Position() { Name = "" };
     }
 
     void pu_Closed(object sender, EventArgs e)
@@ -57,7 +58,12 @@ namespace ViaggiaTrentino.ViewModels
         double[] dd = PhoneApplicationService.Current.State["parkCoord"] as double[];
         PhoneApplicationService.Current.State.Remove("parkCoord");
         locationResult = "to";
-        ToText = await GetAddressFromGeoCoord(dd);
+        ToPos = new Position() 
+                 { 
+                   Name = await GetAddressFromGeoCoord(dd), 
+                   Latitude = dd[0].ToString(), 
+                   Longitude = dd[1].ToString() 
+                 };
       }
     }
 
@@ -65,20 +71,30 @@ namespace ViaggiaTrentino.ViewModels
 
     public string FromText
     {
-      get { return fromText; }
-      set
-      {
-        fromText = value;
-        NotifyOfPropertyChange(() => FromText);
-      }
+      get { return from.Name; }
     }
 
     public string ToText
     {
-      get { return toText; }
+      get { return to.Name ; }
+    }
+      
+    public Position FromPos
+    {
+      get { return from; }
       set
       {
-        toText = value;
+        from = value;
+        NotifyOfPropertyChange(() => FromText);
+      }
+    }
+
+    public Position ToPos
+    {
+      get { return to; }
+      set
+      {
+        to = value;
         NotifyOfPropertyChange(() => ToText);
       }
     }
@@ -162,15 +178,21 @@ namespace ViaggiaTrentino.ViewModels
       mp.Show();
     }
 
-    async void mp_Completed(object sender, PopUpEventArgs<string, PopUpResult> e)
+     void mp_Completed(object sender, PopUpEventArgs<string, PopUpResult> e)
     {
       MessagePrompt mp = sender as MessagePrompt;
       switch (mp.Value)
       {
-        case "current": Assegna(await GetAddressFromGeoCoord(Settings.GPSPosition)); break;
+        case "current": GeneratePushpinForAssegna(); break;
         case "openMap": ShowMappaGrande(); break;
         default: break;
       }
+    }
+
+    private async void GeneratePushpinForAssegna()
+    {
+      string res = await GetAddressFromGeoCoord(Settings.GPSPosition);
+      Assegna(new Pushpin() { GeoCoordinate = Settings.GPSPosition, Content = res });
     }
 
     #endregion
@@ -217,7 +239,7 @@ namespace ViaggiaTrentino.ViewModels
       if (MessageBox.Show((sender as Pushpin).Content as string, AppResources.ChooseConfirmTitle, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
       {
         pu.IsOpen = false;
-        Assegna((sender as Pushpin).Content as string);
+        Assegna((sender as Pushpin));
       }
     }
 
@@ -225,12 +247,23 @@ namespace ViaggiaTrentino.ViewModels
 
     #region Buttons eventhandlers
 
-    public void Assegna(string result)
+    public void Assegna(Pushpin result)
     {
       if (locationResult == "from")
-        FromText = result;
+        FromPos = new Position()
+                   {
+                     Name = result.Content as string,
+                     Latitude = result.GeoCoordinate.Latitude.ToString(),
+                     Longitude = result.GeoCoordinate.Longitude.ToString()
+                   };
       else if (locationResult == "to")
-        ToText = result;
+        ToPos = new Position()
+        {
+          Name = result.Content as string,
+          Latitude = result.GeoCoordinate.Latitude.ToString(),
+          Longitude = result.GeoCoordinate.Longitude.ToString()
+        };
+      //ToText = result.Content as string;
     }
 
     public void GpsLocFrom()
@@ -247,7 +280,10 @@ namespace ViaggiaTrentino.ViewModels
 
     public void PlanNewJourney()
     {
-      //finalize SingleJourneyObject and proceed to post
+      //SingleJourney sj = new SingleJourney()
+      //{
+
+      //}
     }
 
     #endregion

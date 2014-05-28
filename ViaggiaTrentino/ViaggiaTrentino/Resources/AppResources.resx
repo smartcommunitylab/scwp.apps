@@ -410,4 +410,7 @@
   <data name="TimetableNotAvailable" xml:space="preserve">
     <value>No items found</value>
   </data>
+  <data name="PlanJourneyConfirm" xml:space="preserve">
+    <value>Get journeys</value>
+  </data>
 </root>
