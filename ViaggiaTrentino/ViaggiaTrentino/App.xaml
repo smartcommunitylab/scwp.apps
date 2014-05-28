@@ -11,6 +11,10 @@
     <local:LocalizedStrings xmlns:local="clr-namespace:ViaggiaTrentino" x:Key="LocalizedStrings"/>
     <vt:Settings x:Key="vtSettings" />
     <vt:Bootstrapper x:Key="bootstrapper" />
+    
+      <DataTemplate x:Key="googleBox">
+        <TextBlock Text="{Binding Name}" TextWrapping="Wrap"></TextBlock>
+      </DataTemplate>
   </Application.Resources>
 
 </Application>

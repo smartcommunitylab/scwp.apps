@@ -11,6 +11,7 @@
     xmlns:calconvs="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
     xmlns:vtconvert="clr-namespace:ViaggiaTrentino.Converters"  
     xmlns:vtcon="clr-namespace:ViaggiaTrentino.Views.Controls"
+    xmlns:gAutoComp="clr-namespace:ViaggiaTrentino"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -75,13 +76,13 @@
               <RowDefinition Height="Auto"/>
               <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <toolkit:AutoCompleteBox Grid.Row="0" Grid.Column="0" x:Name="FromBox"
-                                   Text="{Binding FromText, Mode=TwoWay}"/>
+            <gAutoComp:GoogleAutoCompleteBox FilterMode="None" Grid.Row="0" Grid.Column="0" x:Name="FromBox"
+                                   Text="{Binding FromText, Mode=TwoWay}" ItemTemplate="{StaticResource googleBox}"/>
             <Image x:Name="GpsLocFrom" Source="/Assets/Buttons/GpsLocation.png" Grid.Row="0" Grid.Column="1" Margin="0,0,5,0"/>
             <Image x:Name="FavsFrom" Source="/Assets/Buttons/Favourites.png" Grid.Row="0" Grid.Column="2" Margin="5,0,0,0"/>
 
-            <toolkit:AutoCompleteBox Grid.Row="1" Grid.Column="0" x:Name="ToBox"
-                                   Text="{Binding ToText, Mode=TwoWay}"/>
+            <gAutoComp:GoogleAutoCompleteBox FilterMode="None" Grid.Row="1" Grid.Column="0" x:Name="ToBox"
+                                   Text="{Binding ToText, Mode=TwoWay}"  ItemTemplate="{StaticResource googleBox}"/>
             <Image x:Name="GpsLocTo" Source="/Assets/Buttons/GpsLocation.png" Grid.Row="1" Grid.Column="1" Margin="0,0,5,0"/>
             <Image x:Name="FavsTo" Source="/Assets/Buttons/Favourites.png" Grid.Row="1" Grid.Column="2" Margin="5,0,0,0"/>
 

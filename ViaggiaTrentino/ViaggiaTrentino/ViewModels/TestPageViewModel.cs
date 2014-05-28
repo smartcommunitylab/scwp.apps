@@ -20,8 +20,9 @@ namespace ViaggiaTrentino.ViewModels
     ObservableCollection<BasicItinerary> viaggi;
     ObservableCollection<Models.MobilityService.Journeys.Position> placeList;
     private readonly INavigationService navigationService;
-    GoogleAddressLibrary gal;
+    
     bool readyToShow;
+    
 
     public TestPageViewModel(INavigationService navigationService)
      
@@ -29,7 +30,7 @@ namespace ViaggiaTrentino.ViewModels
       viaggi = new ObservableCollection<BasicItinerary>();
       placeList = new ObservableCollection<Models.MobilityService.Journeys.Position>();
       this.navigationService = navigationService;
-      gal = new GoogleAddressLibrary();
+      
       readyToShow = false;
     }
 
@@ -101,13 +102,6 @@ namespace ViaggiaTrentino.ViewModels
       Viaggi.Add(bi);
 
     }
-
-    public async void Meh(object j)
-    {
-      string query = (j as AutoCompleteBox).Text;
-      List<Models.MobilityService.Journeys.Position> poss = await gal.GetPositionsForAutocomplete(query);
-      PlaceList = new ObservableCollection<Models.MobilityService.Journeys.Position>(poss);
-    }    
 
     public void alert()
     {

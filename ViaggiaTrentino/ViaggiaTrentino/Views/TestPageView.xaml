@@ -8,6 +8,7 @@
   xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:vtcont="clr-namespace:ViaggiaTrentino.Views.Controls"
+  xmlns:gAutoComp="clr-namespace:ViaggiaTrentino"
   xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -55,13 +56,7 @@
         <Button x:Name="planJourney" Content="planJourney" />
         <Button x:Name="alert" Content="Alert" />
         <Button x:Name="popola" Content="pop"/>
-        <toolkit:AutoCompleteBox x:Name="autoCompBox" FilterMode="Contains" cal:Message.Attach="[Event KeyUp] = [ Action Meh($source)]"  ItemsSource="{Binding PlaceList}">
-          <toolkit:AutoCompleteBox.ItemTemplate>
-            <DataTemplate>
-              <TextBlock Text="{Binding Name}"></TextBlock>
-            </DataTemplate>
-          </toolkit:AutoCompleteBox.ItemTemplate>
-        </toolkit:AutoCompleteBox>
+        
           <ListBox ItemsSource="{Binding Path=Viaggi}" >
           <ListBox.ItemContainerStyle>
             <Style TargetType="ListBoxItem">
@@ -75,6 +70,7 @@
             </DataTemplate>
           </ListBox.ItemTemplate>
         </ListBox>
+        <gAutoComp:GoogleAutoCompleteBox />
       </StackPanel>
     </Grid>
   </Grid>
