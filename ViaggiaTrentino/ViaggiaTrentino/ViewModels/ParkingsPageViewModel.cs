@@ -33,11 +33,6 @@ namespace ViaggiaTrentino.ViewModels
       publicTransLib = new PublicTransportLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
     }
 
-    protected async override void OnActivate()
-    {
-      base.OnActivate();
-      
-    }
 
     List<Parking> parchi;
 

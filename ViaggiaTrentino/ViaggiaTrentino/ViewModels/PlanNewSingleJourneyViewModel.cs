@@ -6,6 +6,7 @@ using Microsoft.Phone.Maps.Services;
 using Microsoft.Phone.Maps.Toolkit;
 using Microsoft.Phone.Shell;
 using Microsoft.Phone.Tasks;
+using Models.MobilityService;
 using Models.MobilityService.Journeys;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,7 @@ namespace ViaggiaTrentino.ViewModels
     private Position from;
     private Position to;
     private string locationResult;
+    private PreferencesModel pm;
     
     public PlanNewSingleJourneyViewModel(INavigationService navigationService)
     {
@@ -42,6 +44,8 @@ namespace ViaggiaTrentino.ViewModels
       pu.Closed += pu_Closed;
       to = new Position() { Name = "" };
       from = new Position() { Name = "" };
+      pm = Settings.AppPreferences.Clone();
+      //IsSettingsShown = false;
     }
 
     void pu_Closed(object sender, EventArgs e)
@@ -68,6 +72,16 @@ namespace ViaggiaTrentino.ViewModels
     }
 
     #region Properties
+
+    public PreferencesModel JourneySettings
+    {
+      get { return pm; }
+      set
+      {
+        pm = value;
+        NotifyOfPropertyChange(() => JourneySettings);
+      }
+    }
 
     public string FromText
     {
@@ -278,12 +292,60 @@ namespace ViaggiaTrentino.ViewModels
       ShowLocationMethodChooser();
     }
 
-    public void PlanNewJourney()
+    public RouteType SelectedRouteType
     {
-      //SingleJourney sj = new SingleJourney()
-      //{
+      get
+      {
+        if (JourneySettings.PreferredRoute.Fastest)
+          return RouteType.Fastest;
+        if (JourneySettings.PreferredRoute.FewestChanges)
+          return RouteType.LeastChanges;
+        if (JourneySettings.PreferredRoute.LeastWalking)
+          return RouteType.LeastWalking;
+        
+        //default choiche
+        return RouteType.Fastest;
+      }
+    }
 
-      //}
+    public TransportType[] SelectedTransportTypes
+    {
+      get
+      {
+        List<TransportType> ltt = new List<TransportType>();
+        if (JourneySettings.Transportation.Bike)
+          ltt.Add(TransportType.Bicycle);
+        if (JourneySettings.Transportation.Car)
+          ltt.Add(TransportType.Car);          
+        if (JourneySettings.Transportation.SharedBike)
+          ltt.Add(TransportType.SharedBike);
+        if (JourneySettings.Transportation.SharedCar)
+          ltt.Add(TransportType.SharedCar);
+        if (JourneySettings.Transportation.Transit)
+          ltt.Add(TransportType.Transit);
+        if (JourneySettings.Transportation.Walking)
+          ltt.Add(TransportType.Walk);
+        return ltt.ToArray();
+      }
+    }
+
+    public async void PlanNewJourney()
+    {
+      SingleJourney sj = new SingleJourney()
+      {
+
+        Date = departureDate.ToString("MM/dd/yyyy"),
+        DepartureTime = departureDate.ToString("HH:mm"),
+        From = FromPos,
+        To = ToPos,
+        ResultsNumber = 3,
+        RouteType = SelectedRouteType,
+        TransportTypes = SelectedTransportTypes
+      };
+
+      MobilityServiceLibrary.RoutePlanningLibrary url = new MobilityServiceLibrary.RoutePlanningLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
+      MessageBox.Show((await url.PlanSingleJourney(sj))[0].ToString());
+
     }
 
     #endregion
