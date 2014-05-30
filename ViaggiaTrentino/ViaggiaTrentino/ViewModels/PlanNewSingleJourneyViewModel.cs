@@ -329,7 +329,7 @@ namespace ViaggiaTrentino.ViewModels
       }
     }
 
-    public async void PlanNewJourney()
+    public void PlanNewJourney()
     {
       SingleJourney sj = new SingleJourney()
       {
@@ -343,8 +343,9 @@ namespace ViaggiaTrentino.ViewModels
         TransportTypes = SelectedTransportTypes
       };
 
-      MobilityServiceLibrary.RoutePlanningLibrary url = new MobilityServiceLibrary.RoutePlanningLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
-      MessageBox.Show((await url.PlanSingleJourney(sj))[0].ToString());
+      PhoneApplicationService.Current.State["singleJorney"] = sj;
+      navigationService.UriFor<PlanNewSingleJourneyListViewModel>().Navigate();
+
 
     }
 

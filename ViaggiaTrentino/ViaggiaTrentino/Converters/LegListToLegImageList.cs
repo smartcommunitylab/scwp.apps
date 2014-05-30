@@ -1,6 +1,5 @@
 ﻿using Models.MobilityService;
 using Models.MobilityService.Journeys;
-using Models.MobilityService.PublicTransport;
 using Models.MobilityService.RealTime;
 using System;
 using System.Collections.Generic;
@@ -13,17 +12,26 @@ using System.Windows.Media;
 
 namespace ViaggiaTrentino.Converters
 {
-  public class BooleanToVisibilityConverter : IValueConverter
+  public class LegListToLegImageList : IValueConverter
   {
     public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
     {
-      if (value is bool)
+      if (value is List<Leg>)
       {
-        if ((bool)value)
-          return System.Windows.Visibility.Visible;
+        List<Leg> tmpLegs = value as List<Leg>;
+        var transp = tmpLegs.Select(x => x.TransportInfo.Type);
+
+        List<object> bitmapImages = new List<object>();
+
+        //TODO: add right icons once obtained
+
+        foreach (TransportType s in transp)        
+          bitmapImages.Add(new ImageSourceConverter().ConvertFromString(string.Format("/Assets/Vehicles/{0}.png", s.ToString().ToLower()))); 
+          
+        return bitmapImages;
+        
       }
-      return System.Windows.Visibility.Collapsed;
-      
+      return "";
     }
 
     public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)

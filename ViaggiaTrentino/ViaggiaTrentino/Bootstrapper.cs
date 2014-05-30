@@ -117,7 +117,7 @@ namespace ViaggiaTrentino
       // journey planning
       container.PerRequest<PlanNewSingleJourneyViewModel>();
       container.PerRequest<PlanNewSingleJourneyListViewModel>();
-      container.PerRequest<PlanNewSingleJourneySaveView>();
+      container.PerRequest<PlanNewSingleJourneySaveViewModel>();
 
 
       // saved ourney Management
