@@ -96,6 +96,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Converters\ItineraryToTimeSpanStringConverter.cs" />
     <Compile Include="Converters\LegListToLegImageList.cs" />
     <Compile Include="Converters\LongSecondsToDateConverter.cs" />
     <Compile Include="Converters\LegListAndMonitorLegsToBool.cs" />
