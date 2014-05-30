@@ -41,10 +41,8 @@
   </toolkit:TransitionService.NavigationOutTransition>
 
   <UserControl.Resources>
-    <!--<calconvs:BooleanToVisibilityConverter x:Key="boolToVisibility" />-->
+    <calconvs:BooleanToVisibilityConverter x:Key="boolToVisibility" />
     <vtconvert:BooleanToScrollBarVisibilityConverter x:Key="boolToScrollBar" />
-    <vtconvert:BooleanToVisibilityConverter x:Key="boolToVisibility" />
-
   </UserControl.Resources>
 
 

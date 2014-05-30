@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace ViaggiaTrentino.ViewModels
 {
-  class PlanNewSingleJourneySaveView : Screen
+  public class PlanNewSingleJourneySaveViewModel : Screen
   {
     private readonly INavigationService navigationService;
-    public PlanNewSingleJourneySaveView(INavigationService navigationService)
+    public PlanNewSingleJourneySaveViewModel(INavigationService navigationService)
     {
       this.navigationService = navigationService;
     }

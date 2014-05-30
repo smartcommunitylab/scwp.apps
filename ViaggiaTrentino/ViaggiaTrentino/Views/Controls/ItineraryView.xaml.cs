@@ -7,16 +7,14 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using Caliburn.Micro;
 
-namespace ViaggiaTrentino.Views
+namespace ViaggiaTrentino.Views.Controls
 {
-  public partial class PlanNewSingleJourneyListView : PhoneApplicationPage
+  public partial class ItineraryView : UserControl
   {
-    public PlanNewSingleJourneyListView()
+    public ItineraryView()
     {
       InitializeComponent();
     }
-
   }
 }

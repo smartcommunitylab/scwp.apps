@@ -96,7 +96,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\LegListToLegImageList.cs" />
     <Compile Include="Converters\LongSecondsToDateConverter.cs" />
     <Compile Include="Converters\LegListAndMonitorLegsToBool.cs" />
     <Compile Include="Converters\LongMilliSecondsToDateConverter.cs" />
@@ -130,7 +130,7 @@
     <Compile Include="Settings.cs" />
     <Compile Include="ViewModels\AboutPageViewModel.cs" />
     <Compile Include="ViewModels\PlanNewSingleJourneyListViewModel.cs" />
-    <Compile Include="ViewModels\PlanNewSingleJourneySaveView.cs" />
+    <Compile Include="ViewModels\PlanNewSingleJourneySaveViewModel.cs" />
     <Compile Include="ViewModels\SelectBusRouteDirectionViewModel.cs" />
     <Compile Include="ViewModels\SavedRecurrentJourneyDetailsViewModel.cs" />
     <Compile Include="ViewModels\TimetablePageViewModel.cs" />
@@ -148,6 +148,9 @@
     <Compile Include="ViewModels\TestPageViewModel.cs" />
     <Compile Include="Views\AboutPageView.xaml.cs">
       <DependentUpon>AboutPageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\ItineraryView.xaml.cs">
+      <DependentUpon>ItineraryView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Controls\ParkingPopupView.xaml.cs">
       <DependentUpon>ParkingPopupView.xaml</DependentUpon>
@@ -352,6 +355,10 @@
   <ItemGroup />
   <ItemGroup>
     <Page Include="Views\AboutPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Controls\ItineraryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
