@@ -19,20 +19,20 @@
   <toolkit:TransitionService.NavigationInTransition>
     <toolkit:NavigationInTransition>
       <toolkit:NavigationInTransition.Backward>
-        <toolkit:TurnstileFeatherTransition Mode="BackwardIn" />
+        <toolkit:TurnstileTransition  Mode="BackwardIn" />
       </toolkit:NavigationInTransition.Backward>
       <toolkit:NavigationInTransition.Forward>
-        <toolkit:TurnstileFeatherTransition Mode="ForwardIn" />
+        <toolkit:TurnstileTransition Mode="ForwardIn" />
       </toolkit:NavigationInTransition.Forward>
     </toolkit:NavigationInTransition>
   </toolkit:TransitionService.NavigationInTransition>
   <toolkit:TransitionService.NavigationOutTransition>
     <toolkit:NavigationOutTransition>
       <toolkit:NavigationOutTransition.Backward>
-        <toolkit:TurnstileFeatherTransition Mode="BackwardOut" />
+        <toolkit:TurnstileTransition Mode="BackwardOut" />
       </toolkit:NavigationOutTransition.Backward>
       <toolkit:NavigationOutTransition.Forward>
-        <toolkit:TurnstileFeatherTransition Mode="ForwardOut" />
+        <toolkit:TurnstileTransition Mode="ForwardOut" />
       </toolkit:NavigationOutTransition.Forward>
     </toolkit:NavigationOutTransition>
   </toolkit:TransitionService.NavigationOutTransition>
@@ -56,8 +56,8 @@
     </StackPanel>
 
     <!--ContentPanel - place additional content here-->
-    <ScrollViewer HorizontalScrollBarVisibility="Disabled" x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0"  >
-      <ItemsControl ItemsSource="{Binding Path=RoutesName}" toolkit:TurnstileFeatherEffect.FeatheringIndex="0">
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled"  x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0"  >
+      <ItemsControl ItemsSource="{Binding Path=RoutesName}" >
         <ItemsControl.ItemsPanel>
           <ItemsPanelTemplate>
             <toolkit:WrapPanel Orientation="Horizontal"/>
@@ -65,8 +65,7 @@
         </ItemsControl.ItemsPanel>
         <ItemsControl.ItemTemplate>
           <DataTemplate>
-            <Grid Width="140" Margin="5" cal:Message.Attach="[Event Tap]=[Action OpenTimetableView($dataContext)]" 
-                  >
+            <Grid Width="140" Margin="5" cal:Message.Attach="[Event Tap]=[Action OpenTimetableView($dataContext)]" >
               <Rectangle Height="140" Width="140" >
                 <Rectangle.Fill>
                   <SolidColorBrush Color="{Binding Color}"/>
