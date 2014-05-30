@@ -3,6 +3,8 @@ using Coding4Fun.Toolkit.Controls;
 using Microsoft.Phone.Maps.Controls;
 using Microsoft.Phone.Maps.Services;
 using Microsoft.Phone.Maps.Toolkit;
+using Microsoft.Phone.Shell;
+using Models.MobilityService;
 using Models.MobilityService.Journeys;
 using System;
 using System.Collections.Generic;
@@ -19,7 +21,7 @@ using Windows.Phone.Devices.Notification;
 
 namespace ViaggiaTrentino.ViewModels
 {
-  public class MonitorJourneyViewModel: Screen
+  public class MonitorJourneyViewModel : Screen
   {
     private readonly INavigationService navigationService;
     ObservableCollection<object> selDays;
@@ -29,8 +31,9 @@ namespace ViaggiaTrentino.ViewModels
     DateTime beginDate;
     DateTime endDate;
     Popup pu;
-    string fromText;
-    string toText;
+    private Position from;
+    private Position to;
+    private PreferencesModel pm;
     string locationResult;
 
     public MonitorJourneyViewModel(INavigationService navigationService)
@@ -41,24 +44,54 @@ namespace ViaggiaTrentino.ViewModels
       journey = new RecurrentJourney();
       selDays = new ObservableCollection<object>();
       GiorniScelti.Add(DateTime.Now.ToString("dddd"));
+      pu = new Popup();
+      pu.Closed += pu_Closed;
+      to = new Position() { Name = "" };
+      from = new Position() { Name = "" };
+      pm = Settings.AppPreferences.Clone();
+    }
+
+    void pu_Closed(object sender, EventArgs e)
+    {
+      NotifyOfPropertyChange(() => IsAppbarShown);
+    }
+
+    public PreferencesModel JourneySettings
+    {
+      get { return pm; }
+      set
+      {
+        pm = value;
+        NotifyOfPropertyChange(() => JourneySettings);
+      }
     }
 
     public string FromText
     {
-      get { return fromText; }
-      set
-      {
-        fromText = value;
-        NotifyOfPropertyChange(() => FromText);
-      }
+      get { return from.Name; }
     }
 
     public string ToText
     {
-      get { return toText; }
+      get { return to.Name; }
+    }
+
+    public Position FromPos
+    {
+      get { return from; }
       set
       {
-        toText = value;
+        from = value;
+        NotifyOfPropertyChange(() => FromText);
+      }
+    }
+
+    public Position ToPos
+    {
+      get { return to; }
+      set
+      {
+        to = value;
         NotifyOfPropertyChange(() => ToText);
       }
     }
@@ -72,7 +105,7 @@ namespace ViaggiaTrentino.ViewModels
         NotifyOfPropertyChange(() => Journey);
       }
     }
-    
+
     public ObservableCollection<object> GiorniScelti
     {
       get { return selDays; }
@@ -123,7 +156,7 @@ namespace ViaggiaTrentino.ViewModels
     public bool IsSettingsShown
     {
       get { return isSettingsShown; }
-      set 
+      set
       {
         isSettingsShown = value;
         NotifyOfPropertyChange(() => IsSettingsShown);
@@ -177,15 +210,21 @@ namespace ViaggiaTrentino.ViewModels
       mp.Show();
     }
 
-    async void mp_Completed(object sender, PopUpEventArgs<string, PopUpResult> e)
+    void mp_Completed(object sender, PopUpEventArgs<string, PopUpResult> e)
     {
       MessagePrompt mp = sender as MessagePrompt;
       switch (mp.Value)
       {
-        case "current": Assegna(await GetAddressFromGeoCoord(Settings.GPSPosition)); break;
+        case "current": GeneratePushpinForAssegna(); break;
         case "openMap": ShowMappaGrande(); break;
         default: break;
       }
+    }
+
+    private async void GeneratePushpinForAssegna()
+    {
+      string res = await GetAddressFromGeoCoord(Settings.GPSPosition);
+      Assegna(new Pushpin() { GeoCoordinate = Settings.GPSPosition, Content = res });
     }
 
     #endregion
@@ -203,6 +242,7 @@ namespace ViaggiaTrentino.ViewModels
       ggm.Hold += ggm_Hold;
       pu.IsOpen = true;
       NotifyOfPropertyChange(() => IsAppbarShown);
+
     }
 
     async void ggm_Hold(object sender, System.Windows.Input.GestureEventArgs e)
@@ -231,7 +271,7 @@ namespace ViaggiaTrentino.ViewModels
       if (MessageBox.Show((sender as Pushpin).Content as string, AppResources.ChooseConfirmTitle, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
       {
         pu.IsOpen = false;
-        Assegna((sender as Pushpin).Content as string);
+        Assegna((sender as Pushpin));
       }
     }
 
@@ -239,12 +279,23 @@ namespace ViaggiaTrentino.ViewModels
 
     #region Buttons eventhandlers
 
-    public void Assegna(string result)
+    public void Assegna(Pushpin result)
     {
       if (locationResult == "from")
-        FromText = result;
+        FromPos = new Position()
+        {
+          Name = result.Content as string,
+          Latitude = result.GeoCoordinate.Latitude.ToString(),
+          Longitude = result.GeoCoordinate.Longitude.ToString()
+        };
       else if (locationResult == "to")
-        ToText = result;
+        ToPos = new Position()
+        {
+          Name = result.Content as string,
+          Latitude = result.GeoCoordinate.Latitude.ToString(),
+          Longitude = result.GeoCoordinate.Longitude.ToString()
+        };
+      //ToText = result.Content as string;
     }
 
     public void GpsLocFrom()
@@ -259,9 +310,68 @@ namespace ViaggiaTrentino.ViewModels
       ShowLocationMethodChooser();
     }
 
+    public RouteType SelectedRouteType
+    {
+      get
+      {
+        if (JourneySettings.PreferredRoute.Fastest)
+          return RouteType.Fastest;
+        if (JourneySettings.PreferredRoute.FewestChanges)
+          return RouteType.LeastChanges;
+        if (JourneySettings.PreferredRoute.LeastWalking)
+          return RouteType.LeastWalking;
+
+        //default choiche
+        return RouteType.Fastest;
+      }
+    }
+
+    public TransportType[] SelectedTransportTypes
+    {
+      get
+      {
+        List<TransportType> ltt = new List<TransportType>();
+        if (JourneySettings.Transportation.Bike)
+          ltt.Add(TransportType.Bicycle);
+        if (JourneySettings.Transportation.Car)
+          ltt.Add(TransportType.Car);
+        if (JourneySettings.Transportation.SharedBike)
+          ltt.Add(TransportType.SharedBike);
+        if (JourneySettings.Transportation.SharedCar)
+          ltt.Add(TransportType.SharedCar);
+        if (JourneySettings.Transportation.Transit)
+          ltt.Add(TransportType.Transit);
+        if (JourneySettings.Transportation.Walking)
+          ltt.Add(TransportType.Walk);
+        return ltt.ToArray();
+      }
+    }
+
     public void PlanNewJourney()
     {
-      //finalize SingleJourneyObject and proceed to post
+      RecurrentJourneyParameters rjp = new RecurrentJourneyParameters()
+      {
+        Time = "16:30",
+        FromDate = Convert.ToInt64(DateTimeToEpoch(DateTime.Now)),
+        ToDate = Convert.ToInt64(DateTimeToEpoch((DateTime.Now + new TimeSpan(14, 0, 0, 0)).ToUniversalTime())),
+        Interval = Convert.ToInt64(1.5 * 60 * 60 * 1000),
+        From = from,
+        To = to,
+        // TODO: write objectarray to integer converter foar this
+        Recurrences = new int[] { 1, 2, 3, 4 },
+        ResultsNumber = 3,
+        RouteType = SelectedRouteType,
+        TransportTypes = SelectedTransportTypes
+      };
+
+      //PhoneApplicationService.Current.State["recurrentJorney"] = rjp;
+      //navigationService.UriFor<PlanNewSingleJourneyListViewModel>().Navigate();
+    }
+
+    private double DateTimeToEpoch(DateTime dt)
+    {
+      TimeSpan span = (dt.ToUniversalTime() - new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc));
+      return span.TotalMilliseconds;
     }
 
     #endregion
