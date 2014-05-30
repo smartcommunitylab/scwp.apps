@@ -16,8 +16,7 @@ namespace ViaggiaTrentino.ViewModels
     private readonly INavigationService navigationService;
     RoutePlanningLibrary rpLib;
     ObservableCollection<Itinerary> listIti;
-
-
+    
     public ObservableCollection<Itinerary> ListIti
     {
       get { return listIti; }
