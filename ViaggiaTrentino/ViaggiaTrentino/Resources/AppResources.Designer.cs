@@ -511,6 +511,15 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Routes.
+        /// </summary>
+        public static string RoutePivot {
+            get {
+                return ResourceManager.GetString("RoutePivot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete journey.
         /// </summary>
         public static string SavedJourneyDetailsDelete {

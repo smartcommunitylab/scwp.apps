@@ -416,4 +416,7 @@
   <data name="Today" xml:space="preserve">
     <value>today</value>
   </data>
+  <data name="RoutePivot" xml:space="preserve">
+    <value>Routes</value>
+  </data>
 </root>

@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading;
+using TerritoryInformationServiceLibrary;
 
 namespace ViaggiaTrentino.ViewModels
 {
@@ -19,9 +20,8 @@ namespace ViaggiaTrentino.ViewModels
     private readonly INavigationService navigationService;
     private AgencyType agencyID;
 
-
-
     ObservableCollection<RouteInfo> routesName;
+    TerritoryInformationLibrary til;
     PublicTransportLibrary ptl;
 
     public SelectBusRouteViewModel(INavigationService navigationService)
