@@ -12,7 +12,7 @@
     d:DesignHeight="480" d:DesignWidth="480">
 
   <UserControl.Resources>
-    <vtconvert:ItineraryToDateTimeStringConverter x:Key="itiToDateStr" />
+    <vtconvert:ItineraryToTimeSpanStringConverter  x:Key="itiToSpanStr" />
     <vtconvert:LegListToImageListConverter x:Key="legsToLegImgs" />
   </UserControl.Resources>
 
@@ -21,8 +21,8 @@
       <RowDefinition Height="Auto" />
       <RowDefinition Height="*" />
     </Grid.RowDefinitions>
-    <TextBlock Grid.Row="0" Text="Free cheap"></TextBlock>
-    
+    <!--<TextBlock Grid.Row="0" Text="{Binding Converter={StaticResource itiToSpanStr}}"></TextBlock>-->
+    <TextBlock Grid.Row="0" Text="free coop"></TextBlock>
       <ListBox Grid.Row="1" ItemsSource="{Binding Legs, Converter={ StaticResource legsToLegImgs}}" >
         <ListBox.ItemsPanel>
           <ItemsPanelTemplate>

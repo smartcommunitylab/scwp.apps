@@ -16,8 +16,7 @@ namespace ViaggiaTrentino.ViewModels
     private readonly INavigationService navigationService;
     RoutePlanningLibrary rpLib;
     ObservableCollection<Itinerary> listIti;
-
-
+    
     public ObservableCollection<Itinerary> ListIti
     {
       get { return listIti; }
@@ -41,7 +40,8 @@ namespace ViaggiaTrentino.ViewModels
       SingleJourney sj = PhoneApplicationService.Current.State["singleJorney"] as SingleJourney;
       PhoneApplicationService.Current.State.Remove("singleJorney");
       List<Itinerary> li = await rpLib.PlanSingleJourney(sj);
-      ListIti = new ObservableCollection<Itinerary>(li);
+      if(li != null)
+        ListIti = new ObservableCollection<Itinerary>(li);
     }
 
   }
