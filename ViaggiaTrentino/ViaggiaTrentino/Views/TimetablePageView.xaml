@@ -16,7 +16,8 @@
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True"
-    Unloaded="PhoneApplicationPage_Unloaded">
+    Unloaded="PhoneApplicationPage_Unloaded"
+    BackKeyPress="PhoneApplicationPage_BackKeyPress">
 
   <toolkit:TransitionService.NavigationInTransition>
     <toolkit:NavigationInTransition>
@@ -90,6 +91,8 @@
     <bab:BindableAppBar x:Name="bAppBar">
       <bab:BindableAppBarButton IconUri="/Assets/AppBar/Previous.png" x:Name="Previous" IsEnabled="{Binding DisableAppBar}" 
                                 Text="{Binding Path=LocalizedResources.Previous, Source={StaticResource LocalizedStrings}}"  />
+      <bab:BindableAppBarButton IconUri="/Assets/AppBar/Today.png" x:Name="Current" IsEnabled="{Binding DisableAppBar}" 
+                                Text="{Binding Path=LocalizedResources.Today, Source={StaticResource LocalizedStrings}}"  />
       <bab:BindableAppBarButton IconUri="/Assets/AppBar/Next.png" x:Name="Next" IsEnabled="{Binding DisableAppBar}"
                                 Text="{Binding Path=LocalizedResources.Next, Source={StaticResource LocalizedStrings}}"/>
     </bab:BindableAppBar>

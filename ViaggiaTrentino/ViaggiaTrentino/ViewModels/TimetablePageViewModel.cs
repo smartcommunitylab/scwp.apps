@@ -119,6 +119,7 @@ namespace ViaggiaTrentino.ViewModels
 
     #endregion
 
+
     private void GetTimetableFromDB()
     {
       using (DBHelper dbh = new DBHelper())
@@ -175,6 +176,12 @@ namespace ViaggiaTrentino.ViewModels
     public void Next()
     {
       CurrentDate = CurrentDate.AddDays(1);
+      GetTimetableFromDB();
+    }
+
+    public void Current()
+    {
+      CurrentDate = DateTime.Now;
       GetTimetableFromDB();
     }
 

@@ -413,4 +413,7 @@
   <data name="PlanJourneyConfirm" xml:space="preserve">
     <value>Get journeys</value>
   </data>
+  <data name="Today" xml:space="preserve">
+    <value>today</value>
+  </data>
 </root>

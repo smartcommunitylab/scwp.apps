@@ -11,7 +11,7 @@ using Caliburn.Micro;
 
 namespace ViaggiaTrentino.Views
 {
-  public partial class PlanNewSingleJourneyListView : Screen
+  public partial class PlanNewSingleJourneyListView : PhoneApplicationPage
   {
     public PlanNewSingleJourneyListView()
     {

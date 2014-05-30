@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.ComponentModel;
 using System.Threading;
 using ViaggiaTrentino.ViewModels;
+using System.Diagnostics;
 
 namespace ViaggiaTrentino.Views
 {
@@ -38,6 +39,13 @@ namespace ViaggiaTrentino.Views
       eventAggregator.Unsubscribe(this);
     }
 
+    private void PhoneApplicationPage_BackKeyPress(object sender, CancelEventArgs e)
+    {
+      if (bw.IsBusy)
+        e.Cancel = true;
+
+    }
+
     public void Handle(CompressedTimetable ct)
     {
       scrollViewerTimetable.MaxHeight = ContentPanel.ActualHeight;
@@ -51,7 +59,7 @@ namespace ViaggiaTrentino.Views
 
         listBoxNames.Visibility = Visibility.Collapsed;
         stackPanelTimetable.Visibility = Visibility.Collapsed;
-        txtNoAvailable.Padding = new Thickness(0, (ContentPanel.ActualHeight - txtNoAvailable.ActualHeight/2 - bAppBar.ActualHeight) / 2, 0, 0);
+        txtNoAvailable.Padding = new Thickness(0, (ContentPanel.ActualHeight - txtNoAvailable.ActualHeight / 2 - bAppBar.ActualHeight) / 2, 0, 0);
         txtNoAvailable.Visibility = Visibility.Visible;
 
         ((TimetablePageViewModel)(this.DataContext)).DisableAppBar = true;
@@ -61,11 +69,16 @@ namespace ViaggiaTrentino.Views
         listBoxNames.Visibility = Visibility.Visible;
         stackPanelTimetable.Visibility = Visibility.Visible;
         txtNoAvailable.Visibility = Visibility.Collapsed;
+
+        listBoxNames.Items.Clear();
+        stackPanelTimetable.Children.Clear();
+        (stackPanelTimetable.Parent as ScrollViewer).ScrollToHorizontalOffset(0);
+
+
         for (int i = 0; i < ct.StopIds.Count; i++)
         {
           listBoxNames.Items.Add(ct.Stops[i]);
         }
-        stackPanelTimetable.Children.Clear();
         bw = new BackgroundWorker();
         bw.WorkerSupportsCancellation = true;
         bw.WorkerReportsProgress = true;
@@ -83,15 +96,15 @@ namespace ViaggiaTrentino.Views
       if (txtNoAvailable.Visibility == Visibility.Visible)
         return;
 
+
       ScrollViewer scroll = stackPanelTimetable.Parent as ScrollViewer;
       StackPanel stackColumn = stackPanelCenter as StackPanel;
       var transform = stackColumn.TransformToVisual(scroll).Transform(new Point(0, 0));
       scroll.ScrollToHorizontalOffset(transform.X);
 
-
-      #if DEBUG
-      stackColumn.Background = new SolidColorBrush(Colors.Red);
-      #endif     
+#if DEBUG
+      Debug.WriteLine((stackColumn.Children[0] as TextBlock).Text);
+#endif
     }
 
     void bw_DoWork(object sender, DoWorkEventArgs e)
@@ -125,17 +138,16 @@ namespace ViaggiaTrentino.Views
 
     void bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
     {
-      
+
       StackPanel sp = new StackPanel();
       List<string> vari = e.UserState as List<string>;
 
       //select the closest trip time
-      if (DateTime.Now.ToString("HH:mm").CompareTo(vari[0]) != -1)
+      if (DateTime.Now.ToString("HH:mm").CompareTo(vari[0]) != -1 && vari[0] != "")
         stackPanelCenter = sp;
-    
 
       for (int k = 0; k < vari.Count; k++)
-      {          
+      {
         sp.Children.Add(new TextBlock()
         {
           Margin = new Thickness(10, 3, 10, 3),
