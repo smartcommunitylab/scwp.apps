@@ -121,17 +121,9 @@ namespace ViaggiaTrentino.ViewModels
       }
     }
 
-    public async Task<List<POIObject>> RetrieveAllStops()
+    public async Task<List<POIObject>> RetrieveAllStops(double[] coordinates, double radius, string[] agencyIds)
     {
       til = new TerritoryInformationLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
-
-      string[] agencyIds = {
-                             EnumConverter.ToEnumString<AgencyType>(AgencyType.TrentoCityBus) 
-                             //EnumConverter.ToEnumString<AgencyType>(AgencyType.RoveretoCityBus),
-                             //EnumConverter.ToEnumString<AgencyType>(AgencyType.TrentoMaleRailway),
-                             //EnumConverter.ToEnumString<AgencyType>(AgencyType.BolzanoVeronaRailway),
-                             //EnumConverter.ToEnumString<AgencyType>(AgencyType.TrentoBassanoDelGrappaRailway)
-                           };
 
       Dictionary<string, object> criteria = new Dictionary<string, object>();
       criteria.Add("source", "smartplanner-transitstops");
@@ -143,18 +135,9 @@ namespace ViaggiaTrentino.ViewModels
         NumberOfResults = -1,
         Categories = new List<string>() { "Mobility" },
         MongoFilters = criteria,
-        Coordinates = new double[2] { Settings.GPSPosition.Latitude, Settings.GPSPosition.Longitude },
+        Coordinates = new double[2] { coordinates[0], coordinates[1] },
+        Radius = radius
       });
-
-      FilterObject fo = new FilterObject()
-      {
-        SkipFirstElements = 0,
-        //NumberOfResults = -1,
-        Categories = new List<string>() { "Mobility" },
-        MongoFilters = criteria,
-        Coordinates = new double[2] { Settings.GPSPosition.Latitude, Settings.GPSPosition.Longitude },
-        //Radius = 0.01
-      };
       return results;
     }
 

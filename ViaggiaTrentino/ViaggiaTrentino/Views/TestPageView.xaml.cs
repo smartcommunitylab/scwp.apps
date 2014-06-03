@@ -17,6 +17,5 @@ namespace ViaggiaTrentino.Views
       InitializeComponent();
       
     }
-
   }
 }

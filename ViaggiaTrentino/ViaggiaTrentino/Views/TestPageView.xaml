@@ -71,6 +71,8 @@
           </ListBox.ItemTemplate>
         </ListBox>
         <gAutoComp:GoogleAutoCompleteBox />
+        
+        <Button x:Name="Stops" Content="Stops" />
       </StackPanel>
     </Grid>
   </Grid>

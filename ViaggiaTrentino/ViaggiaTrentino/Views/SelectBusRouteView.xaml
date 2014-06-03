@@ -88,7 +88,7 @@
       </phone:PivotItem>
 
       <phone:PivotItem Header="{Binding Path=LocalizedResources.ParkingsPageMapPivot, Source={StaticResource LocalizedStrings}}">
-        <maps:Map x:Name="StopsMap" ZoomLevel="11" Center="{Binding Path=GPSPosition, Source={StaticResource vtSettings}}"/>
+        <maps:Map x:Name="StopsMap" ResolveCompleted="StopsMap_ResolveCompleted" ZoomLevel="11" Center="{Binding Path=GPSPosition, Source={StaticResource vtSettings}}"/>
       </phone:PivotItem>
     </phone:Pivot>
   </Grid>

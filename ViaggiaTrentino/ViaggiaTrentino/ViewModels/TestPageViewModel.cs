@@ -108,5 +108,10 @@ namespace ViaggiaTrentino.ViewModels
       navigationService.UriFor<SelectAlertPageViewModel>().Navigate();
 
     }
+
+    public void Stops()
+    {
+      navigationService.UriFor<StopTimesForStopViewModel>().WithParam(x => x.AgencyID, AgencyType.TrentoCityBus).WithParam(x => x.StopID, "247_12").Navigate();
+    }
   }
 }
