@@ -12,6 +12,13 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading;
 using TerritoryInformationServiceLibrary;
+using Models.TerritoryInformationService;
+using System.Threading.Tasks;
+using System.Windows;
+using Coding4Fun.Toolkit.Controls;
+using System.Windows.Controls;
+using ViaggiaTrentino.Views.Controls;
+using Newtonsoft.Json;
 
 namespace ViaggiaTrentino.ViewModels
 {
@@ -19,10 +26,10 @@ namespace ViaggiaTrentino.ViewModels
   {
     private readonly INavigationService navigationService;
     private AgencyType agencyID;
-
-    ObservableCollection<RouteInfo> routesName;
-    TerritoryInformationLibrary til;
-    PublicTransportLibrary ptl;
+    private MessagePrompt mp;
+    private ObservableCollection<RouteInfo> routesName;
+    private TerritoryInformationLibrary til;
+    private PublicTransportLibrary ptl;
 
     public SelectBusRouteViewModel(INavigationService navigationService)
     {
@@ -112,7 +119,54 @@ namespace ViaggiaTrentino.ViewModels
             .Navigate();
         }
       }
+    }
 
+    public async Task<List<POIObject>> RetrieveAllStops()
+    {
+      til = new TerritoryInformationLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
+
+      string[] agencyIds = {
+                             EnumConverter.ToEnumString<AgencyType>(AgencyType.TrentoCityBus) 
+                             //EnumConverter.ToEnumString<AgencyType>(AgencyType.RoveretoCityBus),
+                             //EnumConverter.ToEnumString<AgencyType>(AgencyType.TrentoMaleRailway),
+                             //EnumConverter.ToEnumString<AgencyType>(AgencyType.BolzanoVeronaRailway),
+                             //EnumConverter.ToEnumString<AgencyType>(AgencyType.TrentoBassanoDelGrappaRailway)
+                           };
+
+      Dictionary<string, object> criteria = new Dictionary<string, object>();
+      criteria.Add("source", "smartplanner-transitstops");
+      criteria.Add("customData.agencyId", agencyIds);
+      
+      List<POIObject> results = await til.ReadPlaces(new FilterObject()
+      {
+        SkipFirstElements = 0,
+        NumberOfResults = -1,
+        Categories = new List<string>() { "Mobility" },
+        MongoFilters = criteria,
+        Coordinates = new double[2] { Settings.GPSPosition.Latitude, Settings.GPSPosition.Longitude },
+      });
+
+      FilterObject fo = new FilterObject()
+      {
+        SkipFirstElements = 0,
+        //NumberOfResults = -1,
+        Categories = new List<string>() { "Mobility" },
+        MongoFilters = criteria,
+        Coordinates = new double[2] { Settings.GPSPosition.Latitude, Settings.GPSPosition.Longitude },
+        //Radius = 0.01
+      };
+      return results;
+    }
+
+    public void TappedPushPin(POIObject stop)
+    {
+      mp = new MessagePrompt();
+      mp.Title = Resources.AppResources.SubAlertStop;
+      mp.Body = new StopPopupView(mp, navigationService) { DataContext = stop };
+      mp.ActionPopUpButtons.Clear();
+      mp.HorizontalAlignment = HorizontalAlignment.Center;
+      mp.VerticalAlignment = VerticalAlignment.Center;
+      mp.Show();
     }
   }
 }

@@ -9,6 +9,7 @@
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
     xmlns:maps="clr-namespace:Microsoft.Phone.Maps.Controls;assembly=Microsoft.Phone.Maps"
+    xmlns:mToolkit="clr-namespace:Microsoft.Phone.Maps.Toolkit;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:vtconvert="clr-namespace:ViaggiaTrentino.Converters"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -41,6 +42,21 @@
 
   <phone:PhoneApplicationPage.Resources>
     <vtconvert:RouteBackgroungColorToForegroundColor x:Name="backgroundToForegroundColor" />
+    <vtconvert:DataContextToContentConverter x:Name="contextToContent" />
+
+    <DataTemplate x:Key="PushpinTemplate">
+      <mToolkit:Pushpin cal:Message.Attach="[Event Tap] = [Action TappedPushPin($dataContext)]" DataContext="{Binding}"
+                        GeoCoordinate="{Binding GeoCoordinate}">
+        <mToolkit:Pushpin.ContentTemplate>
+          <DataTemplate>
+            <Image Source="/Assets/Misc/StopPushPin.png" HorizontalAlignment="Center"/>
+          </DataTemplate>
+        </mToolkit:Pushpin.ContentTemplate>
+      </mToolkit:Pushpin>
+    </DataTemplate>
+    <DataTemplate x:Key="ClusterTemplate">
+      <mToolkit:Pushpin GeoCoordinate="{Binding GeoCoordinate}" Content="{Binding Count}"/>
+    </DataTemplate>
   </phone:PhoneApplicationPage.Resources>
 
 

@@ -10,6 +10,10 @@ using Microsoft.Phone.Shell;
 using Caliburn.Micro;
 using TerritoryInformationServiceLibrary;
 using Models.TerritoryInformationService;
+using ViaggiaTrentino.ViewModels;
+using Microsoft.Phone.Maps.Toolkit;
+using System.Device.Location;
+using ViaggiaTrentino.Model;
 
 namespace ViaggiaTrentino.Views
 {
@@ -37,21 +41,22 @@ namespace ViaggiaTrentino.Views
       // map pivot item
       if (pivotRoutes.SelectedIndex == 1)
       {
-        til = new TerritoryInformationLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
+        List<POIObject> stops = await ((SelectBusRouteViewModel)(this.DataContext)).RetrieveAllStops();
 
-        string[] agencyIds = {"12","16"};
-
-        Dictionary<string,object> criteria = new Dictionary<string,object>();
-        criteria.Add("source", "smartplanner-transitstops");
-        criteria.Add("customData.agencyId", agencyIds);
-        var results = await til.ReadPlaces(new FilterObject()
+        var pushPins = new List<Pushpin>();        
+        foreach (var stop in stops)
         {
-          SkipFirstElements = 0,
-          NumberOfResults = -1,
-          Categories = new List<string>() {"Mobility"},
-          MongoFilters = criteria,
-          Coordinates = new double[2] {Settings.GPSPosition.Latitude, Settings.GPSPosition.Longitude},
-        });
+          pushPins.Add(new Pushpin()
+          {
+            ContentTemplate = this.Resources["PushpinTemplate"] as DataTemplate,
+            DataContext = stop,
+            Tag = stop,
+            GeoCoordinate = new GeoCoordinate(stop.Location[0], stop.Location[1]),
+            Content = stop.Title
+          });
+        }
+
+        var clusterer = new ClustersGenerator(StopsMap, pushPins, this.Resources["ClusterTemplate"] as DataTemplate);
       }
     }
   }

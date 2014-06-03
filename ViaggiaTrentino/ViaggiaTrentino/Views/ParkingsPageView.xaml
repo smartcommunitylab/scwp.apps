@@ -43,7 +43,7 @@
   </toolkit:TransitionService.NavigationOutTransition>
 
   <UserControl.Resources>
-    <converters:ParkingDataContextToContentConverter x:Key="dcToCont" />
+    <converters:DataContextToContentConverter x:Key="dcToCont" />
     <DataTemplate x:Key="PushpinTemplate">
       <mToolkit:Pushpin cal:Message.Attach="[Event Tap] = [Action TappedPushPin($dataContext)]"  Content="{Binding Converter={StaticResource dcToCont} }" DataContext="{Binding }"
                         GeoCoordinate="{Binding GeoCoordinate}"  />
@@ -79,26 +79,7 @@
       <!--Pivot item two-->
       <phone:PivotItem x:Name="pivotMap" Header="{Binding Path=LocalizedResources.ParkingsPageMapPivot, Source={StaticResource LocalizedStrings}}">
         <Grid>
-          <maps:Map x:Name="ParkingsMap" ZoomLevel="11">
-            <!--<mToolkit:MapExtensions.Children>
-              <mToolkit:MapItemsControl>
-                <mToolkit:MapItemsControl.ItemTemplate>
-                  <DataTemplate>
-                    <mToolkit:Pushpin cal:Message.Attach="[Event Tap] = [Action TappedPushPin($this)]" GeoCoordinate="{Binding Position, Converter={StaticResource parkCoordArrayToGeo}}" 
-                                      Content="{Binding Name}" >
-                      <mToolkit:Pushpin.Template>
-                        <ControlTemplate TargetType="mToolkit:Pushpin">
-                          <StackPanel>
-                            <Image Source="/Images/Misc/ParkingPushPin.png" Stretch="Uniform" Width="50" Height="50" HorizontalAlignment="Center"/>
-                          </StackPanel>
-                        </ControlTemplate>
-                      </mToolkit:Pushpin.Template>
-                   </mToolkit:Pushpin>
-                  </DataTemplate>
-                </mToolkit:MapItemsControl.ItemTemplate>
-              </mToolkit:MapItemsControl>
-            </mToolkit:MapExtensions.Children>-->
-          </maps:Map>
+          <maps:Map x:Name="ParkingsMap" ZoomLevel="11" Center="{Binding Path=GPSPosition, Source={StaticResource vtSettings}}" />
         </Grid>
       </phone:PivotItem>
     </phone:Pivot>

@@ -9,6 +9,7 @@
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
     xmlns:vtconvert="clr-namespace:ViaggiaTrentino.Converters"
+    xmlns:mToolkit="clr-namespace:Microsoft.Phone.Maps.Toolkit;assembly=Microsoft.Phone.Controls.Toolkit"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -39,6 +40,15 @@
 
   <phone:PhoneApplicationPage.Resources>
     <vtconvert:RouteBackgroungColorToForegroundColor x:Name="backgroundToForegroundColor" />
+    <vtconvert:DataContextToContentConverter x:Key="dcToCont" />
+
+    <DataTemplate x:Key="PushpinTemplate">
+      <mToolkit:Pushpin cal:Message.Attach="[Event Tap] = [Action TappedPushPin($dataContext)]"  Content="{Binding Converter={StaticResource dcToCont} }" DataContext="{Binding }"
+                        GeoCoordinate="{Binding GeoCoordinate}"  />
+    </DataTemplate>
+    <DataTemplate x:Key="ClusterTemplate">
+      <mToolkit:Pushpin GeoCoordinate="{Binding GeoCoordinate}" Content="{Binding Count}"/>
+    </DataTemplate>
   </phone:PhoneApplicationPage.Resources>
 
 

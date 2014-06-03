@@ -419,4 +419,7 @@
   <data name="RoutePivot" xml:space="preserve">
     <value>Routes</value>
   </data>
+  <data name="ShowStopTimes" xml:space="preserve">
+    <value>Stop times</value>
+  </data>
 </root>

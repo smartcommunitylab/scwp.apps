@@ -664,6 +664,15 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Stop times.
+        /// </summary>
+        public static string ShowStopTimes {
+            get {
+                return ResourceManager.GetString("ShowStopTimes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delay.
         /// </summary>
         public static string SubAlertDelay {
