@@ -88,7 +88,8 @@ namespace ViaggiaTrentino.ViewModels
         ip.Message = AppResources.JourneyNameMsg;
         ip.Title = AppResources.JourneyNameTit;
         ip.VerticalAlignment = System.Windows.VerticalAlignment.Center;
-        ip.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+        ip.HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch;
+        
         ip.Completed += ip_Completed;
         ip.Show();
       }

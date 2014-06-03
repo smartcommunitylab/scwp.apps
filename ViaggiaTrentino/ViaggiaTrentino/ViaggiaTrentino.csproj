@@ -93,6 +93,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Converters\LongListSelectorItemToColorConverter.cs" />
+    <Compile Include="Helpers\FileStorageHelper.cs" />
     <Compile Include="Helpers\KeyedList.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -153,6 +154,9 @@
     <Compile Include="ViewModels\TestPageViewModel.cs" />
     <Compile Include="Views\AboutPageView.xaml.cs">
       <DependentUpon>AboutPageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\FavouritePlaceView.xaml.cs">
+      <DependentUpon>FavouritePlaceView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Controls\StopPopupView.xaml.cs">
       <DependentUpon>StopPopupView.xaml</DependentUpon>
@@ -375,6 +379,10 @@
   <ItemGroup />
   <ItemGroup>
     <Page Include="Views\AboutPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Controls\FavouritePlaceView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
