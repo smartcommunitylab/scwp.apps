@@ -16,5 +16,19 @@ namespace ViaggiaTrentino.Views
     {
       InitializeComponent();
     }
+
+    private void Pivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+      if ((sender as Pivot).SelectedIndex == 1)
+      {
+        babAppbar.Mode = ApplicationBarMode.Default;
+        barAdd.IsEnabled = true;
+      }
+      else
+      {
+        babAppbar.Mode = ApplicationBarMode.Minimized;
+        barAdd.IsEnabled = false;
+      }
+    }
   }
 }

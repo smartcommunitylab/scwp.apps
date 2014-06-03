@@ -133,7 +133,6 @@
     </Grid>
     <bab:BindableAppBar>
       <bab:BindableAppBarButton IconUri="/Assets/AppBar/Save.png" x:Name="BarSave" Text="Save" />
-
     </bab:BindableAppBar>
 
   </Grid>
