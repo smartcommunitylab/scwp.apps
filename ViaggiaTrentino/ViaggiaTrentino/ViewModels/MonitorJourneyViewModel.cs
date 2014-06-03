@@ -365,8 +365,8 @@ namespace ViaggiaTrentino.ViewModels
         TransportTypes = SelectedTransportTypes
       };
 
-      PhoneApplicationService.Current.State["recurrentJorney"] = rjp;
-      navigationService.UriFor<PlanNewSingleJourneyListViewModel>().Navigate();
+      PhoneApplicationService.Current.State["recurrentJourney"] = rjp;
+      navigationService.UriFor<MonitorJourneyListViewModel>().Navigate();
     }
 
     private int[] SelectedDaysToArray()
