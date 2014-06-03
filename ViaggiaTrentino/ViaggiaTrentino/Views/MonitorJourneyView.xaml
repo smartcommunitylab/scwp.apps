@@ -96,9 +96,9 @@
               <RowDefinition Height="Auto"/>
               <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <toolkit:TimePicker x:Name="TimeStart" Value="{Binding BeginDateTime, Mode=TwoWay}" 
+            <toolkit:TimePicker x:Name="TimeStart" Value="{Binding BeginDateTime, Mode=TwoWay}" ValueStringFormat="{}{0:HH:mm}" 
                                 Grid.Row="0" Grid.Column="0" />
-            <toolkit:TimePicker x:Name="TimeEnd" Value="{Binding EndDateTime, Mode=TwoWay}" 
+            <toolkit:TimePicker x:Name="TimeEnd" Value="{Binding EndDateTime, Mode=TwoWay}" ValueStringFormat="{}{0:HH:mm}" 
                                 Grid.Row="0" Grid.Column="1" />
             <toolkit:DatePicker x:Name="DateStart" Value="{Binding BeginDateTime, Mode=TwoWay}" 
                                 Grid.Row="1"  Grid.Column="0" />

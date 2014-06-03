@@ -6,12 +6,44 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converters="clr-namespace:ViaggiaTrentino.Converters"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
+    xmlns:bab="clr-namespace:Caliburn.Micro.BindableAppBar;assembly=Caliburn.Micro.BindableAppBar"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True">
+
+  <toolkit:TransitionService.NavigationInTransition>
+    <toolkit:NavigationInTransition>
+      <toolkit:NavigationInTransition.Backward>
+        <toolkit:TurnstileTransition Mode="BackwardIn" />
+      </toolkit:NavigationInTransition.Backward>
+      <toolkit:NavigationInTransition.Forward>
+        <toolkit:TurnstileTransition Mode="ForwardIn" />
+      </toolkit:NavigationInTransition.Forward>
+    </toolkit:NavigationInTransition>
+  </toolkit:TransitionService.NavigationInTransition>
+  <toolkit:TransitionService.NavigationOutTransition>
+    <toolkit:NavigationOutTransition>
+      <toolkit:NavigationOutTransition.Backward>
+        <toolkit:TurnstileTransition Mode="BackwardOut" />
+      </toolkit:NavigationOutTransition.Backward>
+      <toolkit:NavigationOutTransition.Forward>
+        <toolkit:TurnstileTransition Mode="ForwardOut" />
+      </toolkit:NavigationOutTransition.Forward>
+    </toolkit:NavigationOutTransition>
+  </toolkit:TransitionService.NavigationOutTransition>
+
+  <UserControl.Resources>
+    <converters:TransportTypeToImageListConverter x:Key="TTToImg" />
+    <converters:LongMilliSecondsToDateConverter x:Name="secsToDateStr"/>
+    <converters:LongMilliSecondsToTimeConverter x:Name="secsToTimeStr"/>
+    <converters:LegListAndMonitorLegsToBool x:Name="legAndBoolToBool" />
+  </UserControl.Resources>
 
   <!--LayoutRoot is the root grid where all page content is placed-->
   <Grid x:Name="LayoutRoot" Background="Transparent">
@@ -22,16 +54,88 @@
 
     <!--TitlePanel contains the name of the application and page title-->
     <StackPanel Grid.Row="0" Margin="12,17,0,28">
-      <TextBlock Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
-      <TextBlock Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+      <TextBlock Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}" 
+                 Style="{StaticResource PhoneTextNormalStyle}"/>
+      <TextBlock Text="{Binding Path=LocalizedResources.MonitorJourneyTitle, Source={StaticResource LocalizedStrings}}" 
+                 Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
     </StackPanel>
 
     <!--ContentPanel - place additional content here-->
     <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
       <StackPanel>
-        <TextBlock Text="{Binding RecJourney.Parameters.From.Name}"></TextBlock>
+
+        <TextBlock Text="{Binding Path=LocalizedResources.MonitorJourneyHeadText, Source={StaticResource LocalizedStrings}}" TextWrapping="Wrap"></TextBlock>
+
+
+        <StackPanel Margin="0,10,0,0">
+          <Grid Margin="0,5,0,5">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="*"/>
+              <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="{Binding RecJourneyParams.FromDate, Converter={StaticResource secsToDateStr}}" HorizontalAlignment="Left" />
+            <TextBlock Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2" Text="{Binding RecJourneyParams.FromDate, Converter={StaticResource secsToTimeStr} }"  HorizontalAlignment="Right" />
+
+            <TextBlock Grid.Column="0" Grid.Row="1" TextWrapping="Wrap" Margin="0,5,0,5" >
+              <Run Text="{Binding Path=LocalizedResources.From, Source={StaticResource LocalizedStrings}}"></Run>
+              <Run Text="{Binding RecJourneyParams.From.Name}"></Run>
+            </TextBlock>
+
+            <TextBlock Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" HorizontalAlignment="Right" Margin="0,5,0,5">
+              <Run Text="{Binding Path=LocalizedResources.ToCapitalT, Source={StaticResource LocalizedStrings}}"></Run>
+              <Run Text="{Binding RecJourneyParams.To.Name}"></Run>
+            </TextBlock>
+          </Grid>
+          <Line X1="0" X2="1" Stretch="Fill" Stroke="{StaticResource PhoneAccentBrush}"></Line>
+        </StackPanel>
+
+        <ScrollViewer Margin="0,15,0,0">
+          <ListBox MaxHeight="450"  ItemsSource="{Binding RecJourney.Legs}" Margin="0,5,0,5">
+            <ListBox.ItemContainerStyle>
+              <Style TargetType="ListBoxItem">
+                <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+                <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+              </Style>
+            </ListBox.ItemContainerStyle>
+            <ListBox.Template>
+              <ControlTemplate TargetType="ListBox">
+                <ItemsPresenter/>
+              </ControlTemplate>
+            </ListBox.Template>
+            <ListBox.ItemTemplate>
+              <DataTemplate>
+                <Grid>
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                  </Grid.ColumnDefinitions>
+                  <StackPanel  Grid.Column="0" Margin="10,0,5,0">
+                    <TextBlock TextWrapping="Wrap" Text="{Binding TransportInfo.RouteShortName}" FontWeight="SemiBold"/>
+                    <TextBlock TextWrapping="Wrap" Text="{Binding From}" />
+                    <TextBlock TextWrapping="Wrap" Text="{Binding To}" />
+                  </StackPanel>
+                  <Image Grid.Column="1" Margin="5,0,5,0" Width="96" Source="{Binding TransportInfo.Type, Converter={StaticResource TTToImg}}"></Image>
+                  <CheckBox Grid.Column="2" VerticalAlignment="Center" IsChecked="true" cal:Message.Attach="[Event Click] = [Action CheckBoxPressed($source, $dataContext)]"/>
+                </Grid>
+              </DataTemplate>
+            </ListBox.ItemTemplate>
+          </ListBox>
+        </ScrollViewer>
+
       </StackPanel>
     </Grid>
+    <bab:BindableAppBar>
+      <bab:BindableAppBarButton IconUri="/Assets/AppBar/Save.png" x:Name="BarSave" Text="Save" />
+
+    </bab:BindableAppBar>
+
   </Grid>
 
 </phone:PhoneApplicationPage>
