@@ -42,7 +42,6 @@
 
   <UserControl.Resources>
     <calconvs:BooleanToVisibilityConverter x:Key="boolToVisibility" />
-    <vtconvert:BooleanToScrollBarVisibilityConverter x:Key="boolToScrollBar" />
   </UserControl.Resources>
 
 
@@ -63,7 +62,7 @@
 
     <!--ContentPanel - place additional content here-->
     <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-      <ScrollViewer VerticalScrollBarVisibility="{Binding IsSettingsShown, Converter={StaticResource boolToScrollBar}}">
+      <ScrollViewer>
         <StackPanel>
           <TextBlock Text="{Binding Path=LocalizedResources.MonitorJourneyLoc, Source={StaticResource LocalizedStrings}}" />
           <Grid>
@@ -126,7 +125,7 @@
       </ScrollViewer>
     </Grid>
     <bab:BindableAppBar>
-      <bab:BindableAppBarButton IsEnabled="{Binding IsAppbarShown}" IconUri="/Assets/AppBar/check.png" x:Name="MonitorJourney"  />
+      <bab:BindableAppBarButton IsEnabled="{Binding IsAppbarShown}" IconUri="/Assets/AppBar/check.png" x:Name="PlanNewJourney"  />
     </bab:BindableAppBar>
   </Grid>
 

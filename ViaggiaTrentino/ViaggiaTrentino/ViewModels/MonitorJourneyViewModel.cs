@@ -1,5 +1,6 @@
 ﻿using Caliburn.Micro;
 using Coding4Fun.Toolkit.Controls;
+using Microsoft.Phone.Controls;
 using Microsoft.Phone.Maps.Controls;
 using Microsoft.Phone.Maps.Services;
 using Microsoft.Phone.Maps.Toolkit;
@@ -10,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Device.Location;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -357,15 +359,35 @@ namespace ViaggiaTrentino.ViewModels
         Interval = Convert.ToInt64(1.5 * 60 * 60 * 1000),
         From = from,
         To = to,
-        // TODO: write objectarray to integer converter foar this
-        Recurrences = new int[] { 1, 2, 3, 4 },
+        Recurrences = SelectedDaysToArray(),
         ResultsNumber = 3,
         RouteType = SelectedRouteType,
         TransportTypes = SelectedTransportTypes
       };
 
-      //PhoneApplicationService.Current.State["recurrentJorney"] = rjp;
-      //navigationService.UriFor<PlanNewSingleJourneyListViewModel>().Navigate();
+      PhoneApplicationService.Current.State["recurrentJourney"] = rjp;
+      navigationService.UriFor<MonitorJourneyListViewModel>().Navigate();
+    }
+
+    private int[] SelectedDaysToArray()
+    {
+      List<int> usefulDays = new List<int>();
+      var a = selDays.ToArray();
+
+      List<string> localizedDays = new List<string>();
+      
+      for (int i = 1; i <= 7; i++)
+      {
+        localizedDays.Add(new DateTime(1970, 2, i).ToString("dddd", DateTimeFormatInfo.CurrentInfo));
+      }
+      
+      foreach (var item in a)
+      {
+        int res = localizedDays.IndexOf(item as string);
+        usefulDays.Add(res+1);
+      }
+
+      return usefulDays.ToArray();
     }
 
     private double DateTimeToEpoch(DateTime dt)

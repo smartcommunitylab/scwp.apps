@@ -4,6 +4,7 @@ using Models.MobilityService.PublicTransport;
 using Models.MobilityService.RealTime;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,11 +20,18 @@ namespace ViaggiaTrentino.Converters
     {
       if (value is int[])
       {
+        List<string> localizedDays = new List<string>();
+
+        for (int i = 1; i <= 7; i++)
+        {
+          localizedDays.Add(new DateTime(1970, 2, i).ToString("ddd", DateTimeFormatInfo.CurrentInfo));
+        }
+
         StringBuilder sb = new StringBuilder();
 
         foreach (var day in value as int[])
         {
-          sb.AppendFormat("{0}, ", ((DayOfWeek)day).ToString().Substring(0,3));
+          sb.AppendFormat("{0}, ", localizedDays[day-1]);
         }
         string tmp = sb.ToString().Remove(sb.ToString().Length - 2, 2);
 
