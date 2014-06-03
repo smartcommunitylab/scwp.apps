@@ -62,6 +62,7 @@ namespace ViaggiaTrentino.ViewModels
         string key = string.Format("{0}_{1}", gambaSemplice.TransportInfo.AgencyId, gambaSemplice.TransportInfo.RouteId);
         monitoredLegs[key] = true;
       }
+      rj.MonitorLegs = monitoredLegs;
       if (rj != null)
         RecJourney = rj;
       
