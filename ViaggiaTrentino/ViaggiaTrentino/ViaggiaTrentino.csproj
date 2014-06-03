@@ -130,6 +130,7 @@
     </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="ViewModels\AboutPageViewModel.cs" />
+    <Compile Include="ViewModels\MonitorJourneyListViewModel.cs" />
     <Compile Include="ViewModels\PlanNewSingleJourneyListViewModel.cs" />
     <Compile Include="ViewModels\PlanNewSingleJourneySaveViewModel.cs" />
     <Compile Include="ViewModels\SelectBusRouteDirectionViewModel.cs" />
@@ -170,6 +171,9 @@
     </Compile>
     <Compile Include="Views\Controls\UserSettingsView.xaml.cs">
       <DependentUpon>UserSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MonitorJourneyListView.xaml.cs">
+      <DependentUpon>MonitorJourneyListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PlanNewSingleJourneyListView.xaml.cs">
       <DependentUpon>PlanNewSingleJourneyListView.xaml</DependentUpon>
@@ -386,6 +390,10 @@
     </Page>
     <Page Include="Views\Controls\UserSettingsView.xaml">
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MonitorJourneyListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PlanNewSingleJourneyListView.xaml">
       <SubType>Designer</SubType>
