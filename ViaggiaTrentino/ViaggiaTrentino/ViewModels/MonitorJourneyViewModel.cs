@@ -42,7 +42,7 @@ namespace ViaggiaTrentino.ViewModels
     {
       this.navigationService = navigationService;
       beginDate = DateTime.Now;
-      endDate = DateTime.Now;
+      endDate = DateTime.Now+new TimeSpan(2,0,0);
       journey = new RecurrentJourney();
       selDays = new ObservableCollection<object>();
       GiorniScelti.Add(DateTime.Now.ToString("dddd"));
@@ -83,7 +83,7 @@ namespace ViaggiaTrentino.ViewModels
       get { return from; }
       set
       {
-        from = value;
+        from = value;       
         NotifyOfPropertyChange(() => FromText);
       }
     }
@@ -94,7 +94,7 @@ namespace ViaggiaTrentino.ViewModels
       set
       {
         to = value;
-        NotifyOfPropertyChange(() => ToText);
+        NotifyOfPropertyChange(() => ToText);       
       }
     }
 
@@ -364,6 +364,11 @@ namespace ViaggiaTrentino.ViewModels
         RouteType = SelectedRouteType,
         TransportTypes = SelectedTransportTypes
       };
+
+      rjp.From.Latitude = rjp.From.Latitude.Replace(',', '.');
+      rjp.From.Longitude = rjp.From.Longitude.Replace(',', '.');
+      rjp.To.Latitude = rjp.To.Latitude.Replace(',', '.');
+      rjp.To.Longitude = rjp.To.Longitude.Replace(',', '.'); 
 
       PhoneApplicationService.Current.State["recurrentJourney"] = rjp;
       navigationService.UriFor<MonitorJourneyListViewModel>().Navigate();

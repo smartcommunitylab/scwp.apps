@@ -419,4 +419,16 @@
   <data name="RoutePivot" xml:space="preserve">
     <value>Routes</value>
   </data>
+  <data name="MonitorJourneyHeadText" xml:space="preserve">
+    <value>Choose the transit lines you want to be notified about in case of delays</value>
+  </data>
+  <data name="ToCapitalT" xml:space="preserve">
+    <value>To</value>
+  </data>
+  <data name="JourneyNameMsg" xml:space="preserve">
+    <value>Please enter a name for your journey</value>
+  </data>
+  <data name="JourneyNameTit" xml:space="preserve">
+    <value>Journey name</value>
+  </data>
 </root>

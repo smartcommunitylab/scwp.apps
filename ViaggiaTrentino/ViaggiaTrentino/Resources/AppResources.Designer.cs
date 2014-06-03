@@ -250,6 +250,24 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please enter a name for your journey.
+        /// </summary>
+        public static string JourneyNameMsg {
+            get {
+                return ResourceManager.GetString("JourneyNameMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Journey name.
+        /// </summary>
+        public static string JourneyNameTit {
+            get {
+                return ResourceManager.GetString("JourneyNameTit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ViaggiaTrentino.
         /// </summary>
         public static string MainViewTitle {
@@ -264,6 +282,15 @@ namespace ViaggiaTrentino.Resources {
         public static string MonitorJourneyAlways {
             get {
                 return ResourceManager.GetString("MonitorJourneyAlways", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose the transit lines you want to be notified about in case of delays.
+        /// </summary>
+        public static string MonitorJourneyHeadText {
+            get {
+                return ResourceManager.GetString("MonitorJourneyHeadText", resourceCulture);
             }
         }
         
@@ -940,6 +967,15 @@ namespace ViaggiaTrentino.Resources {
         public static string To {
             get {
                 return ResourceManager.GetString("To", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To.
+        /// </summary>
+        public static string ToCapitalT {
+            get {
+                return ResourceManager.GetString("ToCapitalT", resourceCulture);
             }
         }
         

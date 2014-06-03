@@ -11,6 +11,7 @@ using Models.MobilityService.Journeys;
 using System;
 using System.Collections.Generic;
 using System.Device.Location;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -64,8 +65,8 @@ namespace ViaggiaTrentino.ViewModels
         locationResult = "to";
         ToPos = new Position() 
                  { 
-                   Name = await GetAddressFromGeoCoord(dd), 
-                   Latitude = dd[0].ToString(), 
+                   Name = await GetAddressFromGeoCoord(dd),
+                   Latitude = dd[0].ToString(),
                    Longitude = dd[1].ToString() 
                  };
       }
@@ -92,7 +93,7 @@ namespace ViaggiaTrentino.ViewModels
     {
       get { return to.Name ; }
     }
-      
+
     public Position FromPos
     {
       get { return from; }
@@ -342,6 +343,11 @@ namespace ViaggiaTrentino.ViewModels
         RouteType = SelectedRouteType,
         TransportTypes = SelectedTransportTypes
       };
+
+      sj.From.Latitude = sj.From.Latitude.Replace(',', '.');
+      sj.From.Longitude = sj.From.Longitude.Replace(',', '.');
+      sj.To.Latitude = sj.To.Latitude.Replace(',', '.');
+      sj.To.Longitude = sj.To.Longitude.Replace(',', '.'); 
 
       PhoneApplicationService.Current.State["singleJorney"] = sj;
       navigationService.UriFor<PlanNewSingleJourneyListViewModel>().Navigate();
