@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using ViaggiaTrentino.Helpers;
@@ -46,11 +47,10 @@ namespace ViaggiaTrentino.ViewModels
       base.OnViewLoaded(view);
       var grouped =
                 from list in await ptl.GetLimitedTimetable(AgencyID, stopID, 3)
-                group list by list.RouteShortName into listByGroup
+                group list by (list.RouteShortName+" - " + list.RouteName) into listByGroup
                 select new KeyedList<string, TripData>(listByGroup);
 
-      eventAggregator.Publish(grouped);
-      
+      eventAggregator.Publish(grouped);    
     }
   }
 }
