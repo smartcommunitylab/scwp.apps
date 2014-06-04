@@ -15,7 +15,7 @@
       <ColumnDefinition Width="*" />
       <ColumnDefinition Width="Auto" />     
     </Grid.ColumnDefinitions>
-    <vtautocomp:GoogleAutoCompleteBox Grid.Column="0" x:Name="googleACB" FilterMode="None" ItemTemplate="{StaticResource googleBox}"/>
+    <vtautocomp:GoogleAutoCompleteBox Grid.Column="0" x:Name="googleACB" FilterMode="Contains" ItemTemplate="{StaticResource googleBox}"/>
       <Image Grid.Column="1" x:Name="GpsLocTo" Source="/Assets/Buttons/GpsLocation.png" Margin="0,0,5,0" Tap="GpsLocTo_Tap"/>
   </Grid>
 </UserControl>
