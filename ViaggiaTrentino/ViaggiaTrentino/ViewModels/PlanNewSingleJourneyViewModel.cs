@@ -269,7 +269,6 @@ namespace ViaggiaTrentino.ViewModels
           Latitude = result.GeoCoordinate.Latitude.ToString(),
           Longitude = result.GeoCoordinate.Longitude.ToString()
         };
-      //ToText = result.Content as string;
     }
 
     public void GpsLocFrom()

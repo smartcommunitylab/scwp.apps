@@ -68,15 +68,7 @@ namespace ViaggiaTrentino.ViewModels
       }
     }
 
-    public string FromText
-    {
-      get { return from.Name; }
-    }
-
-    public string ToText
-    {
-      get { return to.Name; }
-    }
+   
 
     public Position FromPos
     {
@@ -84,7 +76,7 @@ namespace ViaggiaTrentino.ViewModels
       set
       {
         from = value;       
-        NotifyOfPropertyChange(() => FromText);
+        NotifyOfPropertyChange(() => FromPos);
       }
     }
 
@@ -94,7 +86,7 @@ namespace ViaggiaTrentino.ViewModels
       set
       {
         to = value;
-        NotifyOfPropertyChange(() => ToText);       
+        NotifyOfPropertyChange(() => ToPos);       
       }
     }
 

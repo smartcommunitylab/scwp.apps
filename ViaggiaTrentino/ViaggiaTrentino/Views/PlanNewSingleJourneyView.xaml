@@ -78,12 +78,12 @@
               <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <gAutoComp:GoogleAutoCompleteBox FilterMode="Contains" Grid.Row="0" Grid.Column="0" x:Name="FromBox"  MaxDropDownHeight="300"                                             
-                                    Tag="{Binding FromPos, Mode=TwoWay}"  ItemTemplate="{StaticResource googleBox}" />
+                                    Text="{Binding FromPos.Name}"  Tag="{Binding FromPos, Mode=TwoWay}"  ItemTemplate="{StaticResource googleBox}" />
             <Image x:Name="GpsLocFrom" Source="/Assets/Buttons/GpsLocation.png" Grid.Row="0" Grid.Column="1" Margin="0,0,5,0"/>
             <Image x:Name="FavsFrom" Source="/Assets/Buttons/Favourites.png" Grid.Row="0" Grid.Column="2" Margin="5,0,0,0"/>
 
             <gAutoComp:GoogleAutoCompleteBox FilterMode="Contains" Grid.Row="1" Grid.Column="0" x:Name="ToBox" MaxDropDownHeight="300"
-                                    Tag="{Binding ToPos, Mode=TwoWay}" ItemTemplate="{StaticResource googleBox}"/>
+                                    Text="{Binding ToPos.Name}" Tag="{Binding ToPos, Mode=TwoWay}" ItemTemplate="{StaticResource googleBox}"/>
             <Image x:Name="GpsLocTo" Source="/Assets/Buttons/GpsLocation.png" Grid.Row="1" Grid.Column="1" Margin="0,0,5,0"/>
             <Image x:Name="FavsTo" Source="/Assets/Buttons/Favourites.png" Grid.Row="1" Grid.Column="2" Margin="5,0,0,0"/>
 

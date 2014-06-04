@@ -70,7 +70,7 @@ namespace ViaggiaTrentino
     protected override void OnDropDownClosed(System.Windows.RoutedPropertyChangedEventArgs<bool> e)
     {
       base.OnDropDownClosed(e);
-      if(selPos != null)
+      if (selPos != null)
         this.Text = selPos.Name;
     }
 
