@@ -15,37 +15,34 @@
     shell:SystemTray.IsVisible="True"
     Unloaded="PhoneApplicationPage_Unloaded">
 
-  <phone:PhoneApplicationPage.Resources>
+  <phone:PhoneApplicationPage.Resources>  
     <converters:LongSecondsToTimeConverter x:Key="secToTime" />
+    <converters:LongListSelectorItemToColorConverter x:Key="llsiToColor" />
+
     <DataTemplate x:Key="TripDataItemTemplate">
       <StackPanel VerticalAlignment="Top">
-        <TextBlock Text="{Binding RouteShortName}" />
-        <TextBlock FontWeight="Bold"  Text="{Binding RouteName}" />
-        <TextBlock Text="{Binding Time, Converter={StaticResource secToTime}}" />
+        <TextBlock Margin="5,3,0,3" FontSize="24" Text="{Binding Time, Converter={StaticResource secToTime}}" />
       </StackPanel>
     </DataTemplate>
-
+    
     <DataTemplate x:Key="TripDataGroupHeaderTemplate">
       <Border Background="Transparent" Padding="5">
-        <Border Background="{StaticResource PhoneAccentBrush}" BorderBrush="{StaticResource PhoneAccentBrush}" BorderThickness="2" Width="62" 
-         Height="62" Margin="0,0,18,0" HorizontalAlignment="Left">
-          <TextBlock Text="{Binding Key}" Foreground="{StaticResource PhoneForegroundBrush}" FontSize="48" Padding="6" 
-            FontFamily="{StaticResource PhoneFontFamilySemiLight}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Border Background="{Binding Converter={StaticResource llsiToColor}}" BorderBrush="{Binding Converter={StaticResource llsiToColor}}" BorderThickness="2" HorizontalAlignment="Left">
+          <TextBlock Text="{Binding Key}" Foreground="{StaticResource PhoneForegroundBrush}" FontSize="30" Margin="5,5,0,5"
+            FontFamily="{StaticResource PhoneFontFamilySemiLight}" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
         </Border>
       </Border>
     </DataTemplate>
 
     <phone:JumpListItemBackgroundConverter x:Key="BackgroundConverter"/>
-    <phone:JumpListItemForegroundConverter x:Key="ForegroundConverter"/>
+    <phone:JumpListItemForegroundConverter x:Key="ForegroundConverter"/>    
     <Style x:Key="TripDataJumpListStyle" TargetType="phone:LongListSelector">
-      <Setter Property="GridCellSize"  Value="113,113"/>
-      <Setter Property="LayoutMode" Value="Grid" />
+      <Setter Property="LayoutMode" Value="List" />
       <Setter Property="ItemTemplate">
         <Setter.Value>
           <DataTemplate>
-            <Border Background="{Binding Converter={StaticResource BackgroundConverter}}" Width="113" Height="113" Margin="6" >
-              <TextBlock Text="{Binding Key}" FontFamily="{StaticResource PhoneFontFamilySemiBold}" FontSize="48" Padding="6" 
-               Foreground="{Binding Converter={StaticResource ForegroundConverter}}" VerticalAlignment="Center"/>
+            <Border Background="{Binding Converter={StaticResource llsiToColor}}" Margin="6">
+              <TextBlock Text="{Binding Key}" FontSize="24" Margin="6,30,6,6" Foreground="{Binding Converter={StaticResource ForegroundConverter}}"/>
             </Border>
           </DataTemplate>
         </Setter.Value>
