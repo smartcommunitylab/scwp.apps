@@ -7,7 +7,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:myControl="clr-namespace:ViaggiaTrentino.Views.Controls"
-    
+    xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -40,7 +40,7 @@
           </ListBox.ItemContainerStyle>
           <ListBox.ItemTemplate>
             <DataTemplate>
-              <myControl:ItineraryView DataContext="{Binding}" />
+              <myControl:ItineraryView DataContext="{Binding}" cal:Message.Attach="[Event Tap] = [Action OpenDetailView($dataContext)]" />
             </DataTemplate>
           </ListBox.ItemTemplate>
         </ListBox>

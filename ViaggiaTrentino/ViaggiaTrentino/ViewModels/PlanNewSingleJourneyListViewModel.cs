@@ -44,5 +44,10 @@ namespace ViaggiaTrentino.ViewModels
         ListIti = new ObservableCollection<Itinerary>(li);
     }
 
+    public void OpenDetailView(object dataContext)
+    {
+      //dataContext should be Itinerary object
+    }
+
   }
 }
