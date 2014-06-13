@@ -79,6 +79,24 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Allow this application to access and use your location?.
+        /// </summary>
+        public static string AppLocationDisabledCaption {
+            get {
+                return ResourceManager.GetString("AppLocationDisabledCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Location is disabled on your app. Do you want to enable it?.
+        /// </summary>
+        public static string AppLocationDisabledMessage {
+            get {
+                return ResourceManager.GetString("AppLocationDisabledMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Selected location:.
         /// </summary>
         public static string ChooseConfirmTitle {
@@ -273,6 +291,33 @@ namespace ViaggiaTrentino.Resources {
         public static string MainViewTitle {
             get {
                 return ResourceManager.GetString("MainViewTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to allow.
+        /// </summary>
+        public static string MessageBoxAllow {
+            get {
+                return ResourceManager.GetString("MessageBoxAllow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to cancel.
+        /// </summary>
+        public static string MessageBoxCancel {
+            get {
+                return ResourceManager.GetString("MessageBoxCancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to go to settings.
+        /// </summary>
+        public static string MessageBoxGoToSettings {
+            get {
+                return ResourceManager.GetString("MessageBoxGoToSettings", resourceCulture);
             }
         }
         
@@ -655,15 +700,6 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Location is disabled in phone settings..
-        /// </summary>
-        public static string ServiceLocationDisabled {
-            get {
-                return ResourceManager.GetString("ServiceLocationDisabled", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to My locations.
         /// </summary>
         public static string SettingsPageFavs {
@@ -763,6 +799,24 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This application need to access to your location.
+        /// </summary>
+        public static string SystemLocationDisabledCaption {
+            get {
+                return ResourceManager.GetString("SystemLocationDisabledCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Location is disabled on your device. To enable location, go to Settings and select location..
+        /// </summary>
+        public static string SystemLocationDisabledMessage {
+            get {
+                return ResourceManager.GetString("SystemLocationDisabledMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Trentino External Bus.
         /// </summary>
         public static string TileExtraurbanoMessage {
@@ -801,10 +855,9 @@ namespace ViaggiaTrentino.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Plan a single journey.
         /// </summary>
-        public static string TilePlanJourneyMessagTilePlanJourneyMessagTilePlanJourneyMessageTilePlanJourneyMessage {
+        public static string TilePlanJourneyMessage {
             get {
-                return ResourceManager.GetString("TilePlanJourneyMessagTilePlanJourneyMessagTilePlanJourneyMessageTilePlanJourneyMe" +
-                        "ssage", resourceCulture);
+                return ResourceManager.GetString("TilePlanJourneyMessage", resourceCulture);
             }
         }
         

@@ -1,7 +1,9 @@
 ﻿using AuthenticationLibrary;
+using Microsoft.Phone.Controls;
 using Models.AuthorizationService;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Device.Location;
 using System.Diagnostics;
 using System.IO.IsolatedStorage;
@@ -87,7 +89,17 @@ namespace ViaggiaTrentino
     public static GeoCoordinate GPSPosition
     {
       get { return iss["lastGPSPosition"] as GeoCoordinate; }
-      set { iss["lastGPSPosition"] = value; iss.Save(); }
+      set
+      {
+        iss["lastGPSPosition"] = value;
+        iss.Save();
+        Debug.WriteLine(value.Latitude + ", " + value.Longitude);
+      }
+    }
+
+    public static GeoCoordinate TrentoCoordinate
+    {
+      get { return new GeoCoordinate(46.0697, 11.1211); }
     }
 
     public static string UserID
@@ -99,7 +111,6 @@ namespace ViaggiaTrentino
     public static void Initialize()
     {
       iss = IsolatedStorageSettings.ApplicationSettings;
-      //ClearHasBeenStarted();
       clientId = "52482826-891e-4ee0-9f79-9153a638d6e4";
       clientSecret = "f3ea5378-43ba-42c3-b2bf-5f7cd10b6e6e";
       redirectUrl = "http://localhost";
@@ -131,9 +142,8 @@ namespace ViaggiaTrentino
             Walking = false
           }
         };
-
-
       }
+      //ClearHasBeenStarted();
     }
 
     public static void ForceSave()
@@ -145,7 +155,7 @@ namespace ViaggiaTrentino
       iss.Remove("hasBeenStarted");
     }
 
-    public async static void LaunchGPS()
+    public static void LaunchGPS()
     {
       Geolocator geolocator = new Geolocator()
       {
@@ -155,40 +165,83 @@ namespace ViaggiaTrentino
       if (!HasBeenStarted)
       {
         iss["hasBeenStarted"] = null;
+        iss.Save();
+
         if (geolocator.LocationStatus == PositionStatus.Disabled)
         {
-          if (MessageBox.Show("devi abilitare il gps nei settings di sitema", "GPS position", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+          #region MessageBox for System GPS Location
+          CustomMessageBox messageBox = new CustomMessageBox()
           {
-            await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-settings-location:"));
-          }
+            Caption = Resources.AppResources.SystemLocationDisabledCaption,
+            Message = Resources.AppResources.SystemLocationDisabledMessage,
+            LeftButtonContent = Resources.AppResources.MessageBoxGoToSettings,
+            RightButtonContent = Resources.AppResources.MessageBoxCancel
+          };
+
+          messageBox.Dismissed += async (s1, e1) =>
+          {
+            switch (e1.Result)
+            {
+              case CustomMessageBoxResult.LeftButton:
+                await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-settings-location:")); break;
+              default: break;
+            }
+          };
+          messageBox.Show();
+          #endregion
           LocationConsent = false;
         }
         else
         {
-          if (MessageBox.Show("vuoi attivare il gps della app", "GPS position", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
-            LocationConsent = true;
+          #region MessageBox for App GPS Location
+          CustomMessageBox messageBox = new CustomMessageBox()
+          {
+            Caption = Resources.AppResources.AppLocationDisabledCaption,
+            Message = Resources.AppResources.AppLocationDisabledMessage,
+            LeftButtonContent = Resources.AppResources.MessageBoxAllow,
+            RightButtonContent = Resources.AppResources.MessageBoxCancel
+          };
+
+          messageBox.Dismissed += (s1, e1) =>
+          {
+            switch (e1.Result)
+            {
+              case CustomMessageBoxResult.LeftButton:
+                LocationConsent = true; break;
+              default:
+                LocationConsent = false; break;
+            }
+            RetrieveGPSPosition(geolocator);
+          };
+
+          messageBox.Show();
+          #endregion
         }
       }
+      else
+      {
+        RetrieveGPSPosition(geolocator);
+      }
+    }
 
+    private async static void RetrieveGPSPosition(Geolocator geolocator)
+    {
       if (!LocationConsent || geolocator.LocationStatus == PositionStatus.Disabled)
-        Settings.GPSPosition = new GeoCoordinate(46.0697, 11.1211);
+        Settings.GPSPosition = TrentoCoordinate;
       else
       {
         try
         {
-          Settings.GPSPosition = (await geolocator.GetGeopositionAsync(
+          GPSPosition = (await geolocator.GetGeopositionAsync(
               maximumAge: TimeSpan.FromSeconds(120),
               timeout: TimeSpan.FromSeconds(10))).Coordinate.ToGeoCoordinate();
-          
+
         }
         catch (UnauthorizedAccessException)
         {
-          Settings.GPSPosition = new GeoCoordinate(46.0697, 11.1211);
+          GPSPosition = TrentoCoordinate;
         }
       }
-      Debug.WriteLine(Settings.GPSPosition.Latitude + ", " + Settings.GPSPosition.Longitude);
-
-
     }
   }
 }

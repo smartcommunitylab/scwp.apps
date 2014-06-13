@@ -57,12 +57,6 @@ namespace ViaggiaTrentino.ViewModels
       
     }
 
-    protected override void OnInitialize()
-    {
-      base.OnInitialize();
-      
-    }
-
     protected async override void OnViewLoaded(object view)
     {
       base.OnViewLoaded(view);

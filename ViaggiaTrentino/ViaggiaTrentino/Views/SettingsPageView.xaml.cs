@@ -21,13 +21,11 @@ namespace ViaggiaTrentino.Views
     {
       if ((sender as Pivot).SelectedIndex == 1)
       {
-        babAppbar.Mode = ApplicationBarMode.Default;
-        barAdd.IsEnabled = true;
+        babAppbar.IsVisible = true;
       }
       else
       {
-        babAppbar.Mode = ApplicationBarMode.Minimized;
-        barAdd.IsEnabled = false;
+        babAppbar.IsVisible = false;
       }
     }
   }

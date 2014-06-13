@@ -72,8 +72,8 @@
         </StackPanel>
       </phone:PivotItem>
     </phone:Pivot>
-    <bab:BindableAppBar x:Name="babAppbar" Mode="Minimized">
-      <bab:BindableAppBarButton IsEnabled="False" IconUri="/Toolkit.Content/ApplicationBar.Add.png" x:Name="barAdd" Text="Add place" />
+    <bab:BindableAppBar x:Name="babAppbar" Mode="Default" IsVisible="False">
+      <bab:BindableAppBarButton IconUri="/Toolkit.Content/ApplicationBar.Add.png" x:Name="barAdd" Text="Add place" />
 
     </bab:BindableAppBar>
   </Grid>

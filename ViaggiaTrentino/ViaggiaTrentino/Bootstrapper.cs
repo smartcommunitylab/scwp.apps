@@ -19,6 +19,7 @@ namespace ViaggiaTrentino
   {
     private PhoneApplicationFrame rootFrame;
     private bool reset;
+    private string lastUri;
     public PhoneContainer container { get; set; }
 
     public Bootstrapper()
@@ -28,7 +29,6 @@ namespace ViaggiaTrentino
 
     protected override PhoneApplicationFrame CreatePhoneApplicationFrame()
     {
-      //rootFrame = new PhoneApplicationFrame();
       rootFrame = new TransitionFrame();
       return rootFrame;
     }
@@ -39,7 +39,6 @@ namespace ViaggiaTrentino
       Settings.Initialize();
       DBManagement();
     }
-
     private async void DBManagement()
     {
       StorageFile dbFile = null;
@@ -106,7 +105,7 @@ namespace ViaggiaTrentino
       container.PerRequest<SavedJourneyPageViewModel>();
       container.PerRequest<SavedSingleJourneyDetailsViewModel>();
       container.PerRequest<SavedRecurrentJourneyDetailsViewModel>();
-      
+
 
       // Timetables
       container.PerRequest<RealTimeInfoViewModel>();
@@ -129,16 +128,27 @@ namespace ViaggiaTrentino
 
     void rootFrame_Navigating(object sender, NavigatingCancelEventArgs e)
     {
-      if (reset && e.IsCancelable && e.Uri.OriginalString == "/Views/MainPage.xaml")
+
+      if (reset && e.IsCancelable && e.Uri.OriginalString == "/Views/MainPageView.xaml")
       {
         e.Cancel = true;
         reset = false;
+        Settings.LaunchGPS();
       }
     }
 
     void rootFrame_Navigated(object sender, NavigationEventArgs e)
     {
+      /* Launch GPS only if app is launched or resumed and the target is MainPageView.xaml
+       *              or if I'm navigating back from an external app (like location settings) and the target is MainPageView.xaml
+       */
+
+      if (e.Uri.OriginalString == "/Views/MainPageView.xaml" &&
+          ((e.NavigationMode == NavigationMode.New || e.NavigationMode == NavigationMode.Reset) || (lastUri == "app://external/" && e.NavigationMode == NavigationMode.Back))
+        )
+        Settings.LaunchGPS();
       reset = e.NavigationMode == NavigationMode.Reset;
+      lastUri = e.Uri.OriginalString;
     }
 
     static void AddCustomConventions()

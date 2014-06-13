@@ -128,7 +128,7 @@
   <data name="ApplicationTitle" xml:space="preserve">
     <value>ViaggiaTrentino</value>
   </data>
-  <data name="TilePlanJourneyMessagTilePlanJourneyMessagTilePlanJourneyMessageTilePlanJourneyMessage" xml:space="preserve">
+  <data name="TilePlanJourneyMessage" xml:space="preserve">
     <value>Plan a single journey</value>
   </data>
   <data name="TilePlanJourneyTitle" xml:space="preserve">
@@ -308,9 +308,6 @@
   <data name="ParkingsSlotsFull" xml:space="preserve">
     <value>full</value>
   </data>
-  <data name="ServiceLocationDisabled" xml:space="preserve">
-    <value>Location is disabled in phone settings.</value>
-  </data>
   <data name="Off" xml:space="preserve">
     <value>Off</value>
   </data>
@@ -433,5 +430,26 @@
   </data>
   <data name="JourneyNameTit" xml:space="preserve">
     <value>Journey name</value>
+  </data>
+  <data name="AppLocationDisabledMessage" xml:space="preserve">
+    <value>Location is disabled on your app. Do you want to enable it?</value>
+  </data>
+  <data name="SystemLocationDisabledMessage" xml:space="preserve">
+    <value>Location is disabled on your device. To enable location, go to Settings and select location.</value>
+  </data>
+  <data name="AppLocationDisabledCaption" xml:space="preserve">
+    <value>Allow this application to access and use your location?</value>
+  </data>
+  <data name="MessageBoxAllow" xml:space="preserve">
+    <value>allow</value>
+  </data>
+  <data name="MessageBoxCancel" xml:space="preserve">
+    <value>cancel</value>
+  </data>
+  <data name="MessageBoxGoToSettings" xml:space="preserve">
+    <value>go to settings</value>
+  </data>
+  <data name="SystemLocationDisabledCaption" xml:space="preserve">
+    <value>This application need to access to your location</value>
   </data>
 </root>
