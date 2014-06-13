@@ -45,8 +45,9 @@ namespace ViaggiaTrentino.ViewModels
     protected async override void OnViewLoaded(object view)
     {
       base.OnViewLoaded(view);
+      var res = await ptl.GetLimitedTimetable(AgencyID, stopID, 3);
       var grouped =
-                from list in await ptl.GetLimitedTimetable(AgencyID, stopID, 3)
+                from list in res
                 group list by (list.RouteShortName+" - " + list.RouteName) into listByGroup
                 select new KeyedList<string, TripData>(listByGroup);
 

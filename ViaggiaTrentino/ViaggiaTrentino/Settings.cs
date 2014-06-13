@@ -3,10 +3,13 @@ using Models.AuthorizationService;
 using System;
 using System.Collections.Generic;
 using System.Device.Location;
+using System.Diagnostics;
 using System.IO.IsolatedStorage;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using Windows.Devices.Geolocation;
 
 namespace ViaggiaTrentino
 {
@@ -78,7 +81,7 @@ namespace ViaggiaTrentino
     public static bool LocationConsent
     {
       get { return (bool)iss["LocationConsent"]; }
-      set { iss["LocationConsent"] = value; iss.Save(); LaunchGPS(); }
+      set { iss["LocationConsent"] = value; iss.Save(); }
     }
 
     public static GeoCoordinate GPSPosition
@@ -105,9 +108,9 @@ namespace ViaggiaTrentino
       authLib = new AuthLibrary(clientId, clientSecret, redirectUrl, serverUrl);
       if (!HasBeenStarted)
       {
-        iss["hasBeenStarted"] = iss["token"] = iss["lastGPSPosition"] = null;
+        iss["token"] = iss["lastGPSPosition"] = null;
         iss["tokenExpiration"] = DateTime.Now;
-        iss["LocationConsent"] = true;
+        iss["LocationConsent"] = false;
         iss.Save();
 
         AppPreferences = new PreferencesModel()
@@ -128,6 +131,8 @@ namespace ViaggiaTrentino
             Walking = false
           }
         };
+
+
       }
     }
 
@@ -140,22 +145,50 @@ namespace ViaggiaTrentino
       iss.Remove("hasBeenStarted");
     }
 
-    private static void LaunchGPS()
+    public async static void LaunchGPS()
     {
-      if (!Settings.LocationConsent)
-        return;
-      GeoCoordinateWatcher geolocator = new GeoCoordinateWatcher(GeoPositionAccuracy.High);
-      geolocator.StatusChanged += geolocator_StatusChanged;
-      geolocator.Start();
-    }
-
-    static void geolocator_StatusChanged(object sender, GeoPositionStatusChangedEventArgs e)
-    {
-      if (e.Status == GeoPositionStatus.Ready)
+      Geolocator geolocator = new Geolocator()
       {
-        Settings.GPSPosition = (sender as GeoCoordinateWatcher).Position.Location;
-        (sender as GeoCoordinateWatcher).Stop();
+        DesiredAccuracy = PositionAccuracy.High
+      };
+
+      if (!HasBeenStarted)
+      {
+        iss["hasBeenStarted"] = null;
+        if (geolocator.LocationStatus == PositionStatus.Disabled)
+        {
+          if (MessageBox.Show("devi abilitare il gps nei settings di sitema", "GPS position", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+          {
+            await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-settings-location:"));
+          }
+          LocationConsent = false;
+        }
+        else
+        {
+          if (MessageBox.Show("vuoi attivare il gps della app", "GPS position", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+            LocationConsent = true;
+        }
       }
+
+      if (!LocationConsent || geolocator.LocationStatus == PositionStatus.Disabled)
+        Settings.GPSPosition = new GeoCoordinate(46.0697, 11.1211);
+      else
+      {
+        try
+        {
+          Settings.GPSPosition = (await geolocator.GetGeopositionAsync(
+              maximumAge: TimeSpan.FromSeconds(120),
+              timeout: TimeSpan.FromSeconds(10))).Coordinate.ToGeoCoordinate();
+          
+        }
+        catch (UnauthorizedAccessException)
+        {
+          Settings.GPSPosition = new GeoCoordinate(46.0697, 11.1211);
+        }
+      }
+      Debug.WriteLine(Settings.GPSPosition.Latitude + ", " + Settings.GPSPosition.Longitude);
+
+
     }
   }
 }

@@ -37,7 +37,6 @@ namespace ViaggiaTrentino
     {
       base.OnStartup(sender, e);
       Settings.Initialize();
-      LaunchGPS();
       DBManagement();
     }
 
@@ -76,24 +75,6 @@ namespace ViaggiaTrentino
             }
           }
         }
-      }
-    }
-
-    private void LaunchGPS()
-    {
-      if (!Settings.LocationConsent)
-        return;
-      GeoCoordinateWatcher geolocator = new GeoCoordinateWatcher(GeoPositionAccuracy.High);
-      geolocator.StatusChanged += geolocator_StatusChanged;
-      geolocator.Start();
-    }
-
-    void geolocator_StatusChanged(object sender, GeoPositionStatusChangedEventArgs e)
-    {
-      if (e.Status == GeoPositionStatus.Ready)
-      {
-        Settings.GPSPosition = (sender as GeoCoordinateWatcher).Position.Location;
-        (sender as GeoCoordinateWatcher).Stop();
       }
     }
 

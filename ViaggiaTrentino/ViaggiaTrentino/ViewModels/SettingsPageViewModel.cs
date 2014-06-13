@@ -44,6 +44,7 @@ namespace ViaggiaTrentino.ViewModels
       {
         Settings.LocationConsent = value;
         NotifyOfPropertyChange(() => LocationConsent);
+        if (value) { Settings.LaunchGPS(); }
       }
     }
 

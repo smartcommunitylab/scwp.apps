@@ -29,6 +29,8 @@ namespace ViaggiaTrentino.ViewModels
     protected override void OnActivate()
     {
       base.OnActivate();
+      Settings.LaunchGPS();
+
       if (!Settings.IsLogged)
       {
         MessageBox.Show("Loggati");

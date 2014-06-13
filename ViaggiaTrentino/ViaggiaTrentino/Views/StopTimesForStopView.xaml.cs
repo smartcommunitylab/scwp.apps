@@ -35,10 +35,14 @@ namespace ViaggiaTrentino.Views
 
     public void Handle(IEnumerable<KeyedList<string, TripData>> message)
     {
-      message.ToList().Sort(new CustomComparer());
+      //message.ToList().Sort(new CustomComparer());
 
-
-      lls.ItemsSource = message.ToList();
+      if (message.ToList().Count > 0)
+        lls.ItemsSource = message.ToList();
+      else
+      {
+        txtNoAvailable.Visibility = System.Windows.Visibility.Visible;
+      }
     }
   }
   public class CustomComparer : IComparer<KeyedList<string, TripData>>
