@@ -13,7 +13,7 @@
     <vt:Bootstrapper x:Key="bootstrapper" />
     
       <DataTemplate x:Key="googleBox">
-        <TextBlock  Text="{Binding Name}" TextWrapping="Wrap"></TextBlock>
+        <TextBlock  Text="{Binding Name}" TextWrapping="Wrap" Margin="0,5,0,5"></TextBlock>
       </DataTemplate>
 
     <Style x:Key="ListBoxItemNoSelectionStyle" TargetType="ListBoxItem">
