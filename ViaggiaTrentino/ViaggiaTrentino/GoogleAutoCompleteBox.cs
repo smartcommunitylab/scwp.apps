@@ -24,8 +24,6 @@ namespace ViaggiaTrentino
     string baseUrl = "https://vas.smartcampuslab.it/core.geocoder/spring/address?address=";
 
     WebClient webCli;
-
-    bool textChanged;
     Position selPos;
 
     public GoogleAutoCompleteBox()
@@ -33,23 +31,14 @@ namespace ViaggiaTrentino
       webCli = new WebClient();
       webCli.DownloadStringCompleted += webCli_DownloadStringCompleted;
       base.MinimumPopulateDelay = 1000;    
-      textChanged = false;
     }
 
-    protected override void OnKeyUp(System.Windows.Input.KeyEventArgs e)
-    {
-      base.OnKeyUp(e);
-      textChanged = true;
-    }
 
     protected override void OnPopulating(PopulatingEventArgs e)
     {
-      if (!textChanged)
-        e.Cancel = true;
-      
       base.OnPopulating(e);      
 
-      if (textChanged && !webCli.IsBusy)
+      if (!webCli.IsBusy)
         UpdateData((this as AutoCompleteBox).Text);
     }
 
@@ -64,19 +53,12 @@ namespace ViaggiaTrentino
        */
       selPos = this.SelectedItem != null ? this.SelectedItem as Position : selPos;
       this.Tag = selPos;    
-      textChanged = false;
     }
 
-    protected override void OnDropDownClosed(System.Windows.RoutedPropertyChangedEventArgs<bool> e)
-    {
-      base.OnDropDownClosed(e);
-      if (selPos != null)
-        this.Text = selPos.Name;
-    }
 
     private void UpdateData(string text)
     {
-      if (text.Length > 4)
+      if (text.Length > 1)
       {
         
         string completeUrl = baseUrl + Uri.EscapeUriString(text);
@@ -101,15 +83,18 @@ namespace ViaggiaTrentino
     {
       var gRes = JsonConvert.DeserializeObject<SCGeoJSONObj>(e.Result);
 
-      List<Position> poss = gRes.Response.Places.Where(x=>x.Name != null).Select(x => new Position()
+      if (gRes.Response.NumberOfResults > 0)
       {
-        Name = x.Name, //FormattedAddress,
-        Latitude = x.Coordinate.Split(',')[0],
-        Longitude = x.Coordinate.Split(',')[1]
-      }).ToList();
+        List<Position> poss = gRes.Response.Places.Where(x => x.Name != null).Select(x => new Position()
+        {
+          Name = x.ToString(),
+          Latitude = x.Coordinate.Split(',')[0],
+          Longitude = x.Coordinate.Split(',')[1]
+        }).GroupBy(x => x.Name).Select(grp => grp.First()).ToList();
 
-      this.ItemsSource = new ObservableCollection<Models.MobilityService.Journeys.Position>(poss);
-      PopulateComplete();
+        this.ItemsSource = new ObservableCollection<Models.MobilityService.Journeys.Position>(poss);
+        PopulateComplete();
+      }
     }
 
     #endregion
