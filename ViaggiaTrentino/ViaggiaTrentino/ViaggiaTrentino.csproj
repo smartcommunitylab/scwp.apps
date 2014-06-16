@@ -119,7 +119,7 @@
     <Compile Include="Converters\ParkingToSlotsConverter.cs" />
     <Compile Include="Converters\ItineraryToDateTimeStringConverter.cs" />
     <Compile Include="Converters\LegListToImageListConverter.cs" />
-    <Compile Include="GoogleAutoCompleteBox.cs" />
+    <Compile Include="SmartCampusAutoCompleteBox.cs" />
     <Compile Include="Helpers\DistanceHelper.cs" />
     <Compile Include="Helpers\MapHelper.cs" />
     <Compile Include="LocalizedStrings.cs" />

@@ -21,14 +21,14 @@
 
     <DataTemplate x:Key="TripDataItemTemplate">
       <StackPanel VerticalAlignment="Top">
-        <TextBlock Margin="5,3,0,3" FontSize="24" Text="{Binding Time, Converter={StaticResource secToTime}}" />
+        <TextBlock Margin="5,3,0,3" FontSize="{StaticResource PhoneFontSizeMediumLarge}" Text="{Binding Time, Converter={StaticResource secToTime}}" />
       </StackPanel>
     </DataTemplate>
     
     <DataTemplate x:Key="TripDataGroupHeaderTemplate">
       <Border Background="Transparent" Padding="5">
         <Border Background="{Binding Converter={StaticResource llsiToColor}}" BorderBrush="{Binding Converter={StaticResource llsiToColor}}" BorderThickness="2" HorizontalAlignment="Left">
-          <TextBlock Text="{Binding Key}" Foreground="{StaticResource PhoneForegroundBrush}" FontSize="30" Margin="5,5,0,5"
+          <TextBlock Text="{Binding Key}" Foreground="{StaticResource PhoneForegroundBrush}" FontSize="{StaticResource PhoneFontSizeLarge}" Margin="5,5,0,5"
             FontFamily="{StaticResource PhoneFontFamilySemiLight}" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
         </Border>
       </Border>
@@ -42,7 +42,7 @@
         <Setter.Value>
           <DataTemplate>
             <Border Background="{Binding Converter={StaticResource llsiToColor}}" Margin="6">
-              <TextBlock Text="{Binding Key}" FontSize="24" Margin="6,30,6,6" Foreground="{Binding Converter={StaticResource ForegroundConverter}}"/>
+              <TextBlock Text="{Binding Key}" FontSize="{StaticResource PhoneFontSizeMediumLarge}" Margin="6,30,6,6" Foreground="{Binding Converter={StaticResource ForegroundConverter}}"/>
             </Border>
           </DataTemplate>
         </Setter.Value>

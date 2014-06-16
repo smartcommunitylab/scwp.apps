@@ -12,7 +12,7 @@
     <vt:Settings x:Key="vtSettings" />
     <vt:Bootstrapper x:Key="bootstrapper" />
     
-      <DataTemplate x:Key="googleBox">
+      <DataTemplate x:Key="smartCampusBox">
         <TextBlock  Text="{Binding Name}" TextWrapping="Wrap" Margin="0,5,0,5"></TextBlock>
       </DataTemplate>
 
