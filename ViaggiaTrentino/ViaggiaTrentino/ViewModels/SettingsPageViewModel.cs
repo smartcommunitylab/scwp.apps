@@ -1,5 +1,6 @@
 ﻿using Caliburn.Micro;
 using Coding4Fun.Toolkit.Controls;
+using Microsoft.Phone.Controls;
 using Microsoft.Phone.Maps.Controls;
 using Microsoft.Phone.Maps.Services;
 using Microsoft.Phone.Maps.Toolkit;
@@ -95,6 +96,7 @@ namespace ViaggiaTrentino.ViewModels
     public void deleteFavourite(object sender)
     {
       //FavPositions.Remove(
+      var a = (sender as MenuItem).Tag;
     }
 
   }
