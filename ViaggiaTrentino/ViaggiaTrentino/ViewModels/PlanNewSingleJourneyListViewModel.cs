@@ -37,8 +37,8 @@ namespace ViaggiaTrentino.ViewModels
     protected override async void OnViewLoaded(object view)
     {
       base.OnViewLoaded(view);
-      SingleJourney sj = PhoneApplicationService.Current.State["singleJorney"] as SingleJourney;
-      PhoneApplicationService.Current.State.Remove("singleJorney");
+      SingleJourney sj = PhoneApplicationService.Current.State["singleJourney"] as SingleJourney;
+      PhoneApplicationService.Current.State.Remove("singleJourney");
       List<Itinerary> li = await rpLib.PlanSingleJourney(sj);
       if(li != null)
         ListIti = new ObservableCollection<Itinerary>(li);
@@ -46,7 +46,8 @@ namespace ViaggiaTrentino.ViewModels
 
     public void OpenDetailView(object dataContext)
     {
-      //dataContext should be Itinerary object
+      PhoneApplicationService.Current.State["singleJourney"] = dataContext;
+      navigationService.UriFor<PlanNewSingleJourneySaveViewModel>().Navigate();
     }
 
   }

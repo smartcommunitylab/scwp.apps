@@ -8,13 +8,35 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:myControl="clr-namespace:ViaggiaTrentino.Views.Controls"
     xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
+  xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True">
-
+  
+  <toolkit:TransitionService.NavigationInTransition>
+    <toolkit:NavigationInTransition>
+      <toolkit:NavigationInTransition.Backward>
+        <toolkit:TurnstileFeatherTransition Mode="BackwardIn" />
+      </toolkit:NavigationInTransition.Backward>
+      <toolkit:NavigationInTransition.Forward>
+        <toolkit:TurnstileFeatherTransition Mode="ForwardIn" />
+      </toolkit:NavigationInTransition.Forward>
+    </toolkit:NavigationInTransition>
+  </toolkit:TransitionService.NavigationInTransition>
+  <toolkit:TransitionService.NavigationOutTransition>
+    <toolkit:NavigationOutTransition>
+      <toolkit:NavigationOutTransition.Backward>
+        <toolkit:TurnstileFeatherTransition Mode="BackwardOut" />
+      </toolkit:NavigationOutTransition.Backward>
+      <toolkit:NavigationOutTransition.Forward>
+        <toolkit:TurnstileFeatherTransition Mode="ForwardOut" />
+      </toolkit:NavigationOutTransition.Forward>
+    </toolkit:NavigationOutTransition>
+  </toolkit:TransitionService.NavigationOutTransition>
+  
   <!--LayoutRoot is the root grid where all page content is placed-->
   <Grid x:Name="LayoutRoot" Background="Transparent">
     <Grid.RowDefinitions>
@@ -23,15 +45,17 @@
     </Grid.RowDefinitions>
 
     <!--TitlePanel contains the name of the application and page title-->
-    <StackPanel Grid.Row="0" Margin="12,17,0,28">
-      <TextBlock Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
-      <TextBlock Text="tama" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+    <StackPanel Grid.Row="0" Margin="12,17,0,28" toolkit:TurnstileFeatherEffect.FeatheringIndex="0">
+      <TextBlock Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}" 
+                 Style="{StaticResource PhoneTextNormalStyle}"/>
+      <TextBlock Text="{Binding Path=LocalizedResources.PlanSingleJourneyTitle, Source={StaticResource LocalizedStrings}}" 
+                 Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
     </StackPanel>
 
     <!--ContentPanel - place additional content here-->
     <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
       <StackPanel>
-        <ListBox ItemsSource="{Binding ListIti}">
+        <ListBox ItemsSource="{Binding ListIti}" toolkit:TurnstileFeatherEffect.FeatheringIndex="1">
           <ListBox.ItemContainerStyle>
             <Style TargetType="ListBoxItem">
               <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
@@ -40,7 +64,7 @@
           </ListBox.ItemContainerStyle>
           <ListBox.ItemTemplate>
             <DataTemplate>
-              <myControl:ItineraryView DataContext="{Binding}" cal:Message.Attach="[Event Tap] = [Action OpenDetailView($dataContext)]" />
+              <myControl:ItineraryView DataContext="{Binding}" cal:Message.Attach="[Event Tap] = [Action OpenDetailView($dataContext)]" Margin="0,5,0,0" />
             </DataTemplate>
           </ListBox.ItemTemplate>
         </ListBox>

@@ -80,10 +80,9 @@ namespace ViaggiaTrentino.ViewModels
       }
     }
 
-    public async void BarSave()
+    public void BarSave()
     {
-      if (ValidateRecurrentJourney())
-      {
+     
         InputPrompt ip = new InputPrompt();
         ip.Message = AppResources.JourneyNameMsg;
         ip.Title = AppResources.JourneyNameTit;
@@ -92,7 +91,7 @@ namespace ViaggiaTrentino.ViewModels
         
         ip.Completed += ip_Completed;
         ip.Show();
-      }
+      
     }
 
     async void ip_Completed(object sender, PopUpEventArgs<string, PopUpResult> e)
@@ -112,10 +111,5 @@ namespace ViaggiaTrentino.ViewModels
       }
     }
 
-    private bool ValidateRecurrentJourney()
-    {
-      // TODO: implement me!
-      return true;
-    }
   }
 }

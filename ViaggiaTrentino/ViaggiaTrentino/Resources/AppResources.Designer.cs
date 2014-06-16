@@ -1051,6 +1051,78 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ok.
+        /// </summary>
+        public static string ValidationBtnOk {
+            get {
+                return ResourceManager.GetString("ValidationBtnOk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Incorrect values.
+        /// </summary>
+        public static string ValidationCaption {
+            get {
+                return ResourceManager.GetString("ValidationCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select a starting point.
+        /// </summary>
+        public static string ValidationFrom {
+            get {
+                return ResourceManager.GetString("ValidationFrom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The following errors have been detected in the form data.
+        /// </summary>
+        public static string ValidationMessage {
+            get {
+                return ResourceManager.GetString("ValidationMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can not plan a journey in the future.
+        /// </summary>
+        public static string ValidationStartDate {
+            get {
+                return ResourceManager.GetString("ValidationStartDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The maximum size for the timespan is of two hours.
+        /// </summary>
+        public static string ValidationTimeSpan {
+            get {
+                return ResourceManager.GetString("ValidationTimeSpan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select a destination.
+        /// </summary>
+        public static string ValidationTo {
+            get {
+                return ResourceManager.GetString("ValidationTo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You must select at least one transportation type.
+        /// </summary>
+        public static string ValidationTType {
+            get {
+                return ResourceManager.GetString("ValidationTType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Warning.
         /// </summary>
         public static string Warn {

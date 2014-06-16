@@ -72,7 +72,7 @@
           <Ellipse Grid.Column="2" HorizontalAlignment="Right" Margin="20,0,25,0" Width="15" Height="15" Fill="{Binding Journey.Monitor, Converter={StaticResource boolToColor}}"></Ellipse>
         </Grid>
 
-        <ScrollViewer Margin="0,15,0,0">
+        
           <StackPanel>
             
             <Grid Margin="0,0,0,5">
@@ -93,11 +93,7 @@
                   <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
                 </Style>
               </ListBox.ItemContainerStyle>
-              <ListBox.Template>
-                <ControlTemplate TargetType="ListBox">
-                  <ItemsPresenter/>
-                </ControlTemplate>
-              </ListBox.Template>
+              
               <ListBox.ItemTemplate>
                 <DataTemplate>
                   <Grid>
@@ -110,7 +106,7 @@
                     <StackPanel Grid.Column="1" Margin="10,0,5,0">
                       <TextBlock TextWrapping="Wrap" Text="{Binding Converter={StaticResource legToFromTo}}"/>
                     </StackPanel>
-                    <Image Grid.Column="2" Margin="5,0,5,0" Source="{Binding TransportInfo.Type, Converter={StaticResource TTToImg}}"></Image>
+                  <Image Grid.Column="2" Width="64" Margin="5,0,5,0" Source="{Binding TransportInfo.Type, Converter={StaticResource TTToImg}}"></Image>
                   </Grid>
                 </DataTemplate>
               </ListBox.ItemTemplate>
@@ -128,13 +124,14 @@
             </Grid>
             
           </StackPanel>
-        </ScrollViewer>
+      
       </StackPanel>
     </Grid>
 
     <bab:BindableAppBar>
       <bab:BindableAppBarButton IconUri="/Assets/AppBar/Monitor.png" x:Name="BarMonitor" Text="Toggle monitor" />
-      <bab:BindableAppBarButton IconUri="/Toolkit.Content/ApplicationBar.Delete.png" x:Name="BarDelete" Text="{Binding Path=LocalizedResources.SavedJourneyDetailsDelete, Source={StaticResource LocalizedStrings}}" />
+      <bab:BindableAppBarButton IconUri="/Toolkit.Content/ApplicationBar.Delete.png" x:Name="BarDelete" 
+                                Text="{Binding Path=LocalizedResources.SavedJourneyDetailsDelete, Source={StaticResource LocalizedStrings}}" />
     </bab:BindableAppBar>
 
   </Grid>

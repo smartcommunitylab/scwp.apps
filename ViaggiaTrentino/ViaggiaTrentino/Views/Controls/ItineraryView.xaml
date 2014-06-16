@@ -23,7 +23,7 @@
     </Grid.RowDefinitions>
     <!--<TextBlock Grid.Row="0" Text="{Binding Converter={StaticResource itiToSpanStr}}"></TextBlock>-->
     <TextBlock Grid.Row="0" Text="{Binding Converter={StaticResource itiToSpanStr}}"></TextBlock>
-      <ListBox Grid.Row="1" ItemsSource="{Binding Legs, Converter={ StaticResource legsToLegImgs}}" >
+      <ListBox Grid.Row="1" ItemsSource="{Binding Legs, Converter={ StaticResource legsToLegImgs}}" ScrollViewer.VerticalScrollBarVisibility="Disabled">
       <ControlTemplate TargetType="ListBox">
         <ItemsPresenter />
       </ControlTemplate>

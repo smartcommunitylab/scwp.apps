@@ -1,6 +1,7 @@
 ﻿using Caliburn.Micro;
 using Coding4Fun.Toolkit.Controls;
 using Microsoft.Devices;
+using Microsoft.Phone.Controls;
 using Microsoft.Phone.Maps.Controls;
 using Microsoft.Phone.Maps.Services;
 using Microsoft.Phone.Maps.Toolkit;
@@ -322,27 +323,58 @@ namespace ViaggiaTrentino.ViewModels
 
     public void PlanNewJourney()
     {
-      SingleJourney sj = new SingleJourney()
+      if (ValidateSingleJourney())
       {
+        SingleJourney sj = new SingleJourney()
+        {
 
-        Date = departureDate.ToString("MM/dd/yyyy"),
-        DepartureTime = departureDate.ToString("HH:mm"),
-        From = FromPos,
-        To = ToPos,
-        ResultsNumber = 3,
-        RouteType = SelectedRouteType,
-        TransportTypes = SelectedTransportTypes
-      };
+          Date = departureDate.ToString("MM/dd/yyyy"),
+          DepartureTime = departureDate.ToString("HH:mm"),
+          From = FromPos,
+          To = ToPos,
+          ResultsNumber = 3,
+          RouteType = SelectedRouteType,
+          TransportTypes = SelectedTransportTypes
+        };
 
-      sj.From.Latitude = sj.From.Latitude.Replace(',', '.');
-      sj.From.Longitude = sj.From.Longitude.Replace(',', '.');
-      sj.To.Latitude = sj.To.Latitude.Replace(',', '.');
-      sj.To.Longitude = sj.To.Longitude.Replace(',', '.'); 
+        sj.From.Latitude = sj.From.Latitude.Replace(',', '.');
+        sj.From.Longitude = sj.From.Longitude.Replace(',', '.');
+        sj.To.Latitude = sj.To.Latitude.Replace(',', '.');
+        sj.To.Longitude = sj.To.Longitude.Replace(',', '.');
 
-      PhoneApplicationService.Current.State["singleJorney"] = sj;
-      navigationService.UriFor<PlanNewSingleJourneyListViewModel>().Navigate();
+        PhoneApplicationService.Current.State["singleJourney"] = sj;
+        navigationService.UriFor<PlanNewSingleJourneyListViewModel>().Navigate();
+      }
+    }
 
+    private bool ValidateSingleJourney()
+    {
+      StringBuilder sb = new StringBuilder();
 
+      if(from.Longitude == null)
+        sb.AppendLine(string.Format("• {0}", AppResources.ValidationFrom));
+      if (to.Longitude == null)
+        sb.AppendLine(string.Format("• {0}", AppResources.ValidationTo));
+      if (departureDate < DateTime.Now)
+        sb.AppendLine(string.Format("• {0}", AppResources.ValidationStartDate));
+      if(SelectedTransportTypes.Length == 0)
+        sb.AppendLine(string.Format("• {0}", AppResources.ValidationTType));
+
+      string errors = sb.ToString();
+
+      if (errors.Length > 0)
+      {
+        CustomMessageBox cmb = new CustomMessageBox()
+        {
+          Caption = AppResources.ValidationCaption,
+          Message = AppResources.ValidationMessage,
+          Content = sb.ToString(),
+          LeftButtonContent = AppResources.ValidationBtnOk
+        };
+        cmb.Show();
+        return false;
+      }
+      return true;
     }
 
     #endregion

@@ -16,6 +16,7 @@
         <TextBlock  Text="{Binding Name}" TextWrapping="Wrap" Margin="0,5,0,5"></TextBlock>
       </DataTemplate>
 
+    
     <Style x:Key="ListBoxItemNoSelectionStyle" TargetType="ListBoxItem">
       <Setter Property="Background" Value="Transparent"/>
       <Setter Property="BorderThickness" Value="0"/>

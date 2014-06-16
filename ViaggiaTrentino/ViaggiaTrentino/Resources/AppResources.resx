@@ -452,4 +452,28 @@
   <data name="SystemLocationDisabledCaption" xml:space="preserve">
     <value>This application need to access to your location</value>
   </data>
+  <data name="ValidationBtnOk" xml:space="preserve">
+    <value>ok</value>
+  </data>
+  <data name="ValidationCaption" xml:space="preserve">
+    <value>Incorrect values</value>
+  </data>
+  <data name="ValidationFrom" xml:space="preserve">
+    <value>Please select a starting point</value>
+  </data>
+  <data name="ValidationMessage" xml:space="preserve">
+    <value>The following errors have been detected in the form data</value>
+  </data>
+  <data name="ValidationStartDate" xml:space="preserve">
+    <value>You can not plan a journey in the future</value>
+  </data>
+  <data name="ValidationTimeSpan" xml:space="preserve">
+    <value>The maximum size for the timespan is of two hours</value>
+  </data>
+  <data name="ValidationTo" xml:space="preserve">
+    <value>Please select a destination</value>
+  </data>
+  <data name="ValidationTType" xml:space="preserve">
+    <value>You must select at least one transportation type</value>
+  </data>
 </root>

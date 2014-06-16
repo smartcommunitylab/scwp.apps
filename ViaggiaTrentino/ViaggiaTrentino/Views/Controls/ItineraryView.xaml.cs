@@ -14,7 +14,7 @@ namespace ViaggiaTrentino.Views.Controls
   {
     public ItineraryView()
     {
-      InitializeComponent();
+      InitializeComponent();      
     }
   }
 }

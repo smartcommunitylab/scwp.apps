@@ -72,7 +72,7 @@
         </StackPanel>
       </phone:PivotItem>
     </phone:Pivot>
-    <bab:BindableAppBar x:Name="babAppbar" Mode="Default" IsVisible="False">
+    <bab:BindableAppBar x:Name="babAppbar" Mode="Minimized">
       <bab:BindableAppBarButton IconUri="/Toolkit.Content/ApplicationBar.Add.png" x:Name="barAdd" Text="Add place" />
 
     </bab:BindableAppBar>

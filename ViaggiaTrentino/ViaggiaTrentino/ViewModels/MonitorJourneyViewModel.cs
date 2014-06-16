@@ -42,7 +42,7 @@ namespace ViaggiaTrentino.ViewModels
     {
       this.navigationService = navigationService;
       beginDate = DateTime.Now;
-      endDate = DateTime.Now+new TimeSpan(2,0,0);
+      endDate = DateTime.Now + new TimeSpan(2, 0, 0);
       journey = new RecurrentJourney();
       selDays = new ObservableCollection<object>();
       GiorniScelti.Add(DateTime.Now.ToString("dddd"));
@@ -68,14 +68,14 @@ namespace ViaggiaTrentino.ViewModels
       }
     }
 
-   
+
 
     public Position FromPos
     {
       get { return from; }
       set
       {
-        from = value;       
+        from = value;
         NotifyOfPropertyChange(() => FromPos);
       }
     }
@@ -86,7 +86,7 @@ namespace ViaggiaTrentino.ViewModels
       set
       {
         to = value;
-        NotifyOfPropertyChange(() => ToPos);       
+        NotifyOfPropertyChange(() => ToPos);
       }
     }
 
@@ -343,27 +343,30 @@ namespace ViaggiaTrentino.ViewModels
 
     public void PlanNewJourney()
     {
-      RecurrentJourneyParameters rjp = new RecurrentJourneyParameters()
+      if (ValidateRecurrentJourney())
       {
-        Time = "16:30",
-        FromDate = Convert.ToInt64(DateTimeToEpoch(DateTime.Now)),
-        ToDate = Convert.ToInt64(DateTimeToEpoch((DateTime.Now + new TimeSpan(14, 0, 0, 0)).ToUniversalTime())),
-        Interval = Convert.ToInt64(1.5 * 60 * 60 * 1000),
-        From = from,
-        To = to,
-        Recurrences = SelectedDaysToArray(),
-        ResultsNumber = 3,
-        RouteType = SelectedRouteType,
-        TransportTypes = SelectedTransportTypes
-      };
+        RecurrentJourneyParameters rjp = new RecurrentJourneyParameters()
+        {
+          Time = "16:30",
+          FromDate = Convert.ToInt64(DateTimeToEpoch(DateTime.Now)),
+          ToDate = Convert.ToInt64(DateTimeToEpoch((DateTime.Now + new TimeSpan(14, 0, 0, 0)).ToUniversalTime())),
+          Interval = Convert.ToInt64(1.5 * 60 * 60 * 1000),
+          From = from,
+          To = to,
+          Recurrences = SelectedDaysToArray(),
+          ResultsNumber = 3,
+          RouteType = SelectedRouteType,
+          TransportTypes = SelectedTransportTypes
+        };
 
-      rjp.From.Latitude = rjp.From.Latitude.Replace(',', '.');
-      rjp.From.Longitude = rjp.From.Longitude.Replace(',', '.');
-      rjp.To.Latitude = rjp.To.Latitude.Replace(',', '.');
-      rjp.To.Longitude = rjp.To.Longitude.Replace(',', '.'); 
+        rjp.From.Latitude = rjp.From.Latitude.Replace(',', '.');
+        rjp.From.Longitude = rjp.From.Longitude.Replace(',', '.');
+        rjp.To.Latitude = rjp.To.Latitude.Replace(',', '.');
+        rjp.To.Longitude = rjp.To.Longitude.Replace(',', '.');
 
-      PhoneApplicationService.Current.State["recurrentJourney"] = rjp;
-      navigationService.UriFor<MonitorJourneyListViewModel>().Navigate();
+        PhoneApplicationService.Current.State["recurrentJourney"] = rjp;
+        navigationService.UriFor<MonitorJourneyListViewModel>().Navigate();
+      }
     }
 
     private int[] SelectedDaysToArray()
@@ -372,16 +375,16 @@ namespace ViaggiaTrentino.ViewModels
       var a = selDays.ToArray();
 
       List<string> localizedDays = new List<string>();
-      
+
       for (int i = 1; i <= 7; i++)
       {
         localizedDays.Add(new DateTime(1970, 2, i).ToString("dddd", DateTimeFormatInfo.CurrentInfo));
       }
-      
+
       foreach (var item in a)
       {
         int res = localizedDays.IndexOf(item as string);
-        usefulDays.Add(res+1);
+        usefulDays.Add(res + 1);
       }
 
       return usefulDays.ToArray();
@@ -391,6 +394,38 @@ namespace ViaggiaTrentino.ViewModels
     {
       TimeSpan span = (dt.ToUniversalTime() - new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc));
       return span.TotalMilliseconds;
+    }
+
+    private bool ValidateRecurrentJourney()
+    {
+      StringBuilder sb = new StringBuilder();
+
+      // TODO: add check for something else
+
+      if (from.Longitude == null)
+        sb.AppendLine(string.Format("• {0}", AppResources.ValidationFrom));
+      if (to.Longitude == null)
+        sb.AppendLine(string.Format("• {0}", AppResources.ValidationTo));
+      if (endDate - beginDate > new TimeSpan(2, 0, 0))
+        sb.AppendLine(string.Format("• {0}", AppResources.ValidationTimeSpan));
+      if (SelectedTransportTypes.Length == 0)
+        sb.AppendLine(string.Format("• {0}", AppResources.ValidationTType));
+
+      string errors = sb.ToString();
+
+      if (errors.Length > 0)
+      {
+        CustomMessageBox cmb = new CustomMessageBox()
+        {
+          Caption = AppResources.ValidationCaption,
+          Message = AppResources.ValidationMessage,
+          Content = sb.ToString(),
+          LeftButtonContent = AppResources.ValidationBtnOk
+        };
+        cmb.Show();
+        return false;
+      }
+      return true;
     }
 
     #endregion
