@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ResourceFlowDirection" xml:space="preserve">
+    <value>LeftToRight</value>
+    <comment>Controls the FlowDirection for all elements in the RootFrame. Set to the traditional direction of this resource file's language</comment>
+  </data>
+  <data name="ResourceLanguage" xml:space="preserve">
+    <value>it</value>
+    <comment>Controls the Language and ensures that the font for all elements in the RootFrame aligns with the app's language. Set to the language code of this resource file's language.</comment>
+  </data>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+<data name="ApplicationTitle" xml:space="preserve"><value>ViaggiaTrentino</value></data><data name="TilePlanJourneyMessage" xml:space="preserve"><value>Pianificare un viaggio</value></data><data name="TilePlanJourneyTitle" xml:space="preserve"><value>Piano di viaggio</value></data><data name="TilePlanRecurrentJourneyMessage" xml:space="preserve"><value>Pianificare un viaggio ricorrente</value></data><data name="TilePlanRecurrentJourneyTitle" xml:space="preserve"><value>Pianificazione viaggio ricorrente</value></data><data name="TileReadNotificationsMessage" xml:space="preserve"><value>Tutte le notifiche di lettura</value></data><data name="TileReadNotificationsTitle" xml:space="preserve"><value>Notifica di lettura</value></data><data name="TileRealTimeInfoMessage" xml:space="preserve"><value>Mostra informazioni in tempo reale</value></data><data name="TileRealTimeInfoTitle" xml:space="preserve"><value>Info tempo reale</value></data><data name="TileSavedJourneysMessage" xml:space="preserve"><value>Mostra il mio viaggi salvati</value></data><data name="TileSavedJourneysTitle" xml:space="preserve"><value>Viaggi salvati</value></data><data name="TileSubmitAlertMessage" xml:space="preserve"><value>Inviare un avviso</value></data><data name="TileSubmitAlertTitle" xml:space="preserve"><value>Invia avviso</value></data><data name="MainViewTitle" xml:space="preserve"><value>ViaggiaTrentino</value></data><data name="RealTimeInfoViewTitle" xml:space="preserve"><value>Informazioni in tempo reale</value></data><data name="GeneralSettingsBike" xml:space="preserve"><value>Bici</value></data><data name="GeneralSettingsCar" xml:space="preserve"><value>Auto</value></data><data name="GeneralSettingsFastest" xml:space="preserve"><value>Più veloce</value></data><data name="GeneralSettingsFewestChanges" xml:space="preserve"><value>Minor numero di modifiche</value></data><data name="GeneralSettingsLeastWalking" xml:space="preserve"><value>Esame almeno</value></data><data name="GeneralSettingsPrefRoute" xml:space="preserve"><value>Route preferita</value></data><data name="GeneralSettingsSharedBike" xml:space="preserve"><value>Bici condivisa</value></data><data name="GeneralSettingsSharedCar" xml:space="preserve"><value>Auto condivisa</value></data><data name="GeneralSettingsTransit" xml:space="preserve"><value>Transito</value></data><data name="GeneralSettingsTransportation" xml:space="preserve"><value>Trasporto</value></data><data name="GeneralSettingsWalking" xml:space="preserve"><value>Esame</value></data><data name="SavedJourneyDetailsDelete" xml:space="preserve"><value>Eliminare il viaggio</value></data><data name="SavedJourneyDetailsMonitorOff" xml:space="preserve"><value>Disabilitare il monitoraggio</value></data><data name="SavedJourneyDetailsMonitorOn" xml:space="preserve"><value>Attivare il monitoraggio</value></data><data name="SavedJourneysJourneyPivot" xml:space="preserve"><value>Viaggi</value></data><data name="SavedJourneysMonitoringPivot" xml:space="preserve"><value>Monitoraggio</value></data><data name="SavedJourneysTitle" xml:space="preserve"><value>Viaggi salvati</value></data><data name="SettingsPageFavs" xml:space="preserve"><value>Località di chiamata</value></data><data name="SettingsPagePrefs" xml:space="preserve"><value>Preferenze</value></data><data name="SettingsPageTitle" xml:space="preserve"><value>Impostazioni</value></data><data name="ParkingsPageMapPivot" xml:space="preserve"><value>Mappa</value></data><data name="ParkingsPageParkingPivot" xml:space="preserve"><value>Parkings</value></data><data name="ParkingsPageTitle" xml:space="preserve"><value>Info tempo reale</value></data><data name="TileExtraurbanoMessage" xml:space="preserve"><value>Bus esterno Trentino</value></data><data name="TileExtraurbanoTitle" xml:space="preserve"><value>Trentino Bus</value></data><data name="TileParkingMessage" xml:space="preserve"><value>Parkings</value></data><data name="TileParkingTitle" xml:space="preserve"><value>Parkings</value></data><data name="TileRoveretoBusMessage" xml:space="preserve"><value>Bus della città di Rovereto</value></data><data name="TileRoveretoBusTitle" xml:space="preserve"><value>Bus di Rovereto</value></data><data name="TileTrainMessage" xml:space="preserve"><value>Trentino treni</value></data><data name="TileTrainTitle" xml:space="preserve"><value>Treno</value></data><data name="TileTrentoBusMessage" xml:space="preserve"><value>Bus della città di Trento</value></data><data name="TileTrentoBusTitle" xml:space="preserve"><value>Bus di Trento</value></data><data name="MonitorJourneyAlways" xml:space="preserve"><value>Sempre</value></data><data name="MonitorJourneyLoc" xml:space="preserve"><value>Posizione</value></data><data name="MonitorJourneyPrefs" xml:space="preserve"><value>Mostra preferenze</value></data><data name="MonitorJourneySched" xml:space="preserve"><value>Pianificazione</value></data><data name="MonitorJourneyTimeSpan" xml:space="preserve"><value>Intervallo di tempo</value></data><data name="MonitorJourneyTitle" xml:space="preserve"><value>Viaggio di monitor</value></data><data name="PlanSingleJourneyDeparture" xml:space="preserve"><value>Partenza</value></data><data name="PlanSingleJourneyHintFrom" xml:space="preserve"><value>Da...</value></data><data name="PlanSingleJourneyHintTo" xml:space="preserve"><value>A...</value></data><data name="PlanSingleJourneyLoc" xml:space="preserve"><value>Posizione</value></data><data name="PlanSingleJourneyPrefs" xml:space="preserve"><value>Mostra preferenze</value></data><data name="PlanSingleJourneyTitle" xml:space="preserve"><value>Piano nuovo viaggio</value></data><data name="ParkingsSlotsFull" xml:space="preserve"><value>completo</value></data><data name="Off" xml:space="preserve"><value>Off</value></data><data name="On" xml:space="preserve"><value>Su</value></data><data name="ParkingPopupCancel" xml:space="preserve"><value>Annulla</value></data><data name="ParkingPopupDirections" xml:space="preserve"><value>Direzioni</value></data><data name="ParkingPopupTitle" xml:space="preserve"><value>Parcheggio</value></data><data name="SelSendAlertInter" xml:space="preserve"><value>Ritardi bus intercity</value></data><data name="SelSendAlertRv" xml:space="preserve"><value>Ritardi bus Rovereto</value></data><data name="SelSendAlertTitle" xml:space="preserve"><value>Inviare un avviso</value></data><data name="SelSendAlertTn" xml:space="preserve"><value>Ritardi di bus di Trento</value></data><data name="SelSendAlertTrain" xml:space="preserve"><value>Treno ritardi</value></data><data name="SubAlertDelay" xml:space="preserve"><value>Ritardo</value></data><data name="SubAlertRoute" xml:space="preserve"><value>Ciclo di lavorazione</value></data><data name="SubAlertStop" xml:space="preserve"><value>Stop</value></data><data name="SubAlertSubmit" xml:space="preserve"><value>Invia</value></data><data name="SubAlertTime" xml:space="preserve"><value>Ora</value></data><data name="DefValueMissing" xml:space="preserve"><value>Dati mancanti</value></data><data name="From" xml:space="preserve"><value>Da</value></data><data name="MonitorStat" xml:space="preserve"><value>Monitoraggio dello stato:</value></data><data name="To" xml:space="preserve"><value>per</value></data><data name="SureDelete" xml:space="preserve"><value>Sono sicuro di che voler eliminare questo elemento?</value></data><data name="Warn" xml:space="preserve"><value>Avviso</value></data><data name="SureChange" xml:space="preserve"><value>Percorso ricorrente è stata modificata. Si desidera salvare le modifiche?</value></data><data name="AboTitle" xml:space="preserve"><value>Sulla ViaggiaTrentino</value></data><data name="SelectDirection" xml:space="preserve"><value>Selezionare la direzione</value></data><data name="ChooseCurrent" xml:space="preserve"><value>Posizione corrente</value></data><data name="ChooseCurrentLong" xml:space="preserve"><value>Utilizzare la posizione GPS del cellulare</value></data><data name="ChoosePoint" xml:space="preserve"><value>Scegliere su map</value></data><data name="ChoosePointLong" xml:space="preserve"><value>Scegliete un punto da una mappa sullo schermo</value></data><data name="ChooseTitle" xml:space="preserve"><value>Selezionare la posizione</value></data><data name="Next" xml:space="preserve"><value>successivo</value></data><data name="Previous" xml:space="preserve"><value>precedente</value></data><data name="ChooseConfirmTitle" xml:space="preserve"><value>Percorso selezionato:</value></data><data name="TimetableNotAvailable" xml:space="preserve"><value>Nessun elemento trovato</value></data><data name="Today" xml:space="preserve"><value>oggi</value></data><data name="RoutePivot" xml:space="preserve"><value>Cicli di lavorazione</value></data><data name="ShowStopTimes" xml:space="preserve"><value>Ora di fine</value></data><data name="MonitorJourneyHeadText" xml:space="preserve"><value>Selezionare le righe di transito che si desidera essere avvisati in caso di ritardi</value></data><data name="ToCapitalT" xml:space="preserve"><value>Per</value></data><data name="JourneyNameMsg" xml:space="preserve"><value>Immettere un nome per il viaggio</value></data><data name="JourneyNameTit" xml:space="preserve"><value>Nome viaggio</value></data><data name="AppLocationDisabledMessage" xml:space="preserve"><value>Posizione è disabilitato sulla propria applicazione. Si desidera attivarla?</value></data><data name="SystemLocationDisabledMessage" xml:space="preserve"><value>Percorso è disattivata sul dispositivo. Per attivare la posizione, Vai alle impostazioni e selezionare il percorso.</value></data><data name="AppLocationDisabledCaption" xml:space="preserve"><value>Consentono di accedere e utilizzare il percorso dell'applicazione?</value></data><data name="MessageBoxAllow" xml:space="preserve"><value>consentire</value></data><data name="MessageBoxCancel" xml:space="preserve"><value>Annulla</value></data><data name="MessageBoxGoToSettings" xml:space="preserve"><value>Vai alle impostazioni</value></data><data name="SystemLocationDisabledCaption" xml:space="preserve"><value>Questa esigenza di applicazione per accedere alla posizione</value></data><data name="ValidationBtnOk" xml:space="preserve"><value>OK</value></data><data name="ValidationCaption" xml:space="preserve"><value>Valori non corretti</value></data><data name="ValidationFrom" xml:space="preserve"><value>Selezionare un punto di partenza</value></data><data name="ValidationMessage" xml:space="preserve"><value>Sono stati rilevati i seguenti errori nei dati del form</value></data><data name="ValidationStartDate" xml:space="preserve"><value>Non è possibile pianificare un viaggio in passato</value></data><data name="ValidationTimeSpan" xml:space="preserve"><value>La dimensione massima per l'intervallo di tempo è di due ore</value></data><data name="ValidationTo" xml:space="preserve"><value>Selezionare una destinazione</value></data><data name="ValidationTType" xml:space="preserve"><value>È necessario selezionare almeno un tipo di trasporto</value></data><data name="PlanConfirm" xml:space="preserve"><value>Vai</value></data><data name="PlanSave" xml:space="preserve"><value>Salva</value></data><data name="ValidationSelDays" xml:space="preserve"><value>Selezionare almeno un giorno</value></data><data name="ValidationJTitle" xml:space="preserve"><value>Fornire un nome valido per il viaggio</value></data></root>
