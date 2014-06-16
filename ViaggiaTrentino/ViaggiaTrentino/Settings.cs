@@ -144,7 +144,7 @@ namespace ViaggiaTrentino
           }
         };
       }
-      ClearHasBeenStarted();
+      //ClearHasBeenStarted();
     }
 
     public static void ForceSave()

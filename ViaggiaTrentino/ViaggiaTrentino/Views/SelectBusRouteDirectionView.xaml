@@ -80,7 +80,7 @@
       </Rectangle>
       <TextBlock Grid.Row="0" Foreground="{Binding Color, Converter={StaticResource backgroundToForegroundColor}}" 
                                     Text="{Binding Path=Name}" Margin="15,0,10,5" HorizontalAlignment="Left" 
-                                    FontSize="70" VerticalAlignment="Center" FontWeight="Medium"/>
+                                    FontSize="{StaticResource PhoneFontSizeExtraExtraLarge}" VerticalAlignment="Center" FontWeight="Medium"/>
 
 
       <TextBlock FontWeight="SemiBold" Text="Select direction:" Margin="5,15,5,15" Grid.Row="1"/>

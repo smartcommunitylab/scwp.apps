@@ -44,7 +44,7 @@
         <ScrollViewer>
           <StackPanel>
             <vtcont:UserSettingsView DataContext="{Binding Path=AppPreferences, Source={StaticResource vtSettings}}" />
-            <TextBlock Text="Location service" Padding="0,10,0,0" FontSize="28"/>
+            <TextBlock Text="Location service" Padding="0,10,0,0" FontSize="{StaticResource PhoneFontSizeLarge}"/>
             <toolkit:ToggleSwitch IsChecked="{Binding LocationConsent, Mode=TwoWay}" />
           </StackPanel>
         </ScrollViewer>

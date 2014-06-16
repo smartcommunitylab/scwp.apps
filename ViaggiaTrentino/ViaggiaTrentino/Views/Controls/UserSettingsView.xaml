@@ -13,7 +13,7 @@
   <Grid x:Name="LayoutRoot">
     <StackPanel>
       <TextBlock Text="{Binding Path=LocalizedResources.GeneralSettingsTransportation, Source={StaticResource LocalizedStrings}}"
-                 FontSize="28"/>
+                 FontSize="{StaticResource PhoneFontSizeLarge}"/>
       <Grid>
         <Grid.ColumnDefinitions>
           <ColumnDefinition Width="*" />
@@ -40,7 +40,7 @@
       </Grid>
 
       <TextBlock Padding="0,10,0,0" Text="{Binding Path=LocalizedResources.GeneralSettingsPrefRoute, Source={StaticResource LocalizedStrings}}"
-                 FontSize="28"/>
+                 FontSize="{StaticResource PhoneFontSizeLarge}"/>
       <RadioButton IsChecked="{Binding PreferredRoute.Fastest, Mode=TwoWay}"
                    Content="{Binding Path=LocalizedResources.GeneralSettingsFastest, Source={StaticResource LocalizedStrings}}" />
       <RadioButton IsChecked="{Binding PreferredRoute.FewestChanges, Mode=TwoWay}"
