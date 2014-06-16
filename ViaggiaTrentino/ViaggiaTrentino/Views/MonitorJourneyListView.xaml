@@ -42,7 +42,7 @@
     <converters:TransportTypeToImageListConverter x:Key="TTToImg" />
     <converters:LongMilliSecondsToDateConverter x:Name="secsToDateStr"/>
     <converters:LongMilliSecondsToTimeConverter x:Name="secsToTimeStr"/>
-    <converters:LegListAndMonitorLegsToBool x:Name="legAndBoolToBool" />
+    <converters:LegListAndMonitorLegsToBoolConverter x:Name="legAndBoolToBool" />
   </UserControl.Resources>
 
   <!--LayoutRoot is the root grid where all page content is placed-->

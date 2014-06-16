@@ -41,7 +41,7 @@
   </toolkit:TransitionService.NavigationOutTransition>
 
   <phone:PhoneApplicationPage.Resources>
-    <vtconvert:RouteBackgroungColorToForegroundColor x:Name="backgroundToForegroundColor" />
+    <vtconvert:RouteBackgroungColorToForegroundColorConverter x:Name="backgroundToForegroundColor" />
   </phone:PhoneApplicationPage.Resources>
 
 

@@ -15,7 +15,7 @@
 
   <UserControl.Resources>
     <converters:ParkingToSlotsConverter x:Key="parkToSlot" />
-    <converters:ParkingSlotsToForegoundColor x:Key="parkSlotToColor" />
+    <converters:ParkingSlotsToForegoundColorConverter x:Key="parkSlotToColor" />
   </UserControl.Resources>
 
   <StackPanel Margin="0,0,0,5" Background="{StaticResource PhoneChromeBrush}">

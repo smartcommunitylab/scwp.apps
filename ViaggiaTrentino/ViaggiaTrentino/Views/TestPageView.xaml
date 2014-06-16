@@ -5,11 +5,13 @@
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-  xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-  xmlns:vtcont="clr-namespace:ViaggiaTrentino.Views.Controls"
-  xmlns:gAutoComp="clr-namespace:ViaggiaTrentino"
-  xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
+    xmlns:vtcont="clr-namespace:ViaggiaTrentino.Views.Controls"
+    xmlns:gAutoComp="clr-namespace:ViaggiaTrentino"
+    xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
+    xmlns:cc="clr-namespace:Coding4Fun.Toolkit.Controls;assembly=Coding4Fun.Toolkit.Controls"
+
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -73,6 +75,10 @@
         <gAutoComp:SmartCampusAutoCompleteBox />
         
         <Button x:Name="Stops" Content="Stops" />
+        
+        <Button x:Name="show" Content="show" Click="show_Click"  />
+        
+        
       </StackPanel>
     </Grid>
   </Grid>

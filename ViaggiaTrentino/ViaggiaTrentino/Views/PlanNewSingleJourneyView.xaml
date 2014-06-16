@@ -43,7 +43,6 @@
   <UserControl.Resources>
     <calconvs:BooleanToVisibilityConverter x:Key="boolToVisibility" />
     <vtconvert:BooleanToScrollBarVisibilityConverter x:Key="boolToScrollBar" />
-    <vtconvert:DebuggingConverter x:Key="debugConv" />
   </UserControl.Resources>
 
 

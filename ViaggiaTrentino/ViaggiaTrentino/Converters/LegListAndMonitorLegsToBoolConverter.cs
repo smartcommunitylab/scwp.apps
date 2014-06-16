@@ -15,7 +15,7 @@ using ViaggiaTrentino.Resources;
 
 namespace ViaggiaTrentino.Converters
 {
-  public class LegListAndMonitorLegsToBool : IValueConverter
+  public class LegListAndMonitorLegsToBoolConverter : IValueConverter
   {
     public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
     {
