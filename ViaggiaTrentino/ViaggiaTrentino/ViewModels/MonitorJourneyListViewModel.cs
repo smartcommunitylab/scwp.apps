@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using ViaggiaTrentino.Resources;
 
@@ -97,17 +98,22 @@ namespace ViaggiaTrentino.ViewModels
     async void ip_Completed(object sender, PopUpEventArgs<string, PopUpResult> e)
     {
       if (e.PopUpResult == PopUpResult.Ok)
-      {        
-        BasicRecurrentJourney brj = new BasicRecurrentJourney()
+      {
+        if (e.Result != "")
         {
-          
-          Data = recJ,
-          Monitor = true,
-          Name = e.Result
-        };
-        var resp = await urLib.SaveRecurrentJourney(brj);
-        if (resp is BasicRecurrentJourney)
-          navigationService.UriFor<MainPageViewModel>().Navigate();
+          BasicRecurrentJourney brj = new BasicRecurrentJourney()
+          {
+
+            Data = recJ,
+            Monitor = true,
+            Name = e.Result
+          };
+          var resp = await urLib.SaveRecurrentJourney(brj);
+          if (resp is BasicRecurrentJourney)
+            navigationService.UriFor<MainPageViewModel>().Navigate();
+        }
+        else
+          MessageBox.Show(AppResources.ValidationJTitle, AppResources.ValidationCaption, MessageBoxButton.OK);
       }
     }
 

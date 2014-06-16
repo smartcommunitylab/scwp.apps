@@ -130,7 +130,6 @@ namespace ViaggiaTrentino.ViewModels
       }
     }
 
-    //big cheat
     public bool CanChoose
     {
       get { return !IsAlways; }
@@ -345,11 +344,17 @@ namespace ViaggiaTrentino.ViewModels
     {
       if (ValidateRecurrentJourney())
       {
+        long ToDateLong;
+        if (isAlways)
+          ToDateLong = 9999999999999L;
+        else
+          ToDateLong = Convert.ToInt64(DateTimeToEpoch((DateTime.Now + new TimeSpan(14, 0, 0, 0)).ToUniversalTime()));
+
         RecurrentJourneyParameters rjp = new RecurrentJourneyParameters()
         {
-          Time = "16:30",
+          Time = DateTime.Now.ToString("HH:mm"),
           FromDate = Convert.ToInt64(DateTimeToEpoch(DateTime.Now)),
-          ToDate = Convert.ToInt64(DateTimeToEpoch((DateTime.Now + new TimeSpan(14, 0, 0, 0)).ToUniversalTime())),
+          ToDate = ToDateLong,
           Interval = Convert.ToInt64(1.5 * 60 * 60 * 1000),
           From = from,
           To = to,
@@ -400,17 +405,17 @@ namespace ViaggiaTrentino.ViewModels
     {
       StringBuilder sb = new StringBuilder();
 
-      // TODO: add check for something else
-
       if (from.Longitude == null)
         sb.AppendLine(string.Format("• {0}", AppResources.ValidationFrom));
       if (to.Longitude == null)
         sb.AppendLine(string.Format("• {0}", AppResources.ValidationTo));
-      if (endDate - beginDate > new TimeSpan(2, 0, 0))
+      if (endDate.TimeOfDay - beginDate.TimeOfDay > new TimeSpan(2, 0, 0))
         sb.AppendLine(string.Format("• {0}", AppResources.ValidationTimeSpan));
+      if (SelectedDaysToArray().Length == 0)
+        sb.AppendLine(string.Format("• {0}", AppResources.ValidationSelDays));
       if (SelectedTransportTypes.Length == 0)
         sb.AppendLine(string.Format("• {0}", AppResources.ValidationTType));
-
+      
       string errors = sb.ToString();
 
       if (errors.Length > 0)

@@ -132,7 +132,7 @@
       </StackPanel>
     </Grid>
     <bab:BindableAppBar>
-      <bab:BindableAppBarButton IconUri="/Assets/AppBar/Save.png" x:Name="BarSave" Text="Save" />
+      <bab:BindableAppBarButton IconUri="/Assets/AppBar/Save.png" x:Name="BarSave" Text="{Binding Path=LocalizedResources.PlanSave, Source={StaticResource LocalizedStrings}}"  />
     </bab:BindableAppBar>
 
   </Grid>

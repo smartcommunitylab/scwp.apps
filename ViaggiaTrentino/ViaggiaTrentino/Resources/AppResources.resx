@@ -407,9 +407,6 @@
   <data name="TimetableNotAvailable" xml:space="preserve">
     <value>No items found</value>
   </data>
-  <data name="PlanJourneyConfirm" xml:space="preserve">
-    <value>Get journeys</value>
-  </data>
   <data name="Today" xml:space="preserve">
     <value>today</value>
   </data>
@@ -465,7 +462,7 @@
     <value>The following errors have been detected in the form data</value>
   </data>
   <data name="ValidationStartDate" xml:space="preserve">
-    <value>You can not plan a journey in the future</value>
+    <value>You can not plan a journey in the past</value>
   </data>
   <data name="ValidationTimeSpan" xml:space="preserve">
     <value>The maximum size for the timespan is of two hours</value>
@@ -475,5 +472,17 @@
   </data>
   <data name="ValidationTType" xml:space="preserve">
     <value>You must select at least one transportation type</value>
+  </data>
+  <data name="PlanConfirm" xml:space="preserve">
+    <value>go</value>
+  </data>
+  <data name="PlanSave" xml:space="preserve">
+    <value>save</value>
+  </data>
+  <data name="ValidationSelDays" xml:space="preserve">
+    <value>Please select at least one day</value>
+  </data>
+  <data name="ValidationJTitle" xml:space="preserve">
+    <value>Please provide a valid name for the journey</value>
   </data>
 </root>

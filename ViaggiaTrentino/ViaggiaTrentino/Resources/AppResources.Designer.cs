@@ -484,11 +484,20 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Get journeys.
+        ///   Looks up a localized string similar to go.
         /// </summary>
-        public static string PlanJourneyConfirm {
+        public static string PlanConfirm {
             get {
-                return ResourceManager.GetString("PlanJourneyConfirm", resourceCulture);
+                return ResourceManager.GetString("PlanConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to save.
+        /// </summary>
+        public static string PlanSave {
+            get {
+                return ResourceManager.GetString("PlanSave", resourceCulture);
             }
         }
         
@@ -1078,6 +1087,15 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please provide a valid name for the journey.
+        /// </summary>
+        public static string ValidationJTitle {
+            get {
+                return ResourceManager.GetString("ValidationJTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The following errors have been detected in the form data.
         /// </summary>
         public static string ValidationMessage {
@@ -1087,7 +1105,16 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You can not plan a journey in the future.
+        ///   Looks up a localized string similar to Please select at least one day.
+        /// </summary>
+        public static string ValidationSelDays {
+            get {
+                return ResourceManager.GetString("ValidationSelDays", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can not plan a journey in the past.
         /// </summary>
         public static string ValidationStartDate {
             get {
