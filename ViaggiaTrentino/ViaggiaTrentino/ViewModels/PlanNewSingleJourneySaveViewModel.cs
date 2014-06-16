@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using ViaggiaTrentino.Resources;
 
 namespace ViaggiaTrentino.ViewModels
@@ -62,17 +63,21 @@ namespace ViaggiaTrentino.ViewModels
     {
       if (e.PopUpResult == PopUpResult.Ok)
       {
-        BasicItinerary basIti = new BasicItinerary()
+        if (e.Result != "")
         {
-
-          Data = iti,
-          Monitor = true,
-          Name = e.Result
-        };
-        var resp = await urLib.SaveSingleJourney(basIti);
-        if (resp is BasicItinerary)
-          navigationService.UriFor<MainPageViewModel>().Navigate();
+          BasicItinerary basIti = new BasicItinerary()
+          {
+            Data = iti,
+            Monitor = true,
+            Name = e.Result
+          };
+          var resp = await urLib.SaveSingleJourney(basIti);
+          if (resp is BasicItinerary)
+            navigationService.UriFor<MainPageViewModel>().Navigate();
+        }
       }
+      else
+        MessageBox.Show(AppResources.ValidationJTitle, AppResources.ValidationCaption, MessageBoxButton.OK);
     }
 
    

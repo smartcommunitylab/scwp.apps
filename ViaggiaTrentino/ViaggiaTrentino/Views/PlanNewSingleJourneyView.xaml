@@ -109,7 +109,7 @@
     </Grid> 
     <bab:BindableAppBar>
       <bab:BindableAppBarButton IsEnabled="{Binding IsAppbarShown}" IconUri="/Assets/AppBar/check.png" x:Name="PlanNewJourney"
-                                Text="{Binding Path=LocalizedResources.PlanJourneyConfirm, Source={StaticResource LocalizedStrings}}"/>
+                                Text="{Binding Path=LocalizedResources.PlanConfirm, Source={StaticResource LocalizedStrings}}"/>
     </bab:BindableAppBar>
   </Grid>
 
