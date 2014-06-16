@@ -485,4 +485,7 @@
   <data name="ValidationJTitle" xml:space="preserve">
     <value>Please provide a valid name for the journey</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>delete</value>
+  </data>
 </root>

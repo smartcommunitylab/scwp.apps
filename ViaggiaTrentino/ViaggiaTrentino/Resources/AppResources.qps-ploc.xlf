@@ -496,6 +496,10 @@
           <source>Please provide a valid name for the journey</source>
           <target state="new">Please provide a valid name for the journey</target>
         </trans-unit>
+        <trans-unit id="Resx/Delete" translate="yes" xml:space="preserve">
+          <source>delete</source>
+          <target state="new">delete</target>
+        </trans-unit>
       </group>
     </body>
   </file>

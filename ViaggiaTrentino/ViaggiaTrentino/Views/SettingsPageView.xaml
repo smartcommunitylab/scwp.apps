@@ -53,7 +53,13 @@
 
       <phone:PivotItem Header="{Binding Path=LocalizedResources.SettingsPageFavs, Source={StaticResource LocalizedStrings}}">
         <StackPanel>
-          <ListBox ItemsSource="{Binding FavPositions}">
+          <ListBox x:Name="lstBxPos" ItemsSource="{Binding FavPositions}">
+            <ListBox.ItemContainerStyle>
+              <Style TargetType="ListBoxItem">
+                <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+                <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+              </Style>
+            </ListBox.ItemContainerStyle>
             <ListBox.ItemTemplate>
               <DataTemplate>
                 <Grid>
@@ -61,10 +67,13 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                   </Grid.ColumnDefinitions>
-                  <TextBlock Grid.Column="0" Text="{Binding Name}" />
-                  <TextBlock Grid.Column="1" HorizontalAlignment="Right" Text="X" Foreground="Red" FontWeight="ExtraBold" />
-
-                  <!--<Image Source=""></Image>-->
+                  <TextBlock Grid.Column="0" Text="{Binding Name}" FontSize="{StaticResource PhoneFontSizeMedium}">
+                    <toolkit:ContextMenuService.ContextMenu >
+                      <toolkit:ContextMenu >
+                        <toolkit:MenuItem cal:Message.Attach="deleteFavourite()" Header="{Binding Path=LocalizedResources.Delete, Source={StaticResource LocalizedStrings}}"></toolkit:MenuItem>
+                      </toolkit:ContextMenu>
+                    </toolkit:ContextMenuService.ContextMenu>
+                  </TextBlock>
                 </Grid>
               </DataTemplate>
             </ListBox.ItemTemplate>

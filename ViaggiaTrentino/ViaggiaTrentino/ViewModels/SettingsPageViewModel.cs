@@ -88,6 +88,14 @@ namespace ViaggiaTrentino.ViewModels
       fsh.WriteFile("favourites.pos", JsonConvert.SerializeObject(FavPositions.ToArray()), true);
     }
 
+    public void deleteFavourite()
+    {
+    }
+
+    public void deleteFavourite(object sender)
+    {
+      //FavPositions.Remove(
+    }
 
   }
 }

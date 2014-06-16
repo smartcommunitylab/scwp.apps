@@ -496,6 +496,10 @@
           <source>Please provide a valid name for the journey</source>
           <target state="translated" state-qualifier="mt-suggestion">Fornire un nome valido per il viaggio</target>
         </trans-unit>
+        <trans-unit id="Resx/Delete" translate="yes" xml:space="preserve">
+          <source>delete</source>
+          <target state="new">delete</target>
+        </trans-unit>
       </group>
     </body>
   </file>
