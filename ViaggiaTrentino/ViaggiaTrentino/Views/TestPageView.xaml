@@ -8,7 +8,7 @@
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vtcont="clr-namespace:ViaggiaTrentino.Views.Controls"
-    xmlns:gAutoComp="clr-namespace:ViaggiaTrentino"
+    xmlns:scAutoComp="clr-namespace:ViaggiaTrentino"
     xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
     xmlns:cc="clr-namespace:Coding4Fun.Toolkit.Controls;assembly=Coding4Fun.Toolkit.Controls"
 
@@ -72,7 +72,7 @@
             </DataTemplate>
           </ListBox.ItemTemplate>
         </ListBox>
-        <gAutoComp:SmartCampusAutoCompleteBox />
+        <scAutoComp:SmartCampusAutoCompleteBox />
         
         <Button x:Name="Stops" Content="Stops" />
         
