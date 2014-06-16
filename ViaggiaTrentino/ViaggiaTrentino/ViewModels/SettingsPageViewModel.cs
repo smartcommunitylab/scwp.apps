@@ -17,6 +17,8 @@ using System.Windows.Controls.Primitives;
 using ViaggiaTrentino.Helpers;
 using ViaggiaTrentino.Resources;
 using ViaggiaTrentino.Views.Controls;
+using Windows.Devices.Geolocation;
+using Windows.Foundation;
 using Windows.Phone.Devices.Notification;
 
 namespace ViaggiaTrentino.ViewModels
@@ -44,9 +46,10 @@ namespace ViaggiaTrentino.ViewModels
       {
         Settings.LocationConsent = value;
         NotifyOfPropertyChange(() => LocationConsent);
-        if (value) { Settings.LaunchGPS(); }
+        Settings.LaunchGPS();
       }
     }
+
 
     public ObservableCollection<Position> FavPositions
     {
@@ -62,8 +65,8 @@ namespace ViaggiaTrentino.ViewModels
     {
       base.OnViewLoaded(view);
       string poses = fsh.ReadFile("favourites.pos");
-      if(poses != null)
-        FavPositions = new ObservableCollection<Position>( JsonConvert.DeserializeObject<List<Position>>(poses));
+      if (poses != null)
+        FavPositions = new ObservableCollection<Position>(JsonConvert.DeserializeObject<List<Position>>(poses));
     }
 
     public void BarAdd()
@@ -85,6 +88,6 @@ namespace ViaggiaTrentino.ViewModels
       fsh.WriteFile("favourites.pos", JsonConvert.SerializeObject(FavPositions.ToArray()), true);
     }
 
-   
+
   }
 }

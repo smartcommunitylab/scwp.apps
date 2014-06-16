@@ -19,7 +19,6 @@ namespace ViaggiaTrentino
   {
     private PhoneApplicationFrame rootFrame;
     private bool reset;
-    private string lastUri;
     public PhoneContainer container { get; set; }
 
     public Bootstrapper()
@@ -38,6 +37,11 @@ namespace ViaggiaTrentino
       base.OnStartup(sender, e);
       Settings.Initialize();
       DBManagement();
+    }
+    protected override void OnActivate(object sender, Microsoft.Phone.Shell.ActivatedEventArgs e)
+    {
+      base.OnActivate(sender, e);
+      Settings.LaunchGPS();
     }
     private async void DBManagement()
     {
@@ -128,27 +132,18 @@ namespace ViaggiaTrentino
 
     void rootFrame_Navigating(object sender, NavigatingCancelEventArgs e)
     {
-
       if (reset && e.IsCancelable && e.Uri.OriginalString == "/Views/MainPageView.xaml")
       {
         e.Cancel = true;
         reset = false;
-        Settings.LaunchGPS();
       }
     }
 
     void rootFrame_Navigated(object sender, NavigationEventArgs e)
     {
-      /* Launch GPS only if app is launched or resumed and the target is MainPageView.xaml
-       *              or if I'm navigating back from an external app (like location settings) and the target is MainPageView.xaml
-       */
-
-      if (e.Uri.OriginalString == "/Views/MainPageView.xaml" &&
-          ((e.NavigationMode == NavigationMode.New || e.NavigationMode == NavigationMode.Reset) || (lastUri == "app://external/" && e.NavigationMode == NavigationMode.Back))
-        )
+      if(e.Uri.OriginalString == "/Views/MainPageView.xaml" && e.NavigationMode == NavigationMode.New)
         Settings.LaunchGPS();
       reset = e.NavigationMode == NavigationMode.Reset;
-      lastUri = e.Uri.OriginalString;
     }
 
     static void AddCustomConventions()
