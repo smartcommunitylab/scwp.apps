@@ -70,7 +70,7 @@
             </DataTemplate>
           </ListBox.ItemTemplate>
         </ListBox>
-        <gAutoComp:GoogleAutoCompleteBox />
+        <gAutoComp:SmartCampusAutoCompleteBox />
         
         <Button x:Name="Stops" Content="Stops" />
       </StackPanel>

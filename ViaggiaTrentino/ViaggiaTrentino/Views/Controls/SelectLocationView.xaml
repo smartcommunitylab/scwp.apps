@@ -11,7 +11,7 @@
   <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}" Margin="0,-50,0,0">
     <StackPanel Margin="0,0,0,5">
       <TextBlock Text="{Binding Path=LocalizedResources.ChooseTitle, Source={StaticResource LocalizedStrings}}"
-                 FontSize="48" Margin="0,0,0,5" FontWeight="Light"></TextBlock>
+                 FontSize="{StaticResource PhoneFontSizeExtraLarge}" Margin="0,0,0,5" FontWeight="Light"></TextBlock>
       <Line X1="0" X2="1" Stretch="Fill" Stroke="{StaticResource PhoneAccentBrush}"></Line>
 
       <StackPanel x:Name="currentStack" Tap="currentStack_Tap" Margin="0,5,0,5">

@@ -75,13 +75,13 @@
               <RowDefinition Height="Auto"/>
               <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <gAutoComp:GoogleAutoCompleteBox FilterMode="Contains" Grid.Row="0" Grid.Column="0" x:Name="FromBox" Tag="{Binding FromPos, Mode=TwoWay}"
-                                   Text="{Binding FromPos.Name}" MaxDropDownHeight="300"  ItemTemplate="{StaticResource googleBox}"/>
+            <gAutoComp:SmartCampusAutoCompleteBox FilterMode="Contains" Grid.Row="0" Grid.Column="0" x:Name="FromBox" Tag="{Binding FromPos, Mode=TwoWay}"
+                                   Text="{Binding FromPos.Name}" MaxDropDownHeight="300"  ItemTemplate="{StaticResource smartCampusBox}"/>
             <Image x:Name="GpsLocFrom" Source="/Assets/Buttons/GpsLocation.png" Grid.Row="0" Grid.Column="1" Margin="0,0,5,0"/>
             <Image x:Name="FavsFrom" Source="/Assets/Buttons/Favourites.png" Grid.Row="0" Grid.Column="2" Margin="5,0,0,0"/>
 
-            <gAutoComp:GoogleAutoCompleteBox FilterMode="Contains" Grid.Row="1" Grid.Column="0" x:Name="ToBox" Tag="{Binding ToPos, Mode=TwoWay}"
-                                   Text="{Binding ToPos.Name}" MaxDropDownHeight="300"   ItemTemplate="{StaticResource googleBox}"/>
+            <gAutoComp:SmartCampusAutoCompleteBox FilterMode="Contains" Grid.Row="1" Grid.Column="0" x:Name="ToBox" Tag="{Binding ToPos, Mode=TwoWay}"
+                                   Text="{Binding ToPos.Name}" MaxDropDownHeight="300"   ItemTemplate="{StaticResource smartCampusBox}"/>
             <Image x:Name="GpsLocTo" Source="/Assets/Buttons/GpsLocation.png" Grid.Row="1" Grid.Column="1" Margin="0,0,5,0"/>
             <Image x:Name="FavsTo" Source="/Assets/Buttons/Favourites.png" Grid.Row="1" Grid.Column="2" Margin="5,0,0,0"/>
 

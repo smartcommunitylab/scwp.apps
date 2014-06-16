@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Windows.Devices.Geolocation;
+using Windows.Foundation;
 
 namespace ViaggiaTrentino
 {
@@ -227,19 +228,30 @@ namespace ViaggiaTrentino
     private async static void RetrieveGPSPosition(Geolocator geolocator)
     {
       if (!LocationConsent || geolocator.LocationStatus == PositionStatus.Disabled)
-        Settings.GPSPosition = TrentoCoordinate;
-      else
       {
-        try
-        {
-          GPSPosition = (await geolocator.GetGeopositionAsync(
-              maximumAge: TimeSpan.FromSeconds(120),
-              timeout: TimeSpan.FromSeconds(10))).Coordinate.ToGeoCoordinate();
+        Settings.GPSPosition = Settings.TrentoCoordinate;
+        return;
+      }
 
-        }
-        catch (UnauthorizedAccessException)
+      IAsyncOperation<Geoposition> locationTask = null;
+      try
+      {
+        locationTask = geolocator.GetGeopositionAsync(TimeSpan.FromMinutes(1), TimeSpan.FromSeconds(15));
+        Geoposition position = await locationTask;
+        Settings.GPSPosition = position.Coordinate.ToGeoCoordinate();
+      }
+      catch
+      {
+        Settings.GPSPosition = Settings.TrentoCoordinate;
+      }
+      finally
+      {
+        if (locationTask != null)
         {
-          GPSPosition = TrentoCoordinate;
+          if (locationTask.Status == AsyncStatus.Started)
+            locationTask.Cancel();
+
+          locationTask.Close();
         }
       }
     }

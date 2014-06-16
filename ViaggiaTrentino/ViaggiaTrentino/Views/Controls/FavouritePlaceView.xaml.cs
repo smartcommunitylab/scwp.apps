@@ -26,7 +26,7 @@ namespace ViaggiaTrentino.Views.Controls
 
     public Position SelectedPosition
     {
-      get { return googleACB.Tag as Position; }
+      get { return smartCampusACB.Tag as Position; }
     }
 
     public FavouritePlaceView()
@@ -136,8 +136,8 @@ namespace ViaggiaTrentino.Views.Controls
         Latitude = result.GeoCoordinate.Latitude.ToString(),
         Longitude = result.GeoCoordinate.Longitude.ToString()
       };
-      googleACB.Tag = choosenPos;
-      googleACB.Text = choosenPos.Name;
+      smartCampusACB.Tag = choosenPos;
+      smartCampusACB.Text = choosenPos.Name;
     }
 
     #endregion

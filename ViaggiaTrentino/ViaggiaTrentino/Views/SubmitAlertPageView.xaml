@@ -70,7 +70,7 @@
           </toolkit:ListPicker.ItemTemplate>
           <toolkit:ListPicker.FullModeItemTemplate>
             <DataTemplate>
-              <TextBlock Text="{Binding Converter={StaticResource RouteToName}}"  FontSize="24" TextWrapping="Wrap" Padding="0,0,0,5"></TextBlock>
+              <TextBlock Text="{Binding Converter={StaticResource RouteToName}}"  FontSize="{StaticResource PhoneFontSizeMediumLarge}" TextWrapping="Wrap" Padding="0,0,0,5"></TextBlock>
             </DataTemplate>
           </toolkit:ListPicker.FullModeItemTemplate>
         </toolkit:ListPicker>
@@ -84,7 +84,7 @@
           </toolkit:ListPicker.ItemTemplate>
           <toolkit:ListPicker.FullModeItemTemplate>
             <DataTemplate>
-              <TextBlock Text="{Binding Name}" FontSize="24" TextWrapping="Wrap" Padding="0,0,0,5" ></TextBlock>
+              <TextBlock Text="{Binding Name}" FontSize="{StaticResource PhoneFontSizeMediumLarge}" TextWrapping="Wrap" Padding="0,0,0,5" ></TextBlock>
             </DataTemplate>
           </toolkit:ListPicker.FullModeItemTemplate>
         </toolkit:ListPicker>
@@ -98,7 +98,7 @@
           </toolkit:ListPicker.ItemTemplate>
           <toolkit:ListPicker.FullModeItemTemplate>
             <DataTemplate>
-              <TextBlock Text="{Binding Time, Converter={StaticResource longToTime}}"  FontSize="24" TextWrapping="Wrap" Padding="0,0,0,5"></TextBlock>
+              <TextBlock Text="{Binding Time, Converter={StaticResource longToTime}}"  FontSize="{StaticResource PhoneFontSizeMediumLarge}" TextWrapping="Wrap" Padding="0,0,0,5"></TextBlock>
             </DataTemplate>
           </toolkit:ListPicker.FullModeItemTemplate>
 

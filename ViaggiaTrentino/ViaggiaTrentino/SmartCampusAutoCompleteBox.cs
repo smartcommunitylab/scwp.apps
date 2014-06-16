@@ -3,8 +3,6 @@ using System.Diagnostics;
 #endif
 
 using Microsoft.Phone.Controls;
-using MobilityServiceLibrary;
-using Models.GoogleMapsAPI;
 using Models.MobilityService.Journeys;
 using Newtonsoft.Json;
 using System;
@@ -12,21 +10,18 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Threading;
 using Models.Geocoder;
 
 namespace ViaggiaTrentino
 {
-  public class GoogleAutoCompleteBox : AutoCompleteBox
+  public class SmartCampusAutoCompleteBox : AutoCompleteBox
   {
     string baseUrl = "https://vas.smartcampuslab.it/core.geocoder/spring/address?address=";
 
     WebClient webCli;
     Position selPos;
 
-    public GoogleAutoCompleteBox()
+    public SmartCampusAutoCompleteBox()
     {
       webCli = new WebClient();
       webCli.DownloadStringCompleted += webCli_DownloadStringCompleted;
@@ -77,7 +72,7 @@ namespace ViaggiaTrentino
 
     }
 
-    #region Google API interaction
+    #region SmartCampus API interaction
 
     void webCli_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
     {

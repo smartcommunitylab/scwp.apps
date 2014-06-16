@@ -112,6 +112,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
     <SDKReference Include="SQLite.WP80, Version=3.8.5">
       <Name>SQLite for Windows Phone</Name>
     </SDKReference>
