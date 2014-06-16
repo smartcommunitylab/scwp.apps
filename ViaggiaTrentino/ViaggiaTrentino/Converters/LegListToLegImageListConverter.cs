@@ -1,6 +1,5 @@
 ﻿using Models.MobilityService;
 using Models.MobilityService.Journeys;
-using Models.MobilityService.PublicTransport;
 using Models.MobilityService.RealTime;
 using System;
 using System.Collections.Generic;
@@ -13,29 +12,26 @@ using System.Windows.Media;
 
 namespace ViaggiaTrentino.Converters
 {
-  public class ParkingSlotsToForegoundColor : IValueConverter
+  public class LegListToLegImageListConverter : IValueConverter
   {
     public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
     {
-      if (value is Parking)
+      if (value is List<Leg>)
       {
-        Parking p = value as Parking;
-        if (p.Monitored)
-        {
-          if (p.SlotsAvailable == -1)
-            return Colors.Red.ToString();
-          else
-          {
-            if (p.SlotsTotal - p.SlotsAvailable < 50)
-              return Colors.Orange.ToString();
-            else
-              return Colors.Green.ToString();
-          }
-        }
-        else
-          return "#FF5CA3FF";
+        List<Leg> tmpLegs = value as List<Leg>;
+        var transp = tmpLegs.Select(x => x.TransportInfo.Type);
+
+        List<object> bitmapImages = new List<object>();
+
+        //TODO: add right icons once obtained
+
+        foreach (TransportType s in transp)        
+          bitmapImages.Add(new ImageSourceConverter().ConvertFromString(string.Format("/Assets/Vehicles/{0}.png", s.ToString().ToLower()))); 
+          
+        return bitmapImages;
+        
       }
-      return Colors.White.ToString();
+      return "";
     }
 
     public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)

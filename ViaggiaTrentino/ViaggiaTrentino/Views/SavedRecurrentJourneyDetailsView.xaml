@@ -44,7 +44,7 @@
     <converters:BooleanToStrokeColorConverter x:Key="boolToColor"/>
     <converters:LongMilliSecondsToDateConverter x:Name="secsToDateStr"/>
     <converters:LongMilliSecondsToTimeConverter x:Name="secsToTimeStr"/>
-    <converters:LegListAndMonitorLegsToBool x:Name="legAndBoolToBool" />
+    <converters:LegListAndMonitorLegsToBoolConverter x:Name="legAndBoolToBool" />
     <converters:FromToConverter x:Key="legToFromTo"/>
   </UserControl.Resources>
   

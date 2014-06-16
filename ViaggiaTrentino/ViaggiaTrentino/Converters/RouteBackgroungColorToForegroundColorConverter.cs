@@ -7,7 +7,7 @@ using System.Windows.Media;
 
 namespace ViaggiaTrentino.Converters
 {
-  public class RouteBackgroungColorToForegroundColor : IValueConverter
+  public class RouteBackgroungColorToForegroundColorConverter : IValueConverter
   {
     public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
     {

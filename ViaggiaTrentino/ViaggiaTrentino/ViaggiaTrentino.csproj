@@ -100,12 +100,12 @@
     </Compile>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Converters\ItineraryToTimeSpanStringConverter.cs" />
-    <Compile Include="Converters\LegListToLegImageList.cs" />
+    <Compile Include="Converters\LegListToLegImageListConverter.cs" />
     <Compile Include="Converters\LongSecondsToDateConverter.cs" />
-    <Compile Include="Converters\LegListAndMonitorLegsToBool.cs" />
+    <Compile Include="Converters\LegListAndMonitorLegsToBoolConverter.cs" />
     <Compile Include="Converters\LongMilliSecondsToDateConverter.cs" />
     <Compile Include="Converters\IntegerVectorToNameOfDayStringConverter.cs" />
-    <Compile Include="Converters\RouteBackgroungColorToForegroundColor.cs" />
+    <Compile Include="Converters\RouteBackgroungColorToForegroundColorConverter.cs" />
     <Compile Include="Converters\FromToConverter.cs" />
     <Compile Include="Converters\LongMilliSecondsToTimeConverter.cs" />
     <Compile Include="Converters\TransportTypeToImageConverter.cs" />
@@ -113,7 +113,7 @@
     <Compile Include="Converters\BooleanToStrokeColorConverter.cs" />
     <Compile Include="Converters\RouteToRouteNameConverter.cs" />
     <Compile Include="Converters\DataContextToContentConverter.cs" />
-    <Compile Include="Converters\ParkingSlotsToForegoundColor.cs" />
+    <Compile Include="Converters\ParkingSlotsToForegoundColorConverter.cs" />
     <Compile Include="Converters\BooleanToScrollBarVisibilityConverter.cs" />
     <Compile Include="Converters\ParkingToSlotsConverter.cs" />
     <Compile Include="Converters\ItineraryToDateTimeStringConverter.cs" />
@@ -181,6 +181,9 @@
     </Compile>
     <Compile Include="Views\Controls\UserSettingsView.xaml.cs">
       <DependentUpon>UserSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\LoadingControl.xaml.cs">
+      <DependentUpon>LoadingControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MonitorJourneyListView.xaml.cs">
       <DependentUpon>MonitorJourneyListView.xaml</DependentUpon>
@@ -433,6 +436,10 @@
     </Page>
     <Page Include="Views\Controls\UserSettingsView.xaml">
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Controls\LoadingControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MonitorJourneyListView.xaml">
       <SubType>Designer</SubType>
