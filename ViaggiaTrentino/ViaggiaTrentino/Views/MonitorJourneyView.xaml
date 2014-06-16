@@ -11,7 +11,7 @@
     xmlns:calconvs="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
     xmlns:vtconvert="clr-namespace:ViaggiaTrentino.Converters"  
     xmlns:vtcon="clr-namespace:ViaggiaTrentino.Views.Controls"
-    xmlns:gAutoComp="clr-namespace:ViaggiaTrentino"
+    xmlns:scAutoComp="clr-namespace:ViaggiaTrentino"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -75,12 +75,12 @@
               <RowDefinition Height="Auto"/>
               <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <gAutoComp:SmartCampusAutoCompleteBox FilterMode="Contains" Grid.Row="0" Grid.Column="0" x:Name="FromBox" Tag="{Binding FromPos, Mode=TwoWay}"
+            <scAutoComp:SmartCampusAutoCompleteBox FilterMode="Contains" Grid.Row="0" Grid.Column="0" x:Name="FromBox" Tag="{Binding FromPos, Mode=TwoWay}"
                                    Text="{Binding FromPos.Name}" MaxDropDownHeight="300"  ItemTemplate="{StaticResource smartCampusBox}"/>
             <Image x:Name="GpsLocFrom" Source="/Assets/Buttons/GpsLocation.png" Grid.Row="0" Grid.Column="1" Margin="0,0,5,0"/>
             <Image x:Name="FavsFrom" Source="/Assets/Buttons/Favourites.png" Grid.Row="0" Grid.Column="2" Margin="5,0,0,0"/>
 
-            <gAutoComp:SmartCampusAutoCompleteBox FilterMode="Contains" Grid.Row="1" Grid.Column="0" x:Name="ToBox" Tag="{Binding ToPos, Mode=TwoWay}"
+            <scAutoComp:SmartCampusAutoCompleteBox FilterMode="Contains" Grid.Row="1" Grid.Column="0" x:Name="ToBox" Tag="{Binding ToPos, Mode=TwoWay}"
                                    Text="{Binding ToPos.Name}" MaxDropDownHeight="300"   ItemTemplate="{StaticResource smartCampusBox}"/>
             <Image x:Name="GpsLocTo" Source="/Assets/Buttons/GpsLocation.png" Grid.Row="1" Grid.Column="1" Margin="0,0,5,0"/>
             <Image x:Name="FavsTo" Source="/Assets/Buttons/Favourites.png" Grid.Row="1" Grid.Column="2" Margin="5,0,0,0"/>

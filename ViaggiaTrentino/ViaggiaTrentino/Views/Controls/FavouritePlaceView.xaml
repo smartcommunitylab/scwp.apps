@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:vtautocomp="clr-namespace:ViaggiaTrentino"
+    xmlns:scAutoComp="clr-namespace:ViaggiaTrentino"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -15,7 +15,7 @@
       <ColumnDefinition Width="*" />
       <ColumnDefinition Width="Auto" />     
     </Grid.ColumnDefinitions>
-    <vtautocomp:SmartCampusAutoCompleteBox Grid.Column="0" x:Name="smartCampusACB" FilterMode="Contains" ItemTemplate="{StaticResource smartCampusBox}"/>
+    <scAutoComp:SmartCampusAutoCompleteBox Grid.Column="0" x:Name="smartCampusACB" FilterMode="Contains" ItemTemplate="{StaticResource smartCampusBox}"/>
       <Image Grid.Column="1" x:Name="GpsLocTo" Source="/Assets/Buttons/GpsLocation.png" Margin="0,0,5,0" Tap="GpsLocTo_Tap"/>
   </Grid>
 </UserControl>
