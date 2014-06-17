@@ -1087,6 +1087,15 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Train lines.
+        /// </summary>
+        public static string TrainLinesTitle {
+            get {
+                return ResourceManager.GetString("TrainLinesTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ok.
         /// </summary>
         public static string ValidationBtnOk {

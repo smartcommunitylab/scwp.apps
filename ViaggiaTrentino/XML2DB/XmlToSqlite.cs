@@ -106,9 +106,10 @@ namespace xmlToSqlite
         List<XAttribute> name = el.Attributes("name").ToList();
         string sw = name.Count > 0 ? name[0].Value : null;
 
+
         GroupCollection r = new Regex("^agency_(?<agency>.*)_route_(?<route>.*)$").Match(sw).Groups;
 
-        if (r["agency"].Value == "12" || r["agency"].Value == "16")
+        if (r["agency"].Value != "17")
         {
           routeName.Add(new RouteName()
           {

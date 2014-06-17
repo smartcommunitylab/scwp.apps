@@ -135,6 +135,7 @@
     </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="ViewModels\AboutPageViewModel.cs" />
+    <Compile Include="ViewModels\SelectTrainRouteViewModel.cs" />
     <Compile Include="ViewModels\MonitorJourneyListViewModel.cs" />
     <Compile Include="ViewModels\StopTimesForStopViewModel.cs" />
     <Compile Include="ViewModels\PlanNewSingleJourneyListViewModel.cs" />
@@ -186,6 +187,9 @@
     </Compile>
     <Compile Include="Views\Controls\LoadingControl.xaml.cs">
       <DependentUpon>LoadingControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SelectTrainRouteView.xaml.cs">
+      <DependentUpon>SelectTrainRouteView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MonitorJourneyListView.xaml.cs">
       <DependentUpon>MonitorJourneyListView.xaml</DependentUpon>
@@ -453,6 +457,10 @@
     <Page Include="Views\Controls\LoadingControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SelectTrainRouteView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\MonitorJourneyListView.xaml">
       <SubType>Designer</SubType>

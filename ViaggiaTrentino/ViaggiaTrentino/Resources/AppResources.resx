@@ -494,4 +494,7 @@
   <data name="MessageBoxNetworkErrorTitle" xml:space="preserve">
     <value>Network Error</value>
   </data>
+  <data name="TrainLinesTitle" xml:space="preserve">
+    <value>Train lines</value>
+  </data>
 </root>

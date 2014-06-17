@@ -147,7 +147,7 @@ namespace ViaggiaTrentino.ViewModels
           Radius = radius
         });
       }
-      catch(HttpRequestException hre)
+      catch(HttpRequestException)
       {
         MessageBox.Show(Resources.AppResources.MessageBoxNetworkErrorBody, Resources.AppResources.MessageBoxNetworkErrorTitle, MessageBoxButton.OK);
       }

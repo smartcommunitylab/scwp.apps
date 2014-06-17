@@ -119,6 +119,7 @@ namespace ViaggiaTrentino
       container.PerRequest<SelectBusRouteDirectionViewModel>();
       container.PerRequest<TimetablePageViewModel>();
       container.PerRequest<StopTimesForStopViewModel>();
+      container.PerRequest<SelectTrainRouteViewModel>();
 
       // Parking
       container.PerRequest<ParkingsPageViewModel>();

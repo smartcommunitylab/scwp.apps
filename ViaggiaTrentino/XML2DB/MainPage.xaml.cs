@@ -88,7 +88,7 @@ namespace XML2DB
 
       string token = apptoken.Text.Trim();
 
-      token = "b5372740-81e3-40dc-a11c-9d38cfe11121";
+      token = "e1393950-64b6-4f15-a01b-5568b97392d5";
       progress.Text += "retrieve updates from sc server\n";
 
       MobilityServiceLibrary.PublicTransportLibrary ptl = new MobilityServiceLibrary.PublicTransportLibrary(token, "https://vas-dev.smartcampuslab.it/");

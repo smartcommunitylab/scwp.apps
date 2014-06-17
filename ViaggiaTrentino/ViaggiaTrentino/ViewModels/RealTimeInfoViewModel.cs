@@ -29,6 +29,11 @@ namespace ViaggiaTrentino.ViewModels
     {
       navigationService.UriFor<SelectBusRouteViewModel>().WithParam(x => x.AgencyID, AgencyType.RoveretoCityBus).Navigate();
     }
+    public void TrainTile()
+    {
+      navigationService.UriFor<SelectTrainRouteViewModel>().Navigate();
+    }
+    
 
   }
 }
