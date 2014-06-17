@@ -58,5 +58,16 @@ namespace ViaggiaTrentino.ViewModels
       }
       RoutesName = new ObservableCollection<RouteName>(results);
     }
+    public void ShowTimetable(object obj)
+    {
+      var routeName = (obj as TextBlock).Tag as RouteName;
+      navigationService.UriFor<TimetablePageViewModel>()
+        .WithParam(x => x.AgencyID, EnumConverter.ToEnum<AgencyType>(routeName.AgencyID))
+        .WithParam(x => x.RouteIDWitDirection, routeName.RouteID)
+        .WithParam(x => x.Description, routeName.Name)
+        .WithParam(x => x.NameID, "")
+        .WithParam(x => x.Color, "#555555")
+        .Navigate();
+    }
   }
 }

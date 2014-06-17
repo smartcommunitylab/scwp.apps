@@ -95,7 +95,7 @@ namespace ViaggiaTrentino.ViewModels
 
     public string RouteName
     {
-      get { return string.Format("{0} - {1}", NameID, Description); }
+      get { return NameID.Trim() != "" ? string.Format("{0} - {1}", NameID, Description) : Description; }
     }
 
     public DBManager.DBModels.RouteName SelectedRouteName

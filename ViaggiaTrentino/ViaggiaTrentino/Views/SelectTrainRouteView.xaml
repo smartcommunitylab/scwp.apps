@@ -60,9 +60,14 @@
     <!--ContentPanel - place additional content here-->
     <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
       <ListBox ItemsSource="{Binding RoutesName}" ItemContainerStyle="{StaticResource ListBoxItemNoSelectionStyle}">
+        <ListBox.Template>
+          <ControlTemplate TargetType="ListBox">
+            <ItemsPresenter />
+          </ControlTemplate>
+        </ListBox.Template>
         <ListBox.ItemTemplate>
           <DataTemplate>
-            <TextBlock Text="{Binding Name}" />
+            <TextBlock FontSize="{StaticResource PhoneFontSizeMedium}" Text="{Binding Name}" Margin="10,10,5,10" Tag="{Binding}" cal:Message.Attach="[Event Tap]=[Action ShowTimetable($source)]" />
           </DataTemplate>
         </ListBox.ItemTemplate>
       </ListBox>

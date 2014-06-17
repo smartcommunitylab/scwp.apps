@@ -54,10 +54,15 @@
       <RowDefinition Height="*"/>
     </Grid.RowDefinitions>
 
-    <StackPanel Grid.Row="0" Margin="0,17,0,18" Background="{Binding Color}">
-      <TextBlock FontWeight="SemiBold" Margin="12,12,12,6"  Text="{Binding RouteName}" />
-      <TextBlock FontWeight="SemiBold" Margin="6,12,12,12"  Text="{Binding CurrentDate, StringFormat='dd/MM/yyyy'}" />
-    </StackPanel>
+    <Grid Grid.Row="0" Margin="0,17,0,18" Background="{Binding Color}">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="Auto" />
+      </Grid.ColumnDefinitions>
+      
+      <TextBlock Grid.Column="0" FontWeight="SemiBold" Margin="12,12,12,6"  Text="{Binding RouteName}" TextWrapping="Wrap" FontSize="{StaticResource PhoneFontSizeMedium}"/>
+      <TextBlock Grid.Column="1" FontWeight="SemiBold" Margin="6,12,12,12"  Text="{Binding CurrentDate, StringFormat='dd/MM'}" FontSize="{StaticResource PhoneFontSizeMedium}"/>
+    </Grid>
 
     <StackPanel x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
       <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="txtNoAvailable" Visibility="{Binding NoResults, Converter={StaticResource boolToVisibility}}"
