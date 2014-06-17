@@ -19,6 +19,7 @@ using Coding4Fun.Toolkit.Controls;
 using System.Windows.Controls;
 using ViaggiaTrentino.Views.Controls;
 using Newtonsoft.Json;
+using System;
 
 namespace ViaggiaTrentino.ViewModels
 {
@@ -98,7 +99,12 @@ namespace ViaggiaTrentino.ViewModels
     {
       using (DBHelper dbh = new DBHelper())
       {
-        var routenames = dbh.GetRoutesNames(EnumConverter.ToEnumString<AgencyType>(agencyID)).Where(x => x.RouteID.ToLower().StartsWith(obj.RouteID.ToLower())).ToList();
+        var routenames = dbh.GetRoutesNames(EnumConverter.ToEnumString<AgencyType>(agencyID));
+        int result;
+        if(agencyID == AgencyType.RoveretoCityBus && Int32.TryParse(obj.RouteID.ToLower(), out result))
+            routenames = routenames.Where(x => x.RouteID.ToLower().StartsWith("0" + obj.RouteID.ToLower()) || x.RouteID.ToLower().StartsWith(("N" + obj.RouteID).ToLower())).ToList();
+        else
+          routenames = routenames.Where(x => x.RouteID.ToLower().StartsWith(obj.RouteID.ToLower())).ToList();
 
         if (routenames.Count == 1)
           navigationService.UriFor<TimetablePageViewModel>()

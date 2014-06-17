@@ -41,22 +41,20 @@ namespace ViaggiaTrentino.Views
 
     private void PhoneApplicationPage_BackKeyPress(object sender, CancelEventArgs e)
     {
-      if (bw.IsBusy)
+      if (bw!= null && bw.IsBusy)
         e.Cancel = true;
-
     }
 
     public void Handle(CompressedTimetable ct)
     {
       scrollViewerTimetable.MaxHeight = ContentPanel.ActualHeight;
       columnNames.Width = new GridLength(Application.Current.Host.Content.ActualWidth * 0.4);
-      var a = ContentPanel.Children.First(x => x.GetType() == typeof(TextBlock));
-
+    
+      stackPanelTimetable.Children.Clear();
+      listBoxNames.Items.Clear();
+      
       if (ct.CompressedTimes == null)
       {
-        stackPanelTimetable.Children.Clear();
-        listBoxNames.Items.Clear();
-
         listBoxNames.Visibility = Visibility.Collapsed;
         stackPanelTimetable.Visibility = Visibility.Collapsed;
         txtNoAvailable.Padding = new Thickness(0, (ContentPanel.ActualHeight - txtNoAvailable.ActualHeight / 2 - bAppBar.ActualHeight) / 2, 0, 0);
@@ -70,10 +68,7 @@ namespace ViaggiaTrentino.Views
         stackPanelTimetable.Visibility = Visibility.Visible;
         txtNoAvailable.Visibility = Visibility.Collapsed;
 
-        listBoxNames.Items.Clear();
-        stackPanelTimetable.Children.Clear();
         (stackPanelTimetable.Parent as ScrollViewer).ScrollToHorizontalOffset(0);
-
 
         for (int i = 0; i < ct.StopIds.Count; i++)
         {

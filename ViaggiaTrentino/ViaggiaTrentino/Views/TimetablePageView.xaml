@@ -59,7 +59,7 @@
     <StackPanel x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
       <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="txtNoAvailable" Visibility="Collapsed"
                  Text="{Binding Path=LocalizedResources.TimetableNotAvailable, Source={StaticResource LocalizedStrings}}" />
-      <ScrollViewer VerticalScrollBarVisibility="Auto" x:Name="scrollViewerTimetable">
+      <ScrollViewer VerticalScrollBarVisibility="Auto" x:Name="scrollViewerTimetable" Background="Red">
         <Grid x:Name="gridMainTimetable">
           <Grid.ColumnDefinitions>
             <ColumnDefinition x:Name="columnNames" />
@@ -67,7 +67,7 @@
           </Grid.ColumnDefinitions>
 
 
-          <ListBox Grid.Column="0" x:Name="listBoxNames">
+          <ListBox Grid.Column="0" x:Name="listBoxNames" Background="Yellow">
             <ListBox.Template>
               <ControlTemplate TargetType="ListBox">
                 <ItemsPresenter />
