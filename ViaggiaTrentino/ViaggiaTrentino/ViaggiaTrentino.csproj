@@ -120,6 +120,7 @@
     <Compile Include="Converters\ParkingToSlotsConverter.cs" />
     <Compile Include="Converters\ItineraryToDateTimeStringConverter.cs" />
     <Compile Include="Converters\LegListToImageListConverter.cs" />
+    <Compile Include="Helpers\LocationChooserHelper.cs" />
     <Compile Include="SmartCampusAutoCompleteBox.cs" />
     <Compile Include="Helpers\DistanceHelper.cs" />
     <Compile Include="Helpers\MapHelper.cs" />
@@ -157,6 +158,9 @@
     <Compile Include="ViewModels\TestPageViewModel.cs" />
     <Compile Include="Views\AboutPageView.xaml.cs">
       <DependentUpon>AboutPageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\FavouritePlaceControl.xaml.cs">
+      <DependentUpon>FavouritePlaceControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Controls\FavouritePlaceView.xaml.cs">
       <DependentUpon>FavouritePlaceView.xaml</DependentUpon>
@@ -275,7 +279,6 @@
     <Content Include="Assets\AppBar\Save.png" />
     <Content Include="Assets\ApplicationIcon.png" />
     <Content Include="Assets\Buttons\Favourites.png" />
-    <Content Include="Assets\Buttons\GetDirections.png" />
     <Content Include="Assets\Buttons\GpsLocation.png" />
     <Content Include="Assets\HubTiles\Urbano.png" />
     <Content Include="Assets\HubTiles\Parking.png" />
@@ -291,6 +294,7 @@
     <Content Include="Assets\Misc\AppLogo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Misc\MapLocation.png" />
     <Content Include="Assets\Misc\StopPushPin.png" />
     <Content Include="Assets\SmallTile.png" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
@@ -421,6 +425,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Views\AboutPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Controls\FavouritePlaceControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -106,9 +106,9 @@
                                    DataContext="{Binding JourneySettings}"></vtcon:UserSettingsView>
         </StackPanel>
       </ScrollViewer>
-    </Grid> 
-    <bab:BindableAppBar>
-      <bab:BindableAppBarButton IsEnabled="{Binding IsAppbarShown}" IconUri="/Assets/AppBar/check.png" x:Name="PlanNewJourney"
+    </Grid>
+    <bab:BindableAppBar IsVisible="{Binding IsAppBarShown}">
+      <bab:BindableAppBarButton IconUri="/Assets/AppBar/check.png" x:Name="PlanNewJourney"
                                 Text="{Binding Path=LocalizedResources.PlanConfirm, Source={StaticResource LocalizedStrings}}"/>
     </bab:BindableAppBar>
   </Grid>
