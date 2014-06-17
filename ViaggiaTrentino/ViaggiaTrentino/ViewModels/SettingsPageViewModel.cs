@@ -24,11 +24,12 @@ using Windows.Phone.Devices.Notification;
 
 namespace ViaggiaTrentino.ViewModels
 {
-  public class SettingsPageViewModel : Screen
+  public class SettingsPageViewModel : Screen, IHandle<Position>, IHandle<Pushpin>
   {
     private readonly INavigationService navigationService;
     private readonly IEventAggregator eventAggregator;
     private ObservableCollection<Position> posFavourite;
+    Popup pu;
     FileStorageHelper fsh;
     FavouritePlaceView fpv;
 
@@ -38,6 +39,7 @@ namespace ViaggiaTrentino.ViewModels
       this.eventAggregator = eventAggregator;
       posFavourite = new ObservableCollection<Position>();
       fsh = new FileStorageHelper();
+      pu = new Popup();
     }
 
     public bool LocationConsent
@@ -51,6 +53,11 @@ namespace ViaggiaTrentino.ViewModels
       }
     }
 
+    protected override void OnDeactivate(bool close)
+    {
+      base.OnDeactivate(close);
+      eventAggregator.Unsubscribe(this);
+    }
 
     public ObservableCollection<Position> FavPositions
     {
@@ -65,11 +72,13 @@ namespace ViaggiaTrentino.ViewModels
     protected override void OnViewLoaded(object view)
     {
       base.OnViewLoaded(view);
+      eventAggregator.Subscribe(this);
       string poses = fsh.ReadFile("favourites.pos");
       if (poses != null)
         FavPositions = new ObservableCollection<Position>(JsonConvert.DeserializeObject<List<Position>>(poses));
     }
 
+    
     public void BarAdd()
     {
       fpv = new FavouritePlaceView();
@@ -85,19 +94,44 @@ namespace ViaggiaTrentino.ViewModels
     void mpSmall_Completed(object sender, PopUpEventArgs<string, PopUpResult> e)
     {
       //do stuff with fpv.SelectedPosition
-      FavPositions.Add(fpv.SelectedPosition);
+      if (e.PopUpResult == PopUpResult.Ok)
+      {
+        FavPositions.Add(fpv.SelectedPosition);
+        fsh.WriteFile("favourites.pos", JsonConvert.SerializeObject(FavPositions.ToArray()), true);
+      }
+    }
+
+    //override 
+
+    public void Handle(Position message)
+    {
+      FavPositions.Remove(message);
       fsh.WriteFile("favourites.pos", JsonConvert.SerializeObject(FavPositions.ToArray()), true);
     }
 
-    public void deleteFavourite()
+    public void Handle(Pushpin message)
     {
-    }
+      Map favMap = new Map();
+      MapLayer favMapLayer = new MapLayer();
+      MapOverlay favMapOverlay = new MapOverlay();
 
-    public void deleteFavourite(object sender)
-    {
-      //FavPositions.Remove(
-      var a = (sender as MenuItem).Tag;
-    }
+      favMapOverlay.Content = message;
+      favMapOverlay.GeoCoordinate = message.GeoCoordinate;
 
+      favMapLayer.Add(favMapOverlay);
+      favMap.Layers.Add(favMapLayer);
+
+      favMap.Height = Application.Current.Host.Content.ActualHeight;
+      favMap.Width = Application.Current.Host.Content.ActualWidth;
+      favMap.Center = message.GeoCoordinate;
+      favMap.ZoomLevel = 15;
+
+      MessagePrompt mp = new MessagePrompt();
+      mp.Style = Application.Current.Resources["mpNoBorders"] as Style;
+      mp.Body = favMap;
+      //mp.ActionPopUpButtons.Clear();
+      mp.Show();
+    
+    }   
   }
 }

@@ -62,19 +62,7 @@
             </ListBox.ItemContainerStyle>
             <ListBox.ItemTemplate>
               <DataTemplate>
-                <Grid>
-                  <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                  </Grid.ColumnDefinitions>
-                  <TextBlock Grid.Column="0" Text="{Binding Name}" FontSize="{StaticResource PhoneFontSizeMedium}">
-                    <toolkit:ContextMenuService.ContextMenu>
-                      <toolkit:ContextMenu DataContext="{Binding Path=DataContext, ElementName=lstBxPos}">
-                        <toolkit:MenuItem cal:Message.Attach="deleteFavourite($source)" Tag="{Binding Path=SelectedItem, ElementName=lstBxPos}" Header="{Binding Path=LocalizedResources.Delete, Source={StaticResource LocalizedStrings}}"></toolkit:MenuItem>
-                      </toolkit:ContextMenu>
-                    </toolkit:ContextMenuService.ContextMenu>
-                  </TextBlock>
-                </Grid>
+                <vtcont:FavouritePlaceControl/>
               </DataTemplate>
             </ListBox.ItemTemplate>
           </ListBox>

@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:cffToolkit="clr-namespace:Coding4Fun.Toolkit.Controls;assembly=Coding4Fun.Toolkit.Controls"
     xmlns:vt="clr-namespace:ViaggiaTrentino"
     xmlns:vtconverters="clr-namespace:ViaggiaTrentino.Converters">
 
@@ -19,7 +20,31 @@
         <TextBlock  Text="{Binding Name}" TextWrapping="Wrap" Margin="0,5,0,5"></TextBlock>
       </DataTemplate>
 
-    
+    <Style x:Key="mpNoBorders" TargetType="cffToolkit:MessagePrompt">
+      <Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilyNormal}"/>
+      <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeNormal}"/>
+      <Setter Property="Foreground" Value="{StaticResource PhoneForegroundBrush}"/>
+      <Setter Property="Background" Value="{StaticResource PhoneChromeBrush}"/>
+      <Setter Property="Template">
+        <Setter.Value>
+          <ControlTemplate TargetType="cffToolkit:MessagePrompt">
+            <Grid>
+              
+                <StackPanel>
+                 
+                  <ContentPresenter 
+									Content="{TemplateBinding Body}"
+									Margin="0, 10"
+									/>
+                </StackPanel>
+              
+            </Grid>
+          </ControlTemplate>
+        </Setter.Value>
+      </Setter>
+    </Style>
+
+
     <Style x:Key="ListBoxItemNoSelectionStyle" TargetType="ListBoxItem">
       <Setter Property="Background" Value="Transparent"/>
       <Setter Property="BorderThickness" Value="0"/>
