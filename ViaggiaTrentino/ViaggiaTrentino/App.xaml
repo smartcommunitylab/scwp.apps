@@ -11,7 +11,6 @@
   <Application.Resources>
     <local:LocalizedStrings xmlns:local="clr-namespace:ViaggiaTrentino" x:Key="LocalizedStrings"/>
     <vt:Settings x:Key="vtSettings" />
-    <vtconverters:DebuggingConverter x:Key="debuggingConverter" />
     <vt:Bootstrapper x:Key="bootstrapper" />
 
 
