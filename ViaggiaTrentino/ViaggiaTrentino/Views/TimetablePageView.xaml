@@ -42,6 +42,8 @@
 
   <phone:PhoneApplicationPage.Resources>
     <vtconvert:RouteBackgroungColorToForegroundColorConverter x:Name="backgroundToForegroundColor" />
+    <cal:BooleanToVisibilityConverter x:Name="boolToVisibility" />
+    <vtconvert:BooleanToReversedVisibilityConverter x:Name="boolToNotVisibility" />
   </phone:PhoneApplicationPage.Resources>
 
 
@@ -57,9 +59,9 @@
     </StackPanel>
 
     <StackPanel x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-      <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="txtNoAvailable" Visibility="Collapsed"
+      <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="txtNoAvailable" Visibility="{Binding NoResults, Converter={StaticResource boolToVisibility}}"
                  Text="{Binding Path=LocalizedResources.TimetableNotAvailable, Source={StaticResource LocalizedStrings}}" />
-      <ScrollViewer VerticalScrollBarVisibility="Auto" x:Name="scrollViewerTimetable" Background="Red">
+      <ScrollViewer VerticalScrollBarVisibility="Auto" x:Name="scrollViewerTimetable">
         <Grid x:Name="gridMainTimetable">
           <Grid.ColumnDefinitions>
             <ColumnDefinition x:Name="columnNames" />
@@ -67,7 +69,7 @@
           </Grid.ColumnDefinitions>
 
 
-          <ListBox Grid.Column="0" x:Name="listBoxNames" Background="Yellow">
+          <ListBox Grid.Column="0" x:Name="listBoxNames" Visibility="{Binding NoResults, Converter={StaticResource boolToNotVisibility}}">
             <ListBox.Template>
               <ControlTemplate TargetType="ListBox">
                 <ItemsPresenter />
@@ -81,7 +83,8 @@
             </ListBox.ItemTemplate>
           </ListBox>
           <ScrollViewer Grid.Column="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
-            <StackPanel x:Name="stackPanelTimetable" Orientation="Horizontal" toolkit:TurnstileFeatherEffect.FeatheringIndex="0"/>
+            <StackPanel x:Name="stackPanelTimetable" Visibility="{Binding NoResults, Converter={StaticResource boolToNotVisibility}}"
+                        Orientation="Horizontal" toolkit:TurnstileFeatherEffect.FeatheringIndex="0"/>
           </ScrollViewer>
 
         </Grid>

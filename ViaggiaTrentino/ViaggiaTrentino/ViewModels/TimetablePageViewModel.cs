@@ -20,7 +20,7 @@ namespace ViaggiaTrentino.ViewModels
     private readonly IEventAggregator eventAggregator;
     private AgencyType agencyID;
     private DateTime currentDate;
-    private bool enableAppBar;
+    private bool enableAppBar, noResults;
     private string routeIDWitDirection, nameID, description, color;
     private ObservableCollection<DBManager.DBModels.RouteName> routeNames;
     DBManager.DBModels.RouteName selectedRouteName;
@@ -30,6 +30,7 @@ namespace ViaggiaTrentino.ViewModels
     {
       this.navigationService = navigationService;
       this.eventAggregator = eventAggregator;
+      NoResults = false;
     }
 
     #region Properties
@@ -117,6 +118,15 @@ namespace ViaggiaTrentino.ViewModels
       }
     }
 
+    public bool NoResults
+    {
+      get { return noResults; }
+      private set
+      {
+        noResults = value;
+        NotifyOfPropertyChange(() => NoResults);
+      }
+    }
     #endregion
 
 
@@ -144,9 +154,11 @@ namespace ViaggiaTrentino.ViewModels
               Stops = JsonConvert.DeserializeObject<List<string>>(timetable.StopsNames),
               StopIds = JsonConvert.DeserializeObject<List<string>>(timetable.StopsIDs),
             });
+            NoResults = false;
           }
           catch
           {
+            NoResults = true;
             eventAggregator.Publish(new CompressedTimetable()
             {
               CompressedTimes = null
@@ -154,23 +166,25 @@ namespace ViaggiaTrentino.ViewModels
           }
         }
         else
-          eventAggregator.Publish(new CompressedTimetable() 
+        {
+          NoResults = true;
+          eventAggregator.Publish(new CompressedTimetable()
           {
             CompressedTimes = null
           });
+        }
       }
+    }
+    protected override void OnInitialize()
+    {
+      base.OnInitialize();
+      CurrentDate = DateTime.Now;
     }
 
     protected override void OnViewLoaded(object view)
     {
       base.OnViewLoaded(view);
       GetTimetableFromDB();
-    }
-
-    protected override void OnInitialize()
-    {
-      base.OnInitialize();
-      CurrentDate = DateTime.Now;
     }
 
     public void Next()

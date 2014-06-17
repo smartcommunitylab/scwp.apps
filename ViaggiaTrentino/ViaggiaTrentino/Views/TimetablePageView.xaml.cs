@@ -55,19 +55,12 @@ namespace ViaggiaTrentino.Views
       
       if (ct.CompressedTimes == null)
       {
-        listBoxNames.Visibility = Visibility.Collapsed;
-        stackPanelTimetable.Visibility = Visibility.Collapsed;
         txtNoAvailable.Padding = new Thickness(0, (ContentPanel.ActualHeight - txtNoAvailable.ActualHeight / 2 - bAppBar.ActualHeight) / 2, 0, 0);
-        txtNoAvailable.Visibility = Visibility.Visible;
 
         ((TimetablePageViewModel)(this.DataContext)).DisableAppBar = true;
       }
       else
       {
-        listBoxNames.Visibility = Visibility.Visible;
-        stackPanelTimetable.Visibility = Visibility.Visible;
-        txtNoAvailable.Visibility = Visibility.Collapsed;
-
         (stackPanelTimetable.Parent as ScrollViewer).ScrollToHorizontalOffset(0);
 
         for (int i = 0; i < ct.StopIds.Count; i++)
