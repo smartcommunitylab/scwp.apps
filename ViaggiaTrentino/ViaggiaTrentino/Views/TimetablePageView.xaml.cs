@@ -34,6 +34,11 @@ namespace ViaggiaTrentino.Views
       eventAggregator.Subscribe(this);
     }
 
+    private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
+    {    
+      txtNoAvailable.Padding = new Thickness(0, (ContentPanel.ActualHeight - txtNoAvailable.ActualHeight / 2 - bAppBar.ActualHeight) / 2, 0, 0);
+    }
+
     private void PhoneApplicationPage_Unloaded(object sender, RoutedEventArgs e)
     {
       eventAggregator.Unsubscribe(this);
@@ -55,8 +60,6 @@ namespace ViaggiaTrentino.Views
       
       if (ct.CompressedTimes == null)
       {
-        txtNoAvailable.Padding = new Thickness(0, (ContentPanel.ActualHeight - txtNoAvailable.ActualHeight / 2 - bAppBar.ActualHeight) / 2, 0, 0);
-
         ((TimetablePageViewModel)(this.DataContext)).DisableAppBar = true;
       }
       else
@@ -81,7 +84,7 @@ namespace ViaggiaTrentino.Views
     {
       ((TimetablePageViewModel)(this.DataContext)).DisableAppBar = true;
 
-      if (txtNoAvailable.Visibility == Visibility.Visible)
+      if (((TimetablePageViewModel)(this.DataContext)).NoResults)
         return;
 
 

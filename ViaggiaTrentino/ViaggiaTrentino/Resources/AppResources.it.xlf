@@ -500,6 +500,14 @@
           <source>delete</source>
           <target state="new">delete</target>
         </trans-unit>
+        <trans-unit id="Resx/MessageBoxNetworkErrorTitle" translate="yes" xml:space="preserve">
+          <source>Network Error</source>
+          <target state="new">Network Error</target>
+        </trans-unit>
+        <trans-unit id="Resx/MessageBoxNetworkErrorBody" translate="yes" xml:space="preserve">
+          <source>Could not connect to smartcampuslab servers. Check your internet connection and try again.</source>
+          <target state="new">Could not connect to smartcampuslab servers. Check your internet connection and try again.</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -488,4 +488,10 @@
   <data name="Delete" xml:space="preserve">
     <value>delete</value>
   </data>
+  <data name="MessageBoxNetworkErrorBody" xml:space="preserve">
+    <value>Could not connect to smartcampuslab servers. Check your internet connection and try again.</value>
+  </data>
+  <data name="MessageBoxNetworkErrorTitle" xml:space="preserve">
+    <value>Network Error</value>
+  </data>
 </root>

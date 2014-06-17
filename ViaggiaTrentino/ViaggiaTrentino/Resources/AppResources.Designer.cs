@@ -331,6 +331,24 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Could not connect to smartcampuslab servers. Check your internet connection and try again..
+        /// </summary>
+        public static string MessageBoxNetworkErrorBody {
+            get {
+                return ResourceManager.GetString("MessageBoxNetworkErrorBody", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Network Error.
+        /// </summary>
+        public static string MessageBoxNetworkErrorTitle {
+            get {
+                return ResourceManager.GetString("MessageBoxNetworkErrorTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Always.
         /// </summary>
         public static string MonitorJourneyAlways {

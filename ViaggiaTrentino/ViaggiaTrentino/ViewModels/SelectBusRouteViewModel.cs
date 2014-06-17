@@ -20,6 +20,7 @@ using System.Windows.Controls;
 using ViaggiaTrentino.Views.Controls;
 using Newtonsoft.Json;
 using System;
+using System.Net.Http;
 
 namespace ViaggiaTrentino.ViewModels
 {
@@ -130,20 +131,26 @@ namespace ViaggiaTrentino.ViewModels
     public async Task<List<POIObject>> RetrieveAllStops(double[] coordinates, double radius, string[] agencyIds)
     {
       til = new TerritoryInformationLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
-
+      List<POIObject> results = null;
       Dictionary<string, object> criteria = new Dictionary<string, object>();
       criteria.Add("source", "smartplanner-transitstops");
       criteria.Add("customData.agencyId", agencyIds);
-      
-      List<POIObject> results = await til.ReadPlaces(new FilterObject()
+      try
       {
-        SkipFirstElements = 0,
-        NumberOfResults = -1,
-        Categories = new List<string>() { "Mobility" },
-        MongoFilters = criteria,
-        Coordinates = new double[2] { coordinates[0], coordinates[1] },
-        Radius = radius
-      });
+        results = await til.ReadPlaces(new FilterObject()
+        {
+          SkipFirstElements = 0,
+          NumberOfResults = -1,
+          Categories = new List<string>() { "Mobility" },
+          MongoFilters = criteria,
+          Coordinates = new double[2] { coordinates[0], coordinates[1] },
+          Radius = radius
+        });
+      }
+      catch(HttpRequestException hre)
+      {
+        MessageBox.Show(Resources.AppResources.MessageBoxNetworkErrorBody, Resources.AppResources.MessageBoxNetworkErrorTitle, MessageBoxButton.OK);
+      }
       return results;
     }
 
