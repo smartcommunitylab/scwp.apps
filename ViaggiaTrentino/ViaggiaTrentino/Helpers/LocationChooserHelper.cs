@@ -60,6 +60,7 @@ namespace ViaggiaTrentino.Helpers
 
     void mp_Completed(object sender, PopUpEventArgs<string, PopUpResult> e)
     {
+
       MessagePrompt mp = sender as MessagePrompt;
       switch (mp.Value)
       {
@@ -67,6 +68,7 @@ namespace ViaggiaTrentino.Helpers
         case "openMap": ShowMappaGrande(); break;
         default: break;
       }
+            
     }
 
     private async void GeneratePushpinForAssegna()
@@ -79,19 +81,27 @@ namespace ViaggiaTrentino.Helpers
 
     #region Map popup
 
-    public void ShowMappaGrande()
+    private void ShowMappaGrande()
     {
-      hugeMap = new MessagePrompt();
-      hugeMap.Style = Application.Current.Resources["mpNoBorders"] as Style;
-      Map ggm = new Map();
-      hugeMap.Body = ggm;
+      Map ggm = new Map();      
       ggm.ZoomLevel = 15;
       ggm.Center = Settings.GPSPosition;
       ggm.Height = Application.Current.Host.Content.ActualHeight;
       ggm.Width = Application.Current.Host.Content.ActualWidth;
       ggm.Hold += ggm_Hold;
-      hugeMap.Show();
 
+      hugeMap = new MessagePrompt();
+      hugeMap.Completed += hugeMap_Completed;
+      hugeMap.Style = Application.Current.Resources["mpNoBorders"] as Style;
+      hugeMap.Body = ggm;
+      hugeMap.Show();
+    
+    }
+
+    void hugeMap_Completed(object sender, PopUpEventArgs<string, PopUpResult> e)
+    {
+      if (hugeMap.Value != "yes")
+        PositionObtained(this, null);
     }
 
     async void ggm_Hold(object sender, System.Windows.Input.GestureEventArgs e)
@@ -119,12 +129,13 @@ namespace ViaggiaTrentino.Helpers
     {
       if (MessageBox.Show((sender as Pushpin).Content as string, AppResources.ChooseConfirmTitle, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
       {
+        hugeMap.Value = "yes";
         hugeMap.Hide();
         Assegna((sender as Pushpin));
       }
     }
 
-    public void Assegna(Pushpin result)
+    private void Assegna(Pushpin result)
     {
       Position choosenPos = new Position()
       {
@@ -148,6 +159,7 @@ namespace ViaggiaTrentino.Helpers
       modeChooser.Title = null;
       modeChooser.Body = new SelectLocationView(modeChooser);
       modeChooser.Completed += mp_Completed;
+      modeChooser.IsAppBarVisible = false;
       modeChooser.Show();
     }
 

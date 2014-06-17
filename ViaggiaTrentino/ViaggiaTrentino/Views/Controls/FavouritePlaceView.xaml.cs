@@ -39,8 +39,11 @@ namespace ViaggiaTrentino.Views.Controls
 
     void lch_PositionObtained(object sender, Position results)
     {
-      smartCampusACB.Tag = results;
-      smartCampusACB.Text = results.Name;
+      if (results != null)
+      {
+        smartCampusACB.Tag = results;
+        smartCampusACB.Text = results.Name;
+      }
     }
 
   
