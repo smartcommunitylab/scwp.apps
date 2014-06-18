@@ -1,13 +1,17 @@
 ﻿using Caliburn.Micro;
+using Coding4Fun.Toolkit.Controls;
+using Microsoft.Phone.Maps.Controls;
 using Microsoft.Phone.Shell;
 using MobilityServiceLibrary;
 using Models.MobilityService.Journeys;
 using System;
 using System.Collections.Generic;
+using System.Device.Location;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using ViaggiaTrentino.Helpers;
 using ViaggiaTrentino.Resources;
 
 namespace ViaggiaTrentino.ViewModels
@@ -17,7 +21,7 @@ namespace ViaggiaTrentino.ViewModels
     private readonly INavigationService navigationService;
     UserRouteLibrary urLib;
     BasicItinerary basIti;
-
+    GooglePolyline gplHelp;
 
     public BasicItinerary Journey
     {
@@ -34,12 +38,18 @@ namespace ViaggiaTrentino.ViewModels
       Journey = PhoneApplicationService.Current.State["journey"] as BasicItinerary;
       PhoneApplicationService.Current.State.Remove("journey");
       urLib = new UserRouteLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
+      gplHelp = new GooglePolyline();
     }
 
     protected override void OnViewLoaded(object view)
     {
       base.OnViewLoaded(view);
 
+    }
+
+    public void DisplayPolylineMap(Leg dataContext)
+    {
+      gplHelp.ShowMapWithPath(dataContext.LegGeometryInfo.Points);     
     }
 
     public async void BarMonitor()

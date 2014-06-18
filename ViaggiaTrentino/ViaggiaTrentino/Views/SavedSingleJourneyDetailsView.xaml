@@ -7,6 +7,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
     xmlns:bab="clr-namespace:Caliburn.Micro.BindableAppBar;assembly=Caliburn.Micro.BindableAppBar"
     xmlns:converters="clr-namespace:ViaggiaTrentino.Converters"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
@@ -96,7 +97,7 @@
               
               <ListBox.ItemTemplate>
                 <DataTemplate>
-                  <Grid>
+                  <Grid cal:Message.Attach="[Event Tap] = [Action DisplayPolylineMap($dataContext)]">
                     <Grid.ColumnDefinitions>
                       <ColumnDefinition Width="Auto" />
                       <ColumnDefinition Width="*" />

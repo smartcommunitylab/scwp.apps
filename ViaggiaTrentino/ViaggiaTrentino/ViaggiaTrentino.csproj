@@ -96,6 +96,7 @@
     <Compile Include="Converters\DebuggingConverter.cs" />
     <Compile Include="Converters\LongListSelectorItemToColorConverter.cs" />
     <Compile Include="Helpers\FileStorageHelper.cs" />
+    <Compile Include="Helpers\GooglePolyline.cs" />
     <Compile Include="Helpers\KeyedList.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
