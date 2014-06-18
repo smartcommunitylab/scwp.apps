@@ -16,6 +16,7 @@ using System.ComponentModel;
 using System.Threading;
 using ViaggiaTrentino.ViewModels;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 
 namespace ViaggiaTrentino.Views
 {
@@ -24,6 +25,7 @@ namespace ViaggiaTrentino.Views
     private readonly IEventAggregator eventAggregator;
     private BackgroundWorker bw;
     private StackPanel stackPanelCenter;
+    bool hasType;
 
     public TimetablePageView()
     {
@@ -65,7 +67,14 @@ namespace ViaggiaTrentino.Views
       else
       {
         (stackPanelTimetable.Parent as ScrollViewer).ScrollToHorizontalOffset(0);
-
+        if (ct.TripIds != null)
+          hasType = true;
+        if (hasType)
+          listBoxNames.Items.Add(new TextBlock()
+            {
+              Foreground = new SolidColorBrush(Colors.Red),
+              Text = "Line type" 
+            });
         for (int i = 0; i < ct.StopIds.Count; i++)
         {
           listBoxNames.Items.Add(ct.Stops[i]);
@@ -105,7 +114,7 @@ namespace ViaggiaTrentino.Views
       stackPanelCenter = null;
       List<string> results = new List<string>();
       int i = 0;
-
+      int j =0;
       /* 
        * Looks like we always ignored the last column. Here's what was happening:
        * - only 8 charachters (2 times)
@@ -119,9 +128,20 @@ namespace ViaggiaTrentino.Views
       {
         if (results.Count == ct.Stops.Count)
         {
-          worker.ReportProgress(i, results);
+          if (hasType)
+          {
+            var regex = new Regex("^[a-zA-Z]*");
+            var xRegexResult = regex.Match(ct.TripIds[j]).Value;
+            List<string> newRess = new List<string>();
+            newRess.Add(xRegexResult);
+            newRess.AddRange(results);
+            results = newRess;
+            j++;
+          }
+
+          worker.ReportProgress(i, results);          
           Thread.Sleep(50);
-          results = new List<string>();
+          results = new List<string>();          
         }
         if (ct.CompressedTimes[i] == '|')
         {
@@ -142,12 +162,22 @@ namespace ViaggiaTrentino.Views
 
       StackPanel sp = new StackPanel();
       List<string> vari = e.UserState as List<string>;
-
+      int indexToUse = 0;
+      if (hasType)
+      {
+        sp.Children.Add(new TextBlock()
+        {
+          Margin = new Thickness(10, 3, 10, 3),
+          Text = vari[0],
+          HorizontalAlignment = System.Windows.HorizontalAlignment.Center
+        });
+        indexToUse++;
+      }
       //select the closest trip time
-      if (DateTime.Now.ToString("HH:mm").CompareTo(vari[0]) != -1 && vari[0] != "")
+      if (DateTime.Now.ToString("HH:mm").CompareTo(vari[indexToUse]) != -1 && vari[indexToUse] != "")
         stackPanelCenter = sp;
 
-      for (int k = 0; k < vari.Count; k++)
+      for (int k = indexToUse; k < vari.Count; k++)
       {
         sp.Children.Add(new TextBlock()
         {
