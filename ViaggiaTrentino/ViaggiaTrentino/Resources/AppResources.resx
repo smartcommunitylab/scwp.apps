@@ -500,4 +500,49 @@
   <data name="TimeTablePageLineType" xml:space="preserve">
     <value>Line type</value>
   </data>
+  <data name="AboutPageCollab" xml:space="preserve">
+    <value>In collaborazione con il Comune di Trento</value>
+  </data>
+  <data name="AboutPageDevel" xml:space="preserve">
+    <value>L'applicazione è stata sviluppata dal progetto SmartCampus</value>
+  </data>
+  <data name="AboutPageInfo" xml:space="preserve">
+    <value>Informazione sulla mobilità integrata di Trento e dei comuni trentini</value>
+  </data>
+  <data name="AboutPagePart" xml:space="preserve">
+    <value>Con la partecipazione del Consorzio dei Comuni Trentini</value>
+  </data>
+  <data name="AboutPageRateApp" xml:space="preserve">
+    <value>rate me!</value>
+  </data>
+  <data name="AboutPageThird" xml:space="preserve">
+    <value>third party</value>
+  </data>
+  <data name="AboutPageThirdParty" xml:space="preserve">
+    <value>This application includes the following third party software:</value>
+  </data>
+  <data name="MainpageAbout" xml:space="preserve">
+    <value>about</value>
+  </data>
+  <data name="MainpageLogin" xml:space="preserve">
+    <value>login</value>
+  </data>
+  <data name="MainpageSettings" xml:space="preserve">
+    <value>settings</value>
+  </data>
+  <data name="MainpageTour" xml:space="preserve">
+    <value>tour</value>
+  </data>
+  <data name="SavedJourneyMonitorToggle" xml:space="preserve">
+    <value>toggle monitor</value>
+  </data>
+  <data name="SelBusRouteDirection" xml:space="preserve">
+    <value>Select direction</value>
+  </data>
+  <data name="SettingsPageAddPlace" xml:space="preserve">
+    <value>add place</value>
+  </data>
+  <data name="SettingsPageLocation" xml:space="preserve">
+    <value>Location service</value>
+  </data>
 </root>

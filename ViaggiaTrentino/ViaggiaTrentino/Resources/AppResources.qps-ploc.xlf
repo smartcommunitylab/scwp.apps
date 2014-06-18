@@ -512,6 +512,66 @@
           <source>Line type</source>
           <target state="new">Line type</target>
         </trans-unit>
+        <trans-unit id="Resx/AboutPageThirdParty" translate="yes" xml:space="preserve">
+          <source>This application includes the following third party software:</source>
+          <target state="new">This application includes the following third party software:</target>
+        </trans-unit>
+        <trans-unit id="Resx/AboutPagePart" translate="yes" xml:space="preserve">
+          <source>Con la partecipazione del Consorzio dei Comuni Trentini</source>
+          <target state="new">Con la partecipazione del Consorzio dei Comuni Trentini</target>
+        </trans-unit>
+        <trans-unit id="Resx/AboutPageThird" translate="yes" xml:space="preserve">
+          <source>third party</source>
+          <target state="new">third party</target>
+        </trans-unit>
+        <trans-unit id="Resx/AboutPageRateApp" translate="yes" xml:space="preserve">
+          <source>rate me!</source>
+          <target state="new">rate me!</target>
+        </trans-unit>
+        <trans-unit id="Resx/AboutPageInfo" translate="yes" xml:space="preserve">
+          <source>Informazione sulla mobilità integrata di Trento e dei comuni trentini</source>
+          <target state="new">Informazione sulla mobilità integrata di Trento e dei comuni trentini</target>
+        </trans-unit>
+        <trans-unit id="Resx/AboutPageDevel" translate="yes" xml:space="preserve">
+          <source>L'applicazione è stata sviluppata dal progetto SmartCampus</source>
+          <target state="new">L'applicazione è stata sviluppata dal progetto SmartCampus</target>
+        </trans-unit>
+        <trans-unit id="Resx/AboutPageCollab" translate="yes" xml:space="preserve">
+          <source>In collaborazione con il Comune di Trento</source>
+          <target state="new">In collaborazione con il Comune di Trento</target>
+        </trans-unit>
+        <trans-unit id="Resx/SettingsPageLocation" translate="yes" xml:space="preserve">
+          <source>Location service</source>
+          <target state="new">Location service</target>
+        </trans-unit>
+        <trans-unit id="Resx/SettingsPageAddPlace" translate="yes" xml:space="preserve">
+          <source>add place</source>
+          <target state="new">add place</target>
+        </trans-unit>
+        <trans-unit id="Resx/SelBusRouteDirection" translate="yes" xml:space="preserve">
+          <source>Select direction</source>
+          <target state="new">Select direction</target>
+        </trans-unit>
+        <trans-unit id="Resx/SavedJourneyMonitorToggle" translate="yes" xml:space="preserve">
+          <source>toggle monitor</source>
+          <target state="new">toggle monitor</target>
+        </trans-unit>
+        <trans-unit id="Resx/MainpageTour" translate="yes" xml:space="preserve">
+          <source>tour</source>
+          <target state="new">tour</target>
+        </trans-unit>
+        <trans-unit id="Resx/MainpageSettings" translate="yes" xml:space="preserve">
+          <source>settings</source>
+          <target state="new">settings</target>
+        </trans-unit>
+        <trans-unit id="Resx/MainpageLogin" translate="yes" xml:space="preserve">
+          <source>login</source>
+          <target state="new">login</target>
+        </trans-unit>
+        <trans-unit id="Resx/MainpageAbout" translate="yes" xml:space="preserve">
+          <source>about</source>
+          <target state="new">about</target>
+        </trans-unit>
         <trans-unit id="Resx/MessageBoxNetworkErrorBody" translate="yes" xml:space="preserve">
           <source>Could not connect to smartcampuslab servers. Check your internet connection and try again.</source>
           <target state="needs-review-translation" state-qualifier="mt-suggestion">[DD2DC][!!_Ċôúľđ ήòţ čòηйęĉţ τó śmářτĉámþùšľàъ śêřνęřŝ. Ċĥêćĸ ýóµř íйťęѓήéť ċôηήęčтîõй âήď τŗÿ ãğáîй._!!!!!!!!!!!!!!!!!!!!!!!!!!!!]</target>

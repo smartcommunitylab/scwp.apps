@@ -83,7 +83,7 @@
                                     FontSize="{StaticResource PhoneFontSizeExtraExtraLarge}" VerticalAlignment="Center" FontWeight="Medium"/>
 
 
-      <TextBlock FontWeight="SemiBold" Text="Select direction:" Margin="5,15,5,15" Grid.Row="1"/>
+      <TextBlock FontWeight="SemiBold" Text="{Binding Path=LocalizedResources.SelBusRouteDirection, Source={StaticResource LocalizedStrings}}" Margin="5,15,5,15" Grid.Row="1"/>
       <ListBox ItemsSource="{Binding RouteDirections}" Grid.Row="2" ItemContainerStyle="{StaticResource ListBoxItemNoSelectionStyle}" >
         <ListBox.Template>
           <ControlTemplate TargetType="ListBox">

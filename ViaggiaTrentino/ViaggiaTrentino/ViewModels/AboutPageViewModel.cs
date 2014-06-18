@@ -1,9 +1,12 @@
 ﻿using Caliburn.Micro;
+using Microsoft.Phone.Controls;
+using Microsoft.Phone.Tasks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ViaggiaTrentino.Resources;
 
 namespace ViaggiaTrentino.ViewModels
 {
@@ -14,7 +17,31 @@ namespace ViaggiaTrentino.ViewModels
     public AboutPageViewModel(INavigationService navigationService)
     {
       this.navigationService = navigationService;
+    }
 
+    public void ThirdAbout()
+    {
+      StringBuilder sb = new StringBuilder();
+      sb.AppendLine("• Microsoft HttpClient");
+      sb.AppendLine("• Newtonsoft JSON.NET");
+      sb.AppendLine("• Caliburn Micro framework");
+      sb.AppendLine("• Coding4Fun toolkit");
+      sb.AppendLine("• SQLite for Windows Phone");
+
+      CustomMessageBox cmb = new CustomMessageBox()
+      {
+        Caption = AppResources.AboutPageThird,
+        Message = AppResources.AboutPageThirdParty,
+        Content = sb.ToString(),
+        LeftButtonContent = AppResources.ValidationBtnOk
+      };
+      cmb.Show();
+    }
+
+    public void RateApp()
+    {
+      MarketplaceReviewTask marketplaceReviewTask = new MarketplaceReviewTask();
+      marketplaceReviewTask.Show();
     }
   }
 }

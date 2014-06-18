@@ -6,6 +6,7 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:bab="clr-namespace:Caliburn.Micro.BindableAppBar;assembly=Caliburn.Micro.BindableAppBar"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -51,40 +52,34 @@
     <!--ContentPanel - place additional content here-->
     <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
       <StackPanel>
-        <Grid>
+        <Grid Margin="0,0,0,10">
           <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="155" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
           </Grid.ColumnDefinitions>
-          <StackPanel Grid.Column="0">
-            <Image Source="/Assets/Misc/AppLogo.png" >
-            </Image>
-          </StackPanel>
-          <StackPanel Margin="5,0,0,0" Grid.Column="1" VerticalAlignment="Center" >
-            <TextBlock TextWrapping="Wrap" Text="ViaggiaTrentino" FontSize="22" FontWeight="SemiBold"></TextBlock>
-            <TextBlock TextWrapping="Wrap" Text="lorem"></TextBlock>
-            <TextBlock TextWrapping="Wrap" Text="Application coded by "></TextBlock>
-          </StackPanel>
+          <Image Grid.Column="0" Source="/Assets/Misc/LogoProvincia.png"/>
+          <Image Grid.Column="1" Source="/Assets/Misc/LogoConsorzio.png"/>
+          <Image Grid.Column="2" Source="/Assets/Misc/LogoSmartcamp.png"/>
+
         </Grid>
-        <TextBlock TextWrapping="Wrap" Margin="0,10,0,0" Text="Third party software:" FontSize="22" FontWeight="SemiBold"></TextBlock>
-
-        <TextBlock TextWrapping="Wrap" Text="Includes Newtonsoft's JSON.NET library"></TextBlock>
-        <TextBlock TextWrapping="Wrap" Text="Includes Coding4Fun's Controls library"></TextBlock>
-        <TextBlock TextWrapping="Wrap" Text="Includes Jeff Wilcox's Phone Theme manager"></TextBlock>
-        <TextBlock TextWrapping="Wrap" Text="Includes Syncfusion's MetroStudio icons"></TextBlock>
-
-        <TextBlock TextWrapping="Wrap" Margin="0,20,0,0" Text="Additional thankyou:" FontSize="22" FontWeight="SemiBold"></TextBlock>
-
-        <TextBlock TextWrapping="Wrap" Text="such"></TextBlock>
-        <TextBlock TextWrapping="Wrap" Text="much"></TextBlock>
-        <TextBlock TextWrapping="Wrap" Text="wow"></TextBlock>
-
-
+        <TextBlock  Text="{Binding Path=LocalizedResources.AboutPageInfo, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}"
+                    TextWrapping="Wrap" />
+        <TextBlock  Text="{Binding Path=LocalizedResources.AboutPageDevel, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}"
+                    TextWrapping="Wrap"/>
+        <HyperlinkButton  HorizontalAlignment="Left" Content="www.smartcampuslab.it" />
+        <TextBlock  Text="{Binding Path=LocalizedResources.AboutPageCollab, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}"
+                    TextWrapping="Wrap"/>
+        <HyperlinkButton HorizontalAlignment="Left" Content="www.comune.trento.it" />
+        <TextBlock  Text="{Binding Path=LocalizedResources.AboutPagePart, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}"
+                    TextWrapping="Wrap"/>
+        <HyperlinkButton HorizontalAlignment="Left" Content="www.innovazione.comunitrentini.tn.it" />
       </StackPanel>
     </Grid>
-    <Grid.Background>
-      <ImageBrush ImageSource="/ILB;component/appBg.png" Stretch="Fill" />
-    </Grid.Background>
+    <bab:BindableAppBar>
+      <bab:BindableAppBarButton IconUri="/Assets/AppBar/moreinfo.png" x:Name="ThirdAbout" Text="{Binding Path=LocalizedResources.AboutPageThird, Source={StaticResource LocalizedStrings}}" />
+      <bab:BindableAppBarButton IconUri="/Assets/AppBar/Store.png" x:Name="RateApp" Text="{Binding Path=LocalizedResources.AboutPageRateApp, Source={StaticResource LocalizedStrings}}" />
+    </bab:BindableAppBar>
   </Grid>
 
 </phone:PhoneApplicationPage>

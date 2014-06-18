@@ -70,6 +70,69 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to In collaborazione con il Comune di Trento.
+        /// </summary>
+        public static string AboutPageCollab {
+            get {
+                return ResourceManager.GetString("AboutPageCollab", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to L&apos;applicazione è stata sviluppata dal progetto SmartCampus.
+        /// </summary>
+        public static string AboutPageDevel {
+            get {
+                return ResourceManager.GetString("AboutPageDevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Informazione sulla mobilità integrata di Trento e dei comuni trentini.
+        /// </summary>
+        public static string AboutPageInfo {
+            get {
+                return ResourceManager.GetString("AboutPageInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Con la partecipazione del Consorzio dei Comuni Trentini.
+        /// </summary>
+        public static string AboutPagePart {
+            get {
+                return ResourceManager.GetString("AboutPagePart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to rate me!.
+        /// </summary>
+        public static string AboutPageRateApp {
+            get {
+                return ResourceManager.GetString("AboutPageRateApp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to third party.
+        /// </summary>
+        public static string AboutPageThird {
+            get {
+                return ResourceManager.GetString("AboutPageThird", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This application includes the following third party software:.
+        /// </summary>
+        public static string AboutPageThirdParty {
+            get {
+                return ResourceManager.GetString("AboutPageThirdParty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ViaggiaTrentino.
         /// </summary>
         public static string ApplicationTitle {
@@ -291,6 +354,42 @@ namespace ViaggiaTrentino.Resources {
         public static string JourneyNameTit {
             get {
                 return ResourceManager.GetString("JourneyNameTit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to about.
+        /// </summary>
+        public static string MainpageAbout {
+            get {
+                return ResourceManager.GetString("MainpageAbout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to login.
+        /// </summary>
+        public static string MainpageLogin {
+            get {
+                return ResourceManager.GetString("MainpageLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to settings.
+        /// </summary>
+        public static string MainpageSettings {
+            get {
+                return ResourceManager.GetString("MainpageSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to tour.
+        /// </summary>
+        public static string MainpageTour {
+            get {
+                return ResourceManager.GetString("MainpageTour", resourceCulture);
             }
         }
         
@@ -655,6 +754,15 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to toggle monitor.
+        /// </summary>
+        public static string SavedJourneyMonitorToggle {
+            get {
+                return ResourceManager.GetString("SavedJourneyMonitorToggle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Journeys.
         /// </summary>
         public static string SavedJourneysJourneyPivot {
@@ -678,6 +786,15 @@ namespace ViaggiaTrentino.Resources {
         public static string SavedJourneysTitle {
             get {
                 return ResourceManager.GetString("SavedJourneysTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select direction.
+        /// </summary>
+        public static string SelBusRouteDirection {
+            get {
+                return ResourceManager.GetString("SelBusRouteDirection", resourceCulture);
             }
         }
         
@@ -736,11 +853,29 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to add place.
+        /// </summary>
+        public static string SettingsPageAddPlace {
+            get {
+                return ResourceManager.GetString("SettingsPageAddPlace", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to My locations.
         /// </summary>
         public static string SettingsPageFavs {
             get {
                 return ResourceManager.GetString("SettingsPageFavs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Location service.
+        /// </summary>
+        public static string SettingsPageLocation {
+            get {
+                return ResourceManager.GetString("SettingsPageLocation", resourceCulture);
             }
         }
         

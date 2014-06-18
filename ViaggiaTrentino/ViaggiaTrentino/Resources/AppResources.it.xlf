@@ -498,23 +498,83 @@
         </trans-unit>
         <trans-unit id="Resx/Delete" translate="yes" xml:space="preserve">
           <source>delete</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">eliminare</target>
+          <target state="translated">elimina</target>
         </trans-unit>
         <trans-unit id="Resx/MessageBoxNetworkErrorTitle" translate="yes" xml:space="preserve">
           <source>Network Error</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">Errore di rete</target>
+          <target state="translated" state-qualifier="mt-suggestion">Errore di rete</target>
         </trans-unit>
         <trans-unit id="Resx/TrainLinesTitle" translate="yes" xml:space="preserve">
           <source>Train lines</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">Linee del treno</target>
+          <target state="translated" state-qualifier="mt-suggestion">Linee del treno</target>
         </trans-unit>
         <trans-unit id="Resx/TimeTablePageLineType" translate="yes" xml:space="preserve">
           <source>Line type</source>
-          <target state="new">Line type</target>
+          <target state="translated">Tipo di linea</target>
         </trans-unit>
+        <trans-unit id="Resx/AboutPageThirdParty" translate="yes" xml:space="preserve">
+          <source>This application includes the following third party software:</source>
+          <target state="translated">Questa applicazione include i seguenti software di terze parti:</target>
+        </trans-unit>
+        <trans-unit id="Resx/AboutPagePart" translate="yes" xml:space="preserve">
+          <source>Con la partecipazione del Consorzio dei Comuni Trentini</source>
+          <target state="translated" state-qualifier="mt-suggestion">Con la partecipazione del Consorzio dei Comuni Trentini</target>
+        </trans-unit>
+        <trans-unit id="Resx/AboutPageThird" translate="yes" xml:space="preserve">
+          <source>third party</source>
+          <target state="translated">terze parti</target>
+        </trans-unit>
+        <trans-unit id="Resx/AboutPageRateApp" translate="yes" xml:space="preserve">
+          <source>rate me!</source>
+          <target state="translated">votami!</target>
+        </trans-unit>
+        <trans-unit id="Resx/AboutPageInfo" translate="yes" xml:space="preserve">
+          <source>Informazione sulla mobilità integrata di Trento e dei comuni trentini</source>
+          <target state="translated" state-qualifier="mt-suggestion">Informazione sulla mobilità integrata di Trento e dei comuni trentini</target>
+        </trans-unit>
+        <trans-unit id="Resx/AboutPageDevel" translate="yes" xml:space="preserve">
+          <source>L'applicazione è stata sviluppata dal progetto SmartCampus</source>
+          <target state="translated" state-qualifier="mt-suggestion">L'applicazione è stata sviluppata dal progetto SmartCampus</target>
+        </trans-unit>
+        <trans-unit id="Resx/AboutPageCollab" translate="yes" xml:space="preserve">
+          <source>In collaborazione con il Comune di Trento</source>
+          <target state="translated" state-qualifier="mt-suggestion">In collaborazione con il Comune di Trento</target>
+        </trans-unit>
+        <trans-unit id="Resx/SettingsPageLocation" translate="yes" xml:space="preserve">
+          <source>Location service</source>
+          <target state="translated">Servizio di localizzazione</target>
+        </trans-unit>
+        <trans-unit id="Resx/SettingsPageAddPlace" translate="yes" xml:space="preserve">
+          <source>add place</source>
+          <target state="translated">Aggiungi località</target>
+          </trans-unit>
+        <trans-unit id="Resx/SelBusRouteDirection" translate="yes" xml:space="preserve">
+          <source>Select direction</source>
+          <target state="translated" state-qualifier="mt-suggestion">Selezionare la direzione</target>
+        </trans-unit>
+        <trans-unit id="Resx/SavedJourneyMonitorToggle" translate="yes" xml:space="preserve">
+          <source>toggle monitor</source>
+          <target state="translated">attiva/disattiva monitoraggio</target>
+          </trans-unit>
+        <trans-unit id="Resx/MainpageTour" translate="yes" xml:space="preserve">
+          <source>tour</source>
+          <target state="translated">guida</target>
+          </trans-unit>
+        <trans-unit id="Resx/MainpageSettings" translate="yes" xml:space="preserve">
+          <source>settings</source>
+          <target state="translated">impostazioni</target>
+          </trans-unit>
+        <trans-unit id="Resx/MainpageLogin" translate="yes" xml:space="preserve">
+          <source>login</source>
+          <target state="translated">login</target>
+          </trans-unit>
+        <trans-unit id="Resx/MainpageAbout" translate="yes" xml:space="preserve">
+          <source>about</source>
+          <target state="translated">informazioni su</target>
+          </trans-unit>
         <trans-unit id="Resx/MessageBoxNetworkErrorBody" translate="yes" xml:space="preserve">
           <source>Could not connect to smartcampuslab servers. Check your internet connection and try again.</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">Impossibile connettersi al server di smartcampuslab. Controllare la connessione a internet e riprovare.</target>
+          <target state="translated" state-qualifier="mt-suggestion">Impossibile connettersi al server di smartcampuslab. Controllare la connessione a internet e riprovare.</target>
         </trans-unit>
       </group>
     </body>
