@@ -73,7 +73,9 @@ namespace ViaggiaTrentino.Views
           listBoxNames.Items.Add(new TextBlock()
             {
               Foreground = new SolidColorBrush(Colors.Red),
-              Text = "Line type" 
+              FontWeight = FontWeights.SemiBold,
+              Text = AppResources.TimeTablePageLineType,
+              Margin = new Thickness(0,3,0,5)
             });
         for (int i = 0; i < ct.StopIds.Count; i++)
         {
@@ -167,8 +169,9 @@ namespace ViaggiaTrentino.Views
       {
         sp.Children.Add(new TextBlock()
         {
-          Margin = new Thickness(10, 3, 10, 3),
+          Margin = new Thickness(10, 3, 10, 5),
           Text = vari[0],
+          FontWeight = FontWeights.SemiBold,
           HorizontalAlignment = System.Windows.HorizontalAlignment.Center
         });
         indexToUse++;

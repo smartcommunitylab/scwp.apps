@@ -497,4 +497,7 @@
   <data name="TrainLinesTitle" xml:space="preserve">
     <value>Train lines</value>
   </data>
+  <data name="TimeTablePageLineType" xml:space="preserve">
+    <value>Line type</value>
+  </data>
 </root>

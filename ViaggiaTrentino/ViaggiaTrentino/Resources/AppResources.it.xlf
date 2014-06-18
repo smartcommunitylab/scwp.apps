@@ -498,19 +498,23 @@
         </trans-unit>
         <trans-unit id="Resx/Delete" translate="yes" xml:space="preserve">
           <source>delete</source>
-          <target state="new">delete</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">eliminare</target>
         </trans-unit>
         <trans-unit id="Resx/MessageBoxNetworkErrorTitle" translate="yes" xml:space="preserve">
           <source>Network Error</source>
-          <target state="new">Network Error</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Errore di rete</target>
         </trans-unit>
         <trans-unit id="Resx/TrainLinesTitle" translate="yes" xml:space="preserve">
           <source>Train lines</source>
-          <target state="new">Train lines</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Linee del treno</target>
+        </trans-unit>
+        <trans-unit id="Resx/TimeTablePageLineType" translate="yes" xml:space="preserve">
+          <source>Line type</source>
+          <target state="new">Line type</target>
         </trans-unit>
         <trans-unit id="Resx/MessageBoxNetworkErrorBody" translate="yes" xml:space="preserve">
           <source>Could not connect to smartcampuslab servers. Check your internet connection and try again.</source>
-          <target state="new">Could not connect to smartcampuslab servers. Check your internet connection and try again.</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Impossibile connettersi al server di smartcampuslab. Controllare la connessione a internet e riprovare.</target>
         </trans-unit>
       </group>
     </body>

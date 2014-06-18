@@ -125,124 +125,365 @@
     <value>it</value>
     <comment>Controls the Language and ensures that the font for all elements in the RootFrame aligns with the app's language. Set to the language code of this resource file's language.</comment>
   </data>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-<data name="ApplicationTitle" xml:space="preserve"><value>ViaggiaTrentino</value></data><data name="TilePlanJourneyMessage" xml:space="preserve"><value>Pianificare un viaggio</value></data><data name="TilePlanJourneyTitle" xml:space="preserve"><value>Pianifica viaggio</value></data><data name="TilePlanRecurrentJourneyMessage" xml:space="preserve"><value>Pianificare un viaggio ricorrente</value></data><data name="TilePlanRecurrentJourneyTitle" xml:space="preserve"><value>Monitoraggio tratte abituali</value></data><data name="TileReadNotificationsMessage" xml:space="preserve"><value>Tutte le tue notifiche</value></data><data name="TileReadNotificationsTitle" xml:space="preserve"><value>Leggi notifiche</value></data><data name="TileRealTimeInfoMessage" xml:space="preserve"><value>Mostra informazioni in tempo reale</value></data><data name="TileRealTimeInfoTitle" xml:space="preserve"><value>Info tempo reale</value></data><data name="TileSavedJourneysMessage" xml:space="preserve"><value>Il miei viaggi salvati</value></data><data name="TileSavedJourneysTitle" xml:space="preserve"><value>Viaggi salvati</value></data><data name="TileSubmitAlertMessage" xml:space="preserve"><value>Invia una segnalazione</value></data><data name="TileSubmitAlertTitle" xml:space="preserve"><value>Invia segnalazioni</value></data><data name="MainViewTitle" xml:space="preserve"><value>ViaggiaTrentino</value></data><data name="RealTimeInfoViewTitle" xml:space="preserve"><value>Informazioni in tempo reale</value></data><data name="GeneralSettingsBike" xml:space="preserve"><value>Bici</value></data><data name="GeneralSettingsCar" xml:space="preserve"><value>Auto</value></data><data name="GeneralSettingsFastest" xml:space="preserve"><value>Più veloce</value></data><data name="GeneralSettingsFewestChanges" xml:space="preserve"><value>Con meno cambi</value></data><data name="GeneralSettingsLeastWalking" xml:space="preserve"><value>Minimo tragitto a piedi</value></data><data name="GeneralSettingsPrefRoute" xml:space="preserve"><value>Tragitto preferito</value></data><data name="GeneralSettingsSharedBike" xml:space="preserve"><value>Bici condivisa</value></data><data name="GeneralSettingsSharedCar" xml:space="preserve"><value>Car sharing</value></data><data name="GeneralSettingsTransit" xml:space="preserve"><value>Mezzi pubblici</value></data><data name="GeneralSettingsTransportation" xml:space="preserve"><value>Come vuoi viaggiare?</value></data><data name="GeneralSettingsWalking" xml:space="preserve"><value>A piedi</value></data><data name="SavedJourneyDetailsDelete" xml:space="preserve"><value>Elimina</value></data><data name="SavedJourneyDetailsMonitorOff" xml:space="preserve"><value>Disabilitare il monitoraggio</value></data><data name="SavedJourneyDetailsMonitorOn" xml:space="preserve"><value>Attivare il monitoraggio</value></data><data name="SavedJourneysJourneyPivot" xml:space="preserve"><value>Viaggi</value></data><data name="SavedJourneysMonitoringPivot" xml:space="preserve"><value>Monitoraggi</value></data><data name="SavedJourneysTitle" xml:space="preserve"><value>Viaggi salvati</value></data><data name="SettingsPageFavs" xml:space="preserve"><value>I miei luoghi</value></data><data name="SettingsPagePrefs" xml:space="preserve"><value>Preferenze viaggio</value></data><data name="SettingsPageTitle" xml:space="preserve"><value>Impostazioni</value></data><data name="ParkingsPageMapPivot" xml:space="preserve"><value>Mappa</value></data><data name="ParkingsPageParkingPivot" xml:space="preserve"><value>Parcheggi</value></data><data name="ParkingsPageTitle" xml:space="preserve"><value>Info tempo reale</value></data><data name="TileExtraurbanoMessage" xml:space="preserve"><value>Trentino External Bus</value></data><data name="TileExtraurbanoTitle" xml:space="preserve"><value>Trentino Bus</value></data><data name="TileParkingMessage" xml:space="preserve"><value>Parcheggi</value></data><data name="TileParkingTitle" xml:space="preserve"><value>Parcheggi</value></data><data name="TileRoveretoBusMessage" xml:space="preserve"><value>Orario autobus di Rovereto</value></data><data name="TileRoveretoBusTitle" xml:space="preserve"><value>Urbano Rovereto</value></data><data name="TileTrainMessage" xml:space="preserve"><value>Orario treni</value></data><data name="TileTrainTitle" xml:space="preserve"><value>Treni</value></data><data name="TileTrentoBusMessage" xml:space="preserve"><value>Orario autobus di Trento</value></data><data name="TileTrentoBusTitle" xml:space="preserve"><value>Urbano Trento</value></data><data name="MonitorJourneyAlways" xml:space="preserve"><value>Sempre</value></data><data name="MonitorJourneyLoc" xml:space="preserve"><value>Posizione</value></data><data name="MonitorJourneyPrefs" xml:space="preserve"><value>Mostra preferenze</value></data><data name="MonitorJourneySched" xml:space="preserve"><value>Giorni</value></data><data name="MonitorJourneyTimeSpan" xml:space="preserve"><value>Quando</value></data><data name="MonitorJourneyTitle" xml:space="preserve"><value>Monitoraggio</value></data><data name="PlanSingleJourneyDeparture" xml:space="preserve"><value>Quando</value></data><data name="PlanSingleJourneyHintFrom" xml:space="preserve"><value>Da...</value></data><data name="PlanSingleJourneyHintTo" xml:space="preserve"><value>A...</value></data><data name="PlanSingleJourneyLoc" xml:space="preserve"><value>Dove</value></data><data name="PlanSingleJourneyPrefs" xml:space="preserve"><value>Mostra preferenze</value></data><data name="PlanSingleJourneyTitle" xml:space="preserve"><value>Pianifica viaggio</value></data><data name="ParkingsSlotsFull" xml:space="preserve"><value>completo</value></data><data name="Off" xml:space="preserve"><value>Off</value></data><data name="On" xml:space="preserve"><value>On</value></data><data name="ParkingPopupCancel" xml:space="preserve"><value>Annulla</value></data><data name="ParkingPopupDirections" xml:space="preserve"><value>Direzioni</value></data><data name="ParkingPopupTitle" xml:space="preserve"><value>Parcheggio</value></data><data name="SelSendAlertInter" xml:space="preserve"><value>Ritardi autobus intercity</value></data><data name="SelSendAlertRv" xml:space="preserve"><value>Ritardi autobus Rovereto</value></data><data name="SelSendAlertTitle" xml:space="preserve"><value>Invio segnalazioni</value></data><data name="SelSendAlertTn" xml:space="preserve"><value>Ritardi autobus di Trento</value></data><data name="SelSendAlertTrain" xml:space="preserve"><value>Ritardi Treno</value></data><data name="SubAlertDelay" xml:space="preserve"><value>Ritardo</value></data><data name="SubAlertRoute" xml:space="preserve"><value>Linea</value></data><data name="SubAlertStop" xml:space="preserve"><value>Fermata</value></data><data name="SubAlertSubmit" xml:space="preserve"><value>Invia</value></data><data name="SubAlertTime" xml:space="preserve"><value>Ora prevista</value></data><data name="DefValueMissing" xml:space="preserve"><value>Dati mancanti</value></data><data name="From" xml:space="preserve"><value>Da</value></data><data name="MonitorStat" xml:space="preserve"><value>Stato monitoraggio:</value></data><data name="To" xml:space="preserve"><value>per</value></data><data name="SureDelete" xml:space="preserve"><value>Sei sicuro di voler eliminare questo elemento?</value></data><data name="Warn" xml:space="preserve"><value>Attenzione</value></data><data name="SureChange" xml:space="preserve"><value>Il viaggio ricorrente è stato modificato. Si desidera salvare le modifiche?</value></data><data name="AboTitle" xml:space="preserve"><value>Informazioni su</value></data><data name="SelectDirection" xml:space="preserve"><value>Selezionare la direzione</value></data><data name="ChooseCurrent" xml:space="preserve"><value>Posizione corrente</value></data><data name="ChooseCurrentLong" xml:space="preserve"><value>Utilizza la posizione GPS del cellulare</value></data><data name="ChoosePoint" xml:space="preserve"><value>Posizione attuale</value></data><data name="ChoosePointLong" xml:space="preserve"><value>Scegliere un punto dalla mappa</value></data><data name="ChooseTitle" xml:space="preserve"><value>Selezionare la posizione</value></data><data name="Next" xml:space="preserve"><value>successivo</value></data><data name="Previous" xml:space="preserve"><value>precedente</value></data><data name="ChooseConfirmTitle" xml:space="preserve"><value>Posizione selezionata:</value></data><data name="TimetableNotAvailable" xml:space="preserve"><value>Nessun elemento trovato</value></data><data name="Today" xml:space="preserve"><value>oggi</value></data><data name="RoutePivot" xml:space="preserve"><value>Linee</value></data><data name="ShowStopTimes" xml:space="preserve"><value>Orario fermate</value></data><data name="MonitorJourneyHeadText" xml:space="preserve"><value>Selezionare le linee per le quali si desidera essere avvisati in caso di ritardo</value></data><data name="ToCapitalT" xml:space="preserve"><value>Verso</value></data><data name="JourneyNameMsg" xml:space="preserve"><value>Immettere un nome per il viaggio</value></data><data name="JourneyNameTit" xml:space="preserve"><value>Nome viaggio</value></data><data name="AppLocationDisabledMessage" xml:space="preserve"><value>L'applicazione necessita dell'autorizzazione per l'accesso alla posizione GPS. Consentire?</value></data><data name="SystemLocationDisabledMessage" xml:space="preserve"><value>Servizi di localizzazione disattivati. Abilitarli nelle impostazioni di sistema</value></data><data name="AppLocationDisabledCaption" xml:space="preserve"><value>Consentire l'utilizzo della posizione GPS da parte dell'applicazione?</value></data><data name="MessageBoxAllow" xml:space="preserve"><value>consenti</value></data><data name="MessageBoxCancel" xml:space="preserve"><value>annulla</value></data><data name="MessageBoxGoToSettings" xml:space="preserve"><value>impostazioni</value></data><data name="SystemLocationDisabledCaption" xml:space="preserve"><value>Questa applicazione richiede l'accesso alla posizione GPS</value></data><data name="ValidationBtnOk" xml:space="preserve"><value>ok</value></data><data name="ValidationCaption" xml:space="preserve"><value>Campi non corretti</value></data><data name="ValidationFrom" xml:space="preserve"><value>Selezionare un punto di partenza</value></data><data name="ValidationMessage" xml:space="preserve"><value>Sono stati rilevati i seguenti errori</value></data><data name="ValidationStartDate" xml:space="preserve"><value>Non è possibile pianificare un viaggio nel passato</value></data><data name="ValidationTimeSpan" xml:space="preserve"><value>La dimensione massima per l'intervallo di tempo è di due ore</value></data><data name="ValidationTo" xml:space="preserve"><value>Selezionare una destinazione</value></data><data name="ValidationTType" xml:space="preserve"><value>È necessario selezionare almeno un tipo di trasporto</value></data><data name="PlanConfirm" xml:space="preserve"><value>vai</value></data><data name="PlanSave" xml:space="preserve"><value>salva</value></data><data name="ValidationSelDays" xml:space="preserve"><value>Selezionare almeno un giorno</value></data><data name="ValidationJTitle" xml:space="preserve"><value>Fornire un nome valido per il viaggio</value></data></root>
+  <data name="ApplicationTitle" xml:space="preserve">
+    <value>ViaggiaTrentino</value>
+  </data>
+  <data name="TilePlanJourneyMessage" xml:space="preserve">
+    <value>Pianificare un viaggio</value>
+  </data>
+  <data name="TilePlanJourneyTitle" xml:space="preserve">
+    <value>Pianifica viaggio</value>
+  </data>
+  <data name="TilePlanRecurrentJourneyMessage" xml:space="preserve">
+    <value>Pianificare un viaggio ricorrente</value>
+  </data>
+  <data name="TilePlanRecurrentJourneyTitle" xml:space="preserve">
+    <value>Monitoraggio tratte abituali</value>
+  </data>
+  <data name="TileReadNotificationsMessage" xml:space="preserve">
+    <value>Tutte le tue notifiche</value>
+  </data>
+  <data name="TileReadNotificationsTitle" xml:space="preserve">
+    <value>Leggi notifiche</value>
+  </data>
+  <data name="TileRealTimeInfoMessage" xml:space="preserve">
+    <value>Mostra informazioni in tempo reale</value>
+  </data>
+  <data name="TileRealTimeInfoTitle" xml:space="preserve">
+    <value>Info tempo reale</value>
+  </data>
+  <data name="TileSavedJourneysMessage" xml:space="preserve">
+    <value>Il miei viaggi salvati</value>
+  </data>
+  <data name="TileSavedJourneysTitle" xml:space="preserve">
+    <value>Viaggi salvati</value>
+  </data>
+  <data name="TileSubmitAlertMessage" xml:space="preserve">
+    <value>Invia una segnalazione</value>
+  </data>
+  <data name="TileSubmitAlertTitle" xml:space="preserve">
+    <value>Invia segnalazioni</value>
+  </data>
+  <data name="MainViewTitle" xml:space="preserve">
+    <value>ViaggiaTrentino</value>
+  </data>
+  <data name="RealTimeInfoViewTitle" xml:space="preserve">
+    <value>Informazioni in tempo reale</value>
+  </data>
+  <data name="GeneralSettingsBike" xml:space="preserve">
+    <value>Bici</value>
+  </data>
+  <data name="GeneralSettingsCar" xml:space="preserve">
+    <value>Auto</value>
+  </data>
+  <data name="GeneralSettingsFastest" xml:space="preserve">
+    <value>Più veloce</value>
+  </data>
+  <data name="GeneralSettingsFewestChanges" xml:space="preserve">
+    <value>Con meno cambi</value>
+  </data>
+  <data name="GeneralSettingsLeastWalking" xml:space="preserve">
+    <value>Minimo tragitto a piedi</value>
+  </data>
+  <data name="GeneralSettingsPrefRoute" xml:space="preserve">
+    <value>Tragitto preferito</value>
+  </data>
+  <data name="GeneralSettingsSharedBike" xml:space="preserve">
+    <value>Bici condivisa</value>
+  </data>
+  <data name="GeneralSettingsSharedCar" xml:space="preserve">
+    <value>Car sharing</value>
+  </data>
+  <data name="GeneralSettingsTransit" xml:space="preserve">
+    <value>Mezzi pubblici</value>
+  </data>
+  <data name="GeneralSettingsTransportation" xml:space="preserve">
+    <value>Come vuoi viaggiare?</value>
+  </data>
+  <data name="GeneralSettingsWalking" xml:space="preserve">
+    <value>A piedi</value>
+  </data>
+  <data name="SavedJourneyDetailsDelete" xml:space="preserve">
+    <value>Elimina</value>
+  </data>
+  <data name="SavedJourneyDetailsMonitorOff" xml:space="preserve">
+    <value>Disabilitare il monitoraggio</value>
+  </data>
+  <data name="SavedJourneyDetailsMonitorOn" xml:space="preserve">
+    <value>Attivare il monitoraggio</value>
+  </data>
+  <data name="SavedJourneysJourneyPivot" xml:space="preserve">
+    <value>Viaggi</value>
+  </data>
+  <data name="SavedJourneysMonitoringPivot" xml:space="preserve">
+    <value>Monitoraggi</value>
+  </data>
+  <data name="SavedJourneysTitle" xml:space="preserve">
+    <value>Viaggi salvati</value>
+  </data>
+  <data name="SettingsPageFavs" xml:space="preserve">
+    <value>I miei luoghi</value>
+  </data>
+  <data name="SettingsPagePrefs" xml:space="preserve">
+    <value>Preferenze viaggio</value>
+  </data>
+  <data name="SettingsPageTitle" xml:space="preserve">
+    <value>Impostazioni</value>
+  </data>
+  <data name="ParkingsPageMapPivot" xml:space="preserve">
+    <value>Mappa</value>
+  </data>
+  <data name="ParkingsPageParkingPivot" xml:space="preserve">
+    <value>Parcheggi</value>
+  </data>
+  <data name="ParkingsPageTitle" xml:space="preserve">
+    <value>Info tempo reale</value>
+  </data>
+  <data name="TileExtraurbanoMessage" xml:space="preserve">
+    <value>Trentino External Bus</value>
+  </data>
+  <data name="TileExtraurbanoTitle" xml:space="preserve">
+    <value>Trentino Bus</value>
+  </data>
+  <data name="TileParkingMessage" xml:space="preserve">
+    <value>Parcheggi</value>
+  </data>
+  <data name="TileParkingTitle" xml:space="preserve">
+    <value>Parcheggi</value>
+  </data>
+  <data name="TileRoveretoBusMessage" xml:space="preserve">
+    <value>Orario autobus di Rovereto</value>
+  </data>
+  <data name="TileRoveretoBusTitle" xml:space="preserve">
+    <value>Urbano Rovereto</value>
+  </data>
+  <data name="TileTrainMessage" xml:space="preserve">
+    <value>Orario treni</value>
+  </data>
+  <data name="TileTrainTitle" xml:space="preserve">
+    <value>Treni</value>
+  </data>
+  <data name="TileTrentoBusMessage" xml:space="preserve">
+    <value>Orario autobus di Trento</value>
+  </data>
+  <data name="TileTrentoBusTitle" xml:space="preserve">
+    <value>Urbano Trento</value>
+  </data>
+  <data name="MonitorJourneyAlways" xml:space="preserve">
+    <value>Sempre</value>
+  </data>
+  <data name="MonitorJourneyLoc" xml:space="preserve">
+    <value>Posizione</value>
+  </data>
+  <data name="MonitorJourneyPrefs" xml:space="preserve">
+    <value>Mostra preferenze</value>
+  </data>
+  <data name="MonitorJourneySched" xml:space="preserve">
+    <value>Giorni</value>
+  </data>
+  <data name="MonitorJourneyTimeSpan" xml:space="preserve">
+    <value>Quando</value>
+  </data>
+  <data name="MonitorJourneyTitle" xml:space="preserve">
+    <value>Monitoraggio</value>
+  </data>
+  <data name="PlanSingleJourneyDeparture" xml:space="preserve">
+    <value>Quando</value>
+  </data>
+  <data name="PlanSingleJourneyHintFrom" xml:space="preserve">
+    <value>Da...</value>
+  </data>
+  <data name="PlanSingleJourneyHintTo" xml:space="preserve">
+    <value>A...</value>
+  </data>
+  <data name="PlanSingleJourneyLoc" xml:space="preserve">
+    <value>Dove</value>
+  </data>
+  <data name="PlanSingleJourneyPrefs" xml:space="preserve">
+    <value>Mostra preferenze</value>
+  </data>
+  <data name="PlanSingleJourneyTitle" xml:space="preserve">
+    <value>Pianifica viaggio</value>
+  </data>
+  <data name="ParkingsSlotsFull" xml:space="preserve">
+    <value>completo</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="On" xml:space="preserve">
+    <value>On</value>
+  </data>
+  <data name="ParkingPopupCancel" xml:space="preserve">
+    <value>Annulla</value>
+  </data>
+  <data name="ParkingPopupDirections" xml:space="preserve">
+    <value>Direzioni</value>
+  </data>
+  <data name="ParkingPopupTitle" xml:space="preserve">
+    <value>Parcheggio</value>
+  </data>
+  <data name="SelSendAlertInter" xml:space="preserve">
+    <value>Ritardi autobus intercity</value>
+  </data>
+  <data name="SelSendAlertRv" xml:space="preserve">
+    <value>Ritardi autobus Rovereto</value>
+  </data>
+  <data name="SelSendAlertTitle" xml:space="preserve">
+    <value>Invio segnalazioni</value>
+  </data>
+  <data name="SelSendAlertTn" xml:space="preserve">
+    <value>Ritardi autobus di Trento</value>
+  </data>
+  <data name="SelSendAlertTrain" xml:space="preserve">
+    <value>Ritardi Treno</value>
+  </data>
+  <data name="SubAlertDelay" xml:space="preserve">
+    <value>Ritardo</value>
+  </data>
+  <data name="SubAlertRoute" xml:space="preserve">
+    <value>Linea</value>
+  </data>
+  <data name="SubAlertStop" xml:space="preserve">
+    <value>Fermata</value>
+  </data>
+  <data name="SubAlertSubmit" xml:space="preserve">
+    <value>Invia</value>
+  </data>
+  <data name="SubAlertTime" xml:space="preserve">
+    <value>Ora prevista</value>
+  </data>
+  <data name="DefValueMissing" xml:space="preserve">
+    <value>Dati mancanti</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>Da</value>
+  </data>
+  <data name="MonitorStat" xml:space="preserve">
+    <value>Stato monitoraggio:</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>per</value>
+  </data>
+  <data name="SureDelete" xml:space="preserve">
+    <value>Sei sicuro di voler eliminare questo elemento?</value>
+  </data>
+  <data name="Warn" xml:space="preserve">
+    <value>Attenzione</value>
+  </data>
+  <data name="SureChange" xml:space="preserve">
+    <value>Il viaggio ricorrente è stato modificato. Si desidera salvare le modifiche?</value>
+  </data>
+  <data name="AboTitle" xml:space="preserve">
+    <value>Informazioni su</value>
+  </data>
+  <data name="SelectDirection" xml:space="preserve">
+    <value>Selezionare la direzione</value>
+  </data>
+  <data name="ChooseCurrent" xml:space="preserve">
+    <value>Posizione corrente</value>
+  </data>
+  <data name="ChooseCurrentLong" xml:space="preserve">
+    <value>Utilizza la posizione GPS del cellulare</value>
+  </data>
+  <data name="ChoosePoint" xml:space="preserve">
+    <value>Posizione attuale</value>
+  </data>
+  <data name="ChoosePointLong" xml:space="preserve">
+    <value>Scegliere un punto dalla mappa</value>
+  </data>
+  <data name="ChooseTitle" xml:space="preserve">
+    <value>Selezionare la posizione</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>successivo</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>precedente</value>
+  </data>
+  <data name="ChooseConfirmTitle" xml:space="preserve">
+    <value>Posizione selezionata:</value>
+  </data>
+  <data name="TimetableNotAvailable" xml:space="preserve">
+    <value>Nessun elemento trovato</value>
+  </data>
+  <data name="Today" xml:space="preserve">
+    <value>oggi</value>
+  </data>
+  <data name="RoutePivot" xml:space="preserve">
+    <value>Linee</value>
+  </data>
+  <data name="ShowStopTimes" xml:space="preserve">
+    <value>Orario fermate</value>
+  </data>
+  <data name="MonitorJourneyHeadText" xml:space="preserve">
+    <value>Selezionare le linee per le quali si desidera essere avvisati in caso di ritardo</value>
+  </data>
+  <data name="ToCapitalT" xml:space="preserve">
+    <value>Verso</value>
+  </data>
+  <data name="JourneyNameMsg" xml:space="preserve">
+    <value>Immettere un nome per il viaggio</value>
+  </data>
+  <data name="JourneyNameTit" xml:space="preserve">
+    <value>Nome viaggio</value>
+  </data>
+  <data name="AppLocationDisabledMessage" xml:space="preserve">
+    <value>L'applicazione necessita dell'autorizzazione per l'accesso alla posizione GPS. Consentire?</value>
+  </data>
+  <data name="SystemLocationDisabledMessage" xml:space="preserve">
+    <value>Servizi di localizzazione disattivati. Abilitarli nelle impostazioni di sistema</value>
+  </data>
+  <data name="AppLocationDisabledCaption" xml:space="preserve">
+    <value>Consentire l'utilizzo della posizione GPS da parte dell'applicazione?</value>
+  </data>
+  <data name="MessageBoxAllow" xml:space="preserve">
+    <value>consenti</value>
+  </data>
+  <data name="MessageBoxCancel" xml:space="preserve">
+    <value>annulla</value>
+  </data>
+  <data name="MessageBoxGoToSettings" xml:space="preserve">
+    <value>impostazioni</value>
+  </data>
+  <data name="SystemLocationDisabledCaption" xml:space="preserve">
+    <value>Questa applicazione richiede l'accesso alla posizione GPS</value>
+  </data>
+  <data name="ValidationBtnOk" xml:space="preserve">
+    <value>ok</value>
+  </data>
+  <data name="ValidationCaption" xml:space="preserve">
+    <value>Campi non corretti</value>
+  </data>
+  <data name="ValidationFrom" xml:space="preserve">
+    <value>Selezionare un punto di partenza</value>
+  </data>
+  <data name="ValidationMessage" xml:space="preserve">
+    <value>Sono stati rilevati i seguenti errori</value>
+  </data>
+  <data name="ValidationStartDate" xml:space="preserve">
+    <value>Non è possibile pianificare un viaggio nel passato</value>
+  </data>
+  <data name="ValidationTimeSpan" xml:space="preserve">
+    <value>La dimensione massima per l'intervallo di tempo è di due ore</value>
+  </data>
+  <data name="ValidationTo" xml:space="preserve">
+    <value>Selezionare una destinazione</value>
+  </data>
+  <data name="ValidationTType" xml:space="preserve">
+    <value>È necessario selezionare almeno un tipo di trasporto</value>
+  </data>
+  <data name="PlanConfirm" xml:space="preserve">
+    <value>vai</value>
+  </data>
+  <data name="PlanSave" xml:space="preserve">
+    <value>salva</value>
+  </data>
+  <data name="ValidationSelDays" xml:space="preserve">
+    <value>Selezionare almeno un giorno</value>
+  </data>
+  <data name="ValidationJTitle" xml:space="preserve">
+    <value>Fornire un nome valido per il viaggio</value>
+  </data>
+  
+<data name="Delete" xml:space="preserve"><value>eliminare</value></data><data name="MessageBoxNetworkErrorTitle" xml:space="preserve"><value>Errore di rete</value></data><data name="TrainLinesTitle" xml:space="preserve"><value>Linee del treno</value></data><data name="MessageBoxNetworkErrorBody" xml:space="preserve"><value>Impossibile connettersi al server di smartcampuslab. Controllare la connessione a internet e riprovare.</value></data></root>

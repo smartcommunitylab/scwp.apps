@@ -1060,6 +1060,15 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Line type.
+        /// </summary>
+        public static string TimeTablePageLineType {
+            get {
+                return ResourceManager.GetString("TimeTablePageLineType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to to.
         /// </summary>
         public static string To {
