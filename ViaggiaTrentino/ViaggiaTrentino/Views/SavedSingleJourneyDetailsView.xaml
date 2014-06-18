@@ -87,7 +87,7 @@
             
             <Line X1="0" X2="1" Stretch="Fill" Stroke="{StaticResource PhoneAccentBrush}"></Line>
 
-            <ListBox MaxHeight="450" ItemsSource="{Binding Journey.Data.Legs}" Margin="0,5,0,5">
+            <ListBox x:Name="listLegsBox" MaxHeight="450" ItemsSource="{Binding Journey.Data.Legs}" Margin="0,5,0,5">
               <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                   <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
@@ -97,7 +97,9 @@
               
               <ListBox.ItemTemplate>
                 <DataTemplate>
-                  <Grid cal:Message.Attach="[Event Tap] = [Action DisplayPolylineMap($dataContext)]">
+                  <!--uncomment line below (and comment the one after) to enable full drawing of the current path-->
+                <Grid cal:Message.Attach="[Event Tap] = [Action DisplayPolylineMap($view)]">
+                  <!--<Grid cal:Message.Attach="[Event Tap] = [Action DisplayPolylineMap($dataContext)]">-->
                     <Grid.ColumnDefinitions>
                       <ColumnDefinition Width="Auto" />
                       <ColumnDefinition Width="*" />

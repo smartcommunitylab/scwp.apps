@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using ViaggiaTrentino.Helpers;
 using ViaggiaTrentino.Resources;
+using ViaggiaTrentino.Views;
 
 namespace ViaggiaTrentino.ViewModels
 {
@@ -47,9 +48,14 @@ namespace ViaggiaTrentino.ViewModels
 
     }
 
-    public void DisplayPolylineMap(Leg dataContext)
+    //public void DisplayPolylineMap(Leg dataContext)
+    //{
+    //  gplHelp.ShowMapWithPath(dataContext.LegGeometryInfo.Points);     
+    //}
+
+    public void DisplayPolylineMap(SavedSingleJourneyDetailsView fullView)
     {
-      gplHelp.ShowMapWithPath(dataContext.LegGeometryInfo.Points);     
+      gplHelp.ShowMapWithFullPath(fullView.listLegsBox.Items, fullView.listLegsBox.SelectedItem as Leg);
     }
 
     public async void BarMonitor()

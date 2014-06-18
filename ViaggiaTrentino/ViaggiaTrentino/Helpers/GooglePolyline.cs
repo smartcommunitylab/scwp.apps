@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace ViaggiaTrentino.Helpers
@@ -97,6 +98,44 @@ namespace ViaggiaTrentino.Helpers
       hugeMap.Style = Application.Current.Resources["mpNoBorders"] as Style;
       hugeMap.Body = ggm;
       hugeMap.Show();
+    }
+
+    public void ShowMapWithFullPath(ItemCollection legs, Leg selectedLeg)
+    {
+      Map ggm = new Map();
+      LocationRectangle locRet = new LocationRectangle();
+      ggm.ZoomLevel = 15;
+      ggm.Height = Application.Current.Host.Content.ActualHeight;
+      ggm.Width = Application.Current.Host.Content.ActualWidth;
+
+      foreach (var gamba in legs)
+      {
+        List<GeoCoordinate> lp = DecodePolylinePoints((gamba as Leg).LegGeometryInfo.Points);
+        MapPolyline mpl = new MapPolyline();
+        mpl.StrokeThickness = 3;
+        
+        foreach (GeoCoordinate p in lp)
+          mpl.Path.Add(p);
+        if (gamba == selectedLeg)
+        {
+          mpl.StrokeColor = Colors.Red;
+          GeoCoordinate NorhWest = new GeoCoordinate( Math.Max(lp[0].Latitude, lp[lp.Count - 1].Latitude), Math.Min(lp[0].Longitude, lp[lp.Count - 1].Longitude) );
+          GeoCoordinate SouthEast = new GeoCoordinate( Math.Min(lp[0].Latitude, lp[lp.Count - 1].Latitude), Math.Max(lp[0].Longitude, lp[lp.Count - 1].Longitude) );
+          locRet = new LocationRectangle(NorhWest, SouthEast);
+          ggm.Center = new GeoCoordinate((lp[0].Latitude + lp[lp.Count - 1].Latitude) / 2,
+                                (lp[0].Longitude + lp[lp.Count - 1].Longitude) / 2);
+        }
+        else
+          mpl.StrokeColor = Colors.Cyan;
+
+        ggm.MapElements.Add(mpl);
+      }     
+
+      MessagePrompt hugeMap = new MessagePrompt();
+      hugeMap.Style = Application.Current.Resources["mpNoBorders"] as Style;
+      hugeMap.Body = ggm;
+      hugeMap.Show();
+      ggm.SetView(locRet);
     }
   }
 }

@@ -105,7 +105,17 @@ namespace ViaggiaTrentino.Views
       stackPanelCenter = null;
       List<string> results = new List<string>();
       int i = 0;
-      while (i < ct.CompressedTimes.Length)
+
+      /* 
+       * Looks like we always ignored the last column. Here's what was happening:
+       * - only 8 charachters (2 times)
+       * first step: i = 0 => if = true, read first 4 chars, set i = 4, results.Count = 1
+       * second step: i = 4 => if = true, read other 4 chars, set i = i + 4, results.Count = 2
+       * third step (here should publish but wait) i = 8 => if false => quit
+       * 
+       * so I changed the while to allow one more last iteration
+       */
+      while (i <= ct.CompressedTimes.Length)
       {
         if (results.Count == ct.Stops.Count)
         {
