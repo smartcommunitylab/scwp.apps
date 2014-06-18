@@ -23,22 +23,27 @@ namespace ViaggiaTrentino.Helpers
 
     MessagePrompt modeChooser;
     MessagePrompt hugeMap;
-
-
-    public LocationChooserHelper()
-    {      
-      
-    }
-
+    
     #region Addresses management
 
+    /// <summary>
+    /// Converts a given GeoCoordinate position (i.e. the result of a GPS fix) into a street address
+    /// </summary>
+    /// <param name="position">a GeoCoordinate object with the desired position</param>
+    /// <returns></returns>
     public Task<string> GetAddressFromGeoCoord(GeoCoordinate position)
     {
+      
       return GetAddressFromGeoCoord(new double[] { position.Latitude, position.Longitude });
     }
 
+    /// <summary>
+    /// Converts a given position, contained in a double array (into a street address
+    /// </summary>
+    /// <param name="position">a two element double array, first element latitude, second longitude</param>
+    /// <returns></returns>
     public async Task<string> GetAddressFromGeoCoord(double[] position)
-    {
+    {      
       ReverseGeocodeQuery reverseGeocode = new ReverseGeocodeQuery();
       reverseGeocode.GeoCoordinate = new GeoCoordinate(position[0], position[1]);
       var t = await reverseGeocode.GetMapLocationsAsync();
@@ -47,6 +52,11 @@ namespace ViaggiaTrentino.Helpers
       else return "";
     }
 
+    /// <summary>
+    /// Formats a MapAddress object into a readable string
+    /// </summary>
+    /// <param name="mapa">the MapAddress object to convert</param>
+    /// <returns>the formatted string</returns>
     private string MapAddressToString(MapAddress mapa)
     {
       string result = string.Format("{0}, {1}, {2}, {4}, {5}", mapa.BuildingName, mapa.Street, mapa.HouseNumber, mapa.City, mapa.PostalCode, mapa.Country);
@@ -135,6 +145,11 @@ namespace ViaggiaTrentino.Helpers
       }
     }
 
+    /// <summary>
+    /// Creates a Position element from the selected position 
+    /// and fires the Positionobtained event
+    /// </summary>
+    /// <param name="result">the pushpin containing the required position</param>
     private void Assegna(Pushpin result)
     {
       Position choosenPos = new Position()
@@ -149,6 +164,9 @@ namespace ViaggiaTrentino.Helpers
 
     #endregion
 
+    /// <summary>
+    /// Shows the dialog screen to select a position
+    /// </summary>
     public void ShowLocationSelectorHelper()
     {
       modeChooser = new MessagePrompt();
