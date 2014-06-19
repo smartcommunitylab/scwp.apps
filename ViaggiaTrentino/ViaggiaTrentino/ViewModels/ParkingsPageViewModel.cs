@@ -36,8 +36,10 @@ namespace ViaggiaTrentino.ViewModels
     protected async override void OnViewLoaded(object view)
     {
       base.OnViewLoaded(view);
+      App.LoadingPopup.Show();
       await Settings.RefreshToken();
       parchi = await publicTransLib.GetParkingsByAgency(Models.MobilityService.AgencyType.ComuneDiTrento);
+      App.LoadingPopup.Hide();
       Parkings = new ObservableCollection<Parking>();
       BackgroundWorker bw = new BackgroundWorker();
       bw.RunWorkerCompleted += bw_RunWorkerCompleted;

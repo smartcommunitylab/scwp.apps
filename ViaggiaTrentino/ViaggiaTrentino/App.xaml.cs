@@ -9,6 +9,7 @@ using Microsoft.Phone.Shell;
 using ViaggiaTrentino.Resources;
 using ViaggiaTrentino.Views.Controls;
 using System.Windows.Controls.Primitives;
+using Coding4Fun.Toolkit.Controls;
 
 namespace ViaggiaTrentino
 {
@@ -16,17 +17,13 @@ namespace ViaggiaTrentino
   {
     public static PhoneApplicationFrame RootFrame { get; private set; }
 
-    private static Popup loadingPopup;
+    private static MessagePrompt loadingPopup;
 
     public App()
     {
       InitializeComponent();
 
-      loadingPopup = new Popup()
-      {
-        Child = new LoadingControl()
-      };
-
+     
       if (Debugger.IsAttached)
       {
         Application.Current.Host.Settings.EnableFrameRateCounter = true;
@@ -39,11 +36,16 @@ namespace ViaggiaTrentino
     {
       public static void Show()
       {
-        loadingPopup.IsOpen = true;
+        loadingPopup = new MessagePrompt()
+        {
+          Style = Application.Current.Resources["mpNoBorders"] as Style,
+          Body = new LoadingControl()
+        };
+        loadingPopup.Show();
       }
       public static void Hide()
       {
-        loadingPopup.IsOpen = false;
+        loadingPopup.Hide();
       }
       public static bool IsShown()
       {

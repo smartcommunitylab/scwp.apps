@@ -45,7 +45,6 @@ namespace ViaggiaTrentino.ViewModels
     protected override void OnViewLoaded(object view)
     {
       base.OnViewLoaded(view);
-
     }
 
     //public void DisplayPolylineMap(Leg dataContext)
@@ -60,17 +59,22 @@ namespace ViaggiaTrentino.ViewModels
 
     public async void BarMonitor()
     {
+      App.LoadingPopup.Show();
       await Settings.RefreshToken();
       Journey.Monitor = await urLib.SetMonitorSingleJourney(basIti.ClientId, !basIti.Monitor);
-      NotifyOfPropertyChange(() => Journey);    
+      NotifyOfPropertyChange(() => Journey);
+      App.LoadingPopup.Hide();
     }
 
     public async void BarDelete()
     {
       if (MessageBox.Show(AppResources.SureDelete, AppResources.Warn, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
       {
+        App.LoadingPopup.Show();
         await Settings.RefreshToken();
-        if (await urLib.DeleteSingleJourney(basIti.ClientId))
+        bool delRes = await urLib.DeleteSingleJourney(basIti.ClientId);
+        App.LoadingPopup.Hide();
+        if (delRes)        
           navigationService.UriFor<SavedJourneyPageViewModel>().Navigate();
       }
     }

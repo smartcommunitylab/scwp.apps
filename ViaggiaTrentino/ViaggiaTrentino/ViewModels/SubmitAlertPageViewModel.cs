@@ -140,26 +140,31 @@ namespace ViaggiaTrentino.ViewModels
         PhoneApplicationService.Current.State["routeNames"] = dbh.GetRoutesNames(EnumConverter.ToEnumString<AgencyType>(agencyID));
       }
 
-      var results = await ptl.GetRoutes(agencyID);
-      //results.Sort();
+      App.LoadingPopup.Show();
+      await Settings.RefreshToken();
+      var results = await ptl.GetRoutes(agencyID);      
       results.Sort();
       Routes = new ObservableCollection<Route>(results);
       SelectedRoute = Routes.FirstOrDefault();
-
+      App.LoadingPopup.Hide();
     }
 
     public async void GetStopsForRoute(Route r)
     {
+      App.LoadingPopup.Show();
       await Settings.RefreshToken();
       Stops = new ObservableCollection<Stop>(await ptl.GetStops(r.RouteId.AgencyId, r.RouteId.Id));
       SelectedStop = Stops.FirstOrDefault();
+      App.LoadingPopup.Hide();
     }
 
     private async void GetStopTimesForStop(Stop value)
     {
+      App.LoadingPopup.Show();
       await Settings.RefreshToken();
       StopTimes = new ObservableCollection<StopTime>(await ptl.GetTimetable(agencyID, selRoute.RouteId.Id, value.StopId));
       SelectedStopTime = StopTimes.FirstOrDefault();
+      App.LoadingPopup.Hide();
     }
 
     public async void SubmitDelay()
@@ -184,7 +189,7 @@ namespace ViaggiaTrentino.ViewModels
         ValidFrom = (DateTime.Now.Ticks - 621355968000000000) / 10000000
 
       };
-
+      
       await Settings.RefreshToken();
       rtul.SignalAlert<AlertDelay>(ad);
       navigationService.UriFor<MainPageViewModel>().Navigate();

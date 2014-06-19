@@ -71,8 +71,10 @@ namespace ViaggiaTrentino.ViewModels
             Monitor = true,
             Name = e.Result
           };
+          App.LoadingPopup.Show();
           await Settings.RefreshToken();
           var resp = await urLib.SaveSingleJourney(basIti);
+          App.LoadingPopup.Hide();
           if (resp is BasicItinerary)
             navigationService.UriFor<MainPageViewModel>().Navigate();
         }

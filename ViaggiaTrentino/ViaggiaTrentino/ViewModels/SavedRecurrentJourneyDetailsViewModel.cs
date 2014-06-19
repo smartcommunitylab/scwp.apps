@@ -85,8 +85,11 @@ namespace ViaggiaTrentino.ViewModels
     {
       if (MessageBox.Show(AppResources.SureDelete, AppResources.Warn, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
       {
+        App.LoadingPopup.Show();
         await Settings.RefreshToken();
-        if (await urLib.DeleteRecurrentJourney(basIti.ClientId))
+        bool delRes = await urLib.DeleteRecurrentJourney(basIti.ClientId);
+        App.LoadingPopup.Hide();
+        if (delRes)
           navigationService.UriFor<SavedJourneyPageViewModel>().Navigate();
       }
     }
