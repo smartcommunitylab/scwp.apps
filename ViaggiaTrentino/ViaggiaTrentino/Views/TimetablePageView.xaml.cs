@@ -52,6 +52,31 @@ namespace ViaggiaTrentino.Views
         e.Cancel = true;
     }
 
+    /*
+     * Handle for the message sent by the TimeTablePageViewModel after the appropriate timetable is loaded from DB
+     * 
+     * if the TripIDs collection is present, add "Line" (or its translation) to the listbox of stop names
+     * Populates listbox containing stop names with available stop names from the database
+     * 
+     * Prepare and start background worker, which parses the compressed timetable times and regenerates the proper
+     * table (from the four-charachter-or-pipe string to a list of strings). 
+     * Each list is the full timetable of a single, unique vehicle.
+     * 
+     * if the TripIDs collection is present, an additional string indicating the type of transport 
+     * (i.e. Regionale, Regionale Veloce, EuroCity, etc) is included at the beginning of each list
+     * 
+     * After a list is completed, the ProgressChanged event is fired by the backgroundWorker
+     * In the function handling this, the freshly created list is converted into a StackPanel and added 
+     * to the horizontal listbox in the page, containing all timetable stackpanels.
+     * 
+     * Time of first departure for the new StackPanel is checked against current time, in order to know which stackpanel is 
+     * the closest to the current hour, and is stored in a separate pointer.
+     * 
+     * After this last population is completed, the horizontal listbox is automatically scrolled to the previously
+     * stored closest-time stackpanel
+     * 
+     */
+
     public void Handle(CompressedTimetable ct)
     {
       scrollViewerTimetable.MaxHeight = ContentPanel.ActualHeight;
@@ -59,6 +84,7 @@ namespace ViaggiaTrentino.Views
     
       stackPanelTimetable.Children.Clear();
       listBoxNames.Items.Clear();
+      
       
       if (ct.CompressedTimes == null)
       {
@@ -91,23 +117,7 @@ namespace ViaggiaTrentino.Views
       }
     }
 
-    void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-    {
-      ((TimetablePageViewModel)(this.DataContext)).DisableAppBar = true;
-
-      if (((TimetablePageViewModel)(this.DataContext)).NoResults)
-        return;
-
-
-      ScrollViewer scroll = stackPanelTimetable.Parent as ScrollViewer;
-      StackPanel stackColumn = stackPanelCenter as StackPanel;
-      var transform = stackColumn.TransformToVisual(scroll).Transform(new Point(0, 0));
-      scroll.ScrollToHorizontalOffset(transform.X);
-
-#if DEBUG
-      Debug.WriteLine((stackColumn.Children[0] as TextBlock).Text);
-#endif
-    }
+    #region Background Worker
 
     void bw_DoWork(object sender, DoWorkEventArgs e)
     {
@@ -164,7 +174,11 @@ namespace ViaggiaTrentino.Views
 
       StackPanel sp = new StackPanel();
       List<string> vari = e.UserState as List<string>;
+      
+      //shifting index to be used as beginning of actual times
       int indexToUse = 0;
+      
+      //check if TripIDs is present (usually trains) and adds an extra line in the beginning
       if (hasType)
       {
         sp.Children.Add(new TextBlock()
@@ -176,10 +190,12 @@ namespace ViaggiaTrentino.Views
         });
         indexToUse++;
       }
+
       //select the closest trip time
       if (DateTime.Now.ToString("HH:mm").CompareTo(vari[indexToUse]) != -1 && vari[indexToUse] != "")
         stackPanelCenter = sp;
 
+      //adds stop times to the stackpanel
       for (int k = indexToUse; k < vari.Count; k++)
       {
         sp.Children.Add(new TextBlock()
@@ -187,9 +203,30 @@ namespace ViaggiaTrentino.Views
           Margin = new Thickness(10, 3, 10, 3),
           Text = vari[k],
         });
-
       }
+
+      //renders the stackpanel
       stackPanelTimetable.Children.Add(sp);
     }
+
+    void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+    {
+      ((TimetablePageViewModel)(this.DataContext)).DisableAppBar = true;
+
+      if (((TimetablePageViewModel)(this.DataContext)).NoResults)
+        return;
+
+      // scrolls to selected position
+      ScrollViewer scroll = stackPanelTimetable.Parent as ScrollViewer;
+      StackPanel stackColumn = stackPanelCenter as StackPanel;
+      var transform = stackColumn.TransformToVisual(scroll).Transform(new Point(0, 0));
+      scroll.ScrollToHorizontalOffset(transform.X);
+
+#if DEBUG
+      Debug.WriteLine((stackColumn.Children[0] as TextBlock).Text);
+#endif
+    }
+
+    #endregion
   }
 }
