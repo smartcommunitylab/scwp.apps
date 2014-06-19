@@ -539,4 +539,7 @@
   <data name="SettingsPageLocation" xml:space="preserve">
     <value>Location service</value>
   </data>
+  <data name="LoadingPanel" xml:space="preserve">
+    <value>Loading...</value>
+  </data>
 </root>

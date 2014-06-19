@@ -122,8 +122,8 @@
         </trans-unit>
         <trans-unit id="Resx/SavedJourneyDetailsDelete" translate="yes" xml:space="preserve">
           <source>delete journey</source>
-          <target state="needs-review-translation">Elimina</target><note from="MultilingualUpdate" priority="2" annotates="source">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
-        </trans-unit>
+          <target state="translated">elimina</target>
+          </trans-unit>
         <trans-unit id="Resx/SavedJourneysJourneyPivot" translate="yes" xml:space="preserve">
           <source>Journeys</source>
           <target state="translated" state-qualifier="mt-suggestion">Viaggi</target>
@@ -358,7 +358,7 @@
         </trans-unit>
         <trans-unit id="Resx/ChoosePoint" translate="yes" xml:space="preserve">
           <source>Point on map</source>
-          <target state="translated">Posizione attuale</target>
+          <target state="translated">Punto sulla mappa</target>
         </trans-unit>
         <trans-unit id="Resx/ChoosePointLong" translate="yes" xml:space="preserve">
           <source>Pick a point from an onscreen map</source>
@@ -535,6 +535,10 @@
         <trans-unit id="Resx/SettingsPageLocation" translate="yes" xml:space="preserve">
           <source>Location service</source>
           <target state="translated">Servizio di localizzazione</target>
+        </trans-unit>
+        <trans-unit id="Resx/LoadingPanel" translate="yes" xml:space="preserve">
+          <source>Loading...</source>
+          <target state="translated">Caricamento...</target>
         </trans-unit>
         <trans-unit id="Resx/SettingsPageAddPlace" translate="yes" xml:space="preserve">
           <source>add place</source>

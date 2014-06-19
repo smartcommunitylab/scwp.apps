@@ -536,6 +536,10 @@
           <source>Location service</source>
           <target state="new">Location service</target>
         </trans-unit>
+        <trans-unit id="Resx/LoadingPanel" translate="yes" xml:space="preserve">
+          <source>Loading...</source>
+          <target state="new">Loading...</target>
+        </trans-unit>
         <trans-unit id="Resx/SettingsPageAddPlace" translate="yes" xml:space="preserve">
           <source>add place</source>
           <target state="new">add place</target>
