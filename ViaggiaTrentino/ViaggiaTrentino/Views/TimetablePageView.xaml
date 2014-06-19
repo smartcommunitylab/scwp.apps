@@ -93,7 +93,9 @@
           </Grid.ColumnDefinitions>
 
 
-          <ListBox Grid.Column="0" x:Name="listBoxNames" Visibility="{Binding NoResults, Converter={StaticResource boolToNotVisibility}}">
+          <ListBox Grid.Column="0" x:Name="listBoxNames" Visibility="{Binding NoResults, Converter={StaticResource boolToNotVisibility}}"
+              ItemContainerStyle="{StaticResource ListBoxItemNoSelectionStyle}" >
+            
             <ListBox.Template>
               <ControlTemplate TargetType="ListBox">
                 <ItemsPresenter />

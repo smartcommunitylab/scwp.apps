@@ -97,7 +97,7 @@
         <ScrollViewer Margin="0,15,0,0">
           <ListBox MaxHeight="450"  ItemsSource="{Binding RecJourney.Legs}" Margin="0,5,0,5">
             <ListBox.ItemContainerStyle>
-              <Style TargetType="ListBoxItem">
+              <Style BasedOn="{StaticResource ListBoxItemNoSelectionStyle}" TargetType="ListBoxItem">
                 <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
                 <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
                 <Setter Property="VerticalContentAlignment" Value="Center"></Setter>

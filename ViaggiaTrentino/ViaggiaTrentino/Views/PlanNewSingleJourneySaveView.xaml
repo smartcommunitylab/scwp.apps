@@ -6,9 +6,10 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:bab="clr-namespace:Caliburn.Micro.BindableAppBar;assembly=Caliburn.Micro.BindableAppBar"
     xmlns:converters="clr-namespace:ViaggiaTrentino.Converters"
+    xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -76,17 +77,17 @@
 
             <Line X1="0" X2="1" Stretch="Fill" Stroke="{StaticResource PhoneAccentBrush}"></Line>
 
-            <ListBox MaxHeight="450" ItemsSource="{Binding PlannedIti.Legs}" Margin="0,5,0,5">
+          <ListBox x:Name="listLegsBox" MaxHeight="400" ItemsSource="{Binding PlannedIti.Legs}" Margin="0,5,0,5" >
               <ListBox.ItemContainerStyle>
-                <Style TargetType="ListBoxItem">
-                  <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+              <Style BasedOn="{StaticResource ListBoxItemNoSelectionStyle}" TargetType="ListBoxItem">
+                <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
                   <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
                 </Style>
               </ListBox.ItemContainerStyle>
               
               <ListBox.ItemTemplate>
                 <DataTemplate>
-                  <Grid ShowGridLines="True">
+                <Grid cal:Message.Attach="[Event Tap] = [Action DisplayPolylineMap($view)]">
                     <Grid.ColumnDefinitions>
                       <ColumnDefinition Width="Auto" />
                       <ColumnDefinition Width="*" />

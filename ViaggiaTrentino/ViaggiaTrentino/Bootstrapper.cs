@@ -35,8 +35,9 @@ namespace ViaggiaTrentino
     protected override void OnStartup(object sender, System.Windows.StartupEventArgs e)
     {
       base.OnStartup(sender, e);
-      Settings.Initialize();
+      Settings.Initialize();      
       DBManagement();
+      App.LoadingPopup.InitializePopup();
     }
 
     protected override void OnActivate(object sender, Microsoft.Phone.Shell.ActivatedEventArgs e)

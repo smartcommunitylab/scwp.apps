@@ -10,13 +10,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using ViaggiaTrentino.Helpers;
 using ViaggiaTrentino.Resources;
+using ViaggiaTrentino.Views;
 
 namespace ViaggiaTrentino.ViewModels
 {
   public class PlanNewSingleJourneySaveViewModel : Screen
   {
     Itinerary iti;
+    GooglePolyline gplHelp;
     UserRouteLibrary urLib;
 
     private readonly INavigationService navigationService;
@@ -25,6 +28,7 @@ namespace ViaggiaTrentino.ViewModels
     {
       this.navigationService = navigationService;
       urLib = new UserRouteLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
+      gplHelp = new GooglePolyline();
       iti = new Itinerary();      
     }
 
@@ -43,6 +47,11 @@ namespace ViaggiaTrentino.ViewModels
         iti = value;
         NotifyOfPropertyChange(() => PlannedIti);
       }
+    }
+
+    public void DisplayPolylineMap(PlanNewSingleJourneySaveView fullView)
+    {
+      gplHelp.ShowMapWithFullPath(fullView.listLegsBox.Items, fullView.listLegsBox.SelectedItem as Leg);
     }
 
     public void BarSave()

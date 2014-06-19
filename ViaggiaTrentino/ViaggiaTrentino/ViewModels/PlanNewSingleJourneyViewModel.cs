@@ -42,7 +42,7 @@ namespace ViaggiaTrentino.ViewModels
     public PlanNewSingleJourneyViewModel(INavigationService navigationService)
     {
       this.navigationService = navigationService;
-      departureDate = DateTime.Now;
+      departureDate = DateTime.Now+ new TimeSpan(0,5,0);
       journey = new SingleJourney();
       isAppBarShown = true;
       to = new Position() { Name = "" };

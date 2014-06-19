@@ -18,17 +18,13 @@ namespace ViaggiaTrentino
     public static PhoneApplicationFrame RootFrame { get; private set; }
 
     //private static MessagePrompt loadingPopup;
-    private static Popup loadingPopup;
 
 
     public App()
     {
       InitializeComponent();
 
-      loadingPopup = new Popup()
-      {
-        Child = new LoadingControl()
-      };
+      
 
       if (Debugger.IsAttached)
       {
@@ -39,6 +35,17 @@ namespace ViaggiaTrentino
     
     public static class LoadingPopup
     {
+      private static Popup loadingPopup;
+
+      // to call after app initialization, so that multilang works
+      public static void InitializePopup()
+      {
+        loadingPopup = new Popup()
+        {
+          Child = new LoadingControl()
+        };
+      }
+
       public static void Show()
       {
         loadingPopup.IsOpen = true;

@@ -23,11 +23,11 @@ namespace ViaggiaTrentino
     private static AuthLibrary authLib;
 
     // bool return is just to have something on which to use a wait when using it
-    public static async Task<bool> RefreshToken()
+    public static async Task<bool> RefreshToken(bool overrideCheck = false)
     {
       try
       {
-        if(IsTokenExpired)
+        if(overrideCheck || IsTokenExpired)
           AppToken = await authLib.RefreshAccessToken();
       }
       catch

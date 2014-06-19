@@ -33,7 +33,7 @@ namespace ViaggiaTrentino.ViewModels
       {
         BarLogin();
       }
-      else await Settings.RefreshToken();
+      else await Settings.RefreshToken(true);
     }
     
 
