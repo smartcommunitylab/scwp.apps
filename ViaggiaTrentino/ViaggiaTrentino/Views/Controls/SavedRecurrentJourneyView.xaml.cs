@@ -10,6 +10,7 @@ using Microsoft.Phone.Shell;
 using MobilityServiceLibrary;
 using Models.MobilityService.Journeys;
 using System.Windows.Media;
+using ViaggiaTrentino.Resources;
 
 namespace ViaggiaTrentino.Views.Controls
 {
@@ -31,13 +32,22 @@ namespace ViaggiaTrentino.Views.Controls
 
     private async void DeleteJourney_Tap(object sender, System.Windows.Input.GestureEventArgs e)
     {
-      if(await urLib.DeleteRecurrentJourney(basIti.ClientId))
-        this.Visibility = System.Windows.Visibility.Collapsed;
+      if (MessageBox.Show(AppResources.SureDelete, AppResources.Warn, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+      {
+        App.LoadingPopup.Show();
+        bool delRes = await urLib.DeleteRecurrentJourney(basIti.ClientId);
+        if (delRes)
+          this.Visibility = System.Windows.Visibility.Collapsed;
+        App.LoadingPopup.Hide();
+      }
     }
 
     private async void MonitorJourney_Tap(object sender, System.Windows.Input.GestureEventArgs e)
     {
+      App.LoadingPopup.Show();
+      await Settings.RefreshToken();
       basIti.Monitor = await urLib.SetMonitorRecurrentJourney(basIti.ClientId, !basIti.Monitor);
+      App.LoadingPopup.Hide();
       this.DataContext = basIti;
       if (basIti.Monitor)
         retMonitor.Fill = new SolidColorBrush(Colors.Green);

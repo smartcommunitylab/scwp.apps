@@ -17,35 +17,42 @@ namespace ViaggiaTrentino
   {
     public static PhoneApplicationFrame RootFrame { get; private set; }
 
-    private static MessagePrompt loadingPopup;
+    //private static MessagePrompt loadingPopup;
+    private static Popup loadingPopup;
+
 
     public App()
     {
       InitializeComponent();
 
-     
+      loadingPopup = new Popup()
+      {
+        Child = new LoadingControl()
+      };
+
       if (Debugger.IsAttached)
       {
         Application.Current.Host.Settings.EnableFrameRateCounter = true;
         PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
       }
-
     }
     
     public static class LoadingPopup
     {
       public static void Show()
       {
-        loadingPopup = new MessagePrompt()
-        {
-          Style = Application.Current.Resources["mpNoBorders"] as Style,
-          Body = new LoadingControl()
-        };
-        loadingPopup.Show();
+        loadingPopup.IsOpen = true;
+        //loadingPopup = new MessagePrompt()
+        //{
+        //  Style = Application.Current.Resources["mpNoBorders"] as Style,
+        //  Body = new LoadingControl()
+        //};
+        //loadingPopup.Show();
       }
       public static void Hide()
       {
-        loadingPopup.Hide();
+        loadingPopup.IsOpen = false;
+        //loadingPopup.Hide();
       }
       public static bool IsShown()
       {

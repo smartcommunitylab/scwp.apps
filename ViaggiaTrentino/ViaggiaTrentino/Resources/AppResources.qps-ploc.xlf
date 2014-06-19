@@ -121,16 +121,8 @@
           <target state="needs-review-translation" state-qualifier="mt-suggestion">[B6E12][!!_Ẃáļкįйĝ_!!]</target>
         </trans-unit>
         <trans-unit id="Resx/SavedJourneyDetailsDelete" translate="yes" xml:space="preserve">
-          <source>Delete journey</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">[293B6][!!_Ďéļèτê ĵôµřиèŷ_!!!!]</target>
-        </trans-unit>
-        <trans-unit id="Resx/SavedJourneyDetailsMonitorOff" translate="yes" xml:space="preserve">
-          <source>Disable monitoring</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">[D3F08][!!_Ďíšâъļę môήíτôŕìиġ_!!!!!!]</target>
-        </trans-unit>
-        <trans-unit id="Resx/SavedJourneyDetailsMonitorOn" translate="yes" xml:space="preserve">
-          <source>Enable monitoring</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">[B883C][!!_Éйáьľé mõηîţõѓįήĝ_!!!!!!]</target>
+          <source>delete journey</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[293B6][!!_Ďéļèτê ĵôµřиèŷ_!!!!]</target><note from="MultilingualUpdate" priority="2" annotates="source">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="Resx/SavedJourneysJourneyPivot" translate="yes" xml:space="preserve">
           <source>Journeys</source>

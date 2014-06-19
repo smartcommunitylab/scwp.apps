@@ -121,16 +121,8 @@
           <target state="translated">A piedi</target>
         </trans-unit>
         <trans-unit id="Resx/SavedJourneyDetailsDelete" translate="yes" xml:space="preserve">
-          <source>Delete journey</source>
-          <target state="translated">Elimina</target>
-        </trans-unit>
-        <trans-unit id="Resx/SavedJourneyDetailsMonitorOff" translate="yes" xml:space="preserve">
-          <source>Disable monitoring</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">Disabilitare il monitoraggio</target>
-        </trans-unit>
-        <trans-unit id="Resx/SavedJourneyDetailsMonitorOn" translate="yes" xml:space="preserve">
-          <source>Enable monitoring</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">Attivare il monitoraggio</target>
+          <source>delete journey</source>
+          <target state="needs-review-translation">Elimina</target><note from="MultilingualUpdate" priority="2" annotates="source">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="Resx/SavedJourneysJourneyPivot" translate="yes" xml:space="preserve">
           <source>Journeys</source>

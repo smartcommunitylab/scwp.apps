@@ -33,13 +33,22 @@ namespace ViaggiaTrentino.Views.Controls
     private async void DeleteJourney_Tap(object sender, System.Windows.Input.GestureEventArgs e)
     {
       if(MessageBox.Show(AppResources.SureDelete, AppResources.Warn, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
-        if(await urLib.DeleteSingleJourney(basIti.ClientId))
+      {
+        App.LoadingPopup.Show();
+        await Settings.RefreshToken();
+        bool delRes = await urLib.DeleteSingleJourney(basIti.ClientId);
+        App.LoadingPopup.Hide();
+        if(delRes)
           this.Visibility = System.Windows.Visibility.Collapsed;
+      }
     }
 
     private async void MonitorJourney_Tap(object sender, System.Windows.Input.GestureEventArgs e)
     {
+      App.LoadingPopup.Show();
+      await Settings.RefreshToken();
       basIti.Monitor = await urLib.SetMonitorSingleJourney(basIti.ClientId, !basIti.Monitor);
+      App.LoadingPopup.Hide();
       this.DataContext = basIti;
       if (basIti.Monitor)
         retMonitor.Fill = new SolidColorBrush(Colors.Green);

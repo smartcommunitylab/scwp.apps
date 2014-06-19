@@ -52,10 +52,10 @@ namespace ViaggiaTrentino.ViewModels
     protected override async void OnViewLoaded(object view)
     {
       base.OnViewLoaded(view);
-      
+
+      App.LoadingPopup.Show();
       recJP = PhoneApplicationService.Current.State["recurrentJourney"] as RecurrentJourneyParameters;
       PhoneApplicationService.Current.State.Remove("recurrentJourney");
-      App.LoadingPopup.Show();
       await Settings.RefreshToken();
       RecurrentJourney rj = await rpLib.PlanRecurrentJourney(recJP);
       Dictionary<string, bool> monitoredLegs = new Dictionary<string, bool>();
@@ -64,10 +64,10 @@ namespace ViaggiaTrentino.ViewModels
         string key = string.Format("{0}_{1}", gambaSemplice.TransportInfo.AgencyId, gambaSemplice.TransportInfo.RouteId);
         monitoredLegs[key] = true;
       }
-      App.LoadingPopup.Hide();
       rj.MonitorLegs = monitoredLegs;
       if (rj != null)
         RecJourney = rj;
+      App.LoadingPopup.Hide();
       
     }
     

@@ -727,29 +727,11 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Delete journey.
+        ///   Looks up a localized string similar to delete journey.
         /// </summary>
         public static string SavedJourneyDetailsDelete {
             get {
                 return ResourceManager.GetString("SavedJourneyDetailsDelete", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Disable monitoring.
-        /// </summary>
-        public static string SavedJourneyDetailsMonitorOff {
-            get {
-                return ResourceManager.GetString("SavedJourneyDetailsMonitorOff", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Enable monitoring.
-        /// </summary>
-        public static string SavedJourneyDetailsMonitorOn {
-            get {
-                return ResourceManager.GetString("SavedJourneyDetailsMonitorOn", resourceCulture);
             }
         }
         

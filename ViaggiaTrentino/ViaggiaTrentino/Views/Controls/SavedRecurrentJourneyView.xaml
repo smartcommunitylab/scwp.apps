@@ -39,9 +39,9 @@
       </Rectangle>
       <toolkit:ContextMenuService.ContextMenu >
         <toolkit:ContextMenu>
-          <toolkit:MenuItem x:Name="DeleteJourney" Tap="DeleteJourney_Tap" Header="delete"></toolkit:MenuItem>
-          <toolkit:MenuItem x:Name="MonitorJourney" Tap="MonitorJourney_Tap" Header="monitor ON/OFF"></toolkit:MenuItem>
-
+          <toolkit:MenuItem x:Name="DeleteJourney" Tap="DeleteJourney_Tap" 
+                            Header="{Binding Path=LocalizedResources.SavedJourneyDetailsDelete, Source={StaticResource LocalizedStrings}}"/>
+          <toolkit:MenuItem x:Name="MonitorJourney" Tap="MonitorJourney_Tap" Header="{Binding Path=LocalizedResources.SavedJourneyMonitorToggle, Source={StaticResource LocalizedStrings}}"/>
         </toolkit:ContextMenu>
       </toolkit:ContextMenuService.ContextMenu>
     </Grid>

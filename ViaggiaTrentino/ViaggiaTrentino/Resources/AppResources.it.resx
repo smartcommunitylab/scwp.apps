@@ -205,13 +205,9 @@
   </data>
   <data name="SavedJourneyDetailsDelete" xml:space="preserve">
     <value>Elimina</value>
-  </data>
-  <data name="SavedJourneyDetailsMonitorOff" xml:space="preserve">
-    <value>Disabilitare il monitoraggio</value>
-  </data>
-  <data name="SavedJourneyDetailsMonitorOn" xml:space="preserve">
-    <value>Attivare il monitoraggio</value>
-  </data>
+  <comment></comment></data>
+  
+  
   <data name="SavedJourneysJourneyPivot" xml:space="preserve">
     <value>Viaggi</value>
   </data>
