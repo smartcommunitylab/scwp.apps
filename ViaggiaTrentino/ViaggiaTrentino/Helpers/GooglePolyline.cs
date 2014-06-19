@@ -13,8 +13,20 @@ using System.Windows.Media;
 
 namespace ViaggiaTrentino.Helpers
 {
+  /// <summary>
+  /// Class that handles Google encoded polyline strings and displays them onto a Bing® Maps control
+  /// 
+  /// Additional reference:
+  /// - Encoding algorithm theory https://developers.google.com/maps/documentation/utilities/polylinealgorithm
+  /// - Decoding algorithm implementation http://www.codeproject.com/Tips/312248/Google-Maps-Direction-API-V-Polyline-Decoder
+  /// </summary>
   public class GooglePolyline
   {
+    /// <summary>
+    /// Converts a google polyline string of encoded points into a list of usable GeoCoordinate objects
+    /// </summary>
+    /// <param name="encodedPoints">an encoded polyline string</param>
+    /// <returns>a list of GeoCoordinate objects</returns>
     private List<GeoCoordinate> DecodePolylinePoints(string encodedPoints)
     {
       if (encodedPoints == null || encodedPoints == "") return null;
@@ -75,7 +87,8 @@ namespace ViaggiaTrentino.Helpers
     }
 
     /// <summary>
-    /// 
+    /// Shows a full screen popup with a map control and a polyline of the provided path.
+    /// The map is centered on the start of the path ant the polyline is of the phone accent color
     /// </summary>
     /// <param name="googlePath">LegGeometryInfo.Points</param>
     public void ShowMapWithPath(string googlePath)
@@ -100,6 +113,13 @@ namespace ViaggiaTrentino.Helpers
       hugeMap.Show();
     }
 
+    /// <summary>
+    ///  Shows a full screen popup with a map control and a polyline of the provided path.
+    ///  The path is extracted from the collection of legs and is drawn using a cyan brush.
+    ///  To highlight the selected leg, it is drawn using a red brush    ///  
+    /// </summary>
+    /// <param name="legs">a list of Leg items, specifically an ItemCollection taken from the Items property of a Listbox</param>
+    /// <param name="selectedLeg">the leg that should be highlighted</param>
     public void ShowMapWithFullPath(ItemCollection legs, Leg selectedLeg)
     {
       Map ggm = new Map();

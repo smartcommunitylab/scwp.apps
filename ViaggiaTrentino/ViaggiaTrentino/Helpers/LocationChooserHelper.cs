@@ -16,6 +16,23 @@ using Windows.Phone.Devices.Notification;
 
 namespace ViaggiaTrentino.Helpers
 {
+  /*
+   * Quick flow of the inner workings of this helper:
+   * 
+   * 1. Page registers to PositionObtained event
+   * 
+   * 2. ShowLocationSelectorHelper() is called. A popup is shown asking how the user wants to obtain
+   * his location, he can choose between GPS fix and point on map
+   * 
+   * 3a. GPS fix => GPS gets current location => PositionObtained event is fired and popup closed
+   * 
+   * 3b Point on map => map is shown, cnetered on last known location => user taps and hold a position =>
+   * => pushpin appears on location + vibration => user taps pushpin => prompt for confirmation of position =>
+   * => PositionObtained event is fired and popup closed. Result is Position instance if the user selected a position,
+   * null otherwise
+   * 
+   * 
+   */
   public class LocationChooserHelper
   {
     public delegate void BatchOperationCompletedHandler(object sender, Position results);
