@@ -22,6 +22,9 @@ namespace ViaggiaTrentino.Helpers
   /// </summary>
   public class GooglePolyline
   {
+    LocationRectangle locRet;
+
+
     /// <summary>
     /// Converts a google polyline string of encoded points into a list of usable GeoCoordinate objects
     /// </summary>
@@ -123,10 +126,10 @@ namespace ViaggiaTrentino.Helpers
     public void ShowMapWithFullPath(ItemCollection legs, Leg selectedLeg)
     {
       Map ggm = new Map();
-      LocationRectangle locRet = new LocationRectangle();
       ggm.ZoomLevel = 15;
       ggm.Height = Application.Current.Host.Content.ActualHeight;
       ggm.Width = Application.Current.Host.Content.ActualWidth;
+      ggm.Loaded += ggm_Loaded;
 
       foreach (var gamba in legs)
       {
@@ -138,10 +141,8 @@ namespace ViaggiaTrentino.Helpers
           mpl.Path.Add(p);
         if (gamba == selectedLeg)
         {
+          locRet = LocationRectangle.CreateBoundingRectangle(lp);
           mpl.StrokeColor = Colors.Red;
-          GeoCoordinate NorhWest = new GeoCoordinate( Math.Max(lp[0].Latitude, lp[lp.Count - 1].Latitude), Math.Min(lp[0].Longitude, lp[lp.Count - 1].Longitude) );
-          GeoCoordinate SouthEast = new GeoCoordinate( Math.Min(lp[0].Latitude, lp[lp.Count - 1].Latitude), Math.Max(lp[0].Longitude, lp[lp.Count - 1].Longitude) );
-          locRet = new LocationRectangle(NorhWest, SouthEast);
           ggm.Center = new GeoCoordinate((lp[0].Latitude + lp[lp.Count - 1].Latitude) / 2,
                                 (lp[0].Longitude + lp[lp.Count - 1].Longitude) / 2);
         }
@@ -155,7 +156,13 @@ namespace ViaggiaTrentino.Helpers
       hugeMap.Style = Application.Current.Resources["mpNoBorders"] as Style;
       hugeMap.Body = ggm;
       hugeMap.Show();
-      ggm.SetView(locRet);
+    }
+
+    // SetView function needs to be called after the map has been added to the visual tree
+    // and drawn onscreen. So here it goes
+    void ggm_Loaded(object sender, RoutedEventArgs e)
+    {
+      (sender as Map).SetView(locRet);      
     }
   }
 }
