@@ -169,9 +169,20 @@ namespace DBManager
 
     #endregion
 
+    /*
+     * Database operations that interact with the RouteName table
+     * (the one containing line colors for drawing)
+     */
 
     #region RouteInfo
 
+    /// <summary>
+    /// Adds a new entry for a new line color
+    /// </summary>
+    /// <param name="agencyID">the unique identifier for the agency owning the line</param>
+    /// <param name="routeID">the unique identifier for the new line</param>
+    /// <param name="color">the desired color, expressed in hexadecimal form (#RRGGBB)</param>
+    /// <returns>a boolean value indicating the success of the operation</returns>
     public bool AddRouteInformation(string agencyID, string routeID, string color)
     {
       try
@@ -190,6 +201,11 @@ namespace DBManager
       return true;
     }
 
+    /// <summary>
+    /// Retrieves a list of all available routes and related color for a given agency
+    /// </summary>
+    /// <param name="agencyID">the unique identifier of the agency that should own the lines we require information about</param>
+    /// <returns>a list of RouteInfo objects</returns>
     public List<RouteInfo> GetRouteInfo(string agencyID)
     {
       return sqlConn.Table<RouteInfo>().Where(x=> x.AgencyID == agencyID).ToList();
@@ -204,6 +220,13 @@ namespace DBManager
 
     #region RouteName
 
+    /// <summary>
+    /// Adds the correct name of a specific route
+    /// </summary>
+    /// <param name="agencyID">the unique identifier for the agency owning the line</param>
+    /// <param name="routeID">the unique identifier of a specific route</param>
+    /// <param name="name">the actual name of the route</param>
+    /// <returns>a boolean value indicating the success of the operation</returns>
     public bool AddRouteName(string agencyID, string routeID, string name)
     {
       try
@@ -222,16 +245,33 @@ namespace DBManager
       return true;
     }
 
+    /// <summary>
+    /// Retrieves a list of names 
+    /// </summary>
+    /// <param name="agencyID">the unique identifier for the agency owning the line</param>
+    /// <returns>a list of all the correct route names for a specific agency</returns>
     public List<RouteName> GetRoutesNames(string agencyID)
     {
       return sqlConn.Table<RouteName>().Where(x => x.AgencyID == agencyID).ToList();
     }
 
+    /// <summary>
+    /// Retrieves the correct name for a specific route
+    /// </summary>
+    /// <param name="agencyID">the unique identifier for the agency owning the line</param>
+    /// <param name="routeID">the unique identifier of a specific route</param>
+    /// <returns>the correct name of a specific route</returns>
     public RouteName GetRouteName(string agencyID, string routeID)
     {
       return sqlConn.Get<RouteName>(x => x.AgencyID == agencyID && x.RouteID == routeID);
     }
 
+    /// <summary>
+    /// Removes a specific route from the database
+    /// </summary>
+    /// <param name="agencyID">the unique identifier for the agency owning the line</param>
+    /// <param name="routeID">the unique identifier of a specific route</param>
+    /// <returns>a boolean value indicating the success of the operation</returns>
     public bool RemoveRouteName(string agencyID, string routeID)
     {
       SQLiteCommand sCmd = sqlConn.CreateCommand("DELETE FROM RouteName WHERE AgencyID = ? AND RouteID = ?",
@@ -288,6 +328,7 @@ namespace DBManager
       SQLiteCommand sCmd = sqlConn.CreateCommand("UPDATE Version SET VersionNumber = ? WHERE AgencyID = ?", version, agencyID);
       return sCmd.ExecuteNonQuery() != 0;
     }
+
     #endregion
   }
 }
