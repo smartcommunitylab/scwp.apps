@@ -61,6 +61,7 @@ namespace ViaggiaTrentino.ViewModels
     {
       base.OnViewLoaded(view);
       urLib = new UserRouteLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
+      await Settings.RefreshToken();
       basList = await urLib.ReadAllSingleJourneys();
       barList = await urLib.ReadAllRecurrentJourneys();
       BackgroundWorker bw = new BackgroundWorker();

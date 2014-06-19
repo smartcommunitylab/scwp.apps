@@ -60,6 +60,7 @@ namespace ViaggiaTrentino.ViewModels
 
     public async void BarMonitor()
     {
+      await Settings.RefreshToken();
       Journey.Monitor = await urLib.SetMonitorSingleJourney(basIti.ClientId, !basIti.Monitor);
       NotifyOfPropertyChange(() => Journey);    
     }
@@ -67,8 +68,11 @@ namespace ViaggiaTrentino.ViewModels
     public async void BarDelete()
     {
       if (MessageBox.Show(AppResources.SureDelete, AppResources.Warn, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+      {
+        await Settings.RefreshToken();
         if (await urLib.DeleteSingleJourney(basIti.ClientId))
           navigationService.UriFor<SavedJourneyPageViewModel>().Navigate();
+      }
     }
 
   }

@@ -55,7 +55,7 @@ namespace ViaggiaTrentino.ViewModels
       
       recJP = PhoneApplicationService.Current.State["recurrentJourney"] as RecurrentJourneyParameters;
       PhoneApplicationService.Current.State.Remove("recurrentJourney");
-
+      await Settings.RefreshToken();
       RecurrentJourney rj = await rpLib.PlanRecurrentJourney(recJP);
       Dictionary<string, bool> monitoredLegs = new Dictionary<string, bool>();
       foreach (var gambaSemplice in rj.Legs)
@@ -108,6 +108,7 @@ namespace ViaggiaTrentino.ViewModels
             Monitor = true,
             Name = e.Result
           };
+          await Settings.RefreshToken();
           var resp = await urLib.SaveRecurrentJourney(brj);
           if (resp is BasicRecurrentJourney)
             navigationService.UriFor<MainPageViewModel>().Navigate();

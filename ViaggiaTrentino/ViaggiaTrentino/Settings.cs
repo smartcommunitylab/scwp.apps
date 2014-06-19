@@ -22,9 +22,19 @@ namespace ViaggiaTrentino
     private static IsolatedStorageSettings iss;
     private static AuthLibrary authLib;
 
-    public static async void RefreshToken()
+    // bool return is just to have something on which to use a wait when using it
+    public static async Task<bool> RefreshToken()
     {
-      AppToken = await authLib.RefreshAccessToken();
+      try
+      {
+        if(IsTokenExpired)
+          AppToken = await authLib.RefreshAccessToken();
+      }
+      catch
+      {
+        return false;
+      }
+      return true;
     }
 
     static string clientId;
@@ -117,14 +127,13 @@ namespace ViaggiaTrentino
       redirectUrl = "http://localhost";
       serverUrl = "https://vas-dev.smartcampuslab.it/";
 
-      authLib = new AuthLibrary(clientId, clientSecret, redirectUrl, serverUrl);
+      
       if (!HasBeenStarted)
-      {
+      {        
         iss["token"] = iss["lastGPSPosition"] = null;
         iss["tokenExpiration"] = DateTime.Now;
         iss["LocationConsent"] = false;
         iss.Save();
-
         AppPreferences = new PreferencesModel()
         {
           PreferredRoute = new PreferredRoutePreferences()
@@ -143,7 +152,13 @@ namespace ViaggiaTrentino
             Walking = false
           }
         };
-      }
+      }        
+      if(IsLogged)
+          authLib = new AuthLibrary(Settings.ClientId, Settings.ClientSecret, Settings.RedirectUrl,
+                                    Settings.AppToken.AccessToken, Settings.AppToken.RefreshToken, Settings.ServerUrl);        
+      else
+        authLib = new AuthLibrary(clientId, clientSecret, redirectUrl, serverUrl);
+
       //ClearHasBeenStarted();
     }
 

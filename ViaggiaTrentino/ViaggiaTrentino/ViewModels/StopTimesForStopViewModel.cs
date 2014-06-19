@@ -45,6 +45,7 @@ namespace ViaggiaTrentino.ViewModels
     protected async override void OnViewLoaded(object view)
     {
       base.OnViewLoaded(view);
+      await Settings.RefreshToken();
       var res = await ptl.GetLimitedTimetable(AgencyID, stopID, 3);
       var grouped =
                 from list in res

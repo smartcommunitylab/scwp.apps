@@ -38,11 +38,13 @@ namespace ViaggiaTrentino
       Settings.Initialize();
       DBManagement();
     }
+
     protected override void OnActivate(object sender, Microsoft.Phone.Shell.ActivatedEventArgs e)
     {
       base.OnActivate(sender, e);
       Settings.LaunchGPS();
     }
+
     private async void DBManagement()
     {
       StorageFile dbFile = null;

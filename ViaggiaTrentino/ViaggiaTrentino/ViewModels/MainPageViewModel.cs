@@ -26,13 +26,14 @@ namespace ViaggiaTrentino.ViewModels
       this.navigationService = navigationService;
     }
 
-    protected override void OnActivate()
+    protected override async void OnActivate()
     {
       base.OnActivate();
       if (!Settings.IsLogged)
       {
         BarLogin();
       }
+      else await Settings.RefreshToken();
     }
     
 

@@ -33,8 +33,7 @@ namespace ViaggiaTrentino.ViewModels
     public SavedRecurrentJourneyDetailsViewModel(INavigationService navigationService)
     {
       this.navigationService = navigationService;
-      Journey = PhoneApplicationService.Current.State["journey"] as BasicRecurrentJourney;
-      
+      Journey = PhoneApplicationService.Current.State["journey"] as BasicRecurrentJourney;      
       urLib = new UserRouteLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
     }
 
@@ -55,7 +54,10 @@ namespace ViaggiaTrentino.ViewModels
     {
       base.OnDeactivate(close);
       if (isSomethingChanged && MessageBox.Show(AppResources.SureChange, AppResources.Warn, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+      {
+        await Settings.RefreshToken();
         await urLib.UpdateRecurrentJourney(Journey.ClientId, Journey);
+      }
      
 
     }
@@ -74,6 +76,7 @@ namespace ViaggiaTrentino.ViewModels
 
     public async void BarMonitor()
     {
+      await Settings.RefreshToken();
       Journey.Monitor = await urLib.SetMonitorRecurrentJourney(basIti.ClientId, !basIti.Monitor);
       NotifyOfPropertyChange(() => Journey);    
     }
@@ -81,8 +84,11 @@ namespace ViaggiaTrentino.ViewModels
     public async void BarDelete()
     {
       if (MessageBox.Show(AppResources.SureDelete, AppResources.Warn, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+      {
+        await Settings.RefreshToken();
         if (await urLib.DeleteRecurrentJourney(basIti.ClientId))
           navigationService.UriFor<SavedJourneyPageViewModel>().Navigate();
+      }
     }
 
   }

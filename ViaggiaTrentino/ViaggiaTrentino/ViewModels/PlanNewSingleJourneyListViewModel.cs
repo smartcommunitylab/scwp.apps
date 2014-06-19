@@ -39,6 +39,7 @@ namespace ViaggiaTrentino.ViewModels
       base.OnViewLoaded(view);
       SingleJourney sj = PhoneApplicationService.Current.State["singleJourney"] as SingleJourney;
       PhoneApplicationService.Current.State.Remove("singleJourney");
+      await Settings.RefreshToken();
       List<Itinerary> li = await rpLib.PlanSingleJourney(sj);
       if(li != null)
         ListIti = new ObservableCollection<Itinerary>(li);

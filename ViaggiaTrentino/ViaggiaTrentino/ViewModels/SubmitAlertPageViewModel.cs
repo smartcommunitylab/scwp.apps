@@ -1,4 +1,5 @@
-﻿using Caliburn.Micro;
+﻿using AuthenticationLibrary;
+using Caliburn.Micro;
 using CommonHelpers;
 using DBManager;
 using Microsoft.Phone.Shell;
@@ -149,17 +150,19 @@ namespace ViaggiaTrentino.ViewModels
 
     public async void GetStopsForRoute(Route r)
     {
+      await Settings.RefreshToken();
       Stops = new ObservableCollection<Stop>(await ptl.GetStops(r.RouteId.AgencyId, r.RouteId.Id));
       SelectedStop = Stops.FirstOrDefault();
     }
 
     private async void GetStopTimesForStop(Stop value)
     {
+      await Settings.RefreshToken();
       StopTimes = new ObservableCollection<StopTime>(await ptl.GetTimetable(agencyID, selRoute.RouteId.Id, value.StopId));
       SelectedStopTime = StopTimes.FirstOrDefault();
     }
 
-    public void SubmitDelay()
+    public async void SubmitDelay()
     {
       RealTimeUpdateLibrary rtul = new RealTimeUpdateLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
       long a = (DateTime.Now.Ticks - 621355968000000000) / 10000000;
@@ -182,7 +185,9 @@ namespace ViaggiaTrentino.ViewModels
 
       };
 
+      await Settings.RefreshToken();
       rtul.SignalAlert<AlertDelay>(ad);
+      navigationService.UriFor<MainPageViewModel>().Navigate();
     }
   }
 }

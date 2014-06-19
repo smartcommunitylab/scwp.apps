@@ -26,10 +26,7 @@ namespace ViaggiaTrentino.ViewModels
     public ParkingsPageViewModel(INavigationService navigationService, IEventAggregator eventAggregator)
     {
       this.navigationService = navigationService;
-      this.eventAggregator = eventAggregator;
-
-      if (Settings.IsTokenExpired)
-        Settings.RefreshToken();
+      this.eventAggregator = eventAggregator;      
       publicTransLib = new PublicTransportLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
     }
 
@@ -39,6 +36,7 @@ namespace ViaggiaTrentino.ViewModels
     protected async override void OnViewLoaded(object view)
     {
       base.OnViewLoaded(view);
+      await Settings.RefreshToken();
       parchi = await publicTransLib.GetParkingsByAgency(Models.MobilityService.AgencyType.ComuneDiTrento);
       Parkings = new ObservableCollection<Parking>();
       BackgroundWorker bw = new BackgroundWorker();
