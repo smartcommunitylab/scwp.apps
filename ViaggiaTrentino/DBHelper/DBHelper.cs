@@ -16,7 +16,6 @@ namespace DBManager
   {
     public readonly static string DB_PATH = Path.Combine(Path.Combine(ApplicationData.Current.LocalFolder.Path, "scdb.sqlite"));
 
-
     private SQLiteConnection sqlConn;
 
     public DBHelper()
@@ -24,6 +23,10 @@ namespace DBManager
       sqlConn = new SQLiteConnection(DB_PATH);
     }
 
+    /// <summary>
+    /// Destroys the object, allows for the usage of the Helper in the
+    /// (using DBHelper dbhName ...) format
+    /// </summary>
     public void Dispose()
     {
       if (sqlConn != null)
@@ -32,16 +35,19 @@ namespace DBManager
         sqlConn = null;
       }
     }
+    /*
+     * Database operations that interact with the Calendar table
+     */
 
     #region Calendar
 
     /// <summary>
     /// Adds a row in the Calendar table
     /// </summary>
-    /// <param name="routeID">the agency ID for the specified calendar.</param>
+    /// <param name="agencyID">the agency ID for the specified calendar.</param>
     /// <param name="routeID">the route ID for the specified calendar. It is the KEY field in the 'Calendars' property of the TimetableCacheUpdate model</param>
     /// <param name="calendarEntries">the fully mapped calendar. It is the VALUE field in the 'Entries' field in the VALUE property of the TimetableCacheUpdate model</param>
-    /// <returns></returns>
+    /// <returns>a boolean value indicating the success of the operation</returns>
     public bool AddCalendar(string agencyID, string routeID, Dictionary<string, string> calendarEntries)
     {
       try
@@ -60,6 +66,13 @@ namespace DBManager
       return true;
     }
 
+    /// <summary>
+    /// Adds multiple rows (and therefore possibly routes) in the Calendar table for a specific Agency
+    /// </summary>
+    /// <param name="agencyID">the agency ID for the specified calendar.</param>
+    /// <param name="calendars">A dictionary having the routeID as key in the format "calendar_{routeID}" and a 
+    /// TimeTableCachUpdateCalendar object, with the Entries field containing the actual calendar reference entries</param>
+    /// <returns>a boolean value indicating the success of the operation</returns>
     public bool AddCalendarsForAgency(string agencyID, Dictionary<string, TimeTableCacheUpdateCalendar> calendars)
     {
       foreach (var item in calendars)
@@ -70,11 +83,23 @@ namespace DBManager
       return true;
     }
 
+    /// <summary>
+    /// Retrieves a specific calendar from the database
+    /// </summary>
+    /// <param name="agencyID">the agency ID for the specified calendar.</param>
+    /// <param name="routeID">the route ID for the specified calendar.</param>    
+    /// <returns>The requested Calendar object matching given agency and route</returns>
     public Calendar GetCalendar(string agencyID, string routeID)
     {
       return sqlConn.Get<Calendar>(x => x.AgencyID == agencyID && x.RouteID == routeID);
     }
 
+    /// <summary>
+    /// Removes a specific calendar from the database
+    /// </summary>
+    /// <param name="agencyID">the agency ID for the specified calendar.</param>
+    /// <param name="routeID">the route ID for the specified calendar.</param>    
+    /// <returns>a boolean value indicating the success of the operation</returns>
     public bool RemoveCalendar(string agencyID, string routeID)
     {
       SQLiteCommand sCmd = sqlConn.CreateCommand("DELETE FROM Calendar WHERE AgencyID = ? AND RouteID = ?",
@@ -85,8 +110,20 @@ namespace DBManager
 
     #endregion
 
+    /*
+     * Database operations that interact with the RouteCalendar table 
+     * (that is, the table containing the actual timetables, stored as JSON arrays)
+     */
+
     #region RouteCalendar
 
+    /// <summary>
+    /// Adds a RouteCalendar to the database
+    /// </summary>
+    /// <param name="routeID">the unique identifier for a specific route</param>
+    /// <param name="lineHash">the unique identifier for a specidic timetable (the one found in the Calendar table)</param>
+    /// <param name="ct">an instance of a ComressedTimetable object, containinga list of stops, times and other extra data</param>
+    /// <returns>a boolean value indicating the success of the operation</returns>
     public bool AddRouteCalendar(string routeID, string fileHash, CompressedTimetable ct)
     {
       try
@@ -107,11 +144,21 @@ namespace DBManager
       return true;
     }
 
+    /// <summary>
+    /// Retrieves a specific RouteCalendar
+    /// </summary>
+    /// <param name="lineHash">the unique identifier for a specidic timetable (the one found in the Calendar table)</param>
+    /// <returns>a RouteCalendar object, containing a timetable, stops list and extra data (if available)</returns>
     public RouteCalendar GetRouteCalendar(string lineHash)
     {
       return sqlConn.Get<RouteCalendar>(x => x.LineHash == lineHash);
     }
 
+    /// <summary>
+    /// Removes a specific timetable from the database
+    /// </summary>
+    /// <param name="lineHash">the unique identifier for a specidic timetable (the one found in the Calendar table)</param>
+    /// <returns>a boolean value indicating the success of the operation</returns>
     public bool RemoveRouteCalendar(string lineHash)
     {
       SQLiteCommand sCmd = sqlConn.CreateCommand("DELETE FROM RouteCalendar WHERE LineHash = ?",
