@@ -35,6 +35,7 @@ namespace DBManager
         sqlConn = null;
       }
     }
+
     /*
      * Database operations that interact with the Calendar table
      */
@@ -196,6 +197,11 @@ namespace DBManager
 
     #endregion
 
+    /*
+     * Database operations that interact with the RouteName table
+     * (the one with the proper names for each route)
+     */
+
     #region RouteName
 
     public bool AddRouteName(string agencyID, string routeID, string name)
@@ -235,24 +241,48 @@ namespace DBManager
 
     #endregion
 
+    /*
+     * Database operations that interact with the Version table, used for sync and update purposes
+     */
+
     #region Version
 
+    /// <summary>
+    /// Retrieves the version number of the stored data for all available agencies
+    /// </summary>
+    /// <returns>a list of Version objects, containing Agency and version number of each stored agency</returns>
     public List<DBModels.Version> GetAllVersions()
     {
       return sqlConn.Table<DBModels.Version>().ToList();
     }
 
+    /// <summary>
+    /// Retrieves the version object fir a specific agency
+    /// </summary>
+    /// <param name="agencyID">the unique identifier of the desired agency</param>
+    /// <returns>a Version object indicating the currently stored version number</returns>
     public DBModels.Version GetVersion(string agencyID)
     {
       return sqlConn.Get<DBModels.Version>(x => x.AgencyID == agencyID);
     }
 
+    /// <summary>
+    /// Removes a specific Version object from the database
+    /// </summary>
+    /// <param name="agencyID">the unique identifier of the desired agency</param>
+    /// <returns>a boolean value indicating the success of the operation</returns>
     public bool RemoveVersion(string agencyID)
     {
       SQLiteCommand sCmd = sqlConn.CreateCommand("DELETE FROM Version WHERE AgencyID = ?", agencyID);
       return sCmd.ExecuteNonQuery() != 0;
     }
 
+    /// <summary>
+    /// Updates the stored version number for a specific agency
+    /// </summary>
+    /// <param name="agencyID">the unique identifier of the desired agency</param>
+    /// <param name="version">a string indicating the new version for a specific agency</param>
+    /// <returns>a boolean value indicating the success of the operation</returns>
     public bool UpdateVersion(string agencyID, string version)
     {
       SQLiteCommand sCmd = sqlConn.CreateCommand("UPDATE Version SET VersionNumber = ? WHERE AgencyID = ?", version, agencyID);
