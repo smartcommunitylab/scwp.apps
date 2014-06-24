@@ -62,7 +62,7 @@
             </ListBox.ItemContainerStyle>
             <ListBox.ItemTemplate>
               <DataTemplate>
-                <vtcont:FavouritePlaceControl/>
+                <vtcont:FavouritePlaceControl Margin="0,0,0,5" />
               </DataTemplate>
             </ListBox.ItemTemplate>
           </ListBox>

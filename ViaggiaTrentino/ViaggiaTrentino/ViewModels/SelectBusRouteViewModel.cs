@@ -137,6 +137,7 @@ namespace ViaggiaTrentino.ViewModels
       criteria.Add("customData.agencyId", agencyIds);
       try
       {
+        await Settings.RefreshToken();
         results = await til.ReadPlaces(new FilterObject()
         {
           SkipFirstElements = 0,
@@ -147,9 +148,15 @@ namespace ViaggiaTrentino.ViewModels
           Radius = radius
         });
       }
-      catch(HttpRequestException)
+      catch (HttpRequestException)
       {
         MessageBox.Show(Resources.AppResources.MessageBoxNetworkErrorBody, Resources.AppResources.MessageBoxNetworkErrorTitle, MessageBoxButton.OK);
+      }
+      catch (Exception e)
+      {
+#if DEBUG
+        System.Windows.MessageBox.Show(e.Message);
+#endif
       }
       return results;
     }

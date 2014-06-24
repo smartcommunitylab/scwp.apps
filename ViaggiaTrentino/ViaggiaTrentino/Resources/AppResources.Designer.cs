@@ -385,6 +385,15 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to logout.
+        /// </summary>
+        public static string MainpageLogout {
+            get {
+                return ResourceManager.GetString("MainpageLogout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to settings.
         /// </summary>
         public static string MainpageSettings {

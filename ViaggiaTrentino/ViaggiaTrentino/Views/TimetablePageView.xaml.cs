@@ -223,7 +223,7 @@ namespace ViaggiaTrentino.Views
       scroll.ScrollToHorizontalOffset(transform.X);
 
 #if DEBUG
-      Debug.WriteLine((stackColumn.Children[0] as TextBlock).Text);
+      //Debug.WriteLine((stackColumn.Children[0] as TextBlock).Text);
 #endif
     }
 

@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Xml.Linq;
 using Windows.Devices.Geolocation;
 using Windows.Foundation;
 
@@ -27,7 +28,7 @@ namespace ViaggiaTrentino
     {
       try
       {
-        if(overrideCheck || IsTokenExpired)
+        if(IsLogged && (overrideCheck || IsTokenExpired))
           AppToken = await authLib.RefreshAccessToken();
       }
       catch
@@ -64,14 +65,31 @@ namespace ViaggiaTrentino
       }
     }
 
+    public static string DBVersion
+    {
+      get { return iss["dbVersion"] as string; }
+      set
+      {
+        iss["dbVersion"] = value;
+        iss.Save();
+      }
+    }
+
+    public static string AppVersion
+    {
+      get { return XDocument.Load("WMAppManifest.xml").Root.Element("App").Attribute("Version").Value; }
+    }
+
     public static Token AppToken
     {
       get { return iss["token"] as Token; }
       set
       {
         iss["token"] = value;
+        //Debug.WriteLine(value);
         iss.Save();
-        TokenExpiration = DateTime.Now + new TimeSpan(0, 0, value.ExpiresIn);
+        if(value != null)
+          TokenExpiration = DateTime.Now + new TimeSpan(0, 0, value.ExpiresIn);
       }
     }
 
@@ -104,7 +122,7 @@ namespace ViaggiaTrentino
       {
         iss["lastGPSPosition"] = value;
         iss.Save();
-        Debug.WriteLine(value.Latitude + ", " + value.Longitude);
+        //Debug.WriteLine(value.Latitude + ", " + value.Longitude);
       }
     }
 
@@ -126,13 +144,13 @@ namespace ViaggiaTrentino
       clientSecret = "f3ea5378-43ba-42c3-b2bf-5f7cd10b6e6e";
       redirectUrl = "http://localhost";
       serverUrl = "https://vas-dev.smartcampuslab.it/";
-
       
       if (!HasBeenStarted)
       {        
         iss["token"] = iss["lastGPSPosition"] = null;
         iss["tokenExpiration"] = DateTime.Now;
         iss["LocationConsent"] = false;
+        iss["dbVersion"] = AppVersion;
         iss.Save();
         AppPreferences = new PreferencesModel()
         {
