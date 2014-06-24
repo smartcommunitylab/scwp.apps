@@ -17,30 +17,28 @@
   </UserControl.Resources>
 
   <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}">
-    <Grid.RowDefinitions>
-      <RowDefinition Height="Auto" />
-      <RowDefinition Height="*" />
-    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*"/>
+      <ColumnDefinition Width="Auto" MaxWidth="350" />
+    </Grid.ColumnDefinitions>
     <!--<TextBlock Grid.Row="0" Text="{Binding Converter={StaticResource itiToSpanStr}}"></TextBlock>-->
-    <TextBlock Grid.Row="0" Text="{Binding Converter={StaticResource itiToSpanStr}}"></TextBlock>
-      <ListBox Grid.Row="1" ItemsSource="{Binding Legs, Converter={ StaticResource legsToLegImgs}}" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+    <TextBlock Margin="15,0,0,0" VerticalAlignment="Center" Grid.Column="0" TextWrapping="Wrap" Text="{Binding Converter={StaticResource itiToSpanStr}}" />
+    <ListBox Grid.Column="1" ItemsSource="{Binding Legs, Converter={ StaticResource legsToLegImgs}}" ScrollViewer.VerticalScrollBarVisibility="Disabled">
       <ControlTemplate TargetType="ListBox">
         <ItemsPresenter />
       </ControlTemplate>
       <ListBox.ItemsPanel>
-          <ItemsPanelTemplate>
-            <toolkit:WrapPanel x:Name="wrpTransports" HorizontalAlignment="Center" >
+        <ItemsPanelTemplate>
+          <toolkit:WrapPanel x:Name="wrpTransports" HorizontalAlignment="Center" />
+        </ItemsPanelTemplate>
+      </ListBox.ItemsPanel>
+      <ListBox.ItemTemplate>
+        <DataTemplate>
+          <Image Width="60" Source="{Binding}"/>
+        </DataTemplate>
+      </ListBox.ItemTemplate>
+    </ListBox>
 
-            </toolkit:WrapPanel>
-          </ItemsPanelTemplate>
-        </ListBox.ItemsPanel>
-        <ListBox.ItemTemplate>
-          <DataTemplate>
-            <Image Width="60" Source="{Binding}"></Image>
-          </DataTemplate>
-        </ListBox.ItemTemplate>
-      </ListBox>
-    
 
   </Grid>
 </UserControl>
