@@ -121,8 +121,8 @@
           <target state="translated">A piedi</target>
         </trans-unit>
         <trans-unit id="Resx/SavedJourneyDetailsDelete" translate="yes" xml:space="preserve">
-          <source>delete journey</source>
-          <target state="translated">elimina</target>
+          <source>delete</source>
+          <target state="needs-review-translation">elimina</target><note from="MultilingualUpdate" priority="2" annotates="source">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
           </trans-unit>
         <trans-unit id="Resx/SavedJourneysJourneyPivot" translate="yes" xml:space="preserve">
           <source>Journeys</source>
@@ -540,6 +540,10 @@
           <source>Loading...</source>
           <target state="translated">Caricamento...</target>
         </trans-unit>
+        <trans-unit id="Resx/SavedJourneyMonitorOFF" translate="yes" xml:space="preserve">
+          <source>monitor off</source>
+          <target state="new">monitor off</target>
+        </trans-unit>
         <trans-unit id="Resx/SettingsPageAddPlace" translate="yes" xml:space="preserve">
           <source>add place</source>
           <target state="translated">Aggiungi località</target>
@@ -550,12 +554,16 @@
         </trans-unit>
         <trans-unit id="Resx/SavedJourneyMonitorToggle" translate="yes" xml:space="preserve">
           <source>toggle monitor</source>
-          <target state="translated">attiva/disattiva monitoraggio</target>
+          <target state="needs-review-translation">attiva/disattiva monitoraggio</target><note from="MultilingualUpdate" priority="2" annotates="source">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
           </trans-unit>
         <trans-unit id="Resx/MainpageTour" translate="yes" xml:space="preserve">
           <source>tour</source>
           <target state="translated">guida</target>
           </trans-unit>
+        <trans-unit id="Resx/SavedJourneyMonitorON" translate="yes" xml:space="preserve">
+          <source>monitor on</source>
+          <target state="new">monitor on</target>
+        </trans-unit>
         <trans-unit id="Resx/MainpageSettings" translate="yes" xml:space="preserve">
           <source>settings</source>
           <target state="translated">impostazioni</target>

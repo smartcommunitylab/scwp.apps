@@ -121,7 +121,7 @@
           <target state="needs-review-translation" state-qualifier="mt-suggestion">[B6E12][!!_Ẃáļкįйĝ_!!]</target>
         </trans-unit>
         <trans-unit id="Resx/SavedJourneyDetailsDelete" translate="yes" xml:space="preserve">
-          <source>delete journey</source>
+          <source>delete</source>
           <target state="needs-review-translation" state-qualifier="mt-suggestion">[293B6][!!_Ďéļèτê ĵôµřиèŷ_!!!!]</target><note from="MultilingualUpdate" priority="2" annotates="source">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="Resx/SavedJourneysJourneyPivot" translate="yes" xml:space="preserve">
@@ -540,6 +540,10 @@
           <source>Loading...</source>
           <target state="new">Loading...</target>
         </trans-unit>
+        <trans-unit id="Resx/SavedJourneyMonitorOFF" translate="yes" xml:space="preserve">
+          <source>monitor off</source>
+          <target state="new">monitor off</target>
+        </trans-unit>
         <trans-unit id="Resx/SettingsPageAddPlace" translate="yes" xml:space="preserve">
           <source>add place</source>
           <target state="new">add place</target>
@@ -555,6 +559,10 @@
         <trans-unit id="Resx/MainpageTour" translate="yes" xml:space="preserve">
           <source>tour</source>
           <target state="new">tour</target>
+        </trans-unit>
+        <trans-unit id="Resx/SavedJourneyMonitorON" translate="yes" xml:space="preserve">
+          <source>monitor on</source>
+          <target state="new">monitor on</target>
         </trans-unit>
         <trans-unit id="Resx/MainpageSettings" translate="yes" xml:space="preserve">
           <source>settings</source>
