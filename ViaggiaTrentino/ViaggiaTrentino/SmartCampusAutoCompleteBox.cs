@@ -66,7 +66,7 @@ namespace ViaggiaTrentino
         webCli.DownloadStringAsync(new Uri(completeUrl));
 
 #if DEBUG
-        Debug.WriteLine("i searched " + text);
+        //Debug.WriteLine("i searched " + text);
 #endif
       }
 

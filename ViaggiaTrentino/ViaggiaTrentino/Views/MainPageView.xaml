@@ -15,7 +15,8 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
-    shell:SystemTray.IsVisible="True">
+    shell:SystemTray.IsVisible="True"
+    Unloaded="PhoneApplicationPage_Unloaded">
   
   <toolkit:TransitionService.NavigationInTransition>
     <toolkit:NavigationInTransition>
@@ -37,6 +38,10 @@
       </toolkit:NavigationOutTransition.Forward>
     </toolkit:NavigationOutTransition>
   </toolkit:TransitionService.NavigationOutTransition>
+
+  <phone:PhoneApplicationPage.Resources>
+    <cal:BooleanToVisibilityConverter x:Name="boolToVisibility" />
+  </phone:PhoneApplicationPage.Resources>
 
   <!--LayoutRoot is the root grid where all page content is placed-->
   <Grid x:Name="LayoutRoot" Background="Transparent">
@@ -107,9 +112,9 @@
       </Grid>
 
 
-      <bab:BindableAppBar Mode="Minimized">
+      <bab:BindableAppBar Mode="Minimized" x:Name="babMainPage">
         <bab:BindableAppBarMenuItem x:Name="BarLogin" Text="{Binding Path=LocalizedResources.MainpageLogin, Source={StaticResource LocalizedStrings}}" />
-        <bab:BindableAppBarMenuItem x:Name="BarTour" Text="{Binding Path=LocalizedResources.MainpageTour, Source={StaticResource LocalizedStrings}}" />
+        <!--<bab:BindableAppBarMenuItem x:Name="BarTour" Text="{Binding Path=LocalizedResources.MainpageTour, Source={StaticResource LocalizedStrings}}" />-->
         <bab:BindableAppBarMenuItem x:Name="BarAbout" Text="{Binding Path=LocalizedResources.MainpageAbout, Source={StaticResource LocalizedStrings}}" />
         <bab:BindableAppBarMenuItem x:Name="BarSettings" Text="{Binding Path=LocalizedResources.MainpageSettings, Source={StaticResource LocalizedStrings}}" />
         <bab:BindableAppBarMenuItem x:Name="BarTest" Text="Test page"/>

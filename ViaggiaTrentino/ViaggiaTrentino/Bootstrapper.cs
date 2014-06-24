@@ -35,7 +35,7 @@ namespace ViaggiaTrentino
     protected override void OnStartup(object sender, System.Windows.StartupEventArgs e)
     {
       base.OnStartup(sender, e);
-      Settings.Initialize();      
+      Settings.Initialize();
       DBManagement();
       App.LoadingPopup.InitializePopup();
     }
@@ -53,35 +53,45 @@ namespace ViaggiaTrentino
       {
         // Try to get the 
         dbFile = await StorageFile.GetFileFromPathAsync(DBHelper.DB_PATH);
+
+        if (Settings.DBVersion != Settings.AppVersion)
+        {
+          ImportDatabase(dbFile);
+        }
+
         //dbFile.DeleteAsync();
       }
       catch (FileNotFoundException)
       {
-        if (dbFile == null)
+        ImportDatabase(dbFile);
+      }
+    }
+
+    private static void ImportDatabase(StorageFile dbFile)
+    {
+      // Copy file from installation folder to local folder.
+      // Obtain the virtual store for the application.
+      IsolatedStorageFile iso = IsolatedStorageFile.GetUserStoreForApplication();
+
+      // Create a stream for the file in the installation folder.
+      using (Stream input = System.Windows.Application.GetResourceStream(new Uri("scdb.sqlite", UriKind.Relative)).Stream)
+      {
+        // Create a stream for the new file in the local folder.
+        using (IsolatedStorageFileStream output = iso.CreateFile(DBHelper.DB_PATH))
         {
-          // Copy file from installation folder to local folder.
-          // Obtain the virtual store for the application.
-          IsolatedStorageFile iso = IsolatedStorageFile.GetUserStoreForApplication();
+          // Initialize the buffer.
+          byte[] readBuffer = new byte[4096];
+          int bytesRead = -1;
 
-          // Create a stream for the file in the installation folder.
-          using (Stream input = System.Windows.Application.GetResourceStream(new Uri("scdb.sqlite", UriKind.Relative)).Stream)
+          // Copy the file from the installation folder to the local folder. 
+          while ((bytesRead = input.Read(readBuffer, 0, readBuffer.Length)) > 0)
           {
-            // Create a stream for the new file in the local folder.
-            using (IsolatedStorageFileStream output = iso.CreateFile(DBHelper.DB_PATH))
-            {
-              // Initialize the buffer.
-              byte[] readBuffer = new byte[4096];
-              int bytesRead = -1;
-
-              // Copy the file from the installation folder to the local folder. 
-              while ((bytesRead = input.Read(readBuffer, 0, readBuffer.Length)) > 0)
-              {
-                output.Write(readBuffer, 0, bytesRead);
-              }
-            }
+            output.Write(readBuffer, 0, bytesRead);
           }
         }
+        Settings.DBVersion = Settings.AppVersion;
       }
+
     }
 
     protected override void Configure()
@@ -145,7 +155,7 @@ namespace ViaggiaTrentino
 
     void rootFrame_Navigated(object sender, NavigationEventArgs e)
     {
-      if(e.Uri.OriginalString == "/Views/MainPageView.xaml" && e.NavigationMode == NavigationMode.New)
+      if (e.Uri.OriginalString == "/Views/MainPageView.xaml" && e.NavigationMode == NavigationMode.New)
         Settings.LaunchGPS();
       reset = e.NavigationMode == NavigationMode.Reset;
     }

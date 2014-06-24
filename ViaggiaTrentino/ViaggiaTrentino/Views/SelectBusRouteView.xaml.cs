@@ -60,7 +60,7 @@ namespace ViaggiaTrentino.Views
       GeoCoordinate w = StopsMap.ConvertViewportPointToGeoCoordinate(new Point(StopsMap.ActualWidth, StopsMap.ActualHeight));
       double meters = q.GetDistanceTo(w) / 100000;
 
-      Debug.WriteLine(q.GetDistanceTo(w).ToString());
+      //Debug.WriteLine(q.GetDistanceTo(w).ToString());
 
       List<POIObject> stops = await ((SelectBusRouteViewModel)(this.DataContext)).RetrieveAllStops(position, meters, agencyIds);
 

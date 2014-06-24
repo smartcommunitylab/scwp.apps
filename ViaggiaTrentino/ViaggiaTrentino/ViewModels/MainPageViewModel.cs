@@ -17,14 +17,16 @@ namespace ViaggiaTrentino.ViewModels
   public class MainPageViewModel : Screen
   {
     private readonly INavigationService navigationService;
+    private readonly IEventAggregator eventAggregator;
     AuthLibrary authLib;
     ProfileLibrary pll;
     Popup loginPopup;
 
-    public MainPageViewModel(INavigationService navigationService)
+    public MainPageViewModel(INavigationService navigationService, IEventAggregator eventAggregator)
     {
       this.navigationService = navigationService;
-    }
+      this.eventAggregator = eventAggregator;
+  }
 
     protected override void OnActivate()
     {
@@ -95,6 +97,7 @@ namespace ViaggiaTrentino.ViewModels
 
     public void BarLogin()
     {
+      eventAggregator.Publish(false);
       authLib = new AuthLibrary(Settings.ClientId, Settings.ClientSecret, Settings.RedirectUrl, Settings.ServerUrl);
 
       if (Settings.AppToken == null)
@@ -117,6 +120,7 @@ namespace ViaggiaTrentino.ViewModels
         string code = e.Uri.Query.Split('=')[1];
         Settings.AppToken = await authLib.GetAccessToken(code);
         loginPopup.IsOpen = false;
+        eventAggregator.Publish(true);
         pll = new ProfileLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
         Settings.UserID = (await pll.GetBasicProfile()).UserId;
       }

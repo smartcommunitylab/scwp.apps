@@ -1,4 +1,5 @@
-﻿using DBManager.DBModels;
+﻿using CommonHelpers;
+using DBManager.DBModels;
 using Models.MobilityService;
 using Models.MobilityService.Journeys;
 using Models.MobilityService.RealTime;
@@ -21,19 +22,20 @@ namespace ViaggiaTrentino.Converters
 
       if (value is RouteName)      
       {
+        
         RouteName route = value as RouteName;
-        switch (route.AgencyID)
+        switch (EnumConverter.ToEnum<AgencyType>(route.AgencyID))
         {
-          case "5": goto case "6";
-          case "6": result = "/Assets/Vehicles/train.png"; break;
-          case "10": result = "/Assets/HubTiles/Train.png"; break;            
-          case "12": goto case "16";
-          case "16":  result = "/Assets/Vehicles/bus.png"; break;
-          case "COMUNE_DI_TRENTO": goto case "COMUNE_DI_ROVERETO";
-          case "COMUNE_DI_ROVERETO":  result = "/Assets/HubTiles/Parking.png"; break;
-          case "BIKE_SHARING_TRENTO": goto case "BIKE_SHARING_ROVERETO";
-          case "BIKE_SHARING_ROVERETO":  result = "/Assets/Vehicles/sharedbike.png"; break;
-          case "CAR_SHARING_SERVICE":  result = "/Assets/Vehicles/sharedcar.png"; break;
+          case AgencyType.BolzanoVeronaRailway: goto case AgencyType.TrentoBassanoDelGrappaRailway;
+          case AgencyType.TrentoBassanoDelGrappaRailway: result = "/Assets/Vehicles/train.png"; break;
+          case AgencyType.TrentoMaleRailway: result = "/Assets/HubTiles/Train.png"; break;            
+          case AgencyType.TrentoCityBus: goto case AgencyType.RoveretoCityBus;
+          case AgencyType.RoveretoCityBus:  result = "/Assets/Vehicles/bus.png"; break;
+          case AgencyType.ComuneDiTrento: goto case AgencyType.ComuneDiRovereto;
+          case AgencyType.ComuneDiRovereto:  result = "/Assets/HubTiles/Parking.png"; break;
+          case AgencyType.BikeSharingTrento: goto case AgencyType.BikeSharingRovereto;
+          case AgencyType.BikeSharingRovereto:  result = "/Assets/Vehicles/sharedbike.png"; break;
+          case AgencyType.CarSharingService:  result = "/Assets/Vehicles/sharedcar.png"; break;
         }
       }
 
