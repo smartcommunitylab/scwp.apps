@@ -42,10 +42,11 @@
     <converters:LongMilliSecondsToTimeConverter x:Key="milliToTimeStr" />
     <converters:TransportTypeToImageListConverter x:Key="TTToImg" />
     <converters:BooleanToStrokeColorConverter x:Key="boolToColor"/>
-    <converters:LongMilliSecondsToDateConverter x:Name="secsToDateStr"/>
-    <converters:LongMilliSecondsToTimeConverter x:Name="secsToTimeStr"/>
-    <converters:LegListAndMonitorLegsToBoolConverter x:Name="legAndBoolToBool" />
+    <converters:LongMilliSecondsToDateConverter x:Key="secsToDateStr"/>
+    <converters:LongMilliSecondsToTimeConverter x:Key="secsToTimeStr"/>
+    <converters:LegListAndMonitorLegsToBoolConverter x:Key="legAndBoolToBool" />
     <converters:FromToConverter x:Key="legToFromTo"/>
+    <converters:BooleanToToggledMonitoringStatusConverter x:Key="boolToToggle"/>
   </UserControl.Resources>
   
   <!--LayoutRoot is the root grid where all page content is placed-->
@@ -132,7 +133,7 @@
 
     <bab:BindableAppBar>
       <bab:BindableAppBarButton IconUri="/Assets/AppBar/Monitor.png" x:Name="BarMonitor" 
-                                Text="{Binding Path=LocalizedResources.SavedJourneyMonitorToggle, Source={StaticResource LocalizedStrings}}" />
+                                Text="{Binding Journey.Monitor, Converter={ StaticResource boolToToggle}}" />
 
       <bab:BindableAppBarButton IconUri="/Assets/AppBar/Delete.png" x:Name="BarDelete" 
                                 Text="{Binding Path=LocalizedResources.SavedJourneyDetailsDelete, Source={StaticResource LocalizedStrings}}" />

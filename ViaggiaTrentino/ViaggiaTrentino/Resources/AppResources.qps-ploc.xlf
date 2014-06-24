@@ -121,9 +121,9 @@
           <target state="needs-review-translation" state-qualifier="mt-suggestion">[B6E12][!!_Ẃáļкįйĝ_!!]</target>
         </trans-unit>
         <trans-unit id="Resx/SavedJourneyDetailsDelete" translate="yes" xml:space="preserve">
-          <source>delete journey</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">[293B6][!!_Ďéļèτê ĵôµřиèŷ_!!!!]</target><note from="MultilingualUpdate" priority="2" annotates="source">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
-        </trans-unit>
+          <source>delete</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[293B6][!!_Ďéļèτê ĵôµřиèŷ_!!!!]</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note></trans-unit>
         <trans-unit id="Resx/SavedJourneysJourneyPivot" translate="yes" xml:space="preserve">
           <source>Journeys</source>
           <target state="needs-review-translation" state-qualifier="mt-suggestion">[CAFCF][!!_Ĵôûѓйęýš_!!]</target>
@@ -502,75 +502,83 @@
         </trans-unit>
         <trans-unit id="Resx/TimeTablePageLineType" translate="yes" xml:space="preserve">
           <source>Line type</source>
-          <target state="new">Line type</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[CE00C][!!_Ĺìήè τýρè_!!]</target>
         </trans-unit>
         <trans-unit id="Resx/AboutPageThirdParty" translate="yes" xml:space="preserve">
           <source>This application includes the following third party software:</source>
-          <target state="new">This application includes the following third party software:</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[F0E5C][!!_Тħíš âρþĺîĉâťîõη îйćļúđęş ťнé ƒòļľôŵíйġ тђìŗđ þâřţУ şõƒτŵãřé:_!!!!!!!!!!!!!!!!!!]</target>
         </trans-unit>
         <trans-unit id="Resx/AboutPagePart" translate="yes" xml:space="preserve">
           <source>Con la partecipazione del Consorzio dei Comuni Trentini</source>
-          <target state="new">Con la partecipazione del Consorzio dei Comuni Trentini</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[0714F][!!_Ĉõή łà þáѓτêĉìρáźìóήê ðéł Ĉõήŝóѓźìô ðéí Ćóмµиî Ţřêиţįηì_!!!!!!!!!!!!!!!!]</target>
         </trans-unit>
         <trans-unit id="Resx/AboutPageThird" translate="yes" xml:space="preserve">
           <source>third party</source>
-          <target state="new">third party</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[7DA50][!!_ţћìŗď ρàřτУ_!!]</target>
         </trans-unit>
         <trans-unit id="Resx/AboutPageRateApp" translate="yes" xml:space="preserve">
           <source>rate me!</source>
-          <target state="new">rate me!</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[82C07][!!_ŕãťê мę!_!!]</target>
         </trans-unit>
         <trans-unit id="Resx/AboutPageInfo" translate="yes" xml:space="preserve">
           <source>Informazione sulla mobilità integrata di Trento e dei comuni trentini</source>
-          <target state="new">Informazione sulla mobilità integrata di Trento e dei comuni trentini</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[99754][!!_Íиƒóŕmâźîóйê šúľļà мòъíłìţà įйţêġřâτà ðì Ţѓèηтó ę ďèî čõмµйî ťřęηţíиį_!!!!!!!!!!!!!!!!!!!!]</target>
         </trans-unit>
         <trans-unit id="Resx/AboutPageDevel" translate="yes" xml:space="preserve">
           <source>L'applicazione è stata sviluppata dal progetto SmartCampus</source>
-          <target state="new">L'applicazione è stata sviluppata dal progetto SmartCampus</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[117F4][!!_Ļ'âрþľíċàžįõήê è şτâтâ şνìļùþþâţâ ðâĺ þřóġèţţõ ŜmâŕтČãmρùš_!!!!!!!!!!!!!!!!!!]</target>
         </trans-unit>
         <trans-unit id="Resx/AboutPageCollab" translate="yes" xml:space="preserve">
           <source>In collaborazione con il Comune di Trento</source>
-          <target state="new">In collaborazione con il Comune di Trento</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[98B82][!!_Îй čóļľàъôřãźíòήé ćóη îł Ćòмµйè ðį Τřêйţó_!!!!!!!!!!!!]</target>
         </trans-unit>
         <trans-unit id="Resx/SettingsPageLocation" translate="yes" xml:space="preserve">
           <source>Location service</source>
-          <target state="new">Location service</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[3EA6A][!!_Ľõĉáτìõй ŝéŕνíĉê_!!!!]</target>
         </trans-unit>
         <trans-unit id="Resx/LoadingPanel" translate="yes" xml:space="preserve">
           <source>Loading...</source>
-          <target state="new">Loading...</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[480B8][!!_Ŀôãďîηĝ..._!!]</target>
+        </trans-unit>
+        <trans-unit id="Resx/SavedJourneyMonitorOFF" translate="yes" xml:space="preserve">
+          <source>monitor off</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[7894D][!!_мòиìţóŗ òƒƒ_!!]</target>
         </trans-unit>
         <trans-unit id="Resx/MainpageLogout" translate="yes" xml:space="preserve">
           <source>logout</source>
-          <target state="new">logout</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[C76E6][!!_ľòġòúτ_!!]</target>
         </trans-unit>
         <trans-unit id="Resx/SettingsPageAddPlace" translate="yes" xml:space="preserve">
           <source>add place</source>
-          <target state="new">add place</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[DEF1D][!!_âđđ рľáċé_!!]</target>
         </trans-unit>
         <trans-unit id="Resx/SelBusRouteDirection" translate="yes" xml:space="preserve">
           <source>Select direction</source>
-          <target state="new">Select direction</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[3742A][!!_Ŝêĺèčţ đìŕęĉţíòη_!!!!]</target>
         </trans-unit>
         <trans-unit id="Resx/SavedJourneyMonitorToggle" translate="yes" xml:space="preserve">
           <source>toggle monitor</source>
-          <target state="new">toggle monitor</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[DA201][!!_ťôĝğłè мóηîţóѓ_!!!!]</target>
         </trans-unit>
         <trans-unit id="Resx/MainpageTour" translate="yes" xml:space="preserve">
           <source>tour</source>
-          <target state="new">tour</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[AC366][!!_τòûŕ_!!]</target>
+        </trans-unit>
+        <trans-unit id="Resx/SavedJourneyMonitorON" translate="yes" xml:space="preserve">
+          <source>monitor on</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[84085][!!_móηîтôŗ õή_!!]</target>
         </trans-unit>
         <trans-unit id="Resx/MainpageSettings" translate="yes" xml:space="preserve">
           <source>settings</source>
-          <target state="new">settings</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[9918A][!!_ŝéτťìиğś_!!]</target>
         </trans-unit>
         <trans-unit id="Resx/MainpageLogin" translate="yes" xml:space="preserve">
           <source>login</source>
-          <target state="new">login</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[E8A44][!!_ľõğîη_!!]</target>
         </trans-unit>
         <trans-unit id="Resx/MainpageAbout" translate="yes" xml:space="preserve">
           <source>about</source>
-          <target state="new">about</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[22178][!!_áвôùţ_!!]</target>
         </trans-unit>
         <trans-unit id="Resx/MessageBoxNetworkErrorBody" translate="yes" xml:space="preserve">
           <source>Could not connect to smartcampuslab servers. Check your internet connection and try again.</source>

@@ -44,6 +44,7 @@
     <converters:BooleanToStrokeColorConverter x:Key="boolToColor"/>
     <converters:LongMilliSecondsToDateConverter x:Name="milliToDateStr"/>
     <converters:FromToConverter x:Key="legToFromTo"/>
+    <converters:BooleanToToggledMonitoringStatusConverter x:Key="boolToToggle"/>
   </UserControl.Resources>
   <!--LayoutRoot is the root grid where all page content is placed-->
   <Grid x:Name="LayoutRoot" Background="Transparent">
@@ -133,7 +134,7 @@
 
     <bab:BindableAppBar>
       <bab:BindableAppBarButton IconUri="/Assets/AppBar/Monitor.png" x:Name="BarMonitor" 
-                                Text="{Binding Path=LocalizedResources.SavedJourneyMonitorToggle, Source={StaticResource LocalizedStrings}}" />
+                                Text="{Binding Journey.Monitor, Converter={ StaticResource boolToToggle}}" />
       <bab:BindableAppBarButton IconUri="/Assets/AppBar/Delete.png" x:Name="BarDelete" 
                                 Text="{Binding Path=LocalizedResources.SavedJourneyDetailsDelete, Source={StaticResource LocalizedStrings}}" />
     </bab:BindableAppBar>

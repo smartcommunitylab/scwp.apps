@@ -204,7 +204,7 @@
     <value>Walking</value>
   </data>
   <data name="SavedJourneyDetailsDelete" xml:space="preserve">
-    <value>delete journey</value>
+    <value>delete</value>
   </data>
   <data name="SavedJourneysJourneyPivot" xml:space="preserve">
     <value>Journeys</value>
@@ -527,8 +527,8 @@
   <data name="MainpageTour" xml:space="preserve">
     <value>tour</value>
   </data>
-  <data name="SavedJourneyMonitorToggle" xml:space="preserve">
-    <value>toggle monitor</value>
+  <data name="SavedJourneyMonitorON" xml:space="preserve">
+    <value>monitor on</value>
   </data>
   <data name="SelBusRouteDirection" xml:space="preserve">
     <value>Select direction</value>
@@ -541,6 +541,12 @@
   </data>
   <data name="LoadingPanel" xml:space="preserve">
     <value>Loading...</value>
+  </data>
+  <data name="SavedJourneyMonitorOFF" xml:space="preserve">
+    <value>monitor off</value>
+  </data>
+  <data name="SavedJourneyMonitorToggle" xml:space="preserve">
+    <value>toggle monitor</value>
   </data>
   <data name="MainpageLogout" xml:space="preserve">
     <value>logout</value>
