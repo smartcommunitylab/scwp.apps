@@ -22,7 +22,7 @@
 
     <toolkit:ContextMenuService.ContextMenu >
       <toolkit:ContextMenu>
-        <toolkit:MenuItem x:Name="DeleteFavourite" Tap="DeleteFavourite_Tap" Header="delete"></toolkit:MenuItem>
+        <toolkit:MenuItem x:Name="DeleteFavourite" Tap="DeleteFavourite_Tap" Header="{Binding Path=LocalizedResources.SavedJourneyDetailsDelete, Source={StaticResource LocalizedStrings}}"/>
       </toolkit:ContextMenu>
     </toolkit:ContextMenuService.ContextMenu>
   </Grid>
