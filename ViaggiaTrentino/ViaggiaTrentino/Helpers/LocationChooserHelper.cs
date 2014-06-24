@@ -93,9 +93,8 @@ namespace ViaggiaTrentino.Helpers
       {
         case "current": GeneratePushpinForAssegna(); break;
         case "openMap": ShowMappaGrande(); break;
-        default: break;
-      }
-            
+        default: PositionObtained(this, null); break;
+      }     
     }
 
     private async void GeneratePushpinForAssegna()

@@ -159,8 +159,8 @@
     <Reference Include="AuthenticationLibrary">
       <HintPath>..\..\..\scwp.support\CompiledDLL\AuthenticationLibrary.dll</HintPath>
     </Reference>
-    <Reference Include="CommonHelpers.cs">
-      <HintPath>..\..\..\scwp.support\CompiledDLL\CommonHelpers.cs.dll</HintPath>
+    <Reference Include="CommonHelpers">
+      <HintPath>..\..\..\scwp.support\CompiledDLL\CommonHelpers.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Threading.Tasks">
       <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\wp8\Microsoft.Threading.Tasks.dll</HintPath>

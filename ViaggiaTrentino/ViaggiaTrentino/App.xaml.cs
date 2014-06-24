@@ -10,6 +10,7 @@ using ViaggiaTrentino.Resources;
 using ViaggiaTrentino.Views.Controls;
 using System.Windows.Controls.Primitives;
 using Coding4Fun.Toolkit.Controls;
+using System.Windows.Media;
 
 namespace ViaggiaTrentino
 {
@@ -36,6 +37,7 @@ namespace ViaggiaTrentino
     public static class LoadingPopup
     {
       private static Popup loadingPopup;
+      //private static MessagePrompt loadingPopup;
 
       // to call after app initialization, so that multilang works
       public static void InitializePopup()
@@ -52,6 +54,7 @@ namespace ViaggiaTrentino
         //loadingPopup = new MessagePrompt()
         //{
         //  Style = Application.Current.Resources["mpNoBorders"] as Style,
+        //  Background = new SolidColorBrush(Colors.Transparent),
         //  Body = new LoadingControl()
         //};
         //loadingPopup.Show();

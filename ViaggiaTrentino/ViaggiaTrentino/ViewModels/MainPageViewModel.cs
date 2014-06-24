@@ -26,16 +26,22 @@ namespace ViaggiaTrentino.ViewModels
       this.navigationService = navigationService;
     }
 
-    protected override async void OnActivate()
+    protected override void OnActivate()
     {
       base.OnActivate();
       if (!Settings.IsLogged)
       {
         BarLogin();
       }
-      else await Settings.RefreshToken(true);
     }
-    
+
+    protected override async void OnViewLoaded(object view)
+    {
+      base.OnViewLoaded(view);
+      App.LoadingPopup.Show();
+      await Settings.RefreshToken(true);
+      App.LoadingPopup.Hide();
+    }
 
     #region Tiles
 
