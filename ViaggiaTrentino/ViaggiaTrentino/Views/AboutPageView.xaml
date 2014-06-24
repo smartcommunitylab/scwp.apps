@@ -58,9 +58,9 @@
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
           </Grid.ColumnDefinitions>
-          <Image Grid.Column="0" Source="/Assets/Misc/LogoProvincia.png"/>
-          <Image Grid.Column="1" Source="/Assets/Misc/LogoConsorzio.png"/>
-          <Image Grid.Column="2" Source="/Assets/Misc/LogoSmartcamp.png"/>
+          <Image Grid.Column="0" Source="/Assets/Logos/LogoProvincia.png"/>
+          <Image Grid.Column="1" Source="/Assets/Logos/LogoConsorzio.png"/>
+          <Image Grid.Column="2" Source="/Assets/Logos/LogoSmartcamp.png"/>
 
         </Grid>
         <TextBlock  Text="{Binding Path=LocalizedResources.AboutPageInfo, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}"
@@ -77,7 +77,7 @@
       </StackPanel>
     </Grid>
     <bab:BindableAppBar>
-      <bab:BindableAppBarButton IconUri="/Assets/AppBar/moreinfo.png" x:Name="ThirdAbout" Text="{Binding Path=LocalizedResources.AboutPageThird, Source={StaticResource LocalizedStrings}}" />
+      <bab:BindableAppBarButton IconUri="/Assets/AppBar/Moreinfo.png" x:Name="ThirdAbout" Text="{Binding Path=LocalizedResources.AboutPageThird, Source={StaticResource LocalizedStrings}}" />
       <bab:BindableAppBarButton IconUri="/Assets/AppBar/Store.png" x:Name="RateApp" Text="{Binding Path=LocalizedResources.AboutPageRateApp, Source={StaticResource LocalizedStrings}}" />
     </bab:BindableAppBar>
   </Grid>

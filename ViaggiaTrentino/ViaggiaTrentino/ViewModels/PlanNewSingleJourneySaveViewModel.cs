@@ -1,14 +1,9 @@
 ﻿using Caliburn.Micro;
 using Coding4Fun.Toolkit.Controls;
-using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using MobilityServiceLibrary;
 using Models.MobilityService.Journeys;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using ViaggiaTrentino.Helpers;
 using ViaggiaTrentino.Resources;
@@ -101,7 +96,7 @@ namespace ViaggiaTrentino.ViewModels
           }
 
           if (respIti is BasicItinerary)
-            navigationService.UriFor<MainPageViewModel>().Navigate();
+            navigationService.UriFor<SavedJourneyPageViewModel>().WithParam(x => x.LastSavedJourney, 0).Navigate();
           
         }
       }

@@ -22,10 +22,11 @@ namespace ViaggiaTrentino.ViewModels
 
     ObservableCollection<BasicItinerary> mySavedSingleJourneys;
     ObservableCollection<BasicRecurrentJourney> mySavedRecurrentJourneys;
-
-
+    
     List<BasicItinerary> basList;
     List<BasicRecurrentJourney> barList;
+
+    private int lastSavedJourney;
 
     public ObservableCollection<BasicItinerary> MySavedSingleJourneys
     {
@@ -44,6 +45,16 @@ namespace ViaggiaTrentino.ViewModels
       {
         mySavedRecurrentJourneys = value;
         NotifyOfPropertyChange(() => MySavedRecurrentJourneys);
+      }
+    }
+
+    public int LastSavedJourney
+    {
+      get { return lastSavedJourney; }
+      set
+      {
+        lastSavedJourney = value;
+        NotifyOfPropertyChange(() => LastSavedJourney);
       }
     }
 

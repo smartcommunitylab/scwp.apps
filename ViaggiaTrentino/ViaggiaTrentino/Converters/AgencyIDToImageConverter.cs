@@ -28,11 +28,11 @@ namespace ViaggiaTrentino.Converters
         {
           case AgencyType.BolzanoVeronaRailway: goto case AgencyType.TrentoBassanoDelGrappaRailway;
           case AgencyType.TrentoBassanoDelGrappaRailway: result = "/Assets/Vehicles/train.png"; break;
-          case AgencyType.TrentoMaleRailway: result = "/Assets/HubTiles/Train.png"; break;            
+          case AgencyType.TrentoMaleRailway: result = "/Assets/Vehicles/hubtrain.png"; break;            
           case AgencyType.TrentoCityBus: goto case AgencyType.RoveretoCityBus;
           case AgencyType.RoveretoCityBus:  result = "/Assets/Vehicles/bus.png"; break;
           case AgencyType.ComuneDiTrento: goto case AgencyType.ComuneDiRovereto;
-          case AgencyType.ComuneDiRovereto:  result = "/Assets/HubTiles/Parking.png"; break;
+          case AgencyType.ComuneDiRovereto:  result = "/Assets/Vehicles/parking.png"; break;
           case AgencyType.BikeSharingTrento: goto case AgencyType.BikeSharingRovereto;
           case AgencyType.BikeSharingRovereto:  result = "/Assets/Vehicles/sharedbike.png"; break;
           case AgencyType.CarSharingService:  result = "/Assets/Vehicles/sharedcar.png"; break;

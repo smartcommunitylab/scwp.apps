@@ -17,12 +17,12 @@
       <ColumnDefinition Width="*" />
     </Grid.ColumnDefinitions>
       
-    <Image Grid.Column="0" Source="/Assets/Misc/MapLocation.png" Width="64" Tap="Image_Tap"/>
+    <Image Grid.Column="0" Source="/Assets/Miscs/MapLocation.png" Width="48" Margin="8" Tap="Image_Tap"/>
     <TextBlock Grid.Column="1" Text="{Binding Name}"  TextWrapping="Wrap" VerticalAlignment="Center"/>
 
     <toolkit:ContextMenuService.ContextMenu >
       <toolkit:ContextMenu>
-        <toolkit:MenuItem x:Name="DeleteFavourite" Tap="DeleteFavourite_Tap" Header="delete"></toolkit:MenuItem>
+        <toolkit:MenuItem x:Name="DeleteFavourite" Tap="DeleteFavourite_Tap" Header="{Binding Path=LocalizedResources.SavedJourneyDetailsDelete, Source={StaticResource LocalizedStrings}}"/>
       </toolkit:ContextMenu>
     </toolkit:ContextMenuService.ContextMenu>
   </Grid>

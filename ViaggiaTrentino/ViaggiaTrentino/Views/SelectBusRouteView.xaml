@@ -51,7 +51,7 @@
                         GeoCoordinate="{Binding GeoCoordinate}">
         <mToolkit:Pushpin.ContentTemplate>
           <DataTemplate>
-            <Image Source="/Assets/Misc/StopPushPin.png" HorizontalAlignment="Center"/>
+            <Image Source="/Assets/Miscs/StopPushPin.png" HorizontalAlignment="Center"/>
           </DataTemplate>
         </mToolkit:Pushpin.ContentTemplate>
       </mToolkit:Pushpin>

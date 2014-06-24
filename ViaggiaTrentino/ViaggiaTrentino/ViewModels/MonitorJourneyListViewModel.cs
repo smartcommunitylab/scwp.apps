@@ -126,7 +126,7 @@ namespace ViaggiaTrentino.ViewModels
               Name = e.Result
             };
             await Settings.RefreshToken();
-            var resp = await urLib.SaveRecurrentJourney(brj);
+            respJourney = await urLib.SaveRecurrentJourney(brj);
           }
           catch (Exception ex)
           {
@@ -138,7 +138,7 @@ namespace ViaggiaTrentino.ViewModels
           {
             App.LoadingPopup.Hide();
             if (respJourney != null)
-              navigationService.UriFor<MainPageViewModel>().Navigate();
+              navigationService.UriFor<SavedJourneyPageViewModel>().WithParam(x => x.LastSavedJourney, 1).Navigate();
           }
 
 

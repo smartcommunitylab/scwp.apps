@@ -40,7 +40,7 @@
   <!--LayoutRoot is the root grid where all page content is placed-->
   <Grid x:Name="LayoutRoot" Background="Transparent">
     <!--Pivot Control-->
-    <phone:Pivot Title="{Binding Path=LocalizedResources.SavedJourneysTitle, Source={StaticResource LocalizedStrings}}">
+    <phone:Pivot Title="{Binding Path=LocalizedResources.SavedJourneysTitle, Source={StaticResource LocalizedStrings}}" SelectedIndex="{Binding LastSavedJourney}">
       <!--Pivot item one-->
       <phone:PivotItem Header="{Binding Path=LocalizedResources.SavedJourneysJourneyPivot, Source={StaticResource LocalizedStrings}}">
 
