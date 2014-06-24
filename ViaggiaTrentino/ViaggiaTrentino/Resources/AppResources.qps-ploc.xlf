@@ -540,6 +540,10 @@
           <source>Loading...</source>
           <target state="new">Loading...</target>
         </trans-unit>
+        <trans-unit id="Resx/MainpageLogout" translate="yes" xml:space="preserve">
+          <source>logout</source>
+          <target state="new">logout</target>
+        </trans-unit>
         <trans-unit id="Resx/SettingsPageAddPlace" translate="yes" xml:space="preserve">
           <source>add place</source>
           <target state="new">add place</target>

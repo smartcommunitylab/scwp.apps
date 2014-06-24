@@ -88,7 +88,8 @@ namespace ViaggiaTrentino
         iss["token"] = value;
         //Debug.WriteLine(value);
         iss.Save();
-        TokenExpiration = DateTime.Now + new TimeSpan(0, 0, value.ExpiresIn);
+        if(value != null)
+          TokenExpiration = DateTime.Now + new TimeSpan(0, 0, value.ExpiresIn);
       }
     }
 

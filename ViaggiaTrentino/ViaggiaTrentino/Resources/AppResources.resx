@@ -542,4 +542,7 @@
   <data name="LoadingPanel" xml:space="preserve">
     <value>Loading...</value>
   </data>
+  <data name="MainpageLogout" xml:space="preserve">
+    <value>logout</value>
+  </data>
 </root>

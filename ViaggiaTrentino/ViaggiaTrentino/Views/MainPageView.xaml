@@ -10,6 +10,7 @@
     xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
     xmlns:bab="clr-namespace:Caliburn.Micro.BindableAppBar;assembly=Caliburn.Micro.BindableAppBar"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:vtconvert="clr-namespace:ViaggiaTrentino.Converters"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -17,7 +18,7 @@
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True"
     Unloaded="PhoneApplicationPage_Unloaded">
-  
+
   <toolkit:TransitionService.NavigationInTransition>
     <toolkit:NavigationInTransition>
       <toolkit:NavigationInTransition.Backward>
@@ -41,6 +42,7 @@
 
   <phone:PhoneApplicationPage.Resources>
     <cal:BooleanToVisibilityConverter x:Name="boolToVisibility" />
+    <vtconvert:BooleanToReversedVisibilityConverter x:Name="boolToNotVisibility" />
   </phone:PhoneApplicationPage.Resources>
 
   <!--LayoutRoot is the root grid where all page content is placed-->
@@ -113,10 +115,16 @@
 
 
       <bab:BindableAppBar Mode="Minimized" x:Name="babMainPage">
-        <bab:BindableAppBarMenuItem x:Name="BarLogin" Text="{Binding Path=LocalizedResources.MainpageLogin, Source={StaticResource LocalizedStrings}}" />
-        <!--<bab:BindableAppBarMenuItem x:Name="BarTour" Text="{Binding Path=LocalizedResources.MainpageTour, Source={StaticResource LocalizedStrings}}" />-->
-        <bab:BindableAppBarMenuItem x:Name="BarAbout" Text="{Binding Path=LocalizedResources.MainpageAbout, Source={StaticResource LocalizedStrings}}" />
-        <bab:BindableAppBarMenuItem x:Name="BarSettings" Text="{Binding Path=LocalizedResources.MainpageSettings, Source={StaticResource LocalizedStrings}}" />
+        <bab:BindableAppBarMenuItem x:Name="BarLogin"
+                                    Text="{Binding Path=LocalizedResources.MainpageLogin, Source={StaticResource LocalizedStrings}}"                                     
+                                    Visibility="{Binding IsLogged, Converter={StaticResource boolToNotVisibility}}" />
+        <bab:BindableAppBarMenuItem x:Name="BarLogout" 
+                                    Text="{Binding Path=LocalizedResources.MainpageLogout, Source={StaticResource LocalizedStrings}}"
+                                    Visibility="{Binding IsLogged, Converter={StaticResource boolToVisibility}}" />
+        <bab:BindableAppBarMenuItem x:Name="BarAbout"
+                                    Text="{Binding Path=LocalizedResources.MainpageAbout, Source={StaticResource LocalizedStrings}}" />
+        <bab:BindableAppBarMenuItem x:Name="BarSettings"
+                                    Text="{Binding Path=LocalizedResources.MainpageSettings, Source={StaticResource LocalizedStrings}}" />
         <bab:BindableAppBarMenuItem x:Name="BarTest" Text="Test page"/>
       </bab:BindableAppBar>
     </Grid>

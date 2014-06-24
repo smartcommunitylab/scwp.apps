@@ -26,7 +26,12 @@ namespace ViaggiaTrentino.ViewModels
     {
       this.navigationService = navigationService;
       this.eventAggregator = eventAggregator;
-  }
+    }
+
+    public bool IsLogged
+    {
+      get { return Settings.IsLogged; }
+    }
 
     protected override void OnActivate()
     {
@@ -97,11 +102,11 @@ namespace ViaggiaTrentino.ViewModels
 
     public void BarLogin()
     {
-      eventAggregator.Publish(false);
       authLib = new AuthLibrary(Settings.ClientId, Settings.ClientSecret, Settings.RedirectUrl, Settings.ServerUrl);
 
       if (Settings.AppToken == null)
       {
+        eventAggregator.Publish(false);
         WebBrowser wb = new WebBrowser();
         wb.Navigating += wb_Navigating;
         wb.Height = Application.Current.Host.Content.ActualHeight;
@@ -110,6 +115,7 @@ namespace ViaggiaTrentino.ViewModels
         loginPopup.Child = wb;
         loginPopup.IsOpen = true;
         wb.Navigate(AuthUriHelper.GetCodeUri(Settings.ClientId, Settings.RedirectUrl));
+        eventAggregator.Publish(true);
       }
     }
 
@@ -119,11 +125,18 @@ namespace ViaggiaTrentino.ViewModels
       {
         string code = e.Uri.Query.Split('=')[1];
         Settings.AppToken = await authLib.GetAccessToken(code);
+        NotifyOfPropertyChange(()=> IsLogged);
         loginPopup.IsOpen = false;
-        eventAggregator.Publish(true);
         pll = new ProfileLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
         Settings.UserID = (await pll.GetBasicProfile()).UserId;
       }
+    }
+
+    public void BarLogout()
+    {
+      Settings.AppToken = null;
+      NotifyOfPropertyChange(()=> IsLogged);
+
     }
 
     public void BarTour()
