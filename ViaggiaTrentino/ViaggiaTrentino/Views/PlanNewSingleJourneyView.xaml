@@ -94,7 +94,7 @@
               <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <toolkit:DatePicker x:Name="DateDeparture" Value="{Binding DepartureDateTime, Mode=TwoWay}" Grid.Column="0" />
-            <toolkit:TimePicker x:Name="TimeDeparture" Value="{Binding DepartureDateTime, Mode=TwoWay}" Grid.Column="1" />
+            <toolkit:TimePicker x:Name="TimeDeparture" Value="{Binding DepartureDateTime, Mode=TwoWay}" ValueStringFormat="{}{0:HH:mm}" Grid.Column="1" />
           </Grid>
           <toolkit:ToggleSwitch x:Name="ShowPreferences" IsChecked="{Binding IsSettingsShown, Mode=TwoWay}">
             <toolkit:ToggleSwitch.Content>
