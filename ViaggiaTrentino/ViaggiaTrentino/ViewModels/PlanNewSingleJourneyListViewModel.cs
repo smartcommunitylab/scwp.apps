@@ -39,6 +39,13 @@ namespace ViaggiaTrentino.ViewModels
       base.OnViewLoaded(view);
       try
       {
+        App.LoadingPopup.Show();
+        SingleJourney sj = PhoneApplicationService.Current.State["singleJourney"] as SingleJourney;
+        PhoneApplicationService.Current.State.Remove("singleJourney");
+        await Settings.RefreshToken();
+        List<Itinerary> li = await rpLib.PlanSingleJourney(sj);
+        if (li != null)
+          ListIti = new ObservableCollection<Itinerary>(li);
       }
       catch (Exception e)
       {
@@ -51,14 +58,7 @@ namespace ViaggiaTrentino.ViewModels
       {
         App.LoadingPopup.Hide();
       }
-      App.LoadingPopup.Show();
-      SingleJourney sj = PhoneApplicationService.Current.State["singleJourney"] as SingleJourney;
-      PhoneApplicationService.Current.State.Remove("singleJourney");
-      await Settings.RefreshToken();
-      List<Itinerary> li = await rpLib.PlanSingleJourney(sj);
-      if(li != null)
-        ListIti = new ObservableCollection<Itinerary>(li);
-      App.LoadingPopup.Hide();
+      
     }
 
     public void OpenDetailView(object dataContext)

@@ -134,7 +134,7 @@
     <bab:BindableAppBar>
       <bab:BindableAppBarButton IconUri="/Assets/AppBar/Monitor.png" x:Name="BarMonitor" 
                                 Text="{Binding Path=LocalizedResources.SavedJourneyMonitorToggle, Source={StaticResource LocalizedStrings}}" />
-      <bab:BindableAppBarButton IconUri="/Toolkit.Content/ApplicationBar.Delete.png" x:Name="BarDelete" 
+      <bab:BindableAppBarButton IconUri="/Assets/AppBar/Delete.png" x:Name="BarDelete" 
                                 Text="{Binding Path=LocalizedResources.SavedJourneyDetailsDelete, Source={StaticResource LocalizedStrings}}" />
     </bab:BindableAppBar>
 

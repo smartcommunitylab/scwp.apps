@@ -110,7 +110,7 @@
     </Grid>
 
     <bab:BindableAppBar>
-      <bab:BindableAppBarButton IconUri="/Assets/AppBar/check.png" x:Name="SubmitDelay" 
+      <bab:BindableAppBarButton IconUri="/Assets/AppBar/Check.png" x:Name="SubmitDelay" 
                                 Text="{Binding Path=LocalizedResources.SubAlertSubmit, Source={StaticResource LocalizedStrings}}"/>
     </bab:BindableAppBar>
   </Grid>

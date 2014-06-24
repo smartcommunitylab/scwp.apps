@@ -273,17 +273,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\AlignmentGrid.png" />
-    <Content Include="Assets\AppBar\check.png" />
-    <Content Include="Assets\AppBar\delete.png" />
-    <Content Include="Assets\AppBar\Monitor.png" />
-    <Content Include="Assets\AppBar\moreinfo.png" />
+    <Content Include="Assets\AppBar\Check.png" />
+    <Content Include="Assets\AppBar\Date.png" />
+    <Content Include="Assets\AppBar\Delete.png" />
+    <Content Include="Assets\AppBar\Dialog-Box-About.png" />
+    <Content Include="Assets\AppBar\monitor.png" />
+    <Content Include="Assets\AppBar\Moreinfo.png" />
     <Content Include="Assets\AppBar\Next.png" />
     <Content Include="Assets\AppBar\Previous.png" />
+    <Content Include="Assets\AppBar\Recycle-Bin.png" />
     <Content Include="Assets\AppBar\Save.png" />
     <Content Include="Assets\AppBar\Store.png" />
+    <Content Include="Assets\AppBar\Today.png" />
     <Content Include="Assets\ApplicationIcon.png" />
-    <Content Include="Assets\Buttons\Favourites.png" />
-    <Content Include="Assets\Buttons\GpsLocation.png" />
     <Content Include="Assets\HubTiles\Urbano.png" />
     <Content Include="Assets\HubTiles\Parking.png" />
     <Content Include="Assets\HubTiles\PlanJourney.png" />
@@ -295,38 +297,26 @@
     <Content Include="Assets\HubTiles\Train.png" />
     <Content Include="Assets\HubTiles\ExtraUrbano.png" />
     <Content Include="Assets\MediumTile.png" />
-    <Content Include="Assets\Misc\AppLogo.png">
+    <Content Include="Assets\Logos\AppLogo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\Misc\LogoConsorzio.png" />
-    <Content Include="Assets\Misc\LogoProvincia.png" />
-    <Content Include="Assets\Misc\LogoSmartcamp.png" />
-    <Content Include="Assets\Misc\MapLocation.png" />
-    <Content Include="Assets\Misc\StopPushPin.png" />
+    <Content Include="Assets\Logos\LogoConsorzio.png" />
+    <Content Include="Assets\Logos\LogoProvincia.png" />
+    <Content Include="Assets\Logos\LogoSmartcamp.png" />
+    <Content Include="Assets\Miscs\Favourites.png" />
+    <Content Include="Assets\Miscs\MapLocation.png" />
+    <Content Include="Assets\Miscs\StopPushPin.png" />
+    <Content Include="Assets\Miscs\GpsLocation.png" />
     <Content Include="Assets\SmallTile.png" />
-    <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Tiles\FlipCycleTileMedium.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Tiles\FlipCycleTileSmall.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Tiles\IconicTileMediumLarge.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Tiles\IconicTileSmall.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\AppBar\Today.png" />
     <Content Include="Assets\Vehicles\bicycle.png" />
     <Content Include="Assets\Vehicles\bus.png" />
     <Content Include="Assets\Vehicles\car.png" />
     <Content Include="Assets\Vehicles\carwithparking.png" />
     <Content Include="Assets\Vehicles\gondola.png" />
+    <Content Include="Assets\Vehicles\hubtrain.png" />
+    <Content Include="Assets\Vehicles\parking.png" />
     <Content Include="Assets\Vehicles\sharedbike.png" />
-    <Content Include="Assets\Vehicles\sharedbike_without_station.png" />
+    <Content Include="Assets\Vehicles\Sharedbike_without_station.png" />
     <Content Include="Assets\Vehicles\sharedcar.png" />
     <Content Include="Assets\Vehicles\sharedcar_without_station.png" />
     <Content Include="Assets\Vehicles\shuttle.png" />
@@ -559,6 +549,7 @@
       <Name>DBHelper</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
