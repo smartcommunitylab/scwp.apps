@@ -85,7 +85,7 @@ namespace ViaggiaTrentino.Helpers
     #region LocationSelector
 
 
-    void mp_Completed(object sender, PopUpEventArgs<string, PopUpResult> e)
+    void modeChooser_Completed(object sender, PopUpEventArgs<string, PopUpResult> e)
     {
 
       MessagePrompt mp = sender as MessagePrompt;
@@ -140,7 +140,7 @@ namespace ViaggiaTrentino.Helpers
         GeoCoordinate = geocode,
         Content = aa
       };
-      p.Tap += p_Tap;
+      p.Tap += pushpin_Tap;
       MapExtensions.GetChildren(mappa).Clear();
       MapExtensions.GetChildren(mappa).Add(p);
 
@@ -151,7 +151,7 @@ namespace ViaggiaTrentino.Helpers
       //p_Tap(p, e);
     }
 
-    void p_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+    void pushpin_Tap(object sender, System.Windows.Input.GestureEventArgs e)
     {
       if (MessageBox.Show((sender as Pushpin).Content as string, AppResources.ChooseConfirmTitle, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
       {
@@ -192,7 +192,7 @@ namespace ViaggiaTrentino.Helpers
       modeChooser.Margin = new System.Windows.Thickness(10);
       modeChooser.Title = null;
       modeChooser.Body = new SelectLocationView(modeChooser);
-      modeChooser.Completed += mp_Completed;
+      modeChooser.Completed += modeChooser_Completed;
       modeChooser.IsAppBarVisible = false;
       modeChooser.Show();
     }
