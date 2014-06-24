@@ -74,18 +74,35 @@ namespace ViaggiaTrentino.ViewModels
       {
         if (e.Result != "")
         {
+          BasicItinerary respIti = null;
           BasicItinerary basIti = new BasicItinerary()
           {
             Data = iti,
             Monitor = true,
             Name = e.Result
           };
-          App.LoadingPopup.Show();
-          await Settings.RefreshToken();
-          var resp = await urLib.SaveSingleJourney(basIti);
-          App.LoadingPopup.Hide();
-          if (resp is BasicItinerary)
+
+          try
+          {
+            App.LoadingPopup.Show();
+            await Settings.RefreshToken();
+            respIti = await urLib.SaveSingleJourney(basIti);
+          }
+          catch (Exception ex)
+          {
+#if DEBUG
+            System.Windows.MessageBox.Show(ex.Message);
+#endif
+          }
+          finally
+          {
+            App.LoadingPopup.Hide();
+            
+          }
+
+          if (respIti is BasicItinerary)
             navigationService.UriFor<MainPageViewModel>().Navigate();
+          
         }
       }
       else

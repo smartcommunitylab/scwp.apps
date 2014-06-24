@@ -37,6 +37,20 @@ namespace ViaggiaTrentino.ViewModels
     protected override async void OnViewLoaded(object view)
     {
       base.OnViewLoaded(view);
+      try
+      {
+      }
+      catch (Exception e)
+      {
+#if DEBUG
+        System.Windows.MessageBox.Show(e.Message);
+#endif
+
+      }
+      finally
+      {
+        App.LoadingPopup.Hide();
+      }
       App.LoadingPopup.Show();
       SingleJourney sj = PhoneApplicationService.Current.State["singleJourney"] as SingleJourney;
       PhoneApplicationService.Current.State.Remove("singleJourney");

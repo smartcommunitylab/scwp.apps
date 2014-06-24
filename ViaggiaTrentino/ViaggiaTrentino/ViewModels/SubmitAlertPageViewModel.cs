@@ -135,36 +135,79 @@ namespace ViaggiaTrentino.ViewModels
     protected override async void OnViewLoaded(object view)
     {
       base.OnViewLoaded(view);
-      using(DBHelper dbh = new DBHelper())
+      using (DBHelper dbh = new DBHelper())
       {
         PhoneApplicationService.Current.State["routeNames"] = dbh.GetRoutesNames(EnumConverter.ToEnumString<AgencyType>(agencyID));
       }
 
-      App.LoadingPopup.Show();
-      await Settings.RefreshToken();
-      var results = await ptl.GetRoutes(agencyID);      
-      results.Sort();
-      Routes = new ObservableCollection<Route>(results);
-      SelectedRoute = Routes.FirstOrDefault();
-      App.LoadingPopup.Hide();
+      try
+      {
+        App.LoadingPopup.Show();
+        await Settings.RefreshToken();
+        var results = await ptl.GetRoutes(agencyID);
+        results.Sort();
+        Routes = new ObservableCollection<Route>(results);
+        SelectedRoute = Routes.FirstOrDefault();
+      }
+      catch (Exception e)
+      {
+#if DEBUG
+        System.Windows.MessageBox.Show(e.Message);
+#endif
+
+      }
+      finally
+      {
+        App.LoadingPopup.Hide();
+      }
+
     }
 
     public async void GetStopsForRoute(Route r)
     {
-      App.LoadingPopup.Show();
-      await Settings.RefreshToken();
-      Stops = new ObservableCollection<Stop>(await ptl.GetStops(r.RouteId.AgencyId, r.RouteId.Id));
-      SelectedStop = Stops.FirstOrDefault();
-      App.LoadingPopup.Hide();
+      try
+      {
+        App.LoadingPopup.Show();
+        await Settings.RefreshToken();
+        Stops = new ObservableCollection<Stop>(await ptl.GetStops(r.RouteId.AgencyId, r.RouteId.Id));
+        SelectedStop = Stops.FirstOrDefault();
+      }
+      catch (Exception e)
+      {
+#if DEBUG
+        System.Windows.MessageBox.Show(e.Message);
+#endif
+
+      }
+      finally
+      {
+        App.LoadingPopup.Hide();
+      }
+
+
     }
 
     private async void GetStopTimesForStop(Stop value)
     {
-      App.LoadingPopup.Show();
-      await Settings.RefreshToken();
-      StopTimes = new ObservableCollection<StopTime>(await ptl.GetTimetable(agencyID, selRoute.RouteId.Id, value.StopId));
-      SelectedStopTime = StopTimes.FirstOrDefault();
-      App.LoadingPopup.Hide();
+      try
+      {
+        App.LoadingPopup.Show();
+        await Settings.RefreshToken();
+        StopTimes = new ObservableCollection<StopTime>(await ptl.GetTimetable(agencyID, selRoute.RouteId.Id, value.StopId));
+        SelectedStopTime = StopTimes.FirstOrDefault();
+      }
+      catch (Exception e)
+      {
+#if DEBUG
+        System.Windows.MessageBox.Show(e.Message);
+#endif
+
+      }
+      finally
+      {
+        App.LoadingPopup.Hide();
+      }
+
     }
 
     public async void SubmitDelay()
@@ -189,7 +232,7 @@ namespace ViaggiaTrentino.ViewModels
         ValidFrom = (DateTime.Now.Ticks - 621355968000000000) / 10000000
 
       };
-      
+
       await Settings.RefreshToken();
       rtul.SignalAlert<AlertDelay>(ad);
       navigationService.UriFor<MainPageViewModel>().Navigate();

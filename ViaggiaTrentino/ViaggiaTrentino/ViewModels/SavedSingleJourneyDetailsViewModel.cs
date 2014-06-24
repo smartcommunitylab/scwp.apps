@@ -59,23 +59,53 @@ namespace ViaggiaTrentino.ViewModels
 
     public async void BarMonitor()
     {
-      App.LoadingPopup.Show();
-      await Settings.RefreshToken();
-      Journey.Monitor = await urLib.SetMonitorSingleJourney(basIti.ClientId, !basIti.Monitor);
-      NotifyOfPropertyChange(() => Journey);
-      App.LoadingPopup.Hide();
+      try
+      {
+        App.LoadingPopup.Show();
+        await Settings.RefreshToken();
+        Journey.Monitor = await urLib.SetMonitorSingleJourney(basIti.ClientId, !basIti.Monitor);
+        NotifyOfPropertyChange(() => Journey);
+      }
+      catch (Exception e)
+      {
+#if DEBUG
+        System.Windows.MessageBox.Show(e.Message);
+#endif
+
+      }
+      finally
+      {
+        App.LoadingPopup.Hide();
+      }
+     
     }
 
     public async void BarDelete()
     {
       if (MessageBox.Show(AppResources.SureDelete, AppResources.Warn, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
       {
-        App.LoadingPopup.Show();
-        await Settings.RefreshToken();
-        bool delRes = await urLib.DeleteSingleJourney(basIti.ClientId);
-        App.LoadingPopup.Hide();
-        if (delRes)        
-          navigationService.UriFor<SavedJourneyPageViewModel>().Navigate();
+        bool delRes = false;
+        try
+        {
+          App.LoadingPopup.Show();
+          await Settings.RefreshToken();
+          delRes = await urLib.DeleteSingleJourney(basIti.ClientId);
+        }
+        catch (Exception e)
+        {
+#if DEBUG
+          System.Windows.MessageBox.Show(e.Message);
+#endif
+
+        }
+        finally
+        {
+          App.LoadingPopup.Hide();
+          if (delRes)
+            navigationService.UriFor<SavedJourneyPageViewModel>().Navigate();
+        }
+       
+        
       }
     }
 

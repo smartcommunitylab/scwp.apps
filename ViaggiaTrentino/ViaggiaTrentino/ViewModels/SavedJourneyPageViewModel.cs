@@ -54,19 +54,32 @@ namespace ViaggiaTrentino.ViewModels
       this.navigationService = navigationService;
       this.eventAggregator = eventAggregator;
       urLib = new UserRouteLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
-      
     }
 
     protected async override void OnViewLoaded(object view)
     {
       base.OnViewLoaded(view);
-      urLib = new UserRouteLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
-      App.LoadingPopup.Show();
-      await Settings.RefreshToken();
-      basList = await urLib.ReadAllSingleJourneys();
-      barList = await urLib.ReadAllRecurrentJourneys();
-      App.LoadingPopup.Hide();
-      BackgroundWorker bw = new BackgroundWorker();
+
+      try
+      {
+        App.LoadingPopup.Show();
+        await Settings.RefreshToken();
+        basList = await urLib.ReadAllSingleJourneys();
+        barList = await urLib.ReadAllRecurrentJourneys();
+      }
+      catch (Exception e)
+      {
+#if DEBUG
+        System.Windows.MessageBox.Show(e.Message);
+#endif
+
+      }
+      finally
+      {
+        App.LoadingPopup.Hide();
+      }
+
+      BackgroundWorker bw = new BackgroundWorker();   
       bw.DoWork += bw_DoWork;
       bw.ProgressChanged += bw_ProgressChanged;
       bw.WorkerReportsProgress = true;

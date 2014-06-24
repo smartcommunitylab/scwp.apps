@@ -14,7 +14,7 @@ using ViaggiaTrentino.Resources;
 
 namespace ViaggiaTrentino.ViewModels
 {
-  public class MonitorJourneyListViewModel: Screen
+  public class MonitorJourneyListViewModel : Screen
   {
     private readonly INavigationService navigationService;
     RoutePlanningLibrary rpLib;
@@ -46,31 +46,42 @@ namespace ViaggiaTrentino.ViewModels
     {
       this.navigationService = navigationService;
       rpLib = new RoutePlanningLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
-      urLib = new UserRouteLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);      
+      urLib = new UserRouteLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
     }
 
     protected override async void OnViewLoaded(object view)
     {
       base.OnViewLoaded(view);
-
-      App.LoadingPopup.Show();
-      recJP = PhoneApplicationService.Current.State["recurrentJourney"] as RecurrentJourneyParameters;
-      PhoneApplicationService.Current.State.Remove("recurrentJourney");
-      await Settings.RefreshToken();
-      RecurrentJourney rj = await rpLib.PlanRecurrentJourney(recJP);
-      Dictionary<string, bool> monitoredLegs = new Dictionary<string, bool>();
-      foreach (var gambaSemplice in rj.Legs)
+      try
       {
-        string key = string.Format("{0}_{1}", gambaSemplice.TransportInfo.AgencyId, gambaSemplice.TransportInfo.RouteId);
-        monitoredLegs[key] = true;
+        App.LoadingPopup.Show();
+        recJP = PhoneApplicationService.Current.State["recurrentJourney"] as RecurrentJourneyParameters;
+        PhoneApplicationService.Current.State.Remove("recurrentJourney");
+        await Settings.RefreshToken();
+        RecurrentJourney rj = await rpLib.PlanRecurrentJourney(recJP);
+        Dictionary<string, bool> monitoredLegs = new Dictionary<string, bool>();
+        foreach (var gambaSemplice in rj.Legs)
+        {
+          string key = string.Format("{0}_{1}", gambaSemplice.TransportInfo.AgencyId, gambaSemplice.TransportInfo.RouteId);
+          monitoredLegs[key] = true;
+        }
+        rj.MonitorLegs = monitoredLegs;
+        if (rj != null)
+          RecJourney = rj;
       }
-      rj.MonitorLegs = monitoredLegs;
-      if (rj != null)
-        RecJourney = rj;
-      App.LoadingPopup.Hide();
-      
+      catch (Exception e)
+      {
+#if DEBUG
+        System.Windows.MessageBox.Show(e.Message);
+#endif
+      }
+      finally
+      {
+        App.LoadingPopup.Hide();
+      }
+
     }
-    
+
     public void CheckBoxPressed(CheckBox sender, SimpleLeg gambaSemplice)
     {
       if (gambaSemplice.TransportInfo.RouteId != null)
@@ -85,16 +96,16 @@ namespace ViaggiaTrentino.ViewModels
 
     public void BarSave()
     {
-     
-        InputPrompt ip = new InputPrompt();
-        ip.Message = AppResources.JourneyNameMsg;
-        ip.Title = AppResources.JourneyNameTit;
-        ip.VerticalAlignment = System.Windows.VerticalAlignment.Center;
-        ip.HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch;
-        
-        ip.Completed += ip_Completed;
-        ip.Show();
-      
+
+      InputPrompt ip = new InputPrompt();
+      ip.Message = AppResources.JourneyNameMsg;
+      ip.Title = AppResources.JourneyNameTit;
+      ip.VerticalAlignment = System.Windows.VerticalAlignment.Center;
+      ip.HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch;
+
+      ip.Completed += ip_Completed;
+      ip.Show();
+
     }
 
     async void ip_Completed(object sender, PopUpEventArgs<string, PopUpResult> e)
@@ -103,19 +114,34 @@ namespace ViaggiaTrentino.ViewModels
       {
         if (e.Result != "")
         {
-          BasicRecurrentJourney brj = new BasicRecurrentJourney()
-          {
+          BasicRecurrentJourney respJourney = null;
 
-            Data = recJ,
-            Monitor = true,
-            Name = e.Result
-          };
-          App.LoadingPopup.Show();
-          await Settings.RefreshToken();
-          var resp = await urLib.SaveRecurrentJourney(brj);
-          App.LoadingPopup.Hide();
-          if (resp is BasicRecurrentJourney)
-            navigationService.UriFor<MainPageViewModel>().Navigate();
+          try
+          {
+            BasicRecurrentJourney brj = new BasicRecurrentJourney()
+            {
+
+              Data = recJ,
+              Monitor = true,
+              Name = e.Result
+            };
+            await Settings.RefreshToken();
+            var resp = await urLib.SaveRecurrentJourney(brj);
+          }
+          catch (Exception ex)
+          {
+#if DEBUG
+            System.Windows.MessageBox.Show(ex.Message);
+#endif
+          }
+          finally
+          {
+            App.LoadingPopup.Hide();
+            if (respJourney != null)
+              navigationService.UriFor<MainPageViewModel>().Navigate();
+          }
+
+
         }
         else
           MessageBox.Show(AppResources.ValidationJTitle, AppResources.ValidationCaption, MessageBoxButton.OK);

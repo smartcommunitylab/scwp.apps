@@ -45,15 +45,29 @@ namespace ViaggiaTrentino.ViewModels
     protected async override void OnViewLoaded(object view)
     {
       base.OnViewLoaded(view);
-      App.LoadingPopup.Show();
-      await Settings.RefreshToken();
-      var res = await ptl.GetLimitedTimetable(AgencyID, stopID, 3);
-      var grouped =
-                from list in res
-                group list by (list.RouteShortName+" - " + list.RouteName) into listByGroup
-                select new KeyedList<string, TripData>(listByGroup);
-      App.LoadingPopup.Hide();
-      eventAggregator.Publish(grouped);    
+      try
+      {
+        App.LoadingPopup.Show();
+        await Settings.RefreshToken();
+        var res = await ptl.GetLimitedTimetable(AgencyID, stopID, 3);
+        var grouped =
+                  from list in res
+                  group list by (list.RouteShortName + " - " + list.RouteName) into listByGroup
+                  select new KeyedList<string, TripData>(listByGroup);
+        eventAggregator.Publish(grouped);    
+      }
+      catch (Exception e)
+      {
+#if DEBUG
+        System.Windows.MessageBox.Show(e.Message);
+#endif
+
+      }
+      finally
+      {
+        App.LoadingPopup.Hide();
+      }
+     
     }
   }
 }

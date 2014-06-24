@@ -38,9 +38,21 @@ namespace ViaggiaTrentino.ViewModels
     protected override async void OnViewLoaded(object view)
     {
       base.OnViewLoaded(view);
-      App.LoadingPopup.Show();
-      await Settings.RefreshToken(true);
-      App.LoadingPopup.Hide();
+      try
+      {
+        App.LoadingPopup.Show();
+        await Settings.RefreshToken(true);
+      }
+      catch (Exception e)
+      {
+#if DEBUG
+        System.Windows.MessageBox.Show(e.Message);
+#endif
+      }
+      finally
+      {
+        App.LoadingPopup.Hide();
+      }
     }
 
     #region Tiles

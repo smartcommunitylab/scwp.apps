@@ -55,8 +55,24 @@ namespace ViaggiaTrentino.ViewModels
       base.OnDeactivate(close);
       if (isSomethingChanged && MessageBox.Show(AppResources.SureChange, AppResources.Warn, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
       {
-        await Settings.RefreshToken();
-        await urLib.UpdateRecurrentJourney(Journey.ClientId, Journey);
+        try
+        {
+          App.LoadingPopup.Show();
+          await Settings.RefreshToken();
+          await urLib.UpdateRecurrentJourney(Journey.ClientId, Journey);
+        }
+        catch (Exception e)
+        {
+#if DEBUG
+          System.Windows.MessageBox.Show(e.Message);
+#endif
+
+        }
+        finally
+        {
+          App.LoadingPopup.Hide();
+        }
+        
       }
      
 
@@ -76,21 +92,51 @@ namespace ViaggiaTrentino.ViewModels
 
     public async void BarMonitor()
     {
-      await Settings.RefreshToken();
-      Journey.Monitor = await urLib.SetMonitorRecurrentJourney(basIti.ClientId, !basIti.Monitor);
-      NotifyOfPropertyChange(() => Journey);    
+      try
+      {
+        App.LoadingPopup.Show();
+        await Settings.RefreshToken();
+        Journey.Monitor = await urLib.SetMonitorRecurrentJourney(basIti.ClientId, !basIti.Monitor);
+        NotifyOfPropertyChange(() => Journey);    
+      }
+      catch (Exception e)
+      {
+#if DEBUG
+        System.Windows.MessageBox.Show(e.Message);
+#endif
+
+      }
+      finally
+      {
+        App.LoadingPopup.Hide();
+      }     
     }
 
     public async void BarDelete()
     {
       if (MessageBox.Show(AppResources.SureDelete, AppResources.Warn, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
       {
-        App.LoadingPopup.Show();
-        await Settings.RefreshToken();
-        bool delRes = await urLib.DeleteRecurrentJourney(basIti.ClientId);
-        App.LoadingPopup.Hide();
-        if (delRes)
-          navigationService.UriFor<SavedJourneyPageViewModel>().Navigate();
+        bool delRes = false;
+        try
+        {
+          App.LoadingPopup.Show();
+          await Settings.RefreshToken();
+          delRes = await urLib.DeleteRecurrentJourney(basIti.ClientId);
+        }
+        catch (Exception e)
+        {
+#if DEBUG
+          System.Windows.MessageBox.Show(e.Message);
+#endif
+
+        }
+        finally
+        {
+          App.LoadingPopup.Hide();
+          if (delRes)
+            navigationService.UriFor<SavedJourneyPageViewModel>().Navigate();
+        }
+       
       }
     }
 
