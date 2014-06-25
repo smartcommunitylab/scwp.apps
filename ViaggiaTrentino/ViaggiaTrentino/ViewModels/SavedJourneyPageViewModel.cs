@@ -71,6 +71,9 @@ namespace ViaggiaTrentino.ViewModels
     {
       base.OnViewLoaded(view);
 
+      while (navigationService.BackStack.Count() > 1)
+        navigationService.RemoveBackEntry();
+      
       try
       {
         App.LoadingPopup.Show();
