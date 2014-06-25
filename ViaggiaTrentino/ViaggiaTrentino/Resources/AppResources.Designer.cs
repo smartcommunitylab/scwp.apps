@@ -232,6 +232,24 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The application seems to have encountered some difficulties during the last run. Do you want to send a report of the application error to help improve the experience?.
+        /// </summary>
+        public static string ErrorReportCaption {
+            get {
+                return ResourceManager.GetString("ErrorReportCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error reporting.
+        /// </summary>
+        public static string ErrorReportTitle {
+            get {
+                return ResourceManager.GetString("ErrorReportTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to From.
         /// </summary>
         public static string From {

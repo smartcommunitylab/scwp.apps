@@ -98,6 +98,8 @@
     <Compile Include="Converters\DynamicTileSizeConverter.cs" />
     <Compile Include="Converters\DebuggingConverter.cs" />
     <Compile Include="Converters\LongListSelectorItemToColorConverter.cs" />
+    <Compile Include="Helpers\ExceptionLoggerHelper.cs" />
+    <Compile Include="Helpers\FavouriteLocationHelper.cs" />
     <Compile Include="Helpers\FileStorageHelper.cs" />
     <Compile Include="Helpers\GooglePolyline.cs" />
     <Compile Include="Helpers\KeyedList.cs" />
@@ -162,6 +164,9 @@
     <Compile Include="ViewModels\TestPageViewModel.cs" />
     <Compile Include="Views\AboutPageView.xaml.cs">
       <DependentUpon>AboutPageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\ChooseFavouritePlaceControl.xaml.cs">
+      <DependentUpon>ChooseFavouritePlaceControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Controls\FavouritePlaceControl.xaml.cs">
       <DependentUpon>FavouritePlaceControl.xaml</DependentUpon>
@@ -307,6 +312,7 @@
     <Content Include="Assets\Logos\LogoSmartcamp.png" />
     <Content Include="Assets\Miscs\Favourites.png" />
     <Content Include="Assets\Miscs\MapLocation.png" />
+    <Content Include="Assets\Miscs\PinLocation.png" />
     <Content Include="Assets\Miscs\StopPushPin.png" />
     <Content Include="Assets\Miscs\GpsLocation.png" />
     <Content Include="Assets\SmallTile.png" />
@@ -318,7 +324,7 @@
     <Content Include="Assets\Vehicles\hubtrain.png" />
     <Content Include="Assets\Vehicles\parking.png" />
     <Content Include="Assets\Vehicles\sharedbike.png" />
-    <Content Include="Assets\Vehicles\Sharedbike_without_station.png" />
+    <Content Include="Assets\Vehicles\sharedbike_without_station.png" />
     <Content Include="Assets\Vehicles\sharedcar.png" />
     <Content Include="Assets\Vehicles\sharedcar_without_station.png" />
     <Content Include="Assets\Vehicles\shuttle.png" />
@@ -425,6 +431,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Views\AboutPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Controls\ChooseFavouritePlaceControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

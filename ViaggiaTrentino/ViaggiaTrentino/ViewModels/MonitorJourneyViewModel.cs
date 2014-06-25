@@ -29,6 +29,7 @@ namespace ViaggiaTrentino.ViewModels
     private readonly INavigationService navigationService;
     ObservableCollection<object> selDays;
     LocationChooserHelper lch;
+    FavouriteLocationHelper flh;
     bool isSettingsShown;
     bool isAlways;
     bool isAppBarShown;
@@ -53,10 +54,14 @@ namespace ViaggiaTrentino.ViewModels
       from = new Position() { Name = "" };
       pm = Settings.AppPreferences.Clone();
       lch = new LocationChooserHelper();
-      lch.PositionObtained += lch_PositionObtained;
+      lch.PositionObtained += PositionObtained;
+      flh = new FavouriteLocationHelper();
+      flh.FavouriteSelectionCompleted += PositionObtained;
     }
 
-    void lch_PositionObtained(object sender, Position results)
+
+
+    void PositionObtained(object sender, Position results)
     {
       if (results != null)
       {
@@ -177,6 +182,19 @@ namespace ViaggiaTrentino.ViewModels
 
     #region Buttons eventhandlers
 
+    public void FavsFrom()
+    {
+      IsAppBarShown = false;
+      locationResult = "from";
+      flh.ShowFavouriteSelector();
+    }
+
+    public void FavsTo()
+    {
+      IsAppBarShown = false;
+      locationResult = "to";
+      flh.ShowFavouriteSelector();
+    }
   
     public void GpsLocFrom()
     {
