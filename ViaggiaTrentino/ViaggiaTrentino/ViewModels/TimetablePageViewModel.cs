@@ -11,6 +11,16 @@ using System;
 using Models.MobilityService.PublicTransport;
 using System.Collections;
 using System.Diagnostics;
+using Microsoft.Phone.Shell;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+using System.Windows.Media;
+using ViaggiaTrentino.Converters;
+using System.Windows.Controls;
+using Windows.Storage;
+using System.IO;
+using System.IO.IsolatedStorage;
+using System.Windows;
 
 namespace ViaggiaTrentino.ViewModels
 {
@@ -175,6 +185,7 @@ namespace ViaggiaTrentino.ViewModels
         }
       }
     }
+
     protected override void OnInitialize()
     {
       base.OnInitialize();
@@ -187,6 +198,7 @@ namespace ViaggiaTrentino.ViewModels
       GetTimetableFromDB();
     }
 
+    #region AppBar
     public void Next()
     {
       CurrentDate = CurrentDate.AddDays(1);
@@ -204,5 +216,92 @@ namespace ViaggiaTrentino.ViewModels
       CurrentDate = CurrentDate.AddDays(-1);
       GetTimetableFromDB();
     }
+    public async void PinToStart()
+    {
+
+      string tileUri = String.Format("/Views/TimetablePageView.xaml?AgencyID={0}&RouteIDWithDirection={1}&Description={2}&NameID={3}&Color={4}",
+        EnumConverter.ToEnumString<AgencyType>(AgencyID),
+        RouteIDWitDirection,
+        Description,
+        NameID,
+        Color);
+
+#if DEBUG
+      Random rr = new Random();
+      tileUri += "&random="+rr.Next(1,100);
+#endif
+
+      if (ShellTile.ActiveTiles.FirstOrDefault(x => x.NavigationUri.ToString().Equals(tileUri)) != null)
+      {
+        MessageBox.Show("tile gia' presente");
+        return;
+      }
+
+
+
+
+
+
+
+      WriteableBitmap wb = new WriteableBitmap(336, 336);
+
+      #region TimetableTileTemplate
+      StringHexColorToColorsConverter a = new StringHexColorToColorsConverter();
+      Color colorConverted = (Color)a.Convert(color, null, null, System.Globalization.CultureInfo.CurrentUICulture);
+
+      Canvas bg = new Canvas
+      {
+        Background = new SolidColorBrush(colorConverted),
+        Width = wb.PixelWidth,
+        Height = wb.PixelHeight
+      };
+
+      Grid g = new Grid
+      {
+        Margin = new System.Windows.Thickness(5),
+        Width = wb.PixelWidth,
+        Height = wb.PixelHeight
+      };
+
+      TextBlock t = new TextBlock
+      {
+        Margin = new System.Windows.Thickness(0,0,10,5),
+        HorizontalAlignment = System.Windows.HorizontalAlignment.Right,
+        VerticalAlignment = System.Windows.VerticalAlignment.Bottom,
+        Foreground = new SolidColorBrush(Colors.White),
+        Text = NameID
+      };
+
+      g.Children.Add(t);
+      #endregion
+
+      wb.Render(bg, null);
+      wb.Render(g, null);
+      wb.Invalidate();
+
+      #region StorageOps
+      StorageFolder sharedFolder = await ApplicationData.Current.LocalFolder.CreateFolderAsync("Shared", CreationCollisionOption.OpenIfExists);
+      StorageFolder shellContentFolder = await sharedFolder.CreateFolderAsync("ShellContent", CreationCollisionOption.OpenIfExists);
+
+      StorageFile storageFile = await shellContentFolder.CreateFileAsync(
+        String.Format("{0}_{1}.jpg", EnumConverter.ToEnumString<AgencyType>(AgencyID), nameID),
+        CreationCollisionOption.ReplaceExisting
+      );
+      string filep = String.Format(@"isostore:\{0}", System.IO.Path.Combine(sharedFolder.Name, shellContentFolder.Name, storageFile.Name));
+      #endregion
+
+      using (Stream sw = await storageFile.OpenStreamForWriteAsync())
+      {
+        wb.SaveJpeg(sw, wb.PixelWidth, wb.PixelHeight, 0, 100);
+      };
+      
+      StandardTileData NewTileData = new StandardTileData
+      { 
+        BackgroundImage = new Uri(filep, UriKind.Absolute)
+      };
+
+      ShellTile.Create(new Uri(tileUri, UriKind.Relative), NewTileData, false);
+    }
+    #endregion
   }
 }

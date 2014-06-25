@@ -124,6 +124,8 @@
                                 Text="{Binding Path=LocalizedResources.Today, Source={StaticResource LocalizedStrings}}"  />
       <bab:BindableAppBarButton IconUri="/Assets/AppBar/Next.png" x:Name="Next" IsEnabled="{Binding DisableAppBar}"
                                 Text="{Binding Path=LocalizedResources.Next, Source={StaticResource LocalizedStrings}}"/>
+      <bab:BindableAppBarMenuItem x:Name="PinToStart" IsEnabled="{Binding DisableAppBar}"
+                                  Text="{Binding Path=LocalizedResources.PinToStart, Source={StaticResource LocalizedStrings}}"/>
     </bab:BindableAppBar>
   </Grid>
 </phone:PhoneApplicationPage>

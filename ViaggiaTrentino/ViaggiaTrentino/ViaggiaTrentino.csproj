@@ -94,6 +94,7 @@
     <Compile Include="Converters\BooleanToReversedVisibilityConverter.cs" />
     <Compile Include="Converters\AgencyIDToImageConverter.cs" />
     <Compile Include="Converters\BooleanToToggledMonitoringStatusConverter.cs" />
+    <Compile Include="Converters\StringHexColorToColorsConverter.cs" />
     <Compile Include="Converters\DynamicTileSizeConverter.cs" />
     <Compile Include="Converters\DebuggingConverter.cs" />
     <Compile Include="Converters\LongListSelectorItemToColorConverter.cs" />
