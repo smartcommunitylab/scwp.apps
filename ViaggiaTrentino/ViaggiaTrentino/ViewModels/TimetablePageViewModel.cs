@@ -21,6 +21,7 @@ using Windows.Storage;
 using System.IO;
 using System.IO.IsolatedStorage;
 using System.Windows;
+using ViaggiaTrentino.Resources;
 
 namespace ViaggiaTrentino.ViewModels
 {
@@ -199,6 +200,7 @@ namespace ViaggiaTrentino.ViewModels
     }
 
     #region AppBar
+
     public void Next()
     {
       CurrentDate = CurrentDate.AddDays(1);
@@ -233,18 +235,14 @@ namespace ViaggiaTrentino.ViewModels
 
       if (ShellTile.ActiveTiles.FirstOrDefault(x => x.NavigationUri.ToString().Equals(tileUri)) != null)
       {
-        MessageBox.Show("tile gia' presente");
+        MessageBox.Show(AppResources.AlreadyPinnedTileError, AppResources.GenericErrorTitle, MessageBoxButton.OK);
         return;
       }
-
-
-
-
-
 
       WriteableBitmap wb = new WriteableBitmap(336, 336);
 
       #region TimetableTileTemplate
+      
       StringHexColorToColorsConverter a = new StringHexColorToColorsConverter();
       Color colorConverted = (Color)a.Convert(color, null, null, System.Globalization.CultureInfo.CurrentUICulture);
 
@@ -270,6 +268,7 @@ namespace ViaggiaTrentino.ViewModels
         FontSize = 30,
         Text = Description
       };
+
       bg.Children.Add(mainStops);
       bg.Children.Add(lineNumber);
 
@@ -293,6 +292,7 @@ namespace ViaggiaTrentino.ViewModels
         CreationCollisionOption.ReplaceExisting
       );
       string filep = String.Format(@"isostore:\{0}", System.IO.Path.Combine(sharedFolder.Name, shellContentFolder.Name, storageFile.Name));
+
       #endregion
 
       using (Stream sw = await storageFile.OpenStreamForWriteAsync())
@@ -308,6 +308,7 @@ namespace ViaggiaTrentino.ViewModels
 
       ShellTile.Create(new Uri(tileUri, UriKind.Relative), NewTileData, false);
     }
+
     #endregion
   }
 }

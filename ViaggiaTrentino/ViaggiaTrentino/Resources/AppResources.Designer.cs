@@ -133,6 +133,15 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This tile has already been pinned!.
+        /// </summary>
+        public static string AlreadyPinnedTileError {
+            get {
+                return ResourceManager.GetString("AlreadyPinnedTileError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ViaggiaTrentino.
         /// </summary>
         public static string ApplicationTitle {
@@ -232,7 +241,7 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The application seems to have encountered some difficulties during the last run. Do you want to send a report of the application error to help improve the experience?.
+        ///   Looks up a localized string similar to Error reporting.
         /// </summary>
         public static string ErrorReportCaption {
             get {
@@ -241,11 +250,11 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Error reporting.
+        ///   Looks up a localized string similar to The application seems to have encountered some difficulties during the last run. Do you want to send a report of the application error to help improve the experience?.
         /// </summary>
-        public static string ErrorReportTitle {
+        public static string ErrorReportMessage {
             get {
-                return ResourceManager.GetString("ErrorReportTitle", resourceCulture);
+                return ResourceManager.GetString("ErrorReportMessage", resourceCulture);
             }
         }
         
@@ -354,6 +363,15 @@ namespace ViaggiaTrentino.Resources {
         public static string GeneralSettingsWalking {
             get {
                 return ResourceManager.GetString("GeneralSettingsWalking", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        public static string GenericErrorTitle {
+            get {
+                return ResourceManager.GetString("GenericErrorTitle", resourceCulture);
             }
         }
         
