@@ -278,7 +278,7 @@ namespace ViaggiaTrentino.ViewModels
         Foreground = new SolidColorBrush(foregroundColor),
         TextWrapping = System.Windows.TextWrapping.Wrap,
         Width = bg.Width - 20,
-        FontSize = 30,
+        FontSize = 35,
         Text = Description
       };
 
@@ -289,7 +289,7 @@ namespace ViaggiaTrentino.ViewModels
       Canvas.SetTop(mainStops, 10);
 
       Canvas.SetLeft(lineNumber, bg.Width - lineNumber.ActualWidth - 15);
-      Canvas.SetTop(lineNumber, bg.Height - lineNumber.ActualHeight + (NameID.Length == 3 ? 40 : 20 ));
+      Canvas.SetTop(lineNumber, bg.Height - lineNumber.ActualHeight + (NameID.Length == 3 ? 10 : 20 ));
 
       #endregion
 

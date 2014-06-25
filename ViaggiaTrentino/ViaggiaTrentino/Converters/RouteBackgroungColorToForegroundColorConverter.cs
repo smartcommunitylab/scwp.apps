@@ -15,9 +15,9 @@ namespace ViaggiaTrentino.Converters
       {
         switch (value as string)
         {
-          case "#FFF": return "#A5000000";
-          case "#FFFFFF": return "#A5000000";
-          default: return "#A5FFFFFF";
+          case "#FFF": return "#FF000000";
+          case "#FFFFFF": return "#FF000000";
+          default: return "#FFFFFFFF";
         }
       }
       return null;
