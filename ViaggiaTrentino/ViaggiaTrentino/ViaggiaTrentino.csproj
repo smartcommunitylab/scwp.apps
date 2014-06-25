@@ -317,7 +317,7 @@
     <Content Include="Assets\Vehicles\hubtrain.png" />
     <Content Include="Assets\Vehicles\parking.png" />
     <Content Include="Assets\Vehicles\sharedbike.png" />
-    <Content Include="Assets\Vehicles\Sharedbike_without_station.png" />
+    <Content Include="Assets\Vehicles\sharedbike_without_station.png" />
     <Content Include="Assets\Vehicles\sharedcar.png" />
     <Content Include="Assets\Vehicles\sharedcar_without_station.png" />
     <Content Include="Assets\Vehicles\shuttle.png" />
