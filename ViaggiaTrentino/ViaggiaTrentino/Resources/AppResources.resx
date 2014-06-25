@@ -557,4 +557,7 @@
   <data name="ErrorReportTitle" xml:space="preserve">
     <value>Error reporting</value>
   </data>
+  <data name="PinToStart" xml:space="preserve">
+    <value>pin to start</value>
+  </data>
 </root>

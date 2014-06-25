@@ -23,13 +23,13 @@
     </Grid.ColumnDefinitions>
     <!--<TextBlock Grid.Row="0" Text="{Binding Converter={StaticResource itiToSpanStr}}"></TextBlock>-->
     <TextBlock Margin="15,0,0,0" VerticalAlignment="Center" Grid.Column="0" TextWrapping="Wrap" Text="{Binding Converter={StaticResource itiToSpanStr}}" />
-    <ListBox Grid.Column="1" ItemsSource="{Binding Legs, Converter={ StaticResource legsToLegImgs}}" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+    <ListBox Grid.Column="1" ItemsSource="{Binding Legs, Converter={ StaticResource legsToLegImgs}}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
       <ControlTemplate TargetType="ListBox">
         <ItemsPresenter />
       </ControlTemplate>
       <ListBox.ItemsPanel>
         <ItemsPanelTemplate>
-          <toolkit:WrapPanel x:Name="wrpTransports" HorizontalAlignment="Center" />
+          <toolkit:WrapPanel x:Name="wrpTransports" HorizontalAlignment="Center" Orientation="Horizontal" ScrollViewer.HorizontalScrollBarVisibility="Disabled" />
         </ItemsPanelTemplate>
       </ListBox.ItemsPanel>
       <ListBox.ItemTemplate>

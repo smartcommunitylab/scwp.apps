@@ -228,7 +228,7 @@ namespace ViaggiaTrentino.ViewModels
 
 #if DEBUG
       Random rr = new Random();
-      tileUri += "&random="+rr.Next(1,100);
+      tileUri += "&random=" + rr.Next(1, 100);
 #endif
 
       if (ShellTile.ActiveTiles.FirstOrDefault(x => x.NavigationUri.ToString().Equals(tileUri)) != null)
@@ -236,7 +236,6 @@ namespace ViaggiaTrentino.ViewModels
         MessageBox.Show("tile gia' presente");
         return;
       }
-
 
 
 
@@ -256,27 +255,33 @@ namespace ViaggiaTrentino.ViewModels
         Height = wb.PixelHeight
       };
 
-      Grid g = new Grid
+      TextBlock lineNumber = new TextBlock
       {
-        Margin = new System.Windows.Thickness(5),
-        Width = wb.PixelWidth,
-        Height = wb.PixelHeight
-      };
-
-      TextBlock t = new TextBlock
-      {
-        Margin = new System.Windows.Thickness(0,0,10,5),
-        HorizontalAlignment = System.Windows.HorizontalAlignment.Right,
-        VerticalAlignment = System.Windows.VerticalAlignment.Bottom,
         Foreground = new SolidColorBrush(Colors.White),
+        FontSize = 200,
         Text = NameID
       };
 
-      g.Children.Add(t);
+      TextBlock mainStops = new TextBlock
+      {
+        Foreground = new SolidColorBrush(Colors.White),
+        TextWrapping = System.Windows.TextWrapping.Wrap,
+        Width = bg.Width - 20,
+        FontSize = 30,
+        Text = Description
+      };
+      bg.Children.Add(mainStops);
+      bg.Children.Add(lineNumber);
+
+      Canvas.SetLeft(mainStops, 10);
+      Canvas.SetTop(mainStops, 10);
+
+      Canvas.SetLeft(lineNumber, bg.Width - lineNumber.ActualWidth - 15);
+      Canvas.SetTop(lineNumber, bg.Height - lineNumber.ActualHeight +40);
+
       #endregion
 
       wb.Render(bg, null);
-      wb.Render(g, null);
       wb.Invalidate();
 
       #region StorageOps
@@ -294,10 +299,11 @@ namespace ViaggiaTrentino.ViewModels
       {
         wb.SaveJpeg(sw, wb.PixelWidth, wb.PixelHeight, 0, 100);
       };
-      
+
       StandardTileData NewTileData = new StandardTileData
-      { 
-        BackgroundImage = new Uri(filep, UriKind.Absolute)
+      {
+        BackgroundImage = new Uri(filep, UriKind.Absolute),
+        Title = null
       };
 
       ShellTile.Create(new Uri(tileUri, UriKind.Relative), NewTileData, false);

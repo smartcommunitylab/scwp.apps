@@ -552,6 +552,10 @@
           <source>Error reporting</source>
           <target state="translated" state-qualifier="mt-suggestion">Segnalazione errori</target>
         </trans-unit>
+        <trans-unit id="Resx/PinToStart" translate="yes" xml:space="preserve">
+          <source>pin to start</source>
+          <target state="new">pin to start</target>
+        </trans-unit>
         <trans-unit id="Resx/ErrorReportCaption" translate="yes" xml:space="preserve">
           <source>The application seems to have encountered some difficulties during the last run. Do you want to send a report of the application error to help improve the experience?</source>
           <target state="translated">L'applicazione sembra avere rilevato alcune difficoltà durante l'ultima esecuzione. Si desidera inviare un rapporto sull'errore per migliorare l'esperienza?</target>

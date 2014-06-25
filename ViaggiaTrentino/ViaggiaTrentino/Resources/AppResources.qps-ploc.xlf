@@ -553,6 +553,10 @@
           <source>Error reporting</source>
           <target state="needs-review-translation" state-qualifier="mt-suggestion">[16ABC][!!_Ęŕŗõř ŕęρôřτíиġ_!!!!]</target>
         </trans-unit>
+        <trans-unit id="Resx/PinToStart" translate="yes" xml:space="preserve">
+          <source>pin to start</source>
+          <target state="new">pin to start</target>
+        </trans-unit>
         <trans-unit id="Resx/ErrorReportCaption" translate="yes" xml:space="preserve">
           <source>The application seems to have encountered some difficulties during the last run. Do you want to send a report of the application error to help improve the experience?</source>
           <target state="needs-review-translation" state-qualifier="mt-suggestion">[7C649][!!_Ţђę âþþłìĉâтįòи śèęмš тõ ħáνê êиċõùητèŗęď śõмę ðîƒƒìćûľτíèś đûѓîйğ тђę łâśť ŗûй. Đõ ÿòú ẃâηт тó ŝèиď ã ŗéρòѓţ ôƒ ţĥê âþρĺìĉáţįòή èѓѓõѓ τó ĥęĺþ ìмрřòνê тћé èхρêřįèйčè?_!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!]</target>
