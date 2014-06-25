@@ -42,13 +42,6 @@ namespace ViaggiaTrentino.ViewModels
         await Settings.RefreshToken();
         parchi = await publicTransLib.GetParkingsByAgency(Models.MobilityService.AgencyType.ComuneDiTrento);
       }
-      catch (Exception e)
-      {
-#if DEBUG
-        System.Windows.MessageBox.Show(e.Message);
-#endif
-
-      }
       finally
       {
         App.LoadingPopup.Hide();

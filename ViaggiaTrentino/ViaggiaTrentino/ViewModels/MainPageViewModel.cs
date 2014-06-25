@@ -56,13 +56,7 @@ namespace ViaggiaTrentino.ViewModels
       {
         App.LoadingPopup.Show();
         await Settings.RefreshToken(true);
-      }
-      catch (Exception e)
-      {
-#if DEBUG
-        System.Windows.MessageBox.Show(e.Message);
-#endif
-      }
+      }      
       finally
       {
         App.LoadingPopup.Hide();
@@ -107,6 +101,15 @@ namespace ViaggiaTrentino.ViewModels
     public void ReadNotificationsTile()
     {
       MessageBox.Show("Read Notifications");
+      //try
+      //{
+      //  throw new Newtonsoft.Json.JsonException();
+      //}
+      //finally
+      //{
+      //  MessageBox.Show("finally");
+      //}
+
     }
 
     public void SubmitAlertTile()

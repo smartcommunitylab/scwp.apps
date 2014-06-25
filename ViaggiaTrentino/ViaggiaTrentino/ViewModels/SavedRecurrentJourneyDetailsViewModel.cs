@@ -61,13 +61,6 @@ namespace ViaggiaTrentino.ViewModels
           await Settings.RefreshToken();
           await urLib.UpdateRecurrentJourney(Journey.ClientId, Journey);
         }
-        catch (Exception e)
-        {
-#if DEBUG
-          System.Windows.MessageBox.Show(e.Message);
-#endif
-
-        }
         finally
         {
           App.LoadingPopup.Hide();
@@ -99,13 +92,6 @@ namespace ViaggiaTrentino.ViewModels
         Journey.Monitor = await urLib.SetMonitorRecurrentJourney(basIti.ClientId, !basIti.Monitor);
         NotifyOfPropertyChange(() => Journey);    
       }
-      catch (Exception e)
-      {
-#if DEBUG
-        System.Windows.MessageBox.Show(e.Message);
-#endif
-
-      }
       finally
       {
         App.LoadingPopup.Hide();
@@ -122,14 +108,7 @@ namespace ViaggiaTrentino.ViewModels
           App.LoadingPopup.Show();
           await Settings.RefreshToken();
           delRes = await urLib.DeleteRecurrentJourney(basIti.ClientId);
-        }
-        catch (Exception e)
-        {
-#if DEBUG
-          System.Windows.MessageBox.Show(e.Message);
-#endif
-
-        }
+        }        
         finally
         {
           App.LoadingPopup.Hide();

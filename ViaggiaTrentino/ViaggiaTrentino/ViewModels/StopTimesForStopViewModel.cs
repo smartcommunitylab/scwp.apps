@@ -56,13 +56,6 @@ namespace ViaggiaTrentino.ViewModels
                   select new KeyedList<string, TripData>(listByGroup);
         eventAggregator.Publish(grouped);    
       }
-      catch (Exception e)
-      {
-#if DEBUG
-        System.Windows.MessageBox.Show(e.Message);
-#endif
-
-      }
       finally
       {
         App.LoadingPopup.Hide();

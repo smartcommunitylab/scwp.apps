@@ -3,11 +3,13 @@ using Caliburn.Micro.BindableAppBar;
 using DBManager;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Tasks;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Device.Location;
 using System.IO;
 using System.IO.IsolatedStorage;
+using System.Net.Http;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
@@ -57,7 +59,21 @@ namespace ViaggiaTrentino
     protected override void OnUnhandledException(object sender, System.Windows.ApplicationUnhandledExceptionEventArgs e)
     {
       base.OnUnhandledException(sender, e);
-      elh.LogNewException(e.ExceptionObject);
+      e.Handled = true;
+
+      if (e.ExceptionObject is JsonException)
+      {
+        MessageBox.Show("unoparse");
+      }
+      else if (e.ExceptionObject is HttpRequestException)
+      {
+        MessageBox.Show("httpbug");
+      }
+      else
+      {
+        elh.LogNewException(e.ExceptionObject);
+        e.Handled = false;
+      }
     }
 
     private async void DBManagement()

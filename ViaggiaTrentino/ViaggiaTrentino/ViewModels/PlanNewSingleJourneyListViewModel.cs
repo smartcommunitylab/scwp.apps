@@ -70,13 +70,6 @@ namespace ViaggiaTrentino.ViewModels
         if (li != null)
           ListIti = new ObservableCollection<Itinerary>(li);
       }
-      catch (Exception e)
-      {
-#if DEBUG
-        System.Windows.MessageBox.Show(e.Message);
-#endif
-
-      }
       finally
       {
         App.LoadingPopup.Hide();
