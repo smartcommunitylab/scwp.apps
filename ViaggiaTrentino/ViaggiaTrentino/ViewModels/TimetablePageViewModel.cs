@@ -270,7 +270,7 @@ namespace ViaggiaTrentino.ViewModels
       TextBlock lineNumber = new TextBlock
       {
         Foreground = new SolidColorBrush(foregroundColor),
-        FontSize = 170,
+        FontSize = (NameID.Length == 3 ? 150 : 170),
         Text = NameID
       };
       TextBlock mainStops = new TextBlock
@@ -289,7 +289,7 @@ namespace ViaggiaTrentino.ViewModels
       Canvas.SetTop(mainStops, 10);
 
       Canvas.SetLeft(lineNumber, bg.Width - lineNumber.ActualWidth - 15);
-      Canvas.SetTop(lineNumber, bg.Height - lineNumber.ActualHeight + (NameID.Length == 3 ? 50 : 20 ));
+      Canvas.SetTop(lineNumber, bg.Height - lineNumber.ActualHeight + (NameID.Length == 3 ? 40 : 20 ));
 
       #endregion
 
