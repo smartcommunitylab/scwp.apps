@@ -21,6 +21,9 @@ using Windows.Storage;
 using System.IO;
 using System.IO.IsolatedStorage;
 using System.Windows;
+using System.Windows.Navigation;
+using System.Net;
+using ViaggiaTrentino.Views;
 
 namespace ViaggiaTrentino.ViewModels
 {
@@ -35,12 +38,29 @@ namespace ViaggiaTrentino.ViewModels
     private ObservableCollection<DBManager.DBModels.RouteName> routeNames;
     DBManager.DBModels.RouteName selectedRouteName;
 
-
     public TimetablePageViewModel(INavigationService navigationService, IEventAggregator eventAggregator)
     {
       this.navigationService = navigationService;
       this.eventAggregator = eventAggregator;
       NoResults = false;
+    }
+
+    protected override void OnInitialize()
+    {
+      base.OnInitialize();
+      CurrentDate = DateTime.Now;
+    }
+
+    protected override void OnViewLoaded(object view)
+    {
+      base.OnViewLoaded(view);
+      var qs = (navigationService.CurrentContent as TimetablePageView).NavigationContext.QueryString;
+      AgencyID = EnumConverter.ToEnum<AgencyType>(qs["AgencyID"]);
+      RouteIDWitDirection = qs["RouteIDWithDirection"];
+      Description = qs["Description"];
+      NameID = qs["NameID"];
+      Color = qs["Color"];
+      GetTimetableFromDB();
     }
 
     #region Properties
@@ -139,7 +159,6 @@ namespace ViaggiaTrentino.ViewModels
     }
     #endregion
 
-
     private void GetTimetableFromDB()
     {
       using (DBHelper dbh = new DBHelper())
@@ -186,18 +205,6 @@ namespace ViaggiaTrentino.ViewModels
       }
     }
 
-    protected override void OnInitialize()
-    {
-      base.OnInitialize();
-      CurrentDate = DateTime.Now;
-    }
-
-    protected override void OnViewLoaded(object view)
-    {
-      base.OnViewLoaded(view);
-      GetTimetableFromDB();
-    }
-
     #region AppBar
     public void Next()
     {
@@ -228,7 +235,7 @@ namespace ViaggiaTrentino.ViewModels
 
 #if DEBUG
       Random rr = new Random();
-      tileUri += "&random="+rr.Next(1,100);
+      tileUri += "&random=" + rr.Next(1, 100);
 #endif
 
       if (ShellTile.ActiveTiles.FirstOrDefault(x => x.NavigationUri.ToString().Equals(tileUri)) != null)
@@ -265,7 +272,7 @@ namespace ViaggiaTrentino.ViewModels
 
       TextBlock t = new TextBlock
       {
-        Margin = new System.Windows.Thickness(0,0,10,5),
+        Margin = new System.Windows.Thickness(0, 0, 10, 5),
         HorizontalAlignment = System.Windows.HorizontalAlignment.Right,
         VerticalAlignment = System.Windows.VerticalAlignment.Bottom,
         Foreground = new SolidColorBrush(Colors.White),
@@ -294,9 +301,9 @@ namespace ViaggiaTrentino.ViewModels
       {
         wb.SaveJpeg(sw, wb.PixelWidth, wb.PixelHeight, 0, 100);
       };
-      
+
       StandardTileData NewTileData = new StandardTileData
-      { 
+      {
         BackgroundImage = new Uri(filep, UriKind.Absolute)
       };
 
