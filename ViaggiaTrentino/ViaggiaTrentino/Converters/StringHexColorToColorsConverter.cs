@@ -21,26 +21,36 @@ namespace ViaggiaTrentino.Converters
       if (value is string)
       {
         string hexString = value as string;
-        
-        int n = 1;
-        if (hexString.Length == 4)
-          n = 2;
-
-        if (hexString.StartsWith("#"))
-          hexString = hexString.Substring(1, 6/n);
-
-
 
         byte a = System.Convert.ToByte(Int32.Parse("FF", System.Globalization.NumberStyles.AllowHexSpecifier));
         byte r = 0;
         byte g = 0;
         byte b = 0;
 
-        r = System.Convert.ToByte(Int32.Parse(hexString.Substring(0 / n, 2 / n),
+        if (hexString.Length == 4)
+        {
+          string newHexString = hexString.Substring(1, 1) + hexString.Substring(1, 1);
+          newHexString += hexString.Substring(2, 1) + hexString.Substring(2, 1);
+          newHexString += hexString.Substring(3, 1) + hexString.Substring(3, 1);
+          hexString = "#" + newHexString;
+        }
+
+        if (hexString.StartsWith("#"))
+        {
+          if (hexString.Length == 9)
+          {
+            a = System.Convert.ToByte(Int32.Parse(hexString.Substring(1, 2), System.Globalization.NumberStyles.AllowHexSpecifier));
+            hexString = hexString.Substring(3, 6);
+          }
+          else
+            hexString = hexString.Substring(1, 6);
+        }
+
+        r = System.Convert.ToByte(Int32.Parse(hexString.Substring(0, 2),
           System.Globalization.NumberStyles.AllowHexSpecifier));
-        g = System.Convert.ToByte(Int32.Parse(hexString.Substring(2 / n, 2 / n),
+        g = System.Convert.ToByte(Int32.Parse(hexString.Substring(2, 2),
             System.Globalization.NumberStyles.AllowHexSpecifier));
-        b = System.Convert.ToByte(Int32.Parse(hexString.Substring(4 / n, 2 / n),
+        b = System.Convert.ToByte(Int32.Parse(hexString.Substring(4, 2),
             System.Globalization.NumberStyles.AllowHexSpecifier));
 
         return Color.FromArgb(a, r, g, b);

@@ -549,14 +549,26 @@
           <source>logout</source>
           <target state="needs-review-translation" state-qualifier="mt-suggestion">[C76E6][!!_ľòġòúτ_!!]</target>
         </trans-unit>
-        <trans-unit id="Resx/ErrorReportTitle" translate="yes" xml:space="preserve">
-          <source>Error reporting</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">[16ABC][!!_Ęŕŗõř ŕęρôřτíиġ_!!!!]</target>
+        <trans-unit id="Resx/ErrorReportMessage" translate="yes" xml:space="preserve">
+          <source>The application seems to have encountered some difficulties during the last run. Do you want to send a report of the application error to help improve the experience?</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[22C30][!!_Τħę âρþłįċáтìõи śéèмś τõ ћáνé éηĉõúиτêѓèđ śôмé ðìƒƒîćµĺťîęŝ đûřįиġ τнé ļáśτ ѓúή. Ďó ÿôû ŵáήť ţõ śêйđ à ŗèрõѓт õƒ тĥê âррļìčàťìóή èŗŗôř ţó ħęľþ įmρřòνè ťнę è×þêříèηćę?_!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!]</target>
+        </trans-unit>
+        <trans-unit id="Resx/PinToStart" translate="yes" xml:space="preserve">
+          <source>pin to start</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[30977][!!_ρìη ťô şţáŕţ_!!]</target>
+        </trans-unit>
+        <trans-unit id="Resx/AlreadyPinnedTileError" translate="yes" xml:space="preserve">
+          <source>This tile has already been pinned!</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[D2691][!!_Ţħíš ţíĺę ћâš àľŗéàďŷ Бęéή þìииèð!_!!!!!!!!!!]</target>
+        </trans-unit>
+        <trans-unit id="Resx/GenericErrorTitle" translate="yes" xml:space="preserve">
+          <source>Error</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[521A7][!!_Éŗřõŕ_!!]</target>
         </trans-unit>
         <trans-unit id="Resx/ErrorReportCaption" translate="yes" xml:space="preserve">
-          <source>The application seems to have encountered some difficulties during the last run. Do you want to send a report of the application error to help improve the experience?</source>
+          <source>Error reporting</source>
           <target state="needs-review-translation" state-qualifier="mt-suggestion">[7C649][!!_Ţђę âþþłìĉâтįòи śèęмš тõ ħáνê êиċõùητèŗęď śõмę ðîƒƒìćûľτíèś đûѓîйğ тђę łâśť ŗûй. Đõ ÿòú ẃâηт тó ŝèиď ã ŗéρòѓţ ôƒ ţĥê âþρĺìĉáţįòή èѓѓõѓ τó ĥęĺþ ìмрřòνê тћé èхρêřįèйčè?_!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!]</target>
-        </trans-unit>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note></trans-unit>
         <trans-unit id="Resx/SettingsPageAddPlace" translate="yes" xml:space="preserve">
           <source>add place</source>
           <target state="needs-review-translation" state-qualifier="mt-suggestion">[DEF1D][!!_âđđ рľáċé_!!]</target>

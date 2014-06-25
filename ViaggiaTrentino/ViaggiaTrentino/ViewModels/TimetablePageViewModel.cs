@@ -24,6 +24,8 @@ using System.Windows;
 using System.Windows.Navigation;
 using System.Net;
 using ViaggiaTrentino.Views;
+using ViaggiaTrentino.Resources;
+
 
 namespace ViaggiaTrentino.ViewModels
 {
@@ -55,11 +57,14 @@ namespace ViaggiaTrentino.ViewModels
     {
       base.OnViewLoaded(view);
       var qs = (navigationService.CurrentContent as TimetablePageView).NavigationContext.QueryString;
-      AgencyID = EnumConverter.ToEnum<AgencyType>(qs["AgencyID"]);
-      RouteIDWitDirection = qs["RouteIDWithDirection"];
-      Description = qs["Description"];
-      NameID = qs["NameID"];
-      Color = qs["Color"];
+      if (qs.ContainsKey("ft"))
+      {
+        AgencyID = EnumConverter.ToEnum<AgencyType>(qs["AgencyID"]);
+        RouteIDWitDirection = qs["RouteIDWitDirection"];
+        Description = qs["Description"];
+        NameID = qs["NameID"];
+        Color = qs["Color"];
+      }
       GetTimetableFromDB();
     }
 
@@ -206,6 +211,7 @@ namespace ViaggiaTrentino.ViewModels
     }
 
     #region AppBar
+
     public void Next()
     {
       CurrentDate = CurrentDate.AddDays(1);
@@ -226,7 +232,7 @@ namespace ViaggiaTrentino.ViewModels
     public async void PinToStart()
     {
 
-      string tileUri = String.Format("/Views/TimetablePageView.xaml?AgencyID={0}&RouteIDWithDirection={1}&Description={2}&NameID={3}&Color={4}",
+      string tileUri = String.Format("/Views/TimetablePageView.xaml?AgencyID={0}&RouteIDWitDirection={1}&Description={2}&NameID={3}&Color={4}&ft=t",
         EnumConverter.ToEnumString<AgencyType>(AgencyID),
         RouteIDWitDirection,
         Description,
@@ -240,21 +246,16 @@ namespace ViaggiaTrentino.ViewModels
 
       if (ShellTile.ActiveTiles.FirstOrDefault(x => x.NavigationUri.ToString().Equals(tileUri)) != null)
       {
-        MessageBox.Show("tile gia' presente");
+        MessageBox.Show(AppResources.AlreadyPinnedTileError, AppResources.GenericErrorTitle, MessageBoxButton.OK);
         return;
       }
-
-
-
-
-
-
 
       WriteableBitmap wb = new WriteableBitmap(336, 336);
 
       #region TimetableTileTemplate
-      StringHexColorToColorsConverter a = new StringHexColorToColorsConverter();
-      Color colorConverted = (Color)a.Convert(color, null, null, System.Globalization.CultureInfo.CurrentUICulture);
+      RouteBackgroungColorToForegroundColorConverter rbctfcc = new RouteBackgroungColorToForegroundColorConverter();
+      StringHexColorToColorsConverter hexToColor = new StringHexColorToColorsConverter();
+      Color colorConverted = (Color)hexToColor.Convert(color, null, null, System.Globalization.CultureInfo.CurrentUICulture);
 
       Canvas bg = new Canvas
       {
@@ -263,27 +264,36 @@ namespace ViaggiaTrentino.ViewModels
         Height = wb.PixelHeight
       };
 
-      Grid g = new Grid
+      var foregroundString = rbctfcc.Convert(Color, null, null, System.Globalization.CultureInfo.CurrentUICulture) as string;
+      Color foregroundColor = (Color)hexToColor.Convert(foregroundString, null, null, System.Globalization.CultureInfo.CurrentUICulture);
+      
+      TextBlock lineNumber = new TextBlock
       {
-        Margin = new System.Windows.Thickness(5),
-        Width = wb.PixelWidth,
-        Height = wb.PixelHeight
-      };
-
-      TextBlock t = new TextBlock
-      {
-        Margin = new System.Windows.Thickness(0, 0, 10, 5),
-        HorizontalAlignment = System.Windows.HorizontalAlignment.Right,
-        VerticalAlignment = System.Windows.VerticalAlignment.Bottom,
-        Foreground = new SolidColorBrush(Colors.White),
+        Foreground = new SolidColorBrush(foregroundColor),
+        FontSize = 170,
         Text = NameID
       };
+      TextBlock mainStops = new TextBlock
+      {
+        Foreground = new SolidColorBrush(foregroundColor),
+        TextWrapping = System.Windows.TextWrapping.Wrap,
+        Width = bg.Width - 20,
+        FontSize = 30,
+        Text = Description
+      };
 
-      g.Children.Add(t);
+      bg.Children.Add(mainStops);
+      bg.Children.Add(lineNumber);
+
+      Canvas.SetLeft(mainStops, 10);
+      Canvas.SetTop(mainStops, 10);
+
+      Canvas.SetLeft(lineNumber, bg.Width - lineNumber.ActualWidth - 15);
+      Canvas.SetTop(lineNumber, bg.Height - lineNumber.ActualHeight + (NameID.Length == 3 ? 50 : 20 ));
+
       #endregion
 
       wb.Render(bg, null);
-      wb.Render(g, null);
       wb.Invalidate();
 
       #region StorageOps
@@ -295,6 +305,7 @@ namespace ViaggiaTrentino.ViewModels
         CreationCollisionOption.ReplaceExisting
       );
       string filep = String.Format(@"isostore:\{0}", System.IO.Path.Combine(sharedFolder.Name, shellContentFolder.Name, storageFile.Name));
+
       #endregion
 
       using (Stream sw = await storageFile.OpenStreamForWriteAsync())
@@ -304,11 +315,12 @@ namespace ViaggiaTrentino.ViewModels
 
       StandardTileData NewTileData = new StandardTileData
       {
-        BackgroundImage = new Uri(filep, UriKind.Absolute)
+        BackgroundImage = new Uri(filep, UriKind.Absolute),
       };
 
       ShellTile.Create(new Uri(tileUri, UriKind.Relative), NewTileData, false);
     }
+
     #endregion
   }
 }

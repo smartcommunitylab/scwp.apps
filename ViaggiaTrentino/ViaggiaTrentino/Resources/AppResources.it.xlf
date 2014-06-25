@@ -482,7 +482,7 @@
         </trans-unit>
         <trans-unit id="Resx/ValidationSelDays" translate="yes" xml:space="preserve">
           <source>Please select at least one day</source>
-          <target state="translated" state-qualifier="mt-suggestion">Selezionare almeno un giorno</target>
+          <target state="new">Please select at least one day</target>
         </trans-unit>
         <trans-unit id="Resx/ValidationJTitle" translate="yes" xml:space="preserve">
           <source>Please provide a valid name for the journey</source>
@@ -548,14 +548,26 @@
           <source>logout</source>
           <target state="translated">logout</target>
         </trans-unit>
-        <trans-unit id="Resx/ErrorReportTitle" translate="yes" xml:space="preserve">
-          <source>Error reporting</source>
-          <target state="translated" state-qualifier="mt-suggestion">Segnalazione errori</target>
-        </trans-unit>
-        <trans-unit id="Resx/ErrorReportCaption" translate="yes" xml:space="preserve">
+        <trans-unit id="Resx/ErrorReportMessage" translate="yes" xml:space="preserve">
           <source>The application seems to have encountered some difficulties during the last run. Do you want to send a report of the application error to help improve the experience?</source>
           <target state="translated">L'applicazione sembra avere rilevato alcune difficoltà durante l'ultima esecuzione. Si desidera inviare un rapporto sull'errore per migliorare l'esperienza?</target>
         </trans-unit>
+        <trans-unit id="Resx/PinToStart" translate="yes" xml:space="preserve">
+          <source>pin to start</source>
+          <target state="translated">aggiunngi a start</target>
+        </trans-unit>
+        <trans-unit id="Resx/AlreadyPinnedTileError" translate="yes" xml:space="preserve">
+          <source>This tile has already been pinned!</source>
+          <target state="translated">Questa tile è già stata aggiunta!</target>
+        </trans-unit>
+        <trans-unit id="Resx/GenericErrorTitle" translate="yes" xml:space="preserve">
+          <source>Error</source>
+          <target state="translated" state-qualifier="mt-suggestion">Errore</target>
+        </trans-unit>
+        <trans-unit id="Resx/ErrorReportCaption" translate="yes" xml:space="preserve">
+          <source>Error reporting</source>
+          <target state="translated">Segnalazione errori</target>
+          </trans-unit>
         <trans-unit id="Resx/SettingsPageAddPlace" translate="yes" xml:space="preserve">
           <source>add place</source>
           <target state="translated">Aggiungi località</target>
@@ -586,7 +598,7 @@
           </trans-unit>
         <trans-unit id="Resx/MainpageAbout" translate="yes" xml:space="preserve">
           <source>about</source>
-          <target state="translated">informazioni su</target>
+          <target state="translated">informazioni</target>
           </trans-unit>
         <trans-unit id="Resx/MessageBoxNetworkErrorBody" translate="yes" xml:space="preserve">
           <source>Could not connect to smartcampuslab servers. Check your internet connection and try again.</source>

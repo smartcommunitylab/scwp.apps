@@ -551,10 +551,19 @@
   <data name="MainpageLogout" xml:space="preserve">
     <value>logout</value>
   </data>
-  <data name="ErrorReportCaption" xml:space="preserve">
+  <data name="ErrorReportMessage" xml:space="preserve">
     <value>The application seems to have encountered some difficulties during the last run. Do you want to send a report of the application error to help improve the experience?</value>
   </data>
-  <data name="ErrorReportTitle" xml:space="preserve">
+  <data name="ErrorReportCaption" xml:space="preserve">
     <value>Error reporting</value>
+  </data>
+  <data name="PinToStart" xml:space="preserve">
+    <value>pin to start</value>
+  </data>
+  <data name="AlreadyPinnedTileError" xml:space="preserve">
+    <value>This tile has already been pinned!</value>
+  </data>
+  <data name="GenericErrorTitle" xml:space="preserve">
+    <value>Error</value>
   </data>
 </root>

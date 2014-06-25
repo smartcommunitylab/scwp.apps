@@ -72,11 +72,11 @@ namespace ViaggiaTrentino.ViewModels
       if (oldEx != null)
       {
 
-        if (MessageBox.Show(AppResources.ErrorReportTitle, AppResources.ErrorReportCaption, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+        if (MessageBox.Show(AppResources.ErrorReportMessage, AppResources.ErrorReportCaption, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
         {
           EmailComposeTask ect = new EmailComposeTask();
           ect.To = "smarcampuslab@outlook.com";
-          ect.Subject = AppResources.ErrorReportTitle;
+          ect.Subject = AppResources.ErrorReportCaption;
           ect.Body = string.Format("{1}{0}{2}{0}{3}{0}{4}", Environment.NewLine, Newtonsoft.Json.JsonConvert.SerializeObject(Environment.OSVersion),
             Environment.Version.ToString(), Newtonsoft.Json.JsonConvert.SerializeObject(Microsoft.Phone.Info.DeviceStatus.DeviceName), oldEx);
           ect.Show();
