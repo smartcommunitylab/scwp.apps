@@ -15,7 +15,7 @@
       <TextBlock Text="{Binding Path=LocalizedResources.SettingsPageFavs, Source={StaticResource LocalizedStrings}}"
                  FontSize="{StaticResource PhoneFontSizeExtraLarge}" Margin="0,0,0,5" FontWeight="Light"></TextBlock>
       <Line X1="0" X2="1" Stretch="Fill" Stroke="{StaticResource PhoneAccentBrush}"></Line>
-      <ListBox x:Name="lstBxPos" Margin="0,5,0,5" MaxHeight="500">
+      <ListBox x:Name="lstBxPos" Margin="0,5,0,0" MaxHeight="500">
         <ListBox.ItemContainerStyle>
           <Style BasedOn="{StaticResource ListBoxItemNoSelectionStyle}" TargetType="ListBoxItem">
             <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
@@ -24,7 +24,7 @@
         </ListBox.ItemContainerStyle>
         <ListBox.ItemTemplate>
           <DataTemplate>
-            <Grid>
+            <Grid Margin="0,0,0,5">
               <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
