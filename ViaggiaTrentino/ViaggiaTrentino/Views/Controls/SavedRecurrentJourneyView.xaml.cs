@@ -34,25 +34,36 @@ namespace ViaggiaTrentino.Views.Controls
     {
       if (MessageBox.Show(AppResources.SureDelete, AppResources.Warn, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
       {
-        App.LoadingPopup.Show();
-        bool delRes = await urLib.DeleteRecurrentJourney(basIti.ClientId);
-        if (delRes)
-          this.Visibility = System.Windows.Visibility.Collapsed;
-        App.LoadingPopup.Hide();
+        try
+        {
+          App.LoadingPopup.Show();
+          bool delRes = await urLib.DeleteRecurrentJourney(basIti.ClientId);
+          if (delRes)
+            this.Visibility = System.Windows.Visibility.Collapsed;
+        }
+        finally
+        {
+          App.LoadingPopup.Hide();
+        }        
       }
     }
 
     private async void MonitorJourney_Tap(object sender, System.Windows.Input.GestureEventArgs e)
     {
-      App.LoadingPopup.Show();
-      await Settings.RefreshToken();
-      basIti.Monitor = await urLib.SetMonitorRecurrentJourney(basIti.ClientId, !basIti.Monitor);
-      App.LoadingPopup.Hide();
-      this.DataContext = basIti;
-      if (basIti.Monitor)
-        retMonitor.Fill = new SolidColorBrush(Colors.Green);
-      else retMonitor.Fill = new SolidColorBrush(Colors.Red);
-
+      try
+      {
+        App.LoadingPopup.Show();
+        await Settings.RefreshToken();
+        basIti.Monitor = await urLib.SetMonitorRecurrentJourney(basIti.ClientId, !basIti.Monitor);
+        this.DataContext = basIti;
+        if (basIti.Monitor)
+          retMonitor.Fill = new SolidColorBrush(Colors.Green);
+        else retMonitor.Fill = new SolidColorBrush(Colors.Red);
+      }
+      finally
+      {
+        App.LoadingPopup.Hide();          
+      }
     }    
   }
 }

@@ -149,13 +149,6 @@ namespace ViaggiaTrentino.ViewModels
         Routes = new ObservableCollection<Route>(results);
         SelectedRoute = Routes.FirstOrDefault();
       }
-      catch (Exception e)
-      {
-#if DEBUG
-        System.Windows.MessageBox.Show(e.Message);
-#endif
-
-      }
       finally
       {
         App.LoadingPopup.Hide();
@@ -171,14 +164,7 @@ namespace ViaggiaTrentino.ViewModels
         await Settings.RefreshToken();
         Stops = new ObservableCollection<Stop>(await ptl.GetStops(r.RouteId.AgencyId, r.RouteId.Id));
         SelectedStop = Stops.FirstOrDefault();
-      }
-      catch (Exception e)
-      {
-#if DEBUG
-        System.Windows.MessageBox.Show(e.Message);
-#endif
-
-      }
+      }     
       finally
       {
         App.LoadingPopup.Hide();
@@ -195,13 +181,6 @@ namespace ViaggiaTrentino.ViewModels
         await Settings.RefreshToken();
         StopTimes = new ObservableCollection<StopTime>(await ptl.GetTimetable(agencyID, selRoute.RouteId.Id, value.StopId));
         SelectedStopTime = StopTimes.FirstOrDefault();
-      }
-      catch (Exception e)
-      {
-#if DEBUG
-        System.Windows.MessageBox.Show(e.Message);
-#endif
-
       }
       finally
       {

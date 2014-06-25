@@ -69,12 +69,6 @@ namespace ViaggiaTrentino.ViewModels
         if (rj != null)
           RecJourney = rj;
       }
-      catch (Exception e)
-      {
-#if DEBUG
-        System.Windows.MessageBox.Show(e.Message);
-#endif
-      }
       finally
       {
         App.LoadingPopup.Hide();
@@ -127,12 +121,6 @@ namespace ViaggiaTrentino.ViewModels
             };
             await Settings.RefreshToken();
             respJourney = await urLib.SaveRecurrentJourney(brj);
-          }
-          catch (Exception ex)
-          {
-#if DEBUG
-            System.Windows.MessageBox.Show(ex.Message);
-#endif
           }
           finally
           {

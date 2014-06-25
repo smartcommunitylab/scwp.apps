@@ -81,13 +81,6 @@ namespace ViaggiaTrentino.ViewModels
         basList = await urLib.ReadAllSingleJourneys();
         barList = await urLib.ReadAllRecurrentJourneys();
       }
-      catch (Exception e)
-      {
-#if DEBUG
-        System.Windows.MessageBox.Show(e.Message);
-#endif
-
-      }
       finally
       {
         App.LoadingPopup.Hide();

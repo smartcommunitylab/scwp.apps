@@ -83,12 +83,6 @@ namespace ViaggiaTrentino.ViewModels
             await Settings.RefreshToken();
             respIti = await urLib.SaveSingleJourney(basIti);
           }
-          catch (Exception ex)
-          {
-#if DEBUG
-            System.Windows.MessageBox.Show(ex.Message);
-#endif
-          }
           finally
           {
             App.LoadingPopup.Hide();
