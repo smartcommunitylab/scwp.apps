@@ -76,6 +76,32 @@ namespace ViaggiaTrentino.Helpers
       return result;
     }
 
+    public bool DeleteFile(string name)
+    {
+      bool resVal;
+      if (!isf.FileExists(name))
+        resVal = false;
+      else
+      {
+        try
+        {
+          isf.DeleteFile(name);
+          resVal = true;
+        }
+        catch
+        {
+          resVal = false;
+        }
+      }
+      return resVal;
+    }
+
+
+    public bool FileExist(string name)
+    {
+      return isf.FileExists(name);
+    }
+
   }
 }
 

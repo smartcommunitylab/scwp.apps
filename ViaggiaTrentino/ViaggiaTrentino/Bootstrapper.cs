@@ -2,13 +2,16 @@
 using Caliburn.Micro.BindableAppBar;
 using DBManager;
 using Microsoft.Phone.Controls;
+using Microsoft.Phone.Tasks;
 using System;
 using System.Collections.Generic;
 using System.Device.Location;
 using System.IO;
 using System.IO.IsolatedStorage;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
+using ViaggiaTrentino.Helpers;
 using ViaggiaTrentino.ViewModels;
 using Windows.Storage;
 
@@ -20,10 +23,13 @@ namespace ViaggiaTrentino
     private PhoneApplicationFrame rootFrame;
     private bool reset;
     public PhoneContainer container { get; set; }
+    ExceptionLoggerHelper elh;
 
     public Bootstrapper()
     {
       Start();
+      elh = new ExceptionLoggerHelper();
+      
     }
 
     protected override PhoneApplicationFrame CreatePhoneApplicationFrame()
@@ -32,18 +38,42 @@ namespace ViaggiaTrentino
       return rootFrame;
     }
 
+    // when starting
     protected override void OnStartup(object sender, System.Windows.StartupEventArgs e)
     {
       base.OnStartup(sender, e);
       Settings.Initialize();
       DBManagement();
       App.LoadingPopup.InitializePopup();
+      
+      string oldEx = elh.RetrieveLoggedException();
+      if(oldEx != null)
+      {
+        if (MessageBox.Show("error", "error", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+        {
+          EmailComposeTask ect = new EmailComposeTask();
+          ect.To = "smarcampuslab@outlook.com";
+          ect.Subject = "Exception reporting";
+          ect.Body = string.Format("{1}{0}{2}{0}{3}{0}", Environment.NewLine, Newtonsoft.Json.JsonConvert.SerializeObject(Environment.OSVersion), 
+            Environment.Version.ToString(), oldEx);          
+        }
+        elh.DeleteLoggedException();
+      }
+      
+
     }
 
+    // when fast resuming
     protected override void OnActivate(object sender, Microsoft.Phone.Shell.ActivatedEventArgs e)
     {
       base.OnActivate(sender, e);
       Settings.LaunchGPS();
+    }
+
+    protected override void OnUnhandledException(object sender, System.Windows.ApplicationUnhandledExceptionEventArgs e)
+    {
+      base.OnUnhandledException(sender, e);
+      elh.LogNewException(e.ExceptionObject);
     }
 
     private async void DBManagement()
