@@ -83,12 +83,12 @@
 
             <TextBlock Grid.Column="0" Grid.Row="1" TextWrapping="Wrap" Margin="0,5,0,5" >
               <Run Text="{Binding Path=LocalizedResources.From, Source={StaticResource LocalizedStrings}}"></Run>
-              <Run Text="{Binding RecJourneyParams.From.Name}"></Run>
+              <Run FontStyle="Italic" Text="{Binding RecJourneyParams.From.Name}"></Run>
             </TextBlock>
 
             <TextBlock Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" HorizontalAlignment="Right" Margin="0,5,0,5">
               <Run Text="{Binding Path=LocalizedResources.ToCapitalT, Source={StaticResource LocalizedStrings}}"></Run>
-              <Run Text="{Binding RecJourneyParams.To.Name}"></Run>
+              <Run FontStyle="Italic" Text="{Binding RecJourneyParams.To.Name}"></Run>
             </TextBlock>
           </Grid>
           <Line X1="0" X2="1" Stretch="Fill" Stroke="{StaticResource PhoneAccentBrush}"></Line>
