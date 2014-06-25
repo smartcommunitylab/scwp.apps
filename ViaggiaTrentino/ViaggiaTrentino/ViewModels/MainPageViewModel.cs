@@ -1,6 +1,7 @@
 ﻿using AuthenticationLibrary;
 using Caliburn.Micro;
 using Microsoft.Phone.Controls;
+using Microsoft.Phone.Tasks;
 using Models.AuthorizationService;
 using ProfileServiceLibrary;
 using System;
@@ -11,6 +12,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls.Primitives;
+using ViaggiaTrentino.Helpers;
+using ViaggiaTrentino.Resources;
 
 namespace ViaggiaTrentino.ViewModels
 {
@@ -18,6 +21,8 @@ namespace ViaggiaTrentino.ViewModels
   {
     private readonly INavigationService navigationService;
     private readonly IEventAggregator eventAggregator;
+    ExceptionLoggerHelper elh;
+
     AuthLibrary authLib;
     ProfileLibrary pll;
     Popup loginPopup;
@@ -26,6 +31,7 @@ namespace ViaggiaTrentino.ViewModels
     {
       this.navigationService = navigationService;
       this.eventAggregator = eventAggregator;
+      elh = new ExceptionLoggerHelper();
     }
 
     public bool IsLogged
@@ -45,6 +51,7 @@ namespace ViaggiaTrentino.ViewModels
     protected override async void OnViewLoaded(object view)
     {
       base.OnViewLoaded(view);
+
       try
       {
         App.LoadingPopup.Show();
@@ -59,6 +66,22 @@ namespace ViaggiaTrentino.ViewModels
       finally
       {
         App.LoadingPopup.Hide();
+      }
+
+      string oldEx = elh.RetrieveLoggedException();
+      if (oldEx != null)
+      {
+
+        if (MessageBox.Show(AppResources.ErrorReportTitle, AppResources.ErrorReportCaption, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+        {
+          EmailComposeTask ect = new EmailComposeTask();
+          ect.To = "smarcampuslab@outlook.com";
+          ect.Subject = AppResources.ErrorReportTitle;
+          ect.Body = string.Format("{1}{0}{2}{0}{3}{0}{4}", Environment.NewLine, Newtonsoft.Json.JsonConvert.SerializeObject(Environment.OSVersion),
+            Environment.Version.ToString(), Newtonsoft.Json.JsonConvert.SerializeObject(Microsoft.Phone.Info.DeviceStatus.DeviceName), oldEx);
+          ect.Show();
+        }
+        elh.DeleteLoggedException();
       }
     }
 

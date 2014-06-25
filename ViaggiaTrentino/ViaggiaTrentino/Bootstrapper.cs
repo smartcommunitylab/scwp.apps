@@ -45,22 +45,6 @@ namespace ViaggiaTrentino
       Settings.Initialize();
       DBManagement();
       App.LoadingPopup.InitializePopup();
-      
-      string oldEx = elh.RetrieveLoggedException();
-      if(oldEx != null)
-      {
-        if (MessageBox.Show("error", "error", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
-        {
-          EmailComposeTask ect = new EmailComposeTask();
-          ect.To = "smarcampuslab@outlook.com";
-          ect.Subject = "Exception reporting";
-          ect.Body = string.Format("{1}{0}{2}{0}{3}{0}", Environment.NewLine, Newtonsoft.Json.JsonConvert.SerializeObject(Environment.OSVersion), 
-            Environment.Version.ToString(), oldEx);          
-        }
-        elh.DeleteLoggedException();
-      }
-      
-
     }
 
     // when fast resuming

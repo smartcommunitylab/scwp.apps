@@ -123,7 +123,8 @@
         <trans-unit id="Resx/SavedJourneyDetailsDelete" translate="yes" xml:space="preserve">
           <source>delete</source>
           <target state="needs-review-translation" state-qualifier="mt-suggestion">[293B6][!!_Ďéļèτê ĵôµřиèŷ_!!!!]</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note></trans-unit>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          </trans-unit>
         <trans-unit id="Resx/SavedJourneysJourneyPivot" translate="yes" xml:space="preserve">
           <source>Journeys</source>
           <target state="needs-review-translation" state-qualifier="mt-suggestion">[CAFCF][!!_Ĵôûѓйęýš_!!]</target>
@@ -547,6 +548,14 @@
         <trans-unit id="Resx/MainpageLogout" translate="yes" xml:space="preserve">
           <source>logout</source>
           <target state="needs-review-translation" state-qualifier="mt-suggestion">[C76E6][!!_ľòġòúτ_!!]</target>
+        </trans-unit>
+        <trans-unit id="Resx/ErrorReportTitle" translate="yes" xml:space="preserve">
+          <source>Error reporting</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[16ABC][!!_Ęŕŗõř ŕęρôřτíиġ_!!!!]</target>
+        </trans-unit>
+        <trans-unit id="Resx/ErrorReportCaption" translate="yes" xml:space="preserve">
+          <source>The application seems to have encountered some difficulties during the last run. Do you want to send a report of the application error to help improve the experience?</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[7C649][!!_Ţђę âþþłìĉâтįòи śèęмš тõ ħáνê êиċõùητèŗęď śõмę ðîƒƒìćûľτíèś đûѓîйğ тђę łâśť ŗûй. Đõ ÿòú ẃâηт тó ŝèиď ã ŗéρòѓţ ôƒ ţĥê âþρĺìĉáţįòή èѓѓõѓ τó ĥęĺþ ìмрřòνê тћé èхρêřįèйčè?_!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!]</target>
         </trans-unit>
         <trans-unit id="Resx/SettingsPageAddPlace" translate="yes" xml:space="preserve">
           <source>add place</source>

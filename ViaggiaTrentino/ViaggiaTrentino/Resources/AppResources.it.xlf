@@ -122,8 +122,8 @@
         </trans-unit>
         <trans-unit id="Resx/SavedJourneyDetailsDelete" translate="yes" xml:space="preserve">
           <source>delete</source>
-          <target state="needs-review-translation">elimina</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note></trans-unit>
+          <target state="translated">elimina</target>
+          </trans-unit>
         <trans-unit id="Resx/SavedJourneysJourneyPivot" translate="yes" xml:space="preserve">
           <source>Journeys</source>
           <target state="translated" state-qualifier="mt-suggestion">Viaggi</target>
@@ -166,7 +166,7 @@
         </trans-unit>
         <trans-unit id="Resx/TileExtraurbanoTitle" translate="yes" xml:space="preserve">
           <source>Trentino Bus</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">Trentino Bus</target>
+          <target state="translated" state-qualifier="mt-suggestion">Trentino Bus</target>
         </trans-unit>
         <trans-unit id="Resx/TileParkingMessage" translate="yes" xml:space="preserve">
           <source>Parkings</source>
@@ -542,11 +542,19 @@
         </trans-unit>
         <trans-unit id="Resx/SavedJourneyMonitorOFF" translate="yes" xml:space="preserve">
           <source>monitor off</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">monitorare off</target>
+          <target state="translated">disattiva notifiche</target>
         </trans-unit>
         <trans-unit id="Resx/MainpageLogout" translate="yes" xml:space="preserve">
           <source>logout</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">Logout</target>
+          <target state="translated">logout</target>
+        </trans-unit>
+        <trans-unit id="Resx/ErrorReportTitle" translate="yes" xml:space="preserve">
+          <source>Error reporting</source>
+          <target state="translated" state-qualifier="mt-suggestion">Segnalazione errori</target>
+        </trans-unit>
+        <trans-unit id="Resx/ErrorReportCaption" translate="yes" xml:space="preserve">
+          <source>The application seems to have encountered some difficulties during the last run. Do you want to send a report of the application error to help improve the experience?</source>
+          <target state="translated">L'applicazione sembra avere rilevato alcune difficoltà durante l'ultima esecuzione. Si desidera inviare un rapporto sull'errore per migliorare l'esperienza?</target>
         </trans-unit>
         <trans-unit id="Resx/SettingsPageAddPlace" translate="yes" xml:space="preserve">
           <source>add place</source>
@@ -558,15 +566,15 @@
         </trans-unit>
         <trans-unit id="Resx/SavedJourneyMonitorToggle" translate="yes" xml:space="preserve">
           <source>toggle monitor</source>
-          <target state="needs-review-translation">attiva/disattiva monitoraggio</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note></trans-unit>
+          <target state="translated">attiva/disattiva monitoraggio</target>
+          </trans-unit>
         <trans-unit id="Resx/MainpageTour" translate="yes" xml:space="preserve">
           <source>tour</source>
           <target state="translated">guida</target>
           </trans-unit>
         <trans-unit id="Resx/SavedJourneyMonitorON" translate="yes" xml:space="preserve">
           <source>monitor on</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">monitorare in</target>
+          <target state="translated">attiva notifiche</target>
         </trans-unit>
         <trans-unit id="Resx/MainpageSettings" translate="yes" xml:space="preserve">
           <source>settings</source>
