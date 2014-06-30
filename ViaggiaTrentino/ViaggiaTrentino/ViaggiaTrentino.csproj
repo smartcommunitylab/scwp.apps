@@ -398,6 +398,10 @@
     <Reference Include="CommonHelpers">
       <HintPath>..\..\..\scwp.support\CompiledDLL\CommonHelpers.dll</HintPath>
     </Reference>
+    <Reference Include="GuidedTour, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\GuidedTour.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Phone.Controls, Version=8.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Phone.Controls.Toolkit">
       <HintPath>..\packages\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
@@ -580,10 +584,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\Desktop\GuidedTour\GuidedTour.csproj">
-      <Project>{D1221CB1-282B-453D-A70B-648A7DEE3D42}</Project>
-      <Name>GuidedTour</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DBHelper\DBHelper.csproj">
       <Project>{B8A352DE-D354-4BB8-9270-5C99C8108169}</Project>
       <Name>DBHelper</Name>
