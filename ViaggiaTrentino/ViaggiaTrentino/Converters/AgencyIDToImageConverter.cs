@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Media;
@@ -39,6 +40,8 @@ namespace ViaggiaTrentino.Converters
         }
       }
 
+      ImageSourceToImageSourceAccordingToPhoneApplicationBackgroundConverter isisatpabc = new ImageSourceToImageSourceAccordingToPhoneApplicationBackgroundConverter();
+      result = isisatpabc.Convert(null, targetType, result, culture) as string;
 
 
       return new ImageSourceConverter().ConvertFromString(result);;

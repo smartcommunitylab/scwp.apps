@@ -42,6 +42,7 @@
 
   <UserControl.Resources>
     <calconvs:BooleanToVisibilityConverter x:Key="boolToVisibility" />
+    <vtconvert:ImageSourceToImageSourceAccordingToPhoneApplicationBackgroundConverter x:Key="imgForTheme"/>
   </UserControl.Resources>
 
 
@@ -77,13 +78,13 @@
             </Grid.RowDefinitions>
             <scAutoComp:SmartCampusAutoCompleteBox FilterMode="Contains" Grid.Row="0" Grid.Column="0" x:Name="FromBox" Tag="{Binding FromPos, Mode=TwoWay}"
                                    Text="{Binding FromPos.Name}" MaxDropDownHeight="300"  ItemTemplate="{StaticResource smartCampusBox}"/>
-            <Image x:Name="GpsLocFrom" Width="64" Source="/Assets/Miscs/GpsLocation.png" Grid.Row="0" Grid.Column="1" Margin="0,0,5,0"/>
-            <Image x:Name="FavsFrom" Width="64" Source="/Assets/Miscs/Favourites.png" Grid.Row="0" Grid.Column="2" Margin="5,0,0,0"/>
+            <Image x:Name="GpsLocFrom" Width="48" Source="{Binding Converter={StaticResource imgForTheme}, ConverterParameter='/Assets/Miscs/GpsLocation.png'}" Grid.Row="0" Grid.Column="1" Margin="0,0,5,0"/>
+            <Image x:Name="FavsFrom" Width="48" Source="{Binding Converter={StaticResource imgForTheme}, ConverterParameter='/Assets/Miscs/Favourites.png'}" Grid.Row="0" Grid.Column="2" Margin="5,0,0,0"/>
 
             <scAutoComp:SmartCampusAutoCompleteBox FilterMode="Contains" Grid.Row="1" Grid.Column="0" x:Name="ToBox" Tag="{Binding ToPos, Mode=TwoWay}"
                                    Text="{Binding ToPos.Name}" MaxDropDownHeight="300"   ItemTemplate="{StaticResource smartCampusBox}"/>
-            <Image x:Name="GpsLocTo" Width="64" Source="/Assets/Miscs/GpsLocation.png" Grid.Row="1" Grid.Column="1" Margin="0,0,5,0"/>
-            <Image x:Name="FavsTo" Width="64" Source="/Assets/Miscs/Favourites.png" Grid.Row="1" Grid.Column="2" Margin="5,0,0,0"/>
+            <Image x:Name="GpsLocTo" Width="48" Source="{Binding Converter={StaticResource imgForTheme}, ConverterParameter='/Assets/Miscs/GpsLocation.png'}" Grid.Row="1" Grid.Column="1" Margin="0,0,5,0"/>
+            <Image x:Name="FavsTo" Width="48" Source="{Binding Converter={StaticResource imgForTheme}, ConverterParameter='/Assets/Miscs/Favourites.png'}" Grid.Row="1" Grid.Column="2" Margin="5,0,0,0"/>
 
           </Grid>
           <TextBlock Text="{Binding Path=LocalizedResources.MonitorJourneyTimeSpan, Source={StaticResource LocalizedStrings}}" />

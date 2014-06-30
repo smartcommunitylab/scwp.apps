@@ -3,19 +3,25 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vtconvert="clr-namespace:ViaggiaTrentino.Converters"
     xmlns:scAutoComp="clr-namespace:ViaggiaTrentino"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     d:DesignHeight="480" d:DesignWidth="480">
-    
-    <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}">
+
+  <UserControl.Resources>
+    <vtconvert:ImageSourceToImageSourceAccordingToPhoneApplicationBackgroundConverter x:Key="imgForTheme"/>
+  </UserControl.Resources>
+
+  <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}">
     <Grid.ColumnDefinitions>
       <ColumnDefinition Width="*" />
       <ColumnDefinition Width="Auto" />     
     </Grid.ColumnDefinitions>
     <scAutoComp:SmartCampusAutoCompleteBox Grid.Column="0" x:Name="smartCampusACB" FilterMode="Contains" ItemTemplate="{StaticResource smartCampusBox}"/>
-    <Image Grid.Column="1" x:Name="GpsLocTo" Source="/Assets/Miscs/GpsLocation.png" Margin="0,0,5,0" Width="48" Tap="GpsLocTo_Tap"/>
+    <Image Grid.Column="1" x:Name="GpsLocTo" Margin="0,0,5,0" Width="48" Tap="GpsLocTo_Tap"
+           Source="{Binding Converter={StaticResource imgForTheme}, ConverterParameter='/Assets/Miscs/GpsLocation.png'}"/>
   </Grid>
 </UserControl>

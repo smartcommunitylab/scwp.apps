@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Media;
@@ -18,6 +19,7 @@ namespace ViaggiaTrentino.Converters
     {
       if (value is List<Leg>)
       {
+        bool isDark = (Visibility)Application.Current.Resources["PhoneDarkThemeVisibility"] == Visibility.Visible;
         List<Leg> tmpLegs = value as List<Leg>;
         var transp = tmpLegs.Select(x => x.TransportInfo.Type);
 
@@ -26,7 +28,8 @@ namespace ViaggiaTrentino.Converters
         //TODO: add right icons once obtained
 
         foreach (TransportType s in transp)        
-          bitmapImages.Add(new ImageSourceConverter().ConvertFromString(string.Format("/Assets/Vehicles/{0}.png", s.ToString().ToLower()))); 
+          bitmapImages.Add(new ImageSourceConverter().ConvertFromString(string.Format("/Assets/Vehicles/{0}/{1}.png",
+            isDark ? "Dark" : "Light", s.ToString().ToLower()))); 
           
         return bitmapImages;
         
