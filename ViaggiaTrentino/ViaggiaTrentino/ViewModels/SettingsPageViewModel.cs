@@ -53,6 +53,16 @@ namespace ViaggiaTrentino.ViewModels
       }
     }
 
+    public bool FeedbackEnabled
+    {
+      get { return Settings.FeedbackEnabled; }
+      set
+      {
+        Settings.FeedbackEnabled = value;
+        NotifyOfPropertyChange(() => LocationConsent);        
+      }
+    }
+
     protected override void OnDeactivate(bool close)
     {
       base.OnDeactivate(close);

@@ -566,4 +566,16 @@
   <data name="GenericErrorTitle" xml:space="preserve">
     <value>Error</value>
   </data>
+  <data name="CatchedErrorsReportMessage" xml:space="preserve">
+    <value>In the course of the last week, the application encountered a few minor errors. Would you like to report them?</value>
+  </data>
+  <data name="CatchedHttpErrorMessage" xml:space="preserve">
+    <value>An error occurred while processing your request.</value>
+  </data>
+  <data name="CatchedParseErrorMessage" xml:space="preserve">
+    <value>An error occurred while parsing our data.</value>
+  </data>
+  <data name="SettignsErrorReport" xml:space="preserve">
+    <value>Send feedback</value>
+  </data>
 </root>

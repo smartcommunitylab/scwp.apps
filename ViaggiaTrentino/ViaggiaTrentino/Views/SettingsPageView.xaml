@@ -46,6 +46,8 @@
             <vtcont:UserSettingsView DataContext="{Binding Path=AppPreferences, Source={StaticResource vtSettings}}" />
             <TextBlock Text="{Binding Path=LocalizedResources.SettingsPageLocation, Source={StaticResource LocalizedStrings}}" Padding="0,10,0,0" FontSize="{StaticResource PhoneFontSizeLarge}"/>
             <toolkit:ToggleSwitch IsChecked="{Binding LocationConsent, Mode=TwoWay}" />
+            <TextBlock Text="{Binding Path=LocalizedResources.SettignsErrorReport, Source={StaticResource LocalizedStrings}}" Padding="0,10,0,0" FontSize="{StaticResource PhoneFontSizeLarge}"/>
+            <toolkit:ToggleSwitch IsChecked="{Binding FeedbackEnabled, Mode=TwoWay}" />
           </StackPanel>
         </ScrollViewer>
 

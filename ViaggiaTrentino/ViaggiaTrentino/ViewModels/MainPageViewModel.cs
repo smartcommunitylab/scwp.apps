@@ -62,21 +62,37 @@ namespace ViaggiaTrentino.ViewModels
         App.LoadingPopup.Hide();
       }
 
-      string oldEx = elh.RetrieveLoggedException();
+      string oldEx = elh.RetrieveLoggedException(ExceptionType.Unhandled);
       if (oldEx != null)
       {
-
+        string extraEx = elh.RetrieveLoggedException(ExceptionType.Handled);
+        oldEx = extraEx != null ? string.Format("{0}{1}{2}", oldEx, Environment.NewLine, extraEx) : oldEx;
         if (MessageBox.Show(AppResources.ErrorReportMessage, AppResources.ErrorReportCaption, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
-        {
-          EmailComposeTask ect = new EmailComposeTask();
-          ect.To = "smarcampuslab@outlook.com";
-          ect.Subject = AppResources.ErrorReportCaption;
-          ect.Body = string.Format("{1}{0}{2}{0}{3}{0}{4}", Environment.NewLine, Newtonsoft.Json.JsonConvert.SerializeObject(Environment.OSVersion),
-            Environment.Version.ToString(), Newtonsoft.Json.JsonConvert.SerializeObject(Microsoft.Phone.Info.DeviceStatus.DeviceName), oldEx);
-          ect.Show();
-        }
-        elh.DeleteLoggedException();
+          SendErrorEmail(oldEx);
+        elh.DeleteLoggedException(ExceptionType.Unhandled);
+        elh.DeleteLoggedException(ExceptionType.Handled);
       }
+      else
+      {
+        string extraEx = elh.RetrieveLoggedException(ExceptionType.Handled);
+       
+        if(extraEx != null)
+        {  
+          if (MessageBox.Show(AppResources.CatchedErrorsReportMessage, AppResources.ErrorReportCaption, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+            SendErrorEmail(extraEx);
+          elh.DeleteLoggedException(ExceptionType.Handled);
+        }
+      }
+    }
+
+    private static void SendErrorEmail(string exceptionMessage)
+    {
+      EmailComposeTask ect = new EmailComposeTask();
+      ect.To = "smarcampuslab@outlook.com";
+      ect.Subject = AppResources.ErrorReportCaption;
+      ect.Body = string.Format("{1}{0}{2}{0}{3}{0}{4}", Environment.NewLine, Newtonsoft.Json.JsonConvert.SerializeObject(Environment.OSVersion),
+        Environment.Version.ToString(), Newtonsoft.Json.JsonConvert.SerializeObject(Microsoft.Phone.Info.DeviceStatus.DeviceName), exceptionMessage);
+      ect.Show();
     }
 
     #region Tiles
@@ -100,10 +116,16 @@ namespace ViaggiaTrentino.ViewModels
 
     public void ReadNotificationsTile()
     {
-      MessageBox.Show("Read Notifications");
+      MessageBox.Show("In 3", "Application crash.", MessageBoxButton.OK);
+
+      for (int i = 2; i > 0; i--)
+      {
+        MessageBox.Show(i.ToString());
+      }
+      //MessageBox.Show("Read Notifications");
       //try
       //{
-      //  throw new Newtonsoft.Json.JsonException();
+      throw new Newtonsoft.Json.JsonException();
       //}
       //finally
       //{

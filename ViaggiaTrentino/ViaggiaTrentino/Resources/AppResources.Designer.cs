@@ -169,6 +169,33 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to In the course of the last week, the application encountered a few minor errors. Would you like to report them?.
+        /// </summary>
+        public static string CatchedErrorsReportMessage {
+            get {
+                return ResourceManager.GetString("CatchedErrorsReportMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An error occurred while processing your request..
+        /// </summary>
+        public static string CatchedHttpErrorMessage {
+            get {
+                return ResourceManager.GetString("CatchedHttpErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An error occurred while parsing our data..
+        /// </summary>
+        public static string CatchedParseErrorMessage {
+            get {
+                return ResourceManager.GetString("CatchedParseErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Selected location:.
         /// </summary>
         public static string ChooseConfirmTitle {
@@ -912,6 +939,15 @@ namespace ViaggiaTrentino.Resources {
         public static string SelSendAlertTrain {
             get {
                 return ResourceManager.GetString("SelSendAlertTrain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Send feedback.
+        /// </summary>
+        public static string SettignsErrorReport {
+            get {
+                return ResourceManager.GetString("SettignsErrorReport", resourceCulture);
             }
         }
         

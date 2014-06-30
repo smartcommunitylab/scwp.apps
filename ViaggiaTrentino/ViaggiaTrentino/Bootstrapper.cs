@@ -14,6 +14,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 using ViaggiaTrentino.Helpers;
+using ViaggiaTrentino.Resources;
 using ViaggiaTrentino.ViewModels;
 using Windows.Storage;
 
@@ -26,6 +27,7 @@ namespace ViaggiaTrentino
     private bool reset;
     public PhoneContainer container { get; set; }
     ExceptionLoggerHelper elh;
+    
 
     public Bootstrapper()
     {
@@ -63,15 +65,20 @@ namespace ViaggiaTrentino
 
       if (e.ExceptionObject is JsonException)
       {
-        MessageBox.Show("unoparse");
+        MessageBox.Show(AppResources.CatchedParseErrorMessage, AppResources.GenericErrorTitle, MessageBoxButton.OK);
+        if (Settings.FeedbackEnabled)
+          elh.LogNewException(e.ExceptionObject, ExceptionType.Handled);
       }
       else if (e.ExceptionObject is HttpRequestException)
       {
-        MessageBox.Show("httpbug");
+        MessageBox.Show(AppResources.CatchedHttpErrorMessage, AppResources.GenericErrorTitle, MessageBoxButton.OK);
+        if (Settings.FeedbackEnabled)
+          elh.LogNewException(e.ExceptionObject, ExceptionType.Handled);
       }
-      else
+      else 
       {
-        elh.LogNewException(e.ExceptionObject);
+        if(Settings.FeedbackEnabled)
+          elh.LogNewException(e.ExceptionObject, ExceptionType.Unhandled);
         e.Handled = false;
       }
     }

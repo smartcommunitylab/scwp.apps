@@ -10,35 +10,56 @@ namespace ViaggiaTrentino.Helpers
   public class ExceptionLoggerHelper
   {
     FileStorageHelper fsh;
-    private readonly string ExceptionFilePath = "loggedExceptions.log";
+    private readonly string UnhandledExceptionFilePath = "loggedUnhandledExceptions.log";
+    private readonly string HandledExceptionFilePath = "loggedHandledExceptions.log";
+    private readonly TimeSpan requiredAge = new TimeSpan(0, 0, 0, 30);
+
 
     public ExceptionLoggerHelper()
     {
       fsh = new FileStorageHelper();
     }
 
-    public void LogNewException(Exception e)
+    public void LogNewException(Exception e, ExceptionType exType)
     {
-      fsh.WriteFile(ExceptionFilePath, JsonConvert.SerializeObject(e), true);
+      if(exType == ExceptionType.Unhandled)
+        fsh.WriteFile(UnhandledExceptionFilePath, JsonConvert.SerializeObject(e, Formatting.Indented), true);
+      else
+        fsh.AppendFile(HandledExceptionFilePath, JsonConvert.SerializeObject(e, Formatting.Indented));
+
     }
 
-    public string RetrieveLoggedException()
+    public string RetrieveLoggedException(ExceptionType exType)
     {
-      if (IsALogPending())
+      if (IsALogPending(exType))
       {
-        return fsh.ReadFile(ExceptionFilePath);
+        if (exType == ExceptionType.Unhandled)
+          return fsh.ReadFile(UnhandledExceptionFilePath);
+        else
+          return fsh.ReadFile(HandledExceptionFilePath);
       }
       return null;
     }
 
-    public bool DeleteLoggedException()
+    public bool DeleteLoggedException(ExceptionType exType)
     {
-      return fsh.DeleteFile(ExceptionFilePath);
+      if (exType == ExceptionType.Unhandled)
+        return fsh.DeleteFile(UnhandledExceptionFilePath);
+      else
+        return fsh.DeleteFile(HandledExceptionFilePath);
     }
 
-    public bool IsALogPending()
+    public bool IsALogPending(ExceptionType exType)
     {
-      return fsh.FileExist(ExceptionFilePath);
+      if (exType == ExceptionType.Unhandled)
+        return fsh.FileExist(UnhandledExceptionFilePath);
+      else
+        return fsh.IsFileOlderThan(HandledExceptionFilePath, requiredAge);
     }
+  }
+
+  public enum ExceptionType
+  {
+    Handled, Unhandled
   }
 }

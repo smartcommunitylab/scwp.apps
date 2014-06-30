@@ -115,6 +115,12 @@ namespace ViaggiaTrentino
       set { iss["LocationConsent"] = value; iss.Save(); }
     }
 
+    public static bool FeedbackEnabled
+    {
+      get { return (bool)iss["feedbackEnabled"]; }
+      set { iss["feedbackEnabled"] = value; iss.Save(); }
+    }
+
     public static GeoCoordinate GPSPosition
     {
       get { return iss["lastGPSPosition"] as GeoCoordinate; }
@@ -150,6 +156,7 @@ namespace ViaggiaTrentino
         iss["token"] = iss["lastGPSPosition"] = null;
         iss["tokenExpiration"] = DateTime.Now;
         iss["LocationConsent"] = false;
+        iss["feedbackEnabled"] = true;
         iss["dbVersion"] = AppVersion;
         iss.Save();
         AppPreferences = new PreferencesModel()

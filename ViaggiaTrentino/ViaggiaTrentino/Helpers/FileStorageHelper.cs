@@ -76,6 +76,11 @@ namespace ViaggiaTrentino.Helpers
       return result;
     }
 
+    /// <summary>
+    /// Deletes a specified file from the filesystem
+    /// </summary>
+    /// <param name="name">name of the condemned file</param>
+    /// <returns>a boolean value indicating whether the file has been deleted or not</returns>
     public bool DeleteFile(string name)
     {
       bool resVal;
@@ -95,11 +100,59 @@ namespace ViaggiaTrentino.Helpers
       }
       return resVal;
     }
-
-
+    
+    /// <summary>
+    /// Checks whether a specific file exists or not
+    /// </summary>
+    /// <param name="name">name of the destination file</param>
+    /// <returns>a boolean value indicating the existance of the file</returns>
     public bool FileExist(string name)
     {
       return isf.FileExists(name);
+    }
+
+    /// <summary>
+    /// Writes a string on filesystem. if the file already exists, the content will be appended to the existing file
+    /// </summary>
+    /// <param name="name">name of the destination file</param>
+    /// <param name="content">the string that should be wrote in the file</param>
+    /// <returns>a boolean value indicating the success of the operation</returns>
+    public bool AppendFile(string name, string content)
+    {
+      bool fileIORes;
+
+      try
+      {
+        using (StreamWriter sw = new StreamWriter(new IsolatedStorageFileStream(name, FileMode.Append, isf)))
+        {
+          sw.Write(content);
+        }
+      }
+      catch
+      {
+        fileIORes = false;
+      }
+      fileIORes = true;
+
+      return fileIORes;
+    }
+
+    /// <summary>
+    /// Checks if a specified file is older than a certain age
+    /// </summary>
+    /// <param name="name">name of the requested file</param>
+    /// <param name="age">required minimum age for the file</param>
+    /// <returns>a boolean value indicating whether the requested file is older than the desired age</returns>
+    public bool IsFileOlderThan(string name, TimeSpan age)
+    {
+      if (!isf.FileExists(name))
+        return false;
+
+      var fileCreationDate = isf.GetCreationTime(name);
+
+      if ((DateTime.Now - fileCreationDate) > age)
+        return true;
+      return false;
     }
 
   }

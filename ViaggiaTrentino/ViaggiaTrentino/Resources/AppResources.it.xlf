@@ -564,6 +564,22 @@
           <source>Error</source>
           <target state="translated" state-qualifier="mt-suggestion">Errore</target>
         </trans-unit>
+        <trans-unit id="Resx/CatchedErrorsReportMessage" translate="yes" xml:space="preserve">
+          <source>In the course of the last week, the application encountered a few minor errors. Would you like to report them?</source>
+          <target state="new">In the course of the last week, the application encountered a few minor errors. Would you like to report them?</target>
+        </trans-unit>
+        <trans-unit id="Resx/CatchedParseErrorMessage" translate="yes" xml:space="preserve">
+          <source>An error occurred while parsing our data.</source>
+          <target state="new">An error occurred while parsing our data.</target>
+        </trans-unit>
+        <trans-unit id="Resx/SettignsErrorReport" translate="yes" xml:space="preserve">
+          <source>Send feedback</source>
+          <target state="new">Send feedback</target>
+        </trans-unit>
+        <trans-unit id="Resx/CatchedHttpErrorMessage" translate="yes" xml:space="preserve">
+          <source>An error occurred while processing your request.</source>
+          <target state="new">An error occurred while processing your request.</target>
+        </trans-unit>
         <trans-unit id="Resx/ErrorReportCaption" translate="yes" xml:space="preserve">
           <source>Error reporting</source>
           <target state="translated">Segnalazione errori</target>
