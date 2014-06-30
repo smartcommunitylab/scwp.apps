@@ -14,9 +14,6 @@ namespace ViaggiaTrentino.Helpers
   {
     PublicTransportLibrary ptLib;
 
-
-
-
     public async Task<bool> UpdateCachedCalendars()
     {
       bool result = false;

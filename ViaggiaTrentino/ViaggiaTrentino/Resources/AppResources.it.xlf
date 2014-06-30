@@ -482,7 +482,7 @@
         </trans-unit>
         <trans-unit id="Resx/ValidationSelDays" translate="yes" xml:space="preserve">
           <source>Please select at least one day</source>
-          <target state="new">Please select at least one day</target>
+          <target state="translated" state-qualifier="mt-suggestion">Selezionare almeno un giorno</target>
         </trans-unit>
         <trans-unit id="Resx/ValidationJTitle" translate="yes" xml:space="preserve">
           <source>Please provide a valid name for the journey</source>
@@ -566,19 +566,23 @@
         </trans-unit>
         <trans-unit id="Resx/CatchedErrorsReportMessage" translate="yes" xml:space="preserve">
           <source>In the course of the last week, the application encountered a few minor errors. Would you like to report them?</source>
-          <target state="new">In the course of the last week, the application encountered a few minor errors. Would you like to report them?</target>
+          <target state="translated">Nel corso dell'ultima settimana, l'applicazione ha rilevato alcuni errori non gravi. Si desidera segnalarli?</target>
         </trans-unit>
         <trans-unit id="Resx/CatchedParseErrorMessage" translate="yes" xml:space="preserve">
           <source>An error occurred while parsing our data.</source>
-          <target state="new">An error occurred while parsing our data.</target>
+          <target state="translated" state-qualifier="mt-suggestion">Si è verificato un errore durante l'analisi dei dati.</target>
         </trans-unit>
         <trans-unit id="Resx/SettignsErrorReport" translate="yes" xml:space="preserve">
           <source>Send feedback</source>
-          <target state="new">Send feedback</target>
+          <target state="translated">Invia feedback</target>
+        </trans-unit>
+        <trans-unit id="Resx/ValidationDelay" translate="yes" xml:space="preserve">
+          <source>Please insert a delay value</source>
+          <target state="translated">Inserire un valore nel campo ritardo</target>
         </trans-unit>
         <trans-unit id="Resx/CatchedHttpErrorMessage" translate="yes" xml:space="preserve">
           <source>An error occurred while processing your request.</source>
-          <target state="new">An error occurred while processing your request.</target>
+          <target state="translated" state-qualifier="mt-suggestion">Si è verificato un errore durante l'elaborazione della richiesta.</target>
         </trans-unit>
         <trans-unit id="Resx/ErrorReportCaption" translate="yes" xml:space="preserve">
           <source>Error reporting</source>

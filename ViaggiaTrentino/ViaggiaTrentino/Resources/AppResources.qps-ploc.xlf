@@ -567,24 +567,29 @@
         </trans-unit>
         <trans-unit id="Resx/CatchedErrorsReportMessage" translate="yes" xml:space="preserve">
           <source>In the course of the last week, the application encountered a few minor errors. Would you like to report them?</source>
-          <target state="new">In the course of the last week, the application encountered a few minor errors. Would you like to report them?</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[AC952][!!_Įή ţнè ćôùѓşê òƒ τħê ĺâŝť ẁęéк, ťнé áþрľíĉáτìóή èήĉòûήτęŕêð â ƒéẁ mįиôŕ ęѓŕòřś. Ẅõùłď ŷõù ĺíķé тò ŗéрôѓτ ťђêм?_!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!]</target>
         </trans-unit>
         <trans-unit id="Resx/CatchedParseErrorMessage" translate="yes" xml:space="preserve">
           <source>An error occurred while parsing our data.</source>
-          <target state="new">An error occurred while parsing our data.</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[C18F7][!!_Ãй êřѓõř õččûŗŗêð ẅħìłé ρãŕšįηģ óûř ďáτá._!!!!!!!!!!!!]</target>
         </trans-unit>
         <trans-unit id="Resx/SettignsErrorReport" translate="yes" xml:space="preserve">
           <source>Send feedback</source>
-          <target state="new">Send feedback</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[46652][!!_Şęйð ƒèèðвãćķ_!!]</target>
+        </trans-unit>
+        <trans-unit id="Resx/ValidationDelay" translate="yes" xml:space="preserve">
+          <source>Please insert a delay value</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[8B062][!!_Рļéàşê įήšèřτ á đèļãý νáľµê_!!!!!!!!]</target>
         </trans-unit>
         <trans-unit id="Resx/CatchedHttpErrorMessage" translate="yes" xml:space="preserve">
           <source>An error occurred while processing your request.</source>
-          <target state="new">An error occurred while processing your request.</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[B1263][!!_Ãй êѓřôŕ ôčĉúŗřèð ẁĥíłé ρŗóčéşŝíиğ ŷòúŕ řéqùęśт._!!!!!!!!!!!!!!]</target>
         </trans-unit>
         <trans-unit id="Resx/ErrorReportCaption" translate="yes" xml:space="preserve">
           <source>Error reporting</source>
           <target state="needs-review-translation" state-qualifier="mt-suggestion">[7C649][!!_Ţђę âþþłìĉâтįòи śèęмš тõ ħáνê êиċõùητèŗęď śõмę ðîƒƒìćûľτíèś đûѓîйğ тђę łâśť ŗûй. Đõ ÿòú ẃâηт тó ŝèиď ã ŗéρòѓţ ôƒ ţĥê âþρĺìĉáţįòή èѓѓõѓ τó ĥęĺþ ìмрřòνê тћé èхρêřįèйčè?_!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!]</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note></trans-unit>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          </trans-unit>
         <trans-unit id="Resx/SettingsPageAddPlace" translate="yes" xml:space="preserve">
           <source>add place</source>
           <target state="needs-review-translation" state-qualifier="mt-suggestion">[DEF1D][!!_âđđ рľáċé_!!]</target>
