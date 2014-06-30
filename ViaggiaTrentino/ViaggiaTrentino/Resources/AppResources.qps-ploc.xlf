@@ -603,8 +603,8 @@
           <target state="needs-review-translation" state-qualifier="mt-suggestion">[DA201][!!_ťôĝğłè мóηîţóѓ_!!!!]</target>
         </trans-unit>
         <trans-unit id="Resx/MainpageTour" translate="yes" xml:space="preserve">
-          <source>tour</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">[AC366][!!_τòûŕ_!!]</target>
+          <source>tutorial</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[AC366][!!_τòûŕ_!!]</target><note from="MultilingualUpdate" priority="2" annotates="source">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="Resx/SavedJourneyMonitorON" translate="yes" xml:space="preserve">
           <source>monitor on</source>

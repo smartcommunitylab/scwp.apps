@@ -52,16 +52,18 @@ namespace ViaggiaTrentino.ViewModels
     {
       base.OnViewLoaded(view);
 
-      try
+      if (Settings.IsTourAlreadyShown)
       {
-        App.LoadingPopup.Show();
-        await Settings.RefreshToken(true);
-      }      
-      finally
-      {
-        App.LoadingPopup.Hide();
+        try
+        {
+          App.LoadingPopup.Show();
+          await Settings.RefreshToken(true);
+        }
+        finally
+        {
+          App.LoadingPopup.Hide();
+        }
       }
-
       string oldEx = elh.RetrieveLoggedException(ExceptionType.Unhandled);
       if (oldEx != null)
       {
@@ -205,7 +207,7 @@ namespace ViaggiaTrentino.ViewModels
     }
 
     public void BarTest()
-    {
+    {    
       navigationService.UriFor<TestPageViewModel>().Navigate();
     }
 

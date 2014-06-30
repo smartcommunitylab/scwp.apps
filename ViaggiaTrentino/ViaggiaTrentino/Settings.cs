@@ -109,6 +109,13 @@ namespace ViaggiaTrentino
       get { return iss.Contains("hasBeenStarted"); }
     }
 
+    public static bool IsTourAlreadyShown
+    {
+      get { return(bool)iss["isTourAlreadyShown"]; }
+      set { iss["isTourAlreadyShown"] = value; iss.Save(); }
+
+    }
+
     public static bool LocationConsent
     {
       get { return (bool)iss["LocationConsent"]; }
@@ -152,9 +159,10 @@ namespace ViaggiaTrentino
       serverUrl = "https://vas-dev.smartcampuslab.it/";
       
       if (!HasBeenStarted)
-      {        
+      {
         iss["token"] = iss["lastGPSPosition"] = null;
         iss["tokenExpiration"] = DateTime.Now;
+        iss["isTourAlreadyShown"] = false;
         iss["LocationConsent"] = false;
         iss["feedbackEnabled"] = true;
         iss["dbVersion"] = AppVersion;

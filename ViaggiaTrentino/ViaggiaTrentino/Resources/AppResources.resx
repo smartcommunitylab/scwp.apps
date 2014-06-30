@@ -525,7 +525,7 @@
     <value>settings</value>
   </data>
   <data name="MainpageTour" xml:space="preserve">
-    <value>tour</value>
+    <value>tutorial</value>
   </data>
   <data name="SavedJourneyMonitorON" xml:space="preserve">
     <value>monitor on</value>

@@ -489,7 +489,7 @@
   <data name="SettingsPageAddPlace" xml:space="preserve"><value>Aggiungi località</value><comment></comment></data>
   <data name="SelBusRouteDirection" xml:space="preserve"><value>Selezionare la direzione</value></data>
   <data name="SavedJourneyMonitorToggle" xml:space="preserve"><value>attiva/disattiva monitoraggio</value><comment></comment></data>
-  <data name="MainpageTour" xml:space="preserve"><value>guida</value><comment></comment></data>
+  <data name="MainpageTour" xml:space="preserve"><value>tour guidato</value><comment></comment></data>
   <data name="MainpageSettings" xml:space="preserve"><value>impostazioni</value><comment></comment></data>
   <data name="MainpageLogin" xml:space="preserve"><value>login</value><comment></comment></data>
   <data name="MainpageAbout" xml:space="preserve"><value>informazioni</value><comment></comment></data>

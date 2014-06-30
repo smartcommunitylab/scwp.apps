@@ -125,7 +125,10 @@
                                     Text="{Binding Path=LocalizedResources.MainpageAbout, Source={StaticResource LocalizedStrings}}" />
         <bab:BindableAppBarMenuItem x:Name="BarSettings"
                                     Text="{Binding Path=LocalizedResources.MainpageSettings, Source={StaticResource LocalizedStrings}}" />
-        <bab:BindableAppBarMenuItem x:Name="BarTest" Text="Test page"/>
+        <!--<bab:BindableAppBarMenuItem x:Name="BarTest" Text="Test page"/>-->
+        <bab:BindableAppBarMenuItem Click="BarTour_Click"
+                                    Text="{Binding Path=LocalizedResources.MainpageTour, Source={StaticResource LocalizedStrings}}"/>
+
       </bab:BindableAppBar>
     </Grid>
   </Grid>

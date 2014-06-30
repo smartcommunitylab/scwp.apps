@@ -601,8 +601,8 @@
           <target state="translated">attiva/disattiva monitoraggio</target>
           </trans-unit>
         <trans-unit id="Resx/MainpageTour" translate="yes" xml:space="preserve">
-          <source>tour</source>
-          <target state="translated">guida</target>
+          <source>tutorial</source>
+          <target state="needs-review-translation">tour guidato</target><note from="MultilingualUpdate" priority="2" annotates="source">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
           </trans-unit>
         <trans-unit id="Resx/SavedJourneyMonitorON" translate="yes" xml:space="preserve">
           <source>monitor on</source>

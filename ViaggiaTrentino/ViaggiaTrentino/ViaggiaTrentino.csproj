@@ -580,6 +580,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\Desktop\GuidedTour\GuidedTour.csproj">
+      <Project>{D1221CB1-282B-453D-A70B-648A7DEE3D42}</Project>
+      <Name>GuidedTour</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DBHelper\DBHelper.csproj">
       <Project>{B8A352DE-D354-4BB8-9270-5C99C8108169}</Project>
       <Name>DBHelper</Name>

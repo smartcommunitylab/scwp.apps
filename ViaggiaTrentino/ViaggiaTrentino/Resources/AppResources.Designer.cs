@@ -466,7 +466,7 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to tour.
+        ///   Looks up a localized string similar to tutorial.
         /// </summary>
         public static string MainpageTour {
             get {

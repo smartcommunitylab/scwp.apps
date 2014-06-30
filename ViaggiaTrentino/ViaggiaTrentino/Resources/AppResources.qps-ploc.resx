@@ -383,7 +383,7 @@
   <data name="SettingsPageAddPlace" xml:space="preserve"><value>[DEF1D][!!_âđđ рľáċé_!!]</value></data>
   <data name="SelBusRouteDirection" xml:space="preserve"><value>[3742A][!!_Ŝêĺèčţ đìŕęĉţíòη_!!!!]</value></data>
   <data name="SavedJourneyMonitorToggle" xml:space="preserve"><value>[DA201][!!_ťôĝğłè мóηîţóѓ_!!!!]</value></data>
-  <data name="MainpageTour" xml:space="preserve"><value>[AC366][!!_τòûŕ_!!]</value></data>
+  <data name="MainpageTour" xml:space="preserve"><value>[AC366][!!_τòûŕ_!!]</value><comment></comment></data>
   <data name="SavedJourneyMonitorON" xml:space="preserve"><value>[84085][!!_móηîтôŗ õή_!!]</value></data>
   <data name="MainpageSettings" xml:space="preserve"><value>[9918A][!!_ŝéτťìиğś_!!]</value></data>
   <data name="MainpageLogin" xml:space="preserve"><value>[E8A44][!!_ľõğîη_!!]</value></data>
