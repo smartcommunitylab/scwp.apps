@@ -1,5 +1,6 @@
 ﻿using Models.MobilityService;
 using Models.MobilityService.Journeys;
+using Models.MobilityService.PublicTransport;
 using Models.MobilityService.RealTime;
 using System;
 using System.Collections.Generic;
@@ -13,15 +14,15 @@ using System.Windows.Media;
 
 namespace ViaggiaTrentino.Converters
 {
-  public class TransportTypeToImageListConverter : IValueConverter
+  public class ImageSourceToImageSourceAccordingToPhoneApplicationBackgroundConverter : IValueConverter
   {
     public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
     {
       bool isDark = (Visibility)Application.Current.Resources["PhoneDarkThemeVisibility"] == Visibility.Visible;
-      if (value is TransportType)      
-        return new ImageSourceConverter().ConvertFromString(string.Format("/Assets/Vehicles/{0}/{1}.png",
-          isDark ? "Dark" : "Light", value.ToString().ToLower()));         
-      return "";
+      List<string> gg = new List<string>((parameter as string).Split('/'));
+      gg.Insert(gg.Count - 1, isDark ? "Dark" : "Light");
+      var a = string.Join("/", gg);
+      return a;
     }
 
     public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)

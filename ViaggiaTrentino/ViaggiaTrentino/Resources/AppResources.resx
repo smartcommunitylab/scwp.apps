@@ -578,4 +578,7 @@
   <data name="SettignsErrorReport" xml:space="preserve">
     <value>Send feedback</value>
   </data>
+  <data name="ValidationDelay" xml:space="preserve">
+    <value>Please insert a delay value</value>
+  </data>
 </root>

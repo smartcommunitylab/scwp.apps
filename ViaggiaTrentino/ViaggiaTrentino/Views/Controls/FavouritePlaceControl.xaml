@@ -5,19 +5,25 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:vtconvert="clr-namespace:ViaggiaTrentino.Converters"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     d:DesignHeight="480" d:DesignWidth="480">
-    
-    <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}">
+
+  <UserControl.Resources>
+    <vtconvert:ImageSourceToImageSourceAccordingToPhoneApplicationBackgroundConverter x:Key="imgForTheme"/>
+  </UserControl.Resources>
+
+  <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}">
     <Grid.ColumnDefinitions>
       <ColumnDefinition Width="Auto" />
       <ColumnDefinition Width="*" />
     </Grid.ColumnDefinitions>
-      
-    <Image Grid.Column="0" Source="/Assets/Miscs/MapLocation.png" Width="48" Margin="8,8,16,8" Tap="Image_Tap"/>
+
+    <Image Grid.Column="0" Width="48" Margin="8,8,16,8" Tap="Image_Tap" 
+           Source="{Binding Converter={StaticResource imgForTheme}, ConverterParameter='/Assets/Miscs/MapLocation.png'}"/>
     <TextBlock Grid.Column="1" Text="{Binding Name}"  TextWrapping="Wrap" VerticalAlignment="Center"/>
 
     <toolkit:ContextMenuService.ContextMenu >

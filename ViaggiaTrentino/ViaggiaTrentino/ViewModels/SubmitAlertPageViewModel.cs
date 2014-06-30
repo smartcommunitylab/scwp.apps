@@ -2,6 +2,7 @@
 using Caliburn.Micro;
 using CommonHelpers;
 using DBManager;
+using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using MobilityServiceLibrary;
 using Models.MobilityService;
@@ -15,12 +16,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using ViaggiaTrentino.Resources;
 
 namespace ViaggiaTrentino.ViewModels
 {
   public class SubmitAlertPageViewModel : Screen
   {
     PublicTransportLibrary ptl;
+    RealTimeUpdateLibrary rtuLib;
     private Route selRoute;
     private Stop selStop;
     private StopTime selST;
@@ -130,6 +133,8 @@ namespace ViaggiaTrentino.ViewModels
     {
       this.navigationService = navigationService;
       ptl = new PublicTransportLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
+      rtuLib = new RealTimeUpdateLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
+
     }
 
     protected override async void OnViewLoaded(object view)
@@ -164,7 +169,7 @@ namespace ViaggiaTrentino.ViewModels
         await Settings.RefreshToken();
         Stops = new ObservableCollection<Stop>(await ptl.GetStops(r.RouteId.AgencyId, r.RouteId.Id));
         SelectedStop = Stops.FirstOrDefault();
-      }     
+      }
       finally
       {
         App.LoadingPopup.Hide();
@@ -189,32 +194,70 @@ namespace ViaggiaTrentino.ViewModels
 
     }
 
+    private bool ValidateDelay()
+    {
+      int useless;
+      StringBuilder sb = new StringBuilder();
+      if (!Int32.TryParse(delay, out useless))
+      {
+        sb.AppendLine(string.Format("• {0}", AppResources.ValidationDelay));
+      }
+      string errors = sb.ToString();
+
+      if (errors.Length > 0)
+      {
+        CustomMessageBox cmb = new CustomMessageBox()
+        {
+          Caption = AppResources.ValidationCaption,
+          Message = AppResources.ValidationMessage,
+          Content = sb.ToString(),
+          LeftButtonContent = AppResources.ValidationBtnOk
+        };
+        cmb.Show();
+        return false;
+      }
+      return true;
+    }
+
     public async void SubmitDelay()
     {
-      RealTimeUpdateLibrary rtul = new RealTimeUpdateLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
-      long a = (DateTime.Now.Ticks - 621355968000000000) / 10000000;
-      AlertDelay ad = new AlertDelay()
+      if (ValidateDelay())
       {
-        CreatorId = Settings.UserID,
-        CreatorType = CreatorType.User,
-        Note = "",
-        PositionInfo = new Models.MobilityService.Journeys.Position()
+        try
         {
-          Latitude = SelectedStop.Latitude.ToString(),
-          Longitude = SelectedStop.Longitude.ToString(),
-          Name = SelectedStop.Name,
-          Stop = new StopId { Agency = agencyID, Id = SelectedStop.StopId },
-          StopCode = SelectedStop.StopId
-        },
-        Delay = Convert.ToInt32(delay),
-        Type = AlertType.Delay,
-        ValidFrom = (DateTime.Now.Ticks - 621355968000000000) / 10000000
 
-      };
+          long a = (DateTime.Now.Ticks - 621355968000000000) / 10000000;
+          AlertDelay ad = new AlertDelay()
+          {
+            CreatorId = Settings.UserID,
+            CreatorType = CreatorType.User,
+            Note = "",
+            PositionInfo = new Models.MobilityService.Journeys.Position()
+            {
+              Latitude = SelectedStop.Latitude.ToString(),
+              Longitude = SelectedStop.Longitude.ToString(),
+              Name = SelectedStop.Name,
+              Stop = new StopId { Agency = agencyID, Id = SelectedStop.StopId },
+              StopCode = SelectedStop.StopId
+            },
+            Delay = Convert.ToInt32(delay),
+            Type = AlertType.Delay,
+            ValidFrom = (DateTime.Now.Ticks - 621355968000000000) / 10000000
 
-      await Settings.RefreshToken();
-      rtul.SignalAlert<AlertDelay>(ad);
-      navigationService.UriFor<MainPageViewModel>().Navigate();
+          };
+          App.LoadingPopup.Show();
+
+          await Settings.RefreshToken();
+          rtuLib.SignalAlert<AlertDelay>(ad);
+
+        }
+        finally
+        {
+          App.LoadingPopup.Hide();
+        }
+        navigationService.UriFor<MainPageViewModel>().Navigate();
+      }
+
     }
   }
 }

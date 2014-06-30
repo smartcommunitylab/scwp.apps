@@ -41,6 +41,8 @@
 
   <phone:PhoneApplicationPage.Resources>
     <vtconvert:AgencyIDToImageConverter x:Key="agencyToImage"/>
+    <vtconvert:ImageSourceToImageSourceAccordingToPhoneApplicationBackgroundConverter x:Key="imgForTheme"/>
+
   </phone:PhoneApplicationPage.Resources>
 
 

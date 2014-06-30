@@ -1357,6 +1357,15 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please insert a delay value.
+        /// </summary>
+        public static string ValidationDelay {
+            get {
+                return ResourceManager.GetString("ValidationDelay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please select a starting point.
         /// </summary>
         public static string ValidationFrom {

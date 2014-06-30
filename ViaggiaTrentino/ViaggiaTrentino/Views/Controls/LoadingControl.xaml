@@ -13,7 +13,7 @@
   <Grid Background="#77000000" x:Name="LayoutRoot" VerticalAlignment="Stretch" >
     <StackPanel VerticalAlignment="Center" >
       <ProgressBar IsIndeterminate="True" />
-      <TextBlock Text="{Binding Path=LocalizedResources.LoadingPanel, Source={StaticResource LocalizedStrings}}" HorizontalAlignment="Center" />
+      <TextBlock Text="{Binding Path=LocalizedResources.LoadingPanel, Source={StaticResource LocalizedStrings}}" Foreground="White" HorizontalAlignment="Center" />
     </StackPanel>
   </Grid>
 </UserControl>

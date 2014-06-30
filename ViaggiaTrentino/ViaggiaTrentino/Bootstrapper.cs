@@ -48,7 +48,14 @@ namespace ViaggiaTrentino
       base.OnStartup(sender, e);
       Settings.Initialize();
       DBManagement();
+      DBUpdate();
       App.LoadingPopup.InitializePopup();
+    }
+
+    private void DBUpdate()
+    {
+      TimeTableCacheHelper ttch = new TimeTableCacheHelper();
+      ttch.UpdateCachedCalendars();
     }
 
     // when fast resuming
