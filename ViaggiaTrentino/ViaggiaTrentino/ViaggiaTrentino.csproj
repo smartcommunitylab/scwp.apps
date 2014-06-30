@@ -352,6 +352,7 @@
     <Content Include="Assets\Vehicles\Light\train.png" />
     <Content Include="Assets\Vehicles\Light\transit.png" />
     <Content Include="Assets\Vehicles\Light\walk.png" />
+    <Content Include="GuidedTour.Content\Next.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Check.png" />
