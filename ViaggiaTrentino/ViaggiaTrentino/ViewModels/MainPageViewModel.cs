@@ -163,7 +163,6 @@ namespace ViaggiaTrentino.ViewModels
         loginPopup.Child = wb;
         loginPopup.IsOpen = true;
         wb.Navigate(AuthUriHelper.GetCodeUri(Settings.ClientId, Settings.RedirectUrl));
-        eventAggregator.Publish(true);
       }
     }
 
@@ -177,6 +176,7 @@ namespace ViaggiaTrentino.ViewModels
         loginPopup.IsOpen = false;
         pll = new ProfileLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
         Settings.UserID = (await pll.GetBasicProfile()).UserId;
+        eventAggregator.Publish(true);
       }
     }
 

@@ -114,7 +114,7 @@
       </Grid>
 
 
-      <bab:BindableAppBar Mode="Minimized" x:Name="babMainPage" IsEnabled="{Binding IsLogged}">
+      <bab:BindableAppBar Mode="Minimized" x:Name="babMainPage" >
         <bab:BindableAppBarMenuItem x:Name="BarLogin"
                                     Text="{Binding Path=LocalizedResources.MainpageLogin, Source={StaticResource LocalizedStrings}}"                                     
                                     Visibility="{Binding IsLogged, Converter={StaticResource boolToNotVisibility}}" />
