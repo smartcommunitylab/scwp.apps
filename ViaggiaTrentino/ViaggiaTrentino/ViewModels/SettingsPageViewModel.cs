@@ -104,7 +104,7 @@ namespace ViaggiaTrentino.ViewModels
     void mpSmall_Completed(object sender, PopUpEventArgs<string, PopUpResult> e)
     {
       //do stuff with fpv.SelectedPosition
-      if (e.PopUpResult == PopUpResult.Ok)
+      if (e.PopUpResult == PopUpResult.Ok && fpv.SelectedPosition != null)
       {
         FavPositions.Add(fpv.SelectedPosition);
         fsh.WriteFile("favourites.pos", JsonConvert.SerializeObject(FavPositions.ToArray()), true);
