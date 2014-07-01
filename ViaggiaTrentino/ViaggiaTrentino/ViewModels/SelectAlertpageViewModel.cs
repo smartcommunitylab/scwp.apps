@@ -31,17 +31,17 @@ namespace ViaggiaTrentino.ViewModels
         .Navigate();
     }
 
-    public void InterBus()
-    {
-      navigationService.UriFor<SubmitAlertPageViewModel>().WithParam(x => x.AgencyID, AgencyType.TrentinoIntercityBus)
-        .WithParam(x => x.LineName, Resources.AppResources.SelSendAlertInter)
-        .Navigate();
-    }
+    //public void InterBus()
+    //{
+    //  navigationService.UriFor<SubmitAlertPageViewModel>().WithParam(x => x.AgencyID, AgencyType.TrentinoIntercityBus)
+    //    .WithParam(x => x.LineName, Resources.AppResources.SelSendAlertInter)
+    //    .Navigate();
+    //}
 
     public void Train()
     {
       //agency type of a railway, so that i can intercept it and then retrieve all railways
-      navigationService.UriFor<SubmitAlertPageViewModel>().WithParam(x => x.AgencyID, AgencyType.TrentoMaleRailway)
+      navigationService.UriFor<SubmitAlertPageViewModel>().WithParam(x => x.AgencyID, AgencyType.BolzanoVeronaRailway)
         .WithParam(x => x.LineName, Resources.AppResources.SelSendAlertTrain)
         .Navigate();
     }    
