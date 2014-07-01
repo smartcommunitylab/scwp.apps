@@ -90,7 +90,7 @@ namespace ViaggiaTrentino.ViewModels
     private static void SendErrorEmail(string exceptionMessage)
     {
       EmailComposeTask ect = new EmailComposeTask();
-      ect.To = "smarcampuslab@outlook.com";
+      ect.To = "smartcampuslab@outlook.com";
       ect.Subject = AppResources.ErrorReportCaption;
       ect.Body = string.Format("{1}{0}{2}{0}{3}{0}{4}", Environment.NewLine, Newtonsoft.Json.JsonConvert.SerializeObject(Environment.OSVersion),
         Environment.Version.ToString(), Newtonsoft.Json.JsonConvert.SerializeObject(Microsoft.Phone.Info.DeviceStatus.DeviceName), exceptionMessage);
