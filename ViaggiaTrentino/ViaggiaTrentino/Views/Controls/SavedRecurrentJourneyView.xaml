@@ -19,13 +19,13 @@
 
   <StackPanel Background="{StaticResource PhoneChromeBrush}" Margin="0,0,0,5">
 
-    <Grid x:Name="LayoutRoot"  HorizontalAlignment="Stretch" Margin="5,0,0,0">
+    <Grid x:Name="LayoutRoot"  HorizontalAlignment="Stretch">
 
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="*"/>
         <ColumnDefinition Width="Auto"/>
       </Grid.ColumnDefinitions>
-      <StackPanel Grid.Column="0">
+      <StackPanel Grid.Column="0"  Margin="10,5,0,5">
         <TextBlock Text="{Binding Name, TargetNullValue='empty title'}" TextWrapping="Wrap" FontWeight="SemiBold" ></TextBlock>
 
         <TextBlock Text="{Binding Data.Parameters.From.Name, TargetNullValue=''}" 
