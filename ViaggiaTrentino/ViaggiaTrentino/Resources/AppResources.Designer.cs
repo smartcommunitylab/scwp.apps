@@ -970,7 +970,7 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Submit a delayt for trains.
+        ///   Looks up a localized string similar to Submit a delay for trains.
         /// </summary>
         public static string SelSendAlertTrainDesc {
             get {

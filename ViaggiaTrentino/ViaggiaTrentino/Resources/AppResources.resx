@@ -591,6 +591,6 @@
     <value>Submit a delay for buses in Trento</value>
   </data>
   <data name="SelSendAlertTrainDesc" xml:space="preserve">
-    <value>Submit a delayt for trains</value>
+    <value>Submit a delay for trains</value>
   </data>
 </root>
