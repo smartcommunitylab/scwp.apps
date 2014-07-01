@@ -25,6 +25,7 @@ namespace ViaggiaTrentino.Views
       this.eventAggregator = eventAggregator;
       eventAggregator.Subscribe(this);
     }
+
     public void Handle(bool message)
     {
       babMainPage.IsVisible = message;

@@ -591,27 +591,27 @@
         </trans-unit>
         <trans-unit id="Resx/TilePlanJourneyTagTour" translate="yes" xml:space="preserve">
           <source>Plan your next trip here</source>
-          <target state="new">Plan your next trip here</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[BE55C][!!_Ρĺàή Уõùř иé×ť тŕįρ ћęŗę_!!!!!!!!]</target>
         </trans-unit>
         <trans-unit id="Resx/SubmitAlertTileTagTour" translate="yes" xml:space="preserve">
           <source>Report delays, accidents or deviations</source>
-          <target state="new">Report delays, accidents or deviations</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[F5CC2][!!_Ŗéρôѓť ďèĺáУś, âččìđèήťŝ õř đéνįãťîõйŝ_!!!!!!!!!!!!]</target>
         </trans-unit>
         <trans-unit id="Resx/SavedJourneysTileTagTour" translate="yes" xml:space="preserve">
           <source>Keep track of your usual travel routes here</source>
-          <target state="new">Keep track of your usual travel routes here</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[5C8DF][!!_Ķèęр ťŕãċĸ óƒ ўõûѓ úşúãł ťѓâνèļ řôúτèš ћèŕé_!!!!!!!!!!!!]</target>
         </trans-unit>
         <trans-unit id="Resx/RealTimeInfoTileTagTour" translate="yes" xml:space="preserve">
           <source>Check the local bus or train schedule or find available parking</source>
-          <target state="new">Check the local bus or train schedule or find available parking</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[DD1F6][!!_Čĥęćĸ тħê łòčàľ ъûş óř ťŕâìη ŝčћęďûłę òř ƒįйð áνáįłâвļê ρãѓķíиĝ_!!!!!!!!!!!!!!!!!!]</target>
         </trans-unit>
         <trans-unit id="Resx/ReadNotificationsTileTagTour" translate="yes" xml:space="preserve">
           <source>Check if the bus or train is on time</source>
-          <target state="new">Check if the bus or train is on time</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[205B5][!!_Ćħęćк įƒ ţћè ъµŝ ôŕ ţѓáįи íŝ ôй ţìмę_!!!!!!!!!!]</target>
         </trans-unit>
         <trans-unit id="Resx/PlanRecurrentJourneyTileTagTour" translate="yes" xml:space="preserve">
           <source>Set up your usual routes to be notify about possible delays</source>
-          <target state="new">Set up your usual routes to be notify about possible delays</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[205D1][!!_Ŝèτ úþ ŷõúŗ úşúâł ŗõûτèś ťô ьê иôтíƒУ âвõúτ рóššîБłé ďèļàÿş_!!!!!!!!!!!!!!!!!!]</target>
         </trans-unit>
         <trans-unit id="Resx/SelSendAlertTnDesc" translate="yes" xml:space="preserve">
           <source>Submit a delay for buses in Trento</source>
@@ -645,7 +645,8 @@
         <trans-unit id="Resx/MainpageTour" translate="yes" xml:space="preserve">
           <source>tutorial</source>
           <target state="needs-review-translation" state-qualifier="mt-suggestion">[AC366][!!_τòûŕ_!!]</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note></trans-unit>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          </trans-unit>
         <trans-unit id="Resx/SavedJourneyMonitorON" translate="yes" xml:space="preserve">
           <source>monitor on</source>
           <target state="needs-review-translation" state-qualifier="mt-suggestion">[84085][!!_móηîтôŗ õή_!!]</target>

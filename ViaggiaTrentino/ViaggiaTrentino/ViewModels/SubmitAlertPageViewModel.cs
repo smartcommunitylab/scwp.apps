@@ -25,6 +25,7 @@ namespace ViaggiaTrentino.ViewModels
     PublicTransportLibrary ptl;
     RealTimeUpdateLibrary rtuLib;
     private Route selRoute;
+    private bool isLoaded;
     private Stop selStop;
     private StopTime selST;
     private AgencyType agencyID;
@@ -123,18 +124,27 @@ namespace ViaggiaTrentino.ViewModels
       set { agencyID = value; }
     }
 
+    public bool IsLoaded
+    {
+      get { return isLoaded; }
+      set
+      {
+        isLoaded = value;
+        NotifyOfPropertyChange(() => IsLoaded);
+      }
+    }
+
     public void DelayTimeChanged(TextBox obj)
     {
       delay = obj.Text;
     }
-
 
     public SubmitAlertPageViewModel(INavigationService navigationService)
     {
       this.navigationService = navigationService;
       ptl = new PublicTransportLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
       rtuLib = new RealTimeUpdateLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
-
+      IsLoaded = true;
     }
 
     protected override async void OnViewLoaded(object view)
@@ -147,7 +157,7 @@ namespace ViaggiaTrentino.ViewModels
 
       try
       {
-        App.LoadingPopup.Show();
+        IsLoaded = false; App.LoadingPopup.Show(); 
         await Settings.RefreshToken();
         var results = await ptl.GetRoutes(agencyID);
         results.Sort();
@@ -156,7 +166,7 @@ namespace ViaggiaTrentino.ViewModels
       }
       finally
       {
-        App.LoadingPopup.Hide();
+        App.LoadingPopup.Hide(); IsLoaded = true;
       }
 
     }
@@ -165,14 +175,14 @@ namespace ViaggiaTrentino.ViewModels
     {
       try
       {
-        App.LoadingPopup.Show();
+        IsLoaded = false; App.LoadingPopup.Show();
         await Settings.RefreshToken();
         Stops = new ObservableCollection<Stop>(await ptl.GetStops(r.RouteId.AgencyId, r.RouteId.Id));
         SelectedStop = Stops.FirstOrDefault();
       }
       finally
       {
-        App.LoadingPopup.Hide();
+        App.LoadingPopup.Hide(); IsLoaded = true;
       }
 
 
@@ -182,14 +192,14 @@ namespace ViaggiaTrentino.ViewModels
     {
       try
       {
-        App.LoadingPopup.Show();
+        IsLoaded = false; App.LoadingPopup.Show(); 
         await Settings.RefreshToken();
         StopTimes = new ObservableCollection<StopTime>(await ptl.GetTimetable(agencyID, selRoute.RouteId.Id, value.StopId));
         SelectedStopTime = StopTimes.FirstOrDefault();
       }
       finally
       {
-        App.LoadingPopup.Hide();
+        App.LoadingPopup.Hide(); IsLoaded = true;
       }
 
     }
@@ -253,7 +263,7 @@ namespace ViaggiaTrentino.ViewModels
         }
         finally
         {
-          App.LoadingPopup.Hide();
+          App.LoadingPopup.Hide(); IsLoaded = true;
         }
         navigationService.UriFor<MainPageViewModel>().Navigate();
       }
