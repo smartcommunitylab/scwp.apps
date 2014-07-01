@@ -60,22 +60,21 @@ namespace ViaggiaTrentino.ViewModels
 
     public SavedJourneyPageViewModel(INavigationService navigationService, IEventAggregator eventAggregator)
     {
-      mySavedSingleJourneys = new ObservableCollection<BasicItinerary>();
-      mySavedRecurrentJourneys = new ObservableCollection<BasicRecurrentJourney>();
       this.navigationService = navigationService;
       this.eventAggregator = eventAggregator;
+      mySavedSingleJourneys = new ObservableCollection<BasicItinerary>();
+      mySavedRecurrentJourneys = new ObservableCollection<BasicRecurrentJourney>();
       urLib = new UserRouteLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
     }
 
-    protected async override void OnViewLoaded(object view)
+    protected override async void OnViewAttached(object view, object context)
     {
-      base.OnViewLoaded(view);
-
-      while (navigationService.BackStack.Count() > 1)
-        navigationService.RemoveBackEntry();
-      
+      base.OnViewAttached(view, context);
+    
       try
       {
+        MySavedRecurrentJourneys.Clear();
+        MySavedSingleJourneys.Clear();
         App.LoadingPopup.Show();
         await Settings.RefreshToken();
         basList = await urLib.ReadAllSingleJourneys();
@@ -86,12 +85,22 @@ namespace ViaggiaTrentino.ViewModels
         App.LoadingPopup.Hide();
       }
 
-      BackgroundWorker bw = new BackgroundWorker();   
+      BackgroundWorker bw = new BackgroundWorker();
       bw.DoWork += bw_DoWork;
       bw.ProgressChanged += bw_ProgressChanged;
       bw.WorkerReportsProgress = true;
       bw.WorkerSupportsCancellation = true;
       bw.RunWorkerAsync(); 
+    }
+
+    protected  override void OnViewLoaded(object view)
+    {
+      base.OnViewLoaded(view);
+
+      while (navigationService.BackStack.Count() > 1)
+        navigationService.RemoveBackEntry();
+      
+      
     }
 
     void bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
