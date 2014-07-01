@@ -2,6 +2,7 @@
 using Caliburn.Micro;
 using CommonHelpers;
 using DBManager;
+using DBManager.DBModels;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using MobilityServiceLibrary;
@@ -152,15 +153,28 @@ namespace ViaggiaTrentino.ViewModels
       base.OnViewLoaded(view);
       using (DBHelper dbh = new DBHelper())
       {
-        PhoneApplicationService.Current.State["routeNames"] = dbh.GetRoutesNames(EnumConverter.ToEnumString<AgencyType>(agencyID));
+        List<RouteName> availableRoutes = dbh.GetRoutesNames(EnumConverter.ToEnumString<AgencyType>(agencyID));
+        if(agencyID == AgencyType.BolzanoVeronaRailway)
+        {
+          availableRoutes.AddRange(dbh.GetRoutesNames(EnumConverter.ToEnumString<AgencyType>(AgencyType.TrentoMaleRailway)));
+          availableRoutes.AddRange(dbh.GetRoutesNames(EnumConverter.ToEnumString<AgencyType>(AgencyType.TrentoBassanoDelGrappaRailway)));
+        }
+        PhoneApplicationService.Current.State["routeNames"] = availableRoutes;
       }
 
       try
       {
         IsLoaded = false; App.LoadingPopup.Show(); 
         await Settings.RefreshToken();
+        
         var results = await ptl.GetRoutes(agencyID);
-        results.Sort();
+        if (agencyID == AgencyType.BolzanoVeronaRailway)
+        {
+          results.AddRange(await ptl.GetRoutes(AgencyType.TrentoMaleRailway));
+          results.AddRange(await ptl.GetRoutes(AgencyType.TrentoBassanoDelGrappaRailway));
+        }
+        else
+          results.Sort();
         Routes = new ObservableCollection<Route>(results);
         SelectedRoute = Routes.FirstOrDefault();
       }
@@ -194,7 +208,7 @@ namespace ViaggiaTrentino.ViewModels
       {
         IsLoaded = false; App.LoadingPopup.Show(); 
         await Settings.RefreshToken();
-        StopTimes = new ObservableCollection<StopTime>(await ptl.GetTimetable(agencyID, selRoute.RouteId.Id, value.StopId));
+        StopTimes = new ObservableCollection<StopTime>(await ptl.GetTimetable(selRoute.RouteId.AgencyId, selRoute.RouteId.Id, value.StopId));
         SelectedStopTime = StopTimes.FirstOrDefault();
       }
       finally
