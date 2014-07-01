@@ -26,17 +26,29 @@ namespace ViaggiaTrentino.ViewModels
     AuthLibrary authLib;
     ProfileLibrary pll;
     Popup loginPopup;
+    bool isLoaded;
 
     public MainPageViewModel(INavigationService navigationService, IEventAggregator eventAggregator)
     {
       this.navigationService = navigationService;
       this.eventAggregator = eventAggregator;
       elh = new ExceptionLoggerHelper();
+      IsLoaded = true;
     }
 
     public bool IsLogged
     {
       get { return Settings.IsLogged; }
+    }
+
+    public bool IsLoaded
+    {
+      get { return isLoaded; }
+      set
+      {
+        isLoaded = value;
+        NotifyOfPropertyChange(() => IsLoaded);
+      }
     }
 
     protected override void OnActivate()
@@ -56,12 +68,12 @@ namespace ViaggiaTrentino.ViewModels
       {
         try
         {
-          App.LoadingPopup.Show();
+          IsLoaded = false; App.LoadingPopup.Show();
           await Settings.RefreshToken(true);
         }
         finally
         {
-          App.LoadingPopup.Hide();
+          App.LoadingPopup.Hide(); IsLoaded = true;
         }
       }
       string oldEx = elh.RetrieveLoggedException(ExceptionType.Unhandled);
@@ -77,9 +89,9 @@ namespace ViaggiaTrentino.ViewModels
       else
       {
         string extraEx = elh.RetrieveLoggedException(ExceptionType.Handled);
-       
-        if(extraEx != null)
-        {  
+
+        if (extraEx != null)
+        {
           if (MessageBox.Show(AppResources.CatchedErrorsReportMessage, AppResources.ErrorReportCaption, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
             SendErrorEmail(extraEx);
           elh.DeleteLoggedException(ExceptionType.Handled);
@@ -174,7 +186,7 @@ namespace ViaggiaTrentino.ViewModels
       {
         string code = e.Uri.Query.Split('=')[1];
         Settings.AppToken = await authLib.GetAccessToken(code);
-        NotifyOfPropertyChange(()=> IsLogged);
+        NotifyOfPropertyChange(() => IsLogged);
         loginPopup.IsOpen = false;
         pll = new ProfileLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
         Settings.UserID = (await pll.GetBasicProfile()).UserId;
@@ -185,7 +197,7 @@ namespace ViaggiaTrentino.ViewModels
     public void BarLogout()
     {
       Settings.AppToken = null;
-      NotifyOfPropertyChange(()=> IsLogged);
+      NotifyOfPropertyChange(() => IsLogged);
 
     }
 
@@ -207,7 +219,7 @@ namespace ViaggiaTrentino.ViewModels
     }
 
     public void BarTest()
-    {    
+    {
       navigationService.UriFor<TestPageViewModel>().Navigate();
     }
 

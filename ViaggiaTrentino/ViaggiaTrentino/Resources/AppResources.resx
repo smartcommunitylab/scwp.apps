@@ -593,4 +593,22 @@
   <data name="SelSendAlertTrainDesc" xml:space="preserve">
     <value>Submit a delay for trains</value>
   </data>
+  <data name="PlanRecurrentJourneyTileTagTour" xml:space="preserve">
+    <value>Set up your usual routes to be notify about possible delays</value>
+  </data>
+  <data name="ReadNotificationsTileTagTour" xml:space="preserve">
+    <value>Check if the bus or train is on time</value>
+  </data>
+  <data name="RealTimeInfoTileTagTour" xml:space="preserve">
+    <value>Check the local bus or train schedule or find available parking</value>
+  </data>
+  <data name="SavedJourneysTileTagTour" xml:space="preserve">
+    <value>Keep track of your usual travel routes here</value>
+  </data>
+  <data name="SubmitAlertTileTagTour" xml:space="preserve">
+    <value>Report delays, accidents or deviations</value>
+  </data>
+  <data name="TilePlanJourneyTagTour" xml:space="preserve">
+    <value>Plan your next trip here</value>
+  </data>
 </root>

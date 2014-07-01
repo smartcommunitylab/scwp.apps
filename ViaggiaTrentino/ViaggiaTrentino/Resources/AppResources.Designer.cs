@@ -718,6 +718,15 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Set up your usual routes to be notify about possible delays.
+        /// </summary>
+        public static string PlanRecurrentJourneyTileTagTour {
+            get {
+                return ResourceManager.GetString("PlanRecurrentJourneyTileTagTour", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to save.
         /// </summary>
         public static string PlanSave {
@@ -786,6 +795,24 @@ namespace ViaggiaTrentino.Resources {
         public static string Previous {
             get {
                 return ResourceManager.GetString("Previous", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check if the bus or train is on time.
+        /// </summary>
+        public static string ReadNotificationsTileTagTour {
+            get {
+                return ResourceManager.GetString("ReadNotificationsTileTagTour", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check the local bus or train schedule or find available parking.
+        /// </summary>
+        public static string RealTimeInfoTileTagTour {
+            get {
+                return ResourceManager.GetString("RealTimeInfoTileTagTour", resourceCulture);
             }
         }
         
@@ -876,6 +903,15 @@ namespace ViaggiaTrentino.Resources {
         public static string SavedJourneysMonitoringPivot {
             get {
                 return ResourceManager.GetString("SavedJourneysMonitoringPivot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keep track of your usual travel routes here.
+        /// </summary>
+        public static string SavedJourneysTileTagTour {
+            get {
+                return ResourceManager.GetString("SavedJourneysTileTagTour", resourceCulture);
             }
         }
         
@@ -1087,6 +1123,15 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Report delays, accidents or deviations.
+        /// </summary>
+        public static string SubmitAlertTileTagTour {
+            get {
+                return ResourceManager.GetString("SubmitAlertTileTagTour", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Your recurrent journey has been changed. Do you want to save changes?.
         /// </summary>
         public static string SureChange {
@@ -1164,6 +1209,15 @@ namespace ViaggiaTrentino.Resources {
         public static string TilePlanJourneyMessage {
             get {
                 return ResourceManager.GetString("TilePlanJourneyMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Plan your next trip here.
+        /// </summary>
+        public static string TilePlanJourneyTagTour {
+            get {
+                return ResourceManager.GetString("TilePlanJourneyTagTour", resourceCulture);
             }
         }
         
