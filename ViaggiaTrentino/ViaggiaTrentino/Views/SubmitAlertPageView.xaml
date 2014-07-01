@@ -109,7 +109,7 @@
       </StackPanel>
     </Grid>
 
-    <bab:BindableAppBar>
+    <bab:BindableAppBar IsVisible="{Binding IsLoaded}">
       <bab:BindableAppBarButton IconUri="/Assets/AppBar/Check.png" x:Name="SubmitDelay" 
                                 Text="{Binding Path=LocalizedResources.SubAlertSubmit, Source={StaticResource LocalizedStrings}}"/>
     </bab:BindableAppBar>
