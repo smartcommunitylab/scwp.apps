@@ -33,6 +33,7 @@ namespace ViaggiaTrentino.ViewModels
     private ObservableCollection<RouteInfo> routesName;
     private TerritoryInformationLibrary til;
     private PublicTransportLibrary ptl;
+    BackgroundWorker bw;
 
     public SelectBusRouteViewModel(INavigationService navigationService)
     {
@@ -76,21 +77,21 @@ namespace ViaggiaTrentino.ViewModels
     protected override void OnInitialize()
     {
       base.OnInitialize();
-
       RoutesName = new ObservableCollection<RouteInfo>();
-
     }
 
-    protected override void OnViewLoaded(object view)
+    protected override void OnViewReady(object view)
     {
-      base.OnViewLoaded(view);
-      BackgroundWorker bw = new BackgroundWorker();
+      base.OnViewReady(view);
+      RoutesName.Clear();
+      bw = new BackgroundWorker();
       bw.DoWork += bw_DoWork;
       bw.ProgressChanged += bw_ProgressChanged;
       bw.WorkerReportsProgress = true;
       bw.WorkerSupportsCancellation = true;
       bw.RunWorkerAsync();
     }
+
 
     void bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
     {
@@ -99,19 +100,25 @@ namespace ViaggiaTrentino.ViewModels
 
     void bw_DoWork(object sender, DoWorkEventArgs e)
     {
+
       using (DBHelper dbh = new DBHelper())
       {
         List<RouteInfo> rName = dbh.GetRouteInfo(EnumConverter.ToEnumString<AgencyType>(AgencyID));
         foreach (var item in rName)
         {
+          if ((sender as BackgroundWorker).CancellationPending)
+            return;
           (sender as BackgroundWorker).ReportProgress(0, item);
           Thread.Sleep(50);
+          
         }
       }
     }
 
     public void OpenTimetableView(DBManager.DBModels.RouteInfo obj)
     {
+      if (bw.IsBusy)
+        bw.CancelAsync();
       using (DBHelper dbh = new DBHelper())
       {
         var routenames = dbh.GetRoutesNames(EnumConverter.ToEnumString<AgencyType>(agencyID));

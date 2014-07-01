@@ -40,7 +40,7 @@ namespace ViaggiaTrentino.Helpers
 
     MessagePrompt modeChooser;
     MessagePrompt hugeMap;
-    
+
     #region Addresses management
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace ViaggiaTrentino.Helpers
     /// <returns></returns>
     public Task<string> GetAddressFromGeoCoord(GeoCoordinate position)
     {
-      
+
       return GetAddressFromGeoCoord(new double[] { position.Latitude, position.Longitude });
     }
 
@@ -60,7 +60,7 @@ namespace ViaggiaTrentino.Helpers
     /// <param name="position">a two element double array, first element latitude, second longitude</param>
     /// <returns></returns>
     public async Task<string> GetAddressFromGeoCoord(double[] position)
-    {      
+    {
       ReverseGeocodeQuery reverseGeocode = new ReverseGeocodeQuery();
       reverseGeocode.GeoCoordinate = new GeoCoordinate(position[0], position[1]);
       var t = await reverseGeocode.GetMapLocationsAsync();
@@ -94,13 +94,18 @@ namespace ViaggiaTrentino.Helpers
         case "current": GeneratePushpinForAssegna(); break;
         case "openMap": ShowMappaGrande(); break;
         default: PositionObtained(this, null); break;
-      }     
+      }
     }
 
     private async void GeneratePushpinForAssegna()
     {
       string res = await GetAddressFromGeoCoord(Settings.GPSPosition);
-      Assegna(new Pushpin() { GeoCoordinate = Settings.GPSPosition, Content = res });
+      PositionObtained(this, new Position()
+              {
+                Name = res,
+                Latitude = Settings.GPSPosition.Latitude.ToString(),
+                Longitude = Settings.GPSPosition.Longitude.ToString()
+              });
     }
 
     #endregion
@@ -109,7 +114,7 @@ namespace ViaggiaTrentino.Helpers
 
     private void ShowMappaGrande()
     {
-      Map ggm = new Map();      
+      Map ggm = new Map();
       ggm.ZoomLevel = 15;
       ggm.Center = Settings.GPSPosition;
       ggm.Height = Application.Current.Host.Content.ActualHeight;
@@ -121,7 +126,7 @@ namespace ViaggiaTrentino.Helpers
       hugeMap.Style = Application.Current.Resources["mpNoBorders"] as Style;
       hugeMap.Body = ggm;
       hugeMap.Show();
-    
+
     }
 
     void hugeMap_Completed(object sender, PopUpEventArgs<string, PopUpResult> e)
@@ -140,42 +145,22 @@ namespace ViaggiaTrentino.Helpers
         GeoCoordinate = geocode,
         Content = aa
       };
-      p.Tap += pushpin_Tap;
-      MapExtensions.GetChildren(mappa).Clear();
-      MapExtensions.GetChildren(mappa).Add(p);
+
 
       VibrationDevice vibro = VibrationDevice.GetDefault();
-      vibro.Vibrate(new TimeSpan(0, 0, 1));
+      vibro.Vibrate(new TimeSpan(0, 0, 0, 0, 250));
 
-      //uncomment to enable hold to message box flow
-      //p_Tap(p, e);
-    }
-
-    void pushpin_Tap(object sender, System.Windows.Input.GestureEventArgs e)
-    {
-      if (MessageBox.Show((sender as Pushpin).Content as string, AppResources.ChooseConfirmTitle, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+      if (MessageBox.Show(aa, AppResources.ChooseConfirmTitle, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
       {
         hugeMap.Value = "yes";
         hugeMap.Hide();
-        Assegna((sender as Pushpin));
+        PositionObtained(this, new Position()
+                               {
+                                 Name = aa,
+                                 Latitude = geocode.Latitude.ToString(),
+                                 Longitude = geocode.Longitude.ToString()
+                               });
       }
-    }
-
-    /// <summary>
-    /// Creates a Position element from the selected position 
-    /// and fires the Positionobtained event
-    /// </summary>
-    /// <param name="result">the pushpin containing the required position</param>
-    private void Assegna(Pushpin result)
-    {
-      Position choosenPos = new Position()
-      {
-        Name = result.Content as string,
-        Latitude = result.GeoCoordinate.Latitude.ToString(),
-        Longitude = result.GeoCoordinate.Longitude.ToString()
-      };
-
-      PositionObtained(this, choosenPos);
     }
 
     #endregion
