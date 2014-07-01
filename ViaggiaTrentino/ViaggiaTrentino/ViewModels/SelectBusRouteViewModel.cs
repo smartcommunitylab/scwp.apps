@@ -147,6 +147,11 @@ namespace ViaggiaTrentino.ViewModels
           Coordinates = new double[2] { coordinates[0], coordinates[1] },
           Radius = radius
         });
+        
+        results = (from place in results
+                           group place by new { place.Poi.Latitude, place.Poi.Longitude } 
+                           into mygroup
+                           select mygroup.First()).ToList();
       }
       catch (HttpRequestException)
       {
