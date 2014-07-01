@@ -20,8 +20,7 @@ namespace ViaggiaTrentino.Views
     {
       InitializeComponent();
       Bootstrapper bootstrapper = Application.Current.Resources["bootstrapper"] as Bootstrapper;
-      IEventAggregator eventAggregator = bootstrapper.container.GetAllInstances(typeof(IEventAggregator)).FirstOrDefault() as IEventAggregator;
-      this.eventAggregator = eventAggregator;
+      this.eventAggregator = bootstrapper.container.GetAllInstances(typeof(IEventAggregator)).FirstOrDefault() as IEventAggregator;
       eventAggregator.Subscribe(this);
     }
 

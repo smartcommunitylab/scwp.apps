@@ -11,6 +11,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading;
 using System.Windows.Controls;
+using ViaggiaTrentino.Resources;
 
 namespace ViaggiaTrentino.ViewModels
 {
@@ -27,6 +28,20 @@ namespace ViaggiaTrentino.ViewModels
     }
 
     #region Properties
+
+    public string SelectedAgencyTitle
+    {
+      get
+      {
+        switch (agencyID)
+        {
+          case AgencyType.TrentoCityBus: return AppResources.TileTrentoBusMessage;
+          case AgencyType.RoveretoCityBus: return AppResources.TileRoveretoBusMessage;
+          default: return AppResources.ApplicationTitle;
+        }
+      }
+    }
+
     public AgencyType AgencyID
     {
       get { return agencyID; }

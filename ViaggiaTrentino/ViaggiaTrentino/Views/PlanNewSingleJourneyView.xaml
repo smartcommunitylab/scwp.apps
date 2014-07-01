@@ -44,6 +44,7 @@
     <calconvs:BooleanToVisibilityConverter x:Key="boolToVisibility" />
     <vtconvert:BooleanToScrollBarVisibilityConverter x:Key="boolToScrollBar" />
     <vtconvert:ImageSourceToImageSourceAccordingToPhoneApplicationBackgroundConverter x:Key="imgForTheme"/>
+    <vtconvert:DebuggingConverter x:Key="kebug"/>
   </UserControl.Resources>
 
 
@@ -78,14 +79,14 @@
               <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <scAutoComp:SmartCampusAutoCompleteBox FilterMode="Contains" Grid.Row="0" Grid.Column="0" x:Name="FromBox"  MaxDropDownHeight="300"                                             
-                                    Text="{Binding FromPos.Name}"  Tag="{Binding FromPos, Mode=TwoWay}"  ItemTemplate="{StaticResource smartCampusBox}" />
+                                    Tag="{Binding FromPos, Mode=TwoWay}"  ItemTemplate="{StaticResource smartCampusBox}" />
             <Image x:Name="GpsLocFrom" Width="48" Grid.Row="0" Grid.Column="1" Margin="0,0,5,0"
                    Source="{Binding Converter={StaticResource imgForTheme}, ConverterParameter='/Assets/Miscs/GpsLocation.png'}" />
             <Image x:Name="FavsFrom" Width="48" Grid.Row="0" Grid.Column="2" Margin="5,0,0,0"
                    Source="{Binding Converter={StaticResource imgForTheme}, ConverterParameter='/Assets/Miscs/Favourites.png'}" />
 
             <scAutoComp:SmartCampusAutoCompleteBox FilterMode="Contains" Grid.Row="1" Grid.Column="0" x:Name="ToBox" MaxDropDownHeight="300"
-                                    Text="{Binding ToPos.Name}" Tag="{Binding ToPos, Mode=TwoWay}" ItemTemplate="{StaticResource smartCampusBox}"/>
+                                     Tag="{Binding ToPos, Mode=TwoWay}" ItemTemplate="{StaticResource smartCampusBox}"/>
             <Image x:Name="GpsLocTo" Width="48" Grid.Row="1" Grid.Column="1" Margin="0,0,5,0"
                    Source="{Binding Converter={StaticResource imgForTheme}, ConverterParameter='/Assets/Miscs/GpsLocation.png'}"/>
             <Image x:Name="FavsTo" Width="48" Grid.Row="1" Grid.Column="2" Margin="5,0,0,0"

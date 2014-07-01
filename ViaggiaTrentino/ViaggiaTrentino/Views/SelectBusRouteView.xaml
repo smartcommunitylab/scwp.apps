@@ -64,7 +64,7 @@
 
   <!--LayoutRoot is the root grid where all page content is placed -->
   <Grid x:Name="LayoutRoot" Background="Transparent">
-    <phone:Pivot x:Name="pivotRoutes" Title="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}" SelectionChanged="pivotRoutes_SelectionChanged">
+    <phone:Pivot x:Name="pivotRoutes" Title="{Binding SelectedAgencyTitle}" SelectionChanged="pivotRoutes_SelectionChanged">
       <!--Pivot item one-->
       <phone:PivotItem Header="{Binding Path=LocalizedResources.RoutePivot, Source={StaticResource LocalizedStrings}}">
         <!--ContentPanel - place additional content here-->
