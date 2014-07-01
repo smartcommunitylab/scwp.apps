@@ -582,43 +582,43 @@
         </trans-unit>
         <trans-unit id="Resx/AppProducer" translate="yes" xml:space="preserve">
           <source>SMARTCAMPUS LAB</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">SMARTCAMPUS LAB</target>
+          <target state="translated" state-qualifier="mt-suggestion">SMARTCAMPUS LAB</target>
         </trans-unit>
         <trans-unit id="Resx/SelSendAlertTrainDesc" translate="yes" xml:space="preserve">
           <source>Submit a delay for trains</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">Presentare un ritardo per i treni</target>
+          <target state="translated">Segnala un ritardo del treno</target>
         </trans-unit>
         <trans-unit id="Resx/TilePlanJourneyTagTour" translate="yes" xml:space="preserve">
           <source>Plan your next trip here</source>
-          <target state="new">Plan your next trip here</target>
+          <target state="translated">Pianifica il tuo prossimo viaggio</target>
         </trans-unit>
         <trans-unit id="Resx/SubmitAlertTileTagTour" translate="yes" xml:space="preserve">
           <source>Report delays, accidents or deviations</source>
-          <target state="new">Report delays, accidents or deviations</target>
+          <target state="translated">Segnala incidenti, ritardi e deviazioni</target>
         </trans-unit>
         <trans-unit id="Resx/SavedJourneysTileTagTour" translate="yes" xml:space="preserve">
           <source>Keep track of your usual travel routes here</source>
-          <target state="new">Keep track of your usual travel routes here</target>
+          <target state="translated">Tieni traccia dei tuoi viaggi pianificati</target>
         </trans-unit>
         <trans-unit id="Resx/RealTimeInfoTileTagTour" translate="yes" xml:space="preserve">
           <source>Check the local bus or train schedule or find available parking</source>
-          <target state="new">Check the local bus or train schedule or find available parking</target>
+          <target state="translated">Controlla l'orario dell'autobus cittadino o del treno o trova un parcheggio libero</target>
         </trans-unit>
         <trans-unit id="Resx/ReadNotificationsTileTagTour" translate="yes" xml:space="preserve">
           <source>Check if the bus or train is on time</source>
-          <target state="new">Check if the bus or train is on time</target>
+          <target state="translated">Controlla se l'auobus o il treno sono in ritardo</target>
         </trans-unit>
         <trans-unit id="Resx/PlanRecurrentJourneyTileTagTour" translate="yes" xml:space="preserve">
           <source>Set up your usual routes to be notify about possible delays</source>
-          <target state="new">Set up your usual routes to be notify about possible delays</target>
+          <target state="translated">Configura i viaggi frequenti per essere notificato sui possibili ritardi</target>
         </trans-unit>
         <trans-unit id="Resx/SelSendAlertTnDesc" translate="yes" xml:space="preserve">
           <source>Submit a delay for buses in Trento</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">Presentare un ritardo per bus di Trento</target>
+          <target state="translated">Segnala un ritardo degli autobus di Trento</target>
         </trans-unit>
         <trans-unit id="Resx/SelSendAlertRvDesc" translate="yes" xml:space="preserve">
           <source>Submit a delay for buses in Rovereto</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">Presentare un ritardo per bus in Rovereto</target>
+          <target state="translated">Segnala un ritardo degli autobus di Rovereto</target>
         </trans-unit>
         <trans-unit id="Resx/CatchedHttpErrorMessage" translate="yes" xml:space="preserve">
           <source>An error occurred while processing your request.</source>
@@ -642,8 +642,8 @@
           </trans-unit>
         <trans-unit id="Resx/MainpageTour" translate="yes" xml:space="preserve">
           <source>tutorial</source>
-          <target state="needs-review-translation">tour guidato</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note></trans-unit>
+          <target state="translated">tour guidato</target>
+          </trans-unit>
         <trans-unit id="Resx/SavedJourneyMonitorON" translate="yes" xml:space="preserve">
           <source>monitor on</source>
           <target state="translated">attiva notifiche</target>
