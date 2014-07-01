@@ -40,9 +40,10 @@
   </toolkit:TransitionService.NavigationOutTransition>
 
   <phone:PhoneApplicationPage.Resources>
-    <vtconvert:RouteBackgroungColorToForegroundColorConverter x:Name="backgroundToForegroundColor" />
-    <vtconvert:DataContextToContentConverter x:Name="contextToContent" />
+    <vtconvert:RouteBackgroungColorToForegroundColorConverter x:Key="backgroundToForegroundColor" />
+    <vtconvert:DataContextToContentConverter x:Key="contextToContent" />
     <vtconvert:DynamicTileSizeConverter x:Key="dynamicTileSize" />
+    <vtconvert:BorderColorToggleBlackAndWhiteConverter x:Key="borderColorToggle" />
 
 
     <DataTemplate x:Key="PushpinTemplate">
@@ -79,9 +80,11 @@
                 <Grid Width="{Binding Path=ActualWidth, ElementName=ContentPanel, Converter={StaticResource dynamicTileSize}, ConverterParameter=5}"
                       x:Name="GridMyParent" Margin="5" cal:Message.Attach="[Event Tap]=[Action OpenTimetableView($dataContext)]">
                   <Rectangle Height="{Binding Width, ElementName=GridMyParent}" Width="{Binding Width, ElementName=GridMyParent}" Fill="{Binding Color}" />
-                  <TextBlock Foreground="{Binding Color, Converter={StaticResource backgroundToForegroundColor}}" 
+                  <Border BorderThickness="2" BorderBrush="{Binding Color, Converter={StaticResource borderColorToggle}}">
+                    <TextBlock Foreground="{Binding Color, Converter={StaticResource backgroundToForegroundColor}}" 
                                     Text="{Binding Path=Name}" Margin="0,0,10,5" HorizontalAlignment="Right" 
                                     FontSize="50" VerticalAlignment="Bottom" FontWeight="Medium"/>
+                  </Border>
                 </Grid>
               </DataTemplate>
             </ItemsControl.ItemTemplate>

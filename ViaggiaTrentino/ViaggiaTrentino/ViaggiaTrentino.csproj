@@ -94,6 +94,7 @@
     <Compile Include="Converters\BooleanToReversedVisibilityConverter.cs" />
     <Compile Include="Converters\AgencyIDToImageConverter.cs" />
     <Compile Include="Converters\BooleanToToggledMonitoringStatusConverter.cs" />
+    <Compile Include="Converters\BorderColorToggleBlackAndWhiteConverter.cs" />
     <Compile Include="Converters\ImageSourceToImageSourceAccordingToPhoneApplicationBackgroundConverter.cs" />
     <Compile Include="Converters\StringHexColorToColorsConverter.cs" />
     <Compile Include="Converters\DynamicTileSizeConverter.cs" />
@@ -312,9 +313,11 @@
     <Content Include="Assets\Logos\LogoConsorzio.png" />
     <Content Include="Assets\Logos\LogoProvincia.png" />
     <Content Include="Assets\Logos\LogoSmartcamp.png" />
+    <Content Include="Assets\Miscs\Dark\Arrow.png" />
     <Content Include="Assets\Miscs\Dark\Favourites.png" />
     <Content Include="Assets\Miscs\Dark\MapLocation.png" />
     <Content Include="Assets\Miscs\Dark\PinLocation.png" />
+    <Content Include="Assets\Miscs\Light\Arrow.png" />
     <Content Include="Assets\Miscs\Light\Favourites.png" />
     <Content Include="Assets\Miscs\Light\GpsLocation.png" />
     <Content Include="Assets\Miscs\Light\MapLocation.png" />

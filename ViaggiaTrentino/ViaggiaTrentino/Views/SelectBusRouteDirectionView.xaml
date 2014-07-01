@@ -40,6 +40,7 @@
   <phone:PhoneApplicationPage.Resources>
     <vtconvert:RouteBackgroungColorToForegroundColorConverter x:Name="backgroundToForegroundColor" />
     <vtconvert:DataContextToContentConverter x:Key="dcToCont" />
+    <vtconvert:ImageSourceToImageSourceAccordingToPhoneApplicationBackgroundConverter x:Key="imgForTheme"/>
 
     <DataTemplate x:Key="PushpinTemplate">
       <mToolkit:Pushpin cal:Message.Attach="[Event Tap] = [Action TappedPushPin($dataContext)]"  Content="{Binding Converter={StaticResource dcToCont} }" DataContext="{Binding }"
@@ -82,7 +83,7 @@
                                     FontSize="{StaticResource PhoneFontSizeExtraExtraLarge}" VerticalAlignment="Center" FontWeight="Medium"/>
 
 
-      <TextBlock FontWeight="SemiBold" Text="{Binding Path=LocalizedResources.SelBusRouteDirection, Source={StaticResource LocalizedStrings}}" Margin="5,15,5,15" Grid.Row="1"/>
+      <TextBlock FontSize="{StaticResource PhoneFontSizeMediumLarge}" Text="{Binding Path=LocalizedResources.SelBusRouteDirection, Source={StaticResource LocalizedStrings}}" Margin="5,15,5,15" Grid.Row="1"/>
       <ListBox ItemsSource="{Binding RouteDirections}" Grid.Row="2" ItemContainerStyle="{StaticResource ListBoxItemNoSelectionStyle}" >
         <ListBox.Template>
           <ControlTemplate TargetType="ListBox">
@@ -91,7 +92,10 @@
         </ListBox.Template>
         <ListBox.ItemTemplate>
           <DataTemplate>
-            <TextBlock Text="{Binding Name}" Margin="10,10,5,10" Tag="{Binding RouteID}" cal:Message.Attach="[Event Tap]=[Action ShowTimetable($source)]" />
+            <StackPanel Orientation="Horizontal" Margin="10,5,0,5" VerticalAlignment="Center">
+              <Image Width="24" Source="{Binding Converter={StaticResource imgForTheme}, ConverterParameter='/Assets/Miscs/Arrow.png'}" />
+              <TextBlock Margin="5,0,0,0" FontSize="{StaticResource PhoneFontSizeMedium}" Text="{Binding Name}" Tag="{Binding RouteID}" cal:Message.Attach="[Event Tap]=[Action ShowTimetable($source)]" />
+            </StackPanel>
           </DataTemplate>
         </ListBox.ItemTemplate>
       </ListBox>
