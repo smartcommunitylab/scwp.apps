@@ -35,6 +35,7 @@ namespace ViaggiaTrentino.ViewModels
       {
         mySavedSingleJourneys = value;
         NotifyOfPropertyChange(() => MySavedSingleJourneys);
+        NotifyOfPropertyChange(() => IsLonelyHere);
       }
     }
     
@@ -45,6 +46,7 @@ namespace ViaggiaTrentino.ViewModels
       {
         mySavedRecurrentJourneys = value;
         NotifyOfPropertyChange(() => MySavedRecurrentJourneys);
+        NotifyOfPropertyChange(() => IsLonelyThere);
       }
     }
 
@@ -56,6 +58,16 @@ namespace ViaggiaTrentino.ViewModels
         lastSavedJourney = value;
         NotifyOfPropertyChange(() => LastSavedJourney);
       }
+    }
+
+    public bool IsLonelyHere
+    {
+      get { return mySavedSingleJourneys.Count == 0; }
+    }
+
+    public bool IsLonelyThere
+    {
+      get { return mySavedRecurrentJourneys.Count == 0; }
     }
 
     public SavedJourneyPageViewModel(INavigationService navigationService, IEventAggregator eventAggregator)

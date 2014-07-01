@@ -8,6 +8,7 @@
     xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vtcont="clr-namespace:ViaggiaTrentino.Views.Controls"
+    xmlns:calconv="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
@@ -37,6 +38,11 @@
     </toolkit:NavigationOutTransition>
   </toolkit:TransitionService.NavigationOutTransition>
 
+  
+  <UserControl.Resources>
+    <calconv:BooleanToVisibilityConverter x:Key="boolToSehen"/>
+  </UserControl.Resources>
+  
   <!--LayoutRoot is the root grid where all page content is placed-->
   <Grid x:Name="LayoutRoot" Background="Transparent">
     <!--Pivot Control-->
@@ -45,6 +51,7 @@
       <phone:PivotItem Header="{Binding Path=LocalizedResources.SavedJourneysJourneyPivot, Source={StaticResource LocalizedStrings}}">
 
         <Grid>
+          <TextBlock Text="It's lonely in here. Plan and save a new journey to see them here" Style="{StaticResource PhoneTextGroupHeaderStyle}" TextWrapping="Wrap" Visibility="{Binding IsLonelyHere, Converter={StaticResource boolToSehen}}" />
           <ListBox ItemsSource="{Binding Path=MySavedSingleJourneys}" MaxHeight="600"  toolkit:TurnstileFeatherEffect.FeatheringIndex="0">
             <ListBox.ItemContainerStyle>
               <Style TargetType="ListBoxItem">
@@ -64,6 +71,7 @@
       <!--Pivot item two-->
       <phone:PivotItem Header="{Binding Path=LocalizedResources.SavedJourneysMonitoringPivot, Source={StaticResource LocalizedStrings}}">
         <Grid>
+          <TextBlock Text="It's lonely in here. Plan and save a new journey to see them here" Style="{StaticResource PhoneTextGroupHeaderStyle}" TextWrapping="Wrap" Visibility="{Binding IsLonelyThere, Converter={StaticResource boolToSehen}}"/>
           <ListBox ItemsSource="{Binding Path=MySavedRecurrentJourneys}" MaxHeight="600" toolkit:TurnstileFeatherEffect.FeatheringIndex="1">
             <ListBox.ItemContainerStyle>
               <Style TargetType="ListBoxItem">
