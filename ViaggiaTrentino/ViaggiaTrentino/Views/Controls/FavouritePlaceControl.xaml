@@ -22,7 +22,7 @@
       <ColumnDefinition Width="*" />
     </Grid.ColumnDefinitions>
 
-    <Image Grid.Column="0" Width="48" Margin="8,8,16,8" Tap="Image_Tap" 
+    <Image Grid.Column="0" Width="48" Margin="10,10,20,10" Tap="Image_Tap" 
            Source="{Binding Converter={StaticResource imgForTheme}, ConverterParameter='/Assets/Miscs/MapLocation.png'}"/>
     <TextBlock Grid.Column="1" Text="{Binding Name}"  TextWrapping="Wrap" VerticalAlignment="Center"/>
 
