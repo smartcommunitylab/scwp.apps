@@ -169,6 +169,15 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SMARTCAMPUS LAB.
+        /// </summary>
+        public static string AppProducer {
+            get {
+                return ResourceManager.GetString("AppProducer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to In the course of the last week, the application encountered a few minor errors. Would you like to report them?.
         /// </summary>
         public static string CatchedErrorsReportMessage {
@@ -916,6 +925,15 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Submit a delay for buses in Rovereto.
+        /// </summary>
+        public static string SelSendAlertRvDesc {
+            get {
+                return ResourceManager.GetString("SelSendAlertRvDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Submit an alert.
         /// </summary>
         public static string SelSendAlertTitle {
@@ -934,11 +952,29 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Submit a delay for buses in Trento.
+        /// </summary>
+        public static string SelSendAlertTnDesc {
+            get {
+                return ResourceManager.GetString("SelSendAlertTnDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Train delays.
         /// </summary>
         public static string SelSendAlertTrain {
             get {
                 return ResourceManager.GetString("SelSendAlertTrain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submit a delay for trains.
+        /// </summary>
+        public static string SelSendAlertTrainDesc {
+            get {
+                return ResourceManager.GetString("SelSendAlertTrainDesc", resourceCulture);
             }
         }
         

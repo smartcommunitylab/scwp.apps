@@ -581,4 +581,16 @@
   <data name="ValidationDelay" xml:space="preserve">
     <value>Please insert a delay value</value>
   </data>
+  <data name="AppProducer" xml:space="preserve">
+    <value>SMARTCAMPUS LAB</value>
+  </data>
+  <data name="SelSendAlertRvDesc" xml:space="preserve">
+    <value>Submit a delay for buses in Rovereto</value>
+  </data>
+  <data name="SelSendAlertTnDesc" xml:space="preserve">
+    <value>Submit a delay for buses in Trento</value>
+  </data>
+  <data name="SelSendAlertTrainDesc" xml:space="preserve">
+    <value>Submit a delay for trains</value>
+  </data>
 </root>

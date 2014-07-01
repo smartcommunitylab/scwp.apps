@@ -580,6 +580,22 @@
           <source>Please insert a delay value</source>
           <target state="translated">Inserire un valore nel campo ritardo</target>
         </trans-unit>
+        <trans-unit id="Resx/AppProducer" translate="yes" xml:space="preserve">
+          <source>SMARTCAMPUS LAB</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">SMARTCAMPUS LAB</target>
+        </trans-unit>
+        <trans-unit id="Resx/SelSendAlertTrainDesc" translate="yes" xml:space="preserve">
+          <source>Submit a delay for trains</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Presentare un ritardo per i treni</target>
+        </trans-unit>
+        <trans-unit id="Resx/SelSendAlertTnDesc" translate="yes" xml:space="preserve">
+          <source>Submit a delay for buses in Trento</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Presentare un ritardo per bus di Trento</target>
+        </trans-unit>
+        <trans-unit id="Resx/SelSendAlertRvDesc" translate="yes" xml:space="preserve">
+          <source>Submit a delay for buses in Rovereto</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Presentare un ritardo per bus in Rovereto</target>
+        </trans-unit>
         <trans-unit id="Resx/CatchedHttpErrorMessage" translate="yes" xml:space="preserve">
           <source>An error occurred while processing your request.</source>
           <target state="translated" state-qualifier="mt-suggestion">Si è verificato un errore durante l'elaborazione della richiesta.</target>
@@ -602,8 +618,8 @@
           </trans-unit>
         <trans-unit id="Resx/MainpageTour" translate="yes" xml:space="preserve">
           <source>tutorial</source>
-          <target state="needs-review-translation">tour guidato</target><note from="MultilingualUpdate" priority="2" annotates="source">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
-          </trans-unit>
+          <target state="needs-review-translation">tour guidato</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note></trans-unit>
         <trans-unit id="Resx/SavedJourneyMonitorON" translate="yes" xml:space="preserve">
           <source>monitor on</source>
           <target state="translated">attiva notifiche</target>
