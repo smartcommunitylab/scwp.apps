@@ -23,6 +23,7 @@ namespace ViaggiaTrentino.ViewModels
     UserRouteLibrary urLib;
     BasicItinerary basIti;
     GooglePolyline gplHelp;
+    bool isLoaded;
 
     public BasicItinerary Journey
     {
@@ -33,6 +34,15 @@ namespace ViaggiaTrentino.ViewModels
         NotifyOfPropertyChange(() => Journey);
       }
     }
+    public bool IsLoaded
+    {
+      get { return isLoaded; }
+      set
+      {
+        isLoaded = value;
+        NotifyOfPropertyChange(() => IsLoaded);
+      }
+    }
     public SavedSingleJourneyDetailsViewModel(INavigationService navigationService)
     {
       this.navigationService = navigationService;
@@ -40,6 +50,7 @@ namespace ViaggiaTrentino.ViewModels
       PhoneApplicationService.Current.State.Remove("journey");
       urLib = new UserRouteLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
       gplHelp = new GooglePolyline();
+      IsLoaded = true;
     }
 
     protected override void OnViewLoaded(object view)
@@ -61,14 +72,14 @@ namespace ViaggiaTrentino.ViewModels
     {
       try
       {
-        App.LoadingPopup.Show();
+        IsLoaded = false; App.LoadingPopup.Show();
         await Settings.RefreshToken();
         Journey.Monitor = await urLib.SetMonitorSingleJourney(basIti.ClientId, !basIti.Monitor);
         NotifyOfPropertyChange(() => Journey);
       }
       finally
       {
-        App.LoadingPopup.Hide();
+        App.LoadingPopup.Hide(); IsLoaded = true;
       }
      
     }

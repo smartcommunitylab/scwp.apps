@@ -132,7 +132,7 @@
       </StackPanel>
     </Grid>
 
-    <bab:BindableAppBar>
+    <bab:BindableAppBar IsVisible="{Binding IsLoaded}">
       <bab:BindableAppBarButton IconUri="/Assets/AppBar/Monitor.png" x:Name="BarMonitor" 
                                 Text="{Binding Journey.Monitor, Converter={ StaticResource boolToToggle}}" />
       <bab:BindableAppBarButton IconUri="/Assets/AppBar/Delete.png" x:Name="BarDelete" 

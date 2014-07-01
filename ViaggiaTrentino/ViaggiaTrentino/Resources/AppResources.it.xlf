@@ -588,6 +588,30 @@
           <source>Submit a delay for trains</source>
           <target state="needs-review-translation" state-qualifier="mt-suggestion">Presentare un ritardo per i treni</target>
         </trans-unit>
+        <trans-unit id="Resx/TilePlanJourneyTagTour" translate="yes" xml:space="preserve">
+          <source>Plan your next trip here</source>
+          <target state="new">Plan your next trip here</target>
+        </trans-unit>
+        <trans-unit id="Resx/SubmitAlertTileTagTour" translate="yes" xml:space="preserve">
+          <source>Report delays, accidents or deviations</source>
+          <target state="new">Report delays, accidents or deviations</target>
+        </trans-unit>
+        <trans-unit id="Resx/SavedJourneysTileTagTour" translate="yes" xml:space="preserve">
+          <source>Keep track of your usual travel routes here</source>
+          <target state="new">Keep track of your usual travel routes here</target>
+        </trans-unit>
+        <trans-unit id="Resx/RealTimeInfoTileTagTour" translate="yes" xml:space="preserve">
+          <source>Check the local bus or train schedule or find available parking</source>
+          <target state="new">Check the local bus or train schedule or find available parking</target>
+        </trans-unit>
+        <trans-unit id="Resx/ReadNotificationsTileTagTour" translate="yes" xml:space="preserve">
+          <source>Check if the bus or train is on time</source>
+          <target state="new">Check if the bus or train is on time</target>
+        </trans-unit>
+        <trans-unit id="Resx/PlanRecurrentJourneyTileTagTour" translate="yes" xml:space="preserve">
+          <source>Set up your usual routes to be notify about possible delays</source>
+          <target state="new">Set up your usual routes to be notify about possible delays</target>
+        </trans-unit>
         <trans-unit id="Resx/SelSendAlertTnDesc" translate="yes" xml:space="preserve">
           <source>Submit a delay for buses in Trento</source>
           <target state="needs-review-translation" state-qualifier="mt-suggestion">Presentare un ritardo per bus di Trento</target>
