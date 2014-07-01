@@ -22,7 +22,7 @@ namespace ViaggiaTrentino.ViewModels
 
     ObservableCollection<BasicItinerary> mySavedSingleJourneys;
     ObservableCollection<BasicRecurrentJourney> mySavedRecurrentJourneys;
-    
+
     List<BasicItinerary> basList;
     List<BasicRecurrentJourney> barList;
 
@@ -38,7 +38,7 @@ namespace ViaggiaTrentino.ViewModels
         NotifyOfPropertyChange(() => IsLonelyHere);
       }
     }
-    
+
     public ObservableCollection<BasicRecurrentJourney> MySavedRecurrentJourneys
     {
       get { return mySavedRecurrentJourneys; }
@@ -82,7 +82,7 @@ namespace ViaggiaTrentino.ViewModels
     protected override async void OnViewAttached(object view, object context)
     {
       base.OnViewAttached(view, context);
-    
+
       try
       {
         MySavedRecurrentJourneys.Clear();
@@ -95,47 +95,54 @@ namespace ViaggiaTrentino.ViewModels
       finally
       {
         App.LoadingPopup.Hide();
+        MySavedSingleJourneys = new ObservableCollection<BasicItinerary>(basList);
+        MySavedRecurrentJourneys = new ObservableCollection<BasicRecurrentJourney>(barList);
       }
 
-      BackgroundWorker bw = new BackgroundWorker();
-      bw.DoWork += bw_DoWork;
-      bw.ProgressChanged += bw_ProgressChanged;
-      bw.WorkerReportsProgress = true;
-      bw.WorkerSupportsCancellation = true;
-      bw.RunWorkerAsync(); 
+      //BackgroundWorker bw = new BackgroundWorker();
+      //bw.DoWork += bw_DoWork;
+      //bw.ProgressChanged += bw_ProgressChanged;
+      //bw.WorkerReportsProgress = true;
+      //bw.WorkerSupportsCancellation = true;
+      //bw.RunWorkerAsync();
     }
 
-    protected  override void OnViewLoaded(object view)
+    protected override void OnViewLoaded(object view)
     {
       base.OnViewLoaded(view);
 
       while (navigationService.BackStack.Count() > 1)
         navigationService.RemoveBackEntry();
-      
-      
     }
 
-    void bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
-    {
-      if(e.UserState is BasicRecurrentJourney)
-        MySavedRecurrentJourneys.Add(e.UserState as BasicRecurrentJourney);
-      else MySavedSingleJourneys.Add(e.UserState as BasicItinerary);      
-    }
+    //void bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
+    //{
+    //  if (e.UserState is BasicRecurrentJourney)
+    //  {
+    //    MySavedRecurrentJourneys.Add(e.UserState as BasicRecurrentJourney);
+    //    NotifyOfPropertyChange(() => IsLonelyThere);
+    //  }
+    //  else
+    //  {
+    //    MySavedSingleJourneys.Add(e.UserState as BasicItinerary);
+    //    NotifyOfPropertyChange(() => IsLonelyHere);
+    //  }
+    //}
 
-    void bw_DoWork(object sender, DoWorkEventArgs e)
-    {
-      foreach (var item in basList)
-      {
-        (sender as BackgroundWorker).ReportProgress(0, item);
-        Thread.Sleep(100);
-      }
+    //void bw_DoWork(object sender, DoWorkEventArgs e)
+    //{
+    //  foreach (var item in basList)
+    //  {
+    //    (sender as BackgroundWorker).ReportProgress(0, item);
+    //    Thread.Sleep(100);
+    //  }
 
-      foreach (var item in barList)
-      {
-        (sender as BackgroundWorker).ReportProgress(0, item);
-        Thread.Sleep(100);
-      }
-    }
+    //  foreach (var item in barList)
+    //  {
+    //    (sender as BackgroundWorker).ReportProgress(0, item);
+    //    Thread.Sleep(100);
+    //  }
+    //}
 
     public void OpenRecurrentJourney(BasicRecurrentJourney journey)
     {
