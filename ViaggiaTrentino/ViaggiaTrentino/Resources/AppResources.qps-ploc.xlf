@@ -123,7 +123,7 @@
         <trans-unit id="Resx/SavedJourneyDetailsDelete" translate="yes" xml:space="preserve">
           <source>delete</source>
           <target state="needs-review-translation" state-qualifier="mt-suggestion">[293B6][!!_Ďéļèτê ĵôµřиèŷ_!!!!]</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          
           </trans-unit>
         <trans-unit id="Resx/SavedJourneysJourneyPivot" translate="yes" xml:space="preserve">
           <source>Journeys</source>
@@ -627,8 +627,7 @@
         </trans-unit>
         <trans-unit id="Resx/ErrorReportCaption" translate="yes" xml:space="preserve">
           <source>Error reporting</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">[7C649][!!_Ţђę âþþłìĉâтįòи śèęмš тõ ħáνê êиċõùητèŗęď śõмę ðîƒƒìćûľτíèś đûѓîйğ тђę łâśť ŗûй. Đõ ÿòú ẃâηт тó ŝèиď ã ŗéρòѓţ ôƒ ţĥê âþρĺìĉáţįòή èѓѓõѓ τó ĥęĺþ ìмрřòνê тћé èхρêřįèйčè?_!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!]</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <target state="translated" state-qualifier="mt-suggestion">[7C649][!!_Ţђę âþþłìĉâтįòи śèęмš тõ ħáνê êиċõùητèŗęď śõмę ðîƒƒìćûľτíèś đûѓîйğ тђę łâśť ŗûй. Đõ ÿòú ẃâηт тó ŝèиď ã ŗéρòѓţ ôƒ ţĥê âþρĺìĉáţįòή èѓѓõѓ τó ĥęĺþ ìмрřòνê тћé èхρêřįèйčè?_!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!]</target>
           </trans-unit>
         <trans-unit id="Resx/SettingsPageAddPlace" translate="yes" xml:space="preserve">
           <source>add place</source>
@@ -645,7 +644,7 @@
         <trans-unit id="Resx/MainpageTour" translate="yes" xml:space="preserve">
           <source>tutorial</source>
           <target state="needs-review-translation" state-qualifier="mt-suggestion">[AC366][!!_τòûŕ_!!]</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          
           </trans-unit>
         <trans-unit id="Resx/SavedJourneyMonitorON" translate="yes" xml:space="preserve">
           <source>monitor on</source>

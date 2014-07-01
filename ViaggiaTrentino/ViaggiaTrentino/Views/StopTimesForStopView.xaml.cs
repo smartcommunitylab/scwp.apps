@@ -54,7 +54,7 @@ namespace ViaggiaTrentino.Views
       // run the regex on both strings
       var xRegexResult = regex.Match(x.First().RouteShortName);
       var yRegexResult = regex.Match(y.First().RouteShortName);
-      short o1, o2;
+      short o1;
       if(Int16.TryParse(x.First().RouteShortName, out o1))
       // check if they are both numbers
       if (xRegexResult.Success && yRegexResult.Success)

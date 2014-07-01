@@ -82,7 +82,7 @@ namespace ViaggiaTrentino.Helpers
           poly.Add(p);
         }
       }
-      catch (Exception ex)
+      catch (Exception)
       {
         // log it
       }

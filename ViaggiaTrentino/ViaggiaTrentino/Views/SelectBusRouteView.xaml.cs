@@ -23,21 +23,9 @@ namespace ViaggiaTrentino.Views
 {
   public partial class SelectBusRouteView : PhoneApplicationPage
   {
-    private IEventAggregator eventAggregator;
-    TerritoryInformationLibrary til;
-
     public SelectBusRouteView()
     {
       InitializeComponent();
-      //Bootstrapper bootstrapper = Application.Current.Resources["bootstrapper"] as Bootstrapper;
-      //IEventAggregator eventAggregator = bootstrapper.container.GetAllInstances(typeof(IEventAggregator)).FirstOrDefault() as IEventAggregator;
-      //this.eventAggregator = eventAggregator;
-      //eventAggregator.Subscribe(this);
-    }
-
-    private void PhoneApplicationPage_Unloaded(object sender, RoutedEventArgs e)
-    {
-      //eventAggregator.Unsubscribe(this);
     }
 
     private void pivotRoutes_SelectionChanged(object sender, SelectionChangedEventArgs e)

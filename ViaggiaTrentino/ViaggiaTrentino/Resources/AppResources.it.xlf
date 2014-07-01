@@ -18,7 +18,7 @@
           </trans-unit>
         <trans-unit id="Resx/ApplicationTitle" translate="yes" xml:space="preserve">
           <source>ViaggiaTrentino</source>
-          <target state="signed-off" state-qualifier="mt-suggestion">ViaggiaTrentino</target>
+          <target state="translated" state-qualifier="mt-suggestion">ViaggiaTrentino</target>
         </trans-unit>
         <trans-unit id="Resx/TilePlanJourneyMessage" translate="yes" xml:space="preserve">
           <source>Plan a single journey</source>
@@ -26,7 +26,7 @@
         </trans-unit>
         <trans-unit id="Resx/TilePlanJourneyTitle" translate="yes" xml:space="preserve">
           <source>Plan journey</source>
-          <target state="signed-off">Pianifica viaggio</target>
+          <target state="translated">Pianifica viaggio</target>
         </trans-unit>
         <trans-unit id="Resx/TilePlanRecurrentJourneyMessage" translate="yes" xml:space="preserve">
           <source>Plan a recurrent journey</source>
