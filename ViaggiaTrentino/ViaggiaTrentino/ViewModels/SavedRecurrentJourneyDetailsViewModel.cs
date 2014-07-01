@@ -18,7 +18,7 @@ namespace ViaggiaTrentino.ViewModels
     private readonly INavigationService navigationService;
     BasicRecurrentJourney basIti;
     UserRouteLibrary urLib;
-    bool isSomethingChanged;
+    bool isSomethingChanged, isLoaded;
 
     public BasicRecurrentJourney Journey
     {
@@ -30,17 +30,27 @@ namespace ViaggiaTrentino.ViewModels
       }
     }
 
+    public bool IsLoaded
+    {
+      get { return isLoaded; }
+      set
+      {
+        isLoaded = value;
+        NotifyOfPropertyChange(() => IsLoaded);
+      }
+    }
+
     public SavedRecurrentJourneyDetailsViewModel(INavigationService navigationService)
     {
       this.navigationService = navigationService;
       Journey = PhoneApplicationService.Current.State["journey"] as BasicRecurrentJourney;      
       urLib = new UserRouteLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
+      IsLoaded = true;
     }
 
     protected override void OnViewLoaded(object view)
     {
       base.OnViewLoaded(view);
-
     }
 
     protected override void OnViewReady(object view)
@@ -57,13 +67,13 @@ namespace ViaggiaTrentino.ViewModels
       {
         try
         {
-          App.LoadingPopup.Show();
+          IsLoaded = false; App.LoadingPopup.Show();
           await Settings.RefreshToken();
           await urLib.UpdateRecurrentJourney(Journey.ClientId, Journey);
         }
         finally
         {
-          App.LoadingPopup.Hide();
+          App.LoadingPopup.Hide(); IsLoaded = true;
         }
         
       }
@@ -87,14 +97,14 @@ namespace ViaggiaTrentino.ViewModels
     {
       try
       {
-        App.LoadingPopup.Show();
+        IsLoaded = false; App.LoadingPopup.Show();
         await Settings.RefreshToken();
         Journey.Monitor = await urLib.SetMonitorRecurrentJourney(basIti.ClientId, !basIti.Monitor);
         NotifyOfPropertyChange(() => Journey);    
       }
       finally
       {
-        App.LoadingPopup.Hide();
+        App.LoadingPopup.Hide(); IsLoaded = true;
       }     
     }
 
@@ -105,13 +115,13 @@ namespace ViaggiaTrentino.ViewModels
         bool delRes = false;
         try
         {
-          App.LoadingPopup.Show();
+          IsLoaded = false; App.LoadingPopup.Show();
           await Settings.RefreshToken();
           delRes = await urLib.DeleteRecurrentJourney(basIti.ClientId);
         }        
         finally
         {
-          App.LoadingPopup.Hide();
+          App.LoadingPopup.Hide(); IsLoaded = true;
           if (delRes)
             navigationService.UriFor<SavedJourneyPageViewModel>().Navigate();
         }
