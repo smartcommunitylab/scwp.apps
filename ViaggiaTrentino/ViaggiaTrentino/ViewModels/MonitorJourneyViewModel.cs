@@ -27,6 +27,7 @@ namespace ViaggiaTrentino.ViewModels
   public class MonitorJourneyViewModel : Screen
   {
     private readonly INavigationService navigationService;
+    private readonly IEventAggregator eventAggregator;
     ObservableCollection<object> selDays;
     LocationChooserHelper lch;
     FavouriteLocationHelper flh;
@@ -41,9 +42,10 @@ namespace ViaggiaTrentino.ViewModels
     private PreferencesModel pm;
     string locationResult;
 
-    public MonitorJourneyViewModel(INavigationService navigationService)
+    public MonitorJourneyViewModel(INavigationService navigationService, IEventAggregator eventAggregator)
     {
       this.navigationService = navigationService;
+      this.eventAggregator = eventAggregator;
       isAppBarShown = true;
       beginDate = DateTime.Now;
       endDate = DateTime.Now + new TimeSpan(2, 0, 0);
@@ -90,6 +92,7 @@ namespace ViaggiaTrentino.ViewModels
       {
         from = value;
         NotifyOfPropertyChange(() => FromPos);
+        eventAggregator.Publish(new KeyValuePair<string, string>("from", from.Name));
       }
     }
 
@@ -100,6 +103,8 @@ namespace ViaggiaTrentino.ViewModels
       {
         to = value;
         NotifyOfPropertyChange(() => ToPos);
+        eventAggregator.Publish(new KeyValuePair<string, string>("to", to.Name));
+
       }
     }
 

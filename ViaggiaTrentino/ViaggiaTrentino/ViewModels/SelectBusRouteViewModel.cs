@@ -21,6 +21,7 @@ using ViaggiaTrentino.Views.Controls;
 using Newtonsoft.Json;
 using System;
 using System.Net.Http;
+using ViaggiaTrentino.Resources;
 
 namespace ViaggiaTrentino.ViewModels
 {
@@ -40,10 +41,23 @@ namespace ViaggiaTrentino.ViewModels
 
     }
 
+    public string SelectedAgencyTitle
+    {
+      get
+      {
+        switch (agencyID)
+        {
+          case AgencyType.TrentoCityBus: return AppResources.TileTrentoBusMessage;
+          case AgencyType.RoveretoCityBus: return AppResources.TileRoveretoBusMessage;
+          default: return AppResources.ApplicationTitle;
+        }
+      }
+    }
+
     public AgencyType AgencyID
     {
       get { return agencyID; }
-      set { agencyID = value; }
+      set { agencyID = value; NotifyOfPropertyChange(() => SelectedAgencyTitle); }
     }
 
     public ObservableCollection<RouteInfo> RoutesName

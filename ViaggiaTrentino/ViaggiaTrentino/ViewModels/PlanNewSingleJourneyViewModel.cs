@@ -29,6 +29,7 @@ namespace ViaggiaTrentino.ViewModels
   public class PlanNewSingleJourneyViewModel: Screen
   {
     private readonly INavigationService navigationService;
+    private readonly IEventAggregator eventAggregator;
     LocationChooserHelper lch;
     FavouriteLocationHelper flh;
     private bool isSettingsShown;
@@ -39,10 +40,11 @@ namespace ViaggiaTrentino.ViewModels
     private Position to;
     private string locationResult;
     private PreferencesModel pm;
-    
-    public PlanNewSingleJourneyViewModel(INavigationService navigationService)
+
+    public PlanNewSingleJourneyViewModel(INavigationService navigationService, IEventAggregator eventAggregator)
     {
       this.navigationService = navigationService;
+      this.eventAggregator = eventAggregator;
       departureDate = DateTime.Now+ new TimeSpan(0,5,0);
       journey = new SingleJourney();
       isAppBarShown = true;
@@ -53,7 +55,6 @@ namespace ViaggiaTrentino.ViewModels
       lch.PositionObtained += PositionObtained;
       flh = new FavouriteLocationHelper();
       flh.FavouriteSelectionCompleted += PositionObtained;
-      //IsSettingsShown = false;
     }
 
     void PositionObtained(object sender, Position results)
@@ -98,7 +99,6 @@ namespace ViaggiaTrentino.ViewModels
       }
     }
 
-  
     public Position FromPos
     {
       get { return from; }
@@ -106,6 +106,7 @@ namespace ViaggiaTrentino.ViewModels
       {
         from = value;
         NotifyOfPropertyChange(() => FromPos);
+        eventAggregator.Publish(new KeyValuePair<string, string>("from", from.Name));
       }
     }
 
@@ -116,6 +117,8 @@ namespace ViaggiaTrentino.ViewModels
       {
         to = value;
         NotifyOfPropertyChange(() => ToPos);
+        eventAggregator.Publish(new KeyValuePair<string, string>("to", to.Name));
+
       }
     }
 

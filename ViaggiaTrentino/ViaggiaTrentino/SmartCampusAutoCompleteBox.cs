@@ -47,7 +47,8 @@ namespace ViaggiaTrentino
        * being destroyed, resulting in the first if validating as true, and then associating tag to null
        */
       selPos = this.SelectedItem != null ? this.SelectedItem as Position : selPos;
-      this.Tag = selPos;    
+      if(this.Tag != selPos)
+        this.Tag = selPos;    
     }
 
 
