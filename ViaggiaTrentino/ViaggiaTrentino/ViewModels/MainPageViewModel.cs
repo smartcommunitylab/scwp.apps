@@ -130,21 +130,8 @@ namespace ViaggiaTrentino.ViewModels
 
     public void ReadNotificationsTile()
     {
-      MessageBox.Show("In 3", "Application crash.", MessageBoxButton.OK);
-
-      for (int i = 2; i > 0; i--)
-      {
-        MessageBox.Show(i.ToString());
-      }
-      //MessageBox.Show("Read Notifications");
-      //try
-      //{
-      throw new Newtonsoft.Json.JsonException();
-      //}
-      //finally
-      //{
-      //  MessageBox.Show("finally");
-      //}
+      MessageBox.Show("Crash Test", "Application crash.", MessageBoxButton.OK);
+      throw new DivideByZeroException();
 
     }
 

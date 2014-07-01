@@ -16,11 +16,11 @@
   </UserControl.Resources>
 
   <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}" Margin="0,-50,0,0">
-    <StackPanel Margin="0,0,0,5">
+    <StackPanel>
       <TextBlock Text="{Binding Path=LocalizedResources.SettingsPageFavs, Source={StaticResource LocalizedStrings}}"
                  FontSize="{StaticResource PhoneFontSizeExtraLarge}" Margin="0,0,0,5" FontWeight="Light"></TextBlock>
       <Line X1="0" X2="1" Stretch="Fill" Stroke="{StaticResource PhoneAccentBrush}"></Line>
-      <ListBox x:Name="lstBxPos" Margin="0,5,0,0" MaxHeight="500">
+      <ListBox x:Name="lstBxPos" Margin="0,10,0,0" MaxHeight="500">
         <ListBox.ItemContainerStyle>
           <Style BasedOn="{StaticResource ListBoxItemNoSelectionStyle}" TargetType="ListBoxItem">
             <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
@@ -29,13 +29,13 @@
         </ListBox.ItemContainerStyle>
         <ListBox.ItemTemplate>
           <DataTemplate>
-            <Grid Margin="0,0,0,5">
+            <Grid>
               <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
               </Grid.ColumnDefinitions>
-              <Image Grid.Column="0" Source="{Binding Converter={StaticResource imgForTheme}, ConverterParameter='/Assets/Miscs/PinLocation.png'}" Margin="8,8,16,8" Width="48" />
-              <TextBlock Grid.Column="1" TextWrapping="Wrap" Text="{Binding Name}" Tap="TextBlock_Tap" FontSize="{StaticResource PhoneFontSizeMediumLarge}"/>
+              <Image Grid.Column="0" Source="{Binding Converter={StaticResource imgForTheme}, ConverterParameter='/Assets/Miscs/PinLocation.png'}" Margin="8,8,8,8" Width="40" />
+              <TextBlock Grid.Column="1" TextWrapping="Wrap" Text="{Binding Name}" Tap="TextBlock_Tap" FontSize="{StaticResource PhoneFontSizeMedium}"/>
             </Grid>
             
           </DataTemplate>
