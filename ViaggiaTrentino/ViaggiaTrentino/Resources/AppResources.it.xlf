@@ -580,6 +580,10 @@
           <source>Please insert a delay value</source>
           <target state="translated">Inserire un valore nel campo ritardo</target>
         </trans-unit>
+        <trans-unit id="Resx/AppProducer" translate="yes" xml:space="preserve">
+          <source>SMARTCAMPUS LAB</source>
+          <target state="new">SMARTCAMPUS LAB</target>
+        </trans-unit>
         <trans-unit id="Resx/CatchedHttpErrorMessage" translate="yes" xml:space="preserve">
           <source>An error occurred while processing your request.</source>
           <target state="translated" state-qualifier="mt-suggestion">Si è verificato un errore durante l'elaborazione della richiesta.</target>
