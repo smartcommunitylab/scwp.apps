@@ -149,34 +149,23 @@ namespace ViaggiaTrentino.ViewModels
       Dictionary<string, object> criteria = new Dictionary<string, object>();
       criteria.Add("source", "smartplanner-transitstops");
       criteria.Add("customData.agencyId", agencyIds);
-      try
+
+      await Settings.RefreshToken();
+      results = await til.ReadPlaces(new FilterObject()
       {
-        await Settings.RefreshToken();
-        results = await til.ReadPlaces(new FilterObject()
-        {
-          SkipFirstElements = 0,
-          NumberOfResults = -1,
-          Categories = new List<string>() { "Mobility" },
-          MongoFilters = criteria,
-          Coordinates = new double[2] { coordinates[0], coordinates[1] },
-          Radius = radius
-        });
-        
-        results = (from place in results
-                           group place by new { place.Poi.Latitude, place.Poi.Longitude } 
-                           into mygroup
-                           select mygroup.First()).ToList();
-      }
-      catch (HttpRequestException)
-      {
-        MessageBox.Show(Resources.AppResources.MessageBoxNetworkErrorBody, Resources.AppResources.MessageBoxNetworkErrorTitle, MessageBoxButton.OK);
-      }
-      catch (Exception e)
-      {
-#if DEBUG
-        System.Windows.MessageBox.Show(e.Message);
-#endif
-      }
+        SkipFirstElements = 0,
+        NumberOfResults = -1,
+        Categories = new List<string>() { "Mobility" },
+        MongoFilters = criteria,
+        Coordinates = new double[2] { coordinates[0], coordinates[1] },
+        Radius = radius
+      });
+
+      results = (from place in results
+                 group place by new { place.Poi.Latitude, place.Poi.Longitude }
+                   into mygroup
+                   select mygroup.First()).ToList();
+
       return results;
     }
 
