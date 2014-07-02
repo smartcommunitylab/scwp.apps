@@ -141,10 +141,6 @@ namespace ViaggiaTrentino.Helpers
 
       foreach (var gamba in legs)
       {
-        
-
-
-
         List<GeoCoordinate> lp = DecodePolylinePoints((gamba as Leg).LegGeometryInfo.Points);
 
         if (gamba == legs.First())
@@ -156,7 +152,6 @@ namespace ViaggiaTrentino.Helpers
           };
           mapOverS.Content = startPin;
           mapOverS.GeoCoordinate = startPin.GeoCoordinate;
-
         }
         
         if (gamba == legs.Last())
@@ -169,8 +164,7 @@ namespace ViaggiaTrentino.Helpers
           mapOverE.Content = endPin;
           mapOverE.GeoCoordinate = endPin.GeoCoordinate;
         }
-
-
+        
         MapPolyline mpl = new MapPolyline();
         mpl.StrokeThickness = 5;
         
@@ -185,9 +179,6 @@ namespace ViaggiaTrentino.Helpers
         }
         else
           mpl.StrokeColor = Colors.Cyan;
-
-
-        
 
         mapLay.Add(mapOverS);
         mapLay.Add(mapOverE);
