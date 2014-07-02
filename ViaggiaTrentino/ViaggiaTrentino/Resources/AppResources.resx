@@ -611,4 +611,10 @@
   <data name="TilePlanJourneyTagTour" xml:space="preserve">
     <value>Plan your next trip here</value>
   </data>
+  <data name="MapHelperEnd" xml:space="preserve">
+    <value>Destination</value>
+  </data>
+  <data name="MapHelperStart" xml:space="preserve">
+    <value>Start</value>
+  </data>
 </root>

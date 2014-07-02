@@ -1,5 +1,6 @@
 ﻿using Coding4Fun.Toolkit.Controls;
 using Microsoft.Phone.Maps.Controls;
+using Microsoft.Phone.Maps.Toolkit;
 using Models.MobilityService.Journeys;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using ViaggiaTrentino.Resources;
 
 namespace ViaggiaTrentino.Helpers
 {
@@ -130,12 +132,47 @@ namespace ViaggiaTrentino.Helpers
       ggm.Height = Application.Current.Host.Content.ActualHeight;
       ggm.Width = Application.Current.Host.Content.ActualWidth;
       ggm.Loaded += ggm_Loaded;
+      MapOverlay mapOverS = new MapOverlay();
+      MapOverlay mapOverE = new MapOverlay();
+      MapLayer mapLay = new MapLayer();
+      Pushpin startPin, endPin;
+
+     
 
       foreach (var gamba in legs)
       {
+        
+
+
+
         List<GeoCoordinate> lp = DecodePolylinePoints((gamba as Leg).LegGeometryInfo.Points);
+
+        if (gamba == legs.First())
+        {
+          startPin = new Pushpin()
+          {
+            GeoCoordinate = new GeoCoordinate(lp.First().Latitude, lp.First().Longitude),
+            Content = AppResources.MapHelperStart
+          };
+          mapOverS.Content = startPin;
+          mapOverS.GeoCoordinate = startPin.GeoCoordinate;
+
+        }
+        
+        if (gamba == legs.Last())
+        {
+          endPin = new Pushpin()
+          {
+            GeoCoordinate = new GeoCoordinate(lp.Last().Latitude, lp.Last().Longitude),
+            Content = AppResources.MapHelperEnd
+          };
+          mapOverE.Content = endPin;
+          mapOverE.GeoCoordinate = endPin.GeoCoordinate;
+        }
+
+
         MapPolyline mpl = new MapPolyline();
-        mpl.StrokeThickness = 3;
+        mpl.StrokeThickness = 5;
         
         foreach (GeoCoordinate p in lp)
           mpl.Path.Add(p);
@@ -149,7 +186,14 @@ namespace ViaggiaTrentino.Helpers
         else
           mpl.StrokeColor = Colors.Cyan;
 
+
+        
+
+        mapLay.Add(mapOverS);
+        mapLay.Add(mapOverE);
+
         ggm.MapElements.Add(mpl);
+        ggm.Layers.Add(mapLay);
       }     
 
       MessagePrompt hugeMap = new MessagePrompt();

@@ -593,6 +593,14 @@
           <source>Plan your next trip here</source>
           <target state="needs-review-translation" state-qualifier="mt-suggestion">[BE55C][!!_Ρĺàή Уõùř иé×ť тŕįρ ћęŗę_!!!!!!!!]</target>
         </trans-unit>
+        <trans-unit id="Resx/MapHelperStart" translate="yes" xml:space="preserve">
+          <source>Start</source>
+          <target state="new">Start</target>
+        </trans-unit>
+        <trans-unit id="Resx/MapHelperEnd" translate="yes" xml:space="preserve">
+          <source>Destination</source>
+          <target state="new">Destination</target>
+        </trans-unit>
         <trans-unit id="Resx/SubmitAlertTileTagTour" translate="yes" xml:space="preserve">
           <source>Report delays, accidents or deviations</source>
           <target state="needs-review-translation" state-qualifier="mt-suggestion">[F5CC2][!!_Ŗéρôѓť ďèĺáУś, âččìđèήťŝ õř đéνįãťîõйŝ_!!!!!!!!!!!!]</target>
