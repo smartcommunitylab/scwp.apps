@@ -151,6 +151,9 @@ namespace ViaggiaTrentino.ViewModels
       {
         eventAggregator.Publish(false);
         WebBrowser wb = new WebBrowser();
+        wb.ClearCookiesAsync();
+        wb.ClearInternetCacheAsync();
+        wb.IsScriptEnabled = true;
         wb.Navigating += wb_Navigating;
         wb.Height = Application.Current.Host.Content.ActualHeight;
         wb.Width = Application.Current.Host.Content.ActualWidth;
@@ -171,9 +174,11 @@ namespace ViaggiaTrentino.ViewModels
         loginPopup.IsOpen = false;
         pll = new ProfileLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
         Settings.UserID = (await pll.GetBasicProfile()).UserId;
-        await (sender as WebBrowser).ClearCookiesAsync();
-        await (sender as WebBrowser).ClearInternetCacheAsync();
         eventAggregator.Publish(true);
+      }
+      else if (e.Uri.ToString().Contains("&openid.mode=cancel&"))
+      {
+        BarLogin();
       }
     }
 
