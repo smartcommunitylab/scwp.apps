@@ -1,10 +1,5 @@
 ﻿using Coding4Fun.Toolkit.Controls;
 using Models.MobilityService.Journeys;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ViaggiaTrentino.Views.Controls;
 
 namespace ViaggiaTrentino.Helpers

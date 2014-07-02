@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Globalization;
-using Microsoft.Phone.Globalization;
 using System.Linq;
 
 namespace ViaggiaTrentino.Helpers

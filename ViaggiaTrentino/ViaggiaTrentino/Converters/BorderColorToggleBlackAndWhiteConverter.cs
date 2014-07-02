@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows.Data;
-using System.Windows.Media;
 
 namespace ViaggiaTrentino.Converters
 {
@@ -15,9 +11,9 @@ namespace ViaggiaTrentino.Converters
       {
         switch (value as string)
         {
-          case "#FFF": return "#FF000000";
+          case "#FFF": 
           case "#FFFFFF": return "#FF000000";
-          case "#000": return "#FFFFFFFF";
+          case "#000": 
           case "#000000": return "#FFFFFFFF";
           default: return value;
         }

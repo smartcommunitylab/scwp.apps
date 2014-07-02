@@ -1,14 +1,4 @@
-﻿using CommonHelpers;
-using DBManager.DBModels;
-using Models.MobilityService;
-using Models.MobilityService.Journeys;
-using Models.MobilityService.RealTime;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
+﻿using System;
 using System.Windows.Data;
 using System.Windows.Media;
 

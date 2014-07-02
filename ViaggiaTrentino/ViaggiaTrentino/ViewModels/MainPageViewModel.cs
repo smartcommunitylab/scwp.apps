@@ -2,14 +2,8 @@
 using Caliburn.Micro;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Tasks;
-using Models.AuthorizationService;
 using ProfileServiceLibrary;
 using System;
-using System.Collections.Generic;
-using System.IO.IsolatedStorage;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls.Primitives;
 using ViaggiaTrentino.Helpers;
@@ -191,7 +185,6 @@ namespace ViaggiaTrentino.ViewModels
       {
         BarLogin();
       }
-
     }
 
     public void BarTour()
@@ -203,17 +196,11 @@ namespace ViaggiaTrentino.ViewModels
     public void BarAbout()
     {
       navigationService.UriFor<AboutPageViewModel>().Navigate();
-
     }
 
     public void BarSettings()
     {
       navigationService.UriFor<SettingsPageViewModel>().Navigate();
-    }
-
-    public void BarTest()
-    {
-      navigationService.UriFor<TestPageViewModel>().Navigate();
     }
 
     #endregion

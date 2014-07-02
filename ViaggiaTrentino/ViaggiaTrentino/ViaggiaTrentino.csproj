@@ -164,7 +164,6 @@
     <Compile Include="ViewModels\SelectAlertPageViewModel.cs" />
     <Compile Include="ViewModels\SettingsPageViewModel.cs" />
     <Compile Include="ViewModels\SubmitAlertPageViewModel.cs" />
-    <Compile Include="ViewModels\TestPageViewModel.cs" />
     <Compile Include="Views\AboutPageView.xaml.cs">
       <DependentUpon>AboutPageView.xaml</DependentUpon>
     </Compile>
@@ -257,9 +256,6 @@
     </Compile>
     <Compile Include="Views\SubmitAlertPageView.xaml.cs">
       <DependentUpon>SubmitAlertPageView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\TestPageView.xaml.cs">
-      <DependentUpon>TestPageView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\RealTimeInfoView.xaml.cs">
       <DependentUpon>RealTimeInfoView.xaml</DependentUpon>
@@ -577,10 +573,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SubmitAlertPageView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\TestPageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

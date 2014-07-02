@@ -144,7 +144,6 @@ namespace ViaggiaTrentino
       if (!Execute.InDesignMode)
         container.RegisterPhoneServices(RootFrame);
 
-      container.PerRequest<TestPageViewModel>();
 
 
       // Pages
