@@ -364,11 +364,12 @@
     <Content Include="Assets\Vehicles\Light\transit.png" />
     <Content Include="Assets\Vehicles\Light\walk.png" />
     <Content Include="GuidedTour.Content\Next.png" />
+    <Content Include="GuidedTour.Content\Skip.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Check.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Delete.png" />
-    <Content Include="Toolkit.Content\ApplicationBar.Select.png" />    
+    <Content Include="Toolkit.Content\ApplicationBar.Select.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\AppResources.it.resx">
@@ -410,8 +411,7 @@
     <Reference Include="CommonHelpers">
       <HintPath>..\..\..\scwp.support\CompiledDLL\CommonHelpers.dll</HintPath>
     </Reference>
-    <Reference Include="GuidedTour, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="GuidedTour">
       <HintPath>.\GuidedTour.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Phone.Controls, Version=8.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
