@@ -188,12 +188,16 @@ namespace ViaggiaTrentino
       rootFrame.Navigating += rootFrame_Navigating;
     }
 
-    void rootFrame_Navigating(object sender, NavigatingCancelEventArgs e)
+    async void rootFrame_Navigating(object sender, NavigatingCancelEventArgs e)
     {
       if (reset && e.IsCancelable && e.Uri.OriginalString == "/Views/MainPageView.xaml")
       {
         e.Cancel = true;
         reset = false;
+
+        App.LoadingPopup.Show();
+        await Settings.RefreshToken();
+        App.LoadingPopup.Hide();
       }
     }
 

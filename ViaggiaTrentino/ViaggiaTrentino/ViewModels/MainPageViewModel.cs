@@ -177,6 +177,8 @@ namespace ViaggiaTrentino.ViewModels
         loginPopup.IsOpen = false;
         pll = new ProfileLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
         Settings.UserID = (await pll.GetBasicProfile()).UserId;
+        await (sender as WebBrowser).ClearCookiesAsync();
+        await (sender as WebBrowser).ClearInternetCacheAsync();
         eventAggregator.Publish(true);
       }
     }
@@ -185,6 +187,10 @@ namespace ViaggiaTrentino.ViewModels
     {
       Settings.AppToken = null;
       NotifyOfPropertyChange(() => IsLogged);
+      if (!Settings.IsLogged)
+      {
+        BarLogin();
+      }
 
     }
 
