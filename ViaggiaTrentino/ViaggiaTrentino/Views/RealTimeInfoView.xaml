@@ -65,13 +65,13 @@
 
         <toolkit:HubTile Margin="5" Grid.Column="0" Grid.Row="0"
                          x:Name="TrentoBusTile"
-                         Source="/Assets/HubTiles/Urbano.png"
+                         Source="/Assets/HubTiles/ic_urbanoTN.png"
                          Title="{Binding Path=LocalizedResources.TileTrentoBusTitle, Source={StaticResource LocalizedStrings}}" 
                          Message="{Binding Path=LocalizedResources.TileTrentoBusMessage, Source={StaticResource LocalizedStrings}}" 
                          toolkit:TurnstileFeatherEffect.FeatheringIndex="0"/>
         <toolkit:HubTile Margin="5" Grid.Column="1" Grid.Row="0"
                          x:Name="TrainTile"
-                         Source="/Assets/HubTiles/Train.png"
+                         Source="/Assets/HubTiles/ic_treno.png"
                          Title="{Binding Path=LocalizedResources.TileTrainTitle, Source={StaticResource LocalizedStrings}}" 
                          Message="{Binding Path=LocalizedResources.TileTrainMessage, Source={StaticResource LocalizedStrings}}" 
                          toolkit:TurnstileFeatherEffect.FeatheringIndex="1"/>
@@ -84,14 +84,14 @@
         
         <toolkit:HubTile Margin="5" Grid.Column="0" Grid.Row="1"
                          x:Name="RoveretoBusTile"
-                         Source="/Assets/HubTiles/Urbano.png"
+                         Source="/Assets/HubTiles/ic_urbanoRO.png"
                          Title="{Binding Path=LocalizedResources.TileRoveretoBusTitle, Source={StaticResource LocalizedStrings}}" 
                          Message="{Binding Path=LocalizedResources.TileRoveretoBusMessage, Source={StaticResource LocalizedStrings}}" 
                          toolkit:TurnstileFeatherEffect.FeatheringIndex="2"/>
 
-        <toolkit:HubTile Margin="5" Grid.Column="0" Grid.Row="2"
+        <toolkit:HubTile Margin="5" Grid.Column="1" Grid.Row="1"
                          x:Name="ParkingTile"
-                         Source="/Assets/HubTiles/Parking.png"
+                         Source="/Assets/HubTiles/ic_parking.png"
                          Title="{Binding Path=LocalizedResources.TileParkingTitle, Source={StaticResource LocalizedStrings}}" 
                          Message="{Binding Path=LocalizedResources.TileParkingMessage, Source={StaticResource LocalizedStrings}}" 
                          toolkit:TurnstileFeatherEffect.FeatheringIndex="3"/>

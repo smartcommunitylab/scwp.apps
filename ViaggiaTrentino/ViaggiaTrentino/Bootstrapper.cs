@@ -12,6 +12,7 @@ using System.IO.IsolatedStorage;
 using System.Net.Http;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Navigation;
 using ViaggiaTrentino.Helpers;
 using ViaggiaTrentino.Resources;
@@ -38,6 +39,7 @@ namespace ViaggiaTrentino
 
     protected override PhoneApplicationFrame CreatePhoneApplicationFrame()
     {
+      (App.Current.Resources["PhoneAccentBrush"] as SolidColorBrush).Color = Color.FromArgb(255, 41, 117, 167);
       rootFrame = new TransitionFrame();
       return rootFrame;
     }

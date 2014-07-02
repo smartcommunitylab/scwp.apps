@@ -75,7 +75,7 @@
 
         <toolkit:HubTile Margin="5" Grid.Column="0" Grid.Row="0"
                          x:Name="PlanJourneyTile"
-                         Source="/Assets/HubTiles/PlanJourney.png"
+                         Source="/Assets/HubTiles/ic_planjourney.png"
                          Title="{Binding Path=LocalizedResources.TilePlanJourneyTitle, Source={StaticResource LocalizedStrings}}" 
                          Message="{Binding Path=LocalizedResources.TilePlanJourneyMessage, Source={StaticResource LocalizedStrings}}" 
                          toolkit:TurnstileFeatherEffect.FeatheringIndex="1"
@@ -83,7 +83,7 @@
         
         <toolkit:HubTile Margin="5" Grid.Column="1" Grid.Row="0"
                          x:Name="PlanRecurrentJourneyTile"
-                         Source="/Assets/HubTiles/PlanRecurrentJourney.png"
+                         Source="/Assets/HubTiles/ic_monitor.png"
                          Title="{Binding Path=LocalizedResources.TilePlanRecurrentJourneyTitle, Source={StaticResource LocalizedStrings}}" 
                          Message="{Binding Path=LocalizedResources.TilePlanRecurrentJourneyMessage, Source={StaticResource LocalizedStrings}}" 
                          toolkit:TurnstileFeatherEffect.FeatheringIndex="3"
@@ -91,7 +91,7 @@
 
         <toolkit:HubTile Margin="5" Grid.Column="0" Grid.Row="1"
                          x:Name="SavedJourneysTile"
-                         Source="/Assets/HubTiles/SavedJourneys.png"
+                         Source="/Assets/HubTiles/ic_savedjourney.png"
                          Title="{Binding Path=LocalizedResources.TileSavedJourneysTitle, Source={StaticResource LocalizedStrings}}" 
                          Message="{Binding Path=LocalizedResources.TileSavedJourneysMessage, Source={StaticResource LocalizedStrings}}" 
                          toolkit:TurnstileFeatherEffect.FeatheringIndex="5"
@@ -99,7 +99,7 @@
 
         <toolkit:HubTile Margin="5" Grid.Column="1" Grid.Row="1"
                          x:Name="ReadNotificationsTile"
-                         Source="/Assets/HubTiles/ReadNotification.png"
+                         Source="/Assets/HubTiles/ic_notices.png"
                          Title="{Binding Path=LocalizedResources.TileReadNotificationsTitle, Source={StaticResource LocalizedStrings}}" 
                          Message="{Binding Path=LocalizedResources.TileReadNotificationsMessage, Source={StaticResource LocalizedStrings}}" 
                          toolkit:TurnstileFeatherEffect.FeatheringIndex="4" 
@@ -108,7 +108,7 @@
 
         <toolkit:HubTile Margin="5" Grid.Column="0" Grid.Row="2"
                          x:Name="SubmitAlertTile"
-                         Source="/Assets/HubTiles/SubmitAlert.png"
+                         Source="/Assets/HubTiles/ic_sendnotices.png"
                          Title="{Binding Path=LocalizedResources.TileSubmitAlertTitle, Source={StaticResource LocalizedStrings}}" 
                          Message="{Binding Path=LocalizedResources.TileSubmitAlertMessage, Source={StaticResource LocalizedStrings}}" 
                          toolkit:TurnstileFeatherEffect.FeatheringIndex="2"                 
@@ -116,7 +116,7 @@
 
         <toolkit:HubTile Margin="5" Grid.Column="1" Grid.Row="2"
                          x:Name="RealTimeInfoTile"
-                         Source="/Assets/HubTiles/TrafficLight.png"
+                         Source="/Assets/HubTiles/ic_realtimeinfo.png"
                          Title="{Binding Path=LocalizedResources.TileRealTimeInfoTitle, Source={StaticResource LocalizedStrings}}" 
                          Message="{Binding Path=LocalizedResources.TileRealTimeInfoMessage, Source={StaticResource LocalizedStrings}}" 
                          toolkit:TurnstileFeatherEffect.FeatheringIndex="0"  
@@ -125,7 +125,7 @@
       </Grid>
 
 
-      <bab:BindableAppBar Mode="Minimized" x:Name="babMainPage" IsVisible="{Binding IsLoaded}">
+      <bab:BindableAppBar Mode="Minimized" x:Name="babMainPage" IsVisible="{Binding IsLoaded}" BackgroundColor="#205980" >
         <bab:BindableAppBarMenuItem x:Name="BarLogin"
                                     Text="{Binding Path=LocalizedResources.MainpageLogin, Source={StaticResource LocalizedStrings}}"                                     
                                     Visibility="{Binding IsLogged, Converter={StaticResource boolToNotVisibility}}" />

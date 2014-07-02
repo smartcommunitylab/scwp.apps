@@ -292,6 +292,16 @@
     <Content Include="Assets\AppBar\Store.png" />
     <Content Include="Assets\AppBar\Today.png" />
     <Content Include="Assets\ApplicationIcon.png" />
+    <Content Include="Assets\HubTiles\ic_monitor.png" />
+    <Content Include="Assets\HubTiles\ic_notices.png" />
+    <Content Include="Assets\HubTiles\ic_parking.png" />
+    <Content Include="Assets\HubTiles\ic_planjourney.png" />
+    <Content Include="Assets\HubTiles\ic_realtimeinfo.png" />
+    <Content Include="Assets\HubTiles\ic_savedjourney.png" />
+    <Content Include="Assets\HubTiles\ic_sendnotices.png" />
+    <Content Include="Assets\HubTiles\ic_treno.png" />
+    <Content Include="Assets\HubTiles\ic_urbanoRO.png" />
+    <Content Include="Assets\HubTiles\ic_urbanoTN.png" />
     <Content Include="Assets\HubTiles\Urbano.png" />
     <Content Include="Assets\HubTiles\Parking.png" />
     <Content Include="Assets\HubTiles\PlanJourney.png" />
@@ -358,7 +368,7 @@
     <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Check.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Delete.png" />
-    <Content Include="Toolkit.Content\ApplicationBar.Select.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Select.png" />    
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\AppResources.it.resx">
