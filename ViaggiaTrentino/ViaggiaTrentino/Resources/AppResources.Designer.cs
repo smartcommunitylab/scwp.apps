@@ -493,24 +493,6 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Destination.
-        /// </summary>
-        public static string MapHelperEnd {
-            get {
-                return ResourceManager.GetString("MapHelperEnd", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Start.
-        /// </summary>
-        public static string MapHelperStart {
-            get {
-                return ResourceManager.GetString("MapHelperStart", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to allow.
         /// </summary>
         public static string MessageBoxAllow {

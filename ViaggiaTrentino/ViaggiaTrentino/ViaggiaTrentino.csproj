@@ -317,6 +317,8 @@
     <Content Include="Assets\Miscs\Dark\Favourites.png" />
     <Content Include="Assets\Miscs\Dark\MapLocation.png" />
     <Content Include="Assets\Miscs\Dark\PinLocation.png" />
+    <Content Include="Assets\Miscs\JDest.png" />
+    <Content Include="Assets\Miscs\JStart.png" />
     <Content Include="Assets\Miscs\Light\Arrow.png" />
     <Content Include="Assets\Miscs\Light\Favourites.png" />
     <Content Include="Assets\Miscs\Light\GpsLocation.png" />

@@ -152,7 +152,7 @@ namespace ViaggiaTrentino.Helpers
           startPin = new Pushpin()
           {
             GeoCoordinate = new GeoCoordinate(lp.First().Latitude, lp.First().Longitude),
-            Content = AppResources.MapHelperStart
+            Content = new Image() { Source = (ImageSource)new ImageSourceConverter().ConvertFromString("/Assets/Miscs/JStart.png") }
           };
           mapOverS.Content = startPin;
           mapOverS.GeoCoordinate = startPin.GeoCoordinate;
@@ -164,7 +164,7 @@ namespace ViaggiaTrentino.Helpers
           endPin = new Pushpin()
           {
             GeoCoordinate = new GeoCoordinate(lp.Last().Latitude, lp.Last().Longitude),
-            Content = AppResources.MapHelperEnd
+            Content = new Image() { Source = (ImageSource)new ImageSourceConverter().ConvertFromString("/Assets/Miscs/JDest.png") }
           };
           mapOverE.Content = endPin;
           mapOverE.GeoCoordinate = endPin.GeoCoordinate;
