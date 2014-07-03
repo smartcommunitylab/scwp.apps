@@ -595,6 +595,10 @@
         <trans-unit id="Resx/MessageBoxSmartCampusPermsTitle" translate="yes" xml:space="preserve">
           <source>Authentication error</source>
           <target state="translated">Errore di autorizzazione</target></trans-unit>
+        <trans-unit id="Resx/lonelyNoJourney" translate="yes" xml:space="preserve">
+          <source>It's lonely in here. Plan and save a new journey to see them here</source>
+          <target state="translated">Non c'è niente qui. Pianifica e salva un nuovo viaggio per visualizzarlo qui</target>
+        </trans-unit>
         <trans-unit id="Resx/MessageBoxSmartCampusPermsMessage" translate="yes" xml:space="preserve">
           <source>In order to use the application you have to accept SmartCampus permissions</source>
           <target state="translated" state-qualifier="mt-suggestion">Per utilizzare l'applicazione è necessario accettare le autorizzazioni SmartCampus</target>

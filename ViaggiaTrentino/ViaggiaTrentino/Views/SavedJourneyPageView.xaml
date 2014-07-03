@@ -51,7 +51,7 @@
       <phone:PivotItem Header="{Binding Path=LocalizedResources.SavedJourneysJourneyPivot, Source={StaticResource LocalizedStrings}}">
 
         <Grid>
-          <TextBlock Text="It's lonely in here. Plan and save a new journey to see them here" Style="{StaticResource PhoneTextGroupHeaderStyle}" TextWrapping="Wrap" Visibility="{Binding IsLonelyHere, Converter={StaticResource boolToSehen}}" />
+          <TextBlock Text="{Binding Path=LocalizedResources.lonelyNoJourney, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextGroupHeaderStyle}" TextWrapping="Wrap" Visibility="{Binding IsLonelyHere, Converter={StaticResource boolToSehen}}" />
           <ListBox ItemsSource="{Binding Path=MySavedSingleJourneys}" MaxHeight="600"  toolkit:TurnstileFeatherEffect.FeatheringIndex="0">
             <ListBox.ItemContainerStyle>
               <Style TargetType="ListBoxItem">
@@ -71,7 +71,7 @@
       <!--Pivot item two-->
       <phone:PivotItem Header="{Binding Path=LocalizedResources.SavedJourneysMonitoringPivot, Source={StaticResource LocalizedStrings}}">
         <Grid>
-          <TextBlock Text="It's lonely in here. Plan and save a new journey to see them here" Style="{StaticResource PhoneTextGroupHeaderStyle}" TextWrapping="Wrap" Visibility="{Binding IsLonelyThere, Converter={StaticResource boolToSehen}}"/>
+          <TextBlock Text="{Binding Path=LocalizedResources.lonelyNoJourney, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextGroupHeaderStyle}" TextWrapping="Wrap" Visibility="{Binding IsLonelyThere, Converter={StaticResource boolToSehen}}"/>
           <ListBox ItemsSource="{Binding Path=MySavedRecurrentJourneys}" MaxHeight="600" toolkit:TurnstileFeatherEffect.FeatheringIndex="1">
             <ListBox.ItemContainerStyle>
               <Style TargetType="ListBoxItem">

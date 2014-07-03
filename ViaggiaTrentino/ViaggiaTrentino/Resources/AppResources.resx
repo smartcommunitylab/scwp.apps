@@ -623,4 +623,7 @@
   <data name="MessageBoxSmartCampusPermsTitle" xml:space="preserve">
     <value>Authentication error</value>
   </data>
+  <data name="lonelyNoJourney" xml:space="preserve">
+    <value>It's lonely in here. Plan and save a new journey to see them here</value>
+  </data>
 </root>

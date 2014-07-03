@@ -23,6 +23,7 @@ namespace ViaggiaTrentino.ViewModels
       sb.AppendLine("• Caliburn Micro framework");
       sb.AppendLine("• Coding4Fun toolkit");
       sb.AppendLine("• SQLite for Windows Phone");
+      sb.AppendLine("• Andrea Panizza GuidedTour");
 
       CustomMessageBox cmb = new CustomMessageBox()
       {

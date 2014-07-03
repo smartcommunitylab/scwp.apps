@@ -439,6 +439,15 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to It&apos;s lonely in here. Plan and save a new journey to see them here.
+        /// </summary>
+        public static string lonelyNoJourney {
+            get {
+                return ResourceManager.GetString("lonelyNoJourney", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to about.
         /// </summary>
         public static string MainpageAbout {

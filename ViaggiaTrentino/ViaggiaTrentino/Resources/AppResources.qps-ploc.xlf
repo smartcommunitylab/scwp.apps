@@ -597,6 +597,10 @@
           <source>Authentication error</source>
           <target state="new">Authentication error</target>
         </trans-unit>
+        <trans-unit id="Resx/lonelyNoJourney" translate="yes" xml:space="preserve">
+          <source>It's lonely in here. Plan and save a new journey to see them here</source>
+          <target state="new">It's lonely in here. Plan and save a new journey to see them here</target>
+        </trans-unit>
         <trans-unit id="Resx/MessageBoxSmartCampusPermsMessage" translate="yes" xml:space="preserve">
           <source>In order to use the application you have to accept SmartCampus permissions</source>
           <target state="new">In order to use the application you have to accept SmartCampus permissions</target>

@@ -411,8 +411,9 @@
     <Reference Include="CommonHelpers">
       <HintPath>..\..\..\scwp.support\CompiledDLL\CommonHelpers.dll</HintPath>
     </Reference>
-    <Reference Include="GuidedTour">
-      <HintPath>.\GuidedTour.dll</HintPath>
+    <Reference Include="GuidedTour, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\GuidedTour.1.0.1\lib\wp80\GuidedTour.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Phone.Controls, Version=8.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Phone.Controls.Toolkit">
