@@ -34,12 +34,13 @@ namespace ViaggiaTrentino.ViewModels
     private TerritoryInformationLibrary til;
     private PublicTransportLibrary ptl;
     BackgroundWorker bw;
+    bool isLoadCompleted;
 
     public SelectBusRouteViewModel(INavigationService navigationService)
     {
       this.navigationService = navigationService;
       ptl = new PublicTransportLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
-
+      isLoadCompleted = false;
     }
 
     public string SelectedAgencyTitle
@@ -83,13 +84,22 @@ namespace ViaggiaTrentino.ViewModels
     protected override void OnViewReady(object view)
     {
       base.OnViewReady(view);
-      RoutesName.Clear();
-      bw = new BackgroundWorker();
-      bw.DoWork += bw_DoWork;
-      bw.ProgressChanged += bw_ProgressChanged;
-      bw.WorkerReportsProgress = true;
-      bw.WorkerSupportsCancellation = true;
-      bw.RunWorkerAsync();
+      if (!isLoadCompleted)
+      {
+        RoutesName.Clear();
+        bw = new BackgroundWorker();
+        bw.DoWork += bw_DoWork;
+        bw.ProgressChanged += bw_ProgressChanged;
+        bw.RunWorkerCompleted += bw_RunWorkerCompleted;
+        bw.WorkerReportsProgress = true;
+        bw.WorkerSupportsCancellation = true;
+        bw.RunWorkerAsync();
+      }
+    }
+
+    void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+    {
+     // if(!e.Cancelled)
     }
 
 
@@ -113,6 +123,8 @@ namespace ViaggiaTrentino.ViewModels
           
         }
       }
+      isLoadCompleted = true;
+
     }
 
     public void OpenTimetableView(DBManager.DBModels.RouteInfo obj)

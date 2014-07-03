@@ -18,13 +18,13 @@ namespace ViaggiaTrentino.ViewModels
     UserRouteLibrary urLib;
 
     private readonly INavigationService navigationService;
-    
+
     public PlanNewSingleJourneySaveViewModel(INavigationService navigationService)
     {
       this.navigationService = navigationService;
       urLib = new UserRouteLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
       gplHelp = new GooglePolyline();
-      iti = new Itinerary();      
+      iti = new Itinerary();
     }
 
     protected override void OnViewLoaded(object view)
@@ -51,16 +51,14 @@ namespace ViaggiaTrentino.ViewModels
 
     public void BarSave()
     {
-     
-        InputPrompt ip = new InputPrompt();
-        ip.Message = AppResources.JourneyNameMsg;
-        ip.Title = AppResources.JourneyNameTit;
-        ip.VerticalAlignment = System.Windows.VerticalAlignment.Center;
-        ip.HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch;
+      InputPrompt ip = new InputPrompt();
+      ip.Message = AppResources.JourneyNameMsg;
+      ip.Title = AppResources.JourneyNameTit;
+      ip.VerticalAlignment = System.Windows.VerticalAlignment.Center;
+      ip.HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch;
 
-        ip.Completed += ip_Completed;
-        ip.Show();
-     
+      ip.Completed += ip_Completed;
+      ip.Show();
     }
 
     async void ip_Completed(object sender, PopUpEventArgs<string, PopUpResult> e)
@@ -86,18 +84,16 @@ namespace ViaggiaTrentino.ViewModels
           finally
           {
             App.LoadingPopup.Hide();
-            
+
           }
 
           if (respIti is BasicItinerary)
             navigationService.UriFor<SavedJourneyPageViewModel>().WithParam(x => x.LastSavedJourney, 0).Navigate();
-          
-        }
-      }
-      else
-        MessageBox.Show(AppResources.ValidationJTitle, AppResources.ValidationCaption, MessageBoxButton.OK);
-    }
 
-   
+        }
+        else
+          MessageBox.Show(AppResources.ValidationJTitle, AppResources.ValidationCaption, MessageBoxButton.OK);
+      }
+    }
   }
 }
