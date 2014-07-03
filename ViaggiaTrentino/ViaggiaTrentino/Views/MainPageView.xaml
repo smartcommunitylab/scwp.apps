@@ -17,9 +17,8 @@
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True"
-    Unloaded="PhoneApplicationPage_Unloaded" Loaded="PhoneApplicationPage_Loaded"
-    
-  >
+    Unloaded="PhoneApplicationPage_Unloaded" 
+    Loaded="PhoneApplicationPage_Loaded">
 
   <toolkit:TransitionService.NavigationInTransition>
     <toolkit:NavigationInTransition>
