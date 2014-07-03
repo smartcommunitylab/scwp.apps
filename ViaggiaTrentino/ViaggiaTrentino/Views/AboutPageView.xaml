@@ -76,7 +76,7 @@
         <HyperlinkButton HorizontalAlignment="Left" Content="www.innovazione.comunitrentini.tn.it" />
       </StackPanel>
     </Grid>
-    <bab:BindableAppBar>
+    <bab:BindableAppBar BackgroundColor="#205980">
       <bab:BindableAppBarButton IconUri="/Assets/AppBar/Moreinfo.png" x:Name="ThirdAbout" Text="{Binding Path=LocalizedResources.AboutPageThird, Source={StaticResource LocalizedStrings}}" />
       <bab:BindableAppBarButton IconUri="/Assets/AppBar/Store.png" x:Name="RateApp" Text="{Binding Path=LocalizedResources.AboutPageRateApp, Source={StaticResource LocalizedStrings}}" />
     </bab:BindableAppBar>

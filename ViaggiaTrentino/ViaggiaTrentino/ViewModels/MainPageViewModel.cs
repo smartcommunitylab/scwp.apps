@@ -58,18 +58,18 @@ namespace ViaggiaTrentino.ViewModels
     {
       base.OnViewLoaded(view);
 
-      if (Settings.IsTourAlreadyShown)
-      {
-        try
-        {
-          IsLoaded = false; App.LoadingPopup.Show();
-          await Settings.RefreshToken(true);
-        }
-        finally
-        {
-          App.LoadingPopup.Hide(); IsLoaded = true;
-        }
-      }
+      //if (Settings.IsTourAlreadyShown)
+      //{
+      //  try
+      //  {
+      //    IsLoaded = false; App.LoadingPopup.Show();
+      //    await Settings.RefreshToken(true);
+      //  }
+      //  finally
+      //  {
+      //    App.LoadingPopup.Hide(); IsLoaded = true;
+      //  }
+      //}
       string oldEx = elh.RetrieveLoggedException(ExceptionType.Unhandled);
       if (oldEx != null)
       {

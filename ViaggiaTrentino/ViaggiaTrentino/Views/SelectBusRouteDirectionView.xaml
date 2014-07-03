@@ -94,7 +94,7 @@
           <DataTemplate>
             <StackPanel Orientation="Horizontal" Margin="10,10,0,10" VerticalAlignment="Center">
               <Image Width="24" Source="{Binding Converter={StaticResource imgForTheme}, ConverterParameter='/Assets/Miscs/Arrow.png'}" />
-              <TextBlock Margin="5,0,0,0" FontSize="{StaticResource PhoneFontSizeMedium}" Text="{Binding Name}" Tag="{Binding RouteID}" cal:Message.Attach="[Event Tap]=[Action ShowTimetable($source)]" />
+              <TextBlock Margin="10,0,0,0" FontSize="{StaticResource PhoneFontSizeMedium}" Text="{Binding Name}" Tag="{Binding RouteID}" cal:Message.Attach="[Event Tap]=[Action ShowTimetable($source)]" />
             </StackPanel>
           </DataTemplate>
         </ListBox.ItemTemplate>

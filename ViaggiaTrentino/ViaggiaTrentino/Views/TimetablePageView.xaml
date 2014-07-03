@@ -12,13 +12,12 @@
     xmlns:bab="clr-namespace:Caliburn.Micro.BindableAppBar;assembly=Caliburn.Micro.BindableAppBar"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
-    Foreground="{StaticResource PhoneForegroundBrush}"
-    SupportedOrientations="Portrait" Orientation="Portrait"
+    SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True"
     Unloaded="PhoneApplicationPage_Unloaded"
     Loaded="PhoneApplicationPage_Loaded"
-    BackKeyPress="PhoneApplicationPage_BackKeyPress">
+    BackKeyPress="PhoneApplicationPage_BackKeyPress" OrientationChanged="PhoneApplicationPage_OrientationChanged">
 
   <toolkit:TransitionService.NavigationInTransition>
     <toolkit:NavigationInTransition>
@@ -47,8 +46,7 @@
     <vtconvert:BooleanToReversedVisibilityConverter x:Name="boolToNotVisibility" />
   </phone:PhoneApplicationPage.Resources>
 
-
-  <Grid x:Name="LayoutRoot" Background="Transparent">
+  <Grid x:Name="LayoutRoot" Background="WhiteSmoke">
     <Grid.RowDefinitions>
       <RowDefinition Height="Auto"/>
       <RowDefinition Height="*"/>
@@ -60,14 +58,16 @@
         <ColumnDefinition Width="Auto" />
       </Grid.ColumnDefinitions>
 
-      <TextBlock Foreground="{Binding Color, Converter={StaticResource backgroundToForegroundColor}}" Grid.Column="0" FontWeight="SemiBold" Margin="12,12,12,6"  Text="{Binding RouteName}" TextWrapping="Wrap" FontSize="{StaticResource PhoneFontSizeMedium}"/>
-      <TextBlock Foreground="{Binding Color, Converter={StaticResource backgroundToForegroundColor}}" Grid.Column="1" FontWeight="SemiBold" Margin="6,12,12,12"  Text="{Binding CurrentDate, StringFormat='dd/MM'}" FontSize="{StaticResource PhoneFontSizeMedium}"/>
+      <TextBlock Foreground="{Binding Color, Converter={StaticResource backgroundToForegroundColor}}" Grid.Column="0" FontWeight="SemiBold" Margin="12,12,12,12"  Text="{Binding RouteName}" TextWrapping="Wrap" FontSize="{StaticResource PhoneFontSizeMedium}"/>
+      <TextBlock Foreground="{Binding Color, Converter={StaticResource backgroundToForegroundColor}}" Grid.Column="1" FontWeight="SemiBold" Margin="12,12,12,12"  Text="{Binding CurrentDate, StringFormat='dd/MM'}" FontSize="{StaticResource PhoneFontSizeMedium}"/>
     </Grid>
 
     <StackPanel x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-      <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="txtNoAvailable" Visibility="{Binding NoResults, Converter={StaticResource boolToVisibility}}"
+      <TextBlock HorizontalAlignment="Center" Foreground="Black" x:Name="txtNoAvailable" 
+                 Visibility="{Binding NoResults, Converter={StaticResource boolToVisibility}}"
+                 Style="{StaticResource PhoneTextGroupHeaderStyle}"
                  Text="{Binding Path=LocalizedResources.TimetableNotAvailable, Source={StaticResource LocalizedStrings}}" />
-      
+
       <Grid>
         <Grid.ColumnDefinitions>
           <ColumnDefinition Width="*" />
@@ -77,9 +77,8 @@
           <RowDefinition Height="Auto" />
           <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-      </Grid>
       <StackPanel Grid.Row="0" Grid.Column="0">
-        
+
       </StackPanel>
       <ScrollViewer Grid.Row="0" Grid.Column="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
         <StackPanel x:Name="stackPanelLineType" Visibility="{Binding NoResults, Converter={StaticResource boolToNotVisibility}}"
@@ -93,9 +92,9 @@
           </Grid.ColumnDefinitions>
 
 
-          <ListBox Grid.Column="0" x:Name="listBoxNames" Visibility="{Binding NoResults, Converter={StaticResource boolToNotVisibility}}"
+          <ListBox Grid.Column="0" x:Name="listBoxNames"  Visibility="{Binding NoResults, Converter={StaticResource boolToNotVisibility}}"
               ItemContainerStyle="{StaticResource ListBoxItemNoSelectionStyle}" >
-            
+
             <ListBox.Template>
               <ControlTemplate TargetType="ListBox">
                 <ItemsPresenter />
@@ -104,7 +103,7 @@
 
             <ListBox.ItemTemplate>
               <DataTemplate>
-                <TextBlock Text="{Binding}" Margin="0,3,10,3" />
+                <TextBlock Text="{Binding}" Foreground="Black" Margin="0,3,10,3" />
               </DataTemplate>
             </ListBox.ItemTemplate>
           </ListBox>
@@ -115,9 +114,10 @@
 
         </Grid>
       </ScrollViewer>
+      </Grid>
     </StackPanel>
 
-    <bab:BindableAppBar x:Name="bAppBar">
+    <bab:BindableAppBar x:Name="bAppBar"  BackgroundColor="#205980">
       <bab:BindableAppBarButton IconUri="/Assets/AppBar/Previous.png" x:Name="Previous" IsEnabled="{Binding DisableAppBar}" 
                                 Text="{Binding Path=LocalizedResources.Previous, Source={StaticResource LocalizedStrings}}"  />
       <bab:BindableAppBarButton IconUri="/Assets/AppBar/Today.png" x:Name="Current" IsEnabled="{Binding DisableAppBar}" 

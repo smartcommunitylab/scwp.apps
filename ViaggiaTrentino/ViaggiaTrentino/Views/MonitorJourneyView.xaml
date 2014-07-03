@@ -125,7 +125,7 @@
         </StackPanel>
       </ScrollViewer>
     </Grid>
-    <bab:BindableAppBar IsVisible="{Binding IsAppBarShown}">
+    <bab:BindableAppBar IsVisible="{Binding IsAppBarShown}" BackgroundColor="#205980">
       <bab:BindableAppBarButton  IconUri="/Assets/AppBar/Check.png" x:Name="PlanNewJourney" Text="{Binding Path=LocalizedResources.PlanConfirm, Source={StaticResource LocalizedStrings}}"  />
     </bab:BindableAppBar>
   </Grid>

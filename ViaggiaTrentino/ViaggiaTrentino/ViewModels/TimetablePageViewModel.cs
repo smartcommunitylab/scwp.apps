@@ -27,6 +27,7 @@ using ViaggiaTrentino.Views;
 using ViaggiaTrentino.Resources;
 
 
+
 namespace ViaggiaTrentino.ViewModels
 {
   public class TimetablePageViewModel : Screen
@@ -39,11 +40,14 @@ namespace ViaggiaTrentino.ViewModels
     private string routeIDWitDirection, nameID, description, color;
     private ObservableCollection<DBManager.DBModels.RouteName> routeNames;
     DBManager.DBModels.RouteName selectedRouteName;
+    PublicTransportLibrary ptLib;
+
 
     public TimetablePageViewModel(INavigationService navigationService, IEventAggregator eventAggregator)
     {
       this.navigationService = navigationService;
       this.eventAggregator = eventAggregator;
+      ptLib = new PublicTransportLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
       NoResults = false;
     }
 
@@ -56,6 +60,7 @@ namespace ViaggiaTrentino.ViewModels
     protected override void OnViewLoaded(object view)
     {
       base.OnViewLoaded(view);
+
       var qs = (navigationService.CurrentContent as TimetablePageView).NavigationContext.QueryString;
       if (qs.ContainsKey("ft"))
       {
@@ -66,6 +71,14 @@ namespace ViaggiaTrentino.ViewModels
         Color = qs["Color"];
       }
       GetTimetableFromDB();
+      GetTimeTableDelaysFromInternet();
+      
+    }
+    
+    private double DateTimeToEpoch(DateTime dt)
+    {
+      TimeSpan span = (dt.ToUniversalTime() - new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc));
+      return span.TotalMilliseconds;
     }
 
     #region Properties
@@ -164,8 +177,19 @@ namespace ViaggiaTrentino.ViewModels
     }
     #endregion
 
-    private void GetTimetableFromDB()
+    private async void GetTimeTableDelaysFromInternet()
     {
+
+      TimeTable AudiTT = await ptLib.GetTransitDelays(routeIDWitDirection,
+      Convert.ToInt64(DateTimeToEpoch(new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, 0, 0, 0))),
+      Convert.ToInt64(DateTimeToEpoch(new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, 23, 59, 59))));
+
+      eventAggregator.Publish(AudiTT.Delays[0]);
+
+    }
+
+    private void GetTimetableFromDB()
+    { 
       using (DBHelper dbh = new DBHelper())
       {
         DisableAppBar = false;
@@ -181,6 +205,7 @@ namespace ViaggiaTrentino.ViewModels
           try
           {
             timetable = dbh.GetRouteCalendar(name);
+
             eventAggregator.Publish(new CompressedTimetable()
             {
               CompressedTimes = timetable.Times,
@@ -216,18 +241,21 @@ namespace ViaggiaTrentino.ViewModels
     {
       CurrentDate = CurrentDate.AddDays(1);
       GetTimetableFromDB();
+      GetTimeTableDelaysFromInternet();
     }
 
     public void Current()
     {
       CurrentDate = DateTime.Now;
       GetTimetableFromDB();
+      GetTimeTableDelaysFromInternet();
     }
 
     public void Previous()
     {
       CurrentDate = CurrentDate.AddDays(-1);
       GetTimetableFromDB();
+      GetTimeTableDelaysFromInternet();
     }
     public async void PinToStart()
     {

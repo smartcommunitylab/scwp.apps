@@ -17,19 +17,22 @@ using System.Threading;
 using ViaggiaTrentino.ViewModels;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
+using System.Windows.Documents;
 
 namespace ViaggiaTrentino.Views
 {
-  public partial class TimetablePageView : PhoneApplicationPage, IHandle<CompressedTimetable>
+  public partial class TimetablePageView : PhoneApplicationPage, IHandle<CompressedTimetable>, IHandle<List<Delay>>
   {
     private readonly IEventAggregator eventAggregator;
     private BackgroundWorker bw;
     private StackPanel stackPanelCenter;
+    List<Delay> listDelay;
     bool hasType;
 
     public TimetablePageView()
     {
       InitializeComponent();
+      listDelay = null;
       Bootstrapper bootstrapper = Application.Current.Resources["bootstrapper"] as Bootstrapper;
       IEventAggregator eventAggregator = bootstrapper.container.GetAllInstances(typeof(IEventAggregator)).FirstOrDefault() as IEventAggregator;
       this.eventAggregator = eventAggregator;
@@ -38,8 +41,10 @@ namespace ViaggiaTrentino.Views
 
     private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
     {    
-      txtNoAvailable.Padding = new Thickness(0, (ContentPanel.ActualHeight - txtNoAvailable.ActualHeight / 2 - bAppBar.ActualHeight) / 2, 0, 0);
+      txtNoAvailable.Padding = new Thickness(0, (ContentPanel.ActualHeight - txtNoAvailable.ActualHeight / 2 - bAppBar.ActualHeight) / 2, 0, 0);      
     }
+
+
 
     private void PhoneApplicationPage_Unloaded(object sender, RoutedEventArgs e)
     {
@@ -93,16 +98,27 @@ namespace ViaggiaTrentino.Views
       else
       {
         (stackPanelTimetable.Parent as ScrollViewer).ScrollToHorizontalOffset(0);
+
+        listBoxNames.Items.Add(new TextBlock()
+        {
+          Foreground = new SolidColorBrush(Colors.Red),
+          FontWeight = FontWeights.SemiBold,
+          Text = AppResources.SubAlertDelay,
+          Margin = new Thickness(0, 3, 0, 5)
+        });
+
         if (ct.TripIds != null)
           hasType = true;
+
         if (hasType)
           listBoxNames.Items.Add(new TextBlock()
-            {
-              Foreground = new SolidColorBrush(Colors.Red),
-              FontWeight = FontWeights.SemiBold,
-              Text = AppResources.TimeTablePageLineType,
-              Margin = new Thickness(0,3,0,5)
-            });
+          {
+            Foreground = new SolidColorBrush(Colors.Red),
+            FontWeight = FontWeights.SemiBold,
+            Text = AppResources.TimeTablePageLineType,
+            Margin = new Thickness(0, 3, 0, 5)
+          });
+
         for (int i = 0; i < ct.StopIds.Count; i++)
         {
           listBoxNames.Items.Add(ct.Stops[i]);
@@ -126,7 +142,7 @@ namespace ViaggiaTrentino.Views
       stackPanelCenter = null;
       List<string> results = new List<string>();
       int i = 0;
-      int j =0;
+      int j = 0;
       /* 
        * Looks like we always ignored the last column. Here's what was happening:
        * - only 8 charachters (2 times)
@@ -177,7 +193,15 @@ namespace ViaggiaTrentino.Views
       
       //shifting index to be used as beginning of actual times
       int indexToUse = 0;
-      
+
+      sp.Children.Add(new TextBlock()
+      {
+        Margin = new Thickness(10, 3, 10, 5),
+        Text = "",
+        FontWeight = FontWeights.SemiBold,
+        HorizontalAlignment = System.Windows.HorizontalAlignment.Center
+      });
+
       //check if TripIDs is present (usually trains) and adds an extra line in the beginning
       if (hasType)
       {
@@ -225,8 +249,36 @@ namespace ViaggiaTrentino.Views
 #if DEBUG
       //Debug.WriteLine((stackColumn.Children[0] as TextBlock).Text);
 #endif
+
+      if (listDelay != null)
+        UpdateTimeTableWithDelays();
     }
 
     #endregion
+
+    public void Handle(List<Delay> message)
+    {
+      listDelay = message;
+      if (bw != null && !bw.IsBusy)
+        UpdateTimeTableWithDelays();
+    }
+
+    public void UpdateTimeTableWithDelays()
+    {
+      for (int spColumn = 0; spColumn < listDelay.Count(); spColumn++)
+      {
+        TextBlock txBlk = (stackPanelTimetable.Children[spColumn] as StackPanel).Children[0] as TextBlock;
+        if(listDelay[spColumn].delayFromService != null)
+          txBlk.Inlines.Add(new Run() { Text = listDelay[spColumn].delayFromService, Foreground = new SolidColorBrush(Colors.Red) });
+        if(listDelay[spColumn].delayFromUser != null)
+          txBlk.Inlines.Add(new Run() { Text = listDelay[spColumn].delayFromUser, Foreground = new SolidColorBrush(Colors.Blue) });
+
+      }
+    }
+
+    private void PhoneApplicationPage_OrientationChanged(object sender, OrientationChangedEventArgs e)
+    {
+      txtNoAvailable.Padding = new Thickness(0, (ContentPanel.ActualHeight - txtNoAvailable.ActualHeight / 2 - bAppBar.ActualHeight) / 2, 0, 0);      
+    }
   }
 }
