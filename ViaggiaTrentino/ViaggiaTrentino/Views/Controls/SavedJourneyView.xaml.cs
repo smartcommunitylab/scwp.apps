@@ -40,7 +40,10 @@ namespace ViaggiaTrentino.Views.Controls
           await Settings.RefreshToken();
           bool delRes = await urLib.DeleteSingleJourney(basIti.ClientId);
           if (delRes)
+          {
             this.Visibility = System.Windows.Visibility.Collapsed;
+            this.IsEnabled = false;
+          }
         }
         finally
         {

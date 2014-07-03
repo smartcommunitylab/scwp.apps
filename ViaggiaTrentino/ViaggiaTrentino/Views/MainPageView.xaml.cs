@@ -16,15 +16,20 @@ namespace ViaggiaTrentino.Views
   public partial class MainPageView : PhoneApplicationPage, IHandle<bool>
   {
     private IEventAggregator eventAggregator;
+    bool isSubscribed;
 
     public MainPageView()
     {
+      isSubscribed = false;
       InitializeComponent();
       Bootstrapper bootstrapper = Application.Current.Resources["bootstrapper"] as Bootstrapper;
       IEventAggregator eventAggregator = bootstrapper.container.GetAllInstances(typeof(IEventAggregator)).FirstOrDefault() as IEventAggregator;
       this.eventAggregator = eventAggregator;
       eventAggregator.Subscribe(this);
+      isSubscribed = true;
     }
+
+
 
     public void Handle(bool message)
     {
@@ -69,11 +74,18 @@ namespace ViaggiaTrentino.Views
     private void PhoneApplicationPage_Unloaded(object sender, RoutedEventArgs e)
     {
       eventAggregator.Unsubscribe(this);
+      isSubscribed = false;
     }
 
     private void BarTour_Click(object sender, EventArgs e)
     {
       ManageTour(true);
+    }
+
+    private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
+    {
+      if (!isSubscribed)
+        eventAggregator.Subscribe(this);
     }
 
   }

@@ -114,36 +114,7 @@ namespace ViaggiaTrentino.ViewModels
       while (navigationService.BackStack.Count() > 1)
         navigationService.RemoveBackEntry();
     }
-
-    //void bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
-    //{
-    //  if (e.UserState is BasicRecurrentJourney)
-    //  {
-    //    MySavedRecurrentJourneys.Add(e.UserState as BasicRecurrentJourney);
-    //    NotifyOfPropertyChange(() => IsLonelyThere);
-    //  }
-    //  else
-    //  {
-    //    MySavedSingleJourneys.Add(e.UserState as BasicItinerary);
-    //    NotifyOfPropertyChange(() => IsLonelyHere);
-    //  }
-    //}
-
-    //void bw_DoWork(object sender, DoWorkEventArgs e)
-    //{
-    //  foreach (var item in basList)
-    //  {
-    //    (sender as BackgroundWorker).ReportProgress(0, item);
-    //    Thread.Sleep(100);
-    //  }
-
-    //  foreach (var item in barList)
-    //  {
-    //    (sender as BackgroundWorker).ReportProgress(0, item);
-    //    Thread.Sleep(100);
-    //  }
-    //}
-
+    
     public void OpenRecurrentJourney(BasicRecurrentJourney journey)
     {
       PhoneApplicationService.Current.State["journey"] = journey;

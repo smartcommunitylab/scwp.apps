@@ -51,7 +51,7 @@
       <phone:PivotItem Header="{Binding Path=LocalizedResources.SavedJourneysJourneyPivot, Source={StaticResource LocalizedStrings}}">
 
         <Grid>
-          <TextBlock Text="{Binding Path=LocalizedResources.lonelyNoJourney, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextGroupHeaderStyle}" TextWrapping="Wrap" Visibility="{Binding IsLonelyHere, Converter={StaticResource boolToSehen}}" />
+          <TextBlock x:Name="lonelySingle" Text="{Binding Path=LocalizedResources.lonelyNoJourney, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextGroupHeaderStyle}" TextWrapping="Wrap" Visibility="{Binding IsLonelyHere, Converter={StaticResource boolToSehen}}" />
           <ListBox ItemsSource="{Binding Path=MySavedSingleJourneys}" MaxHeight="600"  toolkit:TurnstileFeatherEffect.FeatheringIndex="0">
             <ListBox.ItemContainerStyle>
               <Style TargetType="ListBoxItem">
@@ -61,7 +61,7 @@
             </ListBox.ItemContainerStyle>
             <ListBox.ItemTemplate>
               <DataTemplate>
-                <vtcont:SavedJourneyView cal:Message.Attach="[Event Tap] = [Action OpenSingleJourney($dataContext)]"  DataContext="{Binding}"/>
+                <vtcont:SavedJourneyView cal:Message.Attach="[Event Tap] = [Action OpenSingleJourney($dataContext)]" IsEnabledChanged="Saved_IsEnabledChanged" DataContext="{Binding}"/>
               </DataTemplate>
             </ListBox.ItemTemplate>
           </ListBox>
@@ -71,7 +71,7 @@
       <!--Pivot item two-->
       <phone:PivotItem Header="{Binding Path=LocalizedResources.SavedJourneysMonitoringPivot, Source={StaticResource LocalizedStrings}}">
         <Grid>
-          <TextBlock Text="{Binding Path=LocalizedResources.lonelyNoJourney, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextGroupHeaderStyle}" TextWrapping="Wrap" Visibility="{Binding IsLonelyThere, Converter={StaticResource boolToSehen}}"/>
+          <TextBlock x:Name="lonelyRecurrent" Text="{Binding Path=LocalizedResources.lonelyNoJourney, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextGroupHeaderStyle}" TextWrapping="Wrap" Visibility="{Binding IsLonelyThere, Converter={StaticResource boolToSehen}}"/>
           <ListBox ItemsSource="{Binding Path=MySavedRecurrentJourneys}" MaxHeight="600" toolkit:TurnstileFeatherEffect.FeatheringIndex="1">
             <ListBox.ItemContainerStyle>
               <Style TargetType="ListBoxItem">
@@ -81,7 +81,7 @@
             </ListBox.ItemContainerStyle>
             <ListBox.ItemTemplate>
               <DataTemplate>
-                <vtcont:SavedRecurrentJourneyView cal:Message.Attach="[Event Tap] = [Action OpenRecurrentJourney($dataContext)]"  DataContext="{Binding}"/>
+                <vtcont:SavedRecurrentJourneyView cal:Message.Attach="[Event Tap] = [Action OpenRecurrentJourney($dataContext)]" IsEnabledChanged="Saved_IsEnabledChanged"  DataContext="{Binding}"/>
               </DataTemplate>
             </ListBox.ItemTemplate>
           </ListBox>
