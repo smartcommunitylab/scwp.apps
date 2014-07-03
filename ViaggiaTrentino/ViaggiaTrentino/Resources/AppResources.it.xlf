@@ -592,6 +592,20 @@
           <source>Plan your next trip here</source>
           <target state="translated">Pianifica il tuo prossimo viaggio</target>
         </trans-unit>
+        <trans-unit id="Resx/MessageBoxSmartCampusPermsTitle" translate="yes" xml:space="preserve">
+          <source>Authentication error</source>
+          <target state="translated">Errore di autorizzazione</target></trans-unit>
+        <trans-unit id="Resx/MessageBoxSmartCampusPermsMessage" translate="yes" xml:space="preserve">
+          <source>In order to use the application you have to accept SmartCampus permissions</source>
+          <target state="translated" state-qualifier="mt-suggestion">Per utilizzare l'applicazione è necessario accettare le autorizzazioni SmartCampus</target>
+        </trans-unit>
+        <trans-unit id="Resx/MessageBoxGooglePermsTitle" translate="yes" xml:space="preserve">
+          <source>Authentication error</source>
+          <target state="translated">Errore di autorizzazione</target></trans-unit>
+        <trans-unit id="Resx/MessageBoxGooglePermsMessage" translate="yes" xml:space="preserve">
+          <source>In order to use the application you have to accept Google permissions</source>
+          <target state="translated" state-qualifier="mt-suggestion">Per utilizzare l'applicazione è necessario accettare le autorizzazioni di Google</target>
+        </trans-unit>
         <trans-unit id="Resx/SubmitAlertTileTagTour" translate="yes" xml:space="preserve">
           <source>Report delays, accidents or deviations</source>
           <target state="translated">Segnala incidenti, ritardi e deviazioni</target>

@@ -166,18 +166,30 @@ namespace ViaggiaTrentino.ViewModels
 
     async void wb_Navigating(object sender, NavigatingEventArgs e)
     {
+      //User accept Google permissions
       if (e.Uri.ToString().StartsWith(Settings.RedirectUrl))
       {
-        string code = e.Uri.Query.Split('=')[1];
-        Settings.AppToken = await authLib.GetAccessToken(code);
-        NotifyOfPropertyChange(() => IsLogged);
-        loginPopup.IsOpen = false;
-        pll = new ProfileLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
-        Settings.UserID = (await pll.GetBasicProfile()).UserId;
-        eventAggregator.Publish(true);
+        //User refuse SC permissions
+        if (e.Uri.ToString().Contains("error=access_denied"))
+        {
+          MessageBox.Show(AppResources.MessageBoxSmartCampusPermsMessage, AppResources.MessageBoxSmartCampusPermsTitle, MessageBoxButton.OK);
+          BarLogin();
+        }
+        else
+        {
+          string code = e.Uri.Query.Split('=')[1];
+          Settings.AppToken = await authLib.GetAccessToken(code);
+          NotifyOfPropertyChange(() => IsLogged);
+          loginPopup.IsOpen = false;
+          pll = new ProfileLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
+          Settings.UserID = (await pll.GetBasicProfile()).UserId;
+          eventAggregator.Publish(true);
+        }
       }
+      //User refuse Google permissions
       else if (e.Uri.ToString().Contains("&openid.mode=cancel&"))
       {
+        MessageBox.Show(AppResources.MessageBoxGooglePermsMessage, AppResources.MessageBoxGooglePermsTitle, MessageBoxButton.OK);
         BarLogin();
       }
     }

@@ -611,4 +611,16 @@
   <data name="TilePlanJourneyTagTour" xml:space="preserve">
     <value>Plan your next trip here</value>
   </data>
+  <data name="MessageBoxGooglePermsMessage" xml:space="preserve">
+    <value>In order to use the application you have to accept Google permissions</value>
+  </data>
+  <data name="MessageBoxGooglePermsTitle" xml:space="preserve">
+    <value>Authentication error</value>
+  </data>
+  <data name="MessageBoxSmartCampusPermsMessage" xml:space="preserve">
+    <value>In order to use the application you have to accept SmartCampus permissions</value>
+  </data>
+  <data name="MessageBoxSmartCampusPermsTitle" xml:space="preserve">
+    <value>Authentication error</value>
+  </data>
 </root>

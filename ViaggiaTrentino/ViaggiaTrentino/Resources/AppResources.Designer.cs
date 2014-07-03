@@ -511,6 +511,24 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to In order to use the application you have to accept Google permissions.
+        /// </summary>
+        public static string MessageBoxGooglePermsMessage {
+            get {
+                return ResourceManager.GetString("MessageBoxGooglePermsMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Authentication error.
+        /// </summary>
+        public static string MessageBoxGooglePermsTitle {
+            get {
+                return ResourceManager.GetString("MessageBoxGooglePermsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to go to settings.
         /// </summary>
         public static string MessageBoxGoToSettings {
@@ -534,6 +552,24 @@ namespace ViaggiaTrentino.Resources {
         public static string MessageBoxNetworkErrorTitle {
             get {
                 return ResourceManager.GetString("MessageBoxNetworkErrorTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In order to use the application you have to accept SmartCampus permissions.
+        /// </summary>
+        public static string MessageBoxSmartCampusPermsMessage {
+            get {
+                return ResourceManager.GetString("MessageBoxSmartCampusPermsMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Authentication error.
+        /// </summary>
+        public static string MessageBoxSmartCampusPermsTitle {
+            get {
+                return ResourceManager.GetString("MessageBoxSmartCampusPermsTitle", resourceCulture);
             }
         }
         

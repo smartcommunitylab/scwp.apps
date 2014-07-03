@@ -593,6 +593,22 @@
           <source>Plan your next trip here</source>
           <target state="needs-review-translation" state-qualifier="mt-suggestion">[BE55C][!!_Ρĺàή Уõùř иé×ť тŕįρ ћęŗę_!!!!!!!!]</target>
         </trans-unit>
+        <trans-unit id="Resx/MessageBoxSmartCampusPermsTitle" translate="yes" xml:space="preserve">
+          <source>Authentication error</source>
+          <target state="new">Authentication error</target>
+        </trans-unit>
+        <trans-unit id="Resx/MessageBoxSmartCampusPermsMessage" translate="yes" xml:space="preserve">
+          <source>In order to use the application you have to accept SmartCampus permissions</source>
+          <target state="new">In order to use the application you have to accept SmartCampus permissions</target>
+        </trans-unit>
+        <trans-unit id="Resx/MessageBoxGooglePermsTitle" translate="yes" xml:space="preserve">
+          <source>Authentication error</source>
+          <target state="new">Authentication error</target>
+        </trans-unit>
+        <trans-unit id="Resx/MessageBoxGooglePermsMessage" translate="yes" xml:space="preserve">
+          <source>In order to use the application you have to accept Google permissions</source>
+          <target state="new">In order to use the application you have to accept Google permissions</target>
+        </trans-unit>
         <trans-unit id="Resx/SubmitAlertTileTagTour" translate="yes" xml:space="preserve">
           <source>Report delays, accidents or deviations</source>
           <target state="needs-review-translation" state-qualifier="mt-suggestion">[F5CC2][!!_Ŗéρôѓť ďèĺáУś, âččìđèήťŝ õř đéνįãťîõйŝ_!!!!!!!!!!!!]</target>
