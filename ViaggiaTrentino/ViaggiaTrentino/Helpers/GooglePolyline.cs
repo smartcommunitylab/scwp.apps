@@ -99,7 +99,7 @@ namespace ViaggiaTrentino.Helpers
       MapPolyline mpl = new MapPolyline();
       foreach (GeoCoordinate p in lp)
         mpl.Path.Add(p);
-      mpl.StrokeColor =   (App.Current.Resources["PhoneAccentBrush"] as SolidColorBrush).Color;
+      mpl.StrokeColor = (App.Current.Resources["PhoneAccentBrush"] as SolidColorBrush).Color;
       mpl.StrokeThickness = 3;
       Map ggm = new Map();
 
@@ -134,7 +134,7 @@ namespace ViaggiaTrentino.Helpers
       MapLayer mapLay = new MapLayer();
       Pushpin startPin, endPin;
 
-     
+
 
       foreach (var gamba in legs)
       {
@@ -150,7 +150,6 @@ namespace ViaggiaTrentino.Helpers
           mapOverS.Content = startPin;
           mapOverS.GeoCoordinate = startPin.GeoCoordinate;
         }
-        
         if (gamba == legs.Last())
         {
           endPin = new Pushpin()
@@ -161,12 +160,13 @@ namespace ViaggiaTrentino.Helpers
           mapOverE.Content = endPin;
           mapOverE.GeoCoordinate = endPin.GeoCoordinate;
         }
-        
+
         MapPolyline mpl = new MapPolyline();
         mpl.StrokeThickness = 5;
-        
+
         foreach (GeoCoordinate p in lp)
           mpl.Path.Add(p);
+
         if (gamba == selectedLeg)
         {
           locRet = LocationRectangle.CreateBoundingRectangle(lp);
@@ -177,12 +177,13 @@ namespace ViaggiaTrentino.Helpers
         else
           mpl.StrokeColor = Colors.Cyan;
 
-        mapLay.Add(mapOverS);
-        mapLay.Add(mapOverE);
-
         ggm.MapElements.Add(mpl);
-        ggm.Layers.Add(mapLay);
-      }     
+      }
+
+      mapLay.Add(mapOverS);
+      mapLay.Add(mapOverE);
+      ggm.Layers.Add(mapLay);
+
 
       MessagePrompt hugeMap = new MessagePrompt();
       hugeMap.Style = Application.Current.Resources["mpNoBorders"] as Style;
@@ -194,7 +195,7 @@ namespace ViaggiaTrentino.Helpers
     // and drawn onscreen. So here it goes
     void ggm_Loaded(object sender, RoutedEventArgs e)
     {
-      (sender as Map).SetView(locRet);      
+      (sender as Map).SetView(locRet);
     }
   }
 }
