@@ -144,9 +144,11 @@ namespace ViaggiaTrentino.Helpers
         {
           startPin = new Pushpin()
           {
+            Style = Application.Current.Resources["alignedPushPin"] as Style,
             GeoCoordinate = new GeoCoordinate(lp.First().Latitude, lp.First().Longitude),
             Content = new Image() { Source = (ImageSource)new ImageSourceConverter().ConvertFromString("/Assets/Miscs/JStart.png") }
           };
+          mapOverS.PositionOrigin = new Point(0, 1);
           mapOverS.Content = startPin;
           mapOverS.GeoCoordinate = startPin.GeoCoordinate;
         }
@@ -157,9 +159,12 @@ namespace ViaggiaTrentino.Helpers
         {
           endPin = new Pushpin()
           {
+           // Style = Application.Current.Resources["alignedPushPin"] as Style,
+            
             GeoCoordinate = new GeoCoordinate(lp.Last().Latitude, lp.Last().Longitude),
             Content = new Image() { Source = (ImageSource)new ImageSourceConverter().ConvertFromString("/Assets/Miscs/JDest.png") }
           };
+          mapOverE.PositionOrigin = new Point(0,1);
           mapOverE.Content = endPin;
           mapOverE.GeoCoordinate = endPin.GeoCoordinate;
         }

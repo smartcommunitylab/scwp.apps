@@ -65,10 +65,10 @@ namespace ViaggiaTrentino.Model
                     if (cluster != null)
                     {
                       if(cluster.DataContext != null)
-                        layer.Add(new MapOverlay() { GeoCoordinate = cluster.GeoCoordinate, Content = cluster.DataContext, ContentTemplate = cluster.ContentTemplate });
+                        layer.Add(new MapOverlay() { PositionOrigin = new Point(0,1), GeoCoordinate = cluster.GeoCoordinate, Content = cluster.DataContext, ContentTemplate = cluster.ContentTemplate });
 
                       else
-                        layer.Add(new MapOverlay() { GeoCoordinate = cluster.GeoCoordinate, Content = cluster.Content,  ContentTemplate = cluster.ContentTemplate});
+                        layer.Add(new MapOverlay() { PositionOrigin = new Point(0, 1), GeoCoordinate = cluster.GeoCoordinate, Content = cluster.Content, ContentTemplate = cluster.ContentTemplate });
                       
                     }
                 }

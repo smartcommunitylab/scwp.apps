@@ -5,6 +5,7 @@
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:cffToolkit="clr-namespace:Coding4Fun.Toolkit.Controls;assembly=Coding4Fun.Toolkit.Controls"
+    xmlns:map="clr-namespace:Microsoft.Phone.Maps.Controls;assembly=Microsoft.Phone.Maps"
     xmlns:vt="clr-namespace:ViaggiaTrentino"
     xmlns:vtconverters="clr-namespace:ViaggiaTrentino.Converters">
 
@@ -16,8 +17,12 @@
 
 
     <DataTemplate x:Key="smartCampusBox">
-        <TextBlock  Text="{Binding Name}" TextWrapping="Wrap" Margin="0,5,0,5"></TextBlock>
-      </DataTemplate>
+      <TextBlock  Text="{Binding Name}" TextWrapping="Wrap" Margin="0,5,0,5"></TextBlock>
+    </DataTemplate>
+
+    <!--<Style x:Key="alignedPushPin" TargetType=">
+      <Setter Property="PositionOrigin" Value="1,0" />
+    </Style>-->
 
     <Style x:Key="mpNoBorders" TargetType="cffToolkit:MessagePrompt">
       <Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilyNormal}"/>
