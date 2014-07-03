@@ -20,14 +20,12 @@ namespace ViaggiaTrentino.ViewModels
     AuthLibrary authLib;
     ProfileLibrary pll;
     Popup loginPopup;
-    bool isLoaded;
 
     public MainPageViewModel(INavigationService navigationService, IEventAggregator eventAggregator)
     {
       this.navigationService = navigationService;
       this.eventAggregator = eventAggregator;
       elh = new ExceptionLoggerHelper();
-      IsLoaded = true;
     }
 
     public bool IsLogged
@@ -35,41 +33,19 @@ namespace ViaggiaTrentino.ViewModels
       get { return Settings.IsLogged; }
     }
 
-    public bool IsLoaded
-    {
-      get { return isLoaded; }
-      set
-      {
-        isLoaded = value;
-        NotifyOfPropertyChange(() => IsLoaded);
-      }
-    }
-
     protected override void OnActivate()
     {
       base.OnActivate();
       if (!Settings.IsLogged)
       {
-        BarLogin();
+       BarLogin();
       }
     }
 
-    protected override async void OnViewLoaded(object view)
+    protected override void OnViewLoaded(object view)
     {
       base.OnViewLoaded(view);
 
-      //if (Settings.IsTourAlreadyShown)
-      //{
-      //  try
-      //  {
-      //    IsLoaded = false; App.LoadingPopup.Show();
-      //    await Settings.RefreshToken(true);
-      //  }
-      //  finally
-      //  {
-      //    App.LoadingPopup.Hide(); IsLoaded = true;
-      //  }
-      //}
       string oldEx = elh.RetrieveLoggedException(ExceptionType.Unhandled);
       if (oldEx != null)
       {
@@ -113,20 +89,17 @@ namespace ViaggiaTrentino.ViewModels
     public void PlanRecurrentJourneyTile()
     {
       navigationService.UriFor<MonitorJourneyViewModel>().Navigate();
-
     }
 
     public void SavedJourneysTile()
     {
-      //MessageBox.Show("Saved Journeys");
       navigationService.UriFor<SavedJourneyPageViewModel>().Navigate();
     }
 
     public void ReadNotificationsTile()
     {
       MessageBox.Show("Crash Test", "Application crash.", MessageBoxButton.OK);
-      throw new DivideByZeroException();
-
+      throw new DivideByZeroException("Application crash self-test");
     }
 
     public void SubmitAlertTile()

@@ -125,7 +125,7 @@
       </Grid>
 
 
-      <bab:BindableAppBar Mode="Minimized" x:Name="babMainPage" IsVisible="{Binding IsLoaded}" BackgroundColor="#205980" >
+      <bab:BindableAppBar Mode="Minimized" x:Name="babMainPage" BackgroundColor="#205980" >
         <bab:BindableAppBarMenuItem x:Name="BarLogin"
                                     Text="{Binding Path=LocalizedResources.MainpageLogin, Source={StaticResource LocalizedStrings}}"                                     
                                     Visibility="{Binding IsLogged, Converter={StaticResource boolToNotVisibility}}" />

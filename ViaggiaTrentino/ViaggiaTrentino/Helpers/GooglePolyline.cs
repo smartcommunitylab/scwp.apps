@@ -124,6 +124,7 @@ namespace ViaggiaTrentino.Helpers
     /// <param name="selectedLeg">the leg that should be highlighted</param>
     public void ShowMapWithFullPath(ItemCollection legs, Leg selectedLeg)
     {
+      // map setup
       Map ggm = new Map();
       ggm.ZoomLevel = 15;
       ggm.Height = Application.Current.Host.Content.ActualHeight;
@@ -134,12 +135,11 @@ namespace ViaggiaTrentino.Helpers
       MapLayer mapLay = new MapLayer();
       Pushpin startPin, endPin;
 
-
-
       foreach (var gamba in legs)
       {
         List<GeoCoordinate> lp = DecodePolylinePoints((gamba as Leg).LegGeometryInfo.Points);
 
+        // check if first leg of the whole path in order to set the appropriate flag
         if (gamba == legs.First())
         {
           startPin = new Pushpin()
@@ -150,6 +150,9 @@ namespace ViaggiaTrentino.Helpers
           mapOverS.Content = startPin;
           mapOverS.GeoCoordinate = startPin.GeoCoordinate;
         }
+
+        // check if last leg of the whole path in order to set the appropriate flag
+        // can't use 'else' because one-legged journeys are possible
         if (gamba == legs.Last())
         {
           endPin = new Pushpin()
@@ -164,9 +167,11 @@ namespace ViaggiaTrentino.Helpers
         MapPolyline mpl = new MapPolyline();
         mpl.StrokeThickness = 5;
 
+        // add the many lines that compose this leg's polyline
         foreach (GeoCoordinate p in lp)
           mpl.Path.Add(p);
 
+        // if selected leg, colour it red, cyan otherwise
         if (gamba == selectedLeg)
         {
           locRet = LocationRectangle.CreateBoundingRectangle(lp);
@@ -177,14 +182,18 @@ namespace ViaggiaTrentino.Helpers
         else
           mpl.StrokeColor = Colors.Cyan;
 
+        // add polyline to map
         ggm.MapElements.Add(mpl);
       }
 
+      // add start/end pushpins to map layer
       mapLay.Add(mapOverS);
       mapLay.Add(mapOverE);
+
+      // add layer to map
       ggm.Layers.Add(mapLay);
 
-
+      // finally displays the map
       MessagePrompt hugeMap = new MessagePrompt();
       hugeMap.Style = Application.Current.Resources["mpNoBorders"] as Style;
       hugeMap.Body = ggm;
