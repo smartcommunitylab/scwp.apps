@@ -63,12 +63,12 @@
 
 
   <!--LayoutRoot is the root grid where all page content is placed -->
-  <Grid x:Name="LayoutRoot" Background="Transparent">
+  <Grid x:Name="LayoutRoot" Background="Transparent" toolkit:TurnstileFeatherEffect.FeatheringIndex="1">
     <phone:Pivot x:Name="pivotRoutes" Title="{Binding SelectedAgencyTitle}" SelectionChanged="pivotRoutes_SelectionChanged">
       <!--Pivot item one-->
       <phone:PivotItem Header="{Binding Path=LocalizedResources.RoutePivot, Source={StaticResource LocalizedStrings}}">
         <!--ContentPanel - place additional content here-->
-        <ScrollViewer HorizontalScrollBarVisibility="Disabled" x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0"  >
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled" x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
           <ItemsControl ItemsSource="{Binding Path=RoutesName}">
             <ItemsControl.ItemsPanel>
               <ItemsPanelTemplate>
@@ -78,7 +78,8 @@
             <ItemsControl.ItemTemplate>
               <DataTemplate>
                 <Grid Width="{Binding Path=ActualWidth, ElementName=ContentPanel, Converter={StaticResource dynamicTileSize}, ConverterParameter=5}"
-                      x:Name="GridMyParent" Margin="5" cal:Message.Attach="[Event Tap]=[Action OpenTimetableView($dataContext)]"  toolkit:TurnstileFeatherEffect.FeatheringIndex="0">
+                      x:Name="GridMyParent" Margin="5" cal:Message.Attach="[Event Tap]=[Action OpenTimetableView($dataContext)]"
+                      toolkit:TurnstileFeatherEffect.FeatheringIndex="0">
                   <Rectangle Height="{Binding Width, ElementName=GridMyParent}" Width="{Binding Width, ElementName=GridMyParent}" Fill="{Binding Color}" />
                   <Border BorderThickness="2" BorderBrush="{Binding Color, Converter={StaticResource borderColorToggle}}">
                     <TextBlock Foreground="{Binding Color, Converter={StaticResource backgroundToForegroundColor}}" 
