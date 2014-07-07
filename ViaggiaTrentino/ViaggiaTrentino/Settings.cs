@@ -86,7 +86,6 @@ namespace ViaggiaTrentino
       set
       {
         iss["token"] = value;
-        //Debug.WriteLine(value);
         iss.Save();
         if(value != null)
           TokenExpiration = DateTime.Now + new TimeSpan(0, 0, value.ExpiresIn);
@@ -135,7 +134,6 @@ namespace ViaggiaTrentino
       {
         iss["lastGPSPosition"] = value;
         iss.Save();
-        //Debug.WriteLine(value.Latitude + ", " + value.Longitude);
       }
     }
 
