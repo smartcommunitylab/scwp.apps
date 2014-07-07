@@ -10,6 +10,8 @@ using Microsoft.Phone.Shell;
 using System.Windows.Controls.Primitives;
 using Caliburn.Micro;
 using GuidedTour;
+using RateMyApp.Controls;
+using System.Windows.Media;
 
 namespace ViaggiaTrentino.Views
 {
@@ -87,6 +89,15 @@ namespace ViaggiaTrentino.Views
       if (!isSubscribed)
         eventAggregator.Subscribe(this);
     }
+
+    private void feedbackOverlay_VisibilityChanged(object sender, EventArgs e)
+    {
+      if ((sender as FeedbackOverlay).Visibility == System.Windows.Visibility.Visible)
+        SystemTray.BackgroundColor = (Color)Application.Current.Resources["PhoneChromeColor"];
+      else
+        SystemTray.BackgroundColor = (Color)Application.Current.Resources["PhoneBackgroundColor"];
+    }
+
 
   }
 }

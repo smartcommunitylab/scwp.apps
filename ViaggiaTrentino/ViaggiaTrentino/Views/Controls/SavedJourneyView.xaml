@@ -19,57 +19,53 @@
   </UserControl.Resources>
 
   <StackPanel Background="{StaticResource PhoneChromeBrush}" Margin="0,0,0,5">
-
-
     <Grid x:Name="LayoutRoot"  HorizontalAlignment="Stretch">
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="*"/>
         <ColumnDefinition Width="Auto"/>
         <ColumnDefinition Width="Auto"/>
-
       </Grid.ColumnDefinitions>
 
       <StackPanel Grid.Column="0"  Margin="10,5,5,5">
-          <TextBlock Text="{Binding Name, TargetNullValue='empty title'}" TextWrapping="Wrap" FontWeight="SemiBold" ></TextBlock>
-          <TextBlock Text="{Binding OriginalFrom.Name, TargetNullValue=''}" 
+        <TextBlock Text="{Binding Name, TargetNullValue='empty title'}" TextWrapping="Wrap" FontWeight="SemiBold" ></TextBlock>
+        <TextBlock Text="{Binding OriginalFrom.Name, TargetNullValue=''}" 
                    TextWrapping="Wrap"></TextBlock>
-          <TextBlock Text="{Binding OriginalTo.Name, TargetNullValue=''}" 
+        <TextBlock Text="{Binding OriginalTo.Name, TargetNullValue=''}" 
                    TextWrapping="Wrap"></TextBlock>
-          <!--<TextBlock Text="partenza" TextWrapping="Wrap"></TextBlock>
+        <!--<TextBlock Text="partenza" TextWrapping="Wrap"></TextBlock>
         <TextBlock Text="destinazione" TextWrapping="Wrap"></TextBlock>-->
-        </StackPanel>
+      </StackPanel>
 
       <StackPanel Grid.Column="1" Margin="5,5,5,5">
-          <TextBlock Text="{Binding Data, Converter={StaticResource itiToDateStr}}"></TextBlock>
-          <!--<TextBlock Text="45/54/99 22:55 - 55:44"></TextBlock>-->
-          <ListBox ItemsSource="{Binding Data.Legs, Converter={ StaticResource legsToImgs}}"  
+        <TextBlock Text="{Binding Data, Converter={StaticResource itiToDateStr}}"></TextBlock>
+        <!--<TextBlock Text="45/54/99 22:55 - 55:44"></TextBlock>-->
+        <ListBox ItemsSource="{Binding Data.Legs, Converter={ StaticResource legsToImgs}}"  
                  ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
-            <ListBox.ItemsPanel>
-              <ItemsPanelTemplate>
-                <toolkit:WrapPanel x:Name="wrpTransports" HorizontalAlignment="Center" >
+          <ListBox.ItemsPanel>
+            <ItemsPanelTemplate>
+              <toolkit:WrapPanel x:Name="wrpTransports" HorizontalAlignment="Center" >
 
-                </toolkit:WrapPanel>
-              </ItemsPanelTemplate>
-            </ListBox.ItemsPanel>
-            <ListBox.ItemTemplate>
-              <DataTemplate>
-                <Image Width="48" Source="{Binding}"></Image>
-              </DataTemplate>
-            </ListBox.ItemTemplate>
-          </ListBox>
-        </StackPanel>
-      </Grid>
-      <Rectangle Grid.Column="2" x:Name="retMonitor" VerticalAlignment="Stretch" Fill="{Binding Monitor, Converter={StaticResource boolToColor}}" Width="5" Margin="10,0,0,0">
+              </toolkit:WrapPanel>
+            </ItemsPanelTemplate>
+          </ListBox.ItemsPanel>
+          <ListBox.ItemTemplate>
+            <DataTemplate>
+              <Image Width="48" Source="{Binding}"></Image>
+            </DataTemplate>
+          </ListBox.ItemTemplate>
+        </ListBox>
+      </StackPanel>
 
-      </Rectangle>
+      <Rectangle Grid.Column="2" x:Name="retMonitor" Width="5" Margin="10,0,0,0" VerticalAlignment="Stretch"
+               Fill="{Binding Monitor, Converter={StaticResource boolToColor}}"/>
+    </Grid>
+    <toolkit:ContextMenuService.ContextMenu >
+      <toolkit:ContextMenu>
+        <toolkit:MenuItem x:Name="DeleteJourney" Tap="DeleteJourney_Tap" Header="{Binding Path=LocalizedResources.SavedJourneyDetailsDelete, Source={StaticResource LocalizedStrings}}"></toolkit:MenuItem>
+        <toolkit:MenuItem x:Name="MonitorJourney" Tap="MonitorJourney_Tap" Header="{Binding Path=LocalizedResources.SavedJourneyMonitorToggle, Source={StaticResource LocalizedStrings}}"></toolkit:MenuItem>
 
-      <toolkit:ContextMenuService.ContextMenu >
-        <toolkit:ContextMenu>
-          <toolkit:MenuItem x:Name="DeleteJourney" Tap="DeleteJourney_Tap" Header="{Binding Path=LocalizedResources.SavedJourneyDetailsDelete, Source={StaticResource LocalizedStrings}}"></toolkit:MenuItem>
-          <toolkit:MenuItem x:Name="MonitorJourney" Tap="MonitorJourney_Tap" Header="{Binding Path=LocalizedResources.SavedJourneyMonitorToggle, Source={StaticResource LocalizedStrings}}"></toolkit:MenuItem>
-
-        </toolkit:ContextMenu>
-      </toolkit:ContextMenuService.ContextMenu>
+      </toolkit:ContextMenu>
+    </toolkit:ContextMenuService.ContextMenu>
   </StackPanel>
 
 

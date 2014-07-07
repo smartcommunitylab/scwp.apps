@@ -11,6 +11,7 @@
     xmlns:bab="clr-namespace:Caliburn.Micro.BindableAppBar;assembly=Caliburn.Micro.BindableAppBar"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:vtconvert="clr-namespace:ViaggiaTrentino.Converters"
+    xmlns:rma="clr-namespace:RateMyApp.Controls;assembly=RateMyApp"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -46,43 +47,44 @@
     <vtconvert:BooleanToReversedVisibilityConverter x:Name="boolToNotVisibility" />
   </phone:PhoneApplicationPage.Resources>
 
-  <!--LayoutRoot is the root grid where all page content is placed-->
+
   <Grid x:Name="LayoutRoot" Background="Transparent">
-    <Grid.RowDefinitions>
-      <RowDefinition Height="Auto"/>
-      <RowDefinition Height="*"/>
-    </Grid.RowDefinitions>
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="*"/>
+      </Grid.RowDefinitions>
 
-    <!--TitlePanel contains the name of the application and page title-->
-    <StackPanel Grid.Row="0" Margin="12,17,0,28">
-      <TextBlock Text="{Binding Path=LocalizedResources.AppProducer, Source={StaticResource LocalizedStrings}}"
+      <!--TitlePanel contains the name of the application and page title-->
+      <StackPanel Grid.Row="0" Margin="12,17,0,28">
+        <TextBlock Text="{Binding Path=LocalizedResources.AppProducer, Source={StaticResource LocalizedStrings}}"
                  Style="{StaticResource PhoneTextNormalStyle}"/>
-      <TextBlock Text="{Binding Path=LocalizedResources.MainViewTitle, Source={StaticResource LocalizedStrings}}"
+        <TextBlock Text="{Binding Path=LocalizedResources.MainViewTitle, Source={StaticResource LocalizedStrings}}"
                  Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
-    </StackPanel>
+      </StackPanel>
 
-    <!--ContentPanel - place additional content here-->
-    <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-      <Grid HorizontalAlignment="Left">
-        <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="*" />
-          <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-          <RowDefinition Height="Auto" />
-          <RowDefinition Height="Auto" />
-          <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
+      <!--ContentPanel - place additional content here-->
+      <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+        <Grid HorizontalAlignment="Left">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+          </Grid.RowDefinitions>
 
-        <toolkit:HubTile Margin="5" Grid.Column="0" Grid.Row="0"
+          <toolkit:HubTile Margin="5" Grid.Column="0" Grid.Row="0"
                          x:Name="PlanJourneyTile"
                          Source="/Assets/HubTiles/ic_planjourney.png"
                          Title="{Binding Path=LocalizedResources.TilePlanJourneyTitle, Source={StaticResource LocalizedStrings}}" 
                          Message="{Binding Path=LocalizedResources.TilePlanJourneyMessage, Source={StaticResource LocalizedStrings}}" 
                          toolkit:TurnstileFeatherEffect.FeatheringIndex="1"
-                         Tag="{Binding Path=LocalizedResources.TilePlanJourneyTagTour, Source={StaticResource LocalizedStrings}}"/>
-        
-        <toolkit:HubTile Margin="5" Grid.Column="1" Grid.Row="0"
+                         Tag="{Binding Path=LocalizedResources.TilePlanJourneyTagTour, Source={StaticResource LocalizedStrings}}" />
+
+          <toolkit:HubTile Margin="5" Grid.Column="1" Grid.Row="0"
                          x:Name="PlanRecurrentJourneyTile"
                          Source="/Assets/HubTiles/ic_monitor.png"
                          Title="{Binding Path=LocalizedResources.TilePlanRecurrentJourneyTitle, Source={StaticResource LocalizedStrings}}" 
@@ -90,7 +92,7 @@
                          toolkit:TurnstileFeatherEffect.FeatheringIndex="3"
                          Tag="{Binding Path=LocalizedResources.PlanRecurrentJourneyTileTagTour, Source={StaticResource LocalizedStrings}}"/>
 
-        <toolkit:HubTile Margin="5" Grid.Column="0" Grid.Row="1"
+          <toolkit:HubTile Margin="5" Grid.Column="0" Grid.Row="1"
                          x:Name="SavedJourneysTile"
                          Source="/Assets/HubTiles/ic_savedjourney.png"
                          Title="{Binding Path=LocalizedResources.TileSavedJourneysTitle, Source={StaticResource LocalizedStrings}}" 
@@ -98,7 +100,7 @@
                          toolkit:TurnstileFeatherEffect.FeatheringIndex="5"
                          Tag="{Binding Path=LocalizedResources.SavedJourneysTileTagTour, Source={StaticResource LocalizedStrings}}"/>
 
-        <toolkit:HubTile Margin="5" Grid.Column="1" Grid.Row="1"
+          <toolkit:HubTile Margin="5" Grid.Column="1" Grid.Row="1"
                          x:Name="ReadNotificationsTile"
                          Source="/Assets/HubTiles/ic_notices.png"
                          Title="{Binding Path=LocalizedResources.TileReadNotificationsTitle, Source={StaticResource LocalizedStrings}}" 
@@ -107,7 +109,7 @@
                          Tag="{Binding Path=LocalizedResources.ReadNotificationsTileTagTour, Source={StaticResource LocalizedStrings}}"/>
 
 
-        <toolkit:HubTile Margin="5" Grid.Column="0" Grid.Row="2"
+          <toolkit:HubTile Margin="5" Grid.Column="0" Grid.Row="2"
                          x:Name="SubmitAlertTile"
                          Source="/Assets/HubTiles/ic_sendnotices.png"
                          Title="{Binding Path=LocalizedResources.TileSubmitAlertTitle, Source={StaticResource LocalizedStrings}}" 
@@ -115,7 +117,7 @@
                          toolkit:TurnstileFeatherEffect.FeatheringIndex="2"                 
                          Tag="{Binding Path=LocalizedResources.SubmitAlertTileTagTour, Source={StaticResource LocalizedStrings}}"/>
 
-        <toolkit:HubTile Margin="5" Grid.Column="1" Grid.Row="2"
+          <toolkit:HubTile Margin="5" Grid.Column="1" Grid.Row="2"
                          x:Name="RealTimeInfoTile"
                          Source="/Assets/HubTiles/ic_realtimeinfo.png"
                          Title="{Binding Path=LocalizedResources.TileRealTimeInfoTitle, Source={StaticResource LocalizedStrings}}" 
@@ -123,26 +125,37 @@
                          toolkit:TurnstileFeatherEffect.FeatheringIndex="0"  
                          Tag="{Binding Path=LocalizedResources.RealTimeInfoTileTagTour, Source={StaticResource LocalizedStrings}}"/>
 
-      </Grid>
+        </Grid>
 
 
-      <bab:BindableAppBar Mode="Minimized" x:Name="babMainPage" BackgroundColor="#205980" >
-        <bab:BindableAppBarMenuItem x:Name="BarLogin"
+        <bab:BindableAppBar Mode="Minimized" x:Name="babMainPage" BackgroundColor="#205980" >
+          <bab:BindableAppBarMenuItem x:Name="BarLogin"
                                     Text="{Binding Path=LocalizedResources.MainpageLogin, Source={StaticResource LocalizedStrings}}"                                     
                                     Visibility="{Binding IsLogged, Converter={StaticResource boolToNotVisibility}}" />
-        <bab:BindableAppBarMenuItem x:Name="BarLogout" 
+          <bab:BindableAppBarMenuItem x:Name="BarLogout" 
                                     Text="{Binding Path=LocalizedResources.MainpageLogout, Source={StaticResource LocalizedStrings}}"
                                     Visibility="{Binding IsLogged, Converter={StaticResource boolToVisibility}}" />
-        <bab:BindableAppBarMenuItem x:Name="BarAbout"
+          <bab:BindableAppBarMenuItem x:Name="BarAbout"
                                     Text="{Binding Path=LocalizedResources.MainpageAbout, Source={StaticResource LocalizedStrings}}" />
-        <bab:BindableAppBarMenuItem x:Name="BarSettings"
+          <bab:BindableAppBarMenuItem x:Name="BarSettings"
                                     Text="{Binding Path=LocalizedResources.MainpageSettings, Source={StaticResource LocalizedStrings}}" />
-        <!--<bab:BindableAppBarMenuItem x:Name="BarTest" Text="Test page"/>-->
-        <bab:BindableAppBarMenuItem Click="BarTour_Click"
+          <!--<bab:BindableAppBarMenuItem x:Name="BarTest" Text="Test page"/>-->
+          <bab:BindableAppBarMenuItem Click="BarTour_Click"
                                     Text="{Binding Path=LocalizedResources.MainpageTour, Source={StaticResource LocalizedStrings}}"/>
 
-      </bab:BindableAppBar>
+        </bab:BindableAppBar>
+      </Grid>
     </Grid>
-  </Grid>
+    <rma:FeedbackOverlay x:Name="feedbackOverlay"
+                         VerticalAlignment="Top"
+                         FirstCount="5"
+                         SecondCount="10"
+                         CountDays="True"
+                         FeedbackTo="smartcampuslab@outlook.com"        
+                         ApplicationName="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}"        
+                         CompanyName="{Binding Path=LocalizedResources.AppProducer, Source={StaticResource LocalizedStrings}}"
+                         EnableAnimation="True"
+                         VisibilityChanged="feedbackOverlay_VisibilityChanged"/>
 
+  </Grid>
 </phone:PhoneApplicationPage>

@@ -52,7 +52,7 @@
       <RowDefinition Height="*"/>
     </Grid.RowDefinitions>
 
-    <Grid Grid.Row="0" Margin="0,17,0,18" Background="{Binding Color}">
+    <Grid Grid.Row="0" Margin="0,0,0,18" Background="{Binding Color}">
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="*" />
         <ColumnDefinition Width="Auto" />

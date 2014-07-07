@@ -19,6 +19,7 @@ namespace ViaggiaTrentino.ViewModels
     {
       StringBuilder sb = new StringBuilder();
       sb.AppendLine("• Microsoft HttpClient");
+      sb.AppendLine("• Microsoft RateMyApp");
       sb.AppendLine("• Newtonsoft JSON.NET");
       sb.AppendLine("• Caliburn Micro framework");
       sb.AppendLine("• Coding4Fun toolkit");
