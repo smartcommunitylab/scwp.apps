@@ -1,32 +1,25 @@
 ﻿using Caliburn.Micro;
 using CommonHelpers;
-using System.Linq;
-using System.Collections.Generic;
 using DBManager;
+using DBManager.DBModels;
+using Microsoft.Phone.Shell;
 using MobilityServiceLibrary;
 using Models.MobilityService;
-using System.Collections.ObjectModel;
+using Models.MobilityService.PublicTransport;
 using Newtonsoft.Json;
 using System;
-using Models.MobilityService.PublicTransport;
-using System.Collections;
-using System.Diagnostics;
-using Microsoft.Phone.Shell;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Windows.Media;
-using ViaggiaTrentino.Converters;
-using System.Windows.Controls;
-using Windows.Storage;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
-using System.IO.IsolatedStorage;
+using System.Linq;
 using System.Windows;
-using System.Windows.Navigation;
-using System.Net;
-using ViaggiaTrentino.Views;
+using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using ViaggiaTrentino.Converters;
 using ViaggiaTrentino.Resources;
-
-
+using ViaggiaTrentino.Views;
+using Windows.Storage;
 
 namespace ViaggiaTrentino.ViewModels
 {
@@ -38,10 +31,9 @@ namespace ViaggiaTrentino.ViewModels
     private DateTime currentDate;
     private bool enableAppBar, noResults;
     private string routeIDWitDirection, nameID, description, color;
-    private ObservableCollection<DBManager.DBModels.RouteName> routeNames;
-    DBManager.DBModels.RouteName selectedRouteName;
+    private ObservableCollection<RouteName> routeNames;
+    RouteName selectedRouteName;
     PublicTransportLibrary ptLib;
-
 
     public TimetablePageViewModel(INavigationService navigationService, IEventAggregator eventAggregator)
     {
@@ -50,6 +42,8 @@ namespace ViaggiaTrentino.ViewModels
       ptLib = new PublicTransportLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
       NoResults = false;
     }
+
+    #region Page overrides
 
     protected override void OnInitialize()
     {
@@ -74,15 +68,12 @@ namespace ViaggiaTrentino.ViewModels
       GetTimeTableDelaysFromInternet();
       
     }
-    
-    private double DateTimeToEpoch(DateTime dt)
-    {
-      TimeSpan span = (dt.ToUniversalTime() - new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc));
-      return span.TotalMilliseconds;
-    }
+
+    #endregion
 
     #region Properties
-    public ObservableCollection<DBManager.DBModels.RouteName> RouteNames
+
+    public ObservableCollection<RouteName> RouteNames
     {
       get { return routeNames; }
       set
@@ -146,7 +137,7 @@ namespace ViaggiaTrentino.ViewModels
       get { return NameID.Trim() != "" ? string.Format("{0} - {1}", NameID, Description) : Description; }
     }
 
-    public DBManager.DBModels.RouteName SelectedRouteName
+    public RouteName SelectedRouteName
     {
       get { return selectedRouteName; }
       set
@@ -175,7 +166,10 @@ namespace ViaggiaTrentino.ViewModels
         NotifyOfPropertyChange(() => NoResults);
       }
     }
+
     #endregion
+
+    #region Data gathering and support functions
 
     private async void GetTimeTableDelaysFromInternet()
     {
@@ -234,6 +228,14 @@ namespace ViaggiaTrentino.ViewModels
         }
       }
     }
+
+    private double DateTimeToEpoch(DateTime dt)
+    {
+      TimeSpan span = (dt.ToUniversalTime() - new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc));
+      return span.TotalMilliseconds;
+    }
+
+    #endregion
 
     #region AppBar
 

@@ -1,15 +1,7 @@
 ﻿using Caliburn.Micro;
-using Coding4Fun.Toolkit.Controls;
-using Microsoft.Phone.Maps.Controls;
 using Microsoft.Phone.Shell;
 using MobilityServiceLibrary;
 using Models.MobilityService.Journeys;
-using System;
-using System.Collections.Generic;
-using System.Device.Location;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using ViaggiaTrentino.Helpers;
 using ViaggiaTrentino.Resources;
@@ -25,6 +17,8 @@ namespace ViaggiaTrentino.ViewModels
     GooglePolyline gplHelp;
     bool isLoaded;
 
+    #region Properties
+
     public BasicItinerary Journey
     {
       get { return basIti; }
@@ -34,6 +28,7 @@ namespace ViaggiaTrentino.ViewModels
         NotifyOfPropertyChange(() => Journey);
       }
     }
+    
     public bool IsLoaded
     {
       get { return isLoaded; }
@@ -43,6 +38,9 @@ namespace ViaggiaTrentino.ViewModels
         NotifyOfPropertyChange(() => IsLoaded);
       }
     }
+
+    #endregion
+
     public SavedSingleJourneyDetailsViewModel(INavigationService navigationService)
     {
       this.navigationService = navigationService;
@@ -57,16 +55,13 @@ namespace ViaggiaTrentino.ViewModels
     {
       base.OnViewLoaded(view);
     }
-
-    //public void DisplayPolylineMap(Leg dataContext)
-    //{
-    //  gplHelp.ShowMapWithPath(dataContext.LegGeometryInfo.Points);     
-    //}
-
+    
     public void DisplayPolylineMap(SavedSingleJourneyDetailsView fullView)
     {
       gplHelp.ShowMapWithFullPath(fullView.listLegsBox.Items, fullView.listLegsBox.SelectedItem as Leg);
     }
+
+    #region Appbar
 
     public async void BarMonitor()
     {
@@ -80,8 +75,7 @@ namespace ViaggiaTrentino.ViewModels
       finally
       {
         App.LoadingPopup.Hide(); IsLoaded = true;
-      }
-     
+      }     
     }
 
     public async void BarDelete()
@@ -100,11 +94,10 @@ namespace ViaggiaTrentino.ViewModels
           App.LoadingPopup.Hide();
           if (delRes)
             navigationService.UriFor<SavedJourneyPageViewModel>().Navigate();
-        }
-       
-        
+        }        
       }
     }
 
+    #endregion
   }
 }

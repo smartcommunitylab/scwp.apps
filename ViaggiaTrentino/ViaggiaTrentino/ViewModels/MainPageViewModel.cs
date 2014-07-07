@@ -33,6 +33,8 @@ namespace ViaggiaTrentino.ViewModels
       get { return Settings.IsLogged; }
     }
 
+    #region Page overrides
+
     protected override void OnActivate()
     {
       base.OnActivate();
@@ -68,6 +70,8 @@ namespace ViaggiaTrentino.ViewModels
         }
       }
     }
+
+    #endregion
 
     private static void SendErrorEmail(string exceptionMessage)
     {

@@ -2,12 +2,8 @@
 using Microsoft.Phone.Shell;
 using MobilityServiceLibrary;
 using Models.MobilityService.Journeys;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ViaggiaTrentino.ViewModels
 {
@@ -17,7 +13,9 @@ namespace ViaggiaTrentino.ViewModels
     RoutePlanningLibrary rpLib;
     string from, to;
     ObservableCollection<Itinerary> listIti;
-    
+
+    #region Properties
+
     public ObservableCollection<Itinerary> ListIti
     {
       get { return listIti; }
@@ -47,6 +45,8 @@ namespace ViaggiaTrentino.ViewModels
         NotifyOfPropertyChange(() => To);
       }
     }
+
+    #endregion
 
     public PlanNewSingleJourneyListViewModel(INavigationService navigationService)
     {

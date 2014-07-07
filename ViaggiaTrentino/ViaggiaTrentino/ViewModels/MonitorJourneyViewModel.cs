@@ -1,26 +1,16 @@
 ﻿using Caliburn.Micro;
-using Coding4Fun.Toolkit.Controls;
 using Microsoft.Phone.Controls;
-using Microsoft.Phone.Maps.Controls;
-using Microsoft.Phone.Maps.Services;
-using Microsoft.Phone.Maps.Toolkit;
 using Microsoft.Phone.Shell;
 using Models.MobilityService;
 using Models.MobilityService.Journeys;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Device.Location;
 using System.Globalization;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls.Primitives;
 using ViaggiaTrentino.Helpers;
 using ViaggiaTrentino.Resources;
-using ViaggiaTrentino.Views.Controls;
-using Windows.Phone.Devices.Notification;
 
 namespace ViaggiaTrentino.ViewModels
 {
@@ -61,7 +51,7 @@ namespace ViaggiaTrentino.ViewModels
       flh.FavouriteSelectionCompleted += PositionObtained;
     }
 
-
+    #region Properties
 
     void PositionObtained(object sender, Position results)
     {
@@ -185,6 +175,8 @@ namespace ViaggiaTrentino.ViewModels
       }
     }
 
+    #endregion
+
     #region Buttons eventhandlers
 
     public void FavsFrom()
@@ -214,6 +206,8 @@ namespace ViaggiaTrentino.ViewModels
       locationResult = "to";
       lch.ShowLocationSelectorHelper();
     }
+
+    #region data format support
 
     public RouteType SelectedRouteType
     {
@@ -252,6 +246,37 @@ namespace ViaggiaTrentino.ViewModels
       }
     }
 
+    private int[] SelectedDaysToArray()
+    {
+      List<int> usefulDays = new List<int>();
+      var a = selDays.ToArray();
+
+      List<string> localizedDays = new List<string>();
+
+      for (int i = 1; i <= 7; i++)
+      {
+        localizedDays.Add(new DateTime(1970, 2, i).ToString("dddd", DateTimeFormatInfo.CurrentInfo));
+      }
+
+      foreach (var item in a)
+      {
+        int res = localizedDays.IndexOf(item as string);
+        usefulDays.Add(res + 1);
+      }
+
+      usefulDays.Sort();
+
+      return usefulDays.ToArray();
+    }
+
+    private double DateTimeToEpoch(DateTime dt)
+    {
+      TimeSpan span = (dt.ToUniversalTime() - new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc));
+      return span.TotalMilliseconds;
+    }
+
+    #endregion
+
     public void PlanNewJourney()
     {
       if (ValidateRecurrentJourney())
@@ -284,34 +309,7 @@ namespace ViaggiaTrentino.ViewModels
         PhoneApplicationService.Current.State["recurrentJourney"] = rjp;
         navigationService.UriFor<MonitorJourneyListViewModel>().Navigate();
       }
-    }
-
-    private int[] SelectedDaysToArray()
-    {
-      List<int> usefulDays = new List<int>();
-      var a = selDays.ToArray();
-
-      List<string> localizedDays = new List<string>();
-
-      for (int i = 1; i <= 7; i++)
-      {
-        localizedDays.Add(new DateTime(1970, 2, i).ToString("dddd", DateTimeFormatInfo.CurrentInfo));
-      }
-
-      foreach (var item in a)
-      {
-        int res = localizedDays.IndexOf(item as string);
-        usefulDays.Add(res + 1);
-      }
-
-      return usefulDays.ToArray();
-    }
-
-    private double DateTimeToEpoch(DateTime dt)
-    {
-      TimeSpan span = (dt.ToUniversalTime() - new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc));
-      return span.TotalMilliseconds;
-    }
+    }    
 
     private bool ValidateRecurrentJourney()
     {

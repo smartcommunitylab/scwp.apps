@@ -104,7 +104,6 @@ namespace ViaggiaTrentino
         {
           ImportDatabase(dbFile);
         }
-
         //dbFile.DeleteAsync();
       }
       catch (FileNotFoundException)

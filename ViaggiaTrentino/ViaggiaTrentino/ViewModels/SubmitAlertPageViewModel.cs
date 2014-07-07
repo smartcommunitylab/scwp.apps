@@ -1,5 +1,4 @@
-﻿using AuthenticationLibrary;
-using Caliburn.Micro;
+﻿using Caliburn.Micro;
 using CommonHelpers;
 using DBManager;
 using DBManager.DBModels;
@@ -15,7 +14,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 using ViaggiaTrentino.Resources;
 
@@ -36,6 +34,16 @@ namespace ViaggiaTrentino.ViewModels
     private ObservableCollection<Route> routes;
     private ObservableCollection<Stop> stops;
     private ObservableCollection<StopTime> stopTimes;
+
+    public SubmitAlertPageViewModel(INavigationService navigationService)
+    {
+      this.navigationService = navigationService;
+      ptl = new PublicTransportLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
+      rtuLib = new RealTimeUpdateLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
+      IsLoaded = true;
+    }
+
+    #region Properties
 
     public string LineName
     {
@@ -135,19 +143,9 @@ namespace ViaggiaTrentino.ViewModels
       }
     }
 
-    public void DelayTimeChanged(TextBox obj)
-    {
-      delay = obj.Text;
-    }
+    #endregion
 
-    public SubmitAlertPageViewModel(INavigationService navigationService)
-    {
-      this.navigationService = navigationService;
-      ptl = new PublicTransportLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
-      rtuLib = new RealTimeUpdateLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
-      IsLoaded = true;
-    }
-
+    
     protected override async void OnViewLoaded(object view)
     {
       base.OnViewLoaded(view);
@@ -175,6 +173,7 @@ namespace ViaggiaTrentino.ViewModels
         }
         else
           results.Sort();
+
         Routes = new ObservableCollection<Route>(results);
         SelectedRoute = Routes.FirstOrDefault();
       }
@@ -182,8 +181,9 @@ namespace ViaggiaTrentino.ViewModels
       {
         App.LoadingPopup.Hide(); IsLoaded = true;
       }
-
     }
+
+    #region Times and stops loading
 
     public async void GetStopsForRoute(Route r)
     {
@@ -198,8 +198,6 @@ namespace ViaggiaTrentino.ViewModels
       {
         App.LoadingPopup.Hide(); IsLoaded = true;
       }
-
-
     }
 
     private async void GetStopTimesForStop(Stop value)
@@ -215,8 +213,16 @@ namespace ViaggiaTrentino.ViewModels
       {
         App.LoadingPopup.Hide(); IsLoaded = true;
       }
-
     }
+
+    public void DelayTimeChanged(TextBox obj)
+    {
+      delay = obj.Text;
+    }
+
+    #endregion 
+
+    #region Appbar
 
     private bool ValidateDelay()
     {
@@ -249,7 +255,6 @@ namespace ViaggiaTrentino.ViewModels
       {
         try
         {
-
           long a = (DateTime.Now.Ticks - 621355968000000000) / 10000000;
           AlertDelay ad = new AlertDelay()
           {
@@ -267,7 +272,6 @@ namespace ViaggiaTrentino.ViewModels
             Delay = Convert.ToInt32(delay),
             Type = AlertType.Delay,
             ValidFrom = (DateTime.Now.Ticks - 621355968000000000) / 10000000
-
           };
           App.LoadingPopup.Show();
 
@@ -281,7 +285,8 @@ namespace ViaggiaTrentino.ViewModels
         }
         navigationService.UriFor<MainPageViewModel>().Navigate();
       }
-
     }
+
+    #endregion
   }
 }
