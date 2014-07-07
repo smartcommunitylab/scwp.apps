@@ -131,18 +131,20 @@
         <bab:BindableAppBar Mode="Minimized" x:Name="babMainPage" BackgroundColor="#205980" ForegroundColor="White">
           <bab:BindableAppBarMenuItem x:Name="BarLogin"
                                     Text="{Binding Path=LocalizedResources.MainpageLogin, Source={StaticResource LocalizedStrings}}"                                     
-                                    Visibility="{Binding IsLogged, Converter={StaticResource boolToNotVisibility}}" />
+                                    Visibility="{Binding IsLogged, Converter={StaticResource boolToNotVisibility}}" />         
+          
+          <bab:BindableAppBarMenuItem x:Name="BarSettings"
+                                    Text="{Binding Path=LocalizedResources.MainpageSettings, Source={StaticResource LocalizedStrings}}" />
+
+          <bab:BindableAppBarMenuItem Click="BarTour_Click"
+                                    Text="{Binding Path=LocalizedResources.MainpageTour, Source={StaticResource LocalizedStrings}}"/>
+          
           <bab:BindableAppBarMenuItem x:Name="BarLogout" 
                                     Text="{Binding Path=LocalizedResources.MainpageLogout, Source={StaticResource LocalizedStrings}}"
                                     Visibility="{Binding IsLogged, Converter={StaticResource boolToVisibility}}" />
+          
           <bab:BindableAppBarMenuItem x:Name="BarAbout"
                                     Text="{Binding Path=LocalizedResources.MainpageAbout, Source={StaticResource LocalizedStrings}}" />
-          <bab:BindableAppBarMenuItem x:Name="BarSettings"
-                                    Text="{Binding Path=LocalizedResources.MainpageSettings, Source={StaticResource LocalizedStrings}}" />
-          <!--<bab:BindableAppBarMenuItem x:Name="BarTest" Text="Test page"/>-->
-          <bab:BindableAppBarMenuItem Click="BarTour_Click"
-                                    Text="{Binding Path=LocalizedResources.MainpageTour, Source={StaticResource LocalizedStrings}}"/>
-
         </bab:BindableAppBar>
       </Grid>
     </Grid>
