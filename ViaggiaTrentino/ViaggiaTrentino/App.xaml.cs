@@ -18,14 +18,9 @@ namespace ViaggiaTrentino
   {
     public static PhoneApplicationFrame RootFrame { get; private set; }
 
-    //private static MessagePrompt loadingPopup;
-
-
     public App()
     {
       InitializeComponent();
-
-      
 
       if (Debugger.IsAttached)
       {
@@ -37,8 +32,7 @@ namespace ViaggiaTrentino
     public static class LoadingPopup
     {
       private static Popup loadingPopup;
-      //private static MessagePrompt loadingPopup;
-
+      
       // to call after app initialization, so that multilang works
       public static void InitializePopup()
       {
@@ -51,19 +45,13 @@ namespace ViaggiaTrentino
       public static void Show()
       {
         loadingPopup.IsOpen = true;
-        //loadingPopup = new MessagePrompt()
-        //{
-        //  Style = Application.Current.Resources["mpNoBorders"] as Style,
-        //  Background = new SolidColorBrush(Colors.Transparent),
-        //  Body = new LoadingControl()
-        //};
-        //loadingPopup.Show();
       }
+   
       public static void Hide()
       {
         loadingPopup.IsOpen = false;
-        //loadingPopup.Hide();
       }
+      
       public static bool IsShown()
       {
         return loadingPopup.IsOpen;
