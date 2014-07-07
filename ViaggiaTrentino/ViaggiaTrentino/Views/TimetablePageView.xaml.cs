@@ -44,8 +44,6 @@ namespace ViaggiaTrentino.Views
       txtNoAvailable.Padding = new Thickness(0, (ContentPanel.ActualHeight - txtNoAvailable.ActualHeight / 2 - bAppBar.ActualHeight) / 2, 0, 0);      
     }
 
-
-
     private void PhoneApplicationPage_Unloaded(object sender, RoutedEventArgs e)
     {
       eventAggregator.Unsubscribe(this);
@@ -123,6 +121,10 @@ namespace ViaggiaTrentino.Views
         {
           listBoxNames.Items.Add(ct.Stops[i]);
         }
+
+        //Reset the timetable closest time
+        (stackPanelTimetable.Parent as ScrollViewer).ScrollToHorizontalOffset(listBoxNames.ActualWidth);
+
         bw = new BackgroundWorker();
         bw.WorkerSupportsCancellation = true;
         bw.WorkerReportsProgress = true;
@@ -259,7 +261,7 @@ namespace ViaggiaTrentino.Views
     public void Handle(List<Delay> message)
     {
       listDelay = message;
-      if (bw != null && !bw.IsBusy)
+      if (bw != null && !bw.IsBusy && !((TimetablePageViewModel)(this.DataContext)).NoResults)
         UpdateTimeTableWithDelays();
     }
 
@@ -272,7 +274,6 @@ namespace ViaggiaTrentino.Views
           txBlk.Inlines.Add(new Run() { Text = listDelay[spColumn].delayFromService, Foreground = new SolidColorBrush(Colors.Red) });
         if(listDelay[spColumn].delayFromUser != null)
           txBlk.Inlines.Add(new Run() { Text = listDelay[spColumn].delayFromUser, Foreground = new SolidColorBrush(Colors.Blue) });
-
       }
     }
 

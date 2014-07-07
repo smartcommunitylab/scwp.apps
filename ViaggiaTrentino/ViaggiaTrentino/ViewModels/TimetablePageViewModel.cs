@@ -25,6 +25,7 @@ using System.Windows.Navigation;
 using System.Net;
 using ViaggiaTrentino.Views;
 using ViaggiaTrentino.Resources;
+using System.Net.Http;
 
 
 
@@ -179,13 +180,19 @@ namespace ViaggiaTrentino.ViewModels
 
     private async void GetTimeTableDelaysFromInternet()
     {
+      if (!NoResults)
+      {
+        try
+        {
+          TimeTable AudiTT = await ptLib.GetTransitDelays(routeIDWitDirection,
+          Convert.ToInt64(DateTimeToEpoch(new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, 0, 0, 0))),
+          Convert.ToInt64(DateTimeToEpoch(new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, 23, 59, 59))));
 
-      TimeTable AudiTT = await ptLib.GetTransitDelays(routeIDWitDirection,
-      Convert.ToInt64(DateTimeToEpoch(new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, 0, 0, 0))),
-      Convert.ToInt64(DateTimeToEpoch(new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, 23, 59, 59))));
-
-      eventAggregator.Publish(AudiTT.Delays[0]);
-
+          eventAggregator.Publish(AudiTT.Delays[0]);
+        }
+        catch (HttpRequestException) { }
+        catch (WebException) { }
+      }
     }
 
     private void GetTimetableFromDB()
