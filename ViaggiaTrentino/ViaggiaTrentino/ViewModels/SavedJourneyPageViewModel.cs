@@ -91,20 +91,13 @@ namespace ViaggiaTrentino.ViewModels
         await Settings.RefreshToken();
         basList = await urLib.ReadAllSingleJourneys();
         barList = await urLib.ReadAllRecurrentJourneys();
-      }
-      finally
-      {
-        App.LoadingPopup.Hide();
         MySavedSingleJourneys = new ObservableCollection<BasicItinerary>(basList);
         MySavedRecurrentJourneys = new ObservableCollection<BasicRecurrentJourney>(barList);
       }
-
-      //BackgroundWorker bw = new BackgroundWorker();
-      //bw.DoWork += bw_DoWork;
-      //bw.ProgressChanged += bw_ProgressChanged;
-      //bw.WorkerReportsProgress = true;
-      //bw.WorkerSupportsCancellation = true;
-      //bw.RunWorkerAsync();
+      finally
+      {
+        App.LoadingPopup.Hide();        
+      }
     }
 
     protected override void OnViewLoaded(object view)
