@@ -117,7 +117,7 @@
       </Grid>
     </StackPanel>
 
-    <bab:BindableAppBar x:Name="bAppBar"  BackgroundColor="#205980">
+    <bab:BindableAppBar x:Name="bAppBar"  BackgroundColor="#205980" ForegroundColor="White">
       <bab:BindableAppBarButton IconUri="/Assets/AppBar/Previous.png" x:Name="Previous" IsEnabled="{Binding DisableAppBar}" 
                                 Text="{Binding Path=LocalizedResources.Previous, Source={StaticResource LocalizedStrings}}"  />
       <bab:BindableAppBarButton IconUri="/Assets/AppBar/Today.png" x:Name="Current" IsEnabled="{Binding DisableAppBar}" 

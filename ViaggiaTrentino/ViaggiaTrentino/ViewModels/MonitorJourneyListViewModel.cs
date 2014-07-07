@@ -19,6 +19,8 @@ namespace ViaggiaTrentino.ViewModels
     RecurrentJourney recJ;
     RecurrentJourneyParameters recJP;
 
+    #region Properties
+
     public RecurrentJourney RecJourney
     {
       get { return recJ; }
@@ -45,6 +47,8 @@ namespace ViaggiaTrentino.ViewModels
       rpLib = new RoutePlanningLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
       urLib = new UserRouteLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
     }
+
+    #endregion
 
     protected override async void OnViewLoaded(object view)
     {
@@ -85,6 +89,8 @@ namespace ViaggiaTrentino.ViewModels
       }
     }
 
+    #region Appbar
+
     public void BarSave()
     {
 
@@ -96,7 +102,6 @@ namespace ViaggiaTrentino.ViewModels
 
       ip.Completed += ip_Completed;
       ip.Show();
-
     }
 
     async void ip_Completed(object sender, PopUpEventArgs<string, PopUpResult> e)
@@ -125,13 +130,13 @@ namespace ViaggiaTrentino.ViewModels
             if (respJourney != null)
               navigationService.UriFor<SavedJourneyPageViewModel>().WithParam(x => x.LastSavedJourney, 1).Navigate();
           }
-
-
         }
         else
           MessageBox.Show(AppResources.ValidationJTitle, AppResources.ValidationCaption, MessageBoxButton.OK);
       }
     }
+
+    #endregion
 
   }
 }

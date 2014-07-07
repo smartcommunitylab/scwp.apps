@@ -67,16 +67,16 @@
                     TextWrapping="Wrap" />
         <TextBlock  Text="{Binding Path=LocalizedResources.AboutPageDevel, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}"
                     TextWrapping="Wrap"/>
-        <HyperlinkButton  HorizontalAlignment="Left" Content="www.smartcampuslab.it" />
+        <HyperlinkButton  HorizontalAlignment="Left" Content="www.smartcampuslab.it" x:Name="sclabLink"/>
         <TextBlock  Text="{Binding Path=LocalizedResources.AboutPageCollab, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}"
                     TextWrapping="Wrap"/>
-        <HyperlinkButton HorizontalAlignment="Left" Content="www.comune.trento.it" />
+        <HyperlinkButton HorizontalAlignment="Left" Content="www.comune.trento.it" x:Name="comuneLink" />
         <TextBlock  Text="{Binding Path=LocalizedResources.AboutPagePart, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}"
                     TextWrapping="Wrap"/>
-        <HyperlinkButton HorizontalAlignment="Left" Content="www.innovazione.comunitrentini.tn.it" />
+        <HyperlinkButton HorizontalAlignment="Left" Content="www.innovazione.comunitrentini.tn.it" x:Name="innovazioneLink" />
       </StackPanel>
     </Grid>
-    <bab:BindableAppBar BackgroundColor="#205980">
+    <bab:BindableAppBar BackgroundColor="#205980" ForegroundColor="White">
       <bab:BindableAppBarButton IconUri="/Assets/AppBar/Moreinfo.png" x:Name="ThirdAbout" Text="{Binding Path=LocalizedResources.AboutPageThird, Source={StaticResource LocalizedStrings}}" />
       <bab:BindableAppBarButton IconUri="/Assets/AppBar/Store.png" x:Name="RateApp" Text="{Binding Path=LocalizedResources.AboutPageRateApp, Source={StaticResource LocalizedStrings}}" />
     </bab:BindableAppBar>

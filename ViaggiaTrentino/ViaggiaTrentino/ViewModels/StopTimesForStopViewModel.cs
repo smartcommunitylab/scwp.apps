@@ -2,14 +2,7 @@
 using MobilityServiceLibrary;
 using Models.MobilityService;
 using Models.MobilityService.PublicTransport;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows;
 using ViaggiaTrentino.Helpers;
 
 namespace ViaggiaTrentino.ViewModels
@@ -18,7 +11,6 @@ namespace ViaggiaTrentino.ViewModels
   {
     private readonly INavigationService navigationService;
     private readonly IEventAggregator eventAggregator;
-
     private PublicTransportLibrary ptl;
     private AgencyType agencyID;
     private string stopID;
@@ -29,6 +21,8 @@ namespace ViaggiaTrentino.ViewModels
       this.eventAggregator = eventAggregator;
       ptl = new PublicTransportLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
     }
+
+    #region Properties
 
     public AgencyType AgencyID
     {
@@ -41,6 +35,8 @@ namespace ViaggiaTrentino.ViewModels
       get { return stopID; }
       set { stopID = value; }
     }
+
+    #endregion
 
     protected async override void OnViewLoaded(object view)
     {

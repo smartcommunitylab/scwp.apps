@@ -1,26 +1,17 @@
 ﻿using Caliburn.Micro;
 using Coding4Fun.Toolkit.Controls;
-using Microsoft.Phone.Controls;
 using Microsoft.Phone.Maps.Controls;
-using Microsoft.Phone.Maps.Services;
 using Microsoft.Phone.Maps.Toolkit;
 using Models.MobilityService.Journeys;
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Device.Location;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls.Primitives;
 using ViaggiaTrentino.Helpers;
 using ViaggiaTrentino.Resources;
 using ViaggiaTrentino.Views.Controls;
-using Windows.Devices.Geolocation;
-using Windows.Foundation;
-using Windows.Phone.Devices.Notification;
 
 namespace ViaggiaTrentino.ViewModels
 {
@@ -29,9 +20,9 @@ namespace ViaggiaTrentino.ViewModels
     private readonly INavigationService navigationService;
     private readonly IEventAggregator eventAggregator;
     private ObservableCollection<Position> posFavourite;
-    Popup pu;
     FileStorageHelper fsh;
     FavouritePlaceView fpv;
+    Popup pu;
 
     public SettingsPageViewModel(IEventAggregator eventAggregator, INavigationService navigationService)
     {
@@ -40,6 +31,18 @@ namespace ViaggiaTrentino.ViewModels
       posFavourite = new ObservableCollection<Position>();
       fsh = new FileStorageHelper();
       pu = new Popup();
+    }
+
+    #region Properties
+
+    public ObservableCollection<Position> FavPositions
+    {
+      get { return posFavourite; }
+      set
+      {
+        posFavourite = value;
+        NotifyOfPropertyChange(() => FavPositions);
+      }
     }
 
     public bool LocationConsent
@@ -63,20 +66,14 @@ namespace ViaggiaTrentino.ViewModels
       }
     }
 
+    #endregion
+
+    #region Page overrides
+
     protected override void OnDeactivate(bool close)
     {
       base.OnDeactivate(close);
       eventAggregator.Unsubscribe(this);
-    }
-
-    public ObservableCollection<Position> FavPositions
-    {
-      get { return posFavourite; }
-      set
-      {
-        posFavourite = value;
-        NotifyOfPropertyChange(() => FavPositions);
-      }
     }
 
     protected override void OnViewLoaded(object view)
@@ -88,17 +85,20 @@ namespace ViaggiaTrentino.ViewModels
         FavPositions = new ObservableCollection<Position>(JsonConvert.DeserializeObject<List<Position>>(poses));
     }
 
-    
+    #endregion
+
+    #region Appbar
+
     public void BarAdd()
     {
       fpv = new FavouritePlaceView();
-      MessagePrompt mp = new MessagePrompt();
-      mp.VerticalAlignment = VerticalAlignment.Center;
-      mp.HorizontalAlignment = HorizontalAlignment.Stretch;
-      mp.Title = AppResources.ChooseTitle;
-      mp.Body = fpv;
-      mp.Completed += mpSmall_Completed;
-      mp.Show();
+      MessagePrompt mpSmall = new MessagePrompt();
+      mpSmall.VerticalAlignment = VerticalAlignment.Center;
+      mpSmall.HorizontalAlignment = HorizontalAlignment.Stretch;
+      mpSmall.Title = AppResources.ChooseTitle;
+      mpSmall.Body = fpv;
+      mpSmall.Completed += mpSmall_Completed;
+      mpSmall.Show();
     }
 
     void mpSmall_Completed(object sender, PopUpEventArgs<string, PopUpResult> e)
@@ -111,14 +111,18 @@ namespace ViaggiaTrentino.ViewModels
       }
     }
 
-    //override 
+    #endregion
 
+    #region Handlers from /Vires/Controls/FavouritePlaceControl
+
+    // removes a position from stored list of favourites
     public void Handle(Position message)
     {
       FavPositions.Remove(message);
       fsh.WriteFile("favourites.pos", JsonConvert.SerializeObject(FavPositions.ToArray()), true);
     }
 
+    // shows map with centered Pushpin to selected location
     public void Handle(Pushpin message)
     {
       Map favMap = new Map();
@@ -141,7 +145,8 @@ namespace ViaggiaTrentino.ViewModels
       mp.Body = favMap;
       //mp.ActionPopUpButtons.Clear();
       mp.Show();
-    
     }   
+
+    #endregion
   }
 }

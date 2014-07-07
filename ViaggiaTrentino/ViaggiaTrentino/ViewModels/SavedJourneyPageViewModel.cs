@@ -2,15 +2,9 @@
 using Microsoft.Phone.Shell;
 using MobilityServiceLibrary;
 using Models.MobilityService.Journeys;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows;
 
 namespace ViaggiaTrentino.ViewModels
 {
@@ -18,15 +12,23 @@ namespace ViaggiaTrentino.ViewModels
   {
     private readonly INavigationService navigationService;
     private readonly IEventAggregator eventAggregator;
-    UserRouteLibrary urLib;
-
-    ObservableCollection<BasicItinerary> mySavedSingleJourneys;
     ObservableCollection<BasicRecurrentJourney> mySavedRecurrentJourneys;
-
-    List<BasicItinerary> basList;
+    ObservableCollection<BasicItinerary> mySavedSingleJourneys;
     List<BasicRecurrentJourney> barList;
-
+    List<BasicItinerary> basList;
+    UserRouteLibrary urLib;
     private int lastSavedJourney;
+
+    public SavedJourneyPageViewModel(INavigationService navigationService, IEventAggregator eventAggregator)
+    {
+      this.navigationService = navigationService;
+      this.eventAggregator = eventAggregator;
+      mySavedSingleJourneys = new ObservableCollection<BasicItinerary>();
+      mySavedRecurrentJourneys = new ObservableCollection<BasicRecurrentJourney>();
+      urLib = new UserRouteLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
+    }
+
+    #region Properties
 
     public ObservableCollection<BasicItinerary> MySavedSingleJourneys
     {
@@ -70,14 +72,9 @@ namespace ViaggiaTrentino.ViewModels
       get { return mySavedRecurrentJourneys.Count == 0; }
     }
 
-    public SavedJourneyPageViewModel(INavigationService navigationService, IEventAggregator eventAggregator)
-    {
-      this.navigationService = navigationService;
-      this.eventAggregator = eventAggregator;
-      mySavedSingleJourneys = new ObservableCollection<BasicItinerary>();
-      mySavedRecurrentJourneys = new ObservableCollection<BasicRecurrentJourney>();
-      urLib = new UserRouteLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
-    }
+    #endregion
+
+    #region Page overrides
 
     protected override async void OnViewAttached(object view, object context)
     {
@@ -107,7 +104,11 @@ namespace ViaggiaTrentino.ViewModels
       while (navigationService.BackStack.Count() > 1)
         navigationService.RemoveBackEntry();
     }
-    
+
+    #endregion
+
+    #region Journey opening
+
     public void OpenRecurrentJourney(BasicRecurrentJourney journey)
     {
       PhoneApplicationService.Current.State["journey"] = journey;
@@ -119,6 +120,8 @@ namespace ViaggiaTrentino.ViewModels
       PhoneApplicationService.Current.State["journey"] = journey;
       navigationService.UriFor<SavedSingleJourneyDetailsViewModel>().Navigate();
     }
+
+    #endregion
 
   }
 }

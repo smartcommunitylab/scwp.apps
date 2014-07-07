@@ -3,7 +3,6 @@ using Coding4Fun.Toolkit.Controls;
 using Microsoft.Phone.Shell;
 using MobilityServiceLibrary;
 using Models.MobilityService.Journeys;
-using System;
 using System.Windows;
 using ViaggiaTrentino.Helpers;
 using ViaggiaTrentino.Resources;
@@ -13,11 +12,10 @@ namespace ViaggiaTrentino.ViewModels
 {
   public class PlanNewSingleJourneySaveViewModel : Screen
   {
-    Itinerary iti;
+    private readonly INavigationService navigationService;
     GooglePolyline gplHelp;
     UserRouteLibrary urLib;
-
-    private readonly INavigationService navigationService;
+    Itinerary iti;
 
     public PlanNewSingleJourneySaveViewModel(INavigationService navigationService)
     {
@@ -25,13 +23,6 @@ namespace ViaggiaTrentino.ViewModels
       urLib = new UserRouteLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
       gplHelp = new GooglePolyline();
       iti = new Itinerary();
-    }
-
-    protected override void OnViewLoaded(object view)
-    {
-      base.OnViewLoaded(view);
-      PlannedIti = PhoneApplicationService.Current.State["singleJourney"] as Itinerary;
-      PhoneApplicationService.Current.State.Remove("singleJourney");
     }
 
     public Itinerary PlannedIti
@@ -44,10 +35,19 @@ namespace ViaggiaTrentino.ViewModels
       }
     }
 
+    protected override void OnViewLoaded(object view)
+    {
+      base.OnViewLoaded(view);
+      PlannedIti = PhoneApplicationService.Current.State["singleJourney"] as Itinerary;
+      PhoneApplicationService.Current.State.Remove("singleJourney");
+    }
+
     public void DisplayPolylineMap(PlanNewSingleJourneySaveView fullView)
     {
       gplHelp.ShowMapWithFullPath(fullView.listLegsBox.Items, fullView.listLegsBox.SelectedItem as Leg);
     }
+
+    #region Appbar
 
     public void BarSave()
     {
@@ -84,16 +84,16 @@ namespace ViaggiaTrentino.ViewModels
           finally
           {
             App.LoadingPopup.Hide();
-
           }
 
           if (respIti is BasicItinerary)
             navigationService.UriFor<SavedJourneyPageViewModel>().WithParam(x => x.LastSavedJourney, 0).Navigate();
-
         }
         else
           MessageBox.Show(AppResources.ValidationJTitle, AppResources.ValidationCaption, MessageBoxButton.OK);
       }
     }
+
+    #endregion
   }
 }

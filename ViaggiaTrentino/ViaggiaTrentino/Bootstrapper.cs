@@ -34,7 +34,6 @@ namespace ViaggiaTrentino
     {
       Start();
       elh = new ExceptionLoggerHelper();
-      
     }
 
     protected override PhoneApplicationFrame CreatePhoneApplicationFrame()
@@ -104,7 +103,6 @@ namespace ViaggiaTrentino
         {
           ImportDatabase(dbFile);
         }
-
         //dbFile.DeleteAsync();
       }
       catch (FileNotFoundException)

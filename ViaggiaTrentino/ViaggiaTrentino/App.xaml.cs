@@ -21,12 +21,13 @@ namespace ViaggiaTrentino
     public App()
     {
       InitializeComponent();
-
+#if DEBUG
       if (Debugger.IsAttached)
       {
         Application.Current.Host.Settings.EnableFrameRateCounter = true;
         PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
       }
+#endif
     }
     
     public static class LoadingPopup

@@ -1,15 +1,9 @@
 ﻿using Caliburn.Micro;
-using CommonHelpers;
-using DBManager;
 using DBManager.DBModels;
 using Microsoft.Phone.Shell;
-using MobilityServiceLibrary;
 using Models.MobilityService;
-using Models.MobilityService.PublicTransport;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Threading;
 using System.Windows.Controls;
 using ViaggiaTrentino.Resources;
 
@@ -78,6 +72,7 @@ namespace ViaggiaTrentino.ViewModels
         NotifyOfPropertyChange(() => RouteDirections);
       }
     }
+
     #endregion
 
     protected override void OnViewLoaded(object view)
@@ -85,8 +80,8 @@ namespace ViaggiaTrentino.ViewModels
       base.OnViewLoaded(view);
       RouteDirections = new ObservableCollection<RouteName>(PhoneApplicationService.Current.State["routeNamesForDirections"] as List<RouteName>);
       PhoneApplicationService.Current.State.Remove("routeNamesForDirections");
-
     }
+
     public void ShowTimetable(object obj)
     {
       var a = obj as TextBlock;

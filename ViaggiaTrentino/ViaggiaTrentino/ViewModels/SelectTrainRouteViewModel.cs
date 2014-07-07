@@ -1,26 +1,11 @@
 ﻿using Caliburn.Micro;
 using CommonHelpers;
 using DBManager;
-using System.Linq;
 using DBManager.DBModels;
-using Microsoft.Phone.Shell;
-using MobilityServiceLibrary;
 using Models.MobilityService;
-using Models.MobilityService.PublicTransport;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Threading;
-using TerritoryInformationServiceLibrary;
-using Models.TerritoryInformationService;
-using System.Threading.Tasks;
-using System.Windows;
-using Coding4Fun.Toolkit.Controls;
 using System.Windows.Controls;
-using ViaggiaTrentino.Views.Controls;
-using Newtonsoft.Json;
-using System;
-using System.Net.Http;
 
 namespace ViaggiaTrentino.ViewModels
 {
@@ -46,6 +31,7 @@ namespace ViaggiaTrentino.ViewModels
         NotifyOfPropertyChange(() => RoutesName);
       }
     }
+
     protected override void OnActivate()
     {
       base.OnActivate();
@@ -58,6 +44,7 @@ namespace ViaggiaTrentino.ViewModels
       }
       RoutesName = new ObservableCollection<RouteName>(results);
     }
+    
     public void ShowTimetable(object obj)
     {
       var routeName = (obj as TextBlock).Tag as RouteName;

@@ -1,28 +1,13 @@
 ﻿using Caliburn.Micro;
-using Coding4Fun.Toolkit.Controls;
-using Microsoft.Devices;
 using Microsoft.Phone.Controls;
-using Microsoft.Phone.Maps.Controls;
-using Microsoft.Phone.Maps.Services;
-using Microsoft.Phone.Maps.Toolkit;
 using Microsoft.Phone.Shell;
-using Microsoft.Phone.Tasks;
 using Models.MobilityService;
 using Models.MobilityService.Journeys;
 using System;
 using System.Collections.Generic;
-using System.Device.Location;
-using System.Globalization;
-using System.Linq;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls.Primitives;
 using ViaggiaTrentino.Helpers;
 using ViaggiaTrentino.Resources;
-using ViaggiaTrentino.Views.Controls;
-using Windows.Phone.Devices.Notification;
 
 namespace ViaggiaTrentino.ViewModels
 {
@@ -118,7 +103,6 @@ namespace ViaggiaTrentino.ViewModels
         to = value;
         NotifyOfPropertyChange(() => ToPos);
         eventAggregator.Publish(new KeyValuePair<string, string>("to", to.Name));
-
       }
     }
 
@@ -195,6 +179,12 @@ namespace ViaggiaTrentino.ViewModels
       lch.ShowLocationSelectorHelper();
     }
 
+    #endregion
+
+    #region Appbar
+
+    #region data format support
+
     public RouteType SelectedRouteType
     {
       get
@@ -231,6 +221,8 @@ namespace ViaggiaTrentino.ViewModels
         return ltt.ToArray();
       }
     }
+
+    #endregion
 
     public void PlanNewJourney()
     {

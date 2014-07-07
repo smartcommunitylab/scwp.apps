@@ -1,23 +1,18 @@
-﻿using System;
+﻿using Caliburn.Micro;
+using Microsoft.Phone.Controls;
+using Models.MobilityService.PublicTransport;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
-using System.Net;
+using System.Text.RegularExpressions;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Navigation;
-using Microsoft.Phone.Controls;
-using Microsoft.Phone.Shell;
-using Caliburn.Micro;
-using Models.MobilityService.PublicTransport;
-using ViaggiaTrentino.Resources;
-using System.Windows.Media;
-using System.Windows.Shapes;
-using System.ComponentModel;
-using System.Threading;
-using ViaggiaTrentino.ViewModels;
-using System.Diagnostics;
-using System.Text.RegularExpressions;
 using System.Windows.Documents;
+using System.Windows.Media;
+using ViaggiaTrentino.Resources;
+using ViaggiaTrentino.ViewModels;
 
 namespace ViaggiaTrentino.Views
 {
@@ -39,6 +34,8 @@ namespace ViaggiaTrentino.Views
       eventAggregator.Subscribe(this);
     }
 
+    #region Page events
+
     private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
     {    
       txtNoAvailable.Padding = new Thickness(0, (ContentPanel.ActualHeight - txtNoAvailable.ActualHeight / 2 - bAppBar.ActualHeight) / 2, 0, 0);      
@@ -55,85 +52,12 @@ namespace ViaggiaTrentino.Views
         e.Cancel = true;
     }
 
-    /*
-     * Handle for the message sent by the TimeTablePageViewModel after the appropriate timetable is loaded from DB
-     * 
-     * if the TripIDs collection is present, add "Line" (or its translation) to the listbox of stop names
-     * Populates listbox containing stop names with available stop names from the database
-     * 
-     * Prepare and start background worker, which parses the compressed timetable times and regenerates the proper
-     * table (from the four-charachter-or-pipe string to a list of strings). 
-     * Each list is the full timetable of a single, unique vehicle.
-     * 
-     * if the TripIDs collection is present, an additional string indicating the type of transport 
-     * (i.e. Regionale, Regionale Veloce, EuroCity, etc) is included at the beginning of each list
-     * 
-     * After a list is completed, the ProgressChanged event is fired by the backgroundWorker
-     * In the function handling this, the freshly created list is converted into a StackPanel and added 
-     * to the horizontal listbox in the page, containing all timetable stackpanels.
-     * 
-     * Time of first departure for the new StackPanel is checked against current time, in order to know which stackpanel is 
-     * the closest to the current hour, and is stored in a separate pointer.
-     * 
-     * After this last population is completed, the horizontal listbox is automatically scrolled to the previously
-     * stored closest-time stackpanel
-     * 
-     */
-
-    public void Handle(CompressedTimetable ct)
+    private void PhoneApplicationPage_OrientationChanged(object sender, OrientationChangedEventArgs e)
     {
-      scrollViewerTimetable.MaxHeight = ContentPanel.ActualHeight;
-      columnNames.Width = new GridLength(Application.Current.Host.Content.ActualWidth * 0.4);
-    
-      stackPanelTimetable.Children.Clear();
-      listBoxNames.Items.Clear();
-      
-      
-      if (ct.CompressedTimes == null)
-      {
-        ((TimetablePageViewModel)(this.DataContext)).DisableAppBar = true;
-      }
-      else
-      {
-        (stackPanelTimetable.Parent as ScrollViewer).ScrollToHorizontalOffset(0);
-
-        listBoxNames.Items.Add(new TextBlock()
-        {
-          Foreground = new SolidColorBrush(Colors.Red),
-          FontWeight = FontWeights.SemiBold,
-          Text = AppResources.SubAlertDelay,
-          Margin = new Thickness(0, 3, 0, 5)
-        });
-
-        if (ct.TripIds != null)
-          hasType = true;
-
-        if (hasType)
-          listBoxNames.Items.Add(new TextBlock()
-          {
-            Foreground = new SolidColorBrush(Colors.Red),
-            FontWeight = FontWeights.SemiBold,
-            Text = AppResources.TimeTablePageLineType,
-            Margin = new Thickness(0, 3, 0, 5)
-          });
-
-        for (int i = 0; i < ct.StopIds.Count; i++)
-        {
-          listBoxNames.Items.Add(ct.Stops[i]);
-        }
-
-        //Reset the timetable closest time
-        (stackPanelTimetable.Parent as ScrollViewer).ScrollToHorizontalOffset(listBoxNames.ActualWidth);
-
-        bw = new BackgroundWorker();
-        bw.WorkerSupportsCancellation = true;
-        bw.WorkerReportsProgress = true;
-        bw.DoWork += bw_DoWork;
-        bw.ProgressChanged += bw_ProgressChanged;
-        bw.RunWorkerCompleted += bw_RunWorkerCompleted;
-        bw.RunWorkerAsync(ct);
-      }
+      txtNoAvailable.Padding = new Thickness(0, (ContentPanel.ActualHeight - txtNoAvailable.ActualHeight / 2 - bAppBar.ActualHeight) / 2, 0, 0);
     }
+
+    #endregion
 
     #region Background Worker
 
@@ -258,6 +182,85 @@ namespace ViaggiaTrentino.Views
 
     #endregion
 
+    /*
+     * Handle for the message sent by the TimeTablePageViewModel after the appropriate timetable is loaded from DB
+     * 
+     * if the TripIDs collection is present, add "Line" (or its translation) to the listbox of stop names
+     * Populates listbox containing stop names with available stop names from the database
+     * 
+     * Prepare and start background worker, which parses the compressed timetable times and regenerates the proper
+     * table (from the four-charachter-or-pipe string to a list of strings). 
+     * Each list is the full timetable of a single, unique vehicle.
+     * 
+     * if the TripIDs collection is present, an additional string indicating the type of transport 
+     * (i.e. Regionale, Regionale Veloce, EuroCity, etc) is included at the beginning of each list
+     * 
+     * After a list is completed, the ProgressChanged event is fired by the backgroundWorker
+     * In the function handling this, the freshly created list is converted into a StackPanel and added 
+     * to the horizontal listbox in the page, containing all timetable stackpanels.
+     * 
+     * Time of first departure for the new StackPanel is checked against current time, in order to know which stackpanel is 
+     * the closest to the current hour, and is stored in a separate pointer.
+     * 
+     * After this last population is completed, the horizontal listbox is automatically scrolled to the previously
+     * stored closest-time stackpanel
+     * 
+     */
+    public void Handle(CompressedTimetable ct)
+    {
+      scrollViewerTimetable.MaxHeight = ContentPanel.ActualHeight;
+      columnNames.Width = new GridLength(Application.Current.Host.Content.ActualWidth * 0.4);
+
+      stackPanelTimetable.Children.Clear();
+      listBoxNames.Items.Clear();
+
+
+      if (ct.CompressedTimes == null)
+      {
+        ((TimetablePageViewModel)(this.DataContext)).DisableAppBar = true;
+      }
+      else
+      {
+        (stackPanelTimetable.Parent as ScrollViewer).ScrollToHorizontalOffset(0);
+
+        listBoxNames.Items.Add(new TextBlock()
+        {
+          Foreground = new SolidColorBrush(Colors.Red),
+          FontWeight = FontWeights.SemiBold,
+          Text = AppResources.SubAlertDelay,
+          Margin = new Thickness(0, 3, 0, 5)
+        });
+
+        if (ct.TripIds != null)
+          hasType = true;
+
+        if (hasType)
+          listBoxNames.Items.Add(new TextBlock()
+          {
+            Foreground = new SolidColorBrush(Colors.Red),
+            FontWeight = FontWeights.SemiBold,
+            Text = AppResources.TimeTablePageLineType,
+            Margin = new Thickness(0, 3, 0, 5)
+          });
+
+        for (int i = 0; i < ct.StopIds.Count; i++)
+        {
+          listBoxNames.Items.Add(ct.Stops[i]);
+        }
+
+        //Reset the timetable closest time
+        (stackPanelTimetable.Parent as ScrollViewer).ScrollToHorizontalOffset(listBoxNames.ActualWidth);
+
+        bw = new BackgroundWorker();
+        bw.WorkerSupportsCancellation = true;
+        bw.WorkerReportsProgress = true;
+        bw.DoWork += bw_DoWork;
+        bw.ProgressChanged += bw_ProgressChanged;
+        bw.RunWorkerCompleted += bw_RunWorkerCompleted;
+        bw.RunWorkerAsync(ct);
+      }
+    }
+
     public void Handle(List<Delay> message)
     {
       listDelay = message;
@@ -277,9 +280,5 @@ namespace ViaggiaTrentino.Views
       }
     }
 
-    private void PhoneApplicationPage_OrientationChanged(object sender, OrientationChangedEventArgs e)
-    {
-      txtNoAvailable.Padding = new Thickness(0, (ContentPanel.ActualHeight - txtNoAvailable.ActualHeight / 2 - bAppBar.ActualHeight) / 2, 0, 0);      
-    }
   }
 }

@@ -31,7 +31,7 @@ namespace ViaggiaTrentino.Views
       isSubscribed = true;
     }
 
-
+    #region Tutorial
 
     public void Handle(bool message)
     {
@@ -73,6 +73,14 @@ namespace ViaggiaTrentino.Views
       babMainPage.IsVisible = false;
     }
 
+    #endregion
+
+    private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
+    {
+      if (!isSubscribed)
+        eventAggregator.Subscribe(this);
+    }
+
     private void PhoneApplicationPage_Unloaded(object sender, RoutedEventArgs e)
     {
       eventAggregator.Unsubscribe(this);
@@ -82,12 +90,6 @@ namespace ViaggiaTrentino.Views
     private void BarTour_Click(object sender, EventArgs e)
     {
       ManageTour(true);
-    }
-
-    private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
-    {
-      if (!isSubscribed)
-        eventAggregator.Subscribe(this);
     }
 
     private void feedbackOverlay_VisibilityChanged(object sender, EventArgs e)

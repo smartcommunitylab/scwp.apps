@@ -3,10 +3,6 @@ using Microsoft.Phone.Shell;
 using MobilityServiceLibrary;
 using Models.MobilityService.Journeys;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using ViaggiaTrentino.Resources;
@@ -19,6 +15,16 @@ namespace ViaggiaTrentino.ViewModels
     BasicRecurrentJourney basIti;
     UserRouteLibrary urLib;
     bool isSomethingChanged, isLoaded;
+
+    public SavedRecurrentJourneyDetailsViewModel(INavigationService navigationService)
+    {
+      this.navigationService = navigationService;
+      Journey = PhoneApplicationService.Current.State["journey"] as BasicRecurrentJourney;
+      urLib = new UserRouteLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
+      IsLoaded = true;
+    }
+
+    #region Properties
 
     public BasicRecurrentJourney Journey
     {
@@ -40,13 +46,9 @@ namespace ViaggiaTrentino.ViewModels
       }
     }
 
-    public SavedRecurrentJourneyDetailsViewModel(INavigationService navigationService)
-    {
-      this.navigationService = navigationService;
-      Journey = PhoneApplicationService.Current.State["journey"] as BasicRecurrentJourney;      
-      urLib = new UserRouteLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
-      IsLoaded = true;
-    }
+    #endregion
+
+    #region Page overrides
 
     protected override void OnViewLoaded(object view)
     {
@@ -74,12 +76,11 @@ namespace ViaggiaTrentino.ViewModels
         finally
         {
           App.LoadingPopup.Hide(); IsLoaded = true;
-        }
-        
+        }        
       }
-     
-
     }
+
+    #endregion
 
     public void CheckBoxPressed(CheckBox sender, SimpleLeg gambaSemplice)
     {
@@ -92,6 +93,8 @@ namespace ViaggiaTrentino.ViewModels
         else Journey.Data.MonitorLegs.Add(key, Convert.ToBoolean(sender.IsChecked));
       }
     }
+
+    #region Appbar
 
     public async void BarMonitor()
     {
@@ -129,5 +132,6 @@ namespace ViaggiaTrentino.ViewModels
       }
     }
 
+    #endregion
   }
 }

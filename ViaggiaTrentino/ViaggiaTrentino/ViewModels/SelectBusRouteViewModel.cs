@@ -1,27 +1,23 @@
 ﻿using Caliburn.Micro;
+using Coding4Fun.Toolkit.Controls;
 using CommonHelpers;
 using DBManager;
-using System.Linq;
 using DBManager.DBModels;
 using Microsoft.Phone.Shell;
 using MobilityServiceLibrary;
 using Models.MobilityService;
-using Models.MobilityService.PublicTransport;
+using Models.TerritoryInformationService;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Threading;
-using TerritoryInformationServiceLibrary;
-using Models.TerritoryInformationService;
 using System.Threading.Tasks;
 using System.Windows;
-using Coding4Fun.Toolkit.Controls;
-using System.Windows.Controls;
-using ViaggiaTrentino.Views.Controls;
-using Newtonsoft.Json;
-using System;
-using System.Net.Http;
+using TerritoryInformationServiceLibrary;
 using ViaggiaTrentino.Resources;
+using ViaggiaTrentino.Views.Controls;
 
 namespace ViaggiaTrentino.ViewModels
 {
@@ -42,6 +38,8 @@ namespace ViaggiaTrentino.ViewModels
       ptl = new PublicTransportLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
       isLoadCompleted = false;
     }
+
+    #region Properties
 
     public string SelectedAgencyTitle
     {
@@ -75,6 +73,10 @@ namespace ViaggiaTrentino.ViewModels
       }
     }
 
+    #endregion
+
+    #region Page overrides
+
     protected override void OnInitialize()
     {
       base.OnInitialize();
@@ -90,18 +92,15 @@ namespace ViaggiaTrentino.ViewModels
         bw = new BackgroundWorker();
         bw.DoWork += bw_DoWork;
         bw.ProgressChanged += bw_ProgressChanged;
-        bw.RunWorkerCompleted += bw_RunWorkerCompleted;
         bw.WorkerReportsProgress = true;
         bw.WorkerSupportsCancellation = true;
         bw.RunWorkerAsync();
       }
     }
 
-    void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-    {
-     // if(!e.Cancelled)
-    }
+    #endregion
 
+    #region Database loading
 
     void bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
     {
@@ -110,7 +109,6 @@ namespace ViaggiaTrentino.ViewModels
 
     void bw_DoWork(object sender, DoWorkEventArgs e)
     {
-
       using (DBHelper dbh = new DBHelper())
       {
         List<RouteInfo> rName = dbh.GetRouteInfo(EnumConverter.ToEnumString<AgencyType>(AgencyID));
@@ -120,27 +118,29 @@ namespace ViaggiaTrentino.ViewModels
             return;
           (sender as BackgroundWorker).ReportProgress(0, item);
           Thread.Sleep(50);
-          
         }
       }
-      isLoadCompleted = true;
 
+      isLoadCompleted = true;
     }
 
     public void OpenTimetableView(DBManager.DBModels.RouteInfo obj)
     {
       if (bw.IsBusy)
         bw.CancelAsync();
+
       using (DBHelper dbh = new DBHelper())
       {
         var routenames = dbh.GetRoutesNames(EnumConverter.ToEnumString<AgencyType>(agencyID));
         int result;
+
         if(agencyID == AgencyType.RoveretoCityBus && Int32.TryParse(obj.RouteID.ToLower(), out result))
             routenames = routenames.Where(x => x.RouteID.ToLower().StartsWith("0" + obj.RouteID.ToLower()) || x.RouteID.ToLower().StartsWith(("N" + obj.RouteID).ToLower())).ToList();
         else
           routenames = routenames.Where(x => x.RouteID.ToLower().StartsWith(obj.RouteID.ToLower())).ToList();
 
         if (routenames.Count == 1)
+        {
           navigationService.UriFor<TimetablePageViewModel>()
             .WithParam(x => x.AgencyID, agencyID)
             .WithParam(x => x.RouteIDWitDirection, routenames.First().RouteID)
@@ -148,6 +148,7 @@ namespace ViaggiaTrentino.ViewModels
             .WithParam(x => x.NameID, obj.Name)
             .WithParam(x => x.Color, obj.Color)
             .Navigate();
+        }
         else
         {
           PhoneApplicationService.Current.State["routeNamesForDirections"] = routenames;
@@ -161,6 +162,9 @@ namespace ViaggiaTrentino.ViewModels
       }
     }
 
+    #endregion
+
+    // this function is cheatously used in the associated View for this ViewModel
     public async Task<List<POIObject>> RetrieveAllStops(double[] coordinates, double radius, string[] agencyIds)
     {
       til = new TerritoryInformationLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
@@ -187,7 +191,7 @@ namespace ViaggiaTrentino.ViewModels
 
       return results;
     }
-
+    
     public void TappedPushPin(POIObject stop)
     {
       mp = new MessagePrompt();

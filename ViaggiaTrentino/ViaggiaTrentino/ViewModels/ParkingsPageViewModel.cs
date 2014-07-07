@@ -1,17 +1,13 @@
-﻿using System;
-using Caliburn.Micro;
-using Models.MobilityService.PublicTransport;
-using System.Collections.ObjectModel;
-using System.Windows;
-using MobilityServiceLibrary;
-using System.Windows.Controls.Primitives;
-using ViaggiaTrentino.Views.Controls;
-using System.Windows.Controls;
+﻿using Caliburn.Micro;
 using Coding4Fun.Toolkit.Controls;
-using System.Threading;
-using System.ComponentModel;
+using MobilityServiceLibrary;
+using Models.MobilityService.PublicTransport;
 using System.Collections.Generic;
-using Microsoft.Phone.Maps.Toolkit;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Threading;
+using System.Windows;
+using ViaggiaTrentino.Views.Controls;
 
 namespace ViaggiaTrentino.ViewModels
 {
@@ -21,7 +17,7 @@ namespace ViaggiaTrentino.ViewModels
     private readonly INavigationService navigationService;
     ObservableCollection<Parking> parkings;
     PublicTransportLibrary publicTransLib;
-    
+    List<Parking> parchi;
 
     public ParkingsPageViewModel(INavigationService navigationService, IEventAggregator eventAggregator)
     {
@@ -30,8 +26,15 @@ namespace ViaggiaTrentino.ViewModels
       publicTransLib = new PublicTransportLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
     }
 
-
-    List<Parking> parchi;
+    public ObservableCollection<Parking> Parkings
+    {
+      get { return parkings; }
+      set
+      {
+        parkings = value;
+        NotifyOfPropertyChange(() => Parkings);
+      }
+    }
 
     protected async override void OnViewLoaded(object view)
     {
@@ -57,6 +60,8 @@ namespace ViaggiaTrentino.ViewModels
       bw.RunWorkerAsync();
     }
 
+    #region Parking retrieval
+
     void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
     {  
       eventAggregator.Publish(Parkings);
@@ -78,15 +83,9 @@ namespace ViaggiaTrentino.ViewModels
       }
     }
 
-    public ObservableCollection<Parking> Parkings
-    {
-      get { return parkings; }
-      set
-      {
-        parkings = value;
-        NotifyOfPropertyChange(() => Parkings);
-      }
-    }
+    #endregion
+
+    #region Map pushpins
 
     public void TappedPushPin(Parking pp)
     {
@@ -102,5 +101,6 @@ namespace ViaggiaTrentino.ViewModels
       mp.Show();
     }
 
+    #endregion
   }
 }
