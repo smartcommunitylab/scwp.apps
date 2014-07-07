@@ -155,6 +155,7 @@
                          ApplicationName="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}"        
                          CompanyName="{Binding Path=LocalizedResources.AppProducer, Source={StaticResource LocalizedStrings}}"
                          EnableAnimation="True"
+                         AnimationDuration="0:0:0.250"
                          VisibilityChanged="feedbackOverlay_VisibilityChanged"/>
 
   </Grid>

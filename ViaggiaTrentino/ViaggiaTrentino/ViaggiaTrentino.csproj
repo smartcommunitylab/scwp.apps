@@ -441,8 +441,7 @@
     <Reference Include="ProfileLibrary">
       <HintPath>..\..\..\scwp.support\CompiledDLL\ProfileLibrary.dll</HintPath>
     </Reference>
-    <Reference Include="RateMyApp, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="RateMyApp">
       <HintPath>.\RateMyApp.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http, Version=1.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
