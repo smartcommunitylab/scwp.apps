@@ -29,7 +29,6 @@ namespace ViaggiaTrentino
     private bool reset;
     public PhoneContainer container { get; set; }
     ExceptionLoggerHelper elh;
-    
 
     public Bootstrapper()
     {
@@ -58,12 +57,6 @@ namespace ViaggiaTrentino
     protected override void OnLaunch(object sender, LaunchingEventArgs e)
     {
       base.OnLaunch(sender, e);
-    }
-
-    private void DBUpdate()
-    {
-      TimeTableCacheHelper ttch = new TimeTableCacheHelper();
-      ttch.UpdateCachedCalendars();
     }
 
     // when fast resuming
@@ -96,6 +89,14 @@ namespace ViaggiaTrentino
           elh.LogNewException(e.ExceptionObject, ExceptionType.Unhandled);
         e.Handled = false;
       }
+    }
+
+    #region Database Management
+
+    private void DBUpdate()
+    {
+      TimeTableCacheHelper ttch = new TimeTableCacheHelper();
+      ttch.UpdateCachedCalendars();
     }
 
     private async void DBManagement()
@@ -145,15 +146,33 @@ namespace ViaggiaTrentino
 
     }
 
+    #endregion
+
+    async void rootFrame_Navigating(object sender, NavigatingCancelEventArgs e)
+    {
+      if (reset && e.IsCancelable && e.Uri.OriginalString == "/Views/MainPageView.xaml")
+      {
+        e.Cancel = true;
+        reset = false;
+
+        App.LoadingPopup.Show();
+        await Settings.RefreshToken();
+        App.LoadingPopup.Hide();
+      }
+    }
+
+    void rootFrame_Navigated(object sender, NavigationEventArgs e)
+    {
+      if (e.Uri.OriginalString == "/Views/MainPageView.xaml" && e.NavigationMode == NavigationMode.New)
+        Settings.LaunchGPS();
+      reset = e.NavigationMode == NavigationMode.Reset;
+    }
+
     protected override void Configure()
     {
       container = new PhoneContainer();
       if (!Execute.InDesignMode)
         container.RegisterPhoneServices(RootFrame);
-
-
-
-      // Pages
 
       // App related
       container.PerRequest<MainPageViewModel>();
@@ -195,26 +214,6 @@ namespace ViaggiaTrentino
 
       rootFrame.Navigated += rootFrame_Navigated;
       rootFrame.Navigating += rootFrame_Navigating;
-    }
-
-    async void rootFrame_Navigating(object sender, NavigatingCancelEventArgs e)
-    {
-      if (reset && e.IsCancelable && e.Uri.OriginalString == "/Views/MainPageView.xaml")
-      {
-        e.Cancel = true;
-        reset = false;
-
-        App.LoadingPopup.Show();
-        await Settings.RefreshToken();
-        App.LoadingPopup.Hide();
-      }
-    }
-
-    void rootFrame_Navigated(object sender, NavigationEventArgs e)
-    {
-      if (e.Uri.OriginalString == "/Views/MainPageView.xaml" && e.NavigationMode == NavigationMode.New)
-        Settings.LaunchGPS();
-      reset = e.NavigationMode == NavigationMode.Reset;
     }
 
     static void AddCustomConventions()

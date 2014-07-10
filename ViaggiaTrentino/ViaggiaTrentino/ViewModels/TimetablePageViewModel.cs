@@ -43,7 +43,13 @@ namespace ViaggiaTrentino.ViewModels
     {
       this.navigationService = navigationService;
       this.eventAggregator = eventAggregator;
-      ptLib = new PublicTransportLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
+      if (Settings.IsLogged)
+        ptLib = new PublicTransportLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
+      //else
+      //{
+      //  MessageBox.Show("devi aprire la app e loggarti, altrimenti non posso scaricare le info", "such a noob", MessageBoxButton.OK);
+      //  Application.Current.Terminate();
+      //}
       NoResults = false;
     }
 
