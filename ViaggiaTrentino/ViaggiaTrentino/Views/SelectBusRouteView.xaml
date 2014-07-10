@@ -49,11 +49,13 @@
     <DataTemplate x:Key="PushpinTemplate">
       <mToolkit:Pushpin cal:Message.Attach="[Event Tap] = [Action TappedPushPin($dataContext)]" DataContext="{Binding}"
                         GeoCoordinate="{Binding GeoCoordinate}">
-        <mToolkit:Pushpin.ContentTemplate>
-          <DataTemplate>
-            <Image Source="/Assets/Miscs/StopPushPin.png" HorizontalAlignment="Center"/>
-          </DataTemplate>
-        </mToolkit:Pushpin.ContentTemplate>
+        <mToolkit:Pushpin.Template>
+          <ControlTemplate TargetType="mToolkit:Pushpin">
+            <Border BorderThickness="0" BorderBrush="Magenta">
+              <Image Source="/Assets/Miscs/StopPushPin64.png" HorizontalAlignment="Center" />
+            </Border>
+          </ControlTemplate>
+        </mToolkit:Pushpin.Template>
       </mToolkit:Pushpin>
     </DataTemplate>
     <DataTemplate x:Key="ClusterTemplate">

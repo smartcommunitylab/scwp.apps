@@ -337,6 +337,7 @@
     <Content Include="Assets\Miscs\Light\PinLocation.png" />
     <Content Include="Assets\Miscs\StopPushPin.png" />
     <Content Include="Assets\Miscs\Dark\GpsLocation.png" />
+    <Content Include="Assets\Miscs\StopPushPin64.png" />
     <Content Include="Assets\SmallTile.png" />
     <Content Include="Assets\Vehicles\Dark\bicycle.png" />
     <Content Include="Assets\Vehicles\Dark\bus.png" />

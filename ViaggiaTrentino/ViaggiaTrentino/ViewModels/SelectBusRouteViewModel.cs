@@ -195,8 +195,8 @@ namespace ViaggiaTrentino.ViewModels
     public void TappedPushPin(POIObject stop)
     {
       mp = new MessagePrompt();
-      mp.Title = Resources.AppResources.SubAlertStop;
       mp.Body = new StopPopupView(mp, navigationService) { DataContext = stop };
+      mp.Style = Application.Current.Resources["mpNoTitleNoButtons"] as Style;
       mp.ActionPopUpButtons.Clear();
       mp.HorizontalAlignment = HorizontalAlignment.Center;
       mp.VerticalAlignment = VerticalAlignment.Center;

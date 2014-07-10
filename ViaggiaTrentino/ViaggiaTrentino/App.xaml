@@ -35,9 +35,7 @@
           <ControlTemplate TargetType="cffToolkit:MessagePrompt">
             <Grid>          
                 <StackPanel>
-                  <ContentPresenter 
-									Content="{TemplateBinding Body}"
-									Margin="0, 10"/>
+                  <ContentPresenter Content="{TemplateBinding Body}" Margin="0, 10"/>
                 </StackPanel>
             </Grid>
           </ControlTemplate>
@@ -45,6 +43,31 @@
       </Setter>
     </Style>
 
+    <Style x:Key="mpNoTitleNoButtons" TargetType="cffToolkit:MessagePrompt">
+      <Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilyNormal}"/>
+      <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeNormal}"/>
+      <Setter Property="Foreground" Value="{StaticResource PhoneForegroundBrush}"/>
+      <Setter Property="Background" Value="{StaticResource PhoneChromeBrush}"/>
+      <Setter Property="Template">
+        <Setter.Value>
+          <ControlTemplate TargetType="cffToolkit:MessagePrompt">
+            <Grid>
+              <Border 
+                            VerticalAlignment="Top" 
+                            Margin="10" 
+                            Background="{TemplateBinding Background}" 
+                            BorderThickness="1" 
+                            BorderBrush="{StaticResource PhoneForegroundBrush}">
+
+                <StackPanel>
+                  <ContentPresenter Content="{TemplateBinding Body}" Margin="0, 10"	/>
+                </StackPanel>
+              </Border>
+            </Grid>
+          </ControlTemplate>
+        </Setter.Value>
+      </Setter>
+    </Style>
 
     <Style x:Key="ListBoxItemNoSelectionStyle" TargetType="ListBoxItem">
       <Setter Property="Background" Value="Transparent"/>
