@@ -342,8 +342,8 @@
         </trans-unit>
         <trans-unit id="Resx/AboTitle" translate="yes" xml:space="preserve">
           <source>About</source>
-          <target state="needs-review-translation">Informazioni su</target><note from="MultilingualUpdate" priority="2" annotates="source">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
-        </trans-unit>
+          <target state="translated">Informazioni su</target>
+          </trans-unit>
         <trans-unit id="Resx/SelectDirection" translate="yes" xml:space="preserve">
           <source>Select Direction</source>
           <target state="translated" state-qualifier="mt-suggestion">Selezionare la direzione</target>
@@ -601,16 +601,15 @@
         </trans-unit>
         <trans-unit id="Resx/lonelyNoNotification" translate="yes" xml:space="preserve">
           <source>It's lonely in here. Refresh the page see them here</source>
-          <target state="new">It's lonely in here. Refresh the page see them here</target>
+          <target state="translated">Non c'è niente qui. Aggiorna la pagina di visualizzare le nuove notifiche</target>
         </trans-unit>
         <trans-unit id="Resx/RefreshAppBar" translate="yes" xml:space="preserve">
           <source>refresh</source>
-          <target state="new">refresh</target>
+          <target state="translated">aggiorna</target>
         </trans-unit>
         <trans-unit id="Resx/ReadNotificationTitle" translate="yes" xml:space="preserve">
-          <source>Read notification</source>
-          <target state="new">Read notification</target>
-        </trans-unit>
+          <source>Read notifications</source>
+          <target state="translated">Leggi notifiche</target></trans-unit>
         <trans-unit id="Resx/MessageBoxSmartCampusPermsMessage" translate="yes" xml:space="preserve">
           <source>In order to use the application you have to accept SmartCampus permissions</source>
           <target state="translated" state-qualifier="mt-suggestion">Per utilizzare l'applicazione è necessario accettare le autorizzazioni SmartCampus</target>

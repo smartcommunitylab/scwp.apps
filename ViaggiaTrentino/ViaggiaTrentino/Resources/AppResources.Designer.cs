@@ -862,7 +862,7 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Read notification.
+        ///   Looks up a localized string similar to Read notifications.
         /// </summary>
         public static string ReadNotificationTitle {
             get {

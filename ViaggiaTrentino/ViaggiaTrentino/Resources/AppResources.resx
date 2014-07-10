@@ -630,7 +630,7 @@
     <value>It's lonely in here. Refresh the page see them here</value>
   </data>
   <data name="ReadNotificationTitle" xml:space="preserve">
-    <value>Read notification</value>
+    <value>Read notifications</value>
   </data>
   <data name="RefreshAppBar" xml:space="preserve">
     <value>refresh</value>
