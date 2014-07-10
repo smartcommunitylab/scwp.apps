@@ -1465,6 +1465,24 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to In order to work properly, you have to open the application from the main tile and log in with your credential. Until then the delays will not be shown..
+        /// </summary>
+        public static string TimetableSecondaryTileNoLoginMessage {
+            get {
+                return ResourceManager.GetString("TimetableSecondaryTileNoLoginMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Log in for a better experience.
+        /// </summary>
+        public static string TimetableSecondaryTileNoLoginTitle {
+            get {
+                return ResourceManager.GetString("TimetableSecondaryTileNoLoginTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to to.
         /// </summary>
         public static string To {

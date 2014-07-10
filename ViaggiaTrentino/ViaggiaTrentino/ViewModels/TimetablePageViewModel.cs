@@ -33,7 +33,7 @@ namespace ViaggiaTrentino.ViewModels
     private readonly IEventAggregator eventAggregator;
     private AgencyType agencyID;
     private DateTime currentDate;
-    private bool enableAppBar, noResults;
+    private bool enableAppBar, noResults, fromSecondaryTile;
     private string routeIDWitDirection, nameID, description, color;
     private ObservableCollection<RouteName> routeNames;
     RouteName selectedRouteName;
@@ -43,13 +43,13 @@ namespace ViaggiaTrentino.ViewModels
     {
       this.navigationService = navigationService;
       this.eventAggregator = eventAggregator;
+      fromSecondaryTile = false;
       if (Settings.IsLogged)
         ptLib = new PublicTransportLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
-      //else
-      //{
-      //  MessageBox.Show("devi aprire la app e loggarti, altrimenti non posso scaricare le info", "such a noob", MessageBoxButton.OK);
-      //  Application.Current.Terminate();
-      //}
+      else
+      {
+        MessageBox.Show(AppResources.TimetableSecondaryTileNoLoginMessage, AppResources.TimetableSecondaryTileNoLoginTitle, MessageBoxButton.OK);
+      }
       NoResults = false;
     }
 
@@ -68,6 +68,7 @@ namespace ViaggiaTrentino.ViewModels
       var qs = (navigationService.CurrentContent as TimetablePageView).NavigationContext.QueryString;
       if (qs.ContainsKey("ft"))
       {
+        fromSecondaryTile = true;
         AgencyID = EnumConverter.ToEnum<AgencyType>(qs["AgencyID"]);
         RouteIDWitDirection = qs["RouteIDWitDirection"];
         Description = qs["Description"];
@@ -77,6 +78,13 @@ namespace ViaggiaTrentino.ViewModels
       GetTimetableFromDB();
       GetTimeTableDelaysFromInternet();
       
+    }
+
+    protected override void OnDeactivate(bool close)
+    {
+      base.OnDeactivate(close);
+      if (fromSecondaryTile)
+        Application.Current.Terminate();
     }
 
     #endregion

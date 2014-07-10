@@ -609,6 +609,14 @@
           <source>refresh</source>
           <target state="new">refresh</target>
         </trans-unit>
+        <trans-unit id="Resx/TimetableSecondaryTileNoLoginTitle" translate="yes" xml:space="preserve">
+          <source>Log in for a better experience</source>
+          <target state="new">Log in for a better experience</target>
+        </trans-unit>
+        <trans-unit id="Resx/TimetableSecondaryTileNoLoginMessage" translate="yes" xml:space="preserve">
+          <source>In order to work properly, you have to open the application from the main tile and log in with your credential. Until then the delays will not be shown.</source>
+          <target state="new">In order to work properly, you have to open the application from the main tile and log in with your credential. Until then the delays will not be shown.</target>
+        </trans-unit>
         <trans-unit id="Resx/ReadNotificationTitle" translate="yes" xml:space="preserve">
           <source>Read notifications</source>
           <target state="new">Read notifications</target>

@@ -635,4 +635,10 @@
   <data name="RefreshAppBar" xml:space="preserve">
     <value>refresh</value>
   </data>
+  <data name="TimetableSecondaryTileNoLoginMessage" xml:space="preserve">
+    <value>In order to work properly, you have to open the application from the main tile and log in with your credential. Until then the delays will not be shown.</value>
+  </data>
+  <data name="TimetableSecondaryTileNoLoginTitle" xml:space="preserve">
+    <value>Log in for a better experience</value>
+  </data>
 </root>
