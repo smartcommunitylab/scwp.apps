@@ -372,7 +372,7 @@
   </data>
   <data name="AboTitle" xml:space="preserve">
     <value>Informazioni su</value>
-  </data>
+  <comment></comment></data>
   <data name="SelectDirection" xml:space="preserve">
     <value>Selezionare la direzione</value>
   </data>

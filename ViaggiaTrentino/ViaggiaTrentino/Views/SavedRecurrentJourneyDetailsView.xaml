@@ -131,7 +131,7 @@
       </StackPanel>
     </Grid>
 
-    <bab:BindableAppBar IsVisible="{Binding IsLoaded}" BackgroundColor="#205980" ForegroundColor="White">
+    <bab:BindableAppBar IsVisible="{Binding IsLoaded}" BackgroundColor="{StaticResource scBlue}" ForegroundColor="White">
       <bab:BindableAppBarButton IconUri="/Assets/AppBar/Monitor.png" x:Name="BarMonitor" 
                                 Text="{Binding Journey.Monitor, Converter={ StaticResource boolToToggle}}" />
 

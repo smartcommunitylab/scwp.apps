@@ -1,5 +1,5 @@
 ﻿<phone:PhoneApplicationPage
-    x:Class="ViaggiaTrentino.Views.AboutPageView"
+    x:Class="ViaggiaTrentino.Views.ReadNotificationView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
@@ -13,9 +13,7 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
-    shell:SystemTray.IsVisible="True"
-    shell:SystemTray.BackgroundColor="{StaticResource scBlue}"
-    shell:SystemTray.ForegroundColor="#FEFFFFFF">
+    shell:SystemTray.IsVisible="True">
 
   <toolkit:TransitionService.NavigationInTransition>
     <toolkit:NavigationInTransition>
@@ -48,39 +46,16 @@
     <!--TitlePanel contains the name of the application and page title-->
     <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
       <TextBlock x:Name="ApplicationTitle" Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}"/>
-      <TextBlock x:Name="PageTitle" Text="{Binding Path=LocalizedResources.AboTitle, Source={StaticResource LocalizedStrings}}" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+      <TextBlock x:Name="PageTitle" Text="{Binding Path=LocalizedResources.ReadNotificationTitle, Source={StaticResource LocalizedStrings}}" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
     </StackPanel>
 
     <!--ContentPanel - place additional content here-->
     <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-      <StackPanel>
-        <Grid Margin="0,0,0,10">
-          <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="*" />
-          </Grid.ColumnDefinitions>
-          <Image Grid.Column="0" Source="/Assets/Logos/LogoProvincia.png"/>
-          <Image Grid.Column="1" Source="/Assets/Logos/LogoConsorzio.png"/>
-          <Image Grid.Column="2" Source="/Assets/Logos/LogoSmartcamp.png"/>
-
-        </Grid>
-        <TextBlock  Text="{Binding Path=LocalizedResources.AboutPageInfo, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}"
-                    TextWrapping="Wrap" />
-        <TextBlock  Text="{Binding Path=LocalizedResources.AboutPageDevel, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}"
-                    TextWrapping="Wrap"/>
-        <HyperlinkButton  HorizontalAlignment="Left" Content="www.smartcampuslab.it" x:Name="sclabLink"/>
-        <TextBlock  Text="{Binding Path=LocalizedResources.AboutPageCollab, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}"
-                    TextWrapping="Wrap"/>
-        <HyperlinkButton HorizontalAlignment="Left" Content="www.comune.trento.it" x:Name="comuneLink" />
-        <TextBlock  Text="{Binding Path=LocalizedResources.AboutPagePart, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}"
-                    TextWrapping="Wrap"/>
-        <HyperlinkButton HorizontalAlignment="Left" Content="www.innovazione.comunitrentini.tn.it" x:Name="innovazioneLink" />
-      </StackPanel>
+      <TextBlock x:Name="lonelySingle" Text="{Binding Path=LocalizedResources.lonelyNoNotification, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextGroupHeaderStyle}" TextWrapping="Wrap" />
     </Grid>
+    
     <bab:BindableAppBar BackgroundColor="{StaticResource scBlue}" ForegroundColor="White">
-      <bab:BindableAppBarButton IconUri="/Assets/AppBar/Moreinfo.png" x:Name="ThirdAbout" Text="{Binding Path=LocalizedResources.AboutPageThird, Source={StaticResource LocalizedStrings}}" />
-      <bab:BindableAppBarButton IconUri="/Assets/AppBar/Store.png" x:Name="RateApp" Text="{Binding Path=LocalizedResources.AboutPageRateApp, Source={StaticResource LocalizedStrings}}" />
+      <bab:BindableAppBarButton IconUri="/Assets/AppBar/Refresh.png" x:Name="RefreshAppBar" Text="{Binding Path=LocalizedResources.RefreshAppBar, Source={StaticResource LocalizedStrings}}" />
     </bab:BindableAppBar>
   </Grid>
 

@@ -61,7 +61,7 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to About ViaggiaTrentino.
+        ///   Looks up a localized string similar to About.
         /// </summary>
         public static string AboTitle {
             get {
@@ -444,6 +444,15 @@ namespace ViaggiaTrentino.Resources {
         public static string lonelyNoJourney {
             get {
                 return ResourceManager.GetString("lonelyNoJourney", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to It&apos;s lonely in here. Refresh the page see them here.
+        /// </summary>
+        public static string lonelyNoNotification {
+            get {
+                return ResourceManager.GetString("lonelyNoNotification", resourceCulture);
             }
         }
         
@@ -853,6 +862,15 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Read notification.
+        /// </summary>
+        public static string ReadNotificationTitle {
+            get {
+                return ResourceManager.GetString("ReadNotificationTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Check the local bus or train schedule or find available parking.
         /// </summary>
         public static string RealTimeInfoTileTagTour {
@@ -867,6 +885,15 @@ namespace ViaggiaTrentino.Resources {
         public static string RealTimeInfoViewTitle {
             get {
                 return ResourceManager.GetString("RealTimeInfoViewTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to refresh.
+        /// </summary>
+        public static string RefreshAppBar {
+            get {
+                return ResourceManager.GetString("RefreshAppBar", resourceCulture);
             }
         }
         

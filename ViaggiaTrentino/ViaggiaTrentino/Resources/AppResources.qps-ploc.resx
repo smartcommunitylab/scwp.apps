@@ -327,7 +327,7 @@
   <data name="SureDelete" xml:space="preserve"><value>[06C7D][!!_Ãŕê ýõú śùŗè Уòµ ẃâиţ ťó ðèľèťę ţħìŝ íτêm?_!!!!!!!!!!!!]</value></data>
   <data name="Warn" xml:space="preserve"><value>[C4FC1][!!_Ẅâŗиíйģ_!!]</value></data>
   <data name="SureChange" xml:space="preserve"><value>[A1ADD][!!_Ϋôúŕ řèčµřѓêηţ јòúŗήèŷ нàŝ Бééη ĉнâиģęđ. Đò ŷóú ŵàήť ťó ŝáνę ćћâηğèŝ?_!!!!!!!!!!!!!!!!!!!!]</value></data>
-  <data name="AboTitle" xml:space="preserve"><value>[100C6][!!_ÃБôúţ VíáģğìáŤŕęиţìйò_!!!!!!]</value></data>
+  <data name="AboTitle" xml:space="preserve"><value>[100C6][!!_ÃБôúţ VíáģğìáŤŕęиţìйò_!!!!!!]</value><comment></comment></data>
   <data name="SelectDirection" xml:space="preserve"><value>[82218][!!_Şêľèćτ Ðìřéćтįôη_!!!!]</value></data>
   <data name="ChooseCurrent" xml:space="preserve"><value>[5AB21][!!_Čùŗŕèηт ļóċàţįòη_!!!!]</value></data>
   <data name="ChooseCurrentLong" xml:space="preserve"><value>[18062][!!_Úşè ÿôµŗ мòБíłę'š ĠΡŜ ρôśíťìóи_!!!!!!!!]</value></data>

@@ -369,7 +369,7 @@
     <value>Your recurrent journey has been changed. Do you want to save changes?</value>
   </data>
   <data name="AboTitle" xml:space="preserve">
-    <value>About ViaggiaTrentino</value>
+    <value>About</value>
   </data>
   <data name="SelectDirection" xml:space="preserve">
     <value>Select Direction</value>
@@ -625,5 +625,14 @@
   </data>
   <data name="lonelyNoJourney" xml:space="preserve">
     <value>It's lonely in here. Plan and save a new journey to see them here</value>
+  </data>
+  <data name="lonelyNoNotification" xml:space="preserve">
+    <value>It's lonely in here. Refresh the page see them here</value>
+  </data>
+  <data name="ReadNotificationTitle" xml:space="preserve">
+    <value>Read notification</value>
+  </data>
+  <data name="RefreshAppBar" xml:space="preserve">
+    <value>refresh</value>
   </data>
 </root>

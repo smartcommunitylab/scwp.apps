@@ -2,6 +2,7 @@
 using Caliburn.Micro.BindableAppBar;
 using DBManager;
 using Microsoft.Phone.Controls;
+using Microsoft.Phone.Shell;
 using Microsoft.Phone.Tasks;
 using Newtonsoft.Json;
 using System;
@@ -39,6 +40,7 @@ namespace ViaggiaTrentino
     protected override PhoneApplicationFrame CreatePhoneApplicationFrame()
     {
       (App.Current.Resources["PhoneAccentBrush"] as SolidColorBrush).Color = Color.FromArgb(255, 41, 117, 167);
+
       rootFrame = new TransitionFrame();
       return rootFrame;
     }
@@ -51,6 +53,11 @@ namespace ViaggiaTrentino
       DBManagement();
       DBUpdate();
       App.LoadingPopup.InitializePopup();
+    }
+
+    protected override void OnLaunch(object sender, LaunchingEventArgs e)
+    {
+      base.OnLaunch(sender, e);
     }
 
     private void DBUpdate()
@@ -179,6 +186,9 @@ namespace ViaggiaTrentino
 
       // Parking
       container.PerRequest<ParkingsPageViewModel>();
+
+      //Alerts
+      container.PerRequest<ReadNotificationViewModel>();
 
 
       AddCustomConventions();

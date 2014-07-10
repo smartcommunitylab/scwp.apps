@@ -145,6 +145,7 @@
     </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="ViewModels\AboutPageViewModel.cs" />
+    <Compile Include="ViewModels\ReadNotificationViewModel.cs" />
     <Compile Include="ViewModels\SelectTrainRouteViewModel.cs" />
     <Compile Include="ViewModels\MonitorJourneyListViewModel.cs" />
     <Compile Include="ViewModels\StopTimesForStopViewModel.cs" />
@@ -202,6 +203,9 @@
     </Compile>
     <Compile Include="Views\Controls\LoadingControl.xaml.cs">
       <DependentUpon>LoadingControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReadNotificationView.xaml.cs">
+      <DependentUpon>ReadNotificationView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SelectTrainRouteView.xaml.cs">
       <DependentUpon>SelectTrainRouteView.xaml</DependentUpon>
@@ -288,6 +292,7 @@
     <Content Include="Assets\AppBar\Next.png" />
     <Content Include="Assets\AppBar\Previous.png" />
     <Content Include="Assets\AppBar\Recycle-Bin.png" />
+    <Content Include="Assets\AppBar\Refresh.png" />
     <Content Include="Assets\AppBar\Save.png" />
     <Content Include="Assets\AppBar\Store.png" />
     <Content Include="Assets\AppBar\Today.png" />
@@ -518,6 +523,10 @@
     <Page Include="Views\Controls\LoadingControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ReadNotificationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\SelectTrainRouteView.xaml">
       <Generator>MSBuild:Compile</Generator>

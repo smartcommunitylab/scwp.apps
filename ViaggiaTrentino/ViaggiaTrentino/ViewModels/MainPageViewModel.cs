@@ -102,8 +102,7 @@ namespace ViaggiaTrentino.ViewModels
 
     public void ReadNotificationsTile()
     {
-      MessageBox.Show("Crash Test", "Application crash.", MessageBoxButton.OK);
-      throw new DivideByZeroException("Application crash self-test");
+      navigationService.UriFor<ReadNotificationViewModel>().Navigate();
     }
 
     public void SubmitAlertTile()

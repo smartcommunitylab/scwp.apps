@@ -71,7 +71,7 @@
         </StackPanel>
       </phone:PivotItem>
     </phone:Pivot>
-    <bab:BindableAppBar x:Name="babAppbar" Mode="Minimized" BackgroundColor="#205980" ForegroundColor="White">
+    <bab:BindableAppBar x:Name="babAppbar" Mode="Minimized" BackgroundColor="{StaticResource scBlue}" ForegroundColor="White">
       <bab:BindableAppBarButton IconUri="/Toolkit.Content/ApplicationBar.Add.png" x:Name="barAdd" 
                                 Text="{Binding Path=LocalizedResources.SettingsPageAddPlace, Source={StaticResource LocalizedStrings}}" />
 
