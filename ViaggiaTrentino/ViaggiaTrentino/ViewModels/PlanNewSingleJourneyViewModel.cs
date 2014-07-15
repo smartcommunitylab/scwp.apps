@@ -232,7 +232,7 @@ namespace ViaggiaTrentino.ViewModels
         {
 
           Date = departureDate.ToString("MM/dd/yyyy"),
-          DepartureTime = departureDate.ToString("HH:mm"),
+          DepartureTime = departureDate.ToString("hh:mm tt").Replace(" ", ""),
           From = FromPos,
           To = ToPos,
           ResultsNumber = 3,
