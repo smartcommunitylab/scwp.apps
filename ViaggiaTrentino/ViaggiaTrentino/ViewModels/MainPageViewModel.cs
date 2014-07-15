@@ -164,6 +164,13 @@ namespace ViaggiaTrentino.ViewModels
           loginPopup.IsOpen = false;
           pll = new ProfileLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
           Settings.UserID = (await pll.GetBasicProfile()).UserId;
+
+          if (!Settings.IsTourAlreadyShown)
+          {
+            TimeTableCacheHelper ttch = new TimeTableCacheHelper();
+            ttch.UpdateCachedCalendars();
+          }
+
           eventAggregator.Publish(true);
         }
       }
