@@ -290,9 +290,9 @@ namespace ViaggiaTrentino.ViewModels
         RecurrentJourneyParameters rjp = new RecurrentJourneyParameters()
         {
           Time = DateTime.Now.ToString("HH:mm"),
-          FromDate = Convert.ToInt64(DateTimeToEpoch(DateTime.Now)),
+          FromDate = Convert.ToInt64(DateTimeToEpoch(beginDate)),
           ToDate = ToDateLong,
-          Interval = Convert.ToInt64(1.5 * 60 * 60 * 1000),
+          Interval = Convert.ToInt64((endDate.TimeOfDay - beginDate.TimeOfDay).TotalMilliseconds),
           From = from,
           To = to,
           Recurrences = SelectedDaysToArray(),

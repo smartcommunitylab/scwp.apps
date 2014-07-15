@@ -50,7 +50,8 @@ namespace ViaggiaTrentino
       base.OnStartup(sender, e);
       Settings.Initialize();
       DBManagement();
-      DBUpdate();
+      if(Settings.IsLogged)
+        DBUpdate();
       App.LoadingPopup.InitializePopup();
     }
 
