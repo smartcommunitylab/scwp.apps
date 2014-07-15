@@ -53,6 +53,7 @@ namespace DBManager
     {
       try
       {
+        this.RemoveCalendar(agencyID, routeID);
         sqlConn.InsertOrReplace(new Calendar()
         {
           AgencyID = agencyID,

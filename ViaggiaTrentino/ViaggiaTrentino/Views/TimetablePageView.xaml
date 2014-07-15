@@ -22,20 +22,20 @@
   <toolkit:TransitionService.NavigationInTransition>
     <toolkit:NavigationInTransition>
       <toolkit:NavigationInTransition.Backward>
-        <toolkit:TurnstileFeatherTransition Mode="BackwardIn" />
+        <toolkit:TurnstileTransition Mode="BackwardIn" />
       </toolkit:NavigationInTransition.Backward>
       <toolkit:NavigationInTransition.Forward>
-        <toolkit:TurnstileFeatherTransition Mode="ForwardIn" />
+        <toolkit:TurnstileTransition Mode="ForwardIn" />
       </toolkit:NavigationInTransition.Forward>
     </toolkit:NavigationInTransition>
   </toolkit:TransitionService.NavigationInTransition>
   <toolkit:TransitionService.NavigationOutTransition>
     <toolkit:NavigationOutTransition>
       <toolkit:NavigationOutTransition.Backward>
-        <toolkit:TurnstileFeatherTransition Mode="BackwardOut" />
+        <toolkit:TurnstileTransition Mode="BackwardOut" />
       </toolkit:NavigationOutTransition.Backward>
       <toolkit:NavigationOutTransition.Forward>
-        <toolkit:TurnstileFeatherTransition Mode="ForwardOut" />
+        <toolkit:TurnstileTransition Mode="ForwardOut" />
       </toolkit:NavigationOutTransition.Forward>
     </toolkit:NavigationOutTransition>
   </toolkit:TransitionService.NavigationOutTransition>
@@ -58,8 +58,10 @@
         <ColumnDefinition Width="Auto" />
       </Grid.ColumnDefinitions>
 
-      <TextBlock Foreground="{Binding Color, Converter={StaticResource backgroundToForegroundColor}}" Grid.Column="0" FontWeight="SemiBold" Margin="12,12,12,12"  Text="{Binding RouteName}" TextWrapping="Wrap" FontSize="{StaticResource PhoneFontSizeMedium}"/>
-      <TextBlock Foreground="{Binding Color, Converter={StaticResource backgroundToForegroundColor}}" Grid.Column="1" FontWeight="SemiBold" Margin="12,12,12,12"  Text="{Binding CurrentDate, StringFormat='dd/MM'}" FontSize="{StaticResource PhoneFontSizeMedium}"/>
+      <TextBlock Foreground="{Binding Color, Converter={StaticResource backgroundToForegroundColor}}" Grid.Column="0" FontWeight="SemiBold" Margin="12,12,12,12"
+                 Text="{Binding RouteName}" TextWrapping="Wrap" FontSize="{StaticResource PhoneFontSizeMedium}"/>
+      <TextBlock Foreground="{Binding Color, Converter={StaticResource backgroundToForegroundColor}}" Grid.Column="1" FontWeight="SemiBold" Margin="12,12,12,12"
+                 Text="{Binding CurrentDate, StringFormat='dd/MM'}" FontSize="{StaticResource PhoneFontSizeMedium}"/>
     </Grid>
 
     <StackPanel x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
@@ -82,7 +84,7 @@
       </StackPanel>
       <ScrollViewer Grid.Row="0" Grid.Column="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
         <StackPanel x:Name="stackPanelLineType" Visibility="{Binding NoResults, Converter={StaticResource boolToNotVisibility}}"
-                        Orientation="Horizontal" toolkit:TurnstileFeatherEffect.FeatheringIndex="0"/>
+                        Orientation="Horizontal"/>
       </ScrollViewer>
       <ScrollViewer Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" VerticalScrollBarVisibility="Auto" x:Name="scrollViewerTimetable">
         <Grid x:Name="gridMainTimetable">
@@ -109,7 +111,7 @@
           </ListBox>
           <ScrollViewer Grid.Column="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
             <StackPanel x:Name="stackPanelTimetable" Visibility="{Binding NoResults, Converter={StaticResource boolToNotVisibility}}"
-                        Orientation="Horizontal" toolkit:TurnstileFeatherEffect.FeatheringIndex="0"/>
+                        Orientation="Horizontal"/>
           </ScrollViewer>
 
         </Grid>

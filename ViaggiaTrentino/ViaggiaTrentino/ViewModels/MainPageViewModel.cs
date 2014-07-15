@@ -1,6 +1,7 @@
 ﻿using AuthenticationLibrary;
 using Caliburn.Micro;
 using Microsoft.Phone.Controls;
+using Microsoft.Phone.Shell;
 using Microsoft.Phone.Tasks;
 using ProfileServiceLibrary;
 using System;
@@ -127,6 +128,10 @@ namespace ViaggiaTrentino.ViewModels
       {
         eventAggregator.Publish(false);
         WebBrowser wb = new WebBrowser();
+        
+        if (SystemTray.IsVisible)
+          wb.Margin = new Thickness(0, 32, 0, 0);
+
         wb.ClearCookiesAsync();
         wb.ClearInternetCacheAsync();
         wb.IsScriptEnabled = true;
