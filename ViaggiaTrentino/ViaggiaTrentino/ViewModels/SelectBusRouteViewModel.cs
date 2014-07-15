@@ -3,9 +3,11 @@ using Coding4Fun.Toolkit.Controls;
 using CommonHelpers;
 using DBManager;
 using DBManager.DBModels;
+using Microsoft.Phone.Maps.Toolkit;
 using Microsoft.Phone.Shell;
 using MobilityServiceLibrary;
 using Models.MobilityService;
+using Models.MobilityService.PublicTransport;
 using Models.TerritoryInformationService;
 using System;
 using System.Collections.Generic;
@@ -165,37 +167,40 @@ namespace ViaggiaTrentino.ViewModels
     #endregion
 
     // this function is cheatously used in the associated View for this ViewModel
-    public async Task<List<POIObject>> RetrieveAllStops(double[] coordinates, double radius, string[] agencyIds)
+    public async Task<List<Stop>> RetrieveAllStops(double[] coordinates, double radius)
     {
-      til = new TerritoryInformationLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
-      List<POIObject> results = null;
-      Dictionary<string, object> criteria = new Dictionary<string, object>();
-      criteria.Add("source", "smartplanner-transitstops");
-      criteria.Add("customData.agencyId", agencyIds);
+      //til = new TerritoryInformationLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
 
-      await Settings.RefreshToken();
-      results = await til.ReadPlaces(new FilterObject()
-      {
-        SkipFirstElements = 0,
-        NumberOfResults = -1,
-        Categories = new List<string>() { "Mobility" },
-        MongoFilters = criteria,
-        Coordinates = new double[2] { coordinates[0], coordinates[1] },
-        Radius = radius
-      });
+      var results = await ptl.GetStopsByLocation(AgencyID, coordinates[0], coordinates[1], radius, 0, 100);
 
-      results = (from place in results
-                 group place by new { place.Poi.Latitude, place.Poi.Longitude }
-                   into mygroup
-                   select mygroup.First()).ToList();
+      //List<POIObject> results = null;
+      //Dictionary<string, object> criteria = new Dictionary<string, object>();
+      //criteria.Add("source", "smartplanner-transitstops");
+      //criteria.Add("customData.agencyId", agencyIds);
+
+      //await Settings.RefreshToken();
+      //results = await til.ReadPlaces(new FilterObject()
+      //{
+      //  SkipFirstElements = 0,
+      //  NumberOfResults = -1,
+      //  Categories = new List<string>() { "Mobility" },
+      //  MongoFilters = criteria,
+      //  Coordinates = new double[2] { coordinates[0], coordinates[1] },
+      //  Radius = radius
+      //});
+
+      //results = (from place in results
+      //           group place by new { place.Poi.Latitude, place.Poi.Longitude }
+      //             into mygroup
+      //             select mygroup.First()).ToList();
 
       return results;
     }
     
-    public void TappedPushPin(POIObject stop)
+    public void TappedPushPin(Stop stop)
     {
       mp = new MessagePrompt();
-      mp.Body = new StopPopupView(mp, navigationService) { DataContext = stop };
+      mp.Body = new StopPopupView(mp, navigationService) { DataContext = stop, Tag = AgencyID };
       mp.Style = Application.Current.Resources["mpNoTitleNoButtons"] as Style;
       mp.ActionPopUpButtons.Clear();
       mp.HorizontalAlignment = HorizontalAlignment.Center;

@@ -18,6 +18,7 @@ using CommonHelpers;
 using Models.MobilityService;
 using System.Diagnostics;
 using Microsoft.Phone.Maps.Controls;
+using Models.MobilityService.PublicTransport;
 
 namespace ViaggiaTrentino.Views
 {
@@ -40,9 +41,9 @@ namespace ViaggiaTrentino.Views
 
     private async void PopulateMap(double[] position)
     {
-      string[] agencyIds = new string[] {
-          EnumConverter.ToEnumString<AgencyType>(((SelectBusRouteViewModel)(this.DataContext)).AgencyID)
-        };
+      //string[] agencyIds = new string[] {
+      //    EnumConverter.ToEnumString<AgencyType>(((SelectBusRouteViewModel)(this.DataContext)).AgencyID)
+      //  };
 
       GeoCoordinate q = StopsMap.ConvertViewportPointToGeoCoordinate(new Point(0, 0));
       GeoCoordinate w = StopsMap.ConvertViewportPointToGeoCoordinate(new Point(StopsMap.ActualWidth, StopsMap.ActualHeight));
@@ -50,18 +51,19 @@ namespace ViaggiaTrentino.Views
 
       //Debug.WriteLine(q.GetDistanceTo(w).ToString());
 
-      List<POIObject> stops = await ((SelectBusRouteViewModel)(this.DataContext)).RetrieveAllStops(position, meters, agencyIds);
+      List<Stop> stops = await ((SelectBusRouteViewModel)(this.DataContext)).RetrieveAllStops(position, meters);
 
       var pushPins = new List<Pushpin>();
       foreach (var stop in stops)
       {
+        //stop.StopId = EnumConverter.ToEnumString<AgencyType>(((SelectBusRouteViewModel)(this.DataContext)).AgencyID) +"$$$"+stop.StopId;
         pushPins.Add(new Pushpin()
         {
           ContentTemplate = this.Resources["PushpinTemplate"] as DataTemplate,
           DataContext = stop,
           Tag = stop,
-          GeoCoordinate = new GeoCoordinate(stop.Location[0], stop.Location[1]),
-          Content = stop.Title
+          GeoCoordinate = new GeoCoordinate(stop.Latitude, stop.Longitude),
+          Content = stop.Name
         });
       }
 

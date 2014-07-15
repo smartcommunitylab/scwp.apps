@@ -31,10 +31,10 @@ namespace ViaggiaTrentino.Views.Controls
 
     private void btnRetrieveStopTimes_Click(object sender, RoutedEventArgs e)
     {
-      POIObject poi = this.DataContext as POIObject;
+      Stop stop = this.DataContext as Stop;
       navigationService.UriFor<StopTimesForStopViewModel>()
-        .WithParam(x => x.AgencyID, EnumConverter.ToEnum<AgencyType>(poi.CustomData["agencyId"] as string))
-        .WithParam(x => x.StopID, poi.CustomData["id"] as string)
+        .WithParam(x => x.AgencyID, this.Tag)
+        .WithParam(x => x.StopID, stop.StopId as string)
         .Navigate();
     }
 
