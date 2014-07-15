@@ -45,7 +45,7 @@ namespace ViaggiaTrentino.ViewModels
       {
         App.LoadingPopup.Show();
         await Settings.RefreshToken();
-        var res = await ptl.GetLimitedTimetable(AgencyID, stopID, 3);
+        var res = await ptl.GetLimitedTimetable(AgencyID, stopID, 6);
         var grouped =
                   from list in res
                   group list by (list.RouteShortName + " - " + list.RouteName) into listByGroup

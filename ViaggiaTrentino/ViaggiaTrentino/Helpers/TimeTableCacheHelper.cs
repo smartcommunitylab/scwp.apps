@@ -21,7 +21,7 @@ namespace ViaggiaTrentino.Helpers
 
         using (DBHelper dbHelp = new DBHelper())
         {
-          Dictionary<AgencyType, string> listVers = dbHelp.GetAllVersions().ToDictionary(x => EnumConverter.ToEnum<AgencyType>(x.AgencyID), t => "1");
+          Dictionary<AgencyType, string> listVers = dbHelp.GetAllVersions().ToDictionary(x => EnumConverter.ToEnum<AgencyType>(x.AgencyID), t => t.VersionNumber);
           var results = await ptLib.GetReadTimetableCacheUpdates(listVers);
 
           foreach (var item in results)
