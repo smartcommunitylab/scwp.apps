@@ -33,9 +33,10 @@ namespace ViaggiaTrentino.Views
       eventAggregator.Unsubscribe(this);
     }
 
-    public void Handle(IEnumerable<KeyedList<string, TripData>> message)
+    public void Handle(IEnumerable<KeyedList<string, TripData>> sms)
     {
-      //message.ToList().Sort(new CustomComparer());
+      var message = sms.ToList();
+      message.Sort(new CustomComparer());
 
       if (message.ToList().Count > 0)
         lls.ItemsSource = message.ToList();
@@ -49,19 +50,12 @@ namespace ViaggiaTrentino.Views
   {
     public int Compare(KeyedList<string, TripData> x, KeyedList<string, TripData> y)
     {
-      var regex = new Regex("^(d+)");
+      int o1, o2;
 
-      // run the regex on both strings
-      var xRegexResult = regex.Match(x.First().RouteShortName);
-      var yRegexResult = regex.Match(y.First().RouteShortName);
-      short o1;
-      if(Int16.TryParse(x.First().RouteShortName, out o1))
-      // check if they are both numbers
-      if (xRegexResult.Success && yRegexResult.Success)
-      {
-        return int.Parse(xRegexResult.Groups[1].Value).CompareTo(int.Parse(yRegexResult.Groups[1].Value));
-      }
-
+      //if both are numbers
+      if(Int32.TryParse(x.First().RouteShortName, out o1) && Int32.TryParse(y.First().RouteShortName, out o2))
+        return o1.CompareTo(o2);
+      
       // otherwise return as string comparison
       return x.First().RouteShortName.CompareTo(y.First().RouteShortName);
     }
