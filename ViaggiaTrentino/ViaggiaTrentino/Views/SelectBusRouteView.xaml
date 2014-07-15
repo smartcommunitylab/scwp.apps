@@ -34,7 +34,7 @@
         <toolkit:TurnstileFeatherTransition Mode="BackwardOut" />
       </toolkit:NavigationOutTransition.Backward>
       <toolkit:NavigationOutTransition.Forward>
-        <toolkit:TurnstileFeatherTransition Mode="ForwardOut" />
+        <toolkit:TurnstileTransition Mode="ForwardOut" />
       </toolkit:NavigationOutTransition.Forward>
     </toolkit:NavigationOutTransition>
   </toolkit:TransitionService.NavigationOutTransition>

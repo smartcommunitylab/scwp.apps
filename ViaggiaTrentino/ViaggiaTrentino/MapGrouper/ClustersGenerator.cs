@@ -9,7 +9,7 @@ namespace ViaggiaTrentino.Model
 {
     public class ClustersGenerator : MapChildControl
     {
-        const double MAXDISTANCE = 100;
+        const double MAXDISTANCE = 90;
 
         private Map _map;
         private List<Pushpin> _pushpins;

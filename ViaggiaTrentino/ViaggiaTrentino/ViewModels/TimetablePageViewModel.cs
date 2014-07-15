@@ -198,8 +198,8 @@ namespace ViaggiaTrentino.ViewModels
           TimeTable AudiTT = await ptLib.GetTransitDelays(routeIDWitDirection,
           Convert.ToInt64(DateTimeToEpoch(new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, 0, 0, 0))),
           Convert.ToInt64(DateTimeToEpoch(new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, 23, 59, 59))));
-
-          eventAggregator.Publish(AudiTT.Delays[0]);
+          if(AudiTT.Delays.Count > 0)
+            eventAggregator.Publish(AudiTT.Delays.First());
         }
         catch (HttpRequestException) { }
         catch (WebException) { }
