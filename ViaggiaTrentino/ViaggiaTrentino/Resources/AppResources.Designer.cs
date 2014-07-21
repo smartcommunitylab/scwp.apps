@@ -295,6 +295,24 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Log in to use this feature.
+        /// </summary>
+        public static string ExternalLauchNoLoginTItle {
+            get {
+                return ResourceManager.GetString("ExternalLauchNoLoginTItle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In order to work properly, you have to open the application from the main tile and log in with your credential. Until then, journey planning is unavailable..
+        /// </summary>
+        public static string ExternalLaunchNoLoginMessage {
+            get {
+                return ResourceManager.GetString("ExternalLaunchNoLoginMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to From.
         /// </summary>
         public static string From {

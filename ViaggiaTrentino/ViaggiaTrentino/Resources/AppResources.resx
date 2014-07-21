@@ -641,4 +641,10 @@
   <data name="TimetableSecondaryTileNoLoginTitle" xml:space="preserve">
     <value>Log in for a better experience</value>
   </data>
+  <data name="ExternalLauchNoLoginTItle" xml:space="preserve">
+    <value>Log in to use this feature</value>
+  </data>
+  <data name="ExternalLaunchNoLoginMessage" xml:space="preserve">
+    <value>In order to work properly, you have to open the application from the main tile and log in with your credential. Until then, journey planning is unavailable.</value>
+  </data>
 </root>

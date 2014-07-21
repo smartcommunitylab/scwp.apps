@@ -6,6 +6,7 @@ using Models.MobilityService.Journeys;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows;
 using ViaggiaTrentino.Helpers;
 using ViaggiaTrentino.Resources;
 
@@ -57,18 +58,25 @@ namespace ViaggiaTrentino.ViewModels
     protected async override void OnViewLoaded(object view)
     {
       base.OnViewLoaded(view);
-
-      if (PhoneApplicationService.Current.State.ContainsKey("navigationCoord"))
+      if (Settings.IsLogged)
       {
-        double[] dd = PhoneApplicationService.Current.State["navigationCoord"] as double[];
-        PhoneApplicationService.Current.State.Remove("navigationCoord");
-        locationResult = "to";
-        ToPos = new Position() 
-                 { 
-                   Name = await lch.GetAddressFromGeoCoord(dd),
-                   Latitude = dd[0].ToString(),
-                   Longitude = dd[1].ToString() 
-                 };
+        if (PhoneApplicationService.Current.State.ContainsKey("navigationCoord"))
+        {
+          double[] dd = PhoneApplicationService.Current.State["navigationCoord"] as double[];
+          PhoneApplicationService.Current.State.Remove("navigationCoord");
+          locationResult = "to";
+          ToPos = new Position()
+                   {
+                     Name = await lch.GetAddressFromGeoCoord(dd),
+                     Latitude = dd[0].ToString(),
+                     Longitude = dd[1].ToString()
+                   };
+        }
+      }
+      else
+      {
+        MessageBox.Show(AppResources.ExternalLaunchNoLoginMessage, AppResources.ExternalLauchNoLoginTItle, MessageBoxButton.OK);
+        navigationService.UriFor<MainPageViewModel>().Navigate();
       }
     }
 

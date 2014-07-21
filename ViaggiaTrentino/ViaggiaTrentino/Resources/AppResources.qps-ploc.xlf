@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
-  <file datatype="xml" source-language="en-US" target-language="qps-ploc" original="AppResources.resx" tool-id="MultilingualAppToolkit" product-name="ViaggiaRovereto" product-version="1.0.0.0" build-num="0">
+  <file datatype="xml" source-language="en-US" target-language="qps-ploc" original="AppResources.resx" tool-id="MultilingualAppToolkit" product-name="ViaggiaTrentino" product-version="1.0.0.0" build-num="0">
     <header>
       <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="3.0.1200.0" tool-company="Microsoft" />
     </header>
@@ -612,6 +612,14 @@
         <trans-unit id="Resx/TimetableSecondaryTileNoLoginTitle" translate="yes" xml:space="preserve">
           <source>Log in for a better experience</source>
           <target state="new">Log in for a better experience</target>
+        </trans-unit>
+        <trans-unit id="Resx/ExternalLaunchNoLoginMessage" translate="yes" xml:space="preserve">
+          <source>In order to work properly, you have to open the application from the main tile and log in with your credential. Until then, journey planning is unavailable.</source>
+          <target state="new">In order to work properly, you have to open the application from the main tile and log in with your credential. Until then, journey planning is unavailable.</target>
+        </trans-unit>
+        <trans-unit id="Resx/ExternalLauchNoLoginTItle" translate="yes" xml:space="preserve">
+          <source>Log in to use this feature</source>
+          <target state="new">Log in to use this feature</target>
         </trans-unit>
         <trans-unit id="Resx/TimetableSecondaryTileNoLoginMessage" translate="yes" xml:space="preserve">
           <source>In order to work properly, you have to open the application from the main tile and log in with your credential. Until then the delays will not be shown.</source>
