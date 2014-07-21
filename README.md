@@ -1,6 +1,5 @@
 # ViaggiaTrentino
 
-***
 
 ## Setting up Visual Studio
 
@@ -30,7 +29,7 @@ and it expects to find it at its same level. That is
 ## Preparation
 
 This application requires a pre-loaded database in order to run properly
-in order to obtain such DB, issue the following commands onto a Powershell®
+in order to obtain such DB, issue the following commands onto a Powershellï¿½
 terminal
 
 first navigate to the correct directory
@@ -58,13 +57,16 @@ External applications can launch the Single Journey planning feature of the app.
 In orded to do so, an application must execute the following code 
 
 ```
-Windows.System.Launcher.LaunchUriAsync(new System.Uri("smartcampuslab:NavigateTowards?lat=46.2153444&lng=11.1199183"));
+Windows.System.Launcher.LaunchUriAsync(
+  new System.Uri("smartcampuslab:NavigateTowards?lat=46.2153444&lng=11.1199183"));
 ```
 
 where the parameters are:
-|Parameter|Description|
-|smartcampuslab|is the custom protocol to which the application responds, it is specified in the WMAppManifest.xml|
-|NavigateTowards|is the required action, in this case, requires access to the journey planning feature|
-|lat=46.2153444&lng=11.1199183|action parameters. because the string is treated as an Uri, it is the equivalent of a query string|
+
+| Parameter | Description |
+| --------- | ----------- |
+| smartcampuslab | is the custom protocol to which the application responds, it is specified in the WMAppManifest.xml |
+| NavigateTowards | is the required action, in this case, requires access to the journey planning feature |
+| lat=46.2153444&lng=11.1199183 | action parameters. because the string is treated as an Uri, it is the equivalent of a query string |
 
 As of now (2014/07/21), only the SingleJourneyPlanner feature is exposed to other apps, but it's easy to extend
