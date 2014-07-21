@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Models.MobilityService;
+using System;
 using System.Collections.Generic;
 using System.Device.Location;
 using System.Linq;
@@ -13,6 +14,11 @@ namespace ViaggiaTrentino
     public static GeoCoordinate DefaultCityCoordinate
     {
       get { return new GeoCoordinate(46.0697, 11.1211); }
+    }
+
+    public static AgencyType ParkingAgencyId
+    {
+      get { return AgencyType.ComuneDiTrento; }
     }
 
     public static void AppSpecificInitialize()

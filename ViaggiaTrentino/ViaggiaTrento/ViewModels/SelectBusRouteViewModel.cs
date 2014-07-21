@@ -3,12 +3,10 @@ using Coding4Fun.Toolkit.Controls;
 using CommonHelpers;
 using DBManager;
 using DBManager.DBModels;
-using Microsoft.Phone.Maps.Toolkit;
 using Microsoft.Phone.Shell;
 using MobilityServiceLibrary;
 using Models.MobilityService;
 using Models.MobilityService.PublicTransport;
-using Models.TerritoryInformationService;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -17,7 +15,6 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-using TerritoryInformationServiceLibrary;
 using ViaggiaTrentino.Resources;
 using ViaggiaTrentino.Views.Controls;
 
@@ -29,7 +26,6 @@ namespace ViaggiaTrentino.ViewModels
     private AgencyType agencyID;
     private MessagePrompt mp;
     private ObservableCollection<RouteInfo> routesName;
-    private TerritoryInformationLibrary til;
     private PublicTransportLibrary ptl;
     BackgroundWorker bw;
     bool isLoadCompleted;

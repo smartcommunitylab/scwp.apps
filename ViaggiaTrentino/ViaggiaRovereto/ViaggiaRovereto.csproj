@@ -384,10 +384,6 @@
       <Link>Views\ReadNotificationView.xaml.cs</Link>
       <DependentUpon>ReadNotificationView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="..\ViaggiaTrento\Views\RealTimeInfoView.xaml.cs">
-      <Link>Views\RealTimeInfoView.xaml.cs</Link>
-      <DependentUpon>RealTimeInfoView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="..\ViaggiaTrento\Views\SavedJourneyPageView.xaml.cs">
       <Link>Views\SavedJourneyPageView.xaml.cs</Link>
       <DependentUpon>SavedJourneyPageView.xaml</DependentUpon>
@@ -933,11 +929,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="..\ViaggiaTrento\Views\RealTimeInfoView.xaml">
-      <Link>Views\RealTimeInfoView.xaml</Link>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="..\ViaggiaTrento\Views\SavedJourneyPageView.xaml">
       <Link>Views\SavedJourneyPageView.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
@@ -991,6 +982,9 @@
     <Page Include="..\ViaggiaTrento\Views\TimetablePageView.xaml">
       <Link>Views\TimetablePageView.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\RealTimeInfoView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

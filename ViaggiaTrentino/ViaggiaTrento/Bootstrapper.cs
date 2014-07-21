@@ -3,11 +3,9 @@ using Caliburn.Micro.BindableAppBar;
 using DBManager;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using Microsoft.Phone.Tasks;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Device.Location;
 using System.IO;
 using System.IO.IsolatedStorage;
 using System.Net.Http;
@@ -82,7 +80,10 @@ namespace ViaggiaTrentino
       else if (e.ExceptionObject is HttpRequestException)
       {
         if((e.ExceptionObject as HttpRequestException).Message.Contains("401"))
+#pragma warning disable 4014
           Settings.RefreshToken(true);
+#pragma warning restore 4014
+          
         MessageBox.Show(AppResources.CatchedHttpErrorMessage, AppResources.GenericErrorTitle, MessageBoxButton.OK);
         if (Settings.FeedbackEnabled)
           elh.LogNewException(e.ExceptionObject, ExceptionType.Handled);
@@ -100,7 +101,10 @@ namespace ViaggiaTrentino
     private void DBUpdate()
     {
       TimeTableCacheHelper ttch = new TimeTableCacheHelper();
+
+#pragma warning disable 4014
       ttch.UpdateCachedCalendars();
+#pragma warning restore 4014
     }
 
     private async void DBManagement()

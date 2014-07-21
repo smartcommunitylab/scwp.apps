@@ -168,7 +168,9 @@ namespace ViaggiaTrentino.ViewModels
           if (!Settings.IsTourAlreadyShown)
           {
             TimeTableCacheHelper ttch = new TimeTableCacheHelper();
+#pragma warning disable 4014
             ttch.UpdateCachedCalendars();
+#pragma warning restore 4014
           }
 
           eventAggregator.Publish(true);
