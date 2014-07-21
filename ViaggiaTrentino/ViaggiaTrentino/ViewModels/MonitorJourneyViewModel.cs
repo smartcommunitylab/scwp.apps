@@ -289,7 +289,7 @@ namespace ViaggiaTrentino.ViewModels
 
         RecurrentJourneyParameters rjp = new RecurrentJourneyParameters()
         {
-          Time = DateTime.Now.ToString("hh:mm tt").Replace(" ", ""),
+          Time = DateTime.Now.ToString("hh:mm tt", CultureInfo.InvariantCulture).Replace(" ", ""),
           FromDate = Convert.ToInt64(DateTimeToEpoch(beginDate)),
           ToDate = ToDateLong,
           Interval = Convert.ToInt64((endDate.TimeOfDay - beginDate.TimeOfDay).TotalMilliseconds),

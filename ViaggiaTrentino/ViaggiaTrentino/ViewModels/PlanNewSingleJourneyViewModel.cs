@@ -5,6 +5,7 @@ using Models.MobilityService;
 using Models.MobilityService.Journeys;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 using System.Windows;
 using ViaggiaTrentino.Helpers;
@@ -240,7 +241,7 @@ namespace ViaggiaTrentino.ViewModels
         {
 
           Date = departureDate.ToString("MM/dd/yyyy"),
-          DepartureTime = departureDate.ToString("hh:mm tt").Replace(" ", ""),
+          DepartureTime = departureDate.ToString("hh:mm tt", CultureInfo.InvariantCulture).Replace(" ", ""),
           From = FromPos,
           To = ToPos,
           ResultsNumber = 3,
