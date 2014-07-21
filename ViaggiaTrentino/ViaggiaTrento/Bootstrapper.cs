@@ -158,6 +158,7 @@ namespace ViaggiaTrentino
 
     async void rootFrame_Navigating(object sender, NavigatingCancelEventArgs e)
     {
+      App.LoadingPopup.Hide();
       if (reset && e.IsCancelable && e.Uri.OriginalString == "/Views/MainPageView.xaml")
       {
         e.Cancel = true;
