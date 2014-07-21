@@ -43,7 +43,7 @@ namespace ViaggiaTrentino.ViewModels
       {
         App.LoadingPopup.Show();
         await Settings.RefreshToken();
-        parchi = await publicTransLib.GetParkingsByAgency(Models.MobilityService.AgencyType.ComuneDiTrento);
+        parchi = await publicTransLib.GetParkingsByAgency(Settings.ParkingAgencyId);
       }
       finally
       {

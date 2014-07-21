@@ -1,5 +1,6 @@
 ﻿using Caliburn.Micro;
 using Microsoft.Phone.Controls;
+using Microsoft.Phone.Maps.Controls;
 using Microsoft.Phone.Maps.Toolkit;
 using Models.MobilityService.PublicTransport;
 using System.Collections.Generic;
@@ -54,7 +55,12 @@ namespace ViaggiaTrentino.Views
         );
 	    }
 
+
       var clusterer = new ClustersGenerator(ParkingsMap, pushPins, this.Resources["ClusterTemplate"] as DataTemplate);
+
+
+      
+
     }
 
     private void SingleParkingView_Tap(object sender, System.Windows.Input.GestureEventArgs e)

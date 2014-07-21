@@ -132,11 +132,11 @@
     <Compile Include="Converters\LegListToImageListConverter.cs" />
     <Compile Include="Helpers\LocationChooserHelper.cs" />
     <Compile Include="Helpers\TimeTableCacheHelper.cs" />
+    <Compile Include="MapGrouper\ClustersGenerator.cs" />
     <Compile Include="SmartCampusAutoCompleteBox.cs" />
     <Compile Include="Helpers\DistanceHelper.cs" />
     <Compile Include="Helpers\MapHelper.cs" />
     <Compile Include="LocalizedStrings.cs" />
-    <Compile Include="MapGrouper\ClustersGenerator.cs" />
     <Compile Include="MapGrouper\PushpinsGroup.cs" />
     <Compile Include="PreferencesModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -206,6 +206,9 @@
     <Compile Include="Views\Controls\LoadingControl.xaml.cs">
       <DependentUpon>LoadingControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ParkingsPageView.xaml.cs">
+      <DependentUpon>ParkingsPageView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ReadNotificationView.xaml.cs">
       <DependentUpon>ReadNotificationView.xaml</DependentUpon>
     </Compile>
@@ -238,9 +241,6 @@
     </Compile>
     <Compile Include="Views\MonitorJourneyView.xaml.cs">
       <DependentUpon>MonitorJourneyView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ParkingsPageView.xaml.cs">
-      <DependentUpon>ParkingsPageView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainPageView.xaml.cs">
       <DependentUpon>MainPageView.xaml</DependentUpon>
@@ -527,6 +527,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ParkingsPageView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\ReadNotificationView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -567,10 +570,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MonitorJourneyView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\ParkingsPageView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
