@@ -58,10 +58,10 @@ namespace ViaggiaTrentino.ViewModels
     {
       base.OnViewLoaded(view);
 
-      if (PhoneApplicationService.Current.State.ContainsKey("parkCoord"))
+      if (PhoneApplicationService.Current.State.ContainsKey("navigationCoord"))
       {
-        double[] dd = PhoneApplicationService.Current.State["parkCoord"] as double[];
-        PhoneApplicationService.Current.State.Remove("parkCoord");
+        double[] dd = PhoneApplicationService.Current.State["navigationCoord"] as double[];
+        PhoneApplicationService.Current.State.Remove("navigationCoord");
         locationResult = "to";
         ToPos = new Position() 
                  { 

@@ -29,7 +29,7 @@ namespace ViaggiaTrentino.Views.Controls
     private void btnDirections_Click(object sender, RoutedEventArgs e)
     {
       Parking park = this.DataContext as Parking;
-      PhoneApplicationService.Current.State["parkCoord"] = park.Position;
+      PhoneApplicationService.Current.State["navigationCoord"] = park.Position;
       navigationService.UriFor<PlanNewSingleJourneyViewModel>().Navigate();
     }
 

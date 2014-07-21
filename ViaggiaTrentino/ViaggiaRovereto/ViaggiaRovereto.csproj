@@ -183,6 +183,9 @@
     <Compile Include="..\ViaggiaTrentino\Converters\TransportTypeToImageConverter.cs">
       <Link>Converters\TransportTypeToImageConverter.cs</Link>
     </Compile>
+    <Compile Include="..\ViaggiaTrentino\Helpers\AssociationUriMapper.cs">
+      <Link>Helpers\AssociationUriMapper.cs</Link>
+    </Compile>
     <Compile Include="..\ViaggiaTrentino\Helpers\DistanceHelper.cs">
       <Link>Helpers\DistanceHelper.cs</Link>
     </Compile>

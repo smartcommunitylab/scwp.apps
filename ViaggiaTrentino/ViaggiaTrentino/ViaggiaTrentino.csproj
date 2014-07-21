@@ -101,6 +101,7 @@
     <Compile Include="Converters\DynamicTileSizeConverter.cs" />
     <Compile Include="Converters\DebuggingConverter.cs" />
     <Compile Include="Converters\LongListSelectorItemToColorConverter.cs" />
+    <Compile Include="Helpers\AssociationUriMapper.cs" />
     <Compile Include="Helpers\ExceptionLoggerHelper.cs" />
     <Compile Include="Helpers\FavouriteLocationHelper.cs" />
     <Compile Include="Helpers\FileStorageHelper.cs" />
