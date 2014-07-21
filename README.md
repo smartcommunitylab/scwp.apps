@@ -52,4 +52,19 @@ and destination-directory is an empty directory in which files will be stored.
 After obtaining the .sqlite file, copy it in the ViaggiaTrentino project and perform 
 a clean solution=> build cycle
 
+## External application launching
 
+External applications can launch the Single Journey planning feature of the app.
+In orded to do so, an application must execute the following code 
+
+```
+Windows.System.Launcher.LaunchUriAsync(new System.Uri("smartcampuslab:NavigateTowards?lat=46.2153444&lng=11.1199183"));
+```
+
+where the parameters are:
+|Parameter|Description|
+|smartcampuslab|is the custom protocol to which the application responds, it is specified in the WMAppManifest.xml|
+|NavigateTowards|is the required action, in this case, requires access to the journey planning feature|
+|lat=46.2153444&lng=11.1199183|action parameters. because the string is treated as an Uri, it is the equivalent of a query string|
+
+As of now (2014/07/21), only the SingleJourneyPlanner feature is exposed to other apps, but it's easy to extend
