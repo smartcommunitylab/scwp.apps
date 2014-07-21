@@ -18,7 +18,7 @@
     <SupportedCultures>it;qps-ploc</SupportedCultures>
     <XapOutputs>true</XapOutputs>
     <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
-    <XapFilename>ViaggiaTrentino_$(Configuration)_$(Platform).xap</XapFilename>
+    <XapFilename>ViaggiaTrento_Debug_ARM.xap</XapFilename>
     <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
     <SilverlightAppEntry>ViaggiaTrentino.App</SilverlightAppEntry>
     <ValidateXaml>true</ValidateXaml>
