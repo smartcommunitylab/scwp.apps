@@ -81,6 +81,8 @@ namespace ViaggiaTrentino
       }
       else if (e.ExceptionObject is HttpRequestException)
       {
+        if((e.ExceptionObject as HttpRequestException).Message.Contains("401"))
+          Settings.RefreshToken(true);
         MessageBox.Show(AppResources.CatchedHttpErrorMessage, AppResources.GenericErrorTitle, MessageBoxButton.OK);
         if (Settings.FeedbackEnabled)
           elh.LogNewException(e.ExceptionObject, ExceptionType.Handled);
