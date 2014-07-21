@@ -92,343 +92,343 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="..\ViaggiaTrentino\App.xaml.cs">
+    <Compile Include="..\ViaggiaTrento\App.xaml.cs">
       <Link>App.xaml.cs</Link>
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Bootstrapper.cs">
+    <Compile Include="..\ViaggiaTrento\Bootstrapper.cs">
       <Link>Bootstrapper.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Converters\AgencyIDToImageConverter.cs">
+    <Compile Include="..\ViaggiaTrento\Converters\AgencyIDToImageConverter.cs">
       <Link>Converters\AgencyIDToImageConverter.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Converters\BooleanToReversedVisibilityConverter.cs">
+    <Compile Include="..\ViaggiaTrento\Converters\BooleanToReversedVisibilityConverter.cs">
       <Link>Converters\BooleanToReversedVisibilityConverter.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Converters\BooleanToScrollBarVisibilityConverter.cs">
+    <Compile Include="..\ViaggiaTrento\Converters\BooleanToScrollBarVisibilityConverter.cs">
       <Link>Converters\BooleanToScrollBarVisibilityConverter.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Converters\BooleanToStrokeColorConverter.cs">
+    <Compile Include="..\ViaggiaTrento\Converters\BooleanToStrokeColorConverter.cs">
       <Link>Converters\BooleanToStrokeColorConverter.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Converters\BooleanToToggledMonitoringStatusConverter.cs">
+    <Compile Include="..\ViaggiaTrento\Converters\BooleanToToggledMonitoringStatusConverter.cs">
       <Link>Converters\BooleanToToggledMonitoringStatusConverter.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Converters\BorderColorToggleBlackAndWhiteConverter.cs">
+    <Compile Include="..\ViaggiaTrento\Converters\BorderColorToggleBlackAndWhiteConverter.cs">
       <Link>Converters\BorderColorToggleBlackAndWhiteConverter.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Converters\DataContextToContentConverter.cs">
+    <Compile Include="..\ViaggiaTrento\Converters\DataContextToContentConverter.cs">
       <Link>Converters\DataContextToContentConverter.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Converters\DebuggingConverter.cs">
+    <Compile Include="..\ViaggiaTrento\Converters\DebuggingConverter.cs">
       <Link>Converters\DebuggingConverter.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Converters\DynamicTileSizeConverter.cs">
+    <Compile Include="..\ViaggiaTrento\Converters\DynamicTileSizeConverter.cs">
       <Link>Converters\DynamicTileSizeConverter.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Converters\FromToConverter.cs">
+    <Compile Include="..\ViaggiaTrento\Converters\FromToConverter.cs">
       <Link>Converters\FromToConverter.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Converters\ImageSourceToImageSourceAccordingToPhoneApplicationBackgroundConverter.cs">
+    <Compile Include="..\ViaggiaTrento\Converters\ImageSourceToImageSourceAccordingToPhoneApplicationBackgroundConverter.cs">
       <Link>Converters\ImageSourceToImageSourceAccordingToPhoneApplicationBackgroundConverter.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Converters\IntegerVectorToNameOfDayStringConverter.cs">
+    <Compile Include="..\ViaggiaTrento\Converters\IntegerVectorToNameOfDayStringConverter.cs">
       <Link>Converters\IntegerVectorToNameOfDayStringConverter.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Converters\ItineraryToDateTimeStringConverter.cs">
+    <Compile Include="..\ViaggiaTrento\Converters\ItineraryToDateTimeStringConverter.cs">
       <Link>Converters\ItineraryToDateTimeStringConverter.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Converters\ItineraryToTimeSpanStringConverter.cs">
+    <Compile Include="..\ViaggiaTrento\Converters\ItineraryToTimeSpanStringConverter.cs">
       <Link>Converters\ItineraryToTimeSpanStringConverter.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Converters\LegListAndMonitorLegsToBoolConverter.cs">
+    <Compile Include="..\ViaggiaTrento\Converters\LegListAndMonitorLegsToBoolConverter.cs">
       <Link>Converters\LegListAndMonitorLegsToBoolConverter.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Converters\LegListToImageListConverter.cs">
+    <Compile Include="..\ViaggiaTrento\Converters\LegListToImageListConverter.cs">
       <Link>Converters\LegListToImageListConverter.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Converters\LegListToLegImageListConverter.cs">
+    <Compile Include="..\ViaggiaTrento\Converters\LegListToLegImageListConverter.cs">
       <Link>Converters\LegListToLegImageListConverter.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Converters\LongListSelectorItemToColorConverter.cs">
+    <Compile Include="..\ViaggiaTrento\Converters\LongListSelectorItemToColorConverter.cs">
       <Link>Converters\LongListSelectorItemToColorConverter.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Converters\LongMilliSecondsToDateConverter.cs">
+    <Compile Include="..\ViaggiaTrento\Converters\LongMilliSecondsToDateConverter.cs">
       <Link>Converters\LongMilliSecondsToDateConverter.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Converters\LongMilliSecondsToTimeConverter.cs">
+    <Compile Include="..\ViaggiaTrento\Converters\LongMilliSecondsToTimeConverter.cs">
       <Link>Converters\LongMilliSecondsToTimeConverter.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Converters\LongSecondsToDateConverter.cs">
+    <Compile Include="..\ViaggiaTrento\Converters\LongSecondsToDateConverter.cs">
       <Link>Converters\LongSecondsToDateConverter.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Converters\LongSecondsToTimeConverter.cs">
+    <Compile Include="..\ViaggiaTrento\Converters\LongSecondsToTimeConverter.cs">
       <Link>Converters\LongSecondsToTimeConverter.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Converters\ParkingSlotsToForegoundColorConverter.cs">
+    <Compile Include="..\ViaggiaTrento\Converters\ParkingSlotsToForegoundColorConverter.cs">
       <Link>Converters\ParkingSlotsToForegoundColorConverter.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Converters\ParkingToSlotsConverter.cs">
+    <Compile Include="..\ViaggiaTrento\Converters\ParkingToSlotsConverter.cs">
       <Link>Converters\ParkingToSlotsConverter.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Converters\RouteBackgroungColorToForegroundColorConverter.cs">
+    <Compile Include="..\ViaggiaTrento\Converters\RouteBackgroungColorToForegroundColorConverter.cs">
       <Link>Converters\RouteBackgroungColorToForegroundColorConverter.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Converters\RouteToRouteNameConverter.cs">
+    <Compile Include="..\ViaggiaTrento\Converters\RouteToRouteNameConverter.cs">
       <Link>Converters\RouteToRouteNameConverter.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Converters\StringHexColorToColorsConverter.cs">
+    <Compile Include="..\ViaggiaTrento\Converters\StringHexColorToColorsConverter.cs">
       <Link>Converters\StringHexColorToColorsConverter.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Converters\TransportTypeToImageConverter.cs">
+    <Compile Include="..\ViaggiaTrento\Converters\TransportTypeToImageConverter.cs">
       <Link>Converters\TransportTypeToImageConverter.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Helpers\AssociationUriMapper.cs">
+    <Compile Include="..\ViaggiaTrento\Helpers\AssociationUriMapper.cs">
       <Link>Helpers\AssociationUriMapper.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Helpers\DistanceHelper.cs">
+    <Compile Include="..\ViaggiaTrento\Helpers\DistanceHelper.cs">
       <Link>Helpers\DistanceHelper.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Helpers\ExceptionLoggerHelper.cs">
+    <Compile Include="..\ViaggiaTrento\Helpers\ExceptionLoggerHelper.cs">
       <Link>Helpers\ExceptionLoggerHelper.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Helpers\FavouriteLocationHelper.cs">
+    <Compile Include="..\ViaggiaTrento\Helpers\FavouriteLocationHelper.cs">
       <Link>Helpers\FavouriteLocationHelper.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Helpers\FileStorageHelper.cs">
+    <Compile Include="..\ViaggiaTrento\Helpers\FileStorageHelper.cs">
       <Link>Helpers\FileStorageHelper.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Helpers\GooglePolyline.cs">
+    <Compile Include="..\ViaggiaTrento\Helpers\GooglePolyline.cs">
       <Link>Helpers\GooglePolyline.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Helpers\KeyedList.cs">
+    <Compile Include="..\ViaggiaTrento\Helpers\KeyedList.cs">
       <Link>Helpers\KeyedList.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Helpers\LocationChooserHelper.cs">
+    <Compile Include="..\ViaggiaTrento\Helpers\LocationChooserHelper.cs">
       <Link>Helpers\LocationChooserHelper.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Helpers\MapHelper.cs">
+    <Compile Include="..\ViaggiaTrento\Helpers\MapHelper.cs">
       <Link>Helpers\MapHelper.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Helpers\TimeTableCacheHelper.cs">
+    <Compile Include="..\ViaggiaTrento\Helpers\TimeTableCacheHelper.cs">
       <Link>Helpers\TimeTableCacheHelper.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\LocalizedStrings.cs">
+    <Compile Include="..\ViaggiaTrento\LocalizedStrings.cs">
       <Link>LocalizedStrings.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\MapGrouper\ClustersGenerator.cs">
+    <Compile Include="..\ViaggiaTrento\MapGrouper\ClustersGenerator.cs">
       <Link>MapGrouper\ClustersGenerator.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\MapGrouper\PushpinsGroup.cs">
+    <Compile Include="..\ViaggiaTrento\MapGrouper\PushpinsGroup.cs">
       <Link>MapGrouper\PushpinsGroup.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\PreferencesModel.cs">
+    <Compile Include="..\ViaggiaTrento\PreferencesModel.cs">
       <Link>PreferencesModel.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Resources\AppResources.Designer.cs">
+    <Compile Include="..\ViaggiaTrento\Resources\AppResources.Designer.cs">
       <Link>Resources\AppResources.Designer.cs</Link>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Settings.cs">
+    <Compile Include="..\ViaggiaTrento\Settings.cs">
       <Link>Settings.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\SmartCampusAutoCompleteBox.cs">
+    <Compile Include="..\ViaggiaTrento\SmartCampusAutoCompleteBox.cs">
       <Link>SmartCampusAutoCompleteBox.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\ViewModels\AboutPageViewModel.cs">
+    <Compile Include="..\ViaggiaTrento\ViewModels\AboutPageViewModel.cs">
       <Link>ViewModels\AboutPageViewModel.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\ViewModels\MainPageViewModel.cs">
+    <Compile Include="..\ViaggiaTrento\ViewModels\MainPageViewModel.cs">
       <Link>ViewModels\MainPageViewModel.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\ViewModels\MonitorJourneyListViewModel.cs">
+    <Compile Include="..\ViaggiaTrento\ViewModels\MonitorJourneyListViewModel.cs">
       <Link>ViewModels\MonitorJourneyListViewModel.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\ViewModels\MonitorJourneyViewModel.cs">
+    <Compile Include="..\ViaggiaTrento\ViewModels\MonitorJourneyViewModel.cs">
       <Link>ViewModels\MonitorJourneyViewModel.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\ViewModels\ParkingsPageViewModel.cs">
+    <Compile Include="..\ViaggiaTrento\ViewModels\ParkingsPageViewModel.cs">
       <Link>ViewModels\ParkingsPageViewModel.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\ViewModels\PlanNewSingleJourneyListViewModel.cs">
+    <Compile Include="..\ViaggiaTrento\ViewModels\PlanNewSingleJourneyListViewModel.cs">
       <Link>ViewModels\PlanNewSingleJourneyListViewModel.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\ViewModels\PlanNewSingleJourneySaveViewModel.cs">
+    <Compile Include="..\ViaggiaTrento\ViewModels\PlanNewSingleJourneySaveViewModel.cs">
       <Link>ViewModels\PlanNewSingleJourneySaveViewModel.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\ViewModels\PlanNewSingleJourneyViewModel.cs">
+    <Compile Include="..\ViaggiaTrento\ViewModels\PlanNewSingleJourneyViewModel.cs">
       <Link>ViewModels\PlanNewSingleJourneyViewModel.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\ViewModels\ReadNotificationViewModel.cs">
+    <Compile Include="..\ViaggiaTrento\ViewModels\ReadNotificationViewModel.cs">
       <Link>ViewModels\ReadNotificationViewModel.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\ViewModels\RealTimeInfoViewModel.cs">
+    <Compile Include="..\ViaggiaTrento\ViewModels\RealTimeInfoViewModel.cs">
       <Link>ViewModels\RealTimeInfoViewModel.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\ViewModels\SavedJourneyPageViewModel.cs">
+    <Compile Include="..\ViaggiaTrento\ViewModels\SavedJourneyPageViewModel.cs">
       <Link>ViewModels\SavedJourneyPageViewModel.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\ViewModels\SavedRecurrentJourneyDetailsViewModel.cs">
+    <Compile Include="..\ViaggiaTrento\ViewModels\SavedRecurrentJourneyDetailsViewModel.cs">
       <Link>ViewModels\SavedRecurrentJourneyDetailsViewModel.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\ViewModels\SavedSingleJourneyDetailsViewModel.cs">
+    <Compile Include="..\ViaggiaTrento\ViewModels\SavedSingleJourneyDetailsViewModel.cs">
       <Link>ViewModels\SavedSingleJourneyDetailsViewModel.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\ViewModels\SelectAlertPageViewModel.cs">
+    <Compile Include="..\ViaggiaTrento\ViewModels\SelectAlertPageViewModel.cs">
       <Link>ViewModels\SelectAlertPageViewModel.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\ViewModels\SelectBusRouteDirectionViewModel.cs">
+    <Compile Include="..\ViaggiaTrento\ViewModels\SelectBusRouteDirectionViewModel.cs">
       <Link>ViewModels\SelectBusRouteDirectionViewModel.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\ViewModels\SelectBusRouteViewModel.cs">
+    <Compile Include="..\ViaggiaTrento\ViewModels\SelectBusRouteViewModel.cs">
       <Link>ViewModels\SelectBusRouteViewModel.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\ViewModels\SelectTrainRouteViewModel.cs">
+    <Compile Include="..\ViaggiaTrento\ViewModels\SelectTrainRouteViewModel.cs">
       <Link>ViewModels\SelectTrainRouteViewModel.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\ViewModels\SettingsPageViewModel.cs">
+    <Compile Include="..\ViaggiaTrento\ViewModels\SettingsPageViewModel.cs">
       <Link>ViewModels\SettingsPageViewModel.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\ViewModels\StopTimesForStopViewModel.cs">
+    <Compile Include="..\ViaggiaTrento\ViewModels\StopTimesForStopViewModel.cs">
       <Link>ViewModels\StopTimesForStopViewModel.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\ViewModels\SubmitAlertPageViewModel.cs">
+    <Compile Include="..\ViaggiaTrento\ViewModels\SubmitAlertPageViewModel.cs">
       <Link>ViewModels\SubmitAlertPageViewModel.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\ViewModels\TimetablePageViewModel.cs">
+    <Compile Include="..\ViaggiaTrento\ViewModels\TimetablePageViewModel.cs">
       <Link>ViewModels\TimetablePageViewModel.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Views\AboutPageView.xaml.cs">
+    <Compile Include="..\ViaggiaTrento\Views\AboutPageView.xaml.cs">
       <Link>Views\AboutPageView.xaml.cs</Link>
       <DependentUpon>AboutPageView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Views\Controls\ChooseFavouritePlaceControl.xaml.cs">
+    <Compile Include="..\ViaggiaTrento\Views\Controls\ChooseFavouritePlaceControl.xaml.cs">
       <Link>Views\Controls\ChooseFavouritePlaceControl.xaml.cs</Link>
       <DependentUpon>ChooseFavouritePlaceControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Views\Controls\FavouritePlaceControl.xaml.cs">
+    <Compile Include="..\ViaggiaTrento\Views\Controls\FavouritePlaceControl.xaml.cs">
       <Link>Views\Controls\FavouritePlaceControl.xaml.cs</Link>
       <DependentUpon>FavouritePlaceControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Views\Controls\FavouritePlaceView.xaml.cs">
+    <Compile Include="..\ViaggiaTrento\Views\Controls\FavouritePlaceView.xaml.cs">
       <Link>Views\Controls\FavouritePlaceView.xaml.cs</Link>
       <DependentUpon>FavouritePlaceView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Views\Controls\ItineraryView.xaml.cs">
+    <Compile Include="..\ViaggiaTrento\Views\Controls\ItineraryView.xaml.cs">
       <Link>Views\Controls\ItineraryView.xaml.cs</Link>
       <DependentUpon>ItineraryView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Views\Controls\LoadingControl.xaml.cs">
+    <Compile Include="..\ViaggiaTrento\Views\Controls\LoadingControl.xaml.cs">
       <Link>Views\Controls\LoadingControl.xaml.cs</Link>
       <DependentUpon>LoadingControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Views\Controls\ParkingPopupView.xaml.cs">
+    <Compile Include="..\ViaggiaTrento\Views\Controls\ParkingPopupView.xaml.cs">
       <Link>Views\Controls\ParkingPopupView.xaml.cs</Link>
       <DependentUpon>ParkingPopupView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Views\Controls\SavedJourneyView.xaml.cs">
+    <Compile Include="..\ViaggiaTrento\Views\Controls\SavedJourneyView.xaml.cs">
       <Link>Views\Controls\SavedJourneyView.xaml.cs</Link>
       <DependentUpon>SavedJourneyView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Views\Controls\SavedRecurrentJourneyView.xaml.cs">
+    <Compile Include="..\ViaggiaTrento\Views\Controls\SavedRecurrentJourneyView.xaml.cs">
       <Link>Views\Controls\SavedRecurrentJourneyView.xaml.cs</Link>
       <DependentUpon>SavedRecurrentJourneyView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Views\Controls\SelectLocationView.xaml.cs">
+    <Compile Include="..\ViaggiaTrento\Views\Controls\SelectLocationView.xaml.cs">
       <Link>Views\Controls\SelectLocationView.xaml.cs</Link>
       <DependentUpon>SelectLocationView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Views\Controls\SingleParkingView.xaml.cs">
+    <Compile Include="..\ViaggiaTrento\Views\Controls\SingleParkingView.xaml.cs">
       <Link>Views\Controls\SingleParkingView.xaml.cs</Link>
       <DependentUpon>SingleParkingView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Views\Controls\StopPopupView.xaml.cs">
+    <Compile Include="..\ViaggiaTrento\Views\Controls\StopPopupView.xaml.cs">
       <Link>Views\Controls\StopPopupView.xaml.cs</Link>
       <DependentUpon>StopPopupView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Views\Controls\UserSettingsView.xaml.cs">
+    <Compile Include="..\ViaggiaTrento\Views\Controls\UserSettingsView.xaml.cs">
       <Link>Views\Controls\UserSettingsView.xaml.cs</Link>
       <DependentUpon>UserSettingsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Views\MainPageView.xaml.cs">
+    <Compile Include="..\ViaggiaTrento\Views\MainPageView.xaml.cs">
       <Link>Views\MainPageView.xaml.cs</Link>
       <DependentUpon>MainPageView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Views\MonitorJourneyListView.xaml.cs">
+    <Compile Include="..\ViaggiaTrento\Views\MonitorJourneyListView.xaml.cs">
       <Link>Views\MonitorJourneyListView.xaml.cs</Link>
       <DependentUpon>MonitorJourneyListView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Views\MonitorJourneyView.xaml.cs">
+    <Compile Include="..\ViaggiaTrento\Views\MonitorJourneyView.xaml.cs">
       <Link>Views\MonitorJourneyView.xaml.cs</Link>
       <DependentUpon>MonitorJourneyView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Views\ParkingsPageView.xaml.cs">
+    <Compile Include="..\ViaggiaTrento\Views\ParkingsPageView.xaml.cs">
       <Link>Views\ParkingsPageView.xaml.cs</Link>
       <DependentUpon>ParkingsPageView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Views\PlanNewSingleJourneyListView.xaml.cs">
+    <Compile Include="..\ViaggiaTrento\Views\PlanNewSingleJourneyListView.xaml.cs">
       <Link>Views\PlanNewSingleJourneyListView.xaml.cs</Link>
       <DependentUpon>PlanNewSingleJourneyListView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Views\PlanNewSingleJourneySaveView.xaml.cs">
+    <Compile Include="..\ViaggiaTrento\Views\PlanNewSingleJourneySaveView.xaml.cs">
       <Link>Views\PlanNewSingleJourneySaveView.xaml.cs</Link>
       <DependentUpon>PlanNewSingleJourneySaveView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Views\PlanNewSingleJourneyView.xaml.cs">
+    <Compile Include="..\ViaggiaTrento\Views\PlanNewSingleJourneyView.xaml.cs">
       <Link>Views\PlanNewSingleJourneyView.xaml.cs</Link>
       <DependentUpon>PlanNewSingleJourneyView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Views\ReadNotificationView.xaml.cs">
+    <Compile Include="..\ViaggiaTrento\Views\ReadNotificationView.xaml.cs">
       <Link>Views\ReadNotificationView.xaml.cs</Link>
       <DependentUpon>ReadNotificationView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Views\RealTimeInfoView.xaml.cs">
+    <Compile Include="..\ViaggiaTrento\Views\RealTimeInfoView.xaml.cs">
       <Link>Views\RealTimeInfoView.xaml.cs</Link>
       <DependentUpon>RealTimeInfoView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Views\SavedJourneyPageView.xaml.cs">
+    <Compile Include="..\ViaggiaTrento\Views\SavedJourneyPageView.xaml.cs">
       <Link>Views\SavedJourneyPageView.xaml.cs</Link>
       <DependentUpon>SavedJourneyPageView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Views\SavedRecurrentJourneyDetailsView.xaml.cs">
+    <Compile Include="..\ViaggiaTrento\Views\SavedRecurrentJourneyDetailsView.xaml.cs">
       <Link>Views\SavedRecurrentJourneyDetailsView.xaml.cs</Link>
       <DependentUpon>SavedRecurrentJourneyDetailsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Views\SavedSingleJourneyDetailsView.xaml.cs">
+    <Compile Include="..\ViaggiaTrento\Views\SavedSingleJourneyDetailsView.xaml.cs">
       <Link>Views\SavedSingleJourneyDetailsView.xaml.cs</Link>
       <DependentUpon>SavedSingleJourneyDetailsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Views\SelectAlertPageView.xaml.cs">
+    <Compile Include="..\ViaggiaTrento\Views\SelectAlertPageView.xaml.cs">
       <Link>Views\SelectAlertPageView.xaml.cs</Link>
       <DependentUpon>SelectAlertPageView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Views\SelectBusRouteDirectionView.xaml.cs">
+    <Compile Include="..\ViaggiaTrento\Views\SelectBusRouteDirectionView.xaml.cs">
       <Link>Views\SelectBusRouteDirectionView.xaml.cs</Link>
       <DependentUpon>SelectBusRouteDirectionView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Views\SelectBusRouteView.xaml.cs">
+    <Compile Include="..\ViaggiaTrento\Views\SelectBusRouteView.xaml.cs">
       <Link>Views\SelectBusRouteView.xaml.cs</Link>
       <DependentUpon>SelectBusRouteView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Views\SelectTrainRouteView.xaml.cs">
+    <Compile Include="..\ViaggiaTrento\Views\SelectTrainRouteView.xaml.cs">
       <Link>Views\SelectTrainRouteView.xaml.cs</Link>
       <DependentUpon>SelectTrainRouteView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Views\SettingsPageView.xaml.cs">
+    <Compile Include="..\ViaggiaTrento\Views\SettingsPageView.xaml.cs">
       <Link>Views\SettingsPageView.xaml.cs</Link>
       <DependentUpon>SettingsPageView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Views\StopTimesForStopView.xaml.cs">
+    <Compile Include="..\ViaggiaTrento\Views\StopTimesForStopView.xaml.cs">
       <Link>Views\StopTimesForStopView.xaml.cs</Link>
       <DependentUpon>StopTimesForStopView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Views\SubmitAlertPageView.xaml.cs">
+    <Compile Include="..\ViaggiaTrento\Views\SubmitAlertPageView.xaml.cs">
       <Link>Views\SubmitAlertPageView.xaml.cs</Link>
       <DependentUpon>SubmitAlertPageView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="..\ViaggiaTrentino\Views\TimetablePageView.xaml.cs">
+    <Compile Include="..\ViaggiaTrento\Views\TimetablePageView.xaml.cs">
       <Link>Views\TimetablePageView.xaml.cs</Link>
       <DependentUpon>TimetablePageView.xaml</DependentUpon>
     </Compile>
@@ -436,10 +436,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\ViaggiaTrentino\packages.config">
+    <None Include="..\ViaggiaTrento\packages.config">
       <Link>packages.config</Link>
     </None>
-    <None Include="..\ViaggiaTrentino\scdb.sqlite">
+    <None Include="..\ViaggiaTrento\scdb.sqlite">
       <Link>scdb.sqlite</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -525,272 +525,272 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\ViaggiaTrentino\Assets\AlignmentGrid.png">
+    <Content Include="..\ViaggiaTrento\Assets\AlignmentGrid.png">
       <Link>Assets\AlignmentGrid.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\AppBar\Check.png">
+    <Content Include="..\ViaggiaTrento\Assets\AppBar\Check.png">
       <Link>Assets\AppBar\Check.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\AppBar\Date.png">
+    <Content Include="..\ViaggiaTrento\Assets\AppBar\Date.png">
       <Link>Assets\AppBar\Date.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\AppBar\Delete.png">
+    <Content Include="..\ViaggiaTrento\Assets\AppBar\Delete.png">
       <Link>Assets\AppBar\Delete.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\AppBar\Dialog-Box-About.png">
+    <Content Include="..\ViaggiaTrento\Assets\AppBar\Dialog-Box-About.png">
       <Link>Assets\AppBar\Dialog-Box-About.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\AppBar\monitor.png">
+    <Content Include="..\ViaggiaTrento\Assets\AppBar\monitor.png">
       <Link>Assets\AppBar\monitor.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\AppBar\Moreinfo.png">
+    <Content Include="..\ViaggiaTrento\Assets\AppBar\Moreinfo.png">
       <Link>Assets\AppBar\Moreinfo.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\AppBar\Next.png">
+    <Content Include="..\ViaggiaTrento\Assets\AppBar\Next.png">
       <Link>Assets\AppBar\Next.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\AppBar\Previous.png">
+    <Content Include="..\ViaggiaTrento\Assets\AppBar\Previous.png">
       <Link>Assets\AppBar\Previous.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\AppBar\Recycle-Bin.png">
+    <Content Include="..\ViaggiaTrento\Assets\AppBar\Recycle-Bin.png">
       <Link>Assets\AppBar\Recycle-Bin.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\AppBar\Refresh.png">
+    <Content Include="..\ViaggiaTrento\Assets\AppBar\Refresh.png">
       <Link>Assets\AppBar\Refresh.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\AppBar\Save.png">
+    <Content Include="..\ViaggiaTrento\Assets\AppBar\Save.png">
       <Link>Assets\AppBar\Save.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\AppBar\Store.png">
+    <Content Include="..\ViaggiaTrento\Assets\AppBar\Store.png">
       <Link>Assets\AppBar\Store.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\AppBar\Today.png">
+    <Content Include="..\ViaggiaTrento\Assets\AppBar\Today.png">
       <Link>Assets\AppBar\Today.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\HubTiles\ExtraUrbano.png">
+    <Content Include="..\ViaggiaTrento\Assets\HubTiles\ExtraUrbano.png">
       <Link>Assets\HubTiles\ExtraUrbano.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\HubTiles\ic_monitor.png">
+    <Content Include="..\ViaggiaTrento\Assets\HubTiles\ic_monitor.png">
       <Link>Assets\HubTiles\ic_monitor.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\HubTiles\ic_notices.png">
+    <Content Include="..\ViaggiaTrento\Assets\HubTiles\ic_notices.png">
       <Link>Assets\HubTiles\ic_notices.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\HubTiles\ic_parking.png">
+    <Content Include="..\ViaggiaTrento\Assets\HubTiles\ic_parking.png">
       <Link>Assets\HubTiles\ic_parking.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\HubTiles\ic_planjourney.png">
+    <Content Include="..\ViaggiaTrento\Assets\HubTiles\ic_planjourney.png">
       <Link>Assets\HubTiles\ic_planjourney.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\HubTiles\ic_realtimeinfo.png">
+    <Content Include="..\ViaggiaTrento\Assets\HubTiles\ic_realtimeinfo.png">
       <Link>Assets\HubTiles\ic_realtimeinfo.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\HubTiles\ic_savedjourney.png">
+    <Content Include="..\ViaggiaTrento\Assets\HubTiles\ic_savedjourney.png">
       <Link>Assets\HubTiles\ic_savedjourney.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\HubTiles\ic_sendnotices.png">
+    <Content Include="..\ViaggiaTrento\Assets\HubTiles\ic_sendnotices.png">
       <Link>Assets\HubTiles\ic_sendnotices.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\HubTiles\ic_treno.png">
+    <Content Include="..\ViaggiaTrento\Assets\HubTiles\ic_treno.png">
       <Link>Assets\HubTiles\ic_treno.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\HubTiles\ic_urbanoRO.png">
+    <Content Include="..\ViaggiaTrento\Assets\HubTiles\ic_urbanoRO.png">
       <Link>Assets\HubTiles\ic_urbanoRO.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\HubTiles\ic_urbanoTN.png">
+    <Content Include="..\ViaggiaTrento\Assets\HubTiles\ic_urbanoTN.png">
       <Link>Assets\HubTiles\ic_urbanoTN.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\HubTiles\Parking.png">
+    <Content Include="..\ViaggiaTrento\Assets\HubTiles\Parking.png">
       <Link>Assets\HubTiles\Parking.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\HubTiles\PlanJourney.png">
+    <Content Include="..\ViaggiaTrento\Assets\HubTiles\PlanJourney.png">
       <Link>Assets\HubTiles\PlanJourney.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\HubTiles\PlanRecurrentJourney.png">
+    <Content Include="..\ViaggiaTrento\Assets\HubTiles\PlanRecurrentJourney.png">
       <Link>Assets\HubTiles\PlanRecurrentJourney.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\HubTiles\ReadNotification.png">
+    <Content Include="..\ViaggiaTrento\Assets\HubTiles\ReadNotification.png">
       <Link>Assets\HubTiles\ReadNotification.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\HubTiles\SavedJourneys.png">
+    <Content Include="..\ViaggiaTrento\Assets\HubTiles\SavedJourneys.png">
       <Link>Assets\HubTiles\SavedJourneys.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\HubTiles\SubmitAlert.png">
+    <Content Include="..\ViaggiaTrento\Assets\HubTiles\SubmitAlert.png">
       <Link>Assets\HubTiles\SubmitAlert.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\HubTiles\TrafficLight.png">
+    <Content Include="..\ViaggiaTrento\Assets\HubTiles\TrafficLight.png">
       <Link>Assets\HubTiles\TrafficLight.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\HubTiles\Train.png">
+    <Content Include="..\ViaggiaTrento\Assets\HubTiles\Train.png">
       <Link>Assets\HubTiles\Train.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\HubTiles\Urbano.png">
+    <Content Include="..\ViaggiaTrento\Assets\HubTiles\Urbano.png">
       <Link>Assets\HubTiles\Urbano.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Logos\AppLogo.png">
+    <Content Include="..\ViaggiaTrento\Assets\Logos\AppLogo.png">
       <Link>Assets\Logos\AppLogo.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Logos\LogoConsorzio.png">
+    <Content Include="..\ViaggiaTrento\Assets\Logos\LogoConsorzio.png">
       <Link>Assets\Logos\LogoConsorzio.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Logos\LogoProvincia.png">
+    <Content Include="..\ViaggiaTrento\Assets\Logos\LogoProvincia.png">
       <Link>Assets\Logos\LogoProvincia.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Logos\LogoSmartcamp.png">
+    <Content Include="..\ViaggiaTrento\Assets\Logos\LogoSmartcamp.png">
       <Link>Assets\Logos\LogoSmartcamp.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Miscs\Dark\Arrow.png">
+    <Content Include="..\ViaggiaTrento\Assets\Miscs\Dark\Arrow.png">
       <Link>Assets\Miscs\Dark\Arrow.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Miscs\Dark\Favourites.png">
+    <Content Include="..\ViaggiaTrento\Assets\Miscs\Dark\Favourites.png">
       <Link>Assets\Miscs\Dark\Favourites.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Miscs\Dark\GpsLocation.png">
+    <Content Include="..\ViaggiaTrento\Assets\Miscs\Dark\GpsLocation.png">
       <Link>Assets\Miscs\Dark\GpsLocation.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Miscs\Dark\MapLocation.png">
+    <Content Include="..\ViaggiaTrento\Assets\Miscs\Dark\MapLocation.png">
       <Link>Assets\Miscs\Dark\MapLocation.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Miscs\Dark\PinLocation.png">
+    <Content Include="..\ViaggiaTrento\Assets\Miscs\Dark\PinLocation.png">
       <Link>Assets\Miscs\Dark\PinLocation.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Miscs\JDest.png">
+    <Content Include="..\ViaggiaTrento\Assets\Miscs\JDest.png">
       <Link>Assets\Miscs\JDest.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Miscs\JStart.png">
+    <Content Include="..\ViaggiaTrento\Assets\Miscs\JStart.png">
       <Link>Assets\Miscs\JStart.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Miscs\Light\Arrow.png">
+    <Content Include="..\ViaggiaTrento\Assets\Miscs\Light\Arrow.png">
       <Link>Assets\Miscs\Light\Arrow.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Miscs\Light\Favourites.png">
+    <Content Include="..\ViaggiaTrento\Assets\Miscs\Light\Favourites.png">
       <Link>Assets\Miscs\Light\Favourites.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Miscs\Light\GpsLocation.png">
+    <Content Include="..\ViaggiaTrento\Assets\Miscs\Light\GpsLocation.png">
       <Link>Assets\Miscs\Light\GpsLocation.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Miscs\Light\MapLocation.png">
+    <Content Include="..\ViaggiaTrento\Assets\Miscs\Light\MapLocation.png">
       <Link>Assets\Miscs\Light\MapLocation.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Miscs\Light\PinLocation.png">
+    <Content Include="..\ViaggiaTrento\Assets\Miscs\Light\PinLocation.png">
       <Link>Assets\Miscs\Light\PinLocation.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Miscs\StopPushPin.png">
+    <Content Include="..\ViaggiaTrento\Assets\Miscs\StopPushPin.png">
       <Link>Assets\Miscs\StopPushPin.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Miscs\StopPushPin64.png">
+    <Content Include="..\ViaggiaTrento\Assets\Miscs\StopPushPin64.png">
       <Link>Assets\Miscs\StopPushPin64.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Dark\bicycle.png">
+    <Content Include="..\ViaggiaTrento\Assets\Vehicles\Dark\bicycle.png">
       <Link>Assets\Vehicles\Dark\bicycle.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Dark\bus.png">
+    <Content Include="..\ViaggiaTrento\Assets\Vehicles\Dark\bus.png">
       <Link>Assets\Vehicles\Dark\bus.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Dark\car.png">
+    <Content Include="..\ViaggiaTrento\Assets\Vehicles\Dark\car.png">
       <Link>Assets\Vehicles\Dark\car.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Dark\carwithparking.png">
+    <Content Include="..\ViaggiaTrento\Assets\Vehicles\Dark\carwithparking.png">
       <Link>Assets\Vehicles\Dark\carwithparking.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Dark\gondola.png">
+    <Content Include="..\ViaggiaTrento\Assets\Vehicles\Dark\gondola.png">
       <Link>Assets\Vehicles\Dark\gondola.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Dark\hubtrain.png">
+    <Content Include="..\ViaggiaTrento\Assets\Vehicles\Dark\hubtrain.png">
       <Link>Assets\Vehicles\Dark\hubtrain.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Dark\parking.png">
+    <Content Include="..\ViaggiaTrento\Assets\Vehicles\Dark\parking.png">
       <Link>Assets\Vehicles\Dark\parking.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Dark\sharedbike.png">
+    <Content Include="..\ViaggiaTrento\Assets\Vehicles\Dark\sharedbike.png">
       <Link>Assets\Vehicles\Dark\sharedbike.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Dark\sharedbike_without_station.png">
+    <Content Include="..\ViaggiaTrento\Assets\Vehicles\Dark\sharedbike_without_station.png">
       <Link>Assets\Vehicles\Dark\sharedbike_without_station.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Dark\sharedcar.png">
+    <Content Include="..\ViaggiaTrento\Assets\Vehicles\Dark\sharedcar.png">
       <Link>Assets\Vehicles\Dark\sharedcar.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Dark\sharedcar_without_station.png">
+    <Content Include="..\ViaggiaTrento\Assets\Vehicles\Dark\sharedcar_without_station.png">
       <Link>Assets\Vehicles\Dark\sharedcar_without_station.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Dark\shuttle.png">
+    <Content Include="..\ViaggiaTrento\Assets\Vehicles\Dark\shuttle.png">
       <Link>Assets\Vehicles\Dark\shuttle.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Dark\train.png">
+    <Content Include="..\ViaggiaTrento\Assets\Vehicles\Dark\train.png">
       <Link>Assets\Vehicles\Dark\train.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Dark\transit.png">
+    <Content Include="..\ViaggiaTrento\Assets\Vehicles\Dark\transit.png">
       <Link>Assets\Vehicles\Dark\transit.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Dark\walk.png">
+    <Content Include="..\ViaggiaTrento\Assets\Vehicles\Dark\walk.png">
       <Link>Assets\Vehicles\Dark\walk.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Light\bicycle.png">
+    <Content Include="..\ViaggiaTrento\Assets\Vehicles\Light\bicycle.png">
       <Link>Assets\Vehicles\Light\bicycle.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Light\bus.png">
+    <Content Include="..\ViaggiaTrento\Assets\Vehicles\Light\bus.png">
       <Link>Assets\Vehicles\Light\bus.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Light\car.png">
+    <Content Include="..\ViaggiaTrento\Assets\Vehicles\Light\car.png">
       <Link>Assets\Vehicles\Light\car.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Light\carwithparking.png">
+    <Content Include="..\ViaggiaTrento\Assets\Vehicles\Light\carwithparking.png">
       <Link>Assets\Vehicles\Light\carwithparking.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Light\gondola.png">
+    <Content Include="..\ViaggiaTrento\Assets\Vehicles\Light\gondola.png">
       <Link>Assets\Vehicles\Light\gondola.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Light\hubtrain.png">
+    <Content Include="..\ViaggiaTrento\Assets\Vehicles\Light\hubtrain.png">
       <Link>Assets\Vehicles\Light\hubtrain.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Light\parking.png">
+    <Content Include="..\ViaggiaTrento\Assets\Vehicles\Light\parking.png">
       <Link>Assets\Vehicles\Light\parking.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Light\sharedbike.png">
+    <Content Include="..\ViaggiaTrento\Assets\Vehicles\Light\sharedbike.png">
       <Link>Assets\Vehicles\Light\sharedbike.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Light\sharedbike_without_station.png">
+    <Content Include="..\ViaggiaTrento\Assets\Vehicles\Light\sharedbike_without_station.png">
       <Link>Assets\Vehicles\Light\sharedbike_without_station.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Light\sharedcar.png">
+    <Content Include="..\ViaggiaTrento\Assets\Vehicles\Light\sharedcar.png">
       <Link>Assets\Vehicles\Light\sharedcar.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Light\sharedcar_without_station.png">
+    <Content Include="..\ViaggiaTrento\Assets\Vehicles\Light\sharedcar_without_station.png">
       <Link>Assets\Vehicles\Light\sharedcar_without_station.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Light\shuttle.png">
+    <Content Include="..\ViaggiaTrento\Assets\Vehicles\Light\shuttle.png">
       <Link>Assets\Vehicles\Light\shuttle.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Light\train.png">
+    <Content Include="..\ViaggiaTrento\Assets\Vehicles\Light\train.png">
       <Link>Assets\Vehicles\Light\train.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Light\transit.png">
+    <Content Include="..\ViaggiaTrento\Assets\Vehicles\Light\transit.png">
       <Link>Assets\Vehicles\Light\transit.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Light\walk.png">
+    <Content Include="..\ViaggiaTrento\Assets\Vehicles\Light\walk.png">
       <Link>Assets\Vehicles\Light\walk.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\GuidedTour.Content\Next.png">
+    <Content Include="..\ViaggiaTrento\GuidedTour.Content\Next.png">
       <Link>GuidedTour.Content\Next.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\GuidedTour.Content\Skip.png">
+    <Content Include="..\ViaggiaTrento\GuidedTour.Content\Skip.png">
       <Link>GuidedTour.Content\Skip.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Toolkit.Content\ApplicationBar.Add.png">
+    <Content Include="..\ViaggiaTrento\Toolkit.Content\ApplicationBar.Add.png">
       <Link>Toolkit.Content\ApplicationBar.Add.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Toolkit.Content\ApplicationBar.Cancel.png">
+    <Content Include="..\ViaggiaTrento\Toolkit.Content\ApplicationBar.Cancel.png">
       <Link>Toolkit.Content\ApplicationBar.Cancel.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Toolkit.Content\ApplicationBar.Check.png">
+    <Content Include="..\ViaggiaTrento\Toolkit.Content\ApplicationBar.Check.png">
       <Link>Toolkit.Content\ApplicationBar.Check.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Toolkit.Content\ApplicationBar.Delete.png">
+    <Content Include="..\ViaggiaTrento\Toolkit.Content\ApplicationBar.Delete.png">
       <Link>Toolkit.Content\ApplicationBar.Delete.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrentino\Toolkit.Content\ApplicationBar.Select.png">
+    <Content Include="..\ViaggiaTrento\Toolkit.Content\ApplicationBar.Select.png">
       <Link>Toolkit.Content\ApplicationBar.Select.png</Link>
     </Content>
     <Content Include="Assets\ApplicationIcon.png" />
@@ -798,31 +798,31 @@
     <Content Include="Assets\SmallTile.png" />
   </ItemGroup>
   <ItemGroup>
-    <XliffResource Include="..\ViaggiaTrentino\Resources\AppResources.it.xlf">
+    <XliffResource Include="..\ViaggiaTrento\Resources\AppResources.it.xlf">
       <Link>Resources\AppResources.it.xlf</Link>
       <Generator>XliffResxGenerator</Generator>
       <LastGenOutput>AppResources.it.resx</LastGenOutput>
     </XliffResource>
-    <XliffResource Include="..\ViaggiaTrentino\Resources\AppResources.qps-ploc.xlf">
+    <XliffResource Include="..\ViaggiaTrento\Resources\AppResources.qps-ploc.xlf">
       <Link>Resources\AppResources.qps-ploc.xlf</Link>
       <Generator>XliffResxGenerator</Generator>
       <LastGenOutput>AppResources.qps-ploc.resx</LastGenOutput>
     </XliffResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="..\ViaggiaTrentino\Resources\AppResources.it.resx">
+    <EmbeddedResource Include="..\ViaggiaTrento\Resources\AppResources.it.resx">
       <Link>Resources\AppResources.it.resx</Link>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.it.xlf</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="..\ViaggiaTrentino\Resources\AppResources.qps-ploc.resx">
+    <EmbeddedResource Include="..\ViaggiaTrento\Resources\AppResources.qps-ploc.resx">
       <Link>Resources\AppResources.qps-ploc.resx</Link>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.qps-ploc.xlf</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="..\ViaggiaTrentino\Resources\AppResources.resx">
+    <EmbeddedResource Include="..\ViaggiaTrento\Resources\AppResources.resx">
       <Link>Resources\AppResources.resx</Link>
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
@@ -830,165 +830,165 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="..\ViaggiaTrentino\App.xaml">
+    <ApplicationDefinition Include="..\ViaggiaTrento\App.xaml">
       <Link>App.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="..\ViaggiaTrentino\Views\AboutPageView.xaml">
+    <Page Include="..\ViaggiaTrento\Views\AboutPageView.xaml">
       <Link>Views\AboutPageView.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="..\ViaggiaTrentino\Views\Controls\ChooseFavouritePlaceControl.xaml">
+    <Page Include="..\ViaggiaTrento\Views\Controls\ChooseFavouritePlaceControl.xaml">
       <Link>Views\Controls\ChooseFavouritePlaceControl.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="..\ViaggiaTrentino\Views\Controls\FavouritePlaceControl.xaml">
+    <Page Include="..\ViaggiaTrento\Views\Controls\FavouritePlaceControl.xaml">
       <Link>Views\Controls\FavouritePlaceControl.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="..\ViaggiaTrentino\Views\Controls\FavouritePlaceView.xaml">
+    <Page Include="..\ViaggiaTrento\Views\Controls\FavouritePlaceView.xaml">
       <Link>Views\Controls\FavouritePlaceView.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="..\ViaggiaTrentino\Views\Controls\ItineraryView.xaml">
+    <Page Include="..\ViaggiaTrento\Views\Controls\ItineraryView.xaml">
       <Link>Views\Controls\ItineraryView.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="..\ViaggiaTrentino\Views\Controls\LoadingControl.xaml">
+    <Page Include="..\ViaggiaTrento\Views\Controls\LoadingControl.xaml">
       <Link>Views\Controls\LoadingControl.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="..\ViaggiaTrentino\Views\Controls\ParkingPopupView.xaml">
+    <Page Include="..\ViaggiaTrento\Views\Controls\ParkingPopupView.xaml">
       <Link>Views\Controls\ParkingPopupView.xaml</Link>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="..\ViaggiaTrentino\Views\Controls\SavedJourneyView.xaml">
+    <Page Include="..\ViaggiaTrento\Views\Controls\SavedJourneyView.xaml">
       <Link>Views\Controls\SavedJourneyView.xaml</Link>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="..\ViaggiaTrentino\Views\Controls\SavedRecurrentJourneyView.xaml">
+    <Page Include="..\ViaggiaTrento\Views\Controls\SavedRecurrentJourneyView.xaml">
       <Link>Views\Controls\SavedRecurrentJourneyView.xaml</Link>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="..\ViaggiaTrentino\Views\Controls\SelectLocationView.xaml">
+    <Page Include="..\ViaggiaTrento\Views\Controls\SelectLocationView.xaml">
       <Link>Views\Controls\SelectLocationView.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="..\ViaggiaTrentino\Views\Controls\SingleParkingView.xaml">
+    <Page Include="..\ViaggiaTrento\Views\Controls\SingleParkingView.xaml">
       <Link>Views\Controls\SingleParkingView.xaml</Link>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="..\ViaggiaTrentino\Views\Controls\StopPopupView.xaml">
+    <Page Include="..\ViaggiaTrento\Views\Controls\StopPopupView.xaml">
       <Link>Views\Controls\StopPopupView.xaml</Link>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="..\ViaggiaTrentino\Views\Controls\UserSettingsView.xaml">
+    <Page Include="..\ViaggiaTrento\Views\Controls\UserSettingsView.xaml">
       <Link>Views\Controls\UserSettingsView.xaml</Link>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="..\ViaggiaTrentino\Views\MainPageView.xaml">
+    <Page Include="..\ViaggiaTrento\Views\MainPageView.xaml">
       <Link>Views\MainPageView.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="..\ViaggiaTrentino\Views\MonitorJourneyListView.xaml">
+    <Page Include="..\ViaggiaTrento\Views\MonitorJourneyListView.xaml">
       <Link>Views\MonitorJourneyListView.xaml</Link>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="..\ViaggiaTrentino\Views\MonitorJourneyView.xaml">
+    <Page Include="..\ViaggiaTrento\Views\MonitorJourneyView.xaml">
       <Link>Views\MonitorJourneyView.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="..\ViaggiaTrentino\Views\ParkingsPageView.xaml">
+    <Page Include="..\ViaggiaTrento\Views\ParkingsPageView.xaml">
       <Link>Views\ParkingsPageView.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="..\ViaggiaTrentino\Views\PlanNewSingleJourneyListView.xaml">
+    <Page Include="..\ViaggiaTrento\Views\PlanNewSingleJourneyListView.xaml">
       <Link>Views\PlanNewSingleJourneyListView.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="..\ViaggiaTrentino\Views\PlanNewSingleJourneySaveView.xaml">
+    <Page Include="..\ViaggiaTrento\Views\PlanNewSingleJourneySaveView.xaml">
       <Link>Views\PlanNewSingleJourneySaveView.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="..\ViaggiaTrentino\Views\PlanNewSingleJourneyView.xaml">
+    <Page Include="..\ViaggiaTrento\Views\PlanNewSingleJourneyView.xaml">
       <Link>Views\PlanNewSingleJourneyView.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="..\ViaggiaTrentino\Views\ReadNotificationView.xaml">
+    <Page Include="..\ViaggiaTrento\Views\ReadNotificationView.xaml">
       <Link>Views\ReadNotificationView.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="..\ViaggiaTrentino\Views\RealTimeInfoView.xaml">
+    <Page Include="..\ViaggiaTrento\Views\RealTimeInfoView.xaml">
       <Link>Views\RealTimeInfoView.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="..\ViaggiaTrentino\Views\SavedJourneyPageView.xaml">
+    <Page Include="..\ViaggiaTrento\Views\SavedJourneyPageView.xaml">
       <Link>Views\SavedJourneyPageView.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="..\ViaggiaTrentino\Views\SavedRecurrentJourneyDetailsView.xaml">
+    <Page Include="..\ViaggiaTrento\Views\SavedRecurrentJourneyDetailsView.xaml">
       <Link>Views\SavedRecurrentJourneyDetailsView.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="..\ViaggiaTrentino\Views\SavedSingleJourneyDetailsView.xaml">
+    <Page Include="..\ViaggiaTrento\Views\SavedSingleJourneyDetailsView.xaml">
       <Link>Views\SavedSingleJourneyDetailsView.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="..\ViaggiaTrentino\Views\SelectAlertPageView.xaml">
+    <Page Include="..\ViaggiaTrento\Views\SelectAlertPageView.xaml">
       <Link>Views\SelectAlertPageView.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="..\ViaggiaTrentino\Views\SelectBusRouteDirectionView.xaml">
+    <Page Include="..\ViaggiaTrento\Views\SelectBusRouteDirectionView.xaml">
       <Link>Views\SelectBusRouteDirectionView.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="..\ViaggiaTrentino\Views\SelectBusRouteView.xaml">
+    <Page Include="..\ViaggiaTrento\Views\SelectBusRouteView.xaml">
       <Link>Views\SelectBusRouteView.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="..\ViaggiaTrentino\Views\SelectTrainRouteView.xaml">
+    <Page Include="..\ViaggiaTrento\Views\SelectTrainRouteView.xaml">
       <Link>Views\SelectTrainRouteView.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="..\ViaggiaTrentino\Views\SettingsPageView.xaml">
+    <Page Include="..\ViaggiaTrento\Views\SettingsPageView.xaml">
       <Link>Views\SettingsPageView.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="..\ViaggiaTrentino\Views\StopTimesForStopView.xaml">
+    <Page Include="..\ViaggiaTrento\Views\StopTimesForStopView.xaml">
       <Link>Views\StopTimesForStopView.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="..\ViaggiaTrentino\Views\SubmitAlertPageView.xaml">
+    <Page Include="..\ViaggiaTrento\Views\SubmitAlertPageView.xaml">
       <Link>Views\SubmitAlertPageView.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="..\ViaggiaTrentino\Views\TimetablePageView.xaml">
+    <Page Include="..\ViaggiaTrento\Views\TimetablePageView.xaml">
       <Link>Views\TimetablePageView.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
