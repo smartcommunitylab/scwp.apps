@@ -18,7 +18,7 @@ using Windows.Foundation;
 namespace ViaggiaTrentino
 {
 
-  public class Settings
+  public partial class Settings
   {
     private static IsolatedStorageSettings iss;
     private static AuthLibrary authLib;

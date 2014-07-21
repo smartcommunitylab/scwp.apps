@@ -1,11 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="en-US" />
-  <Languages xmlns="">
-    <Language code="it" />
-    <Language code="qps-ploc" />
-  </Languages>
-  <App xmlns="" ProductID="{8a5eec2d-f881-40c1-ba85-13836f179fa9}" Title="ViaggiaTrentino" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Lorenzo Lotto, Andrea Panizza" Description="Sample description" Publisher="SmartCampus Lab" PublisherID="{f8a14e15-55b2-4613-addc-9801c4cfe505}">
+  <Languages xmlns="" />
+  <App xmlns="" ProductID="{f94949f4-23dd-45b1-9885-59543718d2ea}" Title="ViaggiaRovereto" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Lorenzo Lotto, Andrea Panizza" Description="Sample description" Publisher="SmartCampus Lab" PublisherID="{1bf6b0eb-3011-40dd-ac2f-f06ec754cc80}">
     <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />

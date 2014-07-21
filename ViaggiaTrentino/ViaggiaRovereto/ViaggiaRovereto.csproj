@@ -1,0 +1,1020 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{75DD8D26-8860-4BB9-B253-A28637897D03}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ViaggiaTrentino</RootNamespace>
+    <AssemblyName>ViaggiaTrentino</AssemblyName>
+    <TargetFrameworkIdentifier>WindowsPhone</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>ViaggiaTrentino_$(Configuration)_$(Platform).xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>ViaggiaTrentino.App</SilverlightAppEntry>
+    <ValidateXaml>true</ValidateXaml>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SILVERLIGHT;WINDOWS_PHONE;USE_WP8_NATIVE_SQLITE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE;USE_WP8_NATIVE_SQLITE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\x86\Debug</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SILVERLIGHT;WINDOWS_PHONE;USE_WP8_NATIVE_SQLITE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\x86\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE;USE_WP8_NATIVE_SQLITE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|ARM' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\ARM\Debug</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SILVERLIGHT;WINDOWS_PHONE;USE_WP8_NATIVE_SQLITE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|ARM' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\ARM\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE;USE_WP8_NATIVE_SQLITE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\ViaggiaTrentino\App.xaml.cs">
+      <Link>App.xaml.cs</Link>
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Bootstrapper.cs">
+      <Link>Bootstrapper.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Converters\AgencyIDToImageConverter.cs">
+      <Link>Converters\AgencyIDToImageConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Converters\BooleanToReversedVisibilityConverter.cs">
+      <Link>Converters\BooleanToReversedVisibilityConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Converters\BooleanToScrollBarVisibilityConverter.cs">
+      <Link>Converters\BooleanToScrollBarVisibilityConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Converters\BooleanToStrokeColorConverter.cs">
+      <Link>Converters\BooleanToStrokeColorConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Converters\BooleanToToggledMonitoringStatusConverter.cs">
+      <Link>Converters\BooleanToToggledMonitoringStatusConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Converters\BorderColorToggleBlackAndWhiteConverter.cs">
+      <Link>Converters\BorderColorToggleBlackAndWhiteConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Converters\DataContextToContentConverter.cs">
+      <Link>Converters\DataContextToContentConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Converters\DebuggingConverter.cs">
+      <Link>Converters\DebuggingConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Converters\DynamicTileSizeConverter.cs">
+      <Link>Converters\DynamicTileSizeConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Converters\FromToConverter.cs">
+      <Link>Converters\FromToConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Converters\ImageSourceToImageSourceAccordingToPhoneApplicationBackgroundConverter.cs">
+      <Link>Converters\ImageSourceToImageSourceAccordingToPhoneApplicationBackgroundConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Converters\IntegerVectorToNameOfDayStringConverter.cs">
+      <Link>Converters\IntegerVectorToNameOfDayStringConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Converters\ItineraryToDateTimeStringConverter.cs">
+      <Link>Converters\ItineraryToDateTimeStringConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Converters\ItineraryToTimeSpanStringConverter.cs">
+      <Link>Converters\ItineraryToTimeSpanStringConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Converters\LegListAndMonitorLegsToBoolConverter.cs">
+      <Link>Converters\LegListAndMonitorLegsToBoolConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Converters\LegListToImageListConverter.cs">
+      <Link>Converters\LegListToImageListConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Converters\LegListToLegImageListConverter.cs">
+      <Link>Converters\LegListToLegImageListConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Converters\LongListSelectorItemToColorConverter.cs">
+      <Link>Converters\LongListSelectorItemToColorConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Converters\LongMilliSecondsToDateConverter.cs">
+      <Link>Converters\LongMilliSecondsToDateConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Converters\LongMilliSecondsToTimeConverter.cs">
+      <Link>Converters\LongMilliSecondsToTimeConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Converters\LongSecondsToDateConverter.cs">
+      <Link>Converters\LongSecondsToDateConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Converters\LongSecondsToTimeConverter.cs">
+      <Link>Converters\LongSecondsToTimeConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Converters\ParkingSlotsToForegoundColorConverter.cs">
+      <Link>Converters\ParkingSlotsToForegoundColorConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Converters\ParkingToSlotsConverter.cs">
+      <Link>Converters\ParkingToSlotsConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Converters\RouteBackgroungColorToForegroundColorConverter.cs">
+      <Link>Converters\RouteBackgroungColorToForegroundColorConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Converters\RouteToRouteNameConverter.cs">
+      <Link>Converters\RouteToRouteNameConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Converters\StringHexColorToColorsConverter.cs">
+      <Link>Converters\StringHexColorToColorsConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Converters\TransportTypeToImageConverter.cs">
+      <Link>Converters\TransportTypeToImageConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Helpers\DistanceHelper.cs">
+      <Link>Helpers\DistanceHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Helpers\ExceptionLoggerHelper.cs">
+      <Link>Helpers\ExceptionLoggerHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Helpers\FavouriteLocationHelper.cs">
+      <Link>Helpers\FavouriteLocationHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Helpers\FileStorageHelper.cs">
+      <Link>Helpers\FileStorageHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Helpers\GooglePolyline.cs">
+      <Link>Helpers\GooglePolyline.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Helpers\KeyedList.cs">
+      <Link>Helpers\KeyedList.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Helpers\LocationChooserHelper.cs">
+      <Link>Helpers\LocationChooserHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Helpers\MapHelper.cs">
+      <Link>Helpers\MapHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Helpers\TimeTableCacheHelper.cs">
+      <Link>Helpers\TimeTableCacheHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\LocalizedStrings.cs">
+      <Link>LocalizedStrings.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\MapGrouper\ClustersGenerator.cs">
+      <Link>MapGrouper\ClustersGenerator.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\MapGrouper\PushpinsGroup.cs">
+      <Link>MapGrouper\PushpinsGroup.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\PreferencesModel.cs">
+      <Link>PreferencesModel.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Resources\AppResources.Designer.cs">
+      <Link>Resources\AppResources.Designer.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Settings.cs">
+      <Link>Settings.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\SmartCampusAutoCompleteBox.cs">
+      <Link>SmartCampusAutoCompleteBox.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\ViewModels\AboutPageViewModel.cs">
+      <Link>ViewModels\AboutPageViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\ViewModels\MainPageViewModel.cs">
+      <Link>ViewModels\MainPageViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\ViewModels\MonitorJourneyListViewModel.cs">
+      <Link>ViewModels\MonitorJourneyListViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\ViewModels\MonitorJourneyViewModel.cs">
+      <Link>ViewModels\MonitorJourneyViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\ViewModels\ParkingsPageViewModel.cs">
+      <Link>ViewModels\ParkingsPageViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\ViewModels\PlanNewSingleJourneyListViewModel.cs">
+      <Link>ViewModels\PlanNewSingleJourneyListViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\ViewModels\PlanNewSingleJourneySaveViewModel.cs">
+      <Link>ViewModels\PlanNewSingleJourneySaveViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\ViewModels\PlanNewSingleJourneyViewModel.cs">
+      <Link>ViewModels\PlanNewSingleJourneyViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\ViewModels\ReadNotificationViewModel.cs">
+      <Link>ViewModels\ReadNotificationViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\ViewModels\RealTimeInfoViewModel.cs">
+      <Link>ViewModels\RealTimeInfoViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\ViewModels\SavedJourneyPageViewModel.cs">
+      <Link>ViewModels\SavedJourneyPageViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\ViewModels\SavedRecurrentJourneyDetailsViewModel.cs">
+      <Link>ViewModels\SavedRecurrentJourneyDetailsViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\ViewModels\SavedSingleJourneyDetailsViewModel.cs">
+      <Link>ViewModels\SavedSingleJourneyDetailsViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\ViewModels\SelectAlertPageViewModel.cs">
+      <Link>ViewModels\SelectAlertPageViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\ViewModels\SelectBusRouteDirectionViewModel.cs">
+      <Link>ViewModels\SelectBusRouteDirectionViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\ViewModels\SelectBusRouteViewModel.cs">
+      <Link>ViewModels\SelectBusRouteViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\ViewModels\SelectTrainRouteViewModel.cs">
+      <Link>ViewModels\SelectTrainRouteViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\ViewModels\SettingsPageViewModel.cs">
+      <Link>ViewModels\SettingsPageViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\ViewModels\StopTimesForStopViewModel.cs">
+      <Link>ViewModels\StopTimesForStopViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\ViewModels\SubmitAlertPageViewModel.cs">
+      <Link>ViewModels\SubmitAlertPageViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\ViewModels\TimetablePageViewModel.cs">
+      <Link>ViewModels\TimetablePageViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Views\AboutPageView.xaml.cs">
+      <Link>Views\AboutPageView.xaml.cs</Link>
+      <DependentUpon>AboutPageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Views\Controls\ChooseFavouritePlaceControl.xaml.cs">
+      <Link>Views\Controls\ChooseFavouritePlaceControl.xaml.cs</Link>
+      <DependentUpon>ChooseFavouritePlaceControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Views\Controls\FavouritePlaceControl.xaml.cs">
+      <Link>Views\Controls\FavouritePlaceControl.xaml.cs</Link>
+      <DependentUpon>FavouritePlaceControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Views\Controls\FavouritePlaceView.xaml.cs">
+      <Link>Views\Controls\FavouritePlaceView.xaml.cs</Link>
+      <DependentUpon>FavouritePlaceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Views\Controls\ItineraryView.xaml.cs">
+      <Link>Views\Controls\ItineraryView.xaml.cs</Link>
+      <DependentUpon>ItineraryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Views\Controls\LoadingControl.xaml.cs">
+      <Link>Views\Controls\LoadingControl.xaml.cs</Link>
+      <DependentUpon>LoadingControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Views\Controls\ParkingPopupView.xaml.cs">
+      <Link>Views\Controls\ParkingPopupView.xaml.cs</Link>
+      <DependentUpon>ParkingPopupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Views\Controls\SavedJourneyView.xaml.cs">
+      <Link>Views\Controls\SavedJourneyView.xaml.cs</Link>
+      <DependentUpon>SavedJourneyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Views\Controls\SavedRecurrentJourneyView.xaml.cs">
+      <Link>Views\Controls\SavedRecurrentJourneyView.xaml.cs</Link>
+      <DependentUpon>SavedRecurrentJourneyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Views\Controls\SelectLocationView.xaml.cs">
+      <Link>Views\Controls\SelectLocationView.xaml.cs</Link>
+      <DependentUpon>SelectLocationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Views\Controls\SingleParkingView.xaml.cs">
+      <Link>Views\Controls\SingleParkingView.xaml.cs</Link>
+      <DependentUpon>SingleParkingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Views\Controls\StopPopupView.xaml.cs">
+      <Link>Views\Controls\StopPopupView.xaml.cs</Link>
+      <DependentUpon>StopPopupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Views\Controls\UserSettingsView.xaml.cs">
+      <Link>Views\Controls\UserSettingsView.xaml.cs</Link>
+      <DependentUpon>UserSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Views\MainPageView.xaml.cs">
+      <Link>Views\MainPageView.xaml.cs</Link>
+      <DependentUpon>MainPageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Views\MonitorJourneyListView.xaml.cs">
+      <Link>Views\MonitorJourneyListView.xaml.cs</Link>
+      <DependentUpon>MonitorJourneyListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Views\MonitorJourneyView.xaml.cs">
+      <Link>Views\MonitorJourneyView.xaml.cs</Link>
+      <DependentUpon>MonitorJourneyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Views\ParkingsPageView.xaml.cs">
+      <Link>Views\ParkingsPageView.xaml.cs</Link>
+      <DependentUpon>ParkingsPageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Views\PlanNewSingleJourneyListView.xaml.cs">
+      <Link>Views\PlanNewSingleJourneyListView.xaml.cs</Link>
+      <DependentUpon>PlanNewSingleJourneyListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Views\PlanNewSingleJourneySaveView.xaml.cs">
+      <Link>Views\PlanNewSingleJourneySaveView.xaml.cs</Link>
+      <DependentUpon>PlanNewSingleJourneySaveView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Views\PlanNewSingleJourneyView.xaml.cs">
+      <Link>Views\PlanNewSingleJourneyView.xaml.cs</Link>
+      <DependentUpon>PlanNewSingleJourneyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Views\ReadNotificationView.xaml.cs">
+      <Link>Views\ReadNotificationView.xaml.cs</Link>
+      <DependentUpon>ReadNotificationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Views\RealTimeInfoView.xaml.cs">
+      <Link>Views\RealTimeInfoView.xaml.cs</Link>
+      <DependentUpon>RealTimeInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Views\SavedJourneyPageView.xaml.cs">
+      <Link>Views\SavedJourneyPageView.xaml.cs</Link>
+      <DependentUpon>SavedJourneyPageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Views\SavedRecurrentJourneyDetailsView.xaml.cs">
+      <Link>Views\SavedRecurrentJourneyDetailsView.xaml.cs</Link>
+      <DependentUpon>SavedRecurrentJourneyDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Views\SavedSingleJourneyDetailsView.xaml.cs">
+      <Link>Views\SavedSingleJourneyDetailsView.xaml.cs</Link>
+      <DependentUpon>SavedSingleJourneyDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Views\SelectAlertPageView.xaml.cs">
+      <Link>Views\SelectAlertPageView.xaml.cs</Link>
+      <DependentUpon>SelectAlertPageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Views\SelectBusRouteDirectionView.xaml.cs">
+      <Link>Views\SelectBusRouteDirectionView.xaml.cs</Link>
+      <DependentUpon>SelectBusRouteDirectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Views\SelectBusRouteView.xaml.cs">
+      <Link>Views\SelectBusRouteView.xaml.cs</Link>
+      <DependentUpon>SelectBusRouteView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Views\SelectTrainRouteView.xaml.cs">
+      <Link>Views\SelectTrainRouteView.xaml.cs</Link>
+      <DependentUpon>SelectTrainRouteView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Views\SettingsPageView.xaml.cs">
+      <Link>Views\SettingsPageView.xaml.cs</Link>
+      <DependentUpon>SettingsPageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Views\StopTimesForStopView.xaml.cs">
+      <Link>Views\StopTimesForStopView.xaml.cs</Link>
+      <DependentUpon>StopTimesForStopView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Views\SubmitAlertPageView.xaml.cs">
+      <Link>Views\SubmitAlertPageView.xaml.cs</Link>
+      <DependentUpon>SubmitAlertPageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\ViaggiaTrentino\Views\TimetablePageView.xaml.cs">
+      <Link>Views\TimetablePageView.xaml.cs</Link>
+      <DependentUpon>TimetablePageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppSpecificSettings.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\ViaggiaTrentino\packages.config">
+      <Link>packages.config</Link>
+    </None>
+    <None Include="..\ViaggiaTrentino\scdb.sqlite">
+      <Link>scdb.sqlite</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\WMAppManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="AuthenticationLibrary">
+      <HintPath>..\..\..\scwp.support\CompiledDLL\AuthenticationLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Caliburn.Micro">
+      <HintPath>..\packages\Caliburn.Micro.1.5.2\lib\wp8\Caliburn.Micro.dll</HintPath>
+    </Reference>
+    <Reference Include="Caliburn.Micro.BindableAppBar">
+      <HintPath>..\packages\Caliburn.Micro.BindableAppBar.1.0.5.0\lib\wp80\Caliburn.Micro.BindableAppBar.dll</HintPath>
+    </Reference>
+    <Reference Include="Caliburn.Micro.Extensions">
+      <HintPath>..\packages\Caliburn.Micro.1.5.2\lib\wp8\Caliburn.Micro.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Coding4Fun.Toolkit.Controls">
+      <HintPath>..\packages\Coding4Fun.Toolkit.Controls.2.0.7\lib\windowsphone8\Coding4Fun.Toolkit.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonHelpers">
+      <HintPath>..\..\..\scwp.support\CompiledDLL\CommonHelpers.dll</HintPath>
+    </Reference>
+    <Reference Include="GuidedTour, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\GuidedTour.1.0.2\lib\wp80\GuidedTour.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Phone.Controls, Version=8.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Phone.Controls.Toolkit">
+      <HintPath>..\packages\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\wp8\Microsoft.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\wp8\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Phone">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\wp8\Microsoft.Threading.Tasks.Extensions.Phone.dll</HintPath>
+    </Reference>
+    <Reference Include="MobilityServiceLibrary">
+      <HintPath>..\..\..\scwp.support\CompiledDLL\MobilityServiceLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Models">
+      <HintPath>..\..\..\scwp.support\CompiledDLL\Models.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="ProfileLibrary">
+      <HintPath>..\..\..\scwp.support\CompiledDLL\ProfileLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="RateMyApp">
+      <HintPath>.\RateMyApp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=1.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.22\lib\sl4-windowsphone71\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.22\lib\sl4-windowsphone71\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=1.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.22\lib\sl4-windowsphone71\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Interactivity, Version=3.9.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Caliburn.Micro.1.5.2\lib\wp8\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="TerritoryInformationServiceLibrary">
+      <HintPath>..\..\..\scwp.support\CompiledDLL\TerritoryInformationServiceLibrary.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DBHelper\DBHelper.csproj">
+      <Project>{B8A352DE-D354-4BB8-9270-5C99C8108169}</Project>
+      <Name>DBHelper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\ViaggiaTrentino\Assets\AlignmentGrid.png">
+      <Link>Assets\AlignmentGrid.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\AppBar\Check.png">
+      <Link>Assets\AppBar\Check.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\AppBar\Date.png">
+      <Link>Assets\AppBar\Date.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\AppBar\Delete.png">
+      <Link>Assets\AppBar\Delete.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\AppBar\Dialog-Box-About.png">
+      <Link>Assets\AppBar\Dialog-Box-About.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\AppBar\monitor.png">
+      <Link>Assets\AppBar\monitor.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\AppBar\Moreinfo.png">
+      <Link>Assets\AppBar\Moreinfo.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\AppBar\Next.png">
+      <Link>Assets\AppBar\Next.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\AppBar\Previous.png">
+      <Link>Assets\AppBar\Previous.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\AppBar\Recycle-Bin.png">
+      <Link>Assets\AppBar\Recycle-Bin.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\AppBar\Refresh.png">
+      <Link>Assets\AppBar\Refresh.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\AppBar\Save.png">
+      <Link>Assets\AppBar\Save.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\AppBar\Store.png">
+      <Link>Assets\AppBar\Store.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\AppBar\Today.png">
+      <Link>Assets\AppBar\Today.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\HubTiles\ExtraUrbano.png">
+      <Link>Assets\HubTiles\ExtraUrbano.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\HubTiles\ic_monitor.png">
+      <Link>Assets\HubTiles\ic_monitor.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\HubTiles\ic_notices.png">
+      <Link>Assets\HubTiles\ic_notices.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\HubTiles\ic_parking.png">
+      <Link>Assets\HubTiles\ic_parking.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\HubTiles\ic_planjourney.png">
+      <Link>Assets\HubTiles\ic_planjourney.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\HubTiles\ic_realtimeinfo.png">
+      <Link>Assets\HubTiles\ic_realtimeinfo.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\HubTiles\ic_savedjourney.png">
+      <Link>Assets\HubTiles\ic_savedjourney.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\HubTiles\ic_sendnotices.png">
+      <Link>Assets\HubTiles\ic_sendnotices.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\HubTiles\ic_treno.png">
+      <Link>Assets\HubTiles\ic_treno.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\HubTiles\ic_urbanoRO.png">
+      <Link>Assets\HubTiles\ic_urbanoRO.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\HubTiles\ic_urbanoTN.png">
+      <Link>Assets\HubTiles\ic_urbanoTN.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\HubTiles\Parking.png">
+      <Link>Assets\HubTiles\Parking.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\HubTiles\PlanJourney.png">
+      <Link>Assets\HubTiles\PlanJourney.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\HubTiles\PlanRecurrentJourney.png">
+      <Link>Assets\HubTiles\PlanRecurrentJourney.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\HubTiles\ReadNotification.png">
+      <Link>Assets\HubTiles\ReadNotification.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\HubTiles\SavedJourneys.png">
+      <Link>Assets\HubTiles\SavedJourneys.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\HubTiles\SubmitAlert.png">
+      <Link>Assets\HubTiles\SubmitAlert.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\HubTiles\TrafficLight.png">
+      <Link>Assets\HubTiles\TrafficLight.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\HubTiles\Train.png">
+      <Link>Assets\HubTiles\Train.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\HubTiles\Urbano.png">
+      <Link>Assets\HubTiles\Urbano.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Logos\AppLogo.png">
+      <Link>Assets\Logos\AppLogo.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Logos\LogoConsorzio.png">
+      <Link>Assets\Logos\LogoConsorzio.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Logos\LogoProvincia.png">
+      <Link>Assets\Logos\LogoProvincia.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Logos\LogoSmartcamp.png">
+      <Link>Assets\Logos\LogoSmartcamp.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Miscs\Dark\Arrow.png">
+      <Link>Assets\Miscs\Dark\Arrow.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Miscs\Dark\Favourites.png">
+      <Link>Assets\Miscs\Dark\Favourites.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Miscs\Dark\GpsLocation.png">
+      <Link>Assets\Miscs\Dark\GpsLocation.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Miscs\Dark\MapLocation.png">
+      <Link>Assets\Miscs\Dark\MapLocation.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Miscs\Dark\PinLocation.png">
+      <Link>Assets\Miscs\Dark\PinLocation.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Miscs\JDest.png">
+      <Link>Assets\Miscs\JDest.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Miscs\JStart.png">
+      <Link>Assets\Miscs\JStart.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Miscs\Light\Arrow.png">
+      <Link>Assets\Miscs\Light\Arrow.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Miscs\Light\Favourites.png">
+      <Link>Assets\Miscs\Light\Favourites.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Miscs\Light\GpsLocation.png">
+      <Link>Assets\Miscs\Light\GpsLocation.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Miscs\Light\MapLocation.png">
+      <Link>Assets\Miscs\Light\MapLocation.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Miscs\Light\PinLocation.png">
+      <Link>Assets\Miscs\Light\PinLocation.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Miscs\StopPushPin.png">
+      <Link>Assets\Miscs\StopPushPin.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Miscs\StopPushPin64.png">
+      <Link>Assets\Miscs\StopPushPin64.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Dark\bicycle.png">
+      <Link>Assets\Vehicles\Dark\bicycle.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Dark\bus.png">
+      <Link>Assets\Vehicles\Dark\bus.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Dark\car.png">
+      <Link>Assets\Vehicles\Dark\car.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Dark\carwithparking.png">
+      <Link>Assets\Vehicles\Dark\carwithparking.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Dark\gondola.png">
+      <Link>Assets\Vehicles\Dark\gondola.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Dark\hubtrain.png">
+      <Link>Assets\Vehicles\Dark\hubtrain.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Dark\parking.png">
+      <Link>Assets\Vehicles\Dark\parking.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Dark\sharedbike.png">
+      <Link>Assets\Vehicles\Dark\sharedbike.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Dark\sharedbike_without_station.png">
+      <Link>Assets\Vehicles\Dark\sharedbike_without_station.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Dark\sharedcar.png">
+      <Link>Assets\Vehicles\Dark\sharedcar.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Dark\sharedcar_without_station.png">
+      <Link>Assets\Vehicles\Dark\sharedcar_without_station.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Dark\shuttle.png">
+      <Link>Assets\Vehicles\Dark\shuttle.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Dark\train.png">
+      <Link>Assets\Vehicles\Dark\train.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Dark\transit.png">
+      <Link>Assets\Vehicles\Dark\transit.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Dark\walk.png">
+      <Link>Assets\Vehicles\Dark\walk.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Light\bicycle.png">
+      <Link>Assets\Vehicles\Light\bicycle.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Light\bus.png">
+      <Link>Assets\Vehicles\Light\bus.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Light\car.png">
+      <Link>Assets\Vehicles\Light\car.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Light\carwithparking.png">
+      <Link>Assets\Vehicles\Light\carwithparking.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Light\gondola.png">
+      <Link>Assets\Vehicles\Light\gondola.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Light\hubtrain.png">
+      <Link>Assets\Vehicles\Light\hubtrain.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Light\parking.png">
+      <Link>Assets\Vehicles\Light\parking.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Light\sharedbike.png">
+      <Link>Assets\Vehicles\Light\sharedbike.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Light\sharedbike_without_station.png">
+      <Link>Assets\Vehicles\Light\sharedbike_without_station.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Light\sharedcar.png">
+      <Link>Assets\Vehicles\Light\sharedcar.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Light\sharedcar_without_station.png">
+      <Link>Assets\Vehicles\Light\sharedcar_without_station.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Light\shuttle.png">
+      <Link>Assets\Vehicles\Light\shuttle.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Light\train.png">
+      <Link>Assets\Vehicles\Light\train.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Light\transit.png">
+      <Link>Assets\Vehicles\Light\transit.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Assets\Vehicles\Light\walk.png">
+      <Link>Assets\Vehicles\Light\walk.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\GuidedTour.Content\Next.png">
+      <Link>GuidedTour.Content\Next.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\GuidedTour.Content\Skip.png">
+      <Link>GuidedTour.Content\Skip.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Toolkit.Content\ApplicationBar.Add.png">
+      <Link>Toolkit.Content\ApplicationBar.Add.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Toolkit.Content\ApplicationBar.Cancel.png">
+      <Link>Toolkit.Content\ApplicationBar.Cancel.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Toolkit.Content\ApplicationBar.Check.png">
+      <Link>Toolkit.Content\ApplicationBar.Check.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Toolkit.Content\ApplicationBar.Delete.png">
+      <Link>Toolkit.Content\ApplicationBar.Delete.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrentino\Toolkit.Content\ApplicationBar.Select.png">
+      <Link>Toolkit.Content\ApplicationBar.Select.png</Link>
+    </Content>
+    <Content Include="Assets\ApplicationIcon.png" />
+    <Content Include="Assets\MediumTile.png" />
+    <Content Include="Assets\SmallTile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <XliffResource Include="..\ViaggiaTrentino\Resources\AppResources.it.xlf">
+      <Link>Resources\AppResources.it.xlf</Link>
+      <Generator>XliffResxGenerator</Generator>
+      <LastGenOutput>AppResources.it.resx</LastGenOutput>
+    </XliffResource>
+    <XliffResource Include="..\ViaggiaTrentino\Resources\AppResources.qps-ploc.xlf">
+      <Link>Resources\AppResources.qps-ploc.xlf</Link>
+      <Generator>XliffResxGenerator</Generator>
+      <LastGenOutput>AppResources.qps-ploc.resx</LastGenOutput>
+    </XliffResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\ViaggiaTrentino\Resources\AppResources.it.resx">
+      <Link>Resources\AppResources.it.resx</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppResources.it.xlf</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\ViaggiaTrentino\Resources\AppResources.qps-ploc.resx">
+      <Link>Resources\AppResources.qps-ploc.resx</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppResources.qps-ploc.xlf</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\ViaggiaTrentino\Resources\AppResources.resx">
+      <Link>Resources\AppResources.resx</Link>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="..\ViaggiaTrentino\App.xaml">
+      <Link>App.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="..\ViaggiaTrentino\Views\AboutPageView.xaml">
+      <Link>Views\AboutPageView.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\ViaggiaTrentino\Views\Controls\ChooseFavouritePlaceControl.xaml">
+      <Link>Views\Controls\ChooseFavouritePlaceControl.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\ViaggiaTrentino\Views\Controls\FavouritePlaceControl.xaml">
+      <Link>Views\Controls\FavouritePlaceControl.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\ViaggiaTrentino\Views\Controls\FavouritePlaceView.xaml">
+      <Link>Views\Controls\FavouritePlaceView.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\ViaggiaTrentino\Views\Controls\ItineraryView.xaml">
+      <Link>Views\Controls\ItineraryView.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\ViaggiaTrentino\Views\Controls\LoadingControl.xaml">
+      <Link>Views\Controls\LoadingControl.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\ViaggiaTrentino\Views\Controls\ParkingPopupView.xaml">
+      <Link>Views\Controls\ParkingPopupView.xaml</Link>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\ViaggiaTrentino\Views\Controls\SavedJourneyView.xaml">
+      <Link>Views\Controls\SavedJourneyView.xaml</Link>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\ViaggiaTrentino\Views\Controls\SavedRecurrentJourneyView.xaml">
+      <Link>Views\Controls\SavedRecurrentJourneyView.xaml</Link>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\ViaggiaTrentino\Views\Controls\SelectLocationView.xaml">
+      <Link>Views\Controls\SelectLocationView.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\ViaggiaTrentino\Views\Controls\SingleParkingView.xaml">
+      <Link>Views\Controls\SingleParkingView.xaml</Link>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\ViaggiaTrentino\Views\Controls\StopPopupView.xaml">
+      <Link>Views\Controls\StopPopupView.xaml</Link>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\ViaggiaTrentino\Views\Controls\UserSettingsView.xaml">
+      <Link>Views\Controls\UserSettingsView.xaml</Link>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\ViaggiaTrentino\Views\MainPageView.xaml">
+      <Link>Views\MainPageView.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\ViaggiaTrentino\Views\MonitorJourneyListView.xaml">
+      <Link>Views\MonitorJourneyListView.xaml</Link>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\ViaggiaTrentino\Views\MonitorJourneyView.xaml">
+      <Link>Views\MonitorJourneyView.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\ViaggiaTrentino\Views\ParkingsPageView.xaml">
+      <Link>Views\ParkingsPageView.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\ViaggiaTrentino\Views\PlanNewSingleJourneyListView.xaml">
+      <Link>Views\PlanNewSingleJourneyListView.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\ViaggiaTrentino\Views\PlanNewSingleJourneySaveView.xaml">
+      <Link>Views\PlanNewSingleJourneySaveView.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\ViaggiaTrentino\Views\PlanNewSingleJourneyView.xaml">
+      <Link>Views\PlanNewSingleJourneyView.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\ViaggiaTrentino\Views\ReadNotificationView.xaml">
+      <Link>Views\ReadNotificationView.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\ViaggiaTrentino\Views\RealTimeInfoView.xaml">
+      <Link>Views\RealTimeInfoView.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\ViaggiaTrentino\Views\SavedJourneyPageView.xaml">
+      <Link>Views\SavedJourneyPageView.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\ViaggiaTrentino\Views\SavedRecurrentJourneyDetailsView.xaml">
+      <Link>Views\SavedRecurrentJourneyDetailsView.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\ViaggiaTrentino\Views\SavedSingleJourneyDetailsView.xaml">
+      <Link>Views\SavedSingleJourneyDetailsView.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\ViaggiaTrentino\Views\SelectAlertPageView.xaml">
+      <Link>Views\SelectAlertPageView.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\ViaggiaTrentino\Views\SelectBusRouteDirectionView.xaml">
+      <Link>Views\SelectBusRouteDirectionView.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\ViaggiaTrentino\Views\SelectBusRouteView.xaml">
+      <Link>Views\SelectBusRouteView.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\ViaggiaTrentino\Views\SelectTrainRouteView.xaml">
+      <Link>Views\SelectTrainRouteView.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\ViaggiaTrentino\Views\SettingsPageView.xaml">
+      <Link>Views\SettingsPageView.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\ViaggiaTrentino\Views\StopTimesForStopView.xaml">
+      <Link>Views\StopTimesForStopView.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\ViaggiaTrentino\Views\SubmitAlertPageView.xaml">
+      <Link>Views\SubmitAlertPageView.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\ViaggiaTrentino\Views\TimetablePageView.xaml">
+      <Link>Views\TimetablePageView.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <PropertyGroup Label="MultilingualAppToolkit">
+      <MultilingualAppToolkitVersion>3.0</MultilingualAppToolkitVersion>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Multilingual App Toolkit\Microsoft.Multilingual.ResxResources.targets" Label="MultilingualAppToolkit" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+</Project>

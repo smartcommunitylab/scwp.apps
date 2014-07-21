@@ -343,8 +343,8 @@
         </trans-unit>
         <trans-unit id="Resx/AboTitle" translate="yes" xml:space="preserve">
           <source>About</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">[100C6][!!_ÃБôúţ VíáģğìáŤŕęиţìйò_!!!!!!]</target><note from="MultilingualUpdate" priority="2" annotates="source">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
-        </trans-unit>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[100C6][!!_ÃБôúţ VíáģğìáŤŕęиţìйò_!!!!!!]</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note></trans-unit>
         <trans-unit id="Resx/SelectDirection" translate="yes" xml:space="preserve">
           <source>Select Direction</source>
           <target state="needs-review-translation" state-qualifier="mt-suggestion">[82218][!!_Şêľèćτ Ðìřéćтįôη_!!!!]</target>
