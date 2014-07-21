@@ -59,7 +59,7 @@
       <StackPanel Grid.Row="0" Margin="12,17,0,28">
         <TextBlock Text="{Binding Path=LocalizedResources.AppProducer, Source={StaticResource LocalizedStrings}}"
                  Style="{StaticResource PhoneTextNormalStyle}"/>
-        <TextBlock Text="{Binding Path=LocalizedResources.MainViewTitle, Source={StaticResource LocalizedStrings}}"
+        <TextBlock Text="{Binding Path=ApplicationTitle, Source={StaticResource vtSettings}}"
                  Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
       </StackPanel>
 
@@ -154,7 +154,7 @@
                          SecondCount="10"
                          CountDays="True"
                          FeedbackTo="smartcampuslab@outlook.com"        
-                         ApplicationName="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}"        
+                         ApplicationName="{Binding Path=ApplicationTitle, Source={StaticResource vtSettings}}"        
                          CompanyName="{Binding Path=LocalizedResources.AppProducer, Source={StaticResource LocalizedStrings}}"
                          EnableAnimation="True"
                          AnimationDuration="0:0:0.250"

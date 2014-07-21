@@ -2,15 +2,9 @@
 using Microsoft.Phone.Controls;
 using Models.AuthorizationService;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Device.Location;
-using System.Diagnostics;
 using System.IO.IsolatedStorage;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Xml.Linq;
 using Windows.Devices.Geolocation;
 using Windows.Foundation;
@@ -21,6 +15,7 @@ namespace ViaggiaTrentino
   public partial class Settings
   {
     private static IsolatedStorageSettings iss;
+    
     private static AuthLibrary authLib;
 
     // bool return is just to have something on which to use a wait when using it
@@ -137,11 +132,6 @@ namespace ViaggiaTrentino
       }
     }
 
-    public static GeoCoordinate TrentoCoordinate
-    {
-      get { return new GeoCoordinate(46.0697, 11.1211); }
-    }
-
     public static string UserID
     {
       get { return iss["UserID"] as string; }
@@ -151,10 +141,7 @@ namespace ViaggiaTrentino
     public static void Initialize()
     {
       iss = IsolatedStorageSettings.ApplicationSettings;
-      clientId = "52482826-891e-4ee0-9f79-9153a638d6e4";
-      clientSecret = "f3ea5378-43ba-42c3-b2bf-5f7cd10b6e6e";
-      redirectUrl = "http://localhost";
-      serverUrl = "https://vas-dev.smartcampuslab.it/";
+      AppSpecificInitialize();
       
       if (!HasBeenStarted)
       {
@@ -197,6 +184,7 @@ namespace ViaggiaTrentino
     {
       iss.Save();
     }
+    
     public static void ClearHasBeenStarted()
     {
       iss.Remove("hasBeenStarted");
@@ -271,11 +259,22 @@ namespace ViaggiaTrentino
       }
     }
 
+    public string ApplicationTitle
+    {
+      get
+      {
+        System.Reflection.AssemblyTitleAttribute ata =
+            System.Reflection.Assembly.GetExecutingAssembly().GetCustomAttributes(
+            typeof(System.Reflection.AssemblyTitleAttribute), false)[0] as System.Reflection.AssemblyTitleAttribute;
+        return ata.Title;
+      }
+    }
+
     private async static void RetrieveGPSPosition(Geolocator geolocator)
     {
       if (!LocationConsent || geolocator.LocationStatus == PositionStatus.Disabled)
       {
-        Settings.GPSPosition = Settings.TrentoCoordinate;
+        Settings.GPSPosition = Settings.DefaultCityCoordinate;
         return;
       }
 
@@ -288,7 +287,7 @@ namespace ViaggiaTrentino
       }
       catch
       {
-        Settings.GPSPosition = Settings.TrentoCoordinate;
+        Settings.GPSPosition = Settings.DefaultCityCoordinate;
       }
       finally
       {

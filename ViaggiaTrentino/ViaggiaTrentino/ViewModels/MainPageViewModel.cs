@@ -34,7 +34,7 @@ namespace ViaggiaTrentino.ViewModels
       get { return Settings.IsLogged; }
     }
 
-    #region Page overrides
+   #region Page overrides
 
     protected override void OnActivate()
     {

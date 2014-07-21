@@ -6,11 +6,11 @@ using System.Resources;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ViaggiaTrentino")]
+[assembly: AssemblyTitle("ViaggiaRovereto")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ViaggiaTrentino")]
+[assembly: AssemblyProduct("ViaggiaRovereto")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -21,7 +21,7 @@ using System.Resources;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("d01cd7f9-9a3a-474a-aad9-3553475fd9ec")]
+[assembly: Guid("9c0c24ad-9e9f-490c-befe-7a3bb65ef378")]
 
 // Version information for an assembly consists of the following four values:
 //
