@@ -1,10 +1,5 @@
 ﻿using Models.MobilityService;
-using System;
-using System.Collections.Generic;
 using System.Device.Location;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ViaggiaTrentino
 {
@@ -28,6 +23,5 @@ namespace ViaggiaTrentino
       redirectUrl = "http://localhost";
       serverUrl = "https://vas-dev.smartcampuslab.it/";
     }
-
   }
 }
