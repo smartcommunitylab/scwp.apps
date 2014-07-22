@@ -44,6 +44,8 @@
 
   <UserControl.Resources>
     <converters:DataContextToContentConverter x:Key="dcToCont" />
+    <cal:BooleanToVisibilityConverter x:Key="boolToSehen"/>
+    
     <DataTemplate x:Key="PushpinTemplate">
       <mToolkit:Pushpin cal:Message.Attach="[Event Tap] = [Action TappedPushPin($dataContext)]"  Content="{Binding Converter={StaticResource dcToCont} }" DataContext="{Binding }"
                         GeoCoordinate="{Binding GeoCoordinate}"  />
@@ -60,6 +62,8 @@
     <phone:Pivot x:Name="pivotContainer" Title="{Binding Path=LocalizedResources.ParkingsPageTitle, Source={StaticResource LocalizedStrings}}" >
       <phone:PivotItem Header="{Binding Path=LocalizedResources.ParkingsPageParkingPivot, Source={StaticResource LocalizedStrings}}" >
         <Grid >
+          <TextBlock x:Name="lonelyRecurrent" Text="{Binding Path=LocalizedResources.LonelyNoParking, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextGroupHeaderStyle}" 
+                     TextWrapping="Wrap" Visibility="{Binding NoResults, Converter={StaticResource boolToSehen}}"/>
           <ListBox ItemsSource="{Binding Path=Parkings}" VerticalAlignment="Top" toolkit:TurnstileFeatherEffect.FeatheringIndex="0">
             <ListBox.ItemContainerStyle>
               <Style TargetType="ListBoxItem">
