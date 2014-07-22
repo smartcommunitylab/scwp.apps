@@ -23,11 +23,9 @@ namespace ViaggiaTrentino.Helpers
    * 
    * 3a. GPS fix => GPS gets current location => PositionObtained event is fired and popup closed
    * 
-   * 3b Point on map => map is shown, cnetered on last known location => user taps and hold a position =>
-   * => pushpin appears on location + vibration => user taps pushpin => prompt for confirmation of position =>
-   * => PositionObtained event is fired and popup closed. Result is Position instance if the user selected a position,
-   * null otherwise
-   * 
+   * 3b Point on map => map is shown, centered on last known location => user taps and hold a position =>
+   * => vibration + prompt for confirmation of position => PositionObtained event is fired and popup closed. 
+   * Result is Position instance if the user accepted the position, null otherwise
    * 
    */
   public class LocationChooserHelper
@@ -109,6 +107,7 @@ namespace ViaggiaTrentino.Helpers
 
     #region Map popup
 
+    // shows fullscreen map, centered on user's position or default
     private void ShowMappaGrande()
     {
       Map ggm = new Map();
@@ -126,23 +125,28 @@ namespace ViaggiaTrentino.Helpers
 
     }
 
+    // fires the PositionObtained when the full screen map is closed when 
+    // the user did not accept a position or closed the map without selecting
+    // anything
     void hugeMap_Completed(object sender, PopUpEventArgs<string, PopUpResult> e)
     {
       if (hugeMap.Value != "yes")
         PositionObtained(this, null);
     }
 
+    // vibrates and shows a popup with the selected location when an user
+    // taps and holds a point on the map
     async void ggm_Hold(object sender, System.Windows.Input.GestureEventArgs e)
     {
       Map mappa = sender as Map;
       GeoCoordinate geocode = mappa.ConvertViewportPointToGeoCoordinate(e.GetPosition(hugeMap));
       string aa = await GetAddressFromGeoCoord(geocode);
+
       Pushpin p = new Pushpin()
       {
         GeoCoordinate = geocode,
         Content = aa
       };
-
 
       VibrationDevice vibro = VibrationDevice.GetDefault();
       vibro.Vibrate(new TimeSpan(0, 0, 0, 0, 250));
@@ -151,12 +155,13 @@ namespace ViaggiaTrentino.Helpers
       {
         hugeMap.Value = "yes";
         hugeMap.Hide();
-        PositionObtained(this, new Position()
-                               {
-                                 Name = aa,
-                                 Latitude = geocode.Latitude.ToString(),
-                                 Longitude = geocode.Longitude.ToString()
-                               });
+        PositionObtained(this,
+          new Position()
+          {
+            Name = aa,
+            Latitude = geocode.Latitude.ToString(),
+            Longitude = geocode.Longitude.ToString()
+          });
       }
     }
 
