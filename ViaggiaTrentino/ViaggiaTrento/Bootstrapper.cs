@@ -36,7 +36,8 @@ namespace ViaggiaTrentino
 
     protected override PhoneApplicationFrame CreatePhoneApplicationFrame()
     {
-      (App.Current.Resources["PhoneAccentBrush"] as SolidColorBrush).Color = Color.FromArgb(255, 41, 117, 167);
+      (App.Current.Resources["PhoneAccentBrush"] as SolidColorBrush).Color = (App.Current.Resources["PhoneRadioCheckBoxPressedBrush"] as SolidColorBrush).Color = Color.FromArgb(255, 41, 117, 167);
+
 
       rootFrame = new TransitionFrame();
       rootFrame.UriMapper = new AssociationUriMapper();

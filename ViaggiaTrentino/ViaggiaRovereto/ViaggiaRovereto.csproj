@@ -396,10 +396,6 @@
       <Link>Views\SavedSingleJourneyDetailsView.xaml.cs</Link>
       <DependentUpon>SavedSingleJourneyDetailsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="..\ViaggiaTrento\Views\SelectAlertPageView.xaml.cs">
-      <Link>Views\SelectAlertPageView.xaml.cs</Link>
-      <DependentUpon>SelectAlertPageView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="..\ViaggiaTrento\Views\SelectBusRouteDirectionView.xaml.cs">
       <Link>Views\SelectBusRouteDirectionView.xaml.cs</Link>
       <DependentUpon>SelectBusRouteDirectionView.xaml</DependentUpon>
@@ -944,11 +940,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="..\ViaggiaTrento\Views\SelectAlertPageView.xaml">
-      <Link>Views\SelectAlertPageView.xaml</Link>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="..\ViaggiaTrento\Views\SelectBusRouteDirectionView.xaml">
       <Link>Views\SelectBusRouteDirectionView.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
@@ -987,6 +978,10 @@
     <Page Include="Views\RealTimeInfoView.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <ApplicationDefinition Include="Views\SelectAlertPageView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />

@@ -70,12 +70,12 @@
       </Grid.RowDefinitions>
 
       <Image Source="{Binding Converter={StaticResource imgForTheme}, ConverterParameter='/Assets/Vehicles/bus.png'}"
-             Grid.Row="0" Grid.Column="0" Width="96"  toolkit:TurnstileFeatherEffect.FeatheringIndex="0"/>
-      <StackPanel Grid.Row="0" Grid.Column="1" toolkit:TurnstileFeatherEffect.FeatheringIndex="0" 
+             Grid.Row="0" Grid.Column="0" Width="96" toolkit:TurnstileFeatherEffect.FeatheringIndex="0" />
+      <StackPanel Grid.Row="0" Grid.Column="1" toolkit:TurnstileFeatherEffect.FeatheringIndex="0"       
                   VerticalAlignment="Center" Margin="0,0,0,5">
-        <TextBlock x:Name="TrentoBus" Text="{Binding Path=LocalizedResources.SelSendAlertTn, Source={StaticResource LocalizedStrings}}"
-                 Style="{StaticResource PhoneTextLargeStyle}" />
-        <TextBlock Text="{Binding Path=LocalizedResources.SelSendAlertTnDesc, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextSubtleStyle}" />
+        <TextBlock x:Name="RoveretoBus" Text="{Binding Path=LocalizedResources.SelSendAlertRv, Source={StaticResource LocalizedStrings}}"
+                 Style="{StaticResource PhoneTextLargeStyle}"/>
+        <TextBlock Text="{Binding Path=LocalizedResources.SelSendAlertRvDesc, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextSubtleStyle}" />
       </StackPanel>
 
       <Image Source="{Binding Converter={StaticResource imgForTheme}, ConverterParameter='/Assets/Vehicles/train.png'}"
