@@ -617,6 +617,10 @@
           <source>In order to work properly, you have to open the application from the main tile and log in with your credential. Until then, journey planning is unavailable.</source>
           <target state="new">In order to work properly, you have to open the application from the main tile and log in with your credential. Until then, journey planning is unavailable.</target>
         </trans-unit>
+        <trans-unit id="Resx/LonelyNoParking" translate="yes" xml:space="preserve">
+          <source>It's lonely in here, but it is probably due to a network error. Try again in a few minutes.</source>
+          <target state="new">It's lonely in here, but it is probably due to a network error. Try again in a few minutes.</target>
+        </trans-unit>
         <trans-unit id="Resx/ExternalLauchNoLoginTItle" translate="yes" xml:space="preserve">
           <source>Log in to use this feature</source>
           <target state="new">Log in to use this feature</target>

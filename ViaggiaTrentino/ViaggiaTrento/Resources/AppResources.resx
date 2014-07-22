@@ -647,4 +647,7 @@
   <data name="ExternalLaunchNoLoginMessage" xml:space="preserve">
     <value>In order to work properly, you have to open the application from the main tile and log in with your credential. Until then, journey planning is unavailable.</value>
   </data>
+  <data name="LonelyNoParking" xml:space="preserve">
+    <value>It's lonely in here, but it is probably due to a network error. Try again in a few minutes.</value>
+  </data>
 </root>

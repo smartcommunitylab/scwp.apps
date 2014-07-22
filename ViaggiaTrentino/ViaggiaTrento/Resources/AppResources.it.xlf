@@ -613,11 +613,15 @@
         </trans-unit>
         <trans-unit id="Resx/ExternalLaunchNoLoginMessage" translate="yes" xml:space="preserve">
           <source>In order to work properly, you have to open the application from the main tile and log in with your credential. Until then, journey planning is unavailable.</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">Per il corretto funzionamento, è necessario aprire l'applicazione dalla porzione principale e accedere con le credenziali. Fino ad allora, la pianificazione del viaggio è disponibile.</target>
+          <target state="translated">Per il corretto funzionamento, è necessario aprire l'applicazione dalla tile principale e accedere con le proprie credenziali. Fino ad allora, la pianificazione del viaggio non sarà disponibile.</target>
+        </trans-unit>
+        <trans-unit id="Resx/LonelyNoParking" translate="yes" xml:space="preserve">
+          <source>It's lonely in here, but it is probably due to a network error. Try again in a few minutes.</source>
+          <target state="translated">Non c'è niente qui, ma probabilmente è a causa di un errore di rete. Riprovare tra qualche minuto.</target>
         </trans-unit>
         <trans-unit id="Resx/ExternalLauchNoLoginTItle" translate="yes" xml:space="preserve">
           <source>Log in to use this feature</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">L'accesso per utilizzare questa funzione</target>
+          <target state="translated">Effettuare l'accesso per utilizzare questa funzione</target>
         </trans-unit>
         <trans-unit id="Resx/TimetableSecondaryTileNoLoginMessage" translate="yes" xml:space="preserve">
           <source>In order to work properly, you have to open the application from the main tile and log in with your credential. Until then the delays will not be shown.</source>

@@ -18,12 +18,14 @@ namespace ViaggiaTrentino.ViewModels
     ObservableCollection<Parking> parkings;
     PublicTransportLibrary publicTransLib;
     List<Parking> parchi;
+    bool noResults;
 
     public ParkingsPageViewModel(INavigationService navigationService, IEventAggregator eventAggregator)
     {
       this.navigationService = navigationService;
       this.eventAggregator = eventAggregator;      
       publicTransLib = new PublicTransportLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
+      NoResults = false;
     }
 
     public ObservableCollection<Parking> Parkings
@@ -33,6 +35,16 @@ namespace ViaggiaTrentino.ViewModels
       {
         parkings = value;
         NotifyOfPropertyChange(() => Parkings);
+      }
+    }
+
+    public bool NoResults
+    {
+      get { return noResults; }
+      private set
+      {
+        noResults = value;
+        NotifyOfPropertyChange(() => NoResults);
       }
     }
 
@@ -49,7 +61,11 @@ namespace ViaggiaTrentino.ViewModels
       {
         App.LoadingPopup.Hide();
       }
-     
+
+      if (parchi.Count > 0)
+        NoResults = false;
+      else
+        NoResults = true;
       Parkings = new ObservableCollection<Parking>();
       BackgroundWorker bw = new BackgroundWorker();
       bw.RunWorkerCompleted += bw_RunWorkerCompleted;

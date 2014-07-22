@@ -475,6 +475,15 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to It&apos;s lonely in here, but it is probably due to a network error. Try again in a few minutes..
+        /// </summary>
+        public static string LonelyNoParking {
+            get {
+                return ResourceManager.GetString("LonelyNoParking", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to about.
         /// </summary>
         public static string MainpageAbout {
