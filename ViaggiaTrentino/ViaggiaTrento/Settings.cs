@@ -33,6 +33,8 @@ namespace ViaggiaTrentino
       return true;
     }
 
+    public static DateTime LastNetworkError { get; set; }
+
     static string clientId;
     public static string ClientId { get { return clientId; } }
 
@@ -152,6 +154,11 @@ namespace ViaggiaTrentino
         iss["feedbackEnabled"] = true;
         iss["dbVersion"] = AppVersion;
         iss.Save();
+
+        // set to 1970 to make sure that if an exception happens in the first five 
+        // minutes of life of the app it does not goes unnoticed
+        LastNetworkError = new DateTime(1970, 1, 1);
+
         AppPreferences = new PreferencesModel()
         {
           PreferredRoute = new PreferredRoutePreferences()

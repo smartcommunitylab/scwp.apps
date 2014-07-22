@@ -79,18 +79,22 @@ namespace ViaggiaTrentino
       }
       else if (e.ExceptionObject is HttpRequestException)
       {
-        if((e.ExceptionObject as HttpRequestException).Message.Contains("401"))
+        if ((DateTime.Now - Settings.LastNetworkError) > new TimeSpan(0, 5, 0))
+        {
+          Settings.LastNetworkError = DateTime.Now;
+          if ((e.ExceptionObject as HttpRequestException).Message.Contains("401"))
 #pragma warning disable 4014
-          Settings.RefreshToken(true);
+            Settings.RefreshToken(true);
 #pragma warning restore 4014
-          
-        MessageBox.Show(AppResources.CatchedHttpErrorMessage, AppResources.GenericErrorTitle, MessageBoxButton.OK);
+
+          MessageBox.Show(AppResources.CatchedHttpErrorMessage, AppResources.GenericErrorTitle, MessageBoxButton.OK);
+        }
         if (Settings.FeedbackEnabled)
           elh.LogNewException(e.ExceptionObject, ExceptionType.Handled);
       }
-      else 
+      else
       {
-        if(Settings.FeedbackEnabled)
+        if (Settings.FeedbackEnabled)
           elh.LogNewException(e.ExceptionObject, ExceptionType.Unhandled);
         e.Handled = false;
       }

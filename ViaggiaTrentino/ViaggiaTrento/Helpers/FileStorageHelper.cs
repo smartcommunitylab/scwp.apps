@@ -149,8 +149,7 @@ namespace ViaggiaTrentino.Helpers
       if ((DateTime.Now - fileCreationDate) > age)
         return true;
       return false;
-    }
-
+    }  
   }
 }
 
