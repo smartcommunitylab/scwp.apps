@@ -625,6 +625,18 @@
           <source>project</source>
           <target state="new">project</target>
         </trans-unit>
+        <trans-unit id="Resx/TileTrentoBusTagTour" translate="yes" xml:space="preserve">
+          <source>Check Trento city buses timetable and delays</source>
+          <target state="new">Check Trento city buses timetable and delays</target>
+        </trans-unit>
+        <trans-unit id="Resx/TileTrainTagTour" translate="yes" xml:space="preserve">
+          <source>Check trains timetable and delays</source>
+          <target state="new">Check trains timetable and delays</target>
+        </trans-unit>
+        <trans-unit id="Resx/TileParkingTagTour" translate="yes" xml:space="preserve">
+          <source>Find nearby available parkings</source>
+          <target state="new">Find nearby available parkings</target>
+        </trans-unit>
         <trans-unit id="Resx/ExternalLauchNoLoginTItle" translate="yes" xml:space="preserve">
           <source>Log in to use this feature</source>
           <target state="new">Log in to use this feature</target>

@@ -1303,6 +1303,15 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Find nearby available parkings.
+        /// </summary>
+        public static string TileParkingTagTour {
+            get {
+                return ResourceManager.GetString("TileParkingTagTour", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Parkings.
         /// </summary>
         public static string TileParkingTitle {
@@ -1456,6 +1465,15 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Check trains timetable and delays.
+        /// </summary>
+        public static string TileTrainTagTour {
+            get {
+                return ResourceManager.GetString("TileTrainTagTour", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Train.
         /// </summary>
         public static string TileTrainTitle {
@@ -1470,6 +1488,15 @@ namespace ViaggiaTrentino.Resources {
         public static string TileTrentoBusMessage {
             get {
                 return ResourceManager.GetString("TileTrentoBusMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check Trento city buses timetable and delays.
+        /// </summary>
+        public static string TileTrentoBusTagTour {
+            get {
+                return ResourceManager.GetString("TileTrentoBusTagTour", resourceCulture);
             }
         }
         

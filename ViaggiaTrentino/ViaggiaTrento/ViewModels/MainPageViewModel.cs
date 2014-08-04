@@ -3,6 +3,7 @@ using Caliburn.Micro;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Microsoft.Phone.Tasks;
+using Models.MobilityService;
 using ProfileServiceLibrary;
 using System;
 using System.Windows;
@@ -40,8 +41,10 @@ namespace ViaggiaTrentino.ViewModels
     {
       base.OnActivate();
 
+#if !DEBUG
       if (!Settings.IsLogged)
         BarLogin();
+#endif
     }
 
     protected override void OnViewLoaded(object view)
@@ -105,10 +108,10 @@ namespace ViaggiaTrentino.ViewModels
       navigationService.UriFor<SavedJourneyPageViewModel>().Navigate();
     }
 
-    public void ReadNotificationsTile()
-    {
-      navigationService.UriFor<ReadNotificationViewModel>().Navigate();
-    }
+    //public void ReadNotificationsTile()
+    //{
+    //  navigationService.UriFor<ReadNotificationViewModel>().Navigate();
+    //}
 
     public void SubmitAlertTile()
     {
@@ -118,6 +121,21 @@ namespace ViaggiaTrentino.ViewModels
     public void RealTimeInfoTile()
     {
       navigationService.UriFor<RealTimeInfoViewModel>().Navigate();
+    }
+
+    public void ParkingTile()
+    {
+      navigationService.UriFor<ParkingsPageViewModel>().Navigate();
+    }
+
+    public void TrentoBusTile()
+    {
+      navigationService.UriFor<SelectBusRouteViewModel>().WithParam(x => x.AgencyID, AgencyType.TrentoCityBus).Navigate();
+    }
+
+    public void TrainTile()
+    {
+      navigationService.UriFor<SelectTrainRouteViewModel>().Navigate();
     }
 
     #endregion

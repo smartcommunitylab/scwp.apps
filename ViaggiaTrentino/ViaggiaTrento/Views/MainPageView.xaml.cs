@@ -46,7 +46,7 @@ namespace ViaggiaTrentino.Views
       {
         Tour tour = new Tour(Application.Current.Host.Content.ActualWidth, Application.Current.Host.Content.ActualHeight);
 
-        foreach (HubTile ht in (ContentPanel.Children.OfType<Grid>().First() as Grid).Children.OfType<HubTile>())
+        foreach (HubTile ht in HubTilePanel.Children.OfType<HubTile>())
           tour.Add(new TourElement(LayoutRoot, ht, (ht as HubTile).Tag as string, (ht as HubTile).Title, new Point(0,32)));
 
         tour.TourStarted += tour_TourStarted;

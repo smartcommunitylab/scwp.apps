@@ -653,4 +653,13 @@
   <data name="AboutPageProject" xml:space="preserve">
     <value>project</value>
   </data>
+  <data name="TileParkingTagTour" xml:space="preserve">
+    <value>Find nearby available parkings</value>
+  </data>
+  <data name="TileTrainTagTour" xml:space="preserve">
+    <value>Check trains timetable and delays</value>
+  </data>
+  <data name="TileTrentoBusTagTour" xml:space="preserve">
+    <value>Check Trento city buses timetable and delays</value>
+  </data>
 </root>
