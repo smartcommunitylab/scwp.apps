@@ -34,15 +34,19 @@ namespace ViaggiaTrentino.ViewModels
       get { return Settings.IsLogged; }
     }
 
-   #region Page overrides
+    #region Page overrides
 
     protected override void OnActivate()
     {
       base.OnActivate();
+
       if (!Settings.IsLogged)
-      {
-       BarLogin();
-      }
+        BarLogin();
+      else
+#pragma warning disable 4014
+        new TimeTableCacheHelper().UpdateCachedCalendars();
+#pragma warning restore 4014
+
     }
 
     protected override void OnViewLoaded(object view)
@@ -124,25 +128,23 @@ namespace ViaggiaTrentino.ViewModels
     {
       authLib = new AuthLibrary(Settings.ClientId, Settings.ClientSecret, Settings.RedirectUrl, Settings.ServerUrl);
 
-      if (Settings.AppToken == null)
-      {
-        eventAggregator.Publish(false);
-        WebBrowser wb = new WebBrowser();
-        
-        if (SystemTray.IsVisible)
-          wb.Margin = new Thickness(0, 32, 0, 0);
+      eventAggregator.Publish(false);
+      WebBrowser wb = new WebBrowser();
 
-        wb.ClearCookiesAsync();
-        wb.ClearInternetCacheAsync();
-        wb.IsScriptEnabled = true;
-        wb.Navigating += wb_Navigating;
-        wb.Height = Application.Current.Host.Content.ActualHeight;
-        wb.Width = Application.Current.Host.Content.ActualWidth;
-        loginPopup = new Popup();
-        loginPopup.Child = wb;
-        loginPopup.IsOpen = true;
-        wb.Navigate(AuthUriHelper.GetCodeUri(Settings.ClientId, Settings.RedirectUrl));
-      }
+      if (SystemTray.IsVisible)
+        wb.Margin = new Thickness(0, 32, 0, 0);
+
+      wb.ClearCookiesAsync();
+      wb.ClearInternetCacheAsync();
+      wb.IsScriptEnabled = true;
+      wb.Navigating += wb_Navigating;
+      wb.Height = Application.Current.Host.Content.ActualHeight;
+      wb.Width = Application.Current.Host.Content.ActualWidth;
+      loginPopup = new Popup();
+      loginPopup.Child = wb;
+      loginPopup.IsOpen = true;
+      wb.Navigate(AuthUriHelper.GetCodeUri(Settings.ClientId, Settings.RedirectUrl));
+
     }
 
     async void wb_Navigating(object sender, NavigatingEventArgs e)

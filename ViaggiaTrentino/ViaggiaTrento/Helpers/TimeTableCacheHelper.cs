@@ -1,17 +1,19 @@
 ﻿using CommonHelpers;
 using DBManager;
+using Microsoft.Phone.Shell;
 using MobilityServiceLibrary;
 using Models.MobilityService;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace ViaggiaTrentino.Helpers
 {
   public class TimeTableCacheHelper
   {
     PublicTransportLibrary ptLib;
-
     /*
      * this function updates the stored timetable
      * 
@@ -27,6 +29,14 @@ namespace ViaggiaTrentino.Helpers
      */
     public async Task<bool> UpdateCachedCalendars()
     {
+      SystemTray.ProgressIndicator = new ProgressIndicator()
+      {
+        IsIndeterminate = true,
+        IsVisible = true,
+        Text = "Updating database..."
+      };
+      
+
       bool result = false;
       try
       {
@@ -56,6 +66,7 @@ namespace ViaggiaTrentino.Helpers
       }
       finally
       {
+        SystemTray.ProgressIndicator.IsVisible = false;
       }
 
       return result;

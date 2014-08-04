@@ -6,6 +6,7 @@ using System.Device.Location;
 using System.IO.IsolatedStorage;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using ViaggiaTrentino.Helpers;
 using Windows.Devices.Geolocation;
 using Windows.Foundation;
 
@@ -84,8 +85,14 @@ namespace ViaggiaTrentino
       {
         iss["token"] = value;
         iss.Save();
-        if(value != null)
+        if (IsLogged)
+        {
+#pragma warning disable 4014
+          new TimeTableCacheHelper().UpdateCachedCalendars();
+#pragma warning restore 4014
+
           TokenExpiration = DateTime.Now + new TimeSpan(0, 0, value.ExpiresIn);
+        }
       }
     }
 
@@ -97,7 +104,7 @@ namespace ViaggiaTrentino
 
     public static bool IsLogged
     {
-      get { return iss["token"] != null; }
+      get { return iss["token"] != null && !string.IsNullOrWhiteSpace((iss["token"] as Token).AccessToken); }
     }
 
     public static bool HasBeenStarted

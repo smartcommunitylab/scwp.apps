@@ -50,14 +50,7 @@ namespace ViaggiaTrentino
       base.OnStartup(sender, e);
       Settings.Initialize();
       DBManagement();
-      if(Settings.IsLogged)
-        DBUpdate();
       App.LoadingPopup.InitializePopup();
-    }
-
-    protected override void OnLaunch(object sender, LaunchingEventArgs e)
-    {
-      base.OnLaunch(sender, e);
     }
 
     // when fast resuming
