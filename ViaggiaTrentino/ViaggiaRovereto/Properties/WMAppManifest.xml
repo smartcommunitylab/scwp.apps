@@ -22,7 +22,7 @@
           <SmallImageURI IsRelative="true" IsResource="false">Assets\SmallTile.png</SmallImageURI>
           <Count>0</Count>
           <BackgroundImageURI IsRelative="true" IsResource="false">Assets\MediumTile.png</BackgroundImageURI>
-          <Title>ViaggiaTrentino</Title>
+          <Title></Title>
           <BackContent>
           </BackContent>
           <BackBackgroundImageURI>
