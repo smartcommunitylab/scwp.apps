@@ -267,6 +267,9 @@
     <Compile Include="..\ViaggiaTrento\ViewModels\RealTimeInfoViewModel.cs">
       <Link>ViewModels\RealTimeInfoViewModel.cs</Link>
     </Compile>
+    <Compile Include="..\ViaggiaTrento\ViewModels\RoadInfoPageViewModel.cs">
+      <Link>ViewModels\RoadInfoPageViewModel.cs</Link>
+    </Compile>
     <Compile Include="..\ViaggiaTrento\ViewModels\SavedJourneyPageViewModel.cs">
       <Link>ViewModels\SavedJourneyPageViewModel.cs</Link>
     </Compile>
@@ -383,6 +386,10 @@
     <Compile Include="..\ViaggiaTrento\Views\ReadNotificationView.xaml.cs">
       <Link>Views\ReadNotificationView.xaml.cs</Link>
       <DependentUpon>ReadNotificationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\ViaggiaTrento\Views\RoadInfoPageView.xaml.cs">
+      <Link>Views\RoadInfoPageView.xaml.cs</Link>
+      <DependentUpon>RoadInfoPageView.xaml</DependentUpon>
     </Compile>
     <Compile Include="..\ViaggiaTrento\Views\SavedJourneyPageView.xaml.cs">
       <Link>Views\SavedJourneyPageView.xaml.cs</Link>
@@ -925,6 +932,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <ApplicationDefinition Include="..\ViaggiaTrento\Views\RoadInfoPageView.xaml">
+      <Link>Views\RoadInfoPageView.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
     <Page Include="..\ViaggiaTrento\Views\SavedJourneyPageView.xaml">
       <Link>Views\SavedJourneyPageView.xaml</Link>
       <Generator>MSBuild:Compile</Generator>

@@ -215,6 +215,7 @@ namespace ViaggiaTrentino
 
       //Alerts
       container.PerRequest<ReadNotificationViewModel>();
+      container.PerRequest<RoadInfoPageViewModel>();
 
 
       AddCustomConventions();

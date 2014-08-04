@@ -31,5 +31,10 @@ namespace ViaggiaTrentino.ViewModels
     {
       navigationService.UriFor<SelectTrainRouteViewModel>().Navigate();
     }
+
+    public void RoadBlocksTile()
+    {
+      navigationService.UriFor<RoadInfoPageViewModel>().Navigate();
+    }
   }
 }

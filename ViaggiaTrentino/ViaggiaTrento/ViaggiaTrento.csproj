@@ -148,6 +148,7 @@
     <Compile Include="Settings.cs" />
     <Compile Include="ViewModels\AboutPageViewModel.cs" />
     <Compile Include="ViewModels\ReadNotificationViewModel.cs" />
+    <Compile Include="ViewModels\RoadInfoPageViewModel.cs" />
     <Compile Include="ViewModels\SelectTrainRouteViewModel.cs" />
     <Compile Include="ViewModels\MonitorJourneyListViewModel.cs" />
     <Compile Include="ViewModels\StopTimesForStopViewModel.cs" />
@@ -211,6 +212,9 @@
     </Compile>
     <Compile Include="Views\ReadNotificationView.xaml.cs">
       <DependentUpon>ReadNotificationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RoadInfoPageView.xaml.cs">
+      <DependentUpon>RoadInfoPageView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SelectTrainRouteView.xaml.cs">
       <DependentUpon>SelectTrainRouteView.xaml</DependentUpon>
@@ -533,6 +537,10 @@
     <Page Include="Views\ReadNotificationView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\RoadInfoPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SelectTrainRouteView.xaml">
       <Generator>MSBuild:Compile</Generator>
