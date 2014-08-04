@@ -70,7 +70,7 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to In collaborazione con il Comune di Trento.
+        ///   Looks up a localized string similar to In collaboration with.
         /// </summary>
         public static string AboutPageCollab {
             get {
@@ -79,7 +79,7 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to L&apos;applicazione è stata sviluppata dal progetto SmartCampus.
+        ///   Looks up a localized string similar to Application developed by Andrea Panizza and Lorenzo Lotto within the.
         /// </summary>
         public static string AboutPageDevel {
             get {
@@ -88,7 +88,7 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Informazione sulla mobilità integrata di Trento e dei comuni trentini.
+        ///   Looks up a localized string similar to Integrated mobility information of Trento and the Trentino municipalities.
         /// </summary>
         public static string AboutPageInfo {
             get {
@@ -97,11 +97,20 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Con la partecipazione del Consorzio dei Comuni Trentini.
+        ///   Looks up a localized string similar to and with the partnership of.
         /// </summary>
         public static string AboutPagePart {
             get {
                 return ResourceManager.GetString("AboutPagePart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to project.
+        /// </summary>
+        public static string AboutPageProject {
+            get {
+                return ResourceManager.GetString("AboutPageProject", resourceCulture);
             }
         }
         

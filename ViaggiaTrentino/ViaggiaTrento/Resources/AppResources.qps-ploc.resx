@@ -370,12 +370,12 @@
   <data name="MessageBoxNetworkErrorBody" xml:space="preserve"><value>[DD2DC][!!_Ċôúľđ ήòţ čòηйęĉţ τó śmářτĉámþùšľàъ śêřνęřŝ. Ċĥêćĸ ýóµř íйťęѓήéť ċôηήęčтîõй âήď τŗÿ ãğáîй._!!!!!!!!!!!!!!!!!!!!!!!!!!!!]</value></data>
   <data name="TimeTablePageLineType" xml:space="preserve"><value>[CE00C][!!_Ĺìήè τýρè_!!]</value></data>
   <data name="AboutPageThirdParty" xml:space="preserve"><value>[F0E5C][!!_Тħíš âρþĺîĉâťîõη îйćļúđęş ťнé ƒòļľôŵíйġ тђìŗđ þâřţУ şõƒτŵãřé:_!!!!!!!!!!!!!!!!!!]</value></data>
-  <data name="AboutPagePart" xml:space="preserve"><value>[0714F][!!_Ĉõή łà þáѓτêĉìρáźìóήê ðéł Ĉõήŝóѓźìô ðéí Ćóмµиî Ţřêиţįηì_!!!!!!!!!!!!!!!!]</value></data>
+  <data name="AboutPagePart" xml:space="preserve"><value>[0714F][!!_Ĉõή łà þáѓτêĉìρáźìóήê ðéł Ĉõήŝóѓźìô ðéí Ćóмµиî Ţřêиţįηì_!!!!!!!!!!!!!!!!]</value><comment></comment></data>
   <data name="AboutPageThird" xml:space="preserve"><value>[7DA50][!!_ţћìŗď ρàřτУ_!!]</value></data>
   <data name="AboutPageRateApp" xml:space="preserve"><value>[82C07][!!_ŕãťê мę!_!!]</value></data>
-  <data name="AboutPageInfo" xml:space="preserve"><value>[99754][!!_Íиƒóŕmâźîóйê šúľļà мòъíłìţà įйţêġřâτà ðì Ţѓèηтó ę ďèî čõмµйî ťřęηţíиį_!!!!!!!!!!!!!!!!!!!!]</value></data>
-  <data name="AboutPageDevel" xml:space="preserve"><value>[117F4][!!_Ļ'âрþľíċàžįõήê è şτâтâ şνìļùþþâţâ ðâĺ þřóġèţţõ ŜmâŕтČãmρùš_!!!!!!!!!!!!!!!!!!]</value></data>
-  <data name="AboutPageCollab" xml:space="preserve"><value>[98B82][!!_Îй čóļľàъôřãźíòήé ćóη îł Ćòмµйè ðį Τřêйţó_!!!!!!!!!!!!]</value></data>
+  <data name="AboutPageInfo" xml:space="preserve"><value>[99754][!!_Íиƒóŕmâźîóйê šúľļà мòъíłìţà įйţêġřâτà ðì Ţѓèηтó ę ďèî čõмµйî ťřęηţíиį_!!!!!!!!!!!!!!!!!!!!]</value><comment></comment></data>
+  <data name="AboutPageDevel" xml:space="preserve"><value>[117F4][!!_Ļ'âрþľíċàžįõήê è şτâтâ şνìļùþþâţâ ðâĺ þřóġèţţõ ŜmâŕтČãmρùš_!!!!!!!!!!!!!!!!!!]</value><comment></comment></data>
+  <data name="AboutPageCollab" xml:space="preserve"><value>[98B82][!!_Îй čóļľàъôřãźíòήé ćóη îł Ćòмµйè ðį Τřêйţó_!!!!!!!!!!!!]</value><comment></comment></data>
   <data name="SettingsPageLocation" xml:space="preserve"><value>[3EA6A][!!_Ľõĉáτìõй ŝéŕνíĉê_!!!!]</value></data>
   <data name="LoadingPanel" xml:space="preserve"><value>[480B8][!!_Ŀôãďîηĝ..._!!]</value></data>
   <data name="SavedJourneyMonitorOFF" xml:space="preserve"><value>[7894D][!!_мòиìţóŗ òƒƒ_!!]</value></data>

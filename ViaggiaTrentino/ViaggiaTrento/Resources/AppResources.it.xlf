@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
-  <file datatype="xml" source-language="en-US" target-language="it" original="AppResources.resx" tool-id="MultilingualAppToolkit" product-name="ViaggiaTrento" product-version="1.0.0.0" build-num="0">
+  <file datatype="xml" source-language="en-US" target-language="it" original="AppResources.resx" tool-id="MultilingualAppToolkit" product-name="ViaggiaRovereto" product-version="1.0.0.0" build-num="0">
     <header>
       <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="3.0.1200.0" tool-company="Microsoft" />
     </header>
@@ -509,9 +509,9 @@
           <target state="translated">Questa applicazione include i seguenti software di terze parti:</target>
         </trans-unit>
         <trans-unit id="Resx/AboutPagePart" translate="yes" xml:space="preserve">
-          <source>Con la partecipazione del Consorzio dei Comuni Trentini</source>
-          <target state="translated" state-qualifier="mt-suggestion">Con la partecipazione del Consorzio dei Comuni Trentini</target>
-        </trans-unit>
+          <source>and with the partnership of</source>
+          <target state="translated">e con la partecipazione del</target>
+          </trans-unit>
         <trans-unit id="Resx/AboutPageThird" translate="yes" xml:space="preserve">
           <source>third party</source>
           <target state="translated">terze parti</target>
@@ -521,17 +521,17 @@
           <target state="translated">votami!</target>
         </trans-unit>
         <trans-unit id="Resx/AboutPageInfo" translate="yes" xml:space="preserve">
-          <source>Informazione sulla mobilità integrata di Trento e dei comuni trentini</source>
-          <target state="translated" state-qualifier="mt-suggestion">Informazione sulla mobilità integrata di Trento e dei comuni trentini</target>
-        </trans-unit>
+          <source>Integrated mobility information of Trento and the Trentino municipalities</source>
+          <target state="translated">Informazione sulla mobilità integrata di Trento e dei comuni trentini</target>
+          </trans-unit>
         <trans-unit id="Resx/AboutPageDevel" translate="yes" xml:space="preserve">
-          <source>L'applicazione è stata sviluppata dal progetto SmartCampus</source>
-          <target state="translated" state-qualifier="mt-suggestion">L'applicazione è stata sviluppata dal progetto SmartCampus</target>
-        </trans-unit>
+          <source>Application developed by Andrea Panizza and Lorenzo Lotto within the</source>
+          <target state="translated">Applicazione sviluppata da Andrea Panizza e Lorenzo Lotto all'interno del laboratorio del progetto</target>
+          </trans-unit>
         <trans-unit id="Resx/AboutPageCollab" translate="yes" xml:space="preserve">
-          <source>In collaborazione con il Comune di Trento</source>
-          <target state="translated" state-qualifier="mt-suggestion">In collaborazione con il Comune di Trento</target>
-        </trans-unit>
+          <source>In collaboration with</source>
+          <target state="translated">In collaborazione con il</target>
+          </trans-unit>
         <trans-unit id="Resx/SettingsPageLocation" translate="yes" xml:space="preserve">
           <source>Location service</source>
           <target state="translated">Servizio di localizzazione</target>
@@ -619,7 +619,10 @@
           <source>It's lonely in here, but it is probably due to a network error. Try again in a few minutes.</source>
           <target state="translated">Non c'è niente qui, ma probabilmente è a causa di un errore di rete. Riprovare tra qualche minuto.</target>
         </trans-unit>
-        <trans-unit id="Resx/ExternalLauchNoLoginTItle" translate="yes" xml:space="preserve">
+        <trans-unit id="Resx/AboutPageProject" translate="yes" xml:space="preserve">
+          <source>project</source>
+          <target state="translated" />
+        </trans-unit><trans-unit id="Resx/ExternalLauchNoLoginTItle" translate="yes" xml:space="preserve">
           <source>Log in to use this feature</source>
           <target state="translated">Effettuare l'accesso per utilizzare questa funzione</target>
         </trans-unit>

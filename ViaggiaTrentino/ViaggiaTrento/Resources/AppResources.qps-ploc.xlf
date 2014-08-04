@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
-  <file datatype="xml" source-language="en-US" target-language="qps-ploc" original="AppResources.resx" tool-id="MultilingualAppToolkit" product-name="ViaggiaTrento" product-version="1.0.0.0" build-num="0">
+  <file datatype="xml" source-language="en-US" target-language="qps-ploc" original="AppResources.resx" tool-id="MultilingualAppToolkit" product-name="ViaggiaRovereto" product-version="1.0.0.0" build-num="0">
     <header>
       <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="3.0.1200.0" tool-company="Microsoft" />
     </header>
@@ -510,8 +510,8 @@
           <target state="needs-review-translation" state-qualifier="mt-suggestion">[F0E5C][!!_Тħíš âρþĺîĉâťîõη îйćļúđęş ťнé ƒòļľôŵíйġ тђìŗđ þâřţУ şõƒτŵãřé:_!!!!!!!!!!!!!!!!!!]</target>
         </trans-unit>
         <trans-unit id="Resx/AboutPagePart" translate="yes" xml:space="preserve">
-          <source>Con la partecipazione del Consorzio dei Comuni Trentini</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">[0714F][!!_Ĉõή łà þáѓτêĉìρáźìóήê ðéł Ĉõήŝóѓźìô ðéí Ćóмµиî Ţřêиţįηì_!!!!!!!!!!!!!!!!]</target>
+          <source>and with the partnership of</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[0714F][!!_Ĉõή łà þáѓτêĉìρáźìóήê ðéł Ĉõήŝóѓźìô ðéí Ćóмµиî Ţřêиţįηì_!!!!!!!!!!!!!!!!]</target><note from="MultilingualUpdate" priority="2" annotates="source">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="Resx/AboutPageThird" translate="yes" xml:space="preserve">
           <source>third party</source>
@@ -522,16 +522,16 @@
           <target state="needs-review-translation" state-qualifier="mt-suggestion">[82C07][!!_ŕãťê мę!_!!]</target>
         </trans-unit>
         <trans-unit id="Resx/AboutPageInfo" translate="yes" xml:space="preserve">
-          <source>Informazione sulla mobilità integrata di Trento e dei comuni trentini</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">[99754][!!_Íиƒóŕmâźîóйê šúľļà мòъíłìţà įйţêġřâτà ðì Ţѓèηтó ę ďèî čõмµйî ťřęηţíиį_!!!!!!!!!!!!!!!!!!!!]</target>
+          <source>Integrated mobility information of Trento and the Trentino municipalities</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[99754][!!_Íиƒóŕmâźîóйê šúľļà мòъíłìţà įйţêġřâτà ðì Ţѓèηтó ę ďèî čõмµйî ťřęηţíиį_!!!!!!!!!!!!!!!!!!!!]</target><note from="MultilingualUpdate" priority="2" annotates="source">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="Resx/AboutPageDevel" translate="yes" xml:space="preserve">
-          <source>L'applicazione è stata sviluppata dal progetto SmartCampus</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">[117F4][!!_Ļ'âрþľíċàžįõήê è şτâтâ şνìļùþþâţâ ðâĺ þřóġèţţõ ŜmâŕтČãmρùš_!!!!!!!!!!!!!!!!!!]</target>
+          <source>Application developed by Andrea Panizza and Lorenzo Lotto within the</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[117F4][!!_Ļ'âрþľíċàžįõήê è şτâтâ şνìļùþþâţâ ðâĺ þřóġèţţõ ŜmâŕтČãmρùš_!!!!!!!!!!!!!!!!!!]</target><note from="MultilingualUpdate" priority="2" annotates="source">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="Resx/AboutPageCollab" translate="yes" xml:space="preserve">
-          <source>In collaborazione con il Comune di Trento</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">[98B82][!!_Îй čóļľàъôřãźíòήé ćóη îł Ćòмµйè ðį Τřêйţó_!!!!!!!!!!!!]</target>
+          <source>In collaboration with</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">[98B82][!!_Îй čóļľàъôřãźíòήé ćóη îł Ćòмµйè ðį Τřêйţó_!!!!!!!!!!!!]</target><note from="MultilingualUpdate" priority="2" annotates="source">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="Resx/SettingsPageLocation" translate="yes" xml:space="preserve">
           <source>Location service</source>
@@ -620,6 +620,10 @@
         <trans-unit id="Resx/LonelyNoParking" translate="yes" xml:space="preserve">
           <source>It's lonely in here, but it is probably due to a network error. Try again in a few minutes.</source>
           <target state="new">It's lonely in here, but it is probably due to a network error. Try again in a few minutes.</target>
+        </trans-unit>
+        <trans-unit id="Resx/AboutPageProject" translate="yes" xml:space="preserve">
+          <source>project</source>
+          <target state="new">project</target>
         </trans-unit>
         <trans-unit id="Resx/ExternalLauchNoLoginTItle" translate="yes" xml:space="preserve">
           <source>Log in to use this feature</source>

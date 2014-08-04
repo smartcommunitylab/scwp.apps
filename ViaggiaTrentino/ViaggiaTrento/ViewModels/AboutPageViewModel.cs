@@ -42,25 +42,25 @@ namespace ViaggiaTrentino.ViewModels
       marketplaceReviewTask.Show();
     }
 
-    public void sclabLink()
-    {
-      WebBrowserTask wbt = new WebBrowserTask();
-      wbt.Uri = new System.Uri("http://www.smartcampuslab.eu/");
-      wbt.Show();
-    }
+    //public void sclabLink()
+    //{
+    //  WebBrowserTask wbt = new WebBrowserTask();
+    //  wbt.Uri = new System.Uri("http://www.smartcampuslab.eu/");
+    //  wbt.Show();
+    //}
 
-    public void comuneLink()
-    {
-      WebBrowserTask wbt = new WebBrowserTask();
-      wbt.Uri = new System.Uri("http://www.comune.trento.it/");
-      wbt.Show();
-    }
-    
-    public void innovazioneLink()
-    {
-      WebBrowserTask wbt = new WebBrowserTask();
-      wbt.Uri = new System.Uri("http://www.innovazione.comunitrentini.tn.it/");
-      wbt.Show();
-    }
+    //public void comuneLink()
+    //{
+    //  WebBrowserTask wbt = new WebBrowserTask();
+    //  wbt.Uri = new System.Uri("http://www.comune.trento.it/");
+    //  wbt.Show();
+    //}
+
+    //public void innovazioneLink()
+    //{
+    //  WebBrowserTask wbt = new WebBrowserTask();
+    //  wbt.Uri = new System.Uri("http://www.innovazione.comunitrentini.tn.it/");
+    //  wbt.Show();
+    //}
   }
 }

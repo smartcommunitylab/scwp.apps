@@ -42,17 +42,17 @@ namespace ViaggiaTrentino.ViewModels
 
       if (!Settings.IsLogged)
         BarLogin();
-      else
-#pragma warning disable 4014
-        new TimeTableCacheHelper().UpdateCachedCalendars();
-#pragma warning restore 4014
-
     }
 
     protected override void OnViewLoaded(object view)
     {
       base.OnViewLoaded(view);
-
+      if (Settings.IsLogged)
+      {
+#pragma warning disable 4014
+        new TimeTableCacheHelper().UpdateCachedCalendars();
+#pragma warning restore 4014
+      }
       string oldEx = elh.RetrieveLoggedException(ExceptionType.Unhandled);
       if (oldEx != null)
       {
@@ -191,9 +191,7 @@ namespace ViaggiaTrentino.ViewModels
       Settings.AppToken = null;
       NotifyOfPropertyChange(() => IsLogged);
       if (!Settings.IsLogged)
-      {
         BarLogin();
-      }
     }
 
     public void BarTour()

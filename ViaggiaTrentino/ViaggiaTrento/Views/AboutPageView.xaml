@@ -52,10 +52,10 @@
     <!--ContentPanel - place additional content here-->
     <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
       <StackPanel>
-        <Grid Margin="0,0,0,10">
+        <Grid Margin="0,0,0,10" Height="100">
           <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*" />
             <ColumnDefinition Width="*" />
           </Grid.ColumnDefinitions>
           <Image Grid.Column="0" Source="/Assets/Logos/LogoProvincia.png"/>
@@ -63,17 +63,28 @@
           <Image Grid.Column="2" Source="/Assets/Logos/LogoSmartcamp.png"/>
 
         </Grid>
-        <TextBlock  Text="{Binding Path=LocalizedResources.AboutPageInfo, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}"
-                    TextWrapping="Wrap" />
-        <TextBlock  Text="{Binding Path=LocalizedResources.AboutPageDevel, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}"
-                    TextWrapping="Wrap"/>
-        <HyperlinkButton  HorizontalAlignment="Left" Content="www.smartcampuslab.it" x:Name="sclabLink"/>
-        <TextBlock  Text="{Binding Path=LocalizedResources.AboutPageCollab, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}"
-                    TextWrapping="Wrap"/>
-        <HyperlinkButton HorizontalAlignment="Left" Content="www.comune.trento.it" x:Name="comuneLink" />
-        <TextBlock  Text="{Binding Path=LocalizedResources.AboutPagePart, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}"
-                    TextWrapping="Wrap"/>
-        <HyperlinkButton HorizontalAlignment="Left" Content="www.innovazione.comunitrentini.tn.it" x:Name="innovazioneLink" />
+        <TextBlock  Text="{Binding Path=LocalizedResources.AboutPageInfo, Source={StaticResource LocalizedStrings}}"
+                    Style="{StaticResource PhoneTextNormalStyle}" TextWrapping="Wrap" Margin="12,10,12,20" />
+
+        <RichTextBox TextWrapping="Wrap" Margin="0,0,0,10">
+          <Paragraph>
+            <Run Text="{Binding Path=LocalizedResources.AboutPageDevel, Source={StaticResource LocalizedStrings}}"/>
+            <Hyperlink TargetName="_anything" NavigateUri="http://www.smartcampuslab.it"
+                       Foreground="{StaticResource PhoneForegroundBrush}">SmartCampus</Hyperlink>
+            <Run Text="{Binding Path=LocalizedResources.AboutPageProject, Source={StaticResource LocalizedStrings}}"/>
+          </Paragraph>
+        </RichTextBox>
+
+        <RichTextBox TextWrapping="Wrap">
+          <Paragraph>
+            <Run Text="{Binding Path=LocalizedResources.AboutPageCollab, Source={StaticResource LocalizedStrings}}" />
+            <Hyperlink TargetName="_anything" NavigateUri="http://www.comune.trento.it"
+                       Foreground="{StaticResource PhoneForegroundBrush}">Comune di Trento</Hyperlink>
+            <Run Text="{Binding Path=LocalizedResources.AboutPagePart, Source={StaticResource LocalizedStrings}}" />
+            <Hyperlink TargetName="_anything" NavigateUri="http://www.innovazione.comunitrentini.tn.it"
+                       Foreground="{StaticResource PhoneForegroundBrush}">Consorzio dei Comuni Trentini</Hyperlink>
+          </Paragraph>
+        </RichTextBox>
       </StackPanel>
     </Grid>
     <bab:BindableAppBar BackgroundColor="{StaticResource scBlue}" ForegroundColor="White">
