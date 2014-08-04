@@ -69,55 +69,58 @@
           <toolkit:WrapPanel x:Name="HubTilePanel">
 
             <toolkit:HubTile Margin="5" 
-                         x:Name="TrentoBusTile"
-                         Source="/Assets/HubTiles/ic_urbanoTN.png"
-                         Title="{Binding Path=LocalizedResources.TileTrentoBusTitle, Source={StaticResource LocalizedStrings}}" 
-                         Message="{Binding Path=LocalizedResources.TileTrentoBusMessage, Source={StaticResource LocalizedStrings}}" 
-                         toolkit:TurnstileFeatherEffect.FeatheringIndex="0"  
-                         Tag="{Binding Path=LocalizedResources.TileTrentoBusTagTour, Source={StaticResource LocalizedStrings}}" />
+                             GroupTag="TrentoApp"
+                             x:Name="TrentoBusTile"
+                             Source="/Assets/HubTiles/ic_urbanoTN.png"
+                             Title="{Binding Path=LocalizedResources.TileTrentoBusTitle, Source={StaticResource LocalizedStrings}}" 
+                             Message="{Binding Path=LocalizedResources.TileTrentoBusMessage, Source={StaticResource LocalizedStrings}}" 
+                             toolkit:TurnstileFeatherEffect.FeatheringIndex="0"  
+                             Tag="{Binding Path=LocalizedResources.TileTrentoBusTagTour, Source={StaticResource LocalizedStrings}}" />
 
 
             <toolkit:HubTile Margin="5" 
-                         x:Name="TrainTile"
-                         Source="/Assets/HubTiles/ic_treno.png"
-                         Title="{Binding Path=LocalizedResources.TileTrainTitle, Source={StaticResource LocalizedStrings}}" 
-                         Message="{Binding Path=LocalizedResources.TileTrainMessage, Source={StaticResource LocalizedStrings}}" 
-                         toolkit:TurnstileFeatherEffect.FeatheringIndex="4"               
-                         Tag="{Binding Path=LocalizedResources.TileTrainTagTour, Source={StaticResource LocalizedStrings}}" />
+                             GroupTag="TrentoApp"
+                             x:Name="TrainTile"
+                             Source="/Assets/HubTiles/ic_treno.png"
+                             Title="{Binding Path=LocalizedResources.TileTrainTitle, Source={StaticResource LocalizedStrings}}" 
+                             Message="{Binding Path=LocalizedResources.TileTrainMessage, Source={StaticResource LocalizedStrings}}" 
+                             toolkit:TurnstileFeatherEffect.FeatheringIndex="4"               
+                             Tag="{Binding Path=LocalizedResources.TileTrainTagTour, Source={StaticResource LocalizedStrings}}" />
 
 
             <toolkit:HubTile Margin="5" 
-                         x:Name="ParkingTile"
-                         Source="/Assets/HubTiles/ic_parking.png"
-                         Title="{Binding Path=LocalizedResources.TileParkingTitle, Source={StaticResource LocalizedStrings}}" 
-                         Message="{Binding Path=LocalizedResources.TileParkingMessage, Source={StaticResource LocalizedStrings}}" 
-                         toolkit:TurnstileFeatherEffect.FeatheringIndex="6"
-                         Tag="{Binding Path=LocalizedResources.TileParkingTagTour, Source={StaticResource LocalizedStrings}}"/>
-            
+                             GroupTag="TrentoApp"
+                             x:Name="ParkingTile"
+                             Source="/Assets/HubTiles/ic_parking.png"
+                             Title="{Binding Path=LocalizedResources.TileParkingTitle, Source={StaticResource LocalizedStrings}}" 
+                             Message="{Binding Path=LocalizedResources.TileParkingMessage, Source={StaticResource LocalizedStrings}}" 
+                             toolkit:TurnstileFeatherEffect.FeatheringIndex="6"
+                             Tag="{Binding Path=LocalizedResources.TileParkingTagTour, Source={StaticResource LocalizedStrings}}"/>
+
 
             <toolkit:HubTile Margin="5" 
-                         x:Name="PlanJourneyTile"
-                         Source="/Assets/HubTiles/ic_planjourney.png"
-                         Title="{Binding Path=LocalizedResources.TilePlanJourneyTitle, Source={StaticResource LocalizedStrings}}" 
-                         Message="{Binding Path=LocalizedResources.TilePlanJourneyMessage, Source={StaticResource LocalizedStrings}}" 
-                         toolkit:TurnstileFeatherEffect.FeatheringIndex="1"
-                         Tag="{Binding Path=LocalizedResources.TilePlanJourneyTagTour, Source={StaticResource LocalizedStrings}}" />
+                             x:Name="PlanJourneyTile"
+                             Source="/Assets/HubTiles/ic_planjourney.png"
+                             Title="{Binding Path=LocalizedResources.TilePlanJourneyTitle, Source={StaticResource LocalizedStrings}}" 
+                             Message="{Binding Path=LocalizedResources.TilePlanJourneyMessage, Source={StaticResource LocalizedStrings}}" 
+                             toolkit:TurnstileFeatherEffect.FeatheringIndex="1"
+                             Tag="{Binding Path=LocalizedResources.TilePlanJourneyTagTour, Source={StaticResource LocalizedStrings}}" />
 
             <toolkit:HubTile Margin="5"
-                         x:Name="PlanRecurrentJourneyTile"
-                         Source="/Assets/HubTiles/ic_monitor.png"
-                         Title="{Binding Path=LocalizedResources.TilePlanRecurrentJourneyTitle, Source={StaticResource LocalizedStrings}}" 
-                         Message="{Binding Path=LocalizedResources.TilePlanRecurrentJourneyMessage, Source={StaticResource LocalizedStrings}}" 
-                         toolkit:TurnstileFeatherEffect.FeatheringIndex="3"
-                         Tag="{Binding Path=LocalizedResources.PlanRecurrentJourneyTileTagTour, Source={StaticResource LocalizedStrings}}"/>
+                             x:Name="PlanRecurrentJourneyTile"
+                             Source="/Assets/HubTiles/ic_monitor.png"
+                             Title="{Binding Path=LocalizedResources.TilePlanRecurrentJourneyTitle, Source={StaticResource LocalizedStrings}}" 
+                             Message="{Binding Path=LocalizedResources.TilePlanRecurrentJourneyMessage, Source={StaticResource LocalizedStrings}}" 
+                             toolkit:TurnstileFeatherEffect.FeatheringIndex="3"
+                             Tag="{Binding Path=LocalizedResources.PlanRecurrentJourneyTileTagTour, Source={StaticResource LocalizedStrings}}"/>
 
             <toolkit:HubTile Margin="5"
-                         x:Name="SavedJourneysTile"
-                         Source="/Assets/HubTiles/ic_savedjourney.png"
-                         Title="{Binding Path=LocalizedResources.TileSavedJourneysTitle, Source={StaticResource LocalizedStrings}}" 
-                         Message="{Binding Path=LocalizedResources.TileSavedJourneysMessage, Source={StaticResource LocalizedStrings}}" 
-                         toolkit:TurnstileFeatherEffect.FeatheringIndex="5"
-                         Tag="{Binding Path=LocalizedResources.SavedJourneysTileTagTour, Source={StaticResource LocalizedStrings}}"/>
+                             x:Name="SavedJourneysTile"
+                             Source="/Assets/HubTiles/ic_savedjourney.png"
+                             Title="{Binding Path=LocalizedResources.TileSavedJourneysTitle, Source={StaticResource LocalizedStrings}}" 
+                             Message="{Binding Path=LocalizedResources.TileSavedJourneysMessage, Source={StaticResource LocalizedStrings}}" 
+                             toolkit:TurnstileFeatherEffect.FeatheringIndex="5"
+                             Tag="{Binding Path=LocalizedResources.SavedJourneysTileTagTour, Source={StaticResource LocalizedStrings}}"/>
 
             <!--<toolkit:HubTile Margin="5" Grid.Column="1" Grid.Row="1"
                          x:Name="ReadNotificationsTile"
@@ -129,20 +132,21 @@
 
 
             <toolkit:HubTile Margin="5"
-                         x:Name="SubmitAlertTile"
-                         Source="/Assets/HubTiles/ic_sendnotices.png"
-                         Title="{Binding Path=LocalizedResources.TileSubmitAlertTitle, Source={StaticResource LocalizedStrings}}" 
-                         Message="{Binding Path=LocalizedResources.TileSubmitAlertMessage, Source={StaticResource LocalizedStrings}}" 
-                         toolkit:TurnstileFeatherEffect.FeatheringIndex="2"                 
-                         Tag="{Binding Path=LocalizedResources.SubmitAlertTileTagTour, Source={StaticResource LocalizedStrings}}"/>
+                             x:Name="SubmitAlertTile"
+                             Source="/Assets/HubTiles/ic_sendnotices.png"
+                             Title="{Binding Path=LocalizedResources.TileSubmitAlertTitle, Source={StaticResource LocalizedStrings}}" 
+                             Message="{Binding Path=LocalizedResources.TileSubmitAlertMessage, Source={StaticResource LocalizedStrings}}" 
+                             toolkit:TurnstileFeatherEffect.FeatheringIndex="2"                 
+                             Tag="{Binding Path=LocalizedResources.SubmitAlertTileTagTour, Source={StaticResource LocalizedStrings}}"/>
 
-            <!--<toolkit:HubTile Margin="5"
-                         x:Name="RealTimeInfoTile"
-                         Source="/Assets/HubTiles/ic_realtimeinfo.png"
-                         Title="{Binding Path=LocalizedResources.TileRealTimeInfoTitle, Source={StaticResource LocalizedStrings}}" 
-                         Message="{Binding Path=LocalizedResources.TileRealTimeInfoMessage, Source={StaticResource LocalizedStrings}}" 
-                         toolkit:TurnstileFeatherEffect.FeatheringIndex="0"  
-                         Tag="{Binding Path=LocalizedResources.RealTimeInfoTileTagTour, Source={StaticResource LocalizedStrings}}"/>-->
+            <toolkit:HubTile Margin="5"
+                             GroupTag="RoveretoApp"
+                             x:Name="RealTimeInfoTile"
+                             Source="/Assets/HubTiles/ic_realtimeinfo.png"
+                             Title="{Binding Path=LocalizedResources.TileRealTimeInfoTitle, Source={StaticResource LocalizedStrings}}" 
+                             Message="{Binding Path=LocalizedResources.TileRealTimeInfoMessage, Source={StaticResource LocalizedStrings}}" 
+                             toolkit:TurnstileFeatherEffect.FeatheringIndex="0"  
+                             Tag="{Binding Path=LocalizedResources.RealTimeInfoTileTagTour, Source={StaticResource LocalizedStrings}}"/>
 
           </toolkit:WrapPanel>
         </ScrollViewer>

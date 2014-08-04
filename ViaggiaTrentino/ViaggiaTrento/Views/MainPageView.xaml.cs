@@ -29,6 +29,16 @@ namespace ViaggiaTrentino.Views
       this.eventAggregator = eventAggregator;
       eventAggregator.Subscribe(this);
       isSubscribed = true;
+
+#if TRENTO
+      HubTileService.FreezeGroup("RoveretoApp");
+      RealTimeInfoTile.Visibility = System.Windows.Visibility.Collapsed;
+#else
+      HubTileService.FreezeGroup("TrentoApp");
+      TrentoBusTile.Visibility = System.Windows.Visibility.Collapsed;
+      TrainTile.Visibility = System.Windows.Visibility.Collapsed;
+      ParkingTile.Visibility = System.Windows.Visibility.Collapsed;
+#endif
     }
 
     #region Tutorial
@@ -47,7 +57,8 @@ namespace ViaggiaTrentino.Views
         Tour tour = new Tour(Application.Current.Host.Content.ActualWidth, Application.Current.Host.Content.ActualHeight);
 
         foreach (HubTile ht in HubTilePanel.Children.OfType<HubTile>())
-          tour.Add(new TourElement(LayoutRoot, ht, (ht as HubTile).Tag as string, (ht as HubTile).Title, new Point(0,32)));
+          if(ht.Visibility == System.Windows.Visibility.Visible)
+            tour.Add(new TourElement(LayoutRoot, ht, (ht as HubTile).Tag as string, (ht as HubTile).Title, new Point(0,32)));
 
         tour.TourStarted += tour_TourStarted;
         tour.TourCompleted += tour_TourCompleted;

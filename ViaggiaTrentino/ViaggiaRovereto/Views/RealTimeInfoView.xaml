@@ -52,38 +52,36 @@
 
     <!--ContentPanel - place additional content here-->
     <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-      <Grid HorizontalAlignment="Left">
-        <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="*" />
-          <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-          <RowDefinition Height="Auto" />
-          <RowDefinition Height="Auto" />
-          <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-
-        <toolkit:HubTile Margin="5" Grid.Column="0" Grid.Row="0"
+      <toolkit:WrapPanel>
+        <toolkit:HubTile Margin="5"
                          x:Name="RoveretoBusTile"
                          Source="/Assets/HubTiles/ic_urbanoRO.png"
                          Title="{Binding Path=LocalizedResources.TileRoveretoBusTitle, Source={StaticResource LocalizedStrings}}" 
                          Message="{Binding Path=LocalizedResources.TileRoveretoBusMessage, Source={StaticResource LocalizedStrings}}" 
                          toolkit:TurnstileFeatherEffect.FeatheringIndex="0"/>
         
-        <toolkit:HubTile Margin="5" Grid.Column="1" Grid.Row="0"
+        <toolkit:HubTile Margin="5"
                          x:Name="TrainTile"
                          Source="/Assets/HubTiles/ic_treno.png"
                          Title="{Binding Path=LocalizedResources.TileTrainTitle, Source={StaticResource LocalizedStrings}}" 
                          Message="{Binding Path=LocalizedResources.TileTrainMessage, Source={StaticResource LocalizedStrings}}" 
                          toolkit:TurnstileFeatherEffect.FeatheringIndex="1"/>
 
-        <toolkit:HubTile Margin="5" Grid.Column="0" Grid.Row="1"
+        <toolkit:HubTile Margin="5"
                          x:Name="ParkingTile"
                          Source="/Assets/HubTiles/ic_parking.png"
                          Title="{Binding Path=LocalizedResources.TileParkingTitle, Source={StaticResource LocalizedStrings}}" 
                          Message="{Binding Path=LocalizedResources.TileParkingMessage, Source={StaticResource LocalizedStrings}}" 
                          toolkit:TurnstileFeatherEffect.FeatheringIndex="2"/>
-      </Grid>
+
+        <!--TODO: fix this-->
+        <toolkit:HubTile Margin="5"
+                         x:Name="RoadBlocksTile"
+                         Source="/Assets/HubTiles/ic_parking.png"
+                         Title="{Binding Path=LocalizedResources.TileParkingTitle, Source={StaticResource LocalizedStrings}}" 
+                         Message="{Binding Path=LocalizedResources.TileParkingMessage, Source={StaticResource LocalizedStrings}}" 
+                         toolkit:TurnstileFeatherEffect.FeatheringIndex="2"/>
+      </toolkit:WrapPanel>
     </Grid>
   </Grid>
 
