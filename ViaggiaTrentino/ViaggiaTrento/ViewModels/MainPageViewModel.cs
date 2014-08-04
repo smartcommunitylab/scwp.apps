@@ -41,10 +41,8 @@ namespace ViaggiaTrentino.ViewModels
     {
       base.OnActivate();
 
-#if !DEBUG
       if (!Settings.IsLogged)
         BarLogin();
-#endif
     }
 
     protected override void OnViewLoaded(object view)
@@ -185,13 +183,13 @@ namespace ViaggiaTrentino.ViewModels
           pll = new ProfileLibrary(Settings.AppToken.AccessToken, Settings.ServerUrl);
           Settings.UserID = (await pll.GetBasicProfile()).UserId;
 
-          if (!Settings.IsTourAlreadyShown)
-          {
-            TimeTableCacheHelper ttch = new TimeTableCacheHelper();
-#pragma warning disable 4014
-            ttch.UpdateCachedCalendars();
-#pragma warning restore 4014
-          }
+//          if (!Settings.IsTourAlreadyShown)
+//          {
+//            TimeTableCacheHelper ttch = new TimeTableCacheHelper();
+//#pragma warning disable 4014
+//            ttch.UpdateCachedCalendars();
+//#pragma warning restore 4014
+//          }
 
           eventAggregator.Publish(true);
         }

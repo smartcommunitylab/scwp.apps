@@ -2,7 +2,7 @@
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="en-US" />
   <Languages xmlns="" />
-  <App xmlns="" ProductID="{f94949f4-23dd-45b1-9885-59543718d2ea}" Title="ViaggiaRovereto" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Lorenzo Lotto, Andrea Panizza" Description="Sample description" Publisher="SmartCampus Lab" PublisherID="{1bf6b0eb-3011-40dd-ac2f-f06ec754cc80}">
+  <App xmlns="" ProductID="{f94949f4-23dd-45b1-9885-59543718d2ea}" Title="ViaggiaRovereto" RuntimeType="Silverlight" Version="1.0.0.1" Genre="apps.normal" Author="Lorenzo Lotto, Andrea Panizza" Description="Sample description" Publisher="SmartCampus Lab" PublisherID="{1bf6b0eb-3011-40dd-ac2f-f06ec754cc80}">
     <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
@@ -22,7 +22,8 @@
           <SmallImageURI IsRelative="true" IsResource="false">Assets\SmallTile.png</SmallImageURI>
           <Count>0</Count>
           <BackgroundImageURI IsRelative="true" IsResource="false">Assets\MediumTile.png</BackgroundImageURI>
-          <Title></Title>
+          <Title>
+          </Title>
           <BackContent>
           </BackContent>
           <BackBackgroundImageURI>
@@ -36,13 +37,13 @@
         </TemplateFlip>
       </PrimaryToken>
     </Tokens>
-	<Extensions>
-	  <Protocol Name="smartcampuslab" NavUriFragment="encodedLaunchUri=%s" TaskID="_default" />
-	</Extensions>
+    <Extensions>
+      <Protocol Name="smartcampuslab" NavUriFragment="encodedLaunchUri=%s" TaskID="_default" />
+    </Extensions>
     <ScreenResolutions>
       <ScreenResolution Name="ID_RESOLUTION_WVGA" />
       <ScreenResolution Name="ID_RESOLUTION_WXGA" />
       <ScreenResolution Name="ID_RESOLUTION_HD720P" />
-    </ScreenResolutions>	
+    </ScreenResolutions>
   </App>
 </Deployment>

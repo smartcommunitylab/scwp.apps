@@ -5,7 +5,7 @@
     <Language code="it" />
     <Language code="qps-ploc" />
   </Languages>
-  <App xmlns="" ProductID="{8a5eec2d-f881-40c1-ba85-13836f179fa9}" Title="ViaggiaTrento" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Lorenzo Lotto, Andrea Panizza" Description="Sample description" Publisher="SmartCampus Lab" PublisherID="{f8a14e15-55b2-4613-addc-9801c4cfe505}">
+  <App xmlns="" ProductID="{8a5eec2d-f881-40c1-ba85-13836f179fa9}" Title="ViaggiaTrento" RuntimeType="Silverlight" Version="1.0.0.1" Genre="apps.normal" Author="Lorenzo Lotto, Andrea Panizza" Description="Sample description" Publisher="SmartCampus Lab" PublisherID="{f8a14e15-55b2-4613-addc-9801c4cfe505}">
     <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
@@ -25,7 +25,8 @@
           <SmallImageURI IsRelative="true" IsResource="false">Assets\SmallTile.png</SmallImageURI>
           <Count>0</Count>
           <BackgroundImageURI IsRelative="true" IsResource="false">Assets\MediumTile.png</BackgroundImageURI>
-          <Title></Title>
+          <Title>
+          </Title>
           <BackContent>
           </BackContent>
           <BackBackgroundImageURI>
