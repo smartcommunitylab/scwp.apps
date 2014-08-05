@@ -28,11 +28,6 @@ namespace ViaggiaTrentino.Views
       eventAggregator.Subscribe(this);
     }
 
-    private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
-    {
-      this.eventAggregator.Subscribe(this);
-    }
-
     private void PhoneApplicationPage_Unloaded(object sender, RoutedEventArgs e)
     {
       this.eventAggregator.Unsubscribe(this);

@@ -54,13 +54,7 @@ namespace ViaggiaTrentino.Views
         }
         );
 	    }
-
-
-      var clusterer = new ClustersGenerator(ParkingsMap, pushPins, this.Resources["ClusterTemplate"] as DataTemplate);
-
-
-      
-
+      var clusterer = new ClustersGenerator(ParkingsMap, pushPins, this.Resources["ClusterTemplate"] as DataTemplate);   
     }
 
     private void SingleParkingView_Tap(object sender, System.Windows.Input.GestureEventArgs e)
