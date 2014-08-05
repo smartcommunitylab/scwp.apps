@@ -48,6 +48,16 @@
     <DataTemplate x:Key="ClusterTemplate">
       <mToolkit:Pushpin GeoCoordinate="{Binding GeoCoordinate}" Content="{Binding Count}"/>
     </DataTemplate>
+    <DataTemplate x:Key="PushpinTemplate">
+      <mToolkit:Pushpin cal:Message.Attach="[Event Tap] = [Action TappedPushPin($dataContext)]"
+                        DataContext="{Binding}" GeoCoordinate="{Binding GeoCoordinate}">
+        <mToolkit:Pushpin.Template>
+          <ControlTemplate TargetType="mToolkit:Pushpin">
+            <Image Source="/Assets/Miscs/StopPushPin64.png" HorizontalAlignment="Center" />
+          </ControlTemplate>
+        </mToolkit:Pushpin.Template>
+      </mToolkit:Pushpin>
+    </DataTemplate>
   </phone:PhoneApplicationPage.Resources>
 
 
