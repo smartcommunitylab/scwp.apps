@@ -679,12 +679,6 @@
     <Content Include="..\ViaggiaTrento\Assets\Miscs\ic_stop.png">
       <Link>Assets\Miscs\ic_stop.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrento\Assets\Miscs\JDest.png">
-      <Link>Assets\Miscs\JDest.png</Link>
-    </Content>
-    <Content Include="..\ViaggiaTrento\Assets\Miscs\JStart.png">
-      <Link>Assets\Miscs\JStart.png</Link>
-    </Content>
     <Content Include="..\ViaggiaTrento\Assets\Miscs\Light\Arrow.png">
       <Link>Assets\Miscs\Light\Arrow.png</Link>
     </Content>
