@@ -626,6 +626,30 @@
           <source>Check Trento city buses timetable and delays</source>
           <target state="translated">Mostra gli orari degli autobus di Trento con i relativi ritardi</target>
         </trans-unit>
+        <trans-unit id="Resx/LonelyNoDecrees" translate="yes" xml:space="preserve">
+          <source>It's lonely in here. There aren't any decrees in Rovereto</source>
+          <target state="new">It's lonely in here. There aren't any decrees in Rovereto</target>
+        </trans-unit>
+        <trans-unit id="Resx/RoadInfoPageTitle" translate="yes" xml:space="preserve">
+          <source>Real time info</source>
+          <target state="new">Real time info</target>
+        </trans-unit>
+        <trans-unit id="Resx/DecreesPageMapPivot" translate="yes" xml:space="preserve">
+          <source>Map</source>
+          <target state="new">Map</target>
+        </trans-unit>
+        <trans-unit id="Resx/TileDecreesTitle" translate="yes" xml:space="preserve">
+          <source>Decrees</source>
+          <target state="new">Decrees</target>
+        </trans-unit>
+        <trans-unit id="Resx/TileDecreesMessage" translate="yes" xml:space="preserve">
+          <source>Rovereto decrees</source>
+          <target state="new">Rovereto decrees</target>
+        </trans-unit>
+        <trans-unit id="Resx/RoadInfoPageDecreesPivot" translate="yes" xml:space="preserve">
+          <source>Decrees</source>
+          <target state="new">Decrees</target>
+        </trans-unit>
         <trans-unit id="Resx/TileTrainTagTour" translate="yes" xml:space="preserve">
           <source>Check trains timetable and delays</source>
           <target state="translated">Mostra gli orari dei treni e i ritardi</target>

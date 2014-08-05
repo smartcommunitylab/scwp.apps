@@ -74,13 +74,12 @@
                          Message="{Binding Path=LocalizedResources.TileParkingMessage, Source={StaticResource LocalizedStrings}}" 
                          toolkit:TurnstileFeatherEffect.FeatheringIndex="2"/>
 
-        <!--TODO: fix this-->
         <toolkit:HubTile Margin="5"
-                         x:Name="RoadBlocksTile"
-                         Source="/Assets/HubTiles/ic_parking.png"
-                         Title="{Binding Path=LocalizedResources.TileParkingTitle, Source={StaticResource LocalizedStrings}}" 
-                         Message="{Binding Path=LocalizedResources.TileParkingMessage, Source={StaticResource LocalizedStrings}}" 
-                         toolkit:TurnstileFeatherEffect.FeatheringIndex="2"/>
+                         x:Name="DecreesTile"
+                         Source="/Assets/HubTiles/ic_decrees.png"
+                         Title="{Binding Path=LocalizedResources.TileDecreesTitle, Source={StaticResource LocalizedStrings}}" 
+                         Message="{Binding Path=LocalizedResources.TileDecreesMessage, Source={StaticResource LocalizedStrings}}" 
+                         toolkit:TurnstileFeatherEffect.FeatheringIndex="3"/>
       </toolkit:WrapPanel>
     </Grid>
   </Grid>

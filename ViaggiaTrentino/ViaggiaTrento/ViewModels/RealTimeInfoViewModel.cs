@@ -32,7 +32,7 @@ namespace ViaggiaTrentino.ViewModels
       navigationService.UriFor<SelectTrainRouteViewModel>().Navigate();
     }
 
-    public void RoadBlocksTile()
+    public void DecreesTile()
     {
       navigationService.UriFor<RoadInfoPageViewModel>().Navigate();
     }

@@ -6,30 +6,85 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vtcont="clr-namespace:ViaggiaTrentino.Views.Controls"
+    xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
+    xmlns:maps="clr-namespace:Microsoft.Phone.Maps.Controls;assembly=Microsoft.Phone.Maps"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:mToolkit="clr-namespace:Microsoft.Phone.Maps.Toolkit;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:converters="clr-namespace:ViaggiaTrentino.Converters"
+    mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    SupportedOrientations="Portrait" Orientation="Portrait"
-    mc:Ignorable="d"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
     shell:SystemTray.IsVisible="True">
 
-    <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+  <toolkit:TransitionService.NavigationInTransition>
+    <toolkit:NavigationInTransition>
+      <toolkit:NavigationInTransition.Backward>
+        <toolkit:TurnstileFeatherTransition Mode="BackwardIn" />
+      </toolkit:NavigationInTransition.Backward>
+      <toolkit:NavigationInTransition.Forward>
+        <toolkit:TurnstileFeatherTransition Mode="ForwardIn" />
+      </toolkit:NavigationInTransition.Forward>
+    </toolkit:NavigationInTransition>
+  </toolkit:TransitionService.NavigationInTransition>
+  <toolkit:TransitionService.NavigationOutTransition>
+    <toolkit:NavigationOutTransition>
+      <toolkit:NavigationOutTransition.Backward>
+        <toolkit:TurnstileFeatherTransition Mode="BackwardOut" />
+      </toolkit:NavigationOutTransition.Backward>
+      <toolkit:NavigationOutTransition.Forward>
+        <toolkit:TurnstileFeatherTransition Mode="ForwardOut" />
+      </toolkit:NavigationOutTransition.Forward>
+    </toolkit:NavigationOutTransition>
+  </toolkit:TransitionService.NavigationOutTransition>
 
-        <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
-        </StackPanel>
+  <UserControl.Resources>
+    <converters:DataContextToContentConverter x:Key="dcToCont" />
+    <cal:BooleanToVisibilityConverter x:Key="boolToSehen"/>
+    
+    <DataTemplate x:Key="PushpinTemplate">
+      <mToolkit:Pushpin cal:Message.Attach="[Event Tap] = [Action TappedPushPin($dataContext)]"  Content="{Binding Converter={StaticResource dcToCont} }" DataContext="{Binding }"
+                        GeoCoordinate="{Binding GeoCoordinate}"  />
+    </DataTemplate>
+    <DataTemplate x:Key="ClusterTemplate">
+      <mToolkit:Pushpin GeoCoordinate="{Binding GeoCoordinate}" Content="{Binding Count}"/>
+    </DataTemplate>
 
-        <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+  </UserControl.Resources>
 
+
+
+  <Grid x:Name="LayoutRoot" Background="Transparent">
+    <phone:Pivot x:Name="pivotContainer" Title="{Binding Path=LocalizedResources.RoadInfoPageTitle, Source={StaticResource LocalizedStrings}}" >
+      <phone:PivotItem Header="{Binding Path=LocalizedResources.RoadInfoPageDecreesPivot, Source={StaticResource LocalizedStrings}}" >
+        <Grid >
+          <TextBlock x:Name="lonelyDecrees" Text="{Binding Path=LocalizedResources.LonelyNoDecrees, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextGroupHeaderStyle}" 
+                     TextWrapping="Wrap" Visibility="{Binding NoResults, Converter={StaticResource boolToSehen}}"/>
+          <ListBox ItemsSource="{Binding Path=Decrees}" VerticalAlignment="Top" toolkit:TurnstileFeatherEffect.FeatheringIndex="0">
+            <ListBox.ItemContainerStyle>
+              <Style TargetType="ListBoxItem">
+                <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+                <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+              </Style>
+            </ListBox.ItemContainerStyle>
+            <ListBox.ItemTemplate>
+              <DataTemplate>
+                <vtcont:SingleDecreesView DataContext="{Binding}" />
+              </DataTemplate>
+            </ListBox.ItemTemplate>
+          </ListBox>
         </Grid>
-    </Grid>
+      </phone:PivotItem>
+
+      <!--Pivot item two-->
+      <phone:PivotItem x:Name="pivotMap" Header="{Binding Path=LocalizedResources.DecreesPageMapPivot, Source={StaticResource LocalizedStrings}}">
+        <Grid>
+          <maps:Map x:Name="DecreesMap" ZoomLevel="11" Center="{Binding Path=GPSPosition, Source={StaticResource vtSettings}}" />
+        </Grid>
+      </phone:PivotItem>
+    </phone:Pivot>
+  </Grid>
 
 </phone:PhoneApplicationPage>

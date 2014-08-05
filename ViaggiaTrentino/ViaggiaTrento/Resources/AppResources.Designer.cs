@@ -268,6 +268,15 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Map.
+        /// </summary>
+        public static string DecreesPageMapPivot {
+            get {
+                return ResourceManager.GetString("DecreesPageMapPivot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Missing data.
         /// </summary>
         public static string DefValueMissing {
@@ -462,6 +471,15 @@ namespace ViaggiaTrentino.Resources {
         public static string LoadingPanel {
             get {
                 return ResourceManager.GetString("LoadingPanel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to It&apos;s lonely in here. There aren&apos;t any decrees in Rovereto.
+        /// </summary>
+        public static string LonelyNoDecrees {
+            get {
+                return ResourceManager.GetString("LonelyNoDecrees", resourceCulture);
             }
         }
         
@@ -952,6 +970,24 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Decrees.
+        /// </summary>
+        public static string RoadInfoPageDecreesPivot {
+            get {
+                return ResourceManager.GetString("RoadInfoPageDecreesPivot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Real time info.
+        /// </summary>
+        public static string RoadInfoPageTitle {
+            get {
+                return ResourceManager.GetString("RoadInfoPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Routes.
         /// </summary>
         public static string RoutePivot {
@@ -1272,6 +1308,24 @@ namespace ViaggiaTrentino.Resources {
         public static string SystemLocationDisabledMessage {
             get {
                 return ResourceManager.GetString("SystemLocationDisabledMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rovereto decrees.
+        /// </summary>
+        public static string TileDecreesMessage {
+            get {
+                return ResourceManager.GetString("TileDecreesMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Decrees.
+        /// </summary>
+        public static string TileDecreesTitle {
+            get {
+                return ResourceManager.GetString("TileDecreesTitle", resourceCulture);
             }
         }
         

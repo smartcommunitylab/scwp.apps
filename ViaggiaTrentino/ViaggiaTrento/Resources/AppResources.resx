@@ -662,4 +662,22 @@
   <data name="TileTrentoBusTagTour" xml:space="preserve">
     <value>Check Trento city buses timetable and delays</value>
   </data>
+  <data name="LonelyNoDecrees" xml:space="preserve">
+    <value>It's lonely in here. There aren't any decrees in Rovereto</value>
+  </data>
+  <data name="RoadInfoPageDecreesPivot" xml:space="preserve">
+    <value>Decrees</value>
+  </data>
+  <data name="RoadInfoPageTitle" xml:space="preserve">
+    <value>Real time info</value>
+  </data>
+  <data name="DecreesPageMapPivot" xml:space="preserve">
+    <value>Map</value>
+  </data>
+  <data name="TileDecreesMessage" xml:space="preserve">
+    <value>Rovereto decrees</value>
+  </data>
+  <data name="TileDecreesTitle" xml:space="preserve">
+    <value>Decrees</value>
+  </data>
 </root>

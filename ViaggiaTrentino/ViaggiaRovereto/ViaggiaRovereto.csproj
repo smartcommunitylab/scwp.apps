@@ -102,6 +102,9 @@
     <Compile Include="..\ViaggiaTrento\Converters\AgencyIDToImageConverter.cs">
       <Link>Converters\AgencyIDToImageConverter.cs</Link>
     </Compile>
+    <Compile Include="..\ViaggiaTrento\Converters\AlertRoadToImageConverter.cs">
+      <Link>Converters\AlertRoadToImageConverter.cs</Link>
+    </Compile>
     <Compile Include="..\ViaggiaTrento\Converters\BooleanToReversedVisibilityConverter.cs">
       <Link>Converters\BooleanToReversedVisibilityConverter.cs</Link>
     </Compile>
@@ -343,6 +346,10 @@
       <Link>Views\Controls\SelectLocationView.xaml.cs</Link>
       <DependentUpon>SelectLocationView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="..\ViaggiaTrento\Views\Controls\SingleDecreesView.xaml.cs">
+      <Link>Views\Controls\SingleDecreesView.xaml.cs</Link>
+      <DependentUpon>SingleDecreesView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="..\ViaggiaTrento\Views\Controls\SingleParkingView.xaml.cs">
       <Link>Views\Controls\SingleParkingView.xaml.cs</Link>
       <DependentUpon>SingleParkingView.xaml</DependentUpon>
@@ -524,6 +531,18 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\ViaggiaTrento\Assets\Alert\ic_menu_alert_drivechange.png">
+      <Link>Assets\Alert\ic_menu_alert_drivechange.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrento\Assets\Alert\ic_menu_alert_other.png">
+      <Link>Assets\Alert\ic_menu_alert_other.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrento\Assets\Alert\ic_menu_alert_parkingblock.png">
+      <Link>Assets\Alert\ic_menu_alert_parkingblock.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrento\Assets\Alert\ic_menu_alert_roadblock.png">
+      <Link>Assets\Alert\ic_menu_alert_roadblock.png</Link>
+    </Content>
     <Content Include="..\ViaggiaTrento\Assets\AlignmentGrid.png">
       <Link>Assets\AlignmentGrid.png</Link>
     </Content>
@@ -881,6 +900,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <ApplicationDefinition Include="..\ViaggiaTrento\Views\Controls\SingleDecreesView.xaml">
+      <Link>Views\Controls\SingleDecreesView.xaml</Link>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
     <Page Include="..\ViaggiaTrento\Views\Controls\SingleParkingView.xaml">
       <Link>Views\Controls\SingleParkingView.xaml</Link>
       <SubType>Designer</SubType>
@@ -995,6 +1018,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
