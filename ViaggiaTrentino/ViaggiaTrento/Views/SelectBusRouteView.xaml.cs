@@ -34,7 +34,7 @@ namespace ViaggiaTrentino.Views
       // map pivot item
       if (pivotRoutes.SelectedIndex == 1)
       {
-        double[] position = new double[2] { Settings.GPSPosition.Latitude, Settings.GPSPosition.Longitude };
+        double[] position = new double[2] { Settings.DefaultCityCoordinate.Latitude, Settings.DefaultCityCoordinate.Longitude };
         PopulateMap(position);
       }
     }

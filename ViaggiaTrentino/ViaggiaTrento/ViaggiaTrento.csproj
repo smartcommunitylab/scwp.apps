@@ -114,7 +114,6 @@
     </Compile>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Converters\ItineraryToTimeSpanStringConverter.cs" />
-    <Compile Include="Converters\LegListToLegImageListConverter.cs" />
     <Compile Include="Converters\LongSecondsToDateConverter.cs" />
     <Compile Include="Converters\LegListAndMonitorLegsToBoolConverter.cs" />
     <Compile Include="Converters\LongMilliSecondsToDateConverter.cs" />
@@ -212,14 +211,14 @@
     <Compile Include="Views\Controls\LoadingControl.xaml.cs">
       <DependentUpon>LoadingControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\RoadInfoPageView.xaml.cs">
-      <DependentUpon>RoadInfoPageView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\ParkingsPageView.xaml.cs">
       <DependentUpon>ParkingsPageView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ReadNotificationView.xaml.cs">
       <DependentUpon>ReadNotificationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RoadInfoPageView.xaml.cs">
+      <DependentUpon>RoadInfoPageView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SelectTrainRouteView.xaml.cs">
       <DependentUpon>SelectTrainRouteView.xaml</DependentUpon>
@@ -332,15 +331,15 @@
     <Content Include="Assets\HubTiles\TrafficLight.png" />
     <Content Include="Assets\HubTiles\Train.png" />
     <Content Include="Assets\HubTiles\ExtraUrbano.png" />
+    <Content Include="Assets\Logos\Dark\LogoConsorzio.png" />
+    <Content Include="Assets\Logos\Dark\LogoComune.png" />
+    <Content Include="Assets\Logos\Dark\LogoSmartCampus.png" />
+    <Content Include="Assets\Logos\Light\LogoComune.png" />
+    <Content Include="Assets\Logos\Light\LogoConsorzio.png" />
+    <Content Include="Assets\Logos\Light\LogoSmartCampus.png" />
     <Content Include="Assets\Miscs\ic_start.png" />
     <Content Include="Assets\Miscs\ic_stop.png" />
     <Content Include="Assets\MediumTile.png" />
-    <Content Include="Assets\Logos\AppLogo.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Logos\LogoConsorzio.png" />
-    <Content Include="Assets\Logos\LogoProvincia.png" />
-    <Content Include="Assets\Logos\LogoSmartcamp.png" />
     <Content Include="Assets\Miscs\Dark\Arrow.png" />
     <Content Include="Assets\Miscs\Dark\Favourites.png" />
     <Content Include="Assets\Miscs\Dark\MapLocation.png" />
@@ -548,13 +547,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\RoadInfoPageView.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Views\ParkingsPageView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\ReadNotificationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\RoadInfoPageView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

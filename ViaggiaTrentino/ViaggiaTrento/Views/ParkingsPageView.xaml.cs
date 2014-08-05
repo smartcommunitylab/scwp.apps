@@ -32,7 +32,7 @@ namespace ViaggiaTrentino.Views
 
     private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
     {
-      ParkingsMap.Center = Settings.GPSPosition;
+      //ParkingsMap.Center = Settings.GPSPosition;
     }
 
     public void Handle(IEnumerable<Parking> parkings)

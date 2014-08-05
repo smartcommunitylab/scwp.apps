@@ -8,6 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:bab="clr-namespace:Caliburn.Micro.BindableAppBar;assembly=Caliburn.Micro.BindableAppBar"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:vtconvert="clr-namespace:ViaggiaTrentino.Converters"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -36,6 +37,10 @@
     </toolkit:NavigationOutTransition>
   </toolkit:TransitionService.NavigationOutTransition>
 
+  <phone:PhoneApplicationPage.Resources>
+    <vtconvert:ImageSourceToImageSourceAccordingToPhoneApplicationBackgroundConverter x:Key="imgForTheme"/>
+  </phone:PhoneApplicationPage.Resources>
+
   <!--LayoutRoot is the root grid where all page content is placed-->
   <Grid x:Name="LayoutRoot">
     <Grid.RowDefinitions>
@@ -58,9 +63,9 @@
             <ColumnDefinition Width="2*" />
             <ColumnDefinition Width="*" />
           </Grid.ColumnDefinitions>
-          <Image Grid.Column="0" Source="/Assets/Logos/LogoProvincia.png"/>
-          <Image Grid.Column="1" Source="/Assets/Logos/LogoConsorzio.png"/>
-          <Image Grid.Column="2" Source="/Assets/Logos/LogoSmartcamp.png"/>
+          <Image Grid.Column="0" Source="{Binding Converter={StaticResource imgForTheme}, ConverterParameter='/Assets/Logos/LogoComune.png'}"/>
+          <Image Grid.Column="1" Source="{Binding Converter={StaticResource imgForTheme}, ConverterParameter='/Assets/Logos/LogoConsorzio.png'}"/>
+          <Image Grid.Column="2" Source="{Binding Converter={StaticResource imgForTheme}, ConverterParameter='/Assets/Logos/LogoSmartCampus.png'}"/>
 
         </Grid>
         <TextBlock  Text="{Binding Path=LocalizedResources.AboutPageInfo, Source={StaticResource LocalizedStrings}}"

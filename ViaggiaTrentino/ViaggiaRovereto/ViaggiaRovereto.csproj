@@ -150,9 +150,6 @@
     <Compile Include="..\ViaggiaTrento\Converters\LegListToImageListConverter.cs">
       <Link>Converters\LegListToImageListConverter.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrento\Converters\LegListToLegImageListConverter.cs">
-      <Link>Converters\LegListToLegImageListConverter.cs</Link>
-    </Compile>
     <Compile Include="..\ViaggiaTrento\Converters\LongListSelectorItemToColorConverter.cs">
       <Link>Converters\LongListSelectorItemToColorConverter.cs</Link>
     </Compile>
@@ -377,6 +374,10 @@
       <Link>Views\MonitorJourneyView.xaml.cs</Link>
       <DependentUpon>MonitorJourneyView.xaml</DependentUpon>
     </Compile>
+	<Compile Include="..\ViaggiaTrento\Views\RoadInfoPageView.xaml.cs">
+      <Link>Views\RoadInfoPageView.xaml.cs</Link>
+      <DependentUpon>RoadInfoPageView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="..\ViaggiaTrento\Views\ParkingsPageView.xaml.cs">
       <Link>Views\ParkingsPageView.xaml.cs</Link>
       <DependentUpon>ParkingsPageView.xaml</DependentUpon>
@@ -396,10 +397,6 @@
     <Compile Include="..\ViaggiaTrento\Views\ReadNotificationView.xaml.cs">
       <Link>Views\ReadNotificationView.xaml.cs</Link>
       <DependentUpon>ReadNotificationView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="..\ViaggiaTrento\Views\RoadInfoPageView.xaml.cs">
-      <Link>Views\RoadInfoPageView.xaml.cs</Link>
-      <DependentUpon>RoadInfoPageView.xaml</DependentUpon>
     </Compile>
     <Compile Include="..\ViaggiaTrento\Views\SavedJourneyPageView.xaml.cs">
       <Link>Views\SavedJourneyPageView.xaml.cs</Link>
@@ -648,18 +645,23 @@
     <Content Include="..\ViaggiaTrento\Assets\HubTiles\Urbano.png">
       <Link>Assets\HubTiles\Urbano.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrento\Assets\Logos\AppLogo.png">
-      <Link>Assets\Logos\AppLogo.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <Content Include="..\ViaggiaTrento\Assets\Logos\Dark\LogoComune.png">
+      <Link>Assets\Logos\Dark\LogoComune.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrento\Assets\Logos\LogoConsorzio.png">
-      <Link>Assets\Logos\LogoConsorzio.png</Link>
+    <Content Include="..\ViaggiaTrento\Assets\Logos\Dark\LogoConsorzio.png">
+      <Link>Assets\Logos\Dark\LogoConsorzio.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrento\Assets\Logos\LogoProvincia.png">
-      <Link>Assets\Logos\LogoProvincia.png</Link>
+    <Content Include="..\ViaggiaTrento\Assets\Logos\Dark\LogoSmartCampus.png">
+      <Link>Assets\Logos\Dark\LogoSmartCampus.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrento\Assets\Logos\LogoSmartcamp.png">
-      <Link>Assets\Logos\LogoSmartcamp.png</Link>
+    <Content Include="..\ViaggiaTrento\Assets\Logos\Light\LogoComune.png">
+      <Link>Assets\Logos\Light\LogoComune.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrento\Assets\Logos\Light\LogoConsorzio.png">
+      <Link>Assets\Logos\Light\LogoConsorzio.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrento\Assets\Logos\Light\LogoSmartCampus.png">
+      <Link>Assets\Logos\Light\LogoSmartCampus.png</Link>
     </Content>
     <Content Include="..\ViaggiaTrento\Assets\Miscs\Dark\Arrow.png">
       <Link>Assets\Miscs\Dark\Arrow.png</Link>
@@ -973,10 +975,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <ApplicationDefinition Include="..\ViaggiaTrento\Views\RoadInfoPageView.xaml">
+    <Page Include="..\ViaggiaTrento\Views\RoadInfoPageView.xaml">
       <Link>Views\RoadInfoPageView.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </ApplicationDefinition>
+    </Page>
     <Page Include="..\ViaggiaTrento\Views\SavedJourneyPageView.xaml">
       <Link>Views\SavedJourneyPageView.xaml</Link>
       <Generator>MSBuild:Compile</Generator>

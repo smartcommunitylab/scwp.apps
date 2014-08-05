@@ -99,7 +99,7 @@
       <!--Pivot item two-->
       <phone:PivotItem x:Name="pivotMap" Header="{Binding Path=LocalizedResources.ParkingsPageMapPivot, Source={StaticResource LocalizedStrings}}">
         <Grid>
-          <maps:Map x:Name="ParkingsMap" ZoomLevel="11" Center="{Binding Path=GPSPosition, Source={StaticResource vtSettings}}" />
+          <maps:Map x:Name="ParkingsMap" ZoomLevel="11" Center="{Binding Path=DefaultCityCoordinate, Source={StaticResource vtSettings}}" />
         </Grid>
       </phone:PivotItem>
     </phone:Pivot>
