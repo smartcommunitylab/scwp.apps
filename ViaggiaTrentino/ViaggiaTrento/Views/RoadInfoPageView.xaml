@@ -44,14 +44,29 @@
   <UserControl.Resources>
     <converters:DataContextToContentConverter x:Key="dcToCont" />
     <cal:BooleanToVisibilityConverter x:Key="boolToSehen"/>
+    <converters:AlertRoadToPushPinConverter x:Key="decreesToPushPin" />
     
     <DataTemplate x:Key="PushpinTemplate">
-      <mToolkit:Pushpin cal:Message.Attach="[Event Tap] = [Action OpenSingleDecree($dataContext)]"  Content="{Binding Converter={StaticResource dcToCont} }" DataContext="{Binding }"
-                        GeoCoordinate="{Binding GeoCoordinate}"  />
+      <mToolkit:Pushpin cal:Message.Attach="[Event Tap] = [Action OpenSingleDecreePopup($dataContext)]" DataContext="{Binding}" GeoCoordinate="{Binding GeoCoordinate}"  PositionOrigin="0.5,1">
+        <mToolkit:Pushpin.Template>
+          <ControlTemplate TargetType="mToolkit:Pushpin">
+            <Image Source="{Binding Converter={StaticResource decreesToPushPin}}" />
+          </ControlTemplate>
+        </mToolkit:Pushpin.Template>
+      </mToolkit:Pushpin>
     </DataTemplate>
-    
+
     <DataTemplate x:Key="ClusterTemplate">
-      <mToolkit:Pushpin GeoCoordinate="{Binding GeoCoordinate}" Content="{Binding Count}"/>
+      <mToolkit:Pushpin GeoCoordinate="{Binding GeoCoordinate}" PositionOrigin="0.5,1">
+        <mToolkit:Pushpin.Template>
+          <ControlTemplate TargetType="mToolkit:Pushpin">
+            <Grid>
+              <Image Source="/Assets/Alert/marker_cluster.png" />
+              <TextBlock Text="{Binding Count}" Margin="0,5,0,0" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            </Grid>
+          </ControlTemplate>
+        </mToolkit:Pushpin.Template>
+      </mToolkit:Pushpin>
     </DataTemplate>
 
   </UserControl.Resources>
@@ -73,7 +88,7 @@
             </ListBox.ItemContainerStyle>
             <ListBox.ItemTemplate>
               <DataTemplate>
-                <vtcont:SingleDecreesView DataContext="{Binding}" cal:Message.Attach="[Event Tap] = [Action OpenSingleDecree($dataContext)]" />
+                <vtcont:SingleDecreesView DataContext="{Binding}" Tap="SingleDecreesView_Tap" />
               </DataTemplate>
             </ListBox.ItemTemplate>
           </ListBox>
@@ -83,7 +98,7 @@
       <!--Pivot item two-->
       <phone:PivotItem x:Name="pivotMap" Header="{Binding Path=LocalizedResources.DecreesPageMapPivot, Source={StaticResource LocalizedStrings}}">
         <Grid>
-          <maps:Map x:Name="DecreesMap" ZoomLevel="11" Center="{Binding Path=DefaultCityCoordinate, Source={StaticResource vtSettings}}" />
+          <maps:Map x:Name="DecreesMap" ZoomLevel="12" Center="{Binding Path=DefaultCityCoordinate, Source={StaticResource vtSettings}}" />
         </Grid>
       </phone:PivotItem>
     </phone:Pivot>
