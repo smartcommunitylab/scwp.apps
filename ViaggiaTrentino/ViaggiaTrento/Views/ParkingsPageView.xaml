@@ -45,13 +45,29 @@
   <UserControl.Resources>
     <converters:DataContextToContentConverter x:Key="dcToCont" />
     <cal:BooleanToVisibilityConverter x:Key="boolToSehen"/>
+    <converters:ParkingToPushPinConverter x:Key="parkingToPushPin" />
     
     <DataTemplate x:Key="PushpinTemplate">
-      <mToolkit:Pushpin cal:Message.Attach="[Event Tap] = [Action TappedPushPin($dataContext)]"  Content="{Binding Converter={StaticResource dcToCont} }" DataContext="{Binding }"
-                        GeoCoordinate="{Binding GeoCoordinate}"  />
+      <mToolkit:Pushpin cal:Message.Attach="[Event Tap] = [Action TappedPushPin($dataContext)]" DataContext="{Binding}" GeoCoordinate="{Binding GeoCoordinate}"  PositionOrigin="0.5,1">
+        <mToolkit:Pushpin.Template>
+          <ControlTemplate TargetType="mToolkit:Pushpin">
+            <Image Source="{Binding Converter={StaticResource parkingToPushPin}}" />
+          </ControlTemplate>
+        </mToolkit:Pushpin.Template>
+      </mToolkit:Pushpin>
     </DataTemplate>
+
     <DataTemplate x:Key="ClusterTemplate">
-      <mToolkit:Pushpin GeoCoordinate="{Binding GeoCoordinate}" Content="{Binding Count}"/>
+      <mToolkit:Pushpin GeoCoordinate="{Binding GeoCoordinate}" PositionOrigin="0.5,1">
+        <mToolkit:Pushpin.Template>
+          <ControlTemplate TargetType="mToolkit:Pushpin">
+            <Grid>
+              <Image Source="/Assets/Miscs/marker_parking_cluster.png" />
+              <TextBlock Text="{Binding Count}" Margin="0,4,0,0" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            </Grid>
+          </ControlTemplate>
+        </mToolkit:Pushpin.Template>
+      </mToolkit:Pushpin>
     </DataTemplate>
 
   </UserControl.Resources>

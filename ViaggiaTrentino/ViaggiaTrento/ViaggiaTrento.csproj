@@ -97,6 +97,7 @@
     <Compile Include="Converters\BooleanToToggledMonitoringStatusConverter.cs" />
     <Compile Include="Converters\BorderColorToggleBlackAndWhiteConverter.cs" />
     <Compile Include="Converters\AlertRoadToImageConverter.cs" />
+    <Compile Include="Converters\ParkingToPushPinConverter.cs" />
     <Compile Include="Converters\ImageSourceToImageSourceAccordingToPhoneApplicationBackgroundConverter.cs" />
     <Compile Include="Converters\StringHexColorToColorsConverter.cs" />
     <Compile Include="Converters\DynamicTileSizeConverter.cs" />
@@ -349,6 +350,11 @@
     <Content Include="Assets\Miscs\Light\GpsLocation.png" />
     <Content Include="Assets\Miscs\Light\MapLocation.png" />
     <Content Include="Assets\Miscs\Light\PinLocation.png" />
+    <Content Include="Assets\Miscs\marker_parking.png" />
+    <Content Include="Assets\Miscs\marker_parking_cluster.png" />
+    <Content Include="Assets\Miscs\marker_parking_green.png" />
+    <Content Include="Assets\Miscs\marker_parking_orange.png" />
+    <Content Include="Assets\Miscs\marker_parking_red.png" />
     <Content Include="Assets\Miscs\StopPushPin.png" />
     <Content Include="Assets\Miscs\Dark\GpsLocation.png" />
     <Content Include="Assets\Miscs\StopPushPin64.png" />

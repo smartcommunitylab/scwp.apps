@@ -171,6 +171,9 @@
     <Compile Include="..\ViaggiaTrento\Converters\ParkingSlotsToForegoundColorConverter.cs">
       <Link>Converters\ParkingSlotsToForegoundColorConverter.cs</Link>
     </Compile>
+    <Compile Include="..\ViaggiaTrento\Converters\ParkingToPushPinConverter.cs">
+      <Link>Converters\ParkingToPushPinConverter.cs</Link>
+    </Compile>
     <Compile Include="..\ViaggiaTrento\Converters\ParkingToSlotsConverter.cs">
       <Link>Converters\ParkingToSlotsConverter.cs</Link>
     </Compile>
@@ -693,6 +696,21 @@
     </Content>
     <Content Include="..\ViaggiaTrento\Assets\Miscs\Light\PinLocation.png">
       <Link>Assets\Miscs\Light\PinLocation.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrento\Assets\Miscs\marker_parking.png">
+      <Link>Assets\Miscs\marker_parking.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrento\Assets\Miscs\marker_parking_cluster.png">
+      <Link>Assets\Miscs\marker_parking_cluster.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrento\Assets\Miscs\marker_parking_green.png">
+      <Link>Assets\Miscs\marker_parking_green.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrento\Assets\Miscs\marker_parking_orange.png">
+      <Link>Assets\Miscs\marker_parking_orange.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrento\Assets\Miscs\marker_parking_red.png">
+      <Link>Assets\Miscs\marker_parking_red.png</Link>
     </Content>
     <Content Include="..\ViaggiaTrento\Assets\Miscs\StopPushPin.png">
       <Link>Assets\Miscs\StopPushPin.png</Link>

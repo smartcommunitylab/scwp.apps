@@ -49,7 +49,7 @@ namespace ViaggiaTrentino.Views
         );
       }
       
-     // var clusterer = new ClustersGenerator(DecreesMap, pushPins, this.Resources["ClusterTemplate"] as DataTemplate);
+      //var clusterer = new ClustersGenerator(this.DecreesMap, pushPins, this.Resources["ClusterTemplate"] as DataTemplate);
     }
   }
 }
