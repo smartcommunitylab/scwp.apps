@@ -97,17 +97,21 @@ namespace ViaggiaTrentino.Views
           Thread.Sleep(50);
           results = new List<string>();          
         }
-        if (ct.CompressedTimes[i] == '|')
+        if (i < ct.CompressedTimes.Length)
         {
-          results.Add("");
-          i++;
+          if (ct.CompressedTimes[i] == '|')
+          {
+            results.Add("");
+            i++;
+          }
+          else
+          {
+            string s = String.Format("{0}:{1}", ct.CompressedTimes.Substring(i, 2), ct.CompressedTimes.Substring(i + 2, 2));
+            results.Add(s);
+            i += 4;
+          }
         }
-        else
-        {
-          string s = String.Format("{0}:{1}", ct.CompressedTimes.Substring(i, 2), ct.CompressedTimes.Substring(i + 2, 2));
-          results.Add(s);
-          i += 4;
-        }
+        else break;
       }
     }
 
