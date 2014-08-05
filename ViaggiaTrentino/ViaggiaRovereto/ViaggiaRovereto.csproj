@@ -673,6 +673,12 @@
     <Content Include="..\ViaggiaTrento\Assets\Miscs\Dark\PinLocation.png">
       <Link>Assets\Miscs\Dark\PinLocation.png</Link>
     </Content>
+    <Content Include="..\ViaggiaTrento\Assets\Miscs\ic_start.png">
+      <Link>Assets\Miscs\ic_start.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrento\Assets\Miscs\ic_stop.png">
+      <Link>Assets\Miscs\ic_stop.png</Link>
+    </Content>
     <Content Include="..\ViaggiaTrento\Assets\Miscs\JDest.png">
       <Link>Assets\Miscs\JDest.png</Link>
     </Content>
@@ -957,7 +963,6 @@
     </Page>
     <ApplicationDefinition Include="..\ViaggiaTrento\Views\RoadInfoPageView.xaml">
       <Link>Views\RoadInfoPageView.xaml</Link>
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="..\ViaggiaTrento\Views\SavedJourneyPageView.xaml">

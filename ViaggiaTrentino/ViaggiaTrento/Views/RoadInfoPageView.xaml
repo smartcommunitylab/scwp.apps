@@ -17,7 +17,9 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait"  Orientation="Portrait"
-    shell:SystemTray.IsVisible="True">
+    shell:SystemTray.IsVisible="True"
+    Loaded="PhoneApplicationPage_Loaded"
+    Unloaded="PhoneApplicationPage_Unloaded">
 
   <toolkit:TransitionService.NavigationInTransition>
     <toolkit:NavigationInTransition>
@@ -45,9 +47,10 @@
     <cal:BooleanToVisibilityConverter x:Key="boolToSehen"/>
     
     <DataTemplate x:Key="PushpinTemplate">
-      <mToolkit:Pushpin cal:Message.Attach="[Event Tap] = [Action TappedPushPin($dataContext)]"  Content="{Binding Converter={StaticResource dcToCont} }" DataContext="{Binding }"
+      <mToolkit:Pushpin cal:Message.Attach="[Event Tap] = [Action OpenSingleDecree($dataContext)]"  Content="{Binding Converter={StaticResource dcToCont} }" DataContext="{Binding }"
                         GeoCoordinate="{Binding GeoCoordinate}"  />
     </DataTemplate>
+    
     <DataTemplate x:Key="ClusterTemplate">
       <mToolkit:Pushpin GeoCoordinate="{Binding GeoCoordinate}" Content="{Binding Count}"/>
     </DataTemplate>
@@ -59,7 +62,7 @@
   <Grid x:Name="LayoutRoot" Background="Transparent">
     <phone:Pivot x:Name="pivotContainer" Title="{Binding Path=LocalizedResources.RoadInfoPageTitle, Source={StaticResource LocalizedStrings}}" >
       <phone:PivotItem Header="{Binding Path=LocalizedResources.RoadInfoPageDecreesPivot, Source={StaticResource LocalizedStrings}}" >
-        <Grid >
+        <Grid>
           <TextBlock x:Name="lonelyDecrees" Text="{Binding Path=LocalizedResources.LonelyNoDecrees, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextGroupHeaderStyle}" 
                      TextWrapping="Wrap" Visibility="{Binding NoResults, Converter={StaticResource boolToSehen}}"/>
           <ListBox ItemsSource="{Binding Path=Decrees}" VerticalAlignment="Top" toolkit:TurnstileFeatherEffect.FeatheringIndex="0">
@@ -71,7 +74,7 @@
             </ListBox.ItemContainerStyle>
             <ListBox.ItemTemplate>
               <DataTemplate>
-                <vtcont:SingleDecreesView DataContext="{Binding}" />
+                <vtcont:SingleDecreesView DataContext="{Binding}" cal:Message.Attach="[Event Tap] = [Action OpenSingleDecree($dataContext)]" />
               </DataTemplate>
             </ListBox.ItemTemplate>
           </ListBox>

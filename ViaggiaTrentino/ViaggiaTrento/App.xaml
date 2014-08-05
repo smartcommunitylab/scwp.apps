@@ -7,7 +7,8 @@
     xmlns:cffToolkit="clr-namespace:Coding4Fun.Toolkit.Controls;assembly=Coding4Fun.Toolkit.Controls"
     xmlns:map="clr-namespace:Microsoft.Phone.Maps.Controls;assembly=Microsoft.Phone.Maps"
     xmlns:vt="clr-namespace:ViaggiaTrentino"
-    xmlns:vtconverters="clr-namespace:ViaggiaTrentino.Converters">
+    xmlns:vtconverters="clr-namespace:ViaggiaTrentino.Converters"
+    xmlns:mToolkit="clr-namespace:Microsoft.Phone.Maps.Toolkit;assembly=Microsoft.Phone.Controls.Toolkit">
 
   <!--Application Resources-->
   <Application.Resources>
@@ -30,9 +31,25 @@
       </Grid>
     </ControlTemplate>
 
-    <!--<Style x:Key="alignedPushPin" TargetType=">
-      <Setter Property="PositionOrigin" Value="1,0" />
-    </Style>-->
+    <Style x:Key="startPushPin" TargetType="mToolkit:Pushpin">
+      <Setter Property="Template">
+        <Setter.Value>
+          <ControlTemplate TargetType="mToolkit:Pushpin">
+            <Image Source="/Assets/Miscs/ic_start.png" />
+          </ControlTemplate>
+        </Setter.Value>
+      </Setter>
+    </Style>
+    
+    <Style x:Key="endPushPin" TargetType="mToolkit:Pushpin">
+      <Setter Property="Template">
+        <Setter.Value>
+          <ControlTemplate TargetType="mToolkit:Pushpin">
+            <Image Source="/Assets/Miscs/ic_stop.png" />
+          </ControlTemplate>
+        </Setter.Value>
+      </Setter>
+    </Style>
 
     <Style x:Key="mpNoBorders" TargetType="cffToolkit:MessagePrompt">
       <Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilyNormal}"/>
