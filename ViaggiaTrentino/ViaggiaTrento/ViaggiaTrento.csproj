@@ -333,12 +333,16 @@
     <Content Include="Assets\HubTiles\TrafficLight.png" />
     <Content Include="Assets\HubTiles\Train.png" />
     <Content Include="Assets\HubTiles\ExtraUrbano.png" />
+    <Content Include="Assets\Logos\Dark\LogoComuneSmall.png" />
     <Content Include="Assets\Logos\Dark\LogoConsorzio.png" />
     <Content Include="Assets\Logos\Dark\LogoComune.png" />
     <Content Include="Assets\Logos\Dark\LogoSmartCampus.png" />
+    <Content Include="Assets\Logos\Dark\LogoSmartCampusSmall.png" />
+    <Content Include="Assets\Logos\Light\LogoComuneSmall.png" />
     <Content Include="Assets\Logos\Light\LogoConsorzio.png" />
     <Content Include="Assets\Logos\Light\LogoComune.png" />
     <Content Include="Assets\Logos\Light\LogoSmartCampus.png" />
+    <Content Include="Assets\Logos\Light\LogoSmartCampusSmall.png" />
     <Content Include="Assets\Miscs\ic_start.png" />
     <Content Include="Assets\Miscs\ic_stop.png" />
     <Content Include="Assets\MediumTile.png" />

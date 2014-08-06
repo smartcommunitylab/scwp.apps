@@ -60,11 +60,11 @@
       <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
         <StackPanel>
 
-          <!--DESCRIPTION-->
+          <!-- DESCRIPTION-->
           <TextBlock FontWeight="SemiBold" Grid.ColumnSpan="2"  Text="{Binding Path=LocalizedResources.AboutPageInfo, Source={StaticResource LocalizedStrings}}"
                     Style="{StaticResource PhoneTextNormalStyle}" TextWrapping="Wrap" Margin="12,10,12,20" VerticalAlignment="Center" HorizontalAlignment="Left" />
 
-          <!--DEVELOPER BY-->
+          <!--DEVELOPED BY-->
           <StackPanel  Margin="0,0,0,10">
             <RichTextBox TextWrapping="Wrap" Margin="0,0,0,10">
               <Paragraph>
@@ -73,36 +73,39 @@
                        Foreground="{StaticResource PhoneForegroundBrush}">SmartCampus</Hyperlink>
                 <Run Text="{Binding Path=LocalizedResources.AboutPageProject, Source={StaticResource LocalizedStrings}}"/>
               </Paragraph>
-            </RichTextBox>
-            <Image HorizontalAlignment="Center" Width="300" cal:Message.Attach="[Event Tap] = [Action sclabLink()]"
-                 Source="{Binding Converter={StaticResource imgForTheme}, ConverterParameter='/Assets/Logos/LogoSmartCampus.png'}"/>
+            </RichTextBox >
+
+
+            <Image HorizontalAlignment="Center"  Height="100" cal:Message.Attach="[Event Tap] = [Action comuneTNLink()]"
+                   Source="{Binding Converter={StaticResource imgForTheme}, ConverterParameter='/Assets/Logos/LogoSmartCampus.png'}"/>
+            
           </StackPanel>
+
 
           <!--PARTNERSHIP + COLLABORATION-->
           <StackPanel>
             <RichTextBox TextWrapping="Wrap" Margin="0,0,0,15">
               <Paragraph>
                 <Run Text="{Binding Path=LocalizedResources.AboutPageCollab, Source={StaticResource LocalizedStrings}}" />
-                <Hyperlink TargetName="_anything" NavigateUri="http://www.comune.trento.it"
-                       Foreground="{StaticResource PhoneForegroundBrush}">Comune di Trento</Hyperlink>
+                <Hyperlink TargetName="_anything" NavigateUri="http://www.comune.rovereto.tn.it"
+                       Foreground="{StaticResource PhoneForegroundBrush}">Comune di Rovereto</Hyperlink>
                 <Run Text="{Binding Path=LocalizedResources.AboutPagePart, Source={StaticResource LocalizedStrings}}" />
                 <Hyperlink TargetName="_anything" NavigateUri="http://www.innovazione.comunitrentini.tn.it"
                        Foreground="{StaticResource PhoneForegroundBrush}">Consorzio dei Comuni Trentini</Hyperlink>
               </Paragraph>
             </RichTextBox>
-            
-            <Grid HorizontalAlignment="Center">
-              <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*" />
-              </Grid.RowDefinitions>
-              <Image Grid.Row="0" Width="300" cal:Message.Attach="[Event Tap] = [Action comuneTNLink()]"
-                     Margin="0,0,0,10" Source="{Binding Converter={StaticResource imgForTheme}, ConverterParameter='/Assets/Logos/LogoComune.png'}"/>
-              <Image Grid.Row="1" Width="300" cal:Message.Attach="[Event Tap] = [Action innovazioneLink()]"
+
+            <Grid Height="100" HorizontalAlignment="Center">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+              </Grid.ColumnDefinitions>
+              <Image Grid.Column="0" Margin="0,0,20,0" cal:Message.Attach="[Event Tap] = [Action comuneRVLink()]"
+                     Source="{Binding Converter={StaticResource imgForTheme}, ConverterParameter='/Assets/Logos/LogoComuneSmall.png'}"/>
+              <Image Grid.Column="1" cal:Message.Attach="[Event Tap] = [Action comuneTNLink()]"
                      Source="{Binding Converter={StaticResource imgForTheme}, ConverterParameter='/Assets/Logos/LogoConsorzio.png'}"/>
             </Grid>
           </StackPanel>
-
         </StackPanel>
       </ScrollViewer>
     </Grid>

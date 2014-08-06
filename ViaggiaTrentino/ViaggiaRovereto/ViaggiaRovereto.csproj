@@ -309,10 +309,6 @@
     <Compile Include="..\ViaggiaTrento\ViewModels\TimetablePageViewModel.cs">
       <Link>ViewModels\TimetablePageViewModel.cs</Link>
     </Compile>
-    <Compile Include="..\ViaggiaTrento\Views\AboutPageView.xaml.cs">
-      <Link>Views\AboutPageView.xaml.cs</Link>
-      <DependentUpon>AboutPageView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="..\ViaggiaTrento\Views\Controls\ChooseFavouritePlaceControl.xaml.cs">
       <Link>Views\Controls\ChooseFavouritePlaceControl.xaml.cs</Link>
       <DependentUpon>ChooseFavouritePlaceControl.xaml</DependentUpon>
@@ -443,6 +439,9 @@
     </Compile>
     <Compile Include="AppSpecificSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\AboutPageView.xaml.cs">
+      <DependentUpon>AboutPageView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\ViaggiaTrento\packages.config">
@@ -657,11 +656,17 @@
     <Content Include="..\ViaggiaTrento\Assets\Logos\Dark\LogoSmartCampus.png">
       <Link>Assets\Logos\Dark\LogoSmartCampus.png</Link>
     </Content>
+    <Content Include="..\ViaggiaTrento\Assets\Logos\Dark\LogoSmartCampusSmall.png">
+      <Link>Assets\Logos\Dark\LogoSmartCampusSmall.png</Link>
+    </Content>
     <Content Include="..\ViaggiaTrento\Assets\Logos\Light\LogoConsorzio.png">
       <Link>Assets\Logos\Light\LogoConsorzio.png</Link>
     </Content>
     <Content Include="..\ViaggiaTrento\Assets\Logos\Light\LogoSmartCampus.png">
       <Link>Assets\Logos\Light\LogoSmartCampus.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrento\Assets\Logos\Light\LogoSmartCampusSmall.png">
+      <Link>Assets\Logos\Light\LogoSmartCampusSmall.png</Link>
     </Content>
     <Content Include="..\ViaggiaTrento\Assets\Miscs\Dark\Arrow.png">
       <Link>Assets\Miscs\Dark\Arrow.png</Link>
@@ -833,7 +838,9 @@
     </Content>
     <Content Include="Assets\ApplicationIcon.png" />
     <Content Include="Assets\Logos\Dark\LogoComune.png" />
+    <Content Include="Assets\Logos\Dark\LogoComuneSmall.png" />
     <Content Include="Assets\Logos\Light\LogoComune.png" />
+    <Content Include="Assets\Logos\Light\LogoComuneSmall.png" />
     <Content Include="Assets\MediumTile.png" />
     <Content Include="Assets\SmallTile.png" />
   </ItemGroup>
@@ -875,11 +882,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="..\ViaggiaTrento\Views\AboutPageView.xaml">
-      <Link>Views\AboutPageView.xaml</Link>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="..\ViaggiaTrento\Views\Controls\ChooseFavouritePlaceControl.xaml">
       <Link>Views\Controls\ChooseFavouritePlaceControl.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
@@ -1032,6 +1034,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <ApplicationDefinition Include="Views\AboutPageView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
     <Page Include="Views\RealTimeInfoView.xaml">
       <SubType>Designer</SubType>
     </Page>

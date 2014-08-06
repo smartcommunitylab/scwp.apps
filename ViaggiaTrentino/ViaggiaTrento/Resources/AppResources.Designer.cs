@@ -88,7 +88,7 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Integrated mobility information of Trento and the Trentino municipalities.
+        ///   Looks up a localized string similar to Integrated mobility information for the city and the Province of Trento.
         /// </summary>
         public static string AboutPageInfo {
             get {

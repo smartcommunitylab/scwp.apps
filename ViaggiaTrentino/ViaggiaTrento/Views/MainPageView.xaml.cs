@@ -55,10 +55,7 @@ namespace ViaggiaTrentino.Views
     {
       if (overrideCheck || (!Settings.IsTourAlreadyShown && Settings.IsLogged))
       {
-        tour = new Tour(Application.Current.Host.Content.ActualWidth, Application.Current.Host.Content.ActualHeight)
-        {
-          ButtonsAlignment = System.Windows.VerticalAlignment.Bottom
-        };
+        tour = new Tour(Application.Current.Host.Content.ActualWidth, Application.Current.Host.Content.ActualHeight, System.Windows.VerticalAlignment.Bottom, new Thickness(15, 15, 15, 15));
         tour.Clear();
 
         foreach (HubTile ht in HubTilePanel.Children.OfType<HubTile>())
