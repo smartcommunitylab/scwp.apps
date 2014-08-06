@@ -57,20 +57,19 @@
     <!--ContentPanel - place additional content here-->
     <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
       <StackPanel>
-        <Grid Margin="0,0,0,10" Height="100">
+        
+        <!--APPLOGO + DESCRIPTION-->
+        <Grid Margin="12,0,12,0">
           <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="2*" />
             <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="4*" />
           </Grid.ColumnDefinitions>
-          <Image Grid.Column="0" Source="{Binding Converter={StaticResource imgForTheme}, ConverterParameter='/Assets/Logos/LogoComune.png'}"/>
-          <Image Grid.Column="1" Source="{Binding Converter={StaticResource imgForTheme}, ConverterParameter='/Assets/Logos/LogoConsorzio.png'}"/>
-          <Image Grid.Column="2" Source="{Binding Converter={StaticResource imgForTheme}, ConverterParameter='/Assets/Logos/LogoSmartCampus.png'}"/>
-
-        </Grid>
-        <TextBlock  Text="{Binding Path=LocalizedResources.AboutPageInfo, Source={StaticResource LocalizedStrings}}"
+          <Image Source="/Assets/ApplicationIcon.png" Grid.Column="0" />
+          <TextBlock Grid.Column="1"  Text="{Binding Path=LocalizedResources.AboutPageInfo, Source={StaticResource LocalizedStrings}}"
                     Style="{StaticResource PhoneTextNormalStyle}" TextWrapping="Wrap" Margin="12,10,12,20" />
-
+        </Grid>
+        
+        <!--PARTNERSHIPS-->
         <RichTextBox TextWrapping="Wrap" Margin="0,0,0,10">
           <Paragraph>
             <Run Text="{Binding Path=LocalizedResources.AboutPageDevel, Source={StaticResource LocalizedStrings}}"/>
@@ -90,6 +89,19 @@
                        Foreground="{StaticResource PhoneForegroundBrush}">Consorzio dei Comuni Trentini</Hyperlink>
           </Paragraph>
         </RichTextBox>
+
+        <!--LOGOS-->
+        <Grid Margin="0,20,0,0" Height="240" HorizontalAlignment="Left">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+          </Grid.RowDefinitions>
+          <Image Grid.Row="0" Source="{Binding Converter={StaticResource imgForTheme}, ConverterParameter='/Assets/Logos/LogoComune.png'}"/>
+          <Image Grid.Row="1" Source="{Binding Converter={StaticResource imgForTheme}, ConverterParameter='/Assets/Logos/LogoConsorzio.png'}"/>
+          <Image Grid.Row="2" Source="{Binding Converter={StaticResource imgForTheme}, ConverterParameter='/Assets/Logos/LogoSmartCampus.png'}"/>
+        </Grid>
+        
       </StackPanel>
     </Grid>
     <bab:BindableAppBar BackgroundColor="{StaticResource scBlue}" ForegroundColor="White">

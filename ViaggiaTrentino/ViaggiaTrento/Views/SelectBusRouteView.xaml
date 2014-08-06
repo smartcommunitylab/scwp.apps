@@ -46,14 +46,25 @@
     <vtconvert:BorderColorToggleBlackAndWhiteConverter x:Key="borderColorToggle" />
 
     <DataTemplate x:Key="ClusterTemplate">
-      <mToolkit:Pushpin GeoCoordinate="{Binding GeoCoordinate}" Content="{Binding Count}"/>
+      <mToolkit:Pushpin GeoCoordinate="{Binding GeoCoordinate}">
+        <mToolkit:Pushpin.Template>
+          <ControlTemplate TargetType="mToolkit:Pushpin">
+            <Grid>
+              <Image Source="/Assets/Miscs/marker_bus_cluster.png" HorizontalAlignment="Center" />
+              <TextBlock Text="{Binding Count}" Margin="0,4,0,0" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            </Grid>
+          </ControlTemplate>
+          
+        </mToolkit:Pushpin.Template>
+      </mToolkit:Pushpin>
     </DataTemplate>
+    
     <DataTemplate x:Key="PushpinTemplate">
       <mToolkit:Pushpin cal:Message.Attach="[Event Tap] = [Action TappedPushPin($dataContext)]"
                         DataContext="{Binding}" GeoCoordinate="{Binding GeoCoordinate}">
         <mToolkit:Pushpin.Template>
           <ControlTemplate TargetType="mToolkit:Pushpin">
-            <Image Source="/Assets/Miscs/StopPushPin64.png" HorizontalAlignment="Center" />
+            <Image Source="/Assets/Miscs/marker_bus.png" HorizontalAlignment="Center" />
           </ControlTemplate>
         </mToolkit:Pushpin.Template>
       </mToolkit:Pushpin>

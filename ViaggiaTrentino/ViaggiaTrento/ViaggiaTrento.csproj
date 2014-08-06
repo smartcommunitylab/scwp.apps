@@ -314,6 +314,7 @@
     <Content Include="Assets\ApplicationIcon.png" />
     <Content Include="Assets\HubTiles\ic_monitor.png" />
     <Content Include="Assets\HubTiles\ic_notices.png" />
+    <Content Include="Assets\HubTiles\ic_ordinanze.png" />
     <Content Include="Assets\HubTiles\ic_parking.png" />
     <Content Include="Assets\HubTiles\ic_planjourney.png" />
     <Content Include="Assets\HubTiles\ic_realtimeinfo.png" />
@@ -335,8 +336,8 @@
     <Content Include="Assets\Logos\Dark\LogoConsorzio.png" />
     <Content Include="Assets\Logos\Dark\LogoComune.png" />
     <Content Include="Assets\Logos\Dark\LogoSmartCampus.png" />
-    <Content Include="Assets\Logos\Light\LogoComune.png" />
     <Content Include="Assets\Logos\Light\LogoConsorzio.png" />
+    <Content Include="Assets\Logos\Light\LogoComune.png" />
     <Content Include="Assets\Logos\Light\LogoSmartCampus.png" />
     <Content Include="Assets\Miscs\ic_start.png" />
     <Content Include="Assets\Miscs\ic_stop.png" />
@@ -350,6 +351,8 @@
     <Content Include="Assets\Miscs\Light\GpsLocation.png" />
     <Content Include="Assets\Miscs\Light\MapLocation.png" />
     <Content Include="Assets\Miscs\Light\PinLocation.png" />
+    <Content Include="Assets\Miscs\marker_bus.png" />
+    <Content Include="Assets\Miscs\marker_bus_cluster.png" />
     <Content Include="Assets\Miscs\marker_parking.png" />
     <Content Include="Assets\Miscs\marker_parking_cluster.png" />
     <Content Include="Assets\Miscs\marker_parking_green.png" />

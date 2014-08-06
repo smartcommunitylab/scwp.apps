@@ -76,7 +76,7 @@
 
         <toolkit:HubTile Margin="5"
                          x:Name="DecreesTile"
-                         Source="/Assets/HubTiles/ic_decrees.png"
+                         Source="/Assets/HubTiles/ic_ordinanze.png"
                          Title="{Binding Path=LocalizedResources.TileDecreesTitle, Source={StaticResource LocalizedStrings}}" 
                          Message="{Binding Path=LocalizedResources.TileDecreesMessage, Source={StaticResource LocalizedStrings}}" 
                          toolkit:TurnstileFeatherEffect.FeatheringIndex="3"/>

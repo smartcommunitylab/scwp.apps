@@ -597,6 +597,9 @@
     <Content Include="..\ViaggiaTrento\Assets\HubTiles\ic_notices.png">
       <Link>Assets\HubTiles\ic_notices.png</Link>
     </Content>
+    <Content Include="..\ViaggiaTrento\Assets\HubTiles\ic_ordinanze.png">
+      <Link>Assets\HubTiles\ic_ordinanze.png</Link>
+    </Content>
     <Content Include="..\ViaggiaTrento\Assets\HubTiles\ic_parking.png">
       <Link>Assets\HubTiles\ic_parking.png</Link>
     </Content>
@@ -648,17 +651,11 @@
     <Content Include="..\ViaggiaTrento\Assets\HubTiles\Urbano.png">
       <Link>Assets\HubTiles\Urbano.png</Link>
     </Content>
-    <Content Include="..\ViaggiaTrento\Assets\Logos\Dark\LogoComune.png">
-      <Link>Assets\Logos\Dark\LogoComune.png</Link>
-    </Content>
     <Content Include="..\ViaggiaTrento\Assets\Logos\Dark\LogoConsorzio.png">
       <Link>Assets\Logos\Dark\LogoConsorzio.png</Link>
     </Content>
     <Content Include="..\ViaggiaTrento\Assets\Logos\Dark\LogoSmartCampus.png">
       <Link>Assets\Logos\Dark\LogoSmartCampus.png</Link>
-    </Content>
-    <Content Include="..\ViaggiaTrento\Assets\Logos\Light\LogoComune.png">
-      <Link>Assets\Logos\Light\LogoComune.png</Link>
     </Content>
     <Content Include="..\ViaggiaTrento\Assets\Logos\Light\LogoConsorzio.png">
       <Link>Assets\Logos\Light\LogoConsorzio.png</Link>
@@ -701,6 +698,12 @@
     </Content>
     <Content Include="..\ViaggiaTrento\Assets\Miscs\Light\PinLocation.png">
       <Link>Assets\Miscs\Light\PinLocation.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrento\Assets\Miscs\marker_bus.png">
+      <Link>Assets\Miscs\marker_bus.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrento\Assets\Miscs\marker_bus_cluster.png">
+      <Link>Assets\Miscs\marker_bus_cluster.png</Link>
     </Content>
     <Content Include="..\ViaggiaTrento\Assets\Miscs\marker_parking.png">
       <Link>Assets\Miscs\marker_parking.png</Link>
@@ -829,6 +832,8 @@
       <Link>Toolkit.Content\ApplicationBar.Select.png</Link>
     </Content>
     <Content Include="Assets\ApplicationIcon.png" />
+    <Content Include="Assets\Logos\Dark\LogoComune.png" />
+    <Content Include="Assets\Logos\Light\LogoComune.png" />
     <Content Include="Assets\MediumTile.png" />
     <Content Include="Assets\SmallTile.png" />
   </ItemGroup>
