@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
-  <file datatype="xml" source-language="en-US" target-language="it" original="AppResources.resx" tool-id="MultilingualAppToolkit" product-name="ViaggiaRovereto" product-version="1.0.0.0" build-num="0">
+  <file datatype="xml" source-language="en-US" target-language="it" original="AppResources.resx" tool-id="MultilingualAppToolkit" product-name="ViaggiaTrento" product-version="1.0.0.0" build-num="0">
     <header>
       <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="3.0.1200.0" tool-company="Microsoft" />
     </header>
@@ -522,7 +522,7 @@
         </trans-unit>
         <trans-unit id="Resx/AboutPageInfo" translate="yes" xml:space="preserve">
           <source>Integrated mobility information for the city and the Province of Trento</source>
-          <target state="needs-review-translation">Informazione sulla mobilità integrata di Trento e dei comuni trentini</target><note from="MultilingualUpdate" priority="2" annotates="source">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <target state="translated">Informazione sulla mobilità integrata di Trento e dei comuni trentini</target>
           </trans-unit>
         <trans-unit id="Resx/AboutPageDevel" translate="yes" xml:space="preserve">
           <source>Application developed by Andrea Panizza and Lorenzo Lotto within the</source>
@@ -628,27 +628,27 @@
         </trans-unit>
         <trans-unit id="Resx/LonelyNoDecrees" translate="yes" xml:space="preserve">
           <source>It's lonely in here. There aren't any decrees in Rovereto</source>
-          <target state="new">It's lonely in here. There aren't any decrees in Rovereto</target>
+          <target state="translated">Non c'è niente qui. Non è stato emesso alcun decreto per il Comune di Rovereto</target>
         </trans-unit>
         <trans-unit id="Resx/RoadInfoPageTitle" translate="yes" xml:space="preserve">
           <source>Real time info</source>
-          <target state="new">Real time info</target>
+          <target state="translated" state-qualifier="mt-suggestion">Info tempo reale</target>
         </trans-unit>
         <trans-unit id="Resx/DecreesPageMapPivot" translate="yes" xml:space="preserve">
           <source>Map</source>
-          <target state="new">Map</target>
+          <target state="translated" state-qualifier="mt-suggestion">Mappa</target>
         </trans-unit>
         <trans-unit id="Resx/TileDecreesTitle" translate="yes" xml:space="preserve">
           <source>Decrees</source>
-          <target state="new">Decrees</target>
+          <target state="translated" state-qualifier="mt-suggestion">Decreti</target>
         </trans-unit>
         <trans-unit id="Resx/TileDecreesMessage" translate="yes" xml:space="preserve">
           <source>Rovereto decrees</source>
-          <target state="new">Rovereto decrees</target>
+          <target state="translated">Decreti del Comune di Rovereto</target>
         </trans-unit>
         <trans-unit id="Resx/RoadInfoPageDecreesPivot" translate="yes" xml:space="preserve">
           <source>Decrees</source>
-          <target state="new">Decrees</target>
+          <target state="translated" state-qualifier="mt-suggestion">Decreti</target>
         </trans-unit>
         <trans-unit id="Resx/TileTrainTagTour" translate="yes" xml:space="preserve">
           <source>Check trains timetable and delays</source>

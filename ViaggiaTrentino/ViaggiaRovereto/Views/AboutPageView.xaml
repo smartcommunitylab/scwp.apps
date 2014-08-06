@@ -57,57 +57,56 @@
 
     <!--ContentPanel - place additional content here-->
     <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-      <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
-        <StackPanel>
 
-          <!-- DESCRIPTION-->
-          <TextBlock FontWeight="SemiBold" Grid.ColumnSpan="2"  Text="{Binding Path=LocalizedResources.AboutPageInfo, Source={StaticResource LocalizedStrings}}"
+      <StackPanel>
+
+        <!-- DESCRIPTION-->
+        <TextBlock FontWeight="SemiBold" Grid.ColumnSpan="2"  Text="{Binding Path=LocalizedResources.AboutPageInfo, Source={StaticResource LocalizedStrings}}"
                     Style="{StaticResource PhoneTextNormalStyle}" TextWrapping="Wrap" Margin="12,10,12,20" VerticalAlignment="Center" HorizontalAlignment="Left" />
 
-          <!--DEVELOPED BY-->
-          <StackPanel  Margin="0,0,0,10">
-            <RichTextBox TextWrapping="Wrap" Margin="0,0,0,10">
-              <Paragraph>
-                <Run Text="{Binding Path=LocalizedResources.AboutPageDevel, Source={StaticResource LocalizedStrings}}"/>
-                <Hyperlink TargetName="_anything" NavigateUri="http://www.smartcampuslab.it"
+        <!--DEVELOPED BY-->
+        <StackPanel  Margin="0,0,0,10">
+          <RichTextBox TextWrapping="Wrap" Margin="0,0,0,10">
+            <Paragraph>
+              <Run Text="{Binding Path=LocalizedResources.AboutPageDevel, Source={StaticResource LocalizedStrings}}"/>
+              <Hyperlink TargetName="_anything" NavigateUri="http://www.smartcampuslab.it"
                        Foreground="{StaticResource PhoneForegroundBrush}">SmartCampus</Hyperlink>
-                <Run Text="{Binding Path=LocalizedResources.AboutPageProject, Source={StaticResource LocalizedStrings}}"/>
-              </Paragraph>
-            </RichTextBox >
+              <Run Text="{Binding Path=LocalizedResources.AboutPageProject, Source={StaticResource LocalizedStrings}}"/>
+            </Paragraph>
+          </RichTextBox >
 
 
-            <Image HorizontalAlignment="Center"  Height="100" cal:Message.Attach="[Event Tap] = [Action comuneTNLink()]"
+          <Image HorizontalAlignment="Center"  Height="100" cal:Message.Attach="[Event Tap] = [Action comuneTNLink()]"
                    Source="{Binding Converter={StaticResource imgForTheme}, ConverterParameter='/Assets/Logos/LogoSmartCampus.png'}"/>
-            
-          </StackPanel>
 
-
-          <!--PARTNERSHIP + COLLABORATION-->
-          <StackPanel>
-            <RichTextBox TextWrapping="Wrap" Margin="0,0,0,15">
-              <Paragraph>
-                <Run Text="{Binding Path=LocalizedResources.AboutPageCollab, Source={StaticResource LocalizedStrings}}" />
-                <Hyperlink TargetName="_anything" NavigateUri="http://www.comune.rovereto.tn.it"
-                       Foreground="{StaticResource PhoneForegroundBrush}">Comune di Rovereto</Hyperlink>
-                <Run Text="{Binding Path=LocalizedResources.AboutPagePart, Source={StaticResource LocalizedStrings}}" />
-                <Hyperlink TargetName="_anything" NavigateUri="http://www.innovazione.comunitrentini.tn.it"
-                       Foreground="{StaticResource PhoneForegroundBrush}">Consorzio dei Comuni Trentini</Hyperlink>
-              </Paragraph>
-            </RichTextBox>
-
-            <Grid Height="100" HorizontalAlignment="Center">
-              <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="2*"/>
-              </Grid.ColumnDefinitions>
-              <Image Grid.Column="0" Margin="0,0,20,0" cal:Message.Attach="[Event Tap] = [Action comuneRVLink()]"
-                     Source="{Binding Converter={StaticResource imgForTheme}, ConverterParameter='/Assets/Logos/LogoComuneSmall.png'}"/>
-              <Image Grid.Column="1" cal:Message.Attach="[Event Tap] = [Action comuneTNLink()]"
-                     Source="{Binding Converter={StaticResource imgForTheme}, ConverterParameter='/Assets/Logos/LogoConsorzio.png'}"/>
-            </Grid>
-          </StackPanel>
         </StackPanel>
-      </ScrollViewer>
+
+
+        <!--PARTNERSHIP + COLLABORATION-->
+        <StackPanel>
+          <RichTextBox TextWrapping="Wrap" Margin="0,0,0,15">
+            <Paragraph>
+              <Run Text="{Binding Path=LocalizedResources.AboutPageCollab, Source={StaticResource LocalizedStrings}}" />
+              <Hyperlink TargetName="_anything" NavigateUri="http://www.comune.rovereto.tn.it"
+                       Foreground="{StaticResource PhoneForegroundBrush}">Comune di Rovereto</Hyperlink>
+              <Run Text="{Binding Path=LocalizedResources.AboutPagePart, Source={StaticResource LocalizedStrings}}" />
+              <Hyperlink TargetName="_anything" NavigateUri="http://www.innovazione.comunitrentini.tn.it"
+                       Foreground="{StaticResource PhoneForegroundBrush}">Consorzio dei Comuni Trentini</Hyperlink>
+            </Paragraph>
+          </RichTextBox>
+
+          <Grid Height="100" HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*"/>
+              <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0" Margin="0,0,20,0" cal:Message.Attach="[Event Tap] = [Action comuneRVLink()]"
+                     Source="{Binding Converter={StaticResource imgForTheme}, ConverterParameter='/Assets/Logos/LogoComuneSmall.png'}"/>
+            <Image Grid.Column="1" cal:Message.Attach="[Event Tap] = [Action innovazioneLink()]"
+                     Source="{Binding Converter={StaticResource imgForTheme}, ConverterParameter='/Assets/Logos/LogoConsorzio.png'}"/>
+          </Grid>
+        </StackPanel>
+      </StackPanel>
     </Grid>
     <bab:BindableAppBar BackgroundColor="{StaticResource scBlue}" ForegroundColor="White">
       <bab:BindableAppBarButton IconUri="/Assets/AppBar/Moreinfo.png" x:Name="ThirdAbout" Text="{Binding Path=LocalizedResources.AboutPageThird, Source={StaticResource LocalizedStrings}}" />
