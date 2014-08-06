@@ -105,6 +105,9 @@
     <Compile Include="..\ViaggiaTrento\Converters\AlertRoadToImageConverter.cs">
       <Link>Converters\AlertRoadToImageConverter.cs</Link>
     </Compile>
+    <Compile Include="..\ViaggiaTrento\Converters\AlertRoadToPushPinConverter.cs">
+      <Link>Converters\AlertRoadToPushPinConverter.cs</Link>
+    </Compile>
     <Compile Include="..\ViaggiaTrento\Converters\BooleanToReversedVisibilityConverter.cs">
       <Link>Converters\BooleanToReversedVisibilityConverter.cs</Link>
     </Compile>
@@ -374,7 +377,7 @@
       <Link>Views\MonitorJourneyView.xaml.cs</Link>
       <DependentUpon>MonitorJourneyView.xaml</DependentUpon>
     </Compile>
-	<Compile Include="..\ViaggiaTrento\Views\RoadInfoPageView.xaml.cs">
+    <Compile Include="..\ViaggiaTrento\Views\RoadInfoPageView.xaml.cs">
       <Link>Views\RoadInfoPageView.xaml.cs</Link>
       <DependentUpon>RoadInfoPageView.xaml</DependentUpon>
     </Compile>
@@ -713,12 +716,6 @@
     </Content>
     <Content Include="..\ViaggiaTrento\Assets\Miscs\marker_parking_red.png">
       <Link>Assets\Miscs\marker_parking_red.png</Link>
-    </Content>
-    <Content Include="..\ViaggiaTrento\Assets\Miscs\StopPushPin.png">
-      <Link>Assets\Miscs\StopPushPin.png</Link>
-    </Content>
-    <Content Include="..\ViaggiaTrento\Assets\Miscs\StopPushPin64.png">
-      <Link>Assets\Miscs\StopPushPin64.png</Link>
     </Content>
     <Content Include="..\ViaggiaTrento\Assets\Vehicles\Dark\bicycle.png">
       <Link>Assets\Vehicles\Dark\bicycle.png</Link>

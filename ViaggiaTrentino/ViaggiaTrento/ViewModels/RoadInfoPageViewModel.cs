@@ -86,7 +86,7 @@ namespace ViaggiaTrentino.ViewModels
       else
         NoResults = true;
 
-      eventAggregator.PublishOnUIThreadOnUIThread(results);
+      eventAggregator.Publish(results);
       Decrees = new ObservableCollection<AlertRoad>(results);
     }
 

@@ -56,7 +56,7 @@ namespace ViaggiaTrentino.Views
       if (overrideCheck || (!Settings.IsTourAlreadyShown && Settings.IsLogged))
       {
         tour = new Tour(Application.Current.Host.Content.ActualWidth, Application.Current.Host.Content.ActualHeight);
-        tour.Clear();
+        //tour.Clear();
 
         foreach (HubTile ht in HubTilePanel.Children.OfType<HubTile>())
           if(ht.Visibility == System.Windows.Visibility.Visible)
@@ -80,14 +80,14 @@ namespace ViaggiaTrentino.Views
     //do not delete this function, even if its empty
     void tour_TourProgressChanged(int percentage)
     {
-      ScrollViewer sv = ContentPanel.Children.OfType<ScrollViewer>().First();
-      if (tour.CurrentElement.Position.Y + tour.CurrentElement.Height > Application.Current.Host.Content.ActualHeight)
-      {
-        if (tour.CurrentElement.Position.Y + tour.CurrentElement.Height > Application.Current.Host.Content.ActualHeight + sv.VerticalOffset)
-          sv.ScrollToVerticalOffset(tour.CurrentElement.Position.Y - tour.CurrentElement.Height - 32);
+      //ScrollViewer sv = ContentPanel.Children.OfType<ScrollViewer>().First();
+      //if (tour.CurrentElement.Position.Y + tour.CurrentElement.Height > Application.Current.Host.Content.ActualHeight)
+      //{
+      //  if (tour.CurrentElement.Position.Y + tour.CurrentElement.Height > Application.Current.Host.Content.ActualHeight + sv.VerticalOffset)
+      //    sv.ScrollToVerticalOffset(tour.CurrentElement.Position.Y - tour.CurrentElement.Height - 32);
 
-        tour.CurrentElement.Position = new Point(tour.CurrentElement.Position.X, tour.CurrentElement.Position.Y - sv.VerticalOffset);
-      }
+      //  tour.CurrentElement.Position = new Point(tour.CurrentElement.Position.X, tour.CurrentElement.Position.Y - sv.VerticalOffset);
+      //}
     }
 
     void tour_TourStarted()
