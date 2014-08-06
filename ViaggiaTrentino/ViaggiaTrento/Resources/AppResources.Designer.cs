@@ -88,11 +88,20 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Integrated mobility information for the city of Rovereto.
+        /// </summary>
+        public static string AboutPageInfoRV {
+            get {
+                return ResourceManager.GetString("AboutPageInfoRV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Integrated mobility information for the city and the Province of Trento.
         /// </summary>
-        public static string AboutPageInfo {
+        public static string AboutPageInfoTN {
             get {
-                return ResourceManager.GetString("AboutPageInfo", resourceCulture);
+                return ResourceManager.GetString("AboutPageInfoTN", resourceCulture);
             }
         }
         

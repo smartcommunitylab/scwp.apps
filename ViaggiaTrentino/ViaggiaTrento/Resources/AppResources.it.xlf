@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
-  <file datatype="xml" source-language="en-US" target-language="it" original="AppResources.resx" tool-id="MultilingualAppToolkit" product-name="ViaggiaTrento" product-version="1.0.0.0" build-num="0">
+  <file datatype="xml" source-language="en-US" target-language="it" original="AppResources.resx" tool-id="MultilingualAppToolkit" product-name="ViaggiaRovereto" product-version="1.0.0.0" build-num="0">
     <header>
       <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="3.0.1200.0" tool-company="Microsoft" />
     </header>
@@ -520,14 +520,14 @@
           <source>rate me!</source>
           <target state="translated">votami!</target>
         </trans-unit>
-        <trans-unit id="Resx/AboutPageInfo" translate="yes" xml:space="preserve">
-          <source>Integrated mobility information for the city and the Province of Trento</source>
-          <target state="translated">Informazione sulla mobilità integrata di Trento e dei comuni trentini</target>
-          </trans-unit>
         <trans-unit id="Resx/AboutPageDevel" translate="yes" xml:space="preserve">
           <source>Application developed by Andrea Panizza and Lorenzo Lotto within the</source>
           <target state="translated">Applicazione sviluppata da Andrea Panizza e Lorenzo Lotto all'interno del laboratorio del progetto</target>
           </trans-unit>
+        <trans-unit id="Resx/AboutPageInfoTN" translate="yes" xml:space="preserve">
+          <source>Integrated mobility information for the city and the Province of Trento</source>
+          <target state="translated" state-qualifier="mt-suggestion">Informazioni di mobilità integrata per la città e provincia di Trento</target>
+        </trans-unit>
         <trans-unit id="Resx/AboutPageCollab" translate="yes" xml:space="preserve">
           <source>In collaboration with</source>
           <target state="translated">In collaborazione con il</target>
@@ -645,6 +645,10 @@
         <trans-unit id="Resx/DecreePopupTitle" translate="yes" xml:space="preserve">
           <source>Decree</source>
           <target state="translated" state-qualifier="mt-suggestion">Decreto</target>
+        </trans-unit>
+        <trans-unit id="Resx/AboutPageInfoRV" translate="yes" xml:space="preserve">
+          <source>Integrated mobility information for the city of Rovereto</source>
+          <target state="translated" state-qualifier="mt-suggestion">Informazioni sulla mobilità integrata per la città di Rovereto</target>
         </trans-unit>
         <trans-unit id="Resx/TileDecreesMessage" translate="yes" xml:space="preserve">
           <source>Rovereto decrees</source>

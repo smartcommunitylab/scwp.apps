@@ -500,7 +500,7 @@
   <data name="AboutPageDevel" xml:space="preserve">
     <value>Application developed by Andrea Panizza and Lorenzo Lotto within the</value>
   </data>
-  <data name="AboutPageInfo" xml:space="preserve">
+  <data name="AboutPageInfoTN" xml:space="preserve">
     <value>Integrated mobility information for the city and the Province of Trento</value>
   </data>
   <data name="AboutPagePart" xml:space="preserve">
@@ -682,5 +682,8 @@
   </data>
   <data name="DecreePopupTitle" xml:space="preserve">
     <value>Decree</value>
+  </data>
+  <data name="AboutPageInfoRV" xml:space="preserve">
+    <value>Integrated mobility information for the city of Rovereto</value>
   </data>
 </root>

@@ -61,7 +61,7 @@
         <StackPanel>
 
           <!--DESCRIPTION-->
-          <TextBlock FontWeight="SemiBold" Grid.ColumnSpan="2"  Text="{Binding Path=LocalizedResources.AboutPageInfo, Source={StaticResource LocalizedStrings}}"
+          <TextBlock FontWeight="SemiBold" Grid.ColumnSpan="2"  Text="{Binding Path=LocalizedResources.AboutPageInfoTN, Source={StaticResource LocalizedStrings}}"
                     Style="{StaticResource PhoneTextNormalStyle}" TextWrapping="Wrap" Margin="12,10,12,20" VerticalAlignment="Center" HorizontalAlignment="Left" />
 
           <!--DEVELOPER BY-->
