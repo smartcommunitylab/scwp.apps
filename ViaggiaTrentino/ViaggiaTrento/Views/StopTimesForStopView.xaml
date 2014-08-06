@@ -49,22 +49,26 @@
     </DataTemplate>
     
     <DataTemplate x:Key="TripDataGroupHeaderTemplate">
-      <Border Background="Transparent" Padding="5">
-        <Border Background="{Binding Converter={StaticResource llsiToColor}}" BorderBrush="{Binding Converter={StaticResource llsiToColor}}" BorderThickness="2" HorizontalAlignment="Left">
-          <TextBlock Text="{Binding Key}" Foreground="{StaticResource PhoneForegroundBrush}" FontSize="{StaticResource PhoneFontSizeLarge}" Margin="5,5,0,5"
+      <Border Background="Transparent" Padding="2">
+        <Border Background="{Binding Converter={StaticResource llsiToColor}}"
+                BorderBrush="{Binding Path=Background, RelativeSource={RelativeSource Self}, Converter={StaticResource borderColor}}" BorderThickness="2"
+                HorizontalAlignment="Left">
+          <TextBlock Text="{Binding Key}" Foreground="{StaticResource PhoneForegroundBrush}" FontSize="{StaticResource PhoneFontSizeLarge}" Margin="10,5,0,5"
             FontFamily="{StaticResource PhoneFontFamilySemiLight}" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
         </Border>
       </Border>
     </DataTemplate>
 
     <phone:JumpListItemBackgroundConverter x:Key="BackgroundConverter"/>
-    <phone:JumpListItemForegroundConverter x:Key="ForegroundConverter"/>    
+    <phone:JumpListItemForegroundConverter x:Key="ForegroundConverter"/>   
+    
     <Style x:Key="TripDataJumpListStyle" TargetType="phone:LongListSelector">
       <Setter Property="LayoutMode" Value="List" />
       <Setter Property="ItemTemplate">
         <Setter.Value>
           <DataTemplate>
-            <Border Background="{Binding Converter={StaticResource llsiToColor}}" Margin="6">
+            <Border Background="{Binding Converter={StaticResource llsiToColor}}" Margin="6"
+              BorderThickness="2" BorderBrush="{Binding Path=Background, RelativeSource={RelativeSource Self}, Converter={StaticResource borderColor}}">
               <TextBlock Text="{Binding Key}" FontSize="{StaticResource PhoneFontSizeMediumLarge}" Margin="6,30,6,6" Foreground="{Binding Converter={StaticResource ForegroundConverter}}"/>
             </Border>
           </DataTemplate>
