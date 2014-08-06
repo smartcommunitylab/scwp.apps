@@ -313,6 +313,10 @@
       <Link>Views\Controls\ChooseFavouritePlaceControl.xaml.cs</Link>
       <DependentUpon>ChooseFavouritePlaceControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="..\ViaggiaTrento\Views\Controls\DecreePopupView.xaml.cs">
+      <Link>Views\Controls\DecreePopupView.xaml.cs</Link>
+      <DependentUpon>DecreePopupView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="..\ViaggiaTrento\Views\Controls\FavouritePlaceControl.xaml.cs">
       <Link>Views\Controls\FavouritePlaceControl.xaml.cs</Link>
       <DependentUpon>FavouritePlaceControl.xaml</DependentUpon>
@@ -544,6 +548,21 @@
     </Content>
     <Content Include="..\ViaggiaTrento\Assets\Alert\ic_menu_alert_roadblock.png">
       <Link>Assets\Alert\ic_menu_alert_roadblock.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrento\Assets\Alert\marker_cluster.png">
+      <Link>Assets\Alert\marker_cluster.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrento\Assets\Alert\marker_drivechange.png">
+      <Link>Assets\Alert\marker_drivechange.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrento\Assets\Alert\marker_other.png">
+      <Link>Assets\Alert\marker_other.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrento\Assets\Alert\marker_parkingblock.png">
+      <Link>Assets\Alert\marker_parkingblock.png</Link>
+    </Content>
+    <Content Include="..\ViaggiaTrento\Assets\Alert\marker_roadblock.png">
+      <Link>Assets\Alert\marker_roadblock.png</Link>
     </Content>
     <Content Include="..\ViaggiaTrento\Assets\AlignmentGrid.png">
       <Link>Assets\AlignmentGrid.png</Link>
@@ -887,6 +906,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <ApplicationDefinition Include="..\ViaggiaTrento\Views\Controls\DecreePopupView.xaml">
+      <Link>Views\Controls\DecreePopupView.xaml</Link>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
     <Page Include="..\ViaggiaTrento\Views\Controls\FavouritePlaceControl.xaml">
       <Link>Views\Controls\FavouritePlaceControl.xaml</Link>
       <Generator>MSBuild:Compile</Generator>

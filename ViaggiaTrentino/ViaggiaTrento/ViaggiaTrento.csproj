@@ -176,6 +176,9 @@
     <Compile Include="Views\Controls\ChooseFavouritePlaceControl.xaml.cs">
       <DependentUpon>ChooseFavouritePlaceControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Controls\DecreePopupView.xaml.cs">
+      <DependentUpon>DecreePopupView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Controls\SingleDecreesView.xaml.cs">
       <DependentUpon>SingleDecreesView.xaml</DependentUpon>
     </Compile>
@@ -297,6 +300,11 @@
     <Content Include="Assets\Alert\ic_menu_alert_other.png" />
     <Content Include="Assets\Alert\ic_menu_alert_parkingblock.png" />
     <Content Include="Assets\Alert\ic_menu_alert_roadblock.png" />
+    <Content Include="Assets\Alert\marker_cluster.png" />
+    <Content Include="Assets\Alert\marker_drivechange.png" />
+    <Content Include="Assets\Alert\marker_other.png" />
+    <Content Include="Assets\Alert\marker_parkingblock.png" />
+    <Content Include="Assets\Alert\marker_roadblock.png" />
     <Content Include="Assets\AlignmentGrid.png" />
     <Content Include="Assets\AppBar\Check.png" />
     <Content Include="Assets\AppBar\Date.png" />
@@ -511,6 +519,9 @@
     <Page Include="Views\Controls\ChooseFavouritePlaceControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Controls\DecreePopupView.xaml">
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Controls\SingleDecreesView.xaml">
       <SubType>Designer</SubType>

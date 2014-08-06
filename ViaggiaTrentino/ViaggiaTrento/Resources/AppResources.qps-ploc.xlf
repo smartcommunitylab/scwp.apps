@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
-  <file datatype="xml" source-language="en-US" target-language="qps-ploc" original="AppResources.resx" tool-id="MultilingualAppToolkit" product-name="ViaggiaTrento" product-version="1.0.0.0" build-num="0">
+  <file datatype="xml" source-language="en-US" target-language="qps-ploc" original="AppResources.resx" tool-id="MultilingualAppToolkit" product-name="ViaggiaRovereto" product-version="1.0.0.0" build-num="0">
     <header>
       <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="3.0.1200.0" tool-company="Microsoft" />
     </header>
@@ -640,6 +640,10 @@
         <trans-unit id="Resx/TileDecreesTitle" translate="yes" xml:space="preserve">
           <source>Decrees</source>
           <target state="new">Decrees</target>
+        </trans-unit>
+        <trans-unit id="Resx/DecreePopupTitle" translate="yes" xml:space="preserve">
+          <source>Decree</source>
+          <target state="new">Decree</target>
         </trans-unit>
         <trans-unit id="Resx/TileDecreesMessage" translate="yes" xml:space="preserve">
           <source>Rovereto decrees</source>

@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using ViaggiaTrentino.Views.Controls;
 
 namespace ViaggiaTrentino.ViewModels
 {
@@ -94,7 +95,7 @@ namespace ViaggiaTrentino.ViewModels
     {
       MessagePrompt mp = new MessagePrompt();
       mp.Style = Application.Current.Resources["mpNoTitleNoButtons"] as Style;
-      //mp.Body = new ParkingPopupView(mp, navigationService) { DataContext = pp };
+      mp.Body = new DecreePopupView(mp) { DataContext = (data as AlertRoad) };
       mp.VerticalAlignment = VerticalAlignment.Center;
       mp.HorizontalAlignment = HorizontalAlignment.Center;
       mp.Show();

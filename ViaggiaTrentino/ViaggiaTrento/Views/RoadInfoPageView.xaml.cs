@@ -43,7 +43,7 @@ namespace ViaggiaTrentino.Views
           ContentTemplate = this.Resources["PushpinTemplate"] as DataTemplate,
           DataContext = decree,
           Tag = decree,
-          GeoCoordinate = new GeoCoordinate(Convert.ToDouble(decree.RoadInfo.Latitude.Replace('.', ',')), Convert.ToDouble(decree.RoadInfo.Longitude.Replace('.', ','))),
+          GeoCoordinate = new GeoCoordinate(Convert.ToDouble(decree.RoadInfo.Latitude.Replace(',', '.')), Convert.ToDouble(decree.RoadInfo.Longitude.Replace(',', '.'))),
           Content = decree.RoadInfo.Street
         }
         );
@@ -54,7 +54,7 @@ namespace ViaggiaTrentino.Views
     private void SingleDecreesView_Tap(object sender, System.Windows.Input.GestureEventArgs e)
     {
       AlertRoad p = (sender as SingleDecreesView).DataContext as AlertRoad;
-      DecreesMap.Center = new GeoCoordinate(Convert.ToDouble(p.RoadInfo.Latitude.Replace('.', ',')), Convert.ToDouble(p.RoadInfo.Longitude.Replace('.', ',')));
+      DecreesMap.Center = new GeoCoordinate(Convert.ToDouble(p.RoadInfo.Latitude.Replace(',', '.')), Convert.ToDouble(p.RoadInfo.Longitude.Replace(',', '.')));
       DecreesMap.ZoomLevel = 17;
       pivotContainer.SelectedItem = pivotMap;
     }

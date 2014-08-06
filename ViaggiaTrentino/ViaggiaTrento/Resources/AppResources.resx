@@ -680,4 +680,7 @@
   <data name="TileDecreesTitle" xml:space="preserve">
     <value>Decrees</value>
   </data>
+  <data name="DecreePopupTitle" xml:space="preserve">
+    <value>Decree</value>
+  </data>
 </root>

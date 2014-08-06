@@ -268,6 +268,15 @@ namespace ViaggiaTrentino.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Decree.
+        /// </summary>
+        public static string DecreePopupTitle {
+            get {
+                return ResourceManager.GetString("DecreePopupTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Map.
         /// </summary>
         public static string DecreesPageMapPivot {
