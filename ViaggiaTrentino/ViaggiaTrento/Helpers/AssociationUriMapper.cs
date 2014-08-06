@@ -22,9 +22,6 @@ namespace ViaggiaTrentino.Helpers
 
       foreach (var coordinate in positionToNavigate)
       {
-#if DEBUG
-          System.Diagnostics.Debug.WriteLine(coordinate);
-#endif
         string[] data = coordinate.Split('=');
         data[1] = data[1].Replace(',', '.');
         double coo;

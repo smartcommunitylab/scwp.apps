@@ -50,5 +50,13 @@ namespace ViaggiaTrentino.Views
       }   
       var clusterer = new ClustersGenerator(DecreesMap, pushPins, this.Resources["ClusterTemplate"] as DataTemplate);
     }
+
+    private void SingleDecreesView_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+    {
+      AlertRoad p = (sender as SingleDecreesView).DataContext as AlertRoad;
+      DecreesMap.Center = new GeoCoordinate(Convert.ToDouble(p.RoadInfo.Latitude.Replace('.', ',')), Convert.ToDouble(p.RoadInfo.Longitude.Replace('.', ',')));
+      DecreesMap.ZoomLevel = 17;
+      pivotContainer.SelectedItem = pivotMap;
+    }
   }
 }
