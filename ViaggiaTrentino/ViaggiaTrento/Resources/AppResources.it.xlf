@@ -621,7 +621,7 @@
         </trans-unit>
         <trans-unit id="Resx/AboutPageProject" translate="yes" xml:space="preserve">
           <source>project</source>
-          <target state="translated" />
+          <target state="translated"></target>
         </trans-unit><trans-unit id="Resx/TileTrentoBusTagTour" translate="yes" xml:space="preserve">
           <source>Check Trento city buses timetable and delays</source>
           <target state="translated">Mostra gli orari degli autobus di Trento con i relativi ritardi</target>
@@ -644,7 +644,7 @@
         </trans-unit>
         <trans-unit id="Resx/DecreePopupTitle" translate="yes" xml:space="preserve">
           <source>Decree</source>
-          <target state="new">Decree</target>
+          <target state="translated" state-qualifier="mt-suggestion">Decreto</target>
         </trans-unit>
         <trans-unit id="Resx/TileDecreesMessage" translate="yes" xml:space="preserve">
           <source>Rovereto decrees</source>
