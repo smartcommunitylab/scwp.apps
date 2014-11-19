@@ -12,6 +12,7 @@ This solution requires the following plugins/extensions to be installed and conf
 
 The solution is also dependant on the libraries found in the following repositories: 
 * scwp.support 
+
 and it expects to find it at its same level. That is
 ```
 +---GitHub
@@ -29,7 +30,7 @@ and it expects to find it at its same level. That is
 ## Preparation
 
 This application requires a pre-loaded database in order to run properly. 
-in order to obtain such DB, issue the following commands onto a Powershell
+In order to obtain such DB, issue the following commands onto a Powershell
 terminal
 
 first navigate to the correct directory
